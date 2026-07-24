@@ -26,7 +26,7 @@ python3 -m http.server 4173
 
 - 正式域名：`https://styleatlas.art/`
 - Pages 备用地址：`https://liuyahui59.github.io/style-atlas/`
-- `.github/workflows/pages.yml` 会在 `main` 分支更新后自动发布站点。
+- GitHub Pages 从 `main` 分支根目录直接发布。
 
 ## 原型边界
 

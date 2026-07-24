@@ -24,6 +24,10 @@ python3 -m http.server 4173
 
 项目根目录包含 GitHub Pages 所需的 `CNAME`、`.nojekyll`、`404.html`、`robots.txt` 和 `sitemap.xml`。自定义域名配置为 `styleatlas.art`。
 
+- 正式域名：`https://styleatlas.art/`
+- Pages 备用地址：`https://liuyahui59.github.io/style-atlas/`
+- `.github/workflows/pages.yml` 会在 `main` 分支更新后自动发布站点。
+
 ## 原型边界
 
 原型中的风格样片是原创的代码化视觉示例，用于验证分类、浏览和 Prompt 交互，不是艺术史原作。正式产品应优先使用博物馆开放版权图像，并完整记录作品、作者、年份、机构、许可和来源链接。

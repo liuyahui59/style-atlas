@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="风格谱：艺术设计风格图鉴与 AI Prompt 工具" />
+    <meta name="theme-color" content="#f3f3f0" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:site_name" content="风格谱 Style Atlas" />
+    <meta property="og:title" content="风格谱 · Style Atlas" />
+    <meta property="og:description" content="从视觉感觉找到准确风格，并把它拆解为可控制的 AI Prompt。" />
+    <meta property="og:url" content="https://styleatlas.art/" />
+    <meta property="og:image" content="https://styleatlas.art/assets/og-cover.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://styleatlas.art/" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="site.webmanifest" />
+    <title>风格谱 · Style Atlas</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+    <script src="data.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="site-header">
+        <a class="brand" href="#atlas" aria-label="风格谱首页">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span><b>风格谱</b><small>STYLE ATLAS</small></span>
+        </a>
+        <nav class="primary-nav" aria-label="主要导航">
+          <button class="nav-item is-active" data-view="atlas" aria-current="page">图鉴</button>
+          <button class="nav-item" data-view="timeline">时间脉络</button>
+          <button class="nav-item" data-view="prompt">Prompt 工坊</button>
+        </nav>
+        <div class="header-actions">
+          <button class="icon-button" id="favoritesButton" aria-label="只看收藏" title="只看收藏">
+            <i data-lucide="bookmark"></i><span class="action-count" id="favoriteCount">0</span>
+          </button>
+          <button class="icon-button" id="openCompareButton" aria-label="打开对比" title="打开对比">
+            <i data-lucide="columns-2"></i><span class="action-count" id="compareCount">0</span>
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <section class="view is-active" id="atlasView" data-view-panel="atlas">
+          <div class="atlas-heading page-band">
+            <div class="page-title-row">
+              <div>
+                <p class="eyebrow">ART · DESIGN · VISUAL CULTURE</p>
+                <h1>从视觉感觉，找到准确风格</h1>
+              </div>
+              <p class="result-stat"><strong id="resultCount">0</strong> 个候选风格</p>
+            </div>
+            <label class="search-box" for="styleSearch">
+              <i data-lucide="search"></i>
+              <input id="styleSearch" type="search" placeholder="搜索风格、年代、地区或视觉特征" autocomplete="off" />
+              <kbd>⌘ K</kbd>
+            </label>
+            <div class="quick-filters" id="quickFilters" aria-label="快捷筛选"></div>
+          </div>
+
+          <div class="atlas-layout page-band">
+            <aside class="filter-panel" aria-label="筛选条件">
+              <div class="filter-heading">
+                <h2>筛选</h2>
+                <button class="text-button" id="clearFiltersButton" disabled>清除</button>
+              </div>
+              <div id="filterGroups"></div>
+            </aside>
+
+            <section class="catalog" aria-label="风格列表">
+              <div class="catalog-toolbar">
+                <div class="active-filters" id="activeFilters" aria-live="polite"></div>
+                <button class="secondary-button mobile-filter-button" id="mobileFilterButton">
+                  <i data-lucide="sliders-horizontal"></i>筛选
+                </button>
+              </div>
+              <div class="style-grid" id="styleGrid"></div>
+              <div class="empty-state" id="emptyState" hidden>
+                <i data-lucide="search-x"></i>
+                <h2>没有找到匹配风格</h2>
+                <button class="secondary-button" id="emptyResetButton">清除筛选</button>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section class="view" id="timelineView" data-view-panel="timeline" hidden>
+          <div class="page-band timeline-header">
+            <p class="eyebrow">PARALLEL HISTORIES</p>
+            <div class="page-title-row">
+              <h1>多条传统，在时间中相遇</h1>
+              <div class="timeline-legend" aria-label="时间线图例">
+                <span><i class="legend-dot"></i>风格节点</span>
+                <span><i class="legend-line"></i>同一文化轨道</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-wrap page-band">
+            <div class="timeline-axis" id="timelineAxis" aria-hidden="true"></div>
+            <div class="timeline-lanes" id="timelineLanes"></div>
+          </div>
+          <div class="timeline-note page-band">
+            <span>跨文化影响示例</span>
+            <button class="relation-chip" data-open-style="ukiyo-e">浮世绘</button>
+            <i data-lucide="arrow-right"></i>
+            <button class="relation-chip" data-open-style="impressionism">印象主义</button>
+            <i data-lucide="arrow-right"></i>
+            <button class="relation-chip" data-open-style="art-nouveau">新艺术运动</button>
+          </div>
+        </section>
+
+        <section class="view" id="promptView" data-view-panel="prompt" hidden>
+          <div class="page-band prompt-header">
+            <p class="eyebrow">PROMPT COMPOSER</p>
+            <div class="page-title-row">
+              <h1>把风格拆成可控制的视觉语言</h1>
+              <span class="saved-indicator" id="promptStyleIndicator">未选择风格</span>
+            </div>
+          </div>
+          <div class="prompt-layout page-band">
+            <section class="prompt-config" aria-label="Prompt 配置">
+              <div class="field-group">
+                <label for="promptSubject">创作主体</label>
+                <input id="promptSubject" type="text" value="未来城市音乐节" />
+              </div>
+              <div class="form-grid">
+                <div class="field-group">
+                  <label for="promptUse">用途</label>
+                  <select id="promptUse">
+                    <option value="海报">海报</option>
+                    <option value="品牌视觉">品牌视觉</option>
+                    <option value="插画">插画</option>
+                    <option value="数字界面">数字界面</option>
+                    <option value="空间概念">空间概念</option>
+                  </select>
+                </div>
+                <div class="field-group">
+                  <label for="promptRatio">画幅</label>
+                  <select id="promptRatio">
+                    <option value="纵向 2:3">纵向 2:3</option>
+                    <option value="横向 16:9">横向 16:9</option>
+                    <option value="方形 1:1">方形 1:1</option>
+                  </select>
+                </div>
+              </div>
+              <fieldset class="field-group">
+                <legend>风格强度</legend>
+                <div class="segmented" id="intensityControl">
+                  <button data-intensity="借鉴">借鉴</button>
+                  <button class="is-active" data-intensity="明显">明显</button>
+                  <button data-intensity="主导">主导</button>
+                </div>
+              </fieldset>
+              <div class="field-group">
+                <div class="field-label-row">
+                  <label>选择风格</label>
+                  <button class="text-button" id="browseStylesButton">浏览图鉴</button>
+                </div>
+                <div class="selected-style" id="selectedPromptStyle"></div>
+              </div>
+              <div class="field-group">
+                <div class="field-label-row">
+                  <label>视觉基因</label>
+                  <span id="geneCount"></span>
+                </div>
+                <div class="gene-list" id="promptGenes"></div>
+              </div>
+              <div class="field-group">
+                <label>色彩倾向</label>
+                <div class="palette-picker" id="palettePicker"></div>
+              </div>
+            </section>
+
+            <section class="prompt-output" aria-label="生成结果">
+              <div class="output-heading">
+                <div class="output-tabs" role="tablist" aria-label="Prompt 语言">
+                  <button class="is-active" data-output="zh" role="tab" aria-selected="true">中文</button>
+                  <button data-output="en" role="tab" aria-selected="false">English</button>
+                  <button data-output="negative" role="tab" aria-selected="false">排除项</button>
+                </div>
+                <button class="icon-button" id="copyPromptButton" aria-label="复制 Prompt" title="复制 Prompt">
+                  <i data-lucide="copy"></i>
+                </button>
+              </div>
+              <textarea id="promptResult" readonly aria-label="生成的 Prompt"></textarea>
+              <div class="prompt-anatomy" id="promptAnatomy"></div>
+              <div class="output-actions">
+                <button class="primary-button" id="copyPromptMainButton"><i data-lucide="copy"></i>复制 Prompt</button>
+                <button class="secondary-button" id="resetPromptButton"><i data-lucide="rotate-ccw"></i>重置</button>
+              </div>
+            </section>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <span>风格谱 · 原型 0.1</span>
+        <span>样片为原创视觉示例，不代表历史作品</span>
+      </footer>
+    </div>
+
+    <div class="mobile-filter-sheet" id="mobileFilterSheet" hidden>
+      <div class="sheet-backdrop" data-close-filter></div>
+      <aside class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="mobileFilterTitle">
+        <div class="drawer-topbar">
+          <h2 id="mobileFilterTitle">筛选风格</h2>
+          <button class="icon-button" data-close-filter aria-label="关闭筛选"><i data-lucide="x"></i></button>
+        </div>
+        <div id="mobileFilterGroups"></div>
+        <button class="primary-button sheet-apply" data-close-filter>查看结果</button>
+      </aside>
+    </div>
+
+    <div class="drawer-layer" id="detailLayer" hidden>
+      <div class="drawer-backdrop" data-close-detail></div>
+      <aside class="detail-drawer" id="detailDrawer" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+        <div class="drawer-topbar">
+          <span class="drawer-kicker">STYLE PROFILE</span>
+          <button class="icon-button" data-close-detail aria-label="关闭详情"><i data-lucide="x"></i></button>
+        </div>
+        <div id="detailContent"></div>
+      </aside>
+    </div>
+
+    <div class="compare-dock" id="compareDock" hidden>
+      <div class="compare-summary" id="compareSummary"></div>
+      <button class="primary-button" id="compareNowButton" disabled><i data-lucide="columns-2"></i>开始对比</button>
+      <button class="icon-button" id="clearCompareButton" aria-label="清空对比" title="清空对比"><i data-lucide="trash-2"></i></button>
+    </div>
+
+    <dialog class="compare-dialog" id="compareDialog" aria-labelledby="compareTitle">
+      <div class="drawer-topbar">
+        <div>
+          <span class="drawer-kicker">STYLE COMPARISON</span>
+          <h2 id="compareTitle">风格对比</h2>
+        </div>
+        <button class="icon-button" id="closeCompareDialog" aria-label="关闭对比"><i data-lucide="x"></i></button>
+      </div>
+      <div id="compareContent"></div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

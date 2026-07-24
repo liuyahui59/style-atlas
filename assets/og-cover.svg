@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f3f3f0"/>
+  <path d="M0 0h1200v20H0zM0 610h1200v20H0z" fill="#171715"/>
+  <circle cx="925" cy="190" r="132" fill="#df3b2e"/>
+  <rect x="795" y="296" width="265" height="220" transform="rotate(-8 927.5 406)" fill="#2459d3"/>
+  <path d="m730 528 390-390" stroke="#171715" stroke-width="26"/>
+  <path d="M72 82h56v56H72z" fill="#f0cf38"/>
+  <text x="72" y="252" fill="#171715" font-family="Georgia, 'Songti SC', serif" font-size="88" font-weight="700">风格谱</text>
+  <text x="76" y="316" fill="#171715" font-family="Arial, sans-serif" font-size="28" font-weight="700">STYLE ATLAS</text>
+  <text x="76" y="410" fill="#6c6c66" font-family="Arial, 'PingFang SC', sans-serif" font-size="30">看见风格 · 理解风格 · 准确描述风格</text>
+  <text x="76" y="512" fill="#2459d3" font-family="Arial, sans-serif" font-size="24" font-weight="700">styleatlas.art</text>
+</svg>

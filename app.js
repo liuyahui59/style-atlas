@@ -5,11 +5,14 @@ const state = {
   favoritesOnly: false,
   favorites: new Set(JSON.parse(localStorage.getItem("style-atlas-favorites") || "[]")),
   compare: [],
-  selectedPromptStyleId: "constructivism",
+  selectedPromptStyleId: "cyberpunk",
   promptGenes: [],
+  promptControls: {},
   promptOutputMode: "zh",
   promptIntensity: "明显",
   promptPaletteIndex: 0,
+  promptCustomColor: "",
+  timelineZoom: 1,
   lastDetailTrigger: null
 };
 
@@ -69,9 +72,10 @@ function cacheDom() {
     "compareSummary", "compareNowButton", "clearCompareButton", "compareDialog", "compareContent",
     "closeCompareDialog", "detailLayer", "detailContent", "mobileFilterButton", "mobileFilterSheet",
     "timelineAxis", "timelineLanes", "promptSubject", "promptUse", "promptRatio", "intensityControl",
-    "selectedPromptStyle", "promptGenes", "geneCount", "palettePicker", "promptResult",
+    "selectedPromptStyle", "promptGenes", "geneCount", "palettePicker", "promptControls", "controlCount", "promptResult",
     "promptAnatomy", "copyPromptButton", "copyPromptMainButton", "resetPromptButton",
-    "browseStylesButton", "promptStyleIndicator", "toast"
+    "browseStylesButton", "promptStyleIndicator", "timelineViewport", "timelineCanvas",
+    "timelineZoomOut", "timelineZoomIn", "timelineZoomRange", "timelineZoomValue", "timelineZoomReset", "toast"
   ].forEach((id) => { dom[id] = document.getElementById(id); });
 }
 
@@ -130,6 +134,16 @@ function bindGlobalEvents() {
     renderPromptOutput();
   });
 
+  dom.promptControls.addEventListener("change", (event) => {
+    const select = event.target.closest("select[data-prompt-control]");
+    if (!select) return;
+    const group = PROMPT_CONTROL_GROUPS.find((item) => item.id === select.dataset.promptControl);
+    state.promptControls[group.id] = select.value;
+    renderPromptSelectors();
+    renderPromptControls();
+    renderPromptOutput();
+  });
+
   document.querySelectorAll("[data-output]").forEach((button) => {
     button.addEventListener("click", () => {
       state.promptOutputMode = button.dataset.output;
@@ -150,11 +164,19 @@ function bindGlobalEvents() {
     dom.promptRatio.value = "纵向 2:3";
     state.promptIntensity = "明显";
     state.promptPaletteIndex = 0;
-    setPromptStyle("constructivism", false);
+    state.promptCustomColor = "";
+    state.promptControls = {};
+    setPromptStyle("cyberpunk", false);
     dom.intensityControl.querySelectorAll("button").forEach((item) => item.classList.toggle("is-active", item.dataset.intensity === "明显"));
     showToast("Prompt 已重置");
   });
   dom.browseStylesButton.addEventListener("click", () => switchView("atlas"));
+
+  dom.timelineZoomOut.addEventListener("click", () => setTimelineZoom(state.timelineZoom - 0.25));
+  dom.timelineZoomIn.addEventListener("click", () => setTimelineZoom(state.timelineZoom + 0.25));
+  dom.timelineZoomReset.addEventListener("click", () => setTimelineZoom(1));
+  dom.timelineZoomRange.addEventListener("input", (event) => setTimelineZoom(Number(event.target.value)));
+  bindTimelinePan();
 
   dom.compareDialog.addEventListener("click", (event) => {
     if (event.target === dom.compareDialog) dom.compareDialog.close();
@@ -166,7 +188,27 @@ function refreshIcons() {
 }
 
 function createVisual(style, className = "style-visual") {
-  return `<span class="${className} art-${style.art}" role="img" aria-label="${style.nameZh}的原创视觉语言样片"></span>`;
+  const artwork = style.artwork;
+  const image = artwork
+    ? `<img src="${artwork.src}" alt="${artwork.title || style.nameZh}" loading="lazy" decoding="async" />`
+    : "";
+  return `<span class="${className} art-${style.art}${artwork ? " has-artwork" : ""}" role="img" aria-label="${artwork ? `${style.nameZh}代表作品：${artwork.title}` : `${style.nameZh}的原创视觉语言样片`}">${image}</span>`;
+}
+
+function createArtworkCredit(style) {
+  const artwork = style.artwork;
+  if (!artwork) return "";
+  return `<section class="detail-section artwork-credit">
+    <h3>代表作品与版权</h3>
+    <div class="artwork-meta">
+      <div><span>作品</span><strong>${artwork.title}</strong></div>
+      <div><span>创作者</span><strong>${artwork.creator}</strong></div>
+      <div><span>年代</span><strong>${artwork.date}</strong></div>
+      <div><span>收藏 / 来源</span><strong>${artwork.institution}</strong></div>
+      <div><span>许可</span><strong>${artwork.license}</strong></div>
+    </div>
+    <a class="source-link" href="${artwork.sourceUrl}" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i>查看作品来源与完整许可</a>
+  </section>`;
 }
 
 function renderQuickFilters() {
@@ -184,7 +226,7 @@ function renderFilterGroups() {
   const markup = Object.entries(FILTER_GROUPS).map(([group, options]) => {
     return `<section class="filter-group"><h3>${groupName[group]}</h3><div class="filter-options">${options.map((option) => {
       const count = STYLE_DATA.filter((style) => group === "traits" || group === "fields" ? style[group].includes(option) : style[group] === option || (group === "type" && style.type === option)).length;
-      return `<label class="filter-option"><input type="checkbox" data-filter-group="${group}" value="${option}" /><span>${option}</span><output>${count}</output></label>`;
+      return `<label class="filter-option"><input type="checkbox" data-filter-group="${group}" value="${option}" /><span class="checkbox-mark" aria-hidden="true"><i data-lucide="check"></i></span><span>${option}</span><output>${count}</output></label>`;
     }).join("")}</div></section>`;
   }).join("");
   dom.filterGroups.innerHTML = markup;
@@ -350,11 +392,11 @@ function openCompareDialog() {
   dom.compareContent.innerHTML = `<div class="compare-head"><span></span>${[a, b].map((style) => `<div class="compare-style-head">${createVisual(style)}<div><h3>${style.nameZh}</h3><small>${style.period}</small></div></div>`).join("")}</div>
     <table class="compare-table"><tbody>
       ${compareRow("一句话识别", a.recognition, b.recognition)}
-      ${compareRow("核心构图", a.genes.composition.join("、"), b.genes.composition.join("、"))}
-      ${compareRow("造型", a.genes.form.join("、"), b.genes.form.join("、"))}
-      ${compareRow("色彩", a.genes.color.join("、"), b.genes.color.join("、"))}
-      ${compareRow("字体", a.genes.type.join("、"), b.genes.type.join("、"))}
-      ${compareRow("材质", a.genes.texture.join("、"), b.genes.texture.join("、"))}
+      ${compareRow("典型构图", a.genes.composition.join("、"), b.genes.composition.join("、"))}
+      ${compareRow("典型造型", a.genes.form.join("、"), b.genes.form.join("、"))}
+      ${compareRow("典型色彩", a.genes.color.join("、"), b.genes.color.join("、"))}
+      ${compareRow("典型字体", a.genes.type.join("、"), b.genes.type.join("、"))}
+      ${compareRow("典型材质", a.genes.texture.join("、"), b.genes.texture.join("、"))}
       ${compareRow("形成语境", a.influencedBy, b.influencedBy)}
       ${compareRow("适合领域", a.fields.join("、"), b.fields.join("、"))}
     </tbody></table>`;
@@ -380,8 +422,8 @@ function renderDetail(style) {
   const favorite = state.favorites.has(style.id);
   const compared = state.compare.includes(style.id);
   const rows = [
-    ["构图", style.genes.composition], ["造型", style.genes.form], ["色彩", style.genes.color],
-    ["字体", style.genes.type], ["材质", style.genes.texture]
+    ["典型构图", style.genes.composition], ["典型造型", style.genes.form], ["典型色彩", style.genes.color],
+    ["典型字体", style.genes.type], ["典型材质", style.genes.texture]
   ];
   dom.detailContent.innerHTML = `<div class="detail-hero">
     <div class="detail-title">
@@ -398,9 +440,10 @@ function renderDetail(style) {
     ${createVisual(style, "detail-visual")}
   </div>
   <div class="detail-body">
-    <section class="detail-section"><h3>视觉基因</h3><table class="gene-table"><tbody>${rows.map(([name, values]) => `<tr><th>${name}</th><td>${values.join(" · ")}</td></tr>`).join("")}</tbody></table></section>
+    ${createArtworkCredit(style)}
+    <section class="detail-section"><h3>典型视觉倾向</h3><table class="gene-table"><tbody>${rows.map(([name, values]) => `<tr><th>${name}</th><td>${values.join(" · ")}</td></tr>`).join("")}</tbody></table></section>
     <section class="detail-section"><h3>历史脉络</h3><div class="lineage-grid"><div><span>来自</span><strong>${style.influencedBy}</strong></div><div><span>影响</span><strong>${style.influenced}</strong></div></div></section>
-    <section class="detail-section"><h3>Prompt 预览</h3><div class="detail-prompt">${style.promptZh.join("，")}</div></section>
+    <section class="detail-section"><h3>视觉语言 Prompt</h3><div class="detail-prompt">${style.promptZh.join("，")}</div></section>
     <section class="detail-section"><h3>相邻风格</h3><div class="detail-tags">${style.related.map((id) => { const related = getStyle(id); return `<button class="relation-chip" data-related-style="${id}">${related.nameZh}</button>`; }).join("")}</div></section>
   </div>`;
   dom.detailContent.querySelector("[data-use-prompt]").addEventListener("click", () => {
@@ -453,31 +496,136 @@ function switchView(view) {
 }
 
 function renderTimeline() {
-  const years = [1000, 1200, 1400, 1600, 1800, 1900, 1950, 2000, 2025];
-  dom.timelineAxis.innerHTML = years.map((year) => `<span class="axis-label" style="left:${timelinePosition(year)}%">${year}</span>`).join("");
+  const trackWidth = Math.round(2200 * state.timelineZoom);
+  dom.timelineCanvas.style.setProperty("--timeline-track-width", `${trackWidth}px`);
+  dom.timelineZoomRange.value = String(state.timelineZoom);
+  dom.timelineZoomRange.style.setProperty("--range-progress", `${((state.timelineZoom - 1) / 5) * 100}%`);
+  dom.timelineZoomValue.value = `${Math.round(state.timelineZoom * 100)}%`;
+  dom.timelineZoomOut.disabled = state.timelineZoom <= 1;
+  dom.timelineZoomIn.disabled = state.timelineZoom >= 6;
+  const years = [-1000, 0, 500, 1000, 1500, 1800, 1900, 1950, 2000, 2025];
+  dom.timelineAxis.innerHTML = years.map((year) => `<span class="axis-label" style="left:${timelinePosition(year)}%">${formatTimelineYear(year)}</span>`).join("");
   const tracks = ["欧洲艺术与现代主义", "东亚视觉传统", "全球地域传统", "商业与设计视觉", "数字与网络审美"];
   dom.timelineLanes.innerHTML = tracks.map((track) => {
     const items = STYLE_DATA.filter((style) => style.track === track).sort((a, b) => a.year - b.year);
-    return `<section class="timeline-lane"><div class="lane-label">${track}</div><div class="lane-track">${items.map((style, index) => {
-      const position = timelinePosition(style.year);
-      const top = index % 2 === 0 ? 8 : 106;
-      return `<span class="timeline-marker" style="left:${position}%" aria-hidden="true"></span><button class="timeline-node" data-timeline-style="${style.id}" style="left:${position}%;--node-top:${top}px">${createVisual(style, "timeline-node-visual")}<strong>${style.nameZh}</strong><small>${style.period}</small></button>`;
+    const layout = layoutTimelineItems(items, trackWidth);
+    return `<section class="timeline-lane" style="--lane-height:${layout.height}px"><div class="lane-label">${track}</div><div class="lane-track">${layout.items.map(({ style, position, top, connectorHeight }) => {
+      return `<span class="timeline-marker" style="left:${position}%" aria-hidden="true"></span><button class="timeline-node" data-timeline-style="${style.id}" style="left:${position}%;--node-top:${top}px;--connector-height:${connectorHeight}px">${createVisual(style, "timeline-node-visual")}<strong>${style.nameZh}</strong><small>${style.period}</small></button>`;
     }).join("")}</div></section>`;
   }).join("");
   dom.timelineLanes.querySelectorAll("[data-timeline-style]").forEach((button) => button.addEventListener("click", () => openDetail(button.dataset.timelineStyle, button)));
 }
 
+function layoutTimelineItems(items, trackWidth) {
+  const rowEnds = [];
+  const nodeGap = 126;
+  const placed = items.map((style) => {
+    const position = timelinePosition(style.year);
+    const x = (position / 100) * trackWidth;
+    let row = rowEnds.findIndex((end) => x - end >= nodeGap);
+    if (row === -1) row = rowEnds.length;
+    rowEnds[row] = x;
+    return { style, position, row };
+  });
+  const height = Math.max(214, rowEnds.length * 104 + 58);
+  return {
+    height,
+    items: placed.map((item) => {
+      const top = 12 + item.row * 104;
+      return { ...item, top, connectorHeight: Math.max(10, height - top - 104) };
+    })
+  };
+}
+
+function setTimelineZoom(value, anchorClientX = null) {
+  const next = Math.max(1, Math.min(6, Math.round(value * 4) / 4));
+  if (next === state.timelineZoom) return;
+  const viewport = dom.timelineViewport;
+  const viewportRect = viewport.getBoundingClientRect();
+  const anchorX = anchorClientX === null
+    ? viewport.clientWidth / 2
+    : Math.max(0, Math.min(viewport.clientWidth, anchorClientX - viewportRect.left));
+  const oldTrackStart = dom.timelineAxis.offsetLeft;
+  const oldTrackWidth = dom.timelineAxis.clientWidth || 1;
+  const anchorRatio = Math.max(0, Math.min(1, (viewport.scrollLeft + anchorX - oldTrackStart) / oldTrackWidth));
+  state.timelineZoom = next;
+  renderTimeline();
+  requestAnimationFrame(() => {
+    const newTrackStart = dom.timelineAxis.offsetLeft;
+    viewport.scrollLeft = Math.max(0, newTrackStart + anchorRatio * dom.timelineAxis.clientWidth - anchorX);
+  });
+}
+
+function bindTimelinePan() {
+  const viewport = dom.timelineViewport;
+  let drag = null;
+  let zoomWheelDelta = 0;
+  viewport.addEventListener("pointerdown", (event) => {
+    if (event.target.closest("button")) return;
+    drag = { x: event.clientX, scrollLeft: viewport.scrollLeft };
+    viewport.classList.add("is-dragging");
+    viewport.setPointerCapture(event.pointerId);
+  });
+  viewport.addEventListener("pointermove", (event) => {
+    if (!drag) return;
+    viewport.scrollLeft = drag.scrollLeft - (event.clientX - drag.x);
+  });
+  const endDrag = () => {
+    drag = null;
+    viewport.classList.remove("is-dragging");
+  };
+  viewport.addEventListener("pointerup", endDrag);
+  viewport.addEventListener("pointercancel", endDrag);
+
+  viewport.addEventListener("wheel", (event) => {
+    if (!event.ctrlKey && !event.metaKey) return;
+    event.preventDefault();
+    zoomWheelDelta -= event.deltaY;
+    if (Math.abs(zoomWheelDelta) < 24) return;
+    setTimelineZoom(state.timelineZoom + (zoomWheelDelta > 0 ? 0.25 : -0.25), event.clientX);
+    zoomWheelDelta = 0;
+  }, { passive: false });
+
+  viewport.addEventListener("dblclick", (event) => {
+    if (event.target.closest("button")) return;
+    setTimelineZoom(state.timelineZoom + 0.5, event.clientX);
+  });
+
+  viewport.addEventListener("keydown", (event) => {
+    if (!["+", "=", "-", "_", "0"].includes(event.key)) return;
+    event.preventDefault();
+    if (event.key === "0") setTimelineZoom(1);
+    else setTimelineZoom(state.timelineZoom + (["+", "="].includes(event.key) ? 0.25 : -0.25));
+  });
+}
+
+function formatTimelineYear(year) {
+  if (year < 0) return `前 ${Math.abs(year)}`;
+  return String(year);
+}
+
 function timelinePosition(year) {
-  return Math.max(3, Math.min(97, ((year - TIMELINE_BOUNDS.min) / (TIMELINE_BOUNDS.max - TIMELINE_BOUNDS.min)) * 100));
+  const segments = [
+    { start: -1400, end: 1000, from: 2, to: 18 },
+    { start: 1000, end: 1800, from: 18, to: 42 },
+    { start: 1800, end: 1900, from: 42, to: 59 },
+    { start: 1900, end: 1950, from: 59, to: 73 },
+    { start: 1950, end: 2000, from: 73, to: 91 },
+    { start: 2000, end: 2025, from: 91, to: 98 }
+  ];
+  const segment = segments.find((item) => year >= item.start && year <= item.end) || (year < -1400 ? segments[0] : segments[segments.length - 1]);
+  const ratio = Math.max(0, Math.min(1, (year - segment.start) / (segment.end - segment.start)));
+  return segment.from + ratio * (segment.to - segment.from);
 }
 
 function setPromptStyle(id, notify = true) {
   const style = getStyle(id);
   if (!style) return;
   state.selectedPromptStyleId = id;
-  state.promptGenes = style.promptZh.map((zh, index) => ({ zh, en: style.promptEn[index], active: true }));
+  state.promptGenes = style.visualGenes.map((gene) => ({ ...gene, active: true }));
   state.promptPaletteIndex = 0;
   dom.promptStyleIndicator.textContent = `${style.nameZh} · ${style.nameEn}`;
+  renderPromptSelectors();
   renderPromptControls();
   renderPromptOutput();
   if (notify) showToast(`${style.nameZh}已加入 Prompt 工坊`);
@@ -490,7 +638,9 @@ function renderPromptControls() {
 
   const activeGenes = state.promptGenes.filter((gene) => gene.active);
   dom.geneCount.textContent = `${activeGenes.length} 项已启用`;
-  dom.promptGenes.innerHTML = activeGenes.map((gene) => `<span class="gene-chip">${gene.zh}<button data-remove-gene="${gene.zh}" aria-label="移除${gene.zh}"><i data-lucide="x"></i></button></span>`).join("");
+  dom.promptGenes.innerHTML = activeGenes.length
+    ? activeGenes.map((gene) => `<span class="gene-chip">${gene.zh}<button data-remove-gene="${gene.zh}" aria-label="移除${gene.zh}"><i data-lucide="x"></i></button></span>`).join("")
+    : `<span class="control-placeholder">风格名称仍会保留，视觉基因已全部关闭</span>`;
   dom.promptGenes.querySelectorAll("[data-remove-gene]").forEach((button) => button.addEventListener("click", () => {
     const gene = state.promptGenes.find((item) => item.zh === button.dataset.removeGene);
     if (gene) gene.active = false;
@@ -498,13 +648,46 @@ function renderPromptControls() {
     renderPromptOutput();
   }));
 
-  dom.palettePicker.innerHTML = style.palette.map((color, index) => `<button class="palette-swatch ${state.promptPaletteIndex === index ? "is-active" : ""}" style="background:${color}" data-palette-index="${index}" aria-label="选择色彩 ${color}" title="${color}"></button>`).join("");
+  const customColor = state.promptCustomColor || style.palette[0];
+  dom.palettePicker.innerHTML = style.palette.map((color, index) => `<button class="palette-swatch ${state.promptPaletteIndex === index ? "is-active" : ""}" style="background:${color}" data-palette-index="${index}" aria-label="选择色彩 ${color}" title="${color}"></button>`).join("")
+    + `<label class="custom-color-picker ${state.promptPaletteIndex === -1 ? "is-active" : ""}" title="自定义颜色">
+      <input type="color" value="${customColor}" aria-label="自定义颜色" data-custom-color />
+      <i data-lucide="pipette" aria-hidden="true"></i>
+    </label>`;
   dom.palettePicker.querySelectorAll("[data-palette-index]").forEach((button) => button.addEventListener("click", () => {
     state.promptPaletteIndex = Number(button.dataset.paletteIndex);
     renderPromptControls();
     renderPromptOutput();
   }));
+  dom.palettePicker.querySelector("[data-custom-color]").addEventListener("input", (event) => {
+    state.promptCustomColor = event.target.value;
+    state.promptPaletteIndex = -1;
+    dom.palettePicker.querySelectorAll(".palette-swatch").forEach((swatch) => swatch.classList.remove("is-active"));
+    dom.palettePicker.querySelector(".custom-color-picker").classList.add("is-active");
+    renderPromptOutput();
+  });
   refreshIcons();
+}
+
+function renderPromptSelectors() {
+  const activeCount = Object.values(state.promptControls).filter(Boolean).length;
+  dom.controlCount.textContent = `${activeCount} 项已指定`;
+  dom.promptControls.innerHTML = PROMPT_CONTROL_GROUPS.map((group) => {
+    const value = state.promptControls[group.id] || "";
+    const placeholder = "不指定";
+    return `<label class="control-field ${value ? "has-value" : ""}"><span>${group.label}</span><span class="select-control"><select data-prompt-control="${group.id}" aria-label="${group.label}">
+      <option value="">${placeholder}</option>
+      ${group.options.map((option, index) => `<option value="${index}"${value === String(index) ? " selected" : ""}>${option.zh}</option>`).join("")}
+    </select><i data-lucide="chevron-down" aria-hidden="true"></i></span></label>`;
+  }).join("");
+}
+
+function getActivePromptControls() {
+  return PROMPT_CONTROL_GROUPS.flatMap((group) => {
+    const value = state.promptControls[group.id];
+    if (value === undefined || value === "") return [];
+    return [{ ...group, option: group.options[Number(value)] }];
+  });
 }
 
 function renderPromptOutput() {
@@ -515,16 +698,41 @@ function renderPromptOutput() {
   const ratio = dom.promptRatio.value;
   const intensity = intensityTranslations[state.promptIntensity];
   const activeGenes = state.promptGenes.filter((gene) => gene.active);
-  const color = style.palette[state.promptPaletteIndex];
+  const activeControls = getActivePromptControls();
+  const color = state.promptPaletteIndex === -1 ? state.promptCustomColor : style.palette[state.promptPaletteIndex];
+  const hasColorOverride = activeControls.some((control) => control.id === "color");
+  const includeAccentColor = !hasColorOverride || state.promptPaletteIndex === -1;
+
+  const zhParts = [
+    subject,
+    `${use}设计`,
+    `${intensity.zh}${style.nameZh}视觉语言`,
+    ...activeGenes.map((gene) => gene.zh),
+    ...activeControls.map((control) => control.option.zh),
+    ...(includeAccentColor ? [`强调色 ${color}`] : []),
+    ratio
+  ];
+  const enParts = [
+    subject,
+    useTranslations[use],
+    `${intensity.en} ${style.nameEn} visual language`,
+    ...activeGenes.map((gene) => gene.en),
+    ...activeControls.map((control) => control.option.en),
+    ...(includeAccentColor ? [`accent color ${color}`] : []),
+    ratioTranslations[ratio]
+  ];
 
   const outputs = {
-    zh: `${subject}，${use}设计，${intensity.zh}${style.nameZh}视觉语言，${activeGenes.map((gene) => gene.zh).join("，")}，强调色 ${color}，${ratio}，清晰视觉层级，精致完成度`,
-    en: `${subject}, ${useTranslations[use]}, ${intensity.en} ${style.nameEn} visual language, ${activeGenes.map((gene) => gene.en).join(", ")}, accent color ${color}, ${ratioTranslations[ratio]}, clear visual hierarchy, refined finish`,
+    zh: zhParts.join("，"),
+    en: enParts.join(", "),
     negative: "避免：无关装饰、过多色彩、随机字体、低清晰度、文字乱码、水印、品牌标志、与所选风格冲突的材质和时代元素"
   };
   dom.promptResult.value = outputs[state.promptOutputMode];
   const anatomy = [
-    ["主体", "#df3b2e"], ["用途", "#2459d3"], ["风格", "#2f7f62"], ["视觉基因", "#8e5aaa"], ["色彩", color], ["画幅", "#6c6c66"]
+    ["主体", "#df3b2e"], ["用途", "#2459d3"], ["视觉基因", "#2f7f62"],
+    ...activeControls.map((control) => [control.label, control.color]),
+    ...(includeAccentColor ? [[state.promptPaletteIndex === -1 ? "自定义颜色" : "风格色板", color]] : []),
+    ["画幅", "#6c6c66"]
   ];
   dom.promptAnatomy.innerHTML = anatomy.map(([name, swatch]) => `<span class="anatomy-token"><i style="background:${swatch}"></i>${name}</span>`).join("");
 }

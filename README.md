@@ -6,9 +6,13 @@
 
 - `index.html`：可交互高保真原型
 - `styles.css`：响应式视觉与组件样式
-- `data.js`：原型风格内容与分类数据
+- `data.js`、`data-extra.js`、`data-more.js`：100 种风格内容与分类数据
+- `visual-genes.js`：经过逐条审校的中英文视觉基因
+- `prompt-options.js`：构图、视角、镜头、光照、色彩等独立控制项
 - `app.js`：筛选、详情、收藏、对比和 Prompt 生成交互
+- `artworks.js`：风格配图数据
 - `assets/`：站点图标与分享封面
+- `scripts/`：内容校验与配图处理脚本
 
 ## 运行
 
@@ -19,6 +23,12 @@ python3 -m http.server 4173
 ```
 
 然后访问 `http://localhost:4173`。
+
+修改风格或 Prompt 数据后，可运行：
+
+```bash
+node scripts/validate-content.mjs
+```
 
 ## 部署
 

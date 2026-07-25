@@ -428,4 +428,4 @@ const FILTER_GROUPS = {
   fields: ["绘画", "海报", "平面", "建筑", "产品", "数字界面"]
 };
 
-const TIMELINE_BOUNDS = { min: 1000, max: 2025 };
+const TIMELINE_BOUNDS = { min: -1400, max: 2025 };

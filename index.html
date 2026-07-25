@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="风格谱：艺术设计风格图鉴与 AI Prompt 工具" />
+    <meta name="description" content="风格谱：100 种核心艺术设计风格图鉴、历史脉络与模块化 AI Prompt 工具" />
     <meta name="theme-color" content="#f3f3f0" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_CN" />
@@ -20,6 +20,11 @@
     <link rel="stylesheet" href="styles.css" />
     <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
     <script src="data.js" defer></script>
+    <script src="data-extra.js" defer></script>
+    <script src="data-more.js" defer></script>
+    <script src="visual-genes.js" defer></script>
+    <script src="artworks.js" defer></script>
+    <script src="prompt-options.js" defer></script>
     <script src="app.js" defer></script>
   </head>
   <body>
@@ -99,9 +104,20 @@
               </div>
             </div>
           </div>
-          <div class="timeline-wrap page-band">
-            <div class="timeline-axis" id="timelineAxis" aria-hidden="true"></div>
-            <div class="timeline-lanes" id="timelineLanes"></div>
+          <div class="timeline-explorer page-band">
+            <div class="timeline-toolbar" aria-label="时间轴缩放">
+              <button class="icon-button" id="timelineZoomOut" aria-label="缩小时间轴" title="缩小"><i data-lucide="minus"></i></button>
+              <input id="timelineZoomRange" type="range" min="1" max="6" step="0.25" value="1" aria-label="时间轴缩放比例" />
+              <button class="icon-button" id="timelineZoomIn" aria-label="放大时间轴" title="放大"><i data-lucide="plus"></i></button>
+              <output id="timelineZoomValue" for="timelineZoomRange">100%</output>
+              <button class="secondary-button" id="timelineZoomReset"><i data-lucide="maximize-2"></i>适合宽度</button>
+            </div>
+            <div class="timeline-viewport" id="timelineViewport" tabindex="0" aria-label="可缩放和横向拖动的艺术设计史时间轴">
+              <div class="timeline-canvas" id="timelineCanvas">
+                <div class="timeline-axis" id="timelineAxis" aria-hidden="true"></div>
+                <div class="timeline-lanes" id="timelineLanes"></div>
+              </div>
+            </div>
           </div>
           <div class="timeline-note page-band">
             <span>跨文化影响示例</span>
@@ -130,21 +146,27 @@
               <div class="form-grid">
                 <div class="field-group">
                   <label for="promptUse">用途</label>
-                  <select id="promptUse">
-                    <option value="海报">海报</option>
-                    <option value="品牌视觉">品牌视觉</option>
-                    <option value="插画">插画</option>
-                    <option value="数字界面">数字界面</option>
-                    <option value="空间概念">空间概念</option>
-                  </select>
+                  <span class="select-control">
+                    <select id="promptUse">
+                      <option value="海报">海报</option>
+                      <option value="品牌视觉">品牌视觉</option>
+                      <option value="插画">插画</option>
+                      <option value="数字界面">数字界面</option>
+                      <option value="空间概念">空间概念</option>
+                    </select>
+                    <i data-lucide="chevron-down" aria-hidden="true"></i>
+                  </span>
                 </div>
                 <div class="field-group">
                   <label for="promptRatio">画幅</label>
-                  <select id="promptRatio">
-                    <option value="纵向 2:3">纵向 2:3</option>
-                    <option value="横向 16:9">横向 16:9</option>
-                    <option value="方形 1:1">方形 1:1</option>
-                  </select>
+                  <span class="select-control">
+                    <select id="promptRatio">
+                      <option value="纵向 2:3">纵向 2:3</option>
+                      <option value="横向 16:9">横向 16:9</option>
+                      <option value="方形 1:1">方形 1:1</option>
+                    </select>
+                    <i data-lucide="chevron-down" aria-hidden="true"></i>
+                  </span>
                 </div>
               </div>
               <fieldset class="field-group">
@@ -170,8 +192,15 @@
                 <div class="gene-list" id="promptGenes"></div>
               </div>
               <div class="field-group">
-                <label>色彩倾向</label>
+                <label>风格色板</label>
                 <div class="palette-picker" id="palettePicker"></div>
+              </div>
+              <div class="field-group">
+                <div class="field-label-row">
+                  <label>独立控制项</label>
+                  <span id="controlCount">0 项已指定</span>
+                </div>
+                <div class="prompt-control-grid" id="promptControls"></div>
               </div>
             </section>
 

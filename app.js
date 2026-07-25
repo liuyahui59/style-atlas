@@ -51,6 +51,11 @@ const intensityTranslations = {
 const dom = {};
 let toastTimer;
 
+function trackAnalyticsEvent(action, label = "") {
+  if (!Array.isArray(window._hmt)) return;
+  window._hmt.push(["_trackEvent", "style_atlas", action, label]);
+}
+
 document.addEventListener("DOMContentLoaded", init);
 
 function init() {
@@ -171,6 +176,10 @@ function bindGlobalEvents() {
     showToast("Prompt 已重置");
   });
   dom.browseStylesButton.addEventListener("click", () => switchView("atlas"));
+
+  document.querySelector("[data-feedback-email]")?.addEventListener("click", () => {
+    trackAnalyticsEvent("feedback_email", "footer");
+  });
 
   dom.timelineZoomOut.addEventListener("click", () => setTimelineZoom(state.timelineZoom - 0.25));
   dom.timelineZoomIn.addEventListener("click", () => setTimelineZoom(state.timelineZoom + 0.25));
@@ -411,6 +420,7 @@ function compareRow(name, a, b) {
 function openDetail(id, trigger) {
   const style = getStyle(id);
   if (!style) return;
+  trackAnalyticsEvent("style_detail", style.id);
   state.lastDetailTrigger = trigger || document.activeElement;
   renderDetail(style);
   dom.detailLayer.hidden = false;
@@ -478,6 +488,7 @@ function closeMobileFilters() {
 }
 
 function switchView(view) {
+  if (view !== state.view) trackAnalyticsEvent("view_open", view);
   state.view = view;
   document.querySelectorAll("[data-view-panel]").forEach((panel) => {
     const active = panel.dataset.viewPanel === view;
@@ -745,6 +756,7 @@ async function copyPrompt() {
     dom.promptResult.select();
     document.execCommand("copy");
   }
+  trackAnalyticsEvent("prompt_copy", state.promptOutputMode);
   showToast("Prompt 已复制");
 }
 

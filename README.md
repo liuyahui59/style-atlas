@@ -10,8 +10,9 @@
 - `visual-genes.js`：经过逐条审校的中英文视觉基因
 - `prompt-options.js`：构图、视角、镜头、光照、色彩等独立控制项
 - `app.js`：筛选、详情、收藏、对比和 Prompt 生成交互
-- `artworks.js`：风格配图数据
-- `assets/`：站点图标与分享封面
+- `artworks.js`：100 种风格的配图数据
+- `assets/artworks/`：风格配图与内部维护记录
+- `assets/`：站点图标、分享封面与风格配图
 - `scripts/`：内容校验与配图处理脚本
 
 ## 运行
@@ -38,6 +39,6 @@ node scripts/validate-content.mjs
 - Pages 备用地址：`https://liuyahui59.github.io/style-atlas/`
 - GitHub Pages 从 `main` 分支根目录直接发布。
 
-## 原型边界
+## 风格配图
 
-原型中的风格样片是原创的代码化视觉示例，用于验证分类、浏览和 Prompt 交互，不是艺术史原作。正式产品应优先使用博物馆开放版权图像，并完整记录作品、作者、年份、机构、许可和来源链接。
+100 种风格均使用能够直接呈现其视觉语言的配图。网页只展示风格图片，不显示作品、作者、年代、机构、版权或来源信息；`assets/artworks/manifest.json` 仅作为项目内部维护记录。

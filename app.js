@@ -199,25 +199,9 @@ function refreshIcons() {
 function createVisual(style, className = "style-visual") {
   const artwork = style.artwork;
   const image = artwork
-    ? `<img src="${artwork.src}" alt="${artwork.title || style.nameZh}" loading="lazy" decoding="async" />`
+    ? `<img src="${artwork.src}" alt="${style.nameZh}风格配图" loading="lazy" decoding="async" />`
     : "";
-  return `<span class="${className} art-${style.art}${artwork ? " has-artwork" : ""}" role="img" aria-label="${artwork ? `${style.nameZh}代表作品：${artwork.title}` : `${style.nameZh}的原创视觉语言样片`}">${image}</span>`;
-}
-
-function createArtworkCredit(style) {
-  const artwork = style.artwork;
-  if (!artwork) return "";
-  return `<section class="detail-section artwork-credit">
-    <h3>代表作品与版权</h3>
-    <div class="artwork-meta">
-      <div><span>作品</span><strong>${artwork.title}</strong></div>
-      <div><span>创作者</span><strong>${artwork.creator}</strong></div>
-      <div><span>年代</span><strong>${artwork.date}</strong></div>
-      <div><span>收藏 / 来源</span><strong>${artwork.institution}</strong></div>
-      <div><span>许可</span><strong>${artwork.license}</strong></div>
-    </div>
-    <a class="source-link" href="${artwork.sourceUrl}" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i>查看作品来源与完整许可</a>
-  </section>`;
+  return `<span class="${className} art-${style.art}${artwork ? " has-artwork" : ""}" role="img" aria-label="${style.nameZh}风格配图">${image}</span>`;
 }
 
 function renderQuickFilters() {
@@ -450,7 +434,6 @@ function renderDetail(style) {
     ${createVisual(style, "detail-visual")}
   </div>
   <div class="detail-body">
-    ${createArtworkCredit(style)}
     <section class="detail-section"><h3>典型视觉倾向</h3><table class="gene-table"><tbody>${rows.map(([name, values]) => `<tr><th>${name}</th><td>${values.join(" · ")}</td></tr>`).join("")}</tbody></table></section>
     <section class="detail-section"><h3>历史脉络</h3><div class="lineage-grid"><div><span>来自</span><strong>${style.influencedBy}</strong></div><div><span>影响</span><strong>${style.influenced}</strong></div></div></section>
     <section class="detail-section"><h3>视觉语言 Prompt</h3><div class="detail-prompt">${style.promptZh.join("，")}</div></section>

@@ -1,9 +1,14 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 
-const API = "https://api.openverse.org/v1/images/";
+const API = "https://commons.wikimedia.org/w/api.php";
 const OUTPUT_DIR = new URL("../assets/artworks/", import.meta.url);
 const USER_AGENT = "StyleAtlas/1.0 (https://styleatlas.art; open-license content research)";
-const ALLOWED_LICENSES = new Set(["pdm", "cc0", "by", "by-sa"]);
+const ALLOWED_LICENSES = [
+  /^public domain/i,
+  /^CC0(?:\s|$)/i,
+  /^CC BY(?:\s|$|-)/i,
+  /^CC BY-SA(?:\s|$|-)/i
+];
 
 const searches = {
   "ancient-egyptian": "Nebamun hunting in the marshes British Museum",
@@ -142,45 +147,61 @@ async function fetchWithRetry(url, options = {}, attempts = 3) {
   throw lastError;
 }
 
+function metadataValue(item, key) {
+  return clean(item.imageinfo?.[0]?.extmetadata?.[key]?.value || "");
+}
+
 function queryScore(item, query) {
-  const haystack = clean(`${item.title || ""} ${item.creator || ""} ${item.tags?.map((tag) => tag.name).join(" ") || ""}`).toLowerCase();
+  const haystack = clean(`${item.title || ""} ${metadataValue(item, "ImageDescription")} ${metadataValue(item, "Categories")}`).toLowerCase();
   const ignored = new Set(["the", "and", "with", "from", "design", "style", "art", "artwork", "painting", "museum", "creative", "commons"]);
   const terms = query.toLowerCase().split(/[^a-z0-9]+/).filter((term) => term.length > 2 && !ignored.has(term));
   return terms.reduce((score, term) => score + (haystack.includes(term) ? 1 : 0), 0) / Math.max(terms.length, 1);
 }
 
-async function searchOpenverse(query) {
+function isAllowedLicense(item) {
+  const license = metadataValue(item, "LicenseShortName");
+  return ALLOWED_LICENSES.some((pattern) => pattern.test(license));
+}
+
+async function searchCommons(query) {
   const params = new URLSearchParams({
-    q: query,
-    license: "pdm,cc0,by,by-sa",
-    page_size: "40",
-    mature: "false"
+    action: "query",
+    format: "json",
+    formatversion: "2",
+    generator: "search",
+    gsrsearch: query,
+    gsrnamespace: "6",
+    gsrlimit: "30",
+    prop: "imageinfo",
+    iiprop: "url|size|mime|extmetadata",
+    iiurlwidth: "1600"
   });
   const response = await fetchWithRetry(`${API}?${params}`, {}, 5);
   const data = await response.json();
-  const candidates = (data.results || []).filter((item) => {
-    return item.thumbnail && item.foreign_landing_url && ALLOWED_LICENSES.has(item.license) && (!item.width || item.width >= 800) && (!item.height || item.height >= 500);
+  const candidates = (data.query?.pages || []).filter((item) => {
+    const image = item.imageinfo?.[0];
+    return image?.thumburl
+      && image.descriptionurl
+      && /^image\/(jpeg|png|webp)$/i.test(image.mime || "")
+      && image.width >= 800
+      && image.height >= 500
+      && isAllowedLicense(item);
   });
   candidates.sort((a, b) => {
-    const licenseScore = { pdm: 4, cc0: 3, by: 2, "by-sa": 1 };
-    const aInstitutional = /metropolitan|smithsonian|museum|europeana|wikimedia|flickr/i.test(`${a.provider} ${a.source}`) ? 1 : 0;
-    const bInstitutional = /metropolitan|smithsonian|museum|europeana|wikimedia|flickr/i.test(`${b.provider} ${b.source}`) ? 1 : 0;
-    return queryScore(b, query) - queryScore(a, query)
-      || bInstitutional - aInstitutional
-      || (licenseScore[b.license] || 0) - (licenseScore[a.license] || 0)
-      || (b.width || 0) * (b.height || 0) - (a.width || 0) * (a.height || 0);
+    const aInfo = a.imageinfo[0];
+    const bInfo = b.imageinfo[0];
+    const aExact = clean(a.title).toLowerCase().includes(query.toLowerCase()) ? 1 : 0;
+    const bExact = clean(b.title).toLowerCase().includes(query.toLowerCase()) ? 1 : 0;
+    return bExact - aExact
+      || queryScore(b, query) - queryScore(a, query)
+      || bInfo.width * bInfo.height - aInfo.width * aInfo.height;
   });
   return candidates;
 }
 
-function licenseName(item) {
-  const names = { pdm: "Public Domain Mark", cc0: "CC0", by: "CC BY", "by-sa": "CC BY-SA" };
-  const version = item.license_version ? ` ${item.license_version}` : "";
-  return `${names[item.license] || item.license}${version}`;
-}
-
 async function downloadCandidate(id, candidate) {
-  const urls = [candidate.thumbnail, candidate.url].filter(Boolean);
+  const image = candidate.imageinfo[0];
+  const urls = [image.thumburl, image.url].filter(Boolean);
   for (const url of urls) {
     try {
       const response = await fetchWithRetry(url, { headers: { Accept: "image/avif,image/webp,image/png,image/jpeg" } }, 2);
@@ -209,7 +230,8 @@ async function readExistingManifest() {
 
 async function saveOutputs(manifest) {
   await writeFile(new URL("manifest.json", OUTPUT_DIR), `${JSON.stringify(manifest, null, 2)}\n`);
-  const browserData = `const ARTWORK_DATA = ${JSON.stringify(manifest, null, 2)};\n\nSTYLE_DATA.forEach((style) => {\n  style.artwork = ARTWORK_DATA[style.id] || null;\n});\n`;
+  const browserArtworkData = Object.fromEntries(Object.entries(manifest).map(([id, artwork]) => [id, { src: artwork.src }]));
+  const browserData = `const ARTWORK_DATA = ${JSON.stringify(browserArtworkData, null, 2)};\n\nSTYLE_DATA.forEach((style) => {\n  style.artwork = ARTWORK_DATA[style.id] || null;\n});\n`;
   await writeFile(new URL("../../artworks.js", OUTPUT_DIR), browserData);
 }
 
@@ -223,8 +245,8 @@ async function main() {
       continue;
     }
     try {
-      let candidates = await searchOpenverse(query);
-      if (!candidates.length) candidates = await searchOpenverse(query.split(" ").slice(0, 3).join(" "));
+      let candidates = await searchCommons(query);
+      if (!candidates.length) candidates = await searchCommons(query.split(" ").slice(0, 4).join(" "));
       let result = null;
       let filename = null;
       for (const candidate of candidates.slice(0, 10)) {
@@ -235,18 +257,19 @@ async function main() {
         }
       }
       if (!result || !filename) throw new Error("no usable licensed image result");
+      const image = result.imageinfo[0];
       manifest[id] = {
         src: `assets/artworks/${filename}`,
-        title: clean(result.title) || "未命名作品",
-        creator: clean(result.creator) || "创作者未注明",
-        date: "年代见来源页",
-        institution: clean([result.provider, result.source].filter(Boolean).join(" / ")) || "Openverse",
-        license: licenseName(result),
-        licenseUrl: result.license_url || "",
-        sourceUrl: result.foreign_landing_url,
-        originalUrl: result.url,
-        attribution: clean(result.attribution || ""),
-        openverseId: result.id,
+        title: clean(result.title).replace(/^File:/i, "") || "未命名作品",
+        creator: metadataValue(result, "Artist") || "创作者未注明",
+        date: metadataValue(result, "DateTimeOriginal") || metadataValue(result, "DateTime") || "年代见来源页",
+        institution: metadataValue(result, "Credit") || "Wikimedia Commons",
+        license: metadataValue(result, "LicenseShortName"),
+        licenseUrl: metadataValue(result, "LicenseUrl"),
+        sourceUrl: image.descriptionurl,
+        originalUrl: image.url,
+        attribution: metadataValue(result, "Attribution") || metadataValue(result, "Credit"),
+        commonsPageId: result.pageid,
         searchQuery: query
       };
       await saveOutputs(manifest);

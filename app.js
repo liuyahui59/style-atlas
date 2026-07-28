@@ -1,6 +1,16 @@
+const QUICK_FILTER_PRESETS = [
+  { id: "rational", label: "理性、有秩序", traits: ["几何", "理性", "网格", "秩序", "系统化", "模块化", "精密"], minMatches: 2 },
+  { id: "organic", label: "自然、有温度", traits: ["有机", "自然", "生态", "手工", "自然色"], minMatches: 1 },
+  { id: "restrained", label: "克制、有留白", traits: ["留白", "克制", "低饱和", "轻盈", "开放构图"], minMatches: 2 },
+  { id: "expressive", label: "强烈、有冲击", traits: ["强对比", "高饱和", "动态", "反叛", "戏剧", "表现"], minMatches: 2 },
+  { id: "nostalgic", label: "怀旧、有故事", traits: ["怀旧", "叙事", "浪漫", "象征", "手工"], minMatches: 1 },
+  { id: "futuristic", label: "未来、有科技感", traits: ["未来", "数字", "冷色", "高识别", "系统化"], minMatches: 1 }
+];
+
 const state = {
   view: "atlas",
   search: "",
+  quickPreset: "",
   filters: { type: new Set(), region: new Set(), traits: new Set(), fields: new Set() },
   favoritesOnly: false,
   favorites: new Set(JSON.parse(localStorage.getItem("style-atlas-favorites") || "[]")),
@@ -9,6 +19,7 @@ const state = {
   promptGenes: [],
   promptControls: {},
   promptOutputMode: "zh",
+  promptOutputs: {},
   promptIntensity: "明显",
   promptPaletteIndex: 0,
   promptCustomColor: "",
@@ -60,12 +71,19 @@ document.addEventListener("DOMContentLoaded", init);
 
 function init() {
   cacheDom();
+  normalizeLocalFileLinks(document);
   bindGlobalEvents();
   renderQuickFilters();
   renderFilterGroups();
   renderTimeline();
-  setPromptStyle(state.selectedPromptStyleId, false);
+  const requestedStyleId = new URLSearchParams(window.location.search).get("style");
+  const initialStyleId = getStyle(requestedStyleId) ? requestedStyleId : state.selectedPromptStyleId;
+  setPromptStyle(initialStyleId, false);
   renderAtlas();
+  const requestedView = window.location.hash.slice(1);
+  if (["atlas", "timeline", "prompt"].includes(requestedView) && requestedView !== "atlas") {
+    switchView(requestedView);
+  }
   refreshIcons();
 }
 
@@ -75,10 +93,12 @@ function cacheDom() {
     "mobileFilterGroups", "activeFilters", "clearFiltersButton", "emptyResetButton",
     "favoritesButton", "favoriteCount", "openCompareButton", "compareCount", "compareDock",
     "compareSummary", "compareNowButton", "clearCompareButton", "compareDialog", "compareContent",
-    "closeCompareDialog", "detailLayer", "detailContent", "mobileFilterButton", "mobileFilterSheet",
+    "closeCompareDialog", "detailLayer", "detailDrawer", "detailContent", "mobileFilterButton", "mobileFilterSheet",
     "timelineAxis", "timelineLanes", "promptSubject", "promptUse", "promptRatio", "intensityControl",
     "selectedPromptStyle", "promptGenes", "geneCount", "palettePicker", "promptControls", "controlCount", "promptResult",
-    "promptAnatomy", "copyPromptButton", "copyPromptMainButton", "resetPromptButton",
+    "promptAnatomy", "copyPromptButton", "generateImageButton", "generateImageLabel", "resetPromptButton",
+    "imageResult", "imageGenerationStatus", "imageStage", "imageStageState", "imageStateTitle", "imageStateText",
+    "generatedImage", "downloadImageButton",
     "browseStylesButton", "promptStyleIndicator", "timelineViewport", "timelineCanvas",
     "timelineZoomOut", "timelineZoomIn", "timelineZoomRange", "timelineZoomValue", "timelineZoomReset", "toast"
   ].forEach((id) => { dom[id] = document.getElementById(id); });
@@ -162,7 +182,7 @@ function bindGlobalEvents() {
   });
 
   dom.copyPromptButton.addEventListener("click", copyPrompt);
-  dom.copyPromptMainButton.addEventListener("click", copyPrompt);
+  dom.generateImageButton.addEventListener("click", startImageGeneration);
   dom.resetPromptButton.addEventListener("click", () => {
     dom.promptSubject.value = "未来城市音乐节";
     dom.promptUse.value = "海报";
@@ -205,12 +225,16 @@ function createVisual(style, className = "style-visual") {
 }
 
 function renderQuickFilters() {
-  const items = ["几何", "留白", "强对比", "有机", "高饱和", "未来"];
-  dom.quickFilters.innerHTML = items.map((item) => `<button class="chip" data-quick-filter="${item}">${item}</button>`).join("");
+  dom.quickFilters.innerHTML = QUICK_FILTER_PRESETS.map((preset) => {
+    const count = STYLE_DATA.filter((style) => getPresetMatchCount(style, preset) >= preset.minMatches).length;
+    return `<button class="chip" data-quick-preset="${preset.id}" aria-label="${preset.label}，${count} 种风格">${preset.label}</button>`;
+  }).join("");
   dom.quickFilters.addEventListener("click", (event) => {
-    const button = event.target.closest("[data-quick-filter]");
+    const button = event.target.closest("[data-quick-preset]");
     if (!button) return;
-    toggleFilter("traits", button.dataset.quickFilter);
+    state.quickPreset = state.quickPreset === button.dataset.quickPreset ? "" : button.dataset.quickPreset;
+    syncFilterControls();
+    renderAtlas();
   });
 }
 
@@ -246,17 +270,18 @@ function syncFilterControls() {
   document.querySelectorAll("input[data-filter-group]").forEach((input) => {
     input.checked = state.filters[input.dataset.filterGroup].has(input.value);
   });
-  document.querySelectorAll("[data-quick-filter]").forEach((button) => {
-    button.classList.toggle("is-active", state.filters.traits.has(button.dataset.quickFilter));
+  document.querySelectorAll("[data-quick-preset]").forEach((button) => {
+    button.classList.toggle("is-active", state.quickPreset === button.dataset.quickPreset);
   });
 }
 
 function hasAnyFilter() {
-  return state.search || state.favoritesOnly || Object.values(state.filters).some((set) => set.size);
+  return state.search || state.quickPreset || state.favoritesOnly || Object.values(state.filters).some((set) => set.size);
 }
 
 function clearFilters() {
   state.search = "";
+  state.quickPreset = "";
   state.favoritesOnly = false;
   Object.values(state.filters).forEach((set) => set.clear());
   dom.styleSearch.value = "";
@@ -266,8 +291,10 @@ function clearFilters() {
 }
 
 function getFilteredStyles() {
-  return STYLE_DATA.filter((style) => {
+  const preset = QUICK_FILTER_PRESETS.find((item) => item.id === state.quickPreset);
+  const styles = STYLE_DATA.filter((style) => {
     if (state.favoritesOnly && !state.favorites.has(style.id)) return false;
+    if (preset && getPresetMatchCount(style, preset) < preset.minMatches) return false;
     if (state.filters.type.size && !state.filters.type.has(style.type)) return false;
     if (state.filters.region.size && !state.filters.region.has(style.region)) return false;
     if (state.filters.traits.size && ![...state.filters.traits].every((trait) => style.traits.includes(trait))) return false;
@@ -276,6 +303,12 @@ function getFilteredStyles() {
     const haystack = [style.nameZh, style.nameEn, style.type, style.period, style.region, style.summary, style.recognition, ...style.traits, ...style.fields, ...Object.values(style.genes).flat()].join(" ").toLowerCase();
     return haystack.includes(state.search);
   });
+  if (preset) styles.sort((a, b) => getPresetMatchCount(b, preset) - getPresetMatchCount(a, preset));
+  return styles;
+}
+
+function getPresetMatchCount(style, preset) {
+  return style.traits.filter((trait) => preset.traits.includes(trait)).length;
 }
 
 function renderAtlas() {
@@ -290,14 +323,14 @@ function renderAtlas() {
     const favorite = state.favorites.has(style.id);
     const compared = state.compare.includes(style.id);
     return `<article class="style-card" data-style-card="${style.id}">
-      <button class="style-card-main" data-open-detail="${style.id}" aria-label="查看${style.nameZh}详情">
+      <a class="style-card-main" href="${getStylePageHref(style.id)}" data-open-detail="${style.id}" aria-label="查看${style.nameZh}详情">
         ${createVisual(style)}
         <span class="style-meta">
           <span class="style-name-row"><span class="style-card-title">${style.nameZh}</span><span class="style-period">${style.period}</span></span>
           <span class="style-en">${style.nameEn}</span>
           <span class="style-tags"><span>${style.type}</span>${style.traits.slice(0, 3).map((trait) => `<span>${trait}</span>`).join("")}</span>
         </span>
-      </button>
+      </a>
       <div class="card-tools ${favorite || compared ? "has-active" : ""}">
         <button class="icon-button ${favorite ? "is-active" : ""}" data-favorite="${style.id}" aria-label="${favorite ? "取消收藏" : "收藏"}${style.nameZh}" title="${favorite ? "取消收藏" : "收藏"}"><i data-lucide="bookmark"></i></button>
         <button class="icon-button ${compared ? "is-active" : ""}" data-compare="${style.id}" aria-label="${compared ? "移出" : "加入"}对比" title="${compared ? "移出对比" : "加入对比"}"><i data-lucide="columns-2"></i></button>
@@ -314,6 +347,8 @@ function renderAtlas() {
 
 function renderActiveFilters() {
   const items = [];
+  const preset = QUICK_FILTER_PRESETS.find((item) => item.id === state.quickPreset);
+  if (preset) items.push({ group: "preset", value: preset.label });
   if (state.favoritesOnly) items.push({ group: "favorites", value: "只看收藏" });
   Object.entries(state.filters).forEach(([group, set]) => set.forEach((value) => items.push({ group, value })));
   dom.activeFilters.innerHTML = items.length
@@ -321,7 +356,8 @@ function renderActiveFilters() {
     : `<span class="compare-placeholder">全部风格 · 按相关性排序</span>`;
   dom.activeFilters.querySelectorAll("[data-remove-filter]").forEach((button) => {
     button.addEventListener("click", () => {
-      if (button.dataset.removeFilter === "favorites") state.favoritesOnly = false;
+      if (button.dataset.removeFilter === "preset") state.quickPreset = "";
+      else if (button.dataset.removeFilter === "favorites") state.favoritesOnly = false;
       else state.filters[button.dataset.removeFilter].delete(button.dataset.value);
       syncFilterControls();
       renderAtlas();
@@ -330,7 +366,13 @@ function renderActiveFilters() {
 }
 
 function bindCardEvents() {
-  dom.styleGrid.querySelectorAll("[data-open-detail]").forEach((button) => button.addEventListener("click", () => openDetail(button.dataset.openDetail, button)));
+  dom.styleGrid.querySelectorAll("[data-open-detail]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      if (!shouldOpenDrawer(event)) return;
+      event.preventDefault();
+      openDetail(link.dataset.openDetail, link);
+    });
+  });
   dom.styleGrid.querySelectorAll("[data-favorite]").forEach((button) => button.addEventListener("click", () => toggleFavorite(button.dataset.favorite)));
   dom.styleGrid.querySelectorAll("[data-compare]").forEach((button) => button.addEventListener("click", () => toggleCompare(button.dataset.compare)));
 }
@@ -426,9 +468,10 @@ function renderDetail(style) {
       <p class="detail-summary">${style.summary}</p>
       <p class="detail-recognition"><strong>一眼识别：</strong>${style.recognition}</p>
       <div class="detail-actions">
-        <button class="primary-button" data-use-prompt="${style.id}"><i data-lucide="wand-sparkles"></i>用于 Prompt</button>
+        <button class="primary-button" data-use-prompt="${style.id}"><i data-lucide="wand-sparkles"></i>生成 Prompt</button>
+        <a class="secondary-button" href="${getStylePageHref(style.id)}"><i data-lucide="external-link"></i>风格指南</a>
         <button class="secondary-button" data-detail-compare="${style.id}"><i data-lucide="columns-2"></i>${compared ? "移出对比" : "加入对比"}</button>
-        <button class="icon-button ${favorite ? "is-active" : ""}" data-detail-favorite="${style.id}" aria-label="${favorite ? "取消收藏" : "收藏"}${style.nameZh}" title="${favorite ? "取消收藏" : "收藏"}"><i data-lucide="bookmark"></i></button>
+        <button class="icon-button ${favorite ? "is-active" : ""}" data-detail-favorite="${style.id}" aria-label="${favorite ? "取消收藏" : "收藏"}${style.nameZh}" aria-pressed="${favorite}" title="${favorite ? "已收藏，点击取消" : "收藏风格"}"><i data-lucide="${favorite ? "bookmark-check" : "bookmark"}"></i></button>
       </div>
     </div>
     ${createVisual(style, "detail-visual")}
@@ -437,7 +480,7 @@ function renderDetail(style) {
     <section class="detail-section"><h3>典型视觉倾向</h3><table class="gene-table"><tbody>${rows.map(([name, values]) => `<tr><th>${name}</th><td>${values.join(" · ")}</td></tr>`).join("")}</tbody></table></section>
     <section class="detail-section"><h3>历史脉络</h3><div class="lineage-grid"><div><span>来自</span><strong>${style.influencedBy}</strong></div><div><span>影响</span><strong>${style.influenced}</strong></div></div></section>
     <section class="detail-section"><h3>视觉语言 Prompt</h3><div class="detail-prompt">${style.promptZh.join("，")}</div></section>
-    <section class="detail-section"><h3>相邻风格</h3><div class="detail-tags">${style.related.map((id) => { const related = getStyle(id); return `<button class="relation-chip" data-related-style="${id}">${related.nameZh}</button>`; }).join("")}</div></section>
+    <section class="detail-section"><h3>相邻风格</h3><div class="detail-tags">${style.related.map((id) => { const related = getStyle(id); return `<a class="relation-chip" href="${getStylePageHref(id)}" data-related-style="${id}">${related.nameZh}</a>`; }).join("")}</div></section>
   </div>`;
   dom.detailContent.querySelector("[data-use-prompt]").addEventListener("click", () => {
     setPromptStyle(style.id);
@@ -446,7 +489,17 @@ function renderDetail(style) {
   });
   dom.detailContent.querySelector("[data-detail-compare]").addEventListener("click", () => toggleCompare(style.id));
   dom.detailContent.querySelector("[data-detail-favorite]").addEventListener("click", () => toggleFavorite(style.id));
-  dom.detailContent.querySelectorAll("[data-related-style]").forEach((button) => button.addEventListener("click", () => renderDetail(getStyle(button.dataset.relatedStyle))));
+  dom.detailContent.querySelectorAll("[data-related-style]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      if (!shouldOpenDrawer(event)) return;
+      event.preventDefault();
+      const relatedStyle = getStyle(link.dataset.relatedStyle);
+      if (!relatedStyle) return;
+      trackAnalyticsEvent("style_detail", relatedStyle.id);
+      renderDetail(relatedStyle);
+      dom.detailDrawer.scrollTop = 0;
+    });
+  });
   refreshIcons();
 }
 
@@ -719,8 +772,10 @@ function renderPromptOutput() {
   const outputs = {
     zh: zhParts.join("，"),
     en: enParts.join(", "),
-    negative: "避免：无关装饰、过多色彩、随机字体、低清晰度、文字乱码、水印、品牌标志、与所选风格冲突的材质和时代元素"
+    negative: "避免：无关装饰、过多色彩、随机字体、低清晰度、文字乱码、水印、品牌标志、与所选风格冲突的材质和时代元素",
+    generation: `${enParts.join(", ")}. Keep the composition complete and visually coherent. Do not add watermarks, brand logos, unrelated decorations, or illegible text.`
   };
+  state.promptOutputs = outputs;
   dom.promptResult.value = outputs[state.promptOutputMode];
   const anatomy = [
     ["主体", "#df3b2e"], ["用途", "#2459d3"], ["视觉基因", "#2f7f62"],
@@ -743,6 +798,43 @@ async function copyPrompt() {
   showToast("Prompt 已复制");
 }
 
+function startImageGeneration() {
+  if (dom.generateImageButton.disabled) return;
+
+  dom.imageResult.hidden = false;
+  dom.imageResult.setAttribute("aria-busy", "false");
+  setImageGenerationState("building");
+  trackAnalyticsEvent("image_preview_building", dom.promptRatio.value);
+}
+
+function setImageGenerationState(status, message = "") {
+  dom.imageStage.dataset.state = status;
+  dom.generatedImage.hidden = status !== "success";
+  dom.imageStageState.hidden = status === "success";
+  dom.downloadImageButton.hidden = status !== "success";
+
+  if (status === "building") {
+    dom.imageGenerationStatus.textContent = "建设中";
+    dom.imageStateTitle.textContent = "图像生成功能建设中";
+    dom.imageStateText.textContent = "我们正在完善风格控制与生成质量，敬请期待。";
+    return;
+  }
+
+  if (status === "loading") {
+    dom.imageGenerationStatus.textContent = "生成中";
+    dom.imageStateTitle.textContent = "正在生成图片";
+    dom.imageStateText.textContent = "复杂画面可能需要约两分钟";
+    return;
+  }
+  if (status === "success") {
+    dom.imageGenerationStatus.textContent = "生成完成";
+    return;
+  }
+  dom.imageGenerationStatus.textContent = "生成失败";
+  dom.imageStateTitle.textContent = "未能生成图片";
+  dom.imageStateText.textContent = message;
+}
+
 function showToast(message) {
   clearTimeout(toastTimer);
   dom.toast.textContent = message;
@@ -752,4 +844,19 @@ function showToast(message) {
 
 function getStyle(id) {
   return STYLE_DATA.find((style) => style.id === id);
+}
+
+function getStylePageHref(id) {
+  return window.location.protocol === "file:" ? `styles/${id}/index.html` : `styles/${id}/`;
+}
+
+function shouldOpenDrawer(event) {
+  return event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey;
+}
+
+function normalizeLocalFileLinks(scope) {
+  if (window.location.protocol !== "file:") return;
+  scope.querySelectorAll('a[href$="/"]').forEach((link) => {
+    link.setAttribute("href", `${link.getAttribute("href")}index.html`);
+  });
 }

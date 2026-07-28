@@ -1,3 +1,6 @@
 .DS_Store
 docs/
 .local-backups/
+.env
+.env.*
+!.env.example

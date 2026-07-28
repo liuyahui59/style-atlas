@@ -39,7 +39,7 @@
   <body>
     <div class="app-shell">
       <header class="site-header">
-        <a class="brand" href="#atlas" aria-label="风格谱首页">
+        <a class="brand" href="#atlas" data-view="atlas" aria-label="风格谱首页">
           <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
           <span><b>风格谱</b><small>STYLE ATLAS</small></span>
         </a>
@@ -227,11 +227,147 @@
               <textarea id="promptResult" readonly aria-label="生成的 Prompt"></textarea>
               <div class="prompt-anatomy" id="promptAnatomy"></div>
               <div class="output-actions">
-                <button class="primary-button" id="copyPromptMainButton"><i data-lucide="copy"></i>复制 Prompt</button>
+                <button class="primary-button generate-image-button" id="generateImageButton">
+                  <i class="generate-image-icon" data-lucide="image"></i>
+                  <i class="generate-loading-icon" data-lucide="loader-circle"></i>
+                  <span id="generateImageLabel">用这个风格试试</span>
+                </button>
                 <button class="secondary-button" id="resetPromptButton"><i data-lucide="rotate-ccw"></i>重置</button>
               </div>
+              <section class="image-result" id="imageResult" aria-labelledby="imageResultTitle" aria-live="polite" hidden>
+                <div class="image-result-heading">
+                  <div>
+                    <p class="eyebrow">STYLE IMAGE PREVIEW</p>
+                    <h2 id="imageResultTitle">风格图像预览</h2>
+                  </div>
+                  <span class="saved-indicator" id="imageGenerationStatus">建设中</span>
+                </div>
+                <div class="image-stage" id="imageStage" data-state="building">
+                  <img id="generatedImage" alt="" hidden />
+                  <div class="image-stage-state" id="imageStageState">
+                    <i data-lucide="construction" aria-hidden="true"></i>
+                    <strong id="imageStateTitle">图像生成功能建设中</strong>
+                    <span id="imageStateText">我们正在完善风格控制与生成质量，敬请期待。</span>
+                  </div>
+                </div>
+                <div class="image-result-actions">
+                  <a class="secondary-button" id="downloadImageButton" href="#" download hidden>
+                    <i data-lucide="download"></i>下载图片
+                  </a>
+                </div>
+              </section>
             </section>
           </div>
+        </section>
+
+        <section class="style-directory page-band" data-view-panel="atlas" aria-labelledby="styleDirectoryTitle">
+          <details>
+            <summary id="styleDirectoryTitle">浏览全部 100 种艺术与设计风格</summary>
+            <div class="style-directory-links">
+              <!-- STYLE_DIRECTORY_START -->
+              <a href="styles/ancient-egyptian/">古埃及艺术 · Ancient Egyptian Art</a>
+              <a href="styles/classical-greek/">古希腊古典艺术 · Classical Greek Art</a>
+              <a href="styles/byzantine/">拜占庭艺术 · Byzantine Art</a>
+              <a href="styles/gothic/">哥特艺术 · Gothic Art</a>
+              <a href="styles/renaissance/">文艺复兴 · Renaissance</a>
+              <a href="styles/mannerism/">矫饰主义 · Mannerism</a>
+              <a href="styles/baroque/">巴洛克 · Baroque</a>
+              <a href="styles/rococo/">洛可可 · Rococo</a>
+              <a href="styles/neoclassicism/">新古典主义 · Neoclassicism</a>
+              <a href="styles/romanticism/">浪漫主义 · Romanticism</a>
+              <a href="styles/realism/">现实主义 · Realism</a>
+              <a href="styles/pre-raphaelite/">前拉斐尔派 · Pre-Raphaelite Brotherhood</a>
+              <a href="styles/impressionism/">印象主义 · Impressionism</a>
+              <a href="styles/post-impressionism/">后印象主义 · Post-Impressionism</a>
+              <a href="styles/symbolism/">象征主义 · Symbolism</a>
+              <a href="styles/arts-crafts/">工艺美术运动 · Arts and Crafts Movement</a>
+              <a href="styles/art-nouveau/">新艺术运动 · Art Nouveau</a>
+              <a href="styles/fauvism/">野兽派 · Fauvism</a>
+              <a href="styles/expressionism/">表现主义 · Expressionism</a>
+              <a href="styles/cubism/">立体主义 · Cubism</a>
+              <a href="styles/futurism/">未来主义 · Futurism</a>
+              <a href="styles/dada/">达达主义 · Dada</a>
+              <a href="styles/constructivism/">构成主义 · Constructivism</a>
+              <a href="styles/suprematism/">至上主义 · Suprematism</a>
+              <a href="styles/de-stijl/">风格派 · De Stijl</a>
+              <a href="styles/bauhaus/">包豪斯 · Bauhaus</a>
+              <a href="styles/surrealism/">超现实主义 · Surrealism</a>
+              <a href="styles/art-deco/">装饰艺术 · Art Deco</a>
+              <a href="styles/abstract-expressionism/">抽象表现主义 · Abstract Expressionism</a>
+              <a href="styles/color-field/">色域绘画 · Color Field Painting</a>
+              <a href="styles/pop-art/">波普艺术 · Pop Art</a>
+              <a href="styles/op-art/">欧普艺术 · Op Art</a>
+              <a href="styles/minimalism/">极简主义 · Minimalism</a>
+              <a href="styles/conceptual-art/">观念艺术 · Conceptual Art</a>
+              <a href="styles/neo-expressionism/">新表现主义 · Neo-Expressionism</a>
+              <a href="styles/photorealism/">照相写实主义 · Photorealism</a>
+              <a href="styles/postmodernism/">后现代主义 · Postmodernism</a>
+              <a href="styles/lowbrow/">低眉艺术 / 波普超现实主义 · Lowbrow Art / Pop Surrealism</a>
+              <a href="styles/psychedelic/">迷幻艺术 · Psychedelic Art</a>
+              <a href="styles/street-art/">街头艺术 · Street Art</a>
+              <a href="styles/ink-wash/">文人水墨 · Literati Ink Painting</a>
+              <a href="styles/gongbi/">工笔画 · Gongbi Painting</a>
+              <a href="styles/dunhuang/">敦煌艺术 · Dunhuang Art</a>
+              <a href="styles/chinese-new-year-print/">中国木版年画 · Chinese Woodblock New Year Print</a>
+              <a href="styles/guochao/">国潮视觉 · Guochao Visual Style</a>
+              <a href="styles/ukiyo-e/">浮世绘 · Ukiyo-e</a>
+              <a href="styles/rinpa/">琳派 · Rinpa School</a>
+              <a href="styles/nihonga/">日本画 · Nihonga</a>
+              <a href="styles/wabi-sabi/">侘寂 · Wabi-sabi</a>
+              <a href="styles/kawaii/">卡哇伊美学 · Kawaii Aesthetic</a>
+              <a href="styles/superflat/">超扁平 · Superflat</a>
+              <a href="styles/korean-minhwa/">韩国民画 · Korean Minhwa</a>
+              <a href="styles/persian-miniature/">波斯细密画 · Persian Miniature Painting</a>
+              <a href="styles/mughal-miniature/">莫卧儿细密画 · Mughal Miniature</a>
+              <a href="styles/madhubani/">米提拉绘画 · Madhubani Painting</a>
+              <a href="styles/islamic-geometry/">伊斯兰几何装饰 · Islamic Geometric Ornament</a>
+              <a href="styles/thangka/">藏传唐卡 · Tibetan Thangka Painting</a>
+              <a href="styles/mexican-muralism/">墨西哥壁画运动 · Mexican Muralism</a>
+              <a href="styles/mexican-folk/">墨西哥民间艺术 · Mexican Folk Art</a>
+              <a href="styles/african-wax-print/">非洲蜡染印花视觉 · African Wax Print Aesthetic</a>
+              <a href="styles/afrofuturism/">非洲未来主义 · Afrofuturism</a>
+              <a href="styles/swiss/">瑞士国际主义 · International Typographic Style</a>
+              <a href="styles/mid-century-modern/">中世纪现代主义 · Mid-century Modern</a>
+              <a href="styles/scandinavian-modern/">斯堪的纳维亚现代主义 · Scandinavian Modern</a>
+              <a href="styles/streamline-moderne/">流线型现代主义 · Streamline Moderne</a>
+              <a href="styles/atomic-age/">原子时代设计 · Atomic Age Design</a>
+              <a href="styles/new-wave-typography/">新浪潮字体设计 · New Wave Typography</a>
+              <a href="styles/memphis/">孟菲斯设计 · Memphis Design</a>
+              <a href="styles/punk-visual/">朋克视觉 · Punk Visual Style</a>
+              <a href="styles/grunge-design/">垃圾摇滚设计 · Grunge Design</a>
+              <a href="styles/architectural-brutalism/">粗野主义 · Brutalism</a>
+              <a href="styles/brutalism/">数字新粗野主义 · Digital Neo-Brutalism</a>
+              <a href="styles/flat-design/">扁平化设计 · Flat Design</a>
+              <a href="styles/corporate-memphis/">企业孟菲斯插画 · Corporate Memphis</a>
+              <a href="styles/material-design/">Material Design · Material Design</a>
+              <a href="styles/skeuomorphism/">拟物化设计 · Skeuomorphism</a>
+              <a href="styles/glassmorphism/">玻璃拟态 · Glassmorphism</a>
+              <a href="styles/neumorphism/">新拟态 · Neumorphism</a>
+              <a href="styles/acid-graphics/">酸性视觉 · Acid Graphics</a>
+              <a href="styles/glitch-art/">故障艺术 · Glitch Art</a>
+              <a href="styles/generative-art/">生成艺术 · Generative Art</a>
+              <a href="styles/cyberpunk/">赛博朋克 · Cyberpunk</a>
+              <a href="styles/steampunk/">蒸汽朋克 · Steampunk</a>
+              <a href="styles/solarpunk/">太阳朋克 · Solarpunk</a>
+              <a href="styles/retrofuturism/">复古未来主义 · Retrofuturism</a>
+              <a href="styles/synthwave/">合成波 · Synthwave</a>
+              <a href="styles/vaporwave/">蒸汽波 · Vaporwave</a>
+              <a href="styles/y2k/">Y2K 未来复古 · Y2K Futurism</a>
+              <a href="styles/frutiger-aero/">Frutiger Aero · Frutiger Aero</a>
+              <a href="styles/anime/">日系动画 · Japanese Anime Aesthetic</a>
+              <a href="styles/manga/">漫画视觉 · Manga Aesthetic</a>
+              <a href="styles/american-comics/">美式漫画 · American Comic-book Art</a>
+              <a href="styles/gothic-subculture/">哥特亚文化视觉 · Gothic Subculture Aesthetic</a>
+              <a href="styles/dark-fantasy/">暗黑奇幻 · Dark Fantasy</a>
+              <a href="styles/film-noir/">黑色电影 · Film Noir</a>
+              <a href="styles/cottagecore/">田园核 · Cottagecore</a>
+              <a href="styles/dark-academia/">暗黑学院 · Dark Academia</a>
+              <a href="styles/dreamcore/">梦核 · Dreamcore</a>
+              <a href="styles/weirdcore/">怪核 · Weirdcore</a>
+              <a href="styles/liminal-space/">阈限空间 · Liminal Space Aesthetic</a>
+              <!-- STYLE_DIRECTORY_END -->
+            </div>
+          </details>
         </section>
       </main>
 

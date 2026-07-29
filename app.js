@@ -23,6 +23,8 @@ const state = {
   promptIntensity: "明显",
   promptPaletteIndex: 0,
   promptCustomColor: "",
+  vocabularySearch: "",
+  vocabularyGroup: "all",
   timelineZoom: 1,
   lastDetailTrigger: null
 };
@@ -75,13 +77,14 @@ function init() {
   bindGlobalEvents();
   renderQuickFilters();
   renderFilterGroups();
+  renderVocabulary();
   renderTimeline();
   const requestedStyleId = new URLSearchParams(window.location.search).get("style");
   const initialStyleId = getStyle(requestedStyleId) ? requestedStyleId : state.selectedPromptStyleId;
   setPromptStyle(initialStyleId, false);
   renderAtlas();
   const requestedView = window.location.hash.slice(1);
-  if (["atlas", "timeline", "prompt"].includes(requestedView) && requestedView !== "atlas") {
+  if (["atlas", "dictionary", "timeline", "prompt"].includes(requestedView) && requestedView !== "atlas") {
     switchView(requestedView);
   }
   refreshIcons();
@@ -93,14 +96,16 @@ function cacheDom() {
     "mobileFilterGroups", "activeFilters", "clearFiltersButton", "emptyResetButton",
     "favoritesButton", "favoriteCount", "openCompareButton", "compareCount", "compareDock",
     "compareSummary", "compareNowButton", "clearCompareButton", "compareDialog", "compareContent",
-    "closeCompareDialog", "detailLayer", "detailDrawer", "detailContent", "mobileFilterButton", "mobileFilterSheet",
+    "closeCompareDialog", "detailLayer", "detailDrawer", "detailContent", "detailKicker", "mobileFilterButton", "mobileFilterSheet",
     "timelineAxis", "timelineLanes", "promptSubject", "promptUse", "promptRatio", "intensityControl",
     "selectedPromptStyle", "promptGenes", "geneCount", "palettePicker", "promptControls", "controlCount", "promptResult",
     "promptAnatomy", "copyPromptButton", "generateImageButton", "generateImageLabel", "resetPromptButton",
     "imageResult", "imageGenerationStatus", "imageStage", "imageStageState", "imageStateTitle", "imageStateText",
     "generatedImage", "downloadImageButton",
     "browseStylesButton", "promptStyleIndicator", "timelineViewport", "timelineCanvas",
-    "timelineZoomOut", "timelineZoomIn", "timelineZoomRange", "timelineZoomValue", "timelineZoomReset", "toast"
+    "timelineZoomOut", "timelineZoomIn", "timelineZoomRange", "timelineZoomValue", "timelineZoomReset",
+    "vocabularySearch", "vocabularyFilters", "vocabularyGroups", "vocabularyCount", "vocabularyEmpty",
+    "vocabularyResetButton", "toast"
   ].forEach((id) => { dom[id] = document.getElementById(id); });
 }
 
@@ -197,6 +202,28 @@ function bindGlobalEvents() {
   });
   dom.browseStylesButton.addEventListener("click", () => switchView("atlas"));
 
+  dom.vocabularySearch.addEventListener("input", (event) => {
+    state.vocabularySearch = event.target.value.trim().toLowerCase();
+    renderVocabulary();
+  });
+  dom.vocabularyFilters.addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-vocabulary-group]");
+    if (!button) return;
+    state.vocabularyGroup = button.dataset.vocabularyGroup;
+    renderVocabulary();
+  });
+  dom.vocabularyResetButton.addEventListener("click", () => {
+    state.vocabularySearch = "";
+    state.vocabularyGroup = "all";
+    dom.vocabularySearch.value = "";
+    renderVocabulary();
+  });
+  dom.vocabularyGroups.addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-vocabulary-term]");
+    if (!button) return;
+    openVocabularyDetail(button.dataset.vocabularyTerm, button);
+  });
+
   document.querySelector("[data-feedback-email]")?.addEventListener("click", () => {
     trackAnalyticsEvent("feedback_email", "footer");
   });
@@ -214,6 +241,70 @@ function bindGlobalEvents() {
 
 function refreshIcons() {
   if (window.lucide) window.lucide.createIcons({ attrs: { "stroke-width": 1.8 } });
+}
+
+function escapeVocabularyText(value) {
+  return String(value).replace(/[&<>"']/g, (character) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    "\"": "&quot;",
+    "'": "&#039;"
+  })[character]);
+}
+
+function renderVocabulary() {
+  const query = state.vocabularySearch;
+  const selectedGroup = state.vocabularyGroup;
+  const visibleGroups = VISUAL_VOCABULARY_GROUPS.flatMap((group) => {
+    if (selectedGroup !== "all" && group.id !== selectedGroup) return [];
+    const groupMatches = `${group.label} ${group.intro}`.toLowerCase().includes(query);
+    const options = group.options.filter((option) => {
+      if (!query || groupMatches) return true;
+      return ["zh", "en", "definition", "family", "controls", "mechanism", "observable", "effect", "boundary", "descriptionZh", "descriptionEn"]
+        .map((field) => option[field] || "")
+        .join(" ")
+        .toLowerCase()
+        .includes(query);
+    });
+    return options.length ? [{ ...group, options }] : [];
+  });
+  const visibleCount = visibleGroups.reduce((total, group) => total + group.options.length, 0);
+
+  dom.vocabularyCount.textContent = String(visibleCount);
+  dom.vocabularyFilters.innerHTML = [
+    `<button class="vocabulary-filter ${selectedGroup === "all" ? "is-active" : ""}" data-vocabulary-group="all">全部 <span>${VISUAL_VOCABULARY_COUNT}</span></button>`,
+    ...VISUAL_VOCABULARY_GROUPS.map((group) => `<button class="vocabulary-filter ${selectedGroup === group.id ? "is-active" : ""}" data-vocabulary-group="${group.id}" style="--vocabulary-color:${group.color}">${group.label} <span>${group.options.length}</span></button>`)
+  ].join("");
+
+  dom.vocabularyGroups.innerHTML = visibleGroups.map((group) => `
+    <section class="vocabulary-group" style="--vocabulary-color:${group.color}">
+      <header class="vocabulary-group-heading">
+        <span class="vocabulary-group-icon"><i data-lucide="${group.icon}" aria-hidden="true"></i></span>
+        <div>
+          <h2>${group.label}</h2>
+          <p>${group.intro}</p>
+        </div>
+        <span>${group.options.length} 项</span>
+      </header>
+      <div class="vocabulary-grid">
+        ${group.options.map((option) => `
+          <button class="vocabulary-card" type="button" data-vocabulary-term="${escapeVocabularyText(option.zh)}" aria-label="查看${escapeVocabularyText(option.zh)}详细参数">
+            <span class="vocabulary-card-heading">
+              <span class="vocabulary-index">${String(option.index + 1).padStart(2, "0")}</span>
+              <span>
+                <strong>${escapeVocabularyText(option.zh)}</strong>
+                <span lang="en">${escapeVocabularyText(option.en)}</span>
+              </span>
+            </span>
+            <span class="vocabulary-definition">${escapeVocabularyText(option.definition)}</span>
+          </button>
+        `).join("")}
+      </div>
+    </section>
+  `).join("");
+  dom.vocabularyEmpty.hidden = visibleCount > 0;
+  refreshIcons();
 }
 
 function getArtworkVariantSrc(src, variant) {
@@ -461,10 +552,65 @@ function openDetail(id, trigger) {
   if (!style) return;
   trackAnalyticsEvent("style_detail", style.id);
   state.lastDetailTrigger = trigger || document.activeElement;
+  dom.detailKicker.textContent = "STYLE PROFILE";
+  dom.detailDrawer.classList.remove("is-vocabulary-detail");
+  dom.detailDrawer.style.removeProperty("--vocabulary-color");
   renderDetail(style);
   dom.detailLayer.hidden = false;
   document.body.classList.add("has-layer");
   dom.detailLayer.querySelector("[data-close-detail]").focus();
+}
+
+function openVocabularyDetail(term, trigger) {
+  const group = VISUAL_VOCABULARY_GROUPS.find((item) => item.options.some((option) => option.zh === term));
+  const option = group?.options.find((item) => item.zh === term);
+  if (!group || !option) return;
+  trackAnalyticsEvent("visual_vocabulary_detail", option.zh);
+  state.lastDetailTrigger = trigger || document.activeElement;
+  dom.detailKicker.textContent = "VISUAL ATOM";
+  dom.detailDrawer.classList.add("is-vocabulary-detail");
+  dom.detailDrawer.style.setProperty("--vocabulary-color", group.color);
+  renderVocabularyDetail(group, option);
+  dom.detailLayer.hidden = false;
+  document.body.classList.add("has-layer");
+  dom.detailLayer.querySelector("[data-close-detail]").focus();
+}
+
+function renderVocabularyDetail(group, option) {
+  dom.detailContent.innerHTML = `<div class="vocabulary-detail-hero">
+    <div class="vocabulary-detail-heading">
+      <span class="vocabulary-detail-index">${String(option.index + 1).padStart(2, "0")}</span>
+      <div>
+        <div class="detail-tags"><span class="chip">${escapeVocabularyText(group.label)}</span><span class="chip">${escapeVocabularyText(option.family)}</span></div>
+        <h2 id="detailTitle">${escapeVocabularyText(option.zh)}</h2>
+        <p class="vocabulary-detail-en" lang="en">${escapeVocabularyText(option.en)}</p>
+      </div>
+    </div>
+    <p class="vocabulary-detail-summary">${escapeVocabularyText(option.definition)}</p>
+  </div>
+  <div class="vocabulary-detail-body">
+    <section class="vocabulary-standard-block">
+      <div class="vocabulary-standard-label"><span>标准视觉描述</span><small>STANDARD VISUAL DESCRIPTION</small></div>
+      <p class="vocabulary-standard-zh">${escapeVocabularyText(option.descriptionZh)}</p>
+      <p class="vocabulary-standard-en" lang="en">${escapeVocabularyText(option.descriptionEn)}</p>
+    </section>
+
+    <section class="vocabulary-causal-section">
+      <h3>视觉机制链</h3>
+      <div class="vocabulary-causal-chain">
+        <article><span>01</span><h4>成因机制</h4><p>${escapeVocabularyText(option.mechanism)}</p></article>
+        <article><span>02</span><h4>可观察现象</h4><p>${escapeVocabularyText(option.observable)}</p></article>
+        <article><span>03</span><h4>视觉 / 认知作用</h4><p>${escapeVocabularyText(option.effect)}</p></article>
+      </div>
+    </section>
+
+    <div class="vocabulary-detail-notes">
+      <section class="vocabulary-control-band"><span>可控参数</span><p>${escapeVocabularyText(option.controls)}</p></section>
+      <section class="vocabulary-boundary-band"><span>机制边界 · 依赖与互斥</span><p>${escapeVocabularyText(option.boundary)}</p></section>
+    </div>
+  </div>`;
+  dom.detailDrawer.scrollTop = 0;
+  refreshIcons();
 }
 
 function renderDetail(style) {
@@ -492,7 +638,7 @@ function renderDetail(style) {
   <div class="detail-body">
     <section class="detail-section"><h3>典型视觉倾向</h3><table class="gene-table"><tbody>${rows.map(([name, values]) => `<tr><th>${name}</th><td>${values.join(" · ")}</td></tr>`).join("")}</tbody></table></section>
     <section class="detail-section"><h3>历史脉络</h3><div class="lineage-grid"><div><span>来自</span><strong>${style.influencedBy}</strong></div><div><span>影响</span><strong>${style.influenced}</strong></div></div></section>
-    <section class="detail-section"><h3>AI 可执行风格提示词</h3><div class="detail-prompt">${style.aiPrompt?.zh || style.promptZh.join("，")}</div></section>
+    <section class="detail-section"><h3>视觉语言 Prompt</h3><div class="detail-prompt">${style.aiPrompt?.zh || style.promptZh.join("，")}</div></section>
     <section class="detail-section"><h3>相邻风格</h3><div class="detail-tags">${style.related.map((id) => { const related = getStyle(id); return `<a class="relation-chip" href="${getStylePageHref(id)}" data-related-style="${id}">${related.nameZh}</a>`; }).join("")}</div></section>
   </div>`;
   dom.detailContent.querySelector("[data-use-prompt]").addEventListener("click", () => {

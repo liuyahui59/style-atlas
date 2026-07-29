@@ -7,7 +7,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const siteUrl = "https://styleatlas.art";
 const lastModified = "2026-07-29";
 const checkOnly = process.argv.includes("--check");
-const dataFiles = ["data.js", "data-extra.js", "data-more.js", "visual-genes.js", "prompt-ai-data.js", "artworks.js"];
+const dataFiles = ["data.js", "data-extra.js", "data-more.js", "visual-genes.js", "prompt-ai-data.js", "artworks.js", "aesthetic-styles.js"];
 
 const context = vm.createContext({});
 for (const file of dataFiles) {
@@ -323,8 +323,8 @@ function renderStylePage(style) {
 }
 
 function renderStyleIndex() {
-  const title = "100 种艺术与设计风格图鉴 | 风格谱 Style Atlas";
-  const description = "浏览 100 种艺术、设计与视觉文化风格。每种风格都有独立页面，包含历史、识别特征、配色、构图、材质和 AI 绘图 Prompt。";
+  const title = "111 种艺术与设计风格图鉴 | 风格谱 Style Atlas";
+  const description = "浏览 111 种艺术、设计与视觉文化风格。每种风格都有独立页面，包含历史、识别特征、配色、构图、材质和 AI 绘图 Prompt。";
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -373,7 +373,7 @@ function renderStyleIndex() {
     <main class="style-index-page">
       <header class="style-index-intro">
         <p class="eyebrow">ART · DESIGN · VISUAL CULTURE</p>
-        <h1>100 种艺术与设计风格</h1>
+        <h1>111 种艺术与设计风格</h1>
         <p>${description}</p>
       </header>
       <section class="static-style-grid" aria-label="全部风格">
@@ -418,7 +418,7 @@ function renderFooter(prefix = "../../") {
   return `<footer class="site-footer">
       <span>风格谱 · Style Atlas</span>
       <span class="footer-note">配图仅用于呈现风格特征。</span>
-      <a class="footer-feedback" href="${prefix}index.html#atlas">浏览全部 100 种风格</a>
+      <a class="footer-feedback" href="${prefix}index.html#atlas">浏览全部 111 种风格</a>
     </footer>`;
 }
 

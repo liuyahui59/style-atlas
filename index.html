@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="风格谱：100 种核心艺术设计风格图鉴、历史脉络与模块化 AI Prompt 工具" />
+    <meta name="description" content="风格谱：111 种核心艺术设计风格图鉴、历史脉络与模块化 AI Prompt 工具" />
     <meta name="theme-color" content="#f3f3f0" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_CN" />
@@ -37,7 +37,10 @@
     <script src="visual-genes.js" defer></script>
     <script src="prompt-ai-data.js" defer></script>
     <script src="artworks.js" defer></script>
+    <script src="aesthetic-styles.js" defer></script>
     <script src="prompt-options.js" defer></script>
+    <script src="visual-vocabulary-mechanics.js" defer></script>
+    <script src="visual-vocabulary.js" defer></script>
     <script src="app.js" defer></script>
   </head>
   <body>
@@ -49,6 +52,7 @@
         </a>
         <nav class="primary-nav" aria-label="主要导航">
           <button class="nav-item is-active" data-view="atlas" aria-current="page">风格图鉴</button>
+          <button class="nav-item" data-view="dictionary">视觉词典</button>
           <button class="nav-item" data-view="timeline">时间脉络</button>
           <button class="nav-item" data-view="prompt">Prompt 工坊</button>
         </nav>
@@ -103,6 +107,30 @@
                 <button class="secondary-button" id="emptyResetButton">清除筛选</button>
               </div>
             </section>
+          </div>
+        </section>
+
+        <section class="view" id="dictionaryView" data-view-panel="dictionary" hidden>
+          <div class="dictionary-header page-band">
+            <p class="eyebrow">VISUAL VOCABULARY</p>
+            <div class="page-title-row">
+              <h1>把视觉感觉，换成准确词语</h1>
+              <p class="result-stat"><strong id="vocabularyCount">0</strong> 个视觉词条</p>
+            </div>
+            <label class="search-box" for="vocabularySearch">
+              <i data-lucide="search"></i>
+              <input id="vocabularySearch" type="search" placeholder="搜索构图、镜头、光照、技法或视觉效果" autocomplete="off" />
+            </label>
+            <div class="vocabulary-filters" id="vocabularyFilters" aria-label="视觉词典分类"></div>
+          </div>
+
+          <div class="dictionary-catalog page-band">
+            <div class="vocabulary-groups" id="vocabularyGroups"></div>
+            <div class="empty-state vocabulary-empty" id="vocabularyEmpty" hidden>
+              <i data-lucide="search-x"></i>
+              <h2>没有找到匹配词条</h2>
+              <button class="secondary-button" id="vocabularyResetButton">查看全部词条</button>
+            </div>
           </div>
         </section>
 
@@ -266,7 +294,7 @@
 
         <section class="style-directory page-band" data-view-panel="atlas" aria-labelledby="styleDirectoryTitle">
           <details>
-            <summary id="styleDirectoryTitle">浏览全部 100 种艺术与设计风格</summary>
+            <summary id="styleDirectoryTitle">浏览全部 111 种艺术与设计风格</summary>
             <div class="style-directory-links">
               <!-- STYLE_DIRECTORY_START -->
               <a href="styles/ancient-egyptian/">古埃及艺术 · Ancient Egyptian Art</a>
@@ -369,6 +397,17 @@
               <a href="styles/dreamcore/">梦核 · Dreamcore</a>
               <a href="styles/weirdcore/">怪核 · Weirdcore</a>
               <a href="styles/liminal-space/">阈限空间 · Liminal Space Aesthetic</a>
+              <a href="styles/maximalism/">极繁主义 · Maximalism</a>
+              <a href="styles/structuralism/">结构主义 · Structuralism</a>
+              <a href="styles/neo-futurism/">新未来主义 · Neo-Futurism</a>
+              <a href="styles/biomorphic/">生物形态风格 · Biomorphic Style</a>
+              <a href="styles/neo-pop/">新波普艺术 · Neo-Pop Art</a>
+              <a href="styles/collage/">拼贴艺术 · Collage Art</a>
+              <a href="styles/naive-art/">稚拙绘画 · Naive Art</a>
+              <a href="styles/atompunk/">原子朋克美学 · Atompunk Aesthetic</a>
+              <a href="styles/wasteland-punk/">废土朋克美学 · Wasteland Punk Aesthetic</a>
+              <a href="styles/dieselpunk/">柴油朋克美学 · Dieselpunk Aesthetic</a>
+              <a href="styles/kidcore/">童核美学 · Kidcore Aesthetic</a>
               <!-- STYLE_DIRECTORY_END -->
             </div>
           </details>
@@ -401,7 +440,7 @@
       <div class="drawer-backdrop" data-close-detail></div>
       <aside class="detail-drawer" id="detailDrawer" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
         <div class="drawer-topbar">
-          <span class="drawer-kicker">STYLE PROFILE</span>
+          <span class="drawer-kicker" id="detailKicker">STYLE PROFILE</span>
           <button class="icon-button" data-close-detail aria-label="关闭详情"><i data-lucide="x"></i></button>
         </div>
         <div id="detailContent"></div>

@@ -2,19 +2,19 @@ import { readFile } from "node:fs/promises";
 import vm from "node:vm";
 
 const root = new URL("../", import.meta.url);
-const source = `${await readFile(new URL("data.js", root), "utf8")}\n${await readFile(new URL("data-extra.js", root), "utf8")}\n${await readFile(new URL("data-more.js", root), "utf8")}\n${await readFile(new URL("visual-genes.js", root), "utf8")}\n${await readFile(new URL("prompt-options.js", root), "utf8")}\nglobalThis.result = { STYLE_DATA, FILTER_GROUPS, PROMPT_CONTROL_GROUPS };`;
+const source = `${await readFile(new URL("data.js", root), "utf8")}\n${await readFile(new URL("data-extra.js", root), "utf8")}\n${await readFile(new URL("data-more.js", root), "utf8")}\n${await readFile(new URL("visual-genes.js", root), "utf8")}\n${await readFile(new URL("aesthetic-styles.js", root), "utf8")}\n${await readFile(new URL("prompt-options.js", root), "utf8")}\n${await readFile(new URL("visual-vocabulary-mechanics.js", root), "utf8")}\n${await readFile(new URL("visual-vocabulary.js", root), "utf8")}\nglobalThis.result = { STYLE_DATA, FILTER_GROUPS, PROMPT_CONTROL_GROUPS, VISUAL_VOCABULARY_GROUPS, VISUAL_VOCABULARY_COUNT };`;
 const context = {};
 vm.createContext(context);
 vm.runInContext(source, context);
 
-const { STYLE_DATA, PROMPT_CONTROL_GROUPS } = context.result;
+const { STYLE_DATA, PROMPT_CONTROL_GROUPS, VISUAL_VOCABULARY_GROUPS, VISUAL_VOCABULARY_COUNT } = context.result;
 const ids = new Set(STYLE_DATA.map((style) => style.id));
 const errors = [];
 const forbiddenVisualGeneTermsZh = ["人物", "角色", "人体", "动物", "鸟类", "花卉", "花朵", "藤蔓", "面具", "走廊", "门窗", "城市", "建筑物", "飞船", "宇航服", "书架", "旧书", "眼睛", "怪物", "废墟", "街道", "雕像", "棕榈", "齿轮", "管道", "山水", "庭院"];
 const forbiddenVisualGeneTermsEn = ["person", "people", "human", "character", "animal", "bird", "flower", "vine", "mask", "corridor", "doorway", "city", "building", "spacecraft", "spacesuit", "bookshelf", "book", "creature", "ruin", "street", "statue", "palm", "gear", "pipe", "landscape", "garden", "wall"];
 const genericPromptTerms = ["高质量", "杰作", "高级感", "震撼", "精致完成度", "清晰视觉层级", "高细节", "high quality", "best quality", "masterpiece", "award-winning", "refined finish", "highly detailed", "ultra-detailed", "high-detail", "visual impact"];
 
-if (STYLE_DATA.length !== 100) errors.push(`Expected 100 styles, found ${STYLE_DATA.length}`);
+if (STYLE_DATA.length !== 111) errors.push(`Expected 111 styles, found ${STYLE_DATA.length}`);
 if (ids.size !== STYLE_DATA.length) errors.push("Duplicate style ids found");
 
 for (const style of STYLE_DATA) {
@@ -68,6 +68,21 @@ PROMPT_CONTROL_GROUPS.forEach((group) => {
   group.options.forEach((option, index) => {
     if (!option.zh || !option.en) errors.push(`${group.id}[${index}]: invalid bilingual option`);
   });
+});
+
+const vocabularyFields = ["definition", "family", "controls", "mechanism", "observable", "effect", "boundary", "descriptionZh", "descriptionEn"];
+const vocabularyOptions = VISUAL_VOCABULARY_GROUPS.flatMap((group) => group.options);
+const vocabularyFingerprints = new Set();
+if (VISUAL_VOCABULARY_COUNT !== vocabularyOptions.length || vocabularyOptions.length !== 112) {
+  errors.push(`Expected 112 visual vocabulary records, found ${vocabularyOptions.length}`);
+}
+vocabularyOptions.forEach((option) => {
+  vocabularyFields.forEach((field) => {
+    if (!option[field]?.trim()) errors.push(`${option.zh}: missing vocabulary field ${field}`);
+  });
+  const fingerprint = vocabularyFields.slice(1).map((field) => option[field]?.trim()).join("|");
+  if (vocabularyFingerprints.has(fingerprint)) errors.push(`${option.zh}: duplicate vocabulary mechanics record`);
+  vocabularyFingerprints.add(fingerprint);
 });
 
 if (errors.length) {

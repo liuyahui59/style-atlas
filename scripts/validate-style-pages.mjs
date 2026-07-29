@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const stylesRoot = resolve(root, "styles");
+const styleIndexPath = resolve(stylesRoot, "index.html");
 const expectedSections = [
   "definition",
   "recognition",
@@ -43,6 +44,8 @@ for (const pagePath of pagePaths) {
 
   if (html.includes('class="primary-nav"')) failures.push(`${relative}: product navigation must not appear on a detail page`);
   if (!html.includes('class="back-to-atlas"')) failures.push(`${relative}: missing header return link`);
+  if (!html.includes('href="../../index.html#atlas"')) failures.push(`${relative}: missing explicit return link to the main atlas`);
+  if (/href="\.\.\/\.\.\/#(?:atlas|timeline|prompt)"/.test(html)) failures.push(`${relative}: file-mode module link targets a directory`);
   if (/上一项|下一项/.test(html)) failures.push(`${relative}: contains disallowed previous/next controls`);
   if ((html.match(/<h1>/g) || []).length !== 1) failures.push(`${relative}: must contain exactly one h1`);
 
@@ -76,6 +79,16 @@ for (const pagePath of pagePaths) {
       failures.push(`${relative}: broken local reference ${reference}`);
     }
   }
+}
+
+const styleIndexHtml = await readFile(styleIndexPath, "utf8");
+for (const view of ["atlas", "timeline", "prompt"]) {
+  if (!styleIndexHtml.includes(`href="../index.html#${view}"`)) {
+    failures.push(`styles/index.html: missing explicit main-site link for #${view}`);
+  }
+}
+if (/href="\.\.\/#(?:atlas|timeline|prompt)"/.test(styleIndexHtml)) {
+  failures.push("styles/index.html: file-mode module link targets a directory");
 }
 
 if (failures.length) {

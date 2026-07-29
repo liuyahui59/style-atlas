@@ -833,6 +833,83 @@
   line-height: 1.5;
 }
 
+/* Keep long-form style guides comfortably readable without changing the app UI. */
+.style-profile-page .breadcrumb {
+  font-size: 13px;
+}
+
+.style-profile-page .style-page-hero .detail-en,
+.style-profile-page .detail-recognition {
+  font-size: 15px;
+}
+
+.style-profile-page .section-kicker,
+.style-profile-page .core-definition span,
+.style-profile-page .history-timeline span,
+.style-profile-page .recognition-axis-grid span,
+.style-profile-page .comparison-points span,
+.style-profile-page .media-translation-grid dt,
+.style-profile-page .prompt-error-list > article > span,
+.style-profile-page .relation-network span,
+.style-profile-page .gene-guide-item p span,
+.style-profile-page .prompt-parts span,
+.style-profile-page .prompt-output-block > span,
+.style-profile-page .intensity-guide span {
+  font-size: 12px;
+}
+
+.style-profile-page .section-lead {
+  font-size: 16px;
+}
+
+.style-profile-page .core-definition strong,
+.style-profile-page .history-timeline strong,
+.style-profile-page .recognition-axis-grid strong,
+.style-profile-page .gene-guide-item h3,
+.style-profile-page .application-grid h3,
+.style-profile-page .fit-risk-grid h3,
+.style-profile-page .intensity-guide h3,
+.style-profile-page .comparison-guide h3,
+.style-profile-page .media-translation-grid h3,
+.style-profile-page .style-faq summary,
+.style-profile-page .related-style-card strong {
+  font-size: 15px;
+}
+
+.style-profile-page .recognition-axis-grid p,
+.style-profile-page .gene-guide-item p,
+.style-profile-page .palette-color p,
+.style-profile-page .type-guidance p,
+.style-profile-page .application-grid p,
+.style-profile-page .fit-risk-grid p,
+.style-profile-page .fit-risk-grid li,
+.style-profile-page .intensity-guide p,
+.style-profile-page .comparison-guide p,
+.style-profile-page .media-translation-grid dd,
+.style-profile-page .prompt-error-list code,
+.style-profile-page .prompt-error-list p,
+.style-profile-page .relation-network p,
+.style-profile-page .style-faq p,
+.style-profile-page .prompt-parts strong,
+.style-profile-page .prompt-output-block p {
+  font-size: 14px;
+}
+
+.style-profile-page .palette-color span,
+.style-profile-page .palette-color code,
+.style-profile-page .comparison-guide a,
+.style-profile-page .style-facts dt,
+.style-profile-page .style-facts dd,
+.style-profile-page .style-page-toc strong,
+.style-profile-page .style-page-toc a,
+.style-profile-page .back-link-aside {
+  font-size: 13px;
+}
+
+.style-profile-page .related-style-card small {
+  font-size: 11px;
+}
+
 @media (max-width: 920px) {
   .style-page-hero,
   .style-page-content {

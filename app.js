@@ -492,7 +492,7 @@ function renderDetail(style) {
   <div class="detail-body">
     <section class="detail-section"><h3>典型视觉倾向</h3><table class="gene-table"><tbody>${rows.map(([name, values]) => `<tr><th>${name}</th><td>${values.join(" · ")}</td></tr>`).join("")}</tbody></table></section>
     <section class="detail-section"><h3>历史脉络</h3><div class="lineage-grid"><div><span>来自</span><strong>${style.influencedBy}</strong></div><div><span>影响</span><strong>${style.influenced}</strong></div></div></section>
-    <section class="detail-section"><h3>视觉语言 Prompt</h3><div class="detail-prompt">${style.promptZh.join("，")}</div></section>
+    <section class="detail-section"><h3>AI 可执行风格提示词</h3><div class="detail-prompt">${style.aiPrompt?.zh || style.promptZh.join("，")}</div></section>
     <section class="detail-section"><h3>相邻风格</h3><div class="detail-tags">${style.related.map((id) => { const related = getStyle(id); return `<a class="relation-chip" href="${getStylePageHref(id)}" data-related-style="${id}">${related.nameZh}</a>`; }).join("")}</div></section>
   </div>`;
   dom.detailContent.querySelector("[data-use-prompt]").addEventListener("click", () => {
@@ -750,24 +750,67 @@ function getActivePromptControls() {
   });
 }
 
+const CONTENT_PROTECTION_ZH = "保持用户指定的主体、数量、动作、场景、身份与叙事关系；用户明确指定的构图、镜头、画幅与文字内容优先；不新增主体、人物、道具或叙事元素。";
+const CONTENT_PROTECTION_EN = "Preserve the user-defined subjects, count, actions, setting, identities, and narrative relationships. User-specified composition, camera, aspect ratio, and exact text take priority. Do not add subjects, props, or story elements.";
+
+function getStylePromptByIntensity(style, language) {
+  const prompt = style.aiPrompt?.[language];
+  if (!prompt) return language === "zh" ? style.promptZh.join("，") : style.promptEn.join(", ");
+  if (state.promptIntensity === "主导") return prompt;
+
+  if (language === "zh") {
+    const replacement = state.promptIntensity === "借鉴"
+      ? `轻度借鉴${style.nameZh}的视觉语言，仅选取少量关键特征，不让风格压过用户内容。`
+      : `以${style.nameZh}作为主要且清晰可识别的视觉风格，同时保持用户内容优先。`;
+    return prompt.replace(`以${style.nameZh}作为唯一主导风格。`, replacement);
+  }
+
+  const replacement = state.promptIntensity === "借鉴"
+    ? `Use a subtle influence from ${style.nameEn}, selecting only a few defining traits without overpowering the user-defined content.`
+    : `Use ${style.nameEn} as the clearly recognizable primary visual style while keeping the user-defined content dominant.`;
+  return prompt.replace(`Use ${style.nameEn} as the sole dominant visual style.`, replacement);
+}
+
+function getReducedGenePrompt(style, activeGenes, language) {
+  if (language === "zh") {
+    const direction = {
+      "借鉴": `轻度借鉴${style.nameZh}的视觉语言`,
+      "明显": `以${style.nameZh}作为清晰可识别的主要视觉风格`,
+      "主导": `以${style.nameZh}作为唯一主导视觉风格`
+    }[state.promptIntensity];
+    return `${CONTENT_PROTECTION_ZH}${direction}；仅应用这些已启用的视觉基因：${activeGenes.map((gene) => gene.zh).join("，") || "不额外应用风格视觉基因"}。`;
+  }
+  const direction = {
+    "借鉴": `Use a subtle influence from ${style.nameEn}`,
+    "明显": `Use ${style.nameEn} as the clearly recognizable primary visual style`,
+    "主导": `Use ${style.nameEn} as the sole dominant visual style`
+  }[state.promptIntensity];
+  return `${CONTENT_PROTECTION_EN} ${direction}, using only these enabled visual genes: ${activeGenes.map((gene) => gene.en).join(", ") || "no additional style-specific visual genes"}.`;
+}
+
 function renderPromptOutput() {
   const style = getStyle(state.selectedPromptStyleId);
   if (!style || !dom.promptSubject) return;
   const subject = dom.promptSubject.value.trim() || "未命名主体";
   const use = dom.promptUse.value;
   const ratio = dom.promptRatio.value;
-  const intensity = intensityTranslations[state.promptIntensity];
   const activeGenes = state.promptGenes.filter((gene) => gene.active);
   const activeControls = getActivePromptControls();
   const color = state.promptPaletteIndex === -1 ? state.promptCustomColor : style.palette[state.promptPaletteIndex];
   const hasColorOverride = activeControls.some((control) => control.id === "color");
   const includeAccentColor = !hasColorOverride || state.promptPaletteIndex === -1;
+  const hasAllGenes = activeGenes.length === state.promptGenes.length;
+  const stylePromptZh = hasAllGenes
+    ? getStylePromptByIntensity(style, "zh")
+    : getReducedGenePrompt(style, activeGenes, "zh");
+  const stylePromptEn = hasAllGenes
+    ? getStylePromptByIntensity(style, "en")
+    : getReducedGenePrompt(style, activeGenes, "en");
 
   const zhParts = [
     subject,
     `${use}设计`,
-    `${intensity.zh}${style.nameZh}视觉语言`,
-    ...activeGenes.map((gene) => gene.zh),
+    stylePromptZh,
     ...activeControls.map((control) => control.option.zh),
     ...(includeAccentColor ? [`强调色 ${color}`] : []),
     ratio
@@ -775,8 +818,7 @@ function renderPromptOutput() {
   const enParts = [
     subject,
     useTranslations[use],
-    `${intensity.en} ${style.nameEn} visual language`,
-    ...activeGenes.map((gene) => gene.en),
+    stylePromptEn,
     ...activeControls.map((control) => control.option.en),
     ...(includeAccentColor ? [`accent color ${color}`] : []),
     ratioTranslations[ratio]
@@ -785,8 +827,8 @@ function renderPromptOutput() {
   const outputs = {
     zh: zhParts.join("，"),
     en: enParts.join(", "),
-    negative: "避免：无关装饰、过多色彩、随机字体、低清晰度、文字乱码、水印、品牌标志、与所选风格冲突的材质和时代元素",
-    generation: `${enParts.join(", ")}. Keep the composition complete and visually coherent. Do not add watermarks, brand logos, unrelated decorations, or illegible text.`
+    negative: `避免：${style.aiPrompt?.negative || "与所选风格冲突的构图、配色、材质和时代元素"}，低清晰度，文字乱码，水印，品牌标志`,
+    generation: `${enParts.join(", ")}. Negative prompt: ${style.aiPrompt?.negative || "conflicting visual styles"}, low resolution, illegible text, watermarks, brand logos.`
   };
   state.promptOutputs = outputs;
   dom.promptResult.value = outputs[state.promptOutputMode];

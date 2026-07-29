@@ -5,9 +5,9 @@ import vm from "node:vm";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const siteUrl = "https://styleatlas.art";
-const lastModified = "2026-07-28";
+const lastModified = "2026-07-29";
 const checkOnly = process.argv.includes("--check");
-const dataFiles = ["data.js", "data-extra.js", "data-more.js", "visual-genes.js", "artworks.js"];
+const dataFiles = ["data.js", "data-extra.js", "data-more.js", "visual-genes.js", "prompt-ai-data.js", "artworks.js"];
 
 const context = vm.createContext({});
 for (const file of dataFiles) {
@@ -101,7 +101,7 @@ function renderStylePage(style) {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "风格谱", item: `${siteUrl}/` },
-          { "@type": "ListItem", position: 2, name: "全部风格", item: `${siteUrl}/styles/` },
+          { "@type": "ListItem", position: 2, name: "风格图鉴", item: `${siteUrl}/#atlas` },
           { "@type": "ListItem", position: 3, name: style.nameZh, item: canonical }
         ]
       }
@@ -140,7 +140,7 @@ function renderStylePage(style) {
     ${renderHeader("profile")}
     <main class="style-profile-page">
       <nav class="breadcrumb" aria-label="面包屑">
-        <a href="../../">风格谱</a><span aria-hidden="true">/</span><a href="../">全部风格</a><span aria-hidden="true">/</span><span aria-current="page">${escapeHtml(style.nameZh)}</span>
+        <a href="../../index.html">风格谱</a><span aria-hidden="true">/</span><a href="../../index.html#atlas">风格图鉴</a><span aria-hidden="true">/</span><span aria-current="page">${escapeHtml(style.nameZh)}</span>
       </nav>
       <article>
         <header class="style-page-hero">
@@ -152,7 +152,7 @@ function renderStylePage(style) {
             <p class="detail-recognition"><strong>一眼识别：</strong>${escapeHtml(style.recognition)}</p>
             <div class="detail-actions">
               <a class="primary-button" href="../../?style=${style.id}#prompt">用这个风格生成 Prompt</a>
-              <a class="secondary-button" href="../../">返回图鉴</a>
+              <a class="secondary-button" href="../../index.html#atlas">返回风格图鉴</a>
             </div>
           </div>
           <figure class="detail-visual has-artwork">
@@ -266,7 +266,9 @@ function renderStylePage(style) {
               <div class="prompt-parts">
                 ${promptParts.map((part) => `<div><span>${escapeHtml(part.label)}</span><strong>${escapeHtml(part.value)}</strong></div>`).join("\n                ")}
               </div>
-              <div class="prompt-output-block prompt-negative"><span>排除项</span><p>${negativePrompt.map(escapeHtml).join("，")}</p></div>
+              <div class="prompt-output-block"><span>中文 AI 可执行提示词</span><p>${escapeHtml(style.aiPrompt?.zh || style.promptZh.join("，"))}</p></div>
+              <div class="prompt-output-block"><span>English AI-executable prompt</span><p lang="en">${escapeHtml(style.aiPrompt?.en || style.promptEn.join(", "))}</p></div>
+              <div class="prompt-output-block prompt-negative"><span>具体风格破坏项</span><p>${escapeHtml(style.aiPrompt?.negative || negativePrompt.join("，"))}</p></div>
             </section>
 
             <section class="detail-section" id="prompt-errors" aria-labelledby="promptErrorsTitle">
@@ -309,7 +311,7 @@ function renderStylePage(style) {
               <strong>本页内容</strong>
               <a href="#definition">核心定义</a><a href="#recognition">视觉识别</a><a href="#genes">关键基因</a><a href="#palette">配色方案</a><a href="#applications">内容适配</a><a href="#risks">风险</a><a href="#comparison">风格辨析</a><a href="#intensity">风格强度</a><a href="#translation">媒介转译</a><a href="#prompt">Prompt 配方</a><a href="#prompt-errors">错误 Prompt</a><a href="#history">历史脉络</a><a href="#related">相关风格</a>
             </nav>
-            <a class="back-link-aside" href="../../">返回风格图鉴</a>
+            <a class="back-link-aside" href="../../index.html#atlas">返回风格图鉴</a>
           </aside>
         </div>
       </article>
@@ -389,24 +391,25 @@ function renderStyleIndex() {
 
 function renderHeader(page) {
   const prefix = page === "profile" ? "../../" : "../";
+  const homeHref = `${prefix}index.html`;
   if (page === "profile") {
     return `<header class="site-header style-page-header style-detail-header">
-      <a class="brand" href="${prefix}" aria-label="风格谱首页">
+      <a class="brand" href="${homeHref}" aria-label="风格谱首页">
         <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
         <span><b>风格谱</b><small>STYLE ATLAS</small></span>
       </a>
-      <a class="back-to-atlas" href="${prefix}"><span aria-hidden="true">←</span>返回图鉴</a>
+      <a class="back-to-atlas" href="${homeHref}#atlas"><span aria-hidden="true">←</span>返回风格图鉴</a>
     </header>`;
   }
   return `<header class="site-header style-page-header">
-      <a class="brand" href="${prefix}" aria-label="风格谱首页">
+      <a class="brand" href="${homeHref}" aria-label="风格谱首页">
         <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
         <span><b>风格谱</b><small>STYLE ATLAS</small></span>
       </a>
       <nav class="primary-nav" aria-label="主要导航">
-        <a class="nav-item is-active" href="${prefix}styles/" aria-current="page">风格图鉴</a>
-        <a class="nav-item" href="${prefix}#timeline">时间脉络</a>
-        <a class="nav-item" href="${prefix}#prompt">Prompt 工坊</a>
+        <a class="nav-item is-active" href="${homeHref}#atlas" aria-current="page">风格图鉴</a>
+        <a class="nav-item" href="${homeHref}#timeline">时间脉络</a>
+        <a class="nav-item" href="${homeHref}#prompt">Prompt 工坊</a>
       </nav>
     </header>`;
 }
@@ -415,7 +418,7 @@ function renderFooter(prefix = "../../") {
   return `<footer class="site-footer">
       <span>风格谱 · Style Atlas</span>
       <span class="footer-note">配图仅用于呈现风格特征。</span>
-      <a class="footer-feedback" href="${prefix}styles/">浏览全部 100 种风格</a>
+      <a class="footer-feedback" href="${prefix}index.html#atlas">浏览全部 100 种风格</a>
     </footer>`;
 }
 

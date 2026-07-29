@@ -623,6 +623,10 @@ button.chip:hover,
   display: none;
 }
 
+.has-artwork {
+  background: #e8e8e3;
+}
+
 .has-artwork img {
   display: block;
   width: 100%;

@@ -216,12 +216,25 @@ function refreshIcons() {
   if (window.lucide) window.lucide.createIcons({ attrs: { "stroke-width": 1.8 } });
 }
 
-function createVisual(style, className = "style-visual") {
+function getArtworkVariantSrc(src, variant) {
+  return src
+    .replace("assets/artworks/", `assets/artworks/${variant}/`)
+    .replace(/\.[^.]+$/, ".webp");
+}
+
+function createVisual(style, className = "style-visual", options = {}) {
   const artwork = style.artwork;
-  const image = artwork
-    ? `<img src="${artwork.src}" alt="${style.nameZh}风格配图" loading="lazy" decoding="async" />`
-    : "";
-  return `<span class="${className} art-${style.art}${artwork ? " has-artwork" : ""}" role="img" aria-label="${style.nameZh}风格配图">${image}</span>`;
+  if (!artwork) {
+    return `<span class="${className} art-${style.art}" role="img" aria-label="${style.nameZh}风格配图"></span>`;
+  }
+
+  const thumbSrc = getArtworkVariantSrc(artwork.src, "thumbs");
+  const optimizedSrc = getArtworkVariantSrc(artwork.src, "optimized");
+  const imageSrc = options.detail ? optimizedSrc : thumbSrc;
+  const loading = options.priority ? "eager" : "lazy";
+  const fetchPriority = options.priority ? ' fetchpriority="high"' : "";
+  const image = `<img src="${imageSrc}" alt="${style.nameZh}风格配图" width="1200" height="900" loading="${loading}" decoding="async"${fetchPriority} />`;
+  return `<span class="${className} has-artwork" role="img" aria-label="${style.nameZh}风格配图">${image}</span>`;
 }
 
 function renderQuickFilters() {
@@ -319,12 +332,12 @@ function renderAtlas() {
   dom.clearFiltersButton.disabled = !hasAnyFilter();
   renderActiveFilters();
 
-  dom.styleGrid.innerHTML = styles.map((style) => {
+  dom.styleGrid.innerHTML = styles.map((style, index) => {
     const favorite = state.favorites.has(style.id);
     const compared = state.compare.includes(style.id);
     return `<article class="style-card" data-style-card="${style.id}">
       <a class="style-card-main" href="${getStylePageHref(style.id)}" data-open-detail="${style.id}" aria-label="查看${style.nameZh}详情">
-        ${createVisual(style)}
+        ${createVisual(style, "style-visual", { priority: index < 3 })}
         <span class="style-meta">
           <span class="style-name-row"><span class="style-card-title">${style.nameZh}</span><span class="style-period">${style.period}</span></span>
           <span class="style-en">${style.nameEn}</span>
@@ -474,7 +487,7 @@ function renderDetail(style) {
         <button class="icon-button ${favorite ? "is-active" : ""}" data-detail-favorite="${style.id}" aria-label="${favorite ? "取消收藏" : "收藏"}${style.nameZh}" aria-pressed="${favorite}" title="${favorite ? "已收藏，点击取消" : "收藏风格"}"><i data-lucide="${favorite ? "bookmark-check" : "bookmark"}"></i></button>
       </div>
     </div>
-    ${createVisual(style, "detail-visual")}
+    ${createVisual(style, "detail-visual", { detail: true, priority: true })}
   </div>
   <div class="detail-body">
     <section class="detail-section"><h3>典型视觉倾向</h3><table class="gene-table"><tbody>${rows.map(([name, values]) => `<tr><th>${name}</th><td>${values.join(" · ")}</td></tr>`).join("")}</tbody></table></section>

@@ -65,6 +65,7 @@ function renderStylePage(style) {
   const description = `${style.nameZh}风格图鉴：${style.summary}${style.recognition} 查看构图、造型、配色、字体、材质与 AI 绘图 Prompt。`;
   const canonical = `${siteUrl}/styles/${style.id}/`;
   const imageUrl = `${siteUrl}/${style.artwork.src}`;
+  const optimizedImagePath = getArtworkVariantPath(style, "optimized");
   const relatedStyles = style.related.map((id) => stylesById.get(id)).filter(Boolean);
   const coreGuide = buildCoreGuide(style);
   const recognitionAxes = buildRecognitionAxes(style);
@@ -126,6 +127,7 @@ function renderStylePage(style) {
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="${canonical}" />
     <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" as="image" href="../../${optimizedImagePath}" fetchpriority="high" />
     <link rel="manifest" href="../../site.webmanifest" />
     <link rel="stylesheet" href="../../styles.css" />
     <link rel="stylesheet" href="../../style-pages.css" />
@@ -154,7 +156,7 @@ function renderStylePage(style) {
             </div>
           </div>
           <figure class="detail-visual has-artwork">
-            <img src="../../${style.artwork.src}" alt="${escapeHtml(`${style.nameZh}（${style.nameEn}）风格视觉示例`)}" width="1200" height="900" fetchpriority="high" decoding="async" />
+            <img src="../../${optimizedImagePath}" alt="${escapeHtml(`${style.nameZh}（${style.nameEn}）风格视觉示例`)}" width="1200" height="900" fetchpriority="high" decoding="async" />
           </figure>
         </header>
 
@@ -374,7 +376,7 @@ function renderStyleIndex() {
       </header>
       <section class="static-style-grid" aria-label="全部风格">
         ${styles.map((style, index) => `<a class="static-style-card" href="${style.id}/">
-          <img src="../${style.artwork.src}" alt="${escapeHtml(`${style.nameZh}风格视觉示例`)}" width="1200" height="900" ${index === 0 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" />
+          <img src="../${getArtworkVariantPath(style, "thumbs")}" alt="${escapeHtml(`${style.nameZh}风格视觉示例`)}" width="720" height="540" ${index < 3 ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'} decoding="async" />
           <strong>${escapeHtml(style.nameZh)}</strong><small>${escapeHtml(style.nameEn)}</small><span>${escapeHtml(style.summary)}</span>
         </a>`).join("\n        ")}
       </section>
@@ -445,9 +447,15 @@ function renderLocalFileLinks() {
 
 function renderRelatedCard(style) {
   return `<a class="related-style-card" href="../${style.id}/">
-    <img src="../../${style.artwork.src}" alt="${escapeHtml(`${style.nameZh}风格视觉示例`)}" width="1200" height="900" loading="lazy" />
+    <img src="../../${getArtworkVariantPath(style, "thumbs")}" alt="${escapeHtml(`${style.nameZh}风格视觉示例`)}" width="720" height="540" loading="lazy" decoding="async" />
     <strong>${escapeHtml(style.nameZh)}</strong><small>${escapeHtml(style.nameEn)}</small>
   </a>`;
+}
+
+function getArtworkVariantPath(style, variant) {
+  return style.artwork.src
+    .replace("assets/artworks/", `assets/artworks/${variant}/`)
+    .replace(/\.[^.]+$/, ".webp");
 }
 
 function buildGeneGuides(style) {

@@ -2538,6 +2538,10 @@ button.chip:hover,
   color: var(--surface);
 }
 
+.detail-action-label-short {
+  display: none;
+}
+
 @media (max-width: 760px) {
   .detail-hero {
     grid-template-columns: 1fr;
@@ -3141,13 +3145,43 @@ body.has-layer {
   }
 
   .detail-hero {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
     padding: 20px;
+  }
+
+  .detail-title,
+  .detail-visual {
+    min-width: 0;
+    width: 100%;
   }
 
   .detail-visual {
     grid-row: 1;
     aspect-ratio: 16 / 10;
+  }
+
+  .detail-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, .9fr) minmax(0, .9fr) 42px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .detail-actions .primary-button,
+  .detail-actions .secondary-button {
+    width: 100%;
+    min-width: 0;
+    gap: 6px;
+    padding-inline: 8px;
+  }
+
+  .detail-action-label-full {
+    display: none;
+  }
+
+  .detail-action-label-short {
+    display: inline;
   }
 
   .detail-body {

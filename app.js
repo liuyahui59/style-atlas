@@ -627,9 +627,9 @@ function renderDetail(style) {
       <p class="detail-summary">${style.summary}</p>
       <p class="detail-recognition"><strong>一眼识别：</strong>${style.recognition}</p>
       <div class="detail-actions">
-        <button class="primary-button" data-use-prompt="${style.id}"><i data-lucide="wand-sparkles"></i>生成 Prompt</button>
-        <a class="secondary-button" href="${getStylePageHref(style.id)}"><i data-lucide="external-link"></i>风格指南</a>
-        <button class="secondary-button" data-detail-compare="${style.id}"><i data-lucide="columns-2"></i>${compared ? "移出对比" : "加入对比"}</button>
+        <button class="primary-button" data-use-prompt="${style.id}"><i data-lucide="wand-sparkles"></i><span class="detail-action-label-full">生成 Prompt</span><span class="detail-action-label-short">Prompt</span></button>
+        <a class="secondary-button" href="${getStylePageHref(style.id)}"><i data-lucide="external-link"></i><span class="detail-action-label-full">风格指南</span><span class="detail-action-label-short">指南</span></a>
+        <button class="secondary-button" data-detail-compare="${style.id}"><i data-lucide="columns-2"></i><span class="detail-action-label-full">${compared ? "移出对比" : "加入对比"}</span><span class="detail-action-label-short">${compared ? "移出" : "对比"}</span></button>
         <button class="icon-button ${favorite ? "is-active" : ""}" data-detail-favorite="${style.id}" aria-label="${favorite ? "取消收藏" : "收藏"}${style.nameZh}" aria-pressed="${favorite}" title="${favorite ? "已收藏，点击取消" : "收藏风格"}"><i data-lucide="${favorite ? "bookmark-check" : "bookmark"}"></i></button>
       </div>
     </div>

@@ -1962,34 +1962,119 @@ button.chip:hover,
   color: var(--muted);
 }
 
+.gene-groups {
+  display: grid;
+  gap: 16px;
+}
+
+.gene-group {
+  min-width: 0;
+}
+
+.gene-group + .gene-group {
+  padding-top: 15px;
+  border-top: 1px solid var(--line);
+}
+
+.gene-group-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.gene-group-heading strong {
+  font-size: 11px;
+}
+
+.gene-group-heading span {
+  color: var(--muted);
+  font-size: 10px;
+}
+
 .gene-chip {
-  gap: 7px;
-  min-height: 34px;
-  padding-right: 7px;
-  background: var(--surface);
+  gap: 8px;
+  max-width: 100%;
+  min-height: 40px;
+  padding: 5px 10px 5px 7px;
+  border-radius: 6px;
   color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 140ms ease, background 140ms ease, opacity 140ms ease;
+}
+
+.gene-group-core .gene-chip.is-active {
+  border-color: color-mix(in srgb, var(--red), white 46%);
+  background: color-mix(in srgb, var(--red), white 96%);
+}
+
+.gene-group-adjustable .gene-chip.is-active {
+  border-color: color-mix(in srgb, var(--green), white 48%);
+  background: color-mix(in srgb, var(--green), white 96%);
+}
+
+.gene-chip.is-inactive {
+  border-style: dashed;
+  background: transparent;
+  color: var(--muted);
+  opacity: .68;
+}
+
+.gene-chip:hover {
+  border-color: var(--control-hover);
+  opacity: 1;
+}
+
+.gene-toggle-icon {
+  display: grid;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--surface-soft);
+  color: var(--muted);
+  place-items: center;
+}
+
+.gene-group-core .gene-chip.is-active .gene-toggle-icon {
+  background: var(--red);
+  color: white;
+}
+
+.gene-group-adjustable .gene-chip.is-active .gene-toggle-icon {
+  background: var(--green);
+  color: white;
+}
+
+.gene-toggle-icon svg {
+  width: 12px;
+  height: 12px;
+}
+
+.gene-chip-copy {
+  display: grid;
+  min-width: 0;
+  gap: 1px;
+}
+
+.gene-chip-copy strong {
+  overflow-wrap: anywhere;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.gene-chip-copy small {
+  color: var(--muted);
+  font-size: 9px;
+  line-height: 1.3;
 }
 
 .control-placeholder {
   color: var(--muted);
   font-size: 12px;
-}
-
-.gene-chip button {
-  display: grid;
-  width: 22px;
-  height: 22px;
-  padding: 0;
-  place-items: center;
-  border: 0;
-  border-radius: 50%;
-  background: var(--surface-soft);
-  color: var(--muted);
-}
-
-.gene-chip button svg {
-  width: 12px;
-  height: 12px;
 }
 
 .palette-picker {

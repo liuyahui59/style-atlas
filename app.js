@@ -21,7 +21,7 @@ const state = {
   promptOutputMode: "zh",
   promptOutputs: {},
   promptIntensity: "明显",
-  promptPaletteIndex: 0,
+  promptPaletteIndex: null,
   promptCustomColor: "",
   vocabularySearch: "",
   vocabularyGroup: "all",
@@ -93,10 +93,7 @@ async function ensureViewInitialized(view) {
   } else if (view === "timeline") {
     renderTimeline();
   } else if (view === "prompt") {
-    await Promise.all([
-      loadOptionalScript("prompt-options.js"),
-      loadOptionalScript("prompt-ai-data.js")
-    ]);
+    await loadOptionalScript("prompt-options.js");
     const requestedStyleId = new URLSearchParams(window.location.search).get("style");
     const initialStyleId = getStyle(requestedStyleId) ? requestedStyleId : state.selectedPromptStyleId;
     setPromptStyle(initialStyleId, false);
@@ -129,7 +126,7 @@ function cacheDom() {
   [
     "styleSearch", "resultCount", "styleGrid", "emptyState", "quickFilters", "filterGroups",
     "mobileFilterGroups", "activeFilters", "clearFiltersButton", "emptyResetButton",
-    "favoritesButton", "favoriteCount", "openCompareButton", "compareCount", "compareDock",
+    "headerActions", "favoritesButton", "favoriteCount", "openCompareButton", "compareCount", "compareDock",
     "compareSummary", "compareNowButton", "clearCompareButton", "compareDialog", "compareContent",
     "closeCompareDialog", "detailLayer", "detailDrawer", "detailContent", "detailKicker", "mobileFilterButton", "mobileFilterSheet",
     "timelineAxis", "timelineLanes", "promptSubject", "promptUse", "promptRatio", "intensityControl",
@@ -228,7 +225,7 @@ function bindGlobalEvents() {
     dom.promptUse.value = "海报";
     dom.promptRatio.value = "纵向 2:3";
     state.promptIntensity = "明显";
-    state.promptPaletteIndex = 0;
+    state.promptPaletteIndex = null;
     state.promptCustomColor = "";
     state.promptControls = {};
     setPromptStyle("cyberpunk", false);
@@ -543,7 +540,7 @@ function toggleCompare(id) {
 }
 
 function renderCompareDock() {
-  dom.compareDock.hidden = state.compare.length === 0;
+  dom.compareDock.hidden = state.view !== "atlas" || state.compare.length === 0;
   dom.compareNowButton.disabled = state.compare.length !== 2;
   dom.compareSummary.innerHTML = state.compare.length
     ? state.compare.map((id) => {
@@ -676,7 +673,7 @@ function renderDetail(style) {
   <div class="detail-body">
     <section class="detail-section"><h3>典型视觉倾向</h3><table class="gene-table"><tbody>${rows.map(([name, values]) => `<tr><th>${name}</th><td>${values.join(" · ")}</td></tr>`).join("")}</tbody></table></section>
     <section class="detail-section"><h3>历史脉络</h3><div class="lineage-grid"><div><span>来自</span><strong>${style.influencedBy}</strong></div><div><span>影响</span><strong>${style.influenced}</strong></div></div></section>
-    <section class="detail-section"><h3>视觉语言 Prompt</h3><div class="detail-prompt">${style.aiPrompt?.zh || style.promptZh.join("，")}</div></section>
+    <section class="detail-section"><h3>视觉语言 Prompt</h3><div class="detail-prompt">${buildStylePromptText(style, { language: "zh" })}</div></section>
     <section class="detail-section"><h3>相邻风格</h3><div class="detail-tags">${style.related.map((id) => { const related = getStyle(id); return `<a class="relation-chip" href="${getStylePageHref(id)}" data-related-style="${id}">${related.nameZh}</a>`; }).join("")}</div></section>
   </div>`;
   dom.detailContent.querySelector("[data-use-prompt]").addEventListener("click", async () => {
@@ -724,6 +721,8 @@ function closeMobileFilters() {
 async function switchView(view) {
   if (view !== state.view) trackAnalyticsEvent("view_open", view);
   state.view = view;
+  dom.headerActions.hidden = view !== "atlas";
+  renderCompareDock();
   const activePanel = document.querySelector(`[data-view-panel="${view}"]`);
   document.querySelectorAll("[data-view-panel]").forEach((panel) => {
     const active = panel.dataset.viewPanel === view;
@@ -877,10 +876,11 @@ function timelinePosition(year) {
 
 function setPromptStyle(id, notify = true) {
   const style = getStyle(id);
-  if (!style) return;
+  const promptData = getStylePromptData(id);
+  if (!style || !promptData) return;
   state.selectedPromptStyleId = id;
-  state.promptGenes = style.visualGenes.map((gene) => ({ ...gene, active: true }));
-  state.promptPaletteIndex = 0;
+  state.promptGenes = promptData.genes.map((gene) => ({ ...gene, active: true }));
+  state.promptPaletteIndex = null;
   dom.promptStyleIndicator.textContent = `${style.nameZh} · ${style.nameEn}`;
   renderPromptSelectors();
   renderPromptControls();
@@ -894,19 +894,31 @@ function renderPromptControls() {
   dom.selectedPromptStyle.querySelector("[data-change-style]").addEventListener("click", () => switchView("atlas"));
 
   const activeGenes = state.promptGenes.filter((gene) => gene.active);
-  dom.geneCount.textContent = `${activeGenes.length} 项已启用`;
-  dom.promptGenes.innerHTML = activeGenes.length
-    ? activeGenes.map((gene) => `<span class="gene-chip">${gene.zh}<button data-remove-gene="${gene.zh}" aria-label="移除${gene.zh}"><i data-lucide="x"></i></button></span>`).join("")
-    : `<span class="control-placeholder">风格名称仍会保留，视觉基因已全部关闭</span>`;
-  dom.promptGenes.querySelectorAll("[data-remove-gene]").forEach((button) => button.addEventListener("click", () => {
-    const gene = state.promptGenes.find((item) => item.zh === button.dataset.removeGene);
-    if (gene) gene.active = false;
+  dom.geneCount.textContent = `${activeGenes.length}/${state.promptGenes.length} 已启用`;
+  const groups = [
+    { kind: "core", label: "核心基因", note: "高影响" },
+    { kind: "adjustable", label: "可调整基因", note: "可安全取舍" }
+  ];
+  dom.promptGenes.innerHTML = groups.map((group) => {
+    const genes = state.promptGenes.filter((gene) => gene.kind === group.kind);
+    const activeCount = genes.filter((gene) => gene.active).length;
+    return `<section class="gene-group gene-group-${group.kind}">
+      <div class="gene-group-heading"><strong>${group.label}</strong><span>${group.note} · ${activeCount}/${genes.length}</span></div>
+      <div class="gene-list">${genes.map((gene) => `<button type="button" class="gene-chip ${gene.active ? "is-active" : "is-inactive"}" data-toggle-gene="${gene.id}" aria-pressed="${gene.active}" title="${gene.active ? "关闭" : "重新启用"}${gene.labelZh}">
+        <span class="gene-toggle-icon"><i data-lucide="${gene.active ? "check" : "plus"}"></i></span>
+        <span class="gene-chip-copy"><strong>${gene.labelZh}</strong><small>${gene.dimensionZh}</small></span>
+      </button>`).join("")}</div>
+    </section>`;
+  }).join("");
+  dom.promptGenes.querySelectorAll("[data-toggle-gene]").forEach((button) => button.addEventListener("click", () => {
+    const gene = state.promptGenes.find((item) => item.id === button.dataset.toggleGene);
+    if (gene) gene.active = !gene.active;
     renderPromptControls();
     renderPromptOutput();
   }));
 
   const customColor = state.promptCustomColor || style.palette[0];
-  dom.palettePicker.innerHTML = style.palette.map((color, index) => `<button class="palette-swatch ${state.promptPaletteIndex === index ? "is-active" : ""}" style="background:${color}" data-palette-index="${index}" aria-label="选择色彩 ${color}" title="${color}"></button>`).join("")
+  dom.palettePicker.innerHTML = style.palette.map((color, index) => `<button class="palette-swatch ${state.promptPaletteIndex === index ? "is-active" : ""}" style="background:${color}" data-palette-index="${index}" aria-label="选择强调色 ${color}" title="${color}"></button>`).join("")
     + `<label class="custom-color-picker ${state.promptPaletteIndex === -1 ? "is-active" : ""}" title="自定义颜色">
       <input type="color" value="${customColor}" aria-label="自定义颜色" data-custom-color />
       <i data-lucide="pipette" aria-hidden="true"></i>
@@ -947,44 +959,6 @@ function getActivePromptControls() {
   });
 }
 
-const CONTENT_PROTECTION_ZH = "保持用户指定的主体、数量、动作、场景、身份与叙事关系；用户明确指定的构图、镜头、画幅与文字内容优先；不新增主体、人物、道具或叙事元素。";
-const CONTENT_PROTECTION_EN = "Preserve the user-defined subjects, count, actions, setting, identities, and narrative relationships. User-specified composition, camera, aspect ratio, and exact text take priority. Do not add subjects, props, or story elements.";
-
-function getStylePromptByIntensity(style, language) {
-  const prompt = style.aiPrompt?.[language];
-  if (!prompt) return language === "zh" ? style.promptZh.join("，") : style.promptEn.join(", ");
-  if (state.promptIntensity === "主导") return prompt;
-
-  if (language === "zh") {
-    const replacement = state.promptIntensity === "借鉴"
-      ? `轻度借鉴${style.nameZh}的视觉语言，仅选取少量关键特征，不让风格压过用户内容。`
-      : `以${style.nameZh}作为主要且清晰可识别的视觉风格，同时保持用户内容优先。`;
-    return prompt.replace(`以${style.nameZh}作为唯一主导风格。`, replacement);
-  }
-
-  const replacement = state.promptIntensity === "借鉴"
-    ? `Use a subtle influence from ${style.nameEn}, selecting only a few defining traits without overpowering the user-defined content.`
-    : `Use ${style.nameEn} as the clearly recognizable primary visual style while keeping the user-defined content dominant.`;
-  return prompt.replace(`Use ${style.nameEn} as the sole dominant visual style.`, replacement);
-}
-
-function getReducedGenePrompt(style, activeGenes, language) {
-  if (language === "zh") {
-    const direction = {
-      "借鉴": `轻度借鉴${style.nameZh}的视觉语言`,
-      "明显": `以${style.nameZh}作为清晰可识别的主要视觉风格`,
-      "主导": `以${style.nameZh}作为唯一主导视觉风格`
-    }[state.promptIntensity];
-    return `${CONTENT_PROTECTION_ZH}${direction}；仅应用这些已启用的视觉基因：${activeGenes.map((gene) => gene.zh).join("，") || "不额外应用风格视觉基因"}。`;
-  }
-  const direction = {
-    "借鉴": `Use a subtle influence from ${style.nameEn}`,
-    "明显": `Use ${style.nameEn} as the clearly recognizable primary visual style`,
-    "主导": `Use ${style.nameEn} as the sole dominant visual style`
-  }[state.promptIntensity];
-  return `${CONTENT_PROTECTION_EN} ${direction}, using only these enabled visual genes: ${activeGenes.map((gene) => gene.en).join(", ") || "no additional style-specific visual genes"}.`;
-}
-
 function renderPromptOutput() {
   const style = getStyle(state.selectedPromptStyleId);
   if (!style || !dom.promptSubject) return;
@@ -995,14 +969,14 @@ function renderPromptOutput() {
   const activeControls = getActivePromptControls();
   const color = state.promptPaletteIndex === -1 ? state.promptCustomColor : style.palette[state.promptPaletteIndex];
   const hasColorOverride = activeControls.some((control) => control.id === "color");
-  const includeAccentColor = !hasColorOverride || state.promptPaletteIndex === -1;
-  const hasAllGenes = activeGenes.length === state.promptGenes.length;
-  const stylePromptZh = hasAllGenes
-    ? getStylePromptByIntensity(style, "zh")
-    : getReducedGenePrompt(style, activeGenes, "zh");
-  const stylePromptEn = hasAllGenes
-    ? getStylePromptByIntensity(style, "en")
-    : getReducedGenePrompt(style, activeGenes, "en");
+  const includeAccentColor = state.promptPaletteIndex !== null && (!hasColorOverride || state.promptPaletteIndex === -1);
+  const promptOptions = {
+    intensity: state.promptIntensity,
+    activeGenes,
+    hasOverrides: activeControls.length > 0
+  };
+  const stylePromptZh = buildStylePromptText(style, { ...promptOptions, language: "zh" });
+  const stylePromptEn = buildStylePromptText(style, { ...promptOptions, language: "en" });
 
   const zhParts = [
     subject,
@@ -1024,13 +998,13 @@ function renderPromptOutput() {
   const outputs = {
     zh: zhParts.join("，"),
     en: enParts.join(", "),
-    negative: `避免：${style.aiPrompt?.negative || "与所选风格冲突的构图、配色、材质和时代元素"}，低清晰度，文字乱码，水印，品牌标志`,
-    generation: `${enParts.join(", ")}. Negative prompt: ${style.aiPrompt?.negative || "conflicting visual styles"}, low resolution, illegible text, watermarks, brand logos.`
+    negative: `避免：${buildStyleNegativeText("zh")}`,
+    generation: enParts.join(", ")
   };
   state.promptOutputs = outputs;
   dom.promptResult.value = outputs[state.promptOutputMode];
   const anatomy = [
-    ["主体", "#df3b2e"], ["用途", "#2459d3"], ["视觉基因", "#2f7f62"],
+    ["主体", "#df3b2e"], ["用途", "#2459d3"], ["风格执行", "#2f7f62"],
     ...activeControls.map((control) => [control.label, control.color]),
     ...(includeAccentColor ? [[state.promptPaletteIndex === -1 ? "自定义颜色" : "风格色板", color]] : []),
     ["画幅", "#6c6c66"]

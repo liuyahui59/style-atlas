@@ -7,7 +7,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const siteUrl = "https://styleatlas.art";
 const lastModified = "2026-07-31";
 const checkOnly = process.argv.includes("--check");
-const dataFiles = ["data.js", "data-extra.js", "data-more.js", "visual-genes.js", "prompt-ai-data.js", "artworks.js", "aesthetic-styles.js", "chinese-visual-directions.js"];
+const dataFiles = ["data.js", "data-extra.js", "data-more.js", "visual-genes.js", "artworks.js", "aesthetic-styles.js", "chinese-visual-directions.js", "style-prompt-data.js"];
 
 const context = vm.createContext({});
 for (const file of dataFiles) {
@@ -16,6 +16,13 @@ for (const file of dataFiles) {
 
 const styles = JSON.parse(JSON.stringify(vm.runInContext("STYLE_DATA", context)));
 const stylesById = new Map(styles.map((style) => [style.id, style]));
+const buildPrompt = vm.runInContext("buildStylePromptText", context);
+const buildNegative = vm.runInContext("buildStyleNegativeText", context);
+const stylePromptsById = new Map(styles.map((style) => [style.id, {
+  zh: buildPrompt(style, { language: "zh" }),
+  en: buildPrompt(style, { language: "en" }),
+  negative: buildNegative("zh")
+}]));
 const expectedFiles = new Map();
 
 for (const style of styles) {
@@ -67,6 +74,7 @@ function renderStylePage(style) {
   const optimizedImagePath = getArtworkVariantPath(style, "optimized");
   const thumbnailImagePath = getArtworkVariantPath(style, "thumbs");
   const imageUrl = `${siteUrl}/${optimizedImagePath}`;
+  const promptOutput = stylePromptsById.get(style.id);
   const relatedStyles = style.related.map((id) => stylesById.get(id)).filter(Boolean);
   const coreGuide = buildCoreGuide(style);
   const recognitionAxes = buildRecognitionAxes(style);
@@ -77,7 +85,6 @@ function renderStylePage(style) {
   const comparisonGuides = buildComparisonGuides(style, relatedStyles);
   const mediaTranslations = buildMediaTranslations(style, recognitionAxes);
   const promptParts = buildPromptRecipe(style, recognitionAxes);
-  const negativePrompt = getNegativePrompt(style);
   const promptErrors = buildPromptErrors(style, relatedStyles);
   const historyGuide = buildHistoryGuide(style);
   const keywords = [style.nameZh, style.nameEn, style.type, style.region, ...style.traits, ...style.fields].join(", ");
@@ -271,9 +278,9 @@ function renderStylePage(style) {
               <div class="prompt-parts">
                 ${promptParts.map((part) => `<div><span>${escapeHtml(part.label)}</span><strong>${escapeHtml(part.value)}</strong></div>`).join("\n                ")}
               </div>
-              <div class="prompt-output-block"><span>中文 AI 可执行提示词</span><p>${escapeHtml(style.aiPrompt?.zh || style.promptZh.join("，"))}</p></div>
-              <div class="prompt-output-block"><span>English AI-executable prompt</span><p lang="en">${escapeHtml(style.aiPrompt?.en || style.promptEn.join(", "))}</p></div>
-              <div class="prompt-output-block prompt-negative"><span>具体风格破坏项</span><p>${escapeHtml(style.aiPrompt?.negative || negativePrompt.join("，"))}</p></div>
+              <div class="prompt-output-block"><span>中文 AI 可执行提示词</span><p>${escapeHtml(promptOutput.zh)}</p></div>
+              <div class="prompt-output-block"><span>English AI-executable prompt</span><p lang="en">${escapeHtml(promptOutput.en)}</p></div>
+              <div class="prompt-output-block prompt-negative"><span>通用画面破坏项</span><p>${escapeHtml(promptOutput.negative)}</p></div>
             </section>
 
             <section class="detail-section" id="prompt-errors" aria-labelledby="promptErrorsTitle">

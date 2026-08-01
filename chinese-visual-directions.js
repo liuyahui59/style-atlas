@@ -109,24 +109,14 @@ const CHINESE_VISUAL_DIRECTION_CONFIGS = [
   }
 ];
 
-const CHINESE_VISUAL_DIRECTION_GUARD = "保持用户指定的主体、数量、动作、场景、身份与叙事关系不变；用户明确指定的构图、镜头、画幅与文字内容优先；不新增主体、人物、道具、纹样或叙事元素。";
-
 function createChineseVisualDirection(config) {
   const visualGenes = config.visualGenes.map(([zh, en]) => ({ zh, en }));
-  const controls = config.controls;
   return {
     ...config,
     type: "地域与传统",
     region: "东亚 · 中国",
     track: "东亚视觉传统",
     visualGenes,
-    promptZh: [`${config.nameZh}视觉方向`, ...visualGenes.map((gene) => gene.zh)],
-    promptEn: [`${config.nameEn} visual direction`, ...visualGenes.map((gene) => gene.en)],
-    aiPrompt: {
-      zh: `${CHINESE_VISUAL_DIRECTION_GUARD}以${config.nameZh}作为主导视觉方向。构图：${controls.composition}造型：${controls.form}色彩：${controls.color}光影：${controls.lighting}材质：${controls.material}文字控制：${controls.typography}主体边界：${controls.boundary}`,
-      en: `Preserve the user-defined subjects, count, actions, setting, identities, and narrative relationships. User-specified composition, camera, aspect ratio, and exact text take priority. Do not add subjects, people, props, motifs, or story elements. Use ${config.nameEn} as the dominant visual direction. Required execution details: ${visualGenes.map((gene) => gene.en).join(", ")}. Apply typography only when the user requests text and preserve the exact wording.`,
-      negative: controls.negative
-    },
     artwork: { src: `assets/artworks/${config.id}.png` }
   };
 }

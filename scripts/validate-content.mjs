@@ -2,36 +2,53 @@ import { readFile } from "node:fs/promises";
 import vm from "node:vm";
 
 const root = new URL("../", import.meta.url);
-const source = `${await readFile(new URL("data.js", root), "utf8")}\n${await readFile(new URL("data-extra.js", root), "utf8")}\n${await readFile(new URL("data-more.js", root), "utf8")}\n${await readFile(new URL("visual-genes.js", root), "utf8")}\n${await readFile(new URL("prompt-ai-data.js", root), "utf8")}\n${await readFile(new URL("artworks.js", root), "utf8")}\n${await readFile(new URL("aesthetic-styles.js", root), "utf8")}\n${await readFile(new URL("chinese-visual-directions.js", root), "utf8")}\n${await readFile(new URL("prompt-options.js", root), "utf8")}\n${await readFile(new URL("visual-vocabulary-mechanics.js", root), "utf8")}\n${await readFile(new URL("visual-vocabulary.js", root), "utf8")}\nglobalThis.result = { STYLE_DATA, FILTER_GROUPS, PROMPT_CONTROL_GROUPS, VISUAL_VOCABULARY_GROUPS, VISUAL_VOCABULARY_COUNT };`;
+const sourceFiles = [
+  "data.js", "data-extra.js", "data-more.js", "visual-genes.js", "artworks.js",
+  "aesthetic-styles.js", "chinese-visual-directions.js", "style-prompt-data.js",
+  "prompt-options.js", "visual-vocabulary-mechanics.js", "visual-vocabulary.js"
+];
+const source = `${(await Promise.all(sourceFiles.map((file) => readFile(new URL(file, root), "utf8")))).join("\n")}\nglobalThis.result = {
+  STYLE_DATA,
+  STYLE_PROMPT_DATA,
+  FILTER_GROUPS,
+  PROMPT_CONTROL_GROUPS,
+  VISUAL_VOCABULARY_GROUPS,
+  VISUAL_VOCABULARY_COUNT,
+  buildStylePromptText,
+  buildStyleNegativeText
+};`;
 const context = {};
 vm.createContext(context);
 vm.runInContext(source, context);
 
-const { STYLE_DATA, PROMPT_CONTROL_GROUPS, VISUAL_VOCABULARY_GROUPS, VISUAL_VOCABULARY_COUNT } = context.result;
+const {
+  STYLE_DATA,
+  STYLE_PROMPT_DATA,
+  PROMPT_CONTROL_GROUPS,
+  VISUAL_VOCABULARY_GROUPS,
+  VISUAL_VOCABULARY_COUNT,
+  buildStylePromptText,
+  buildStyleNegativeText
+} = context.result;
 const ids = new Set(STYLE_DATA.map((style) => style.id));
 const errors = [];
 const forbiddenVisualGeneTermsZh = ["人物", "角色", "人体", "动物", "鸟类", "花卉", "花朵", "藤蔓", "面具", "走廊", "门窗", "城市", "建筑物", "飞船", "宇航服", "书架", "旧书", "眼睛", "怪物", "废墟", "街道", "雕像", "棕榈", "齿轮", "管道", "山水", "庭院"];
 const forbiddenVisualGeneTermsEn = ["person", "people", "human", "character", "animal", "bird", "flower", "vine", "mask", "corridor", "doorway", "city", "building", "spacecraft", "spacesuit", "bookshelf", "book", "creature", "ruin", "street", "statue", "palm", "gear", "pipe", "landscape", "garden", "wall"];
 const genericPromptTerms = ["高质量", "杰作", "高级感", "震撼", "精致完成度", "清晰视觉层级", "高细节", "high quality", "best quality", "masterpiece", "award-winning", "refined finish", "highly detailed", "ultra-detailed", "high-detail", "visual impact"];
+const legacyPromptFields = ["prompt", "promptZh", "promptEn", "aiPrompt", "visualSpec"];
 
 if (STYLE_DATA.length !== 123) errors.push(`Expected 123 styles, found ${STYLE_DATA.length}`);
 if (ids.size !== STYLE_DATA.length) errors.push("Duplicate style ids found");
 
 for (const style of STYLE_DATA) {
-  const required = ["id", "nameZh", "nameEn", "type", "period", "region", "track", "summary", "recognition", "genes", "visualGenes", "palette", "promptZh", "promptEn"];
+  const required = ["id", "nameZh", "nameEn", "type", "period", "region", "track", "summary", "recognition", "genes", "visualGenes", "palette"];
   required.forEach((field) => {
     if (!style[field]) errors.push(`${style.id}: missing ${field}`);
   });
-  if (style.promptZh?.length !== style.promptEn?.length || style.promptZh?.length < 5) {
-    errors.push(`${style.id}: invalid prompt pairs`);
-  }
+  legacyPromptFields.forEach((field) => {
+    if (field in style) errors.push(`${style.id}: legacy prompt field ${field} must not exist`);
+  });
   if (!style.visualGenes?.length) errors.push(`${style.id}: missing core visual genes`);
-  if (JSON.stringify(style.promptZh.slice(1)) !== JSON.stringify(style.visualGenes.map((gene) => gene.zh))) {
-    errors.push(`${style.id}: Chinese prompt is not derived from visual genes`);
-  }
-  if (JSON.stringify(style.promptEn.slice(1)) !== JSON.stringify(style.visualGenes.map((gene) => gene.en))) {
-    errors.push(`${style.id}: English prompt is not derived from visual genes`);
-  }
   const visualGenePairs = new Set();
   (style.visualGenes || []).forEach((gene, index) => {
     if (!gene.zh?.trim() || !gene.en?.trim()) errors.push(`${style.id}: incomplete visual gene ${index}`);
@@ -55,6 +72,76 @@ for (const style of STYLE_DATA) {
     if (!ids.has(relatedId)) errors.push(`${style.id}: unknown related style ${relatedId}`);
   });
 }
+
+const promptEntries = Object.entries(STYLE_PROMPT_DATA);
+if (promptEntries.length !== STYLE_DATA.length) errors.push(`Expected ${STYLE_DATA.length} unified prompts, found ${promptEntries.length}`);
+const promptLengths = [];
+for (const style of STYLE_DATA) {
+  const prompt = STYLE_PROMPT_DATA[style.id];
+  if (!prompt) {
+    errors.push(`${style.id}: missing unified prompt data`);
+    continue;
+  }
+  if (!Array.isArray(prompt.genes) || prompt.genes.length < 3) {
+    errors.push(`${style.id}: expected at least 3 weighted prompt genes`);
+    continue;
+  }
+  const coreGenes = prompt.genes.filter((gene) => gene.kind === "core");
+  const adjustableGenes = prompt.genes.filter((gene) => gene.kind === "adjustable");
+  if (!coreGenes.length) errors.push(`${style.id}: missing core prompt genes`);
+  if (!adjustableGenes.length) errors.push(`${style.id}: missing adjustable prompt genes`);
+  const geneLabels = new Set();
+  const geneIds = new Set();
+  prompt.genes.forEach((gene, index) => {
+    const requiredGeneFields = ["id", "kind", "dimension", "dimensionZh", "labelZh", "labelEn", "promptZh", "promptEn", "level"];
+    requiredGeneFields.forEach((field) => {
+      if (!gene[field]?.trim()) errors.push(`${style.id}: prompt gene ${index} missing ${field}`);
+    });
+    if (!["core", "adjustable"].includes(gene.kind)) errors.push(`${style.id}: invalid prompt gene kind ${gene.kind}`);
+    if (geneIds.has(gene.id)) errors.push(`${style.id}: duplicate prompt gene id ${gene.id}`);
+    geneIds.add(gene.id);
+    if (!Number.isFinite(gene.weight) || gene.weight <= 0 || gene.weight > 1) errors.push(`${style.id}: invalid prompt gene weight ${index}`);
+    if (gene.promptZh === gene.labelZh || gene.promptEn === gene.labelEn) errors.push(`${style.id}: prompt gene ${index} copies its human label without model instructions`);
+    for (const label of [gene.labelZh?.trim(), gene.labelEn?.trim()]) {
+      if (!label) continue;
+      if (geneLabels.has(label)) errors.push(`${style.id}: duplicate prompt gene label ${label}`);
+      geneLabels.add(label);
+    }
+  });
+  for (const group of [coreGenes, adjustableGenes]) {
+    group.forEach((gene, index) => {
+      if (index > 0 && gene.weight > group[index - 1].weight) errors.push(`${style.id}: ${gene.kind} prompt gene weights are not descending`);
+    });
+  }
+
+  const fullPromptZh = buildStylePromptText(style, { language: "zh", activeGenes: prompt.genes });
+  const fullPromptEn = buildStylePromptText(style, { language: "en", activeGenes: prompt.genes });
+  prompt.genes.forEach((gene) => {
+    const remainingGenes = prompt.genes.filter((item) => item.id !== gene.id);
+    const reducedPromptZh = buildStylePromptText(style, { language: "zh", activeGenes: remainingGenes });
+    const reducedPromptEn = buildStylePromptText(style, { language: "en", activeGenes: remainingGenes });
+    if (!fullPromptZh.includes(gene.promptZh)) errors.push(`${style.id}: full prompt does not include mapped instruction for ${gene.id}`);
+    if (!fullPromptEn.includes(gene.promptEn)) errors.push(`${style.id}: full English prompt does not include mapped instruction for ${gene.id}`);
+    if (reducedPromptZh.includes(gene.promptZh) || reducedPromptEn.includes(gene.promptEn)) errors.push(`${style.id}: disabling ${gene.id} does not remove its mapped instruction`);
+    if (reducedPromptZh === fullPromptZh || reducedPromptEn === fullPromptEn) errors.push(`${style.id}: disabling ${gene.id} does not change both prompts`);
+  });
+
+  for (const language of ["zh", "en"]) {
+    for (const intensity of ["借鉴", "明显", "主导"]) {
+      const text = buildStylePromptText(style, { language, intensity });
+      if (!text.trim()) errors.push(`${style.id}: empty ${language} prompt at ${intensity} intensity`);
+      if (language === "zh" && !text.endsWith("。")) errors.push(`${style.id}: Chinese prompt has incorrect terminal punctuation`);
+      if (language === "en" && !text.endsWith(".")) errors.push(`${style.id}: English prompt has incorrect terminal punctuation`);
+      if (/禁止新增主体|不新增主体|必须同时满足/.test(text)) errors.push(`${style.id}: default prompt contains an over-restrictive instruction`);
+      if (text.includes(buildStyleNegativeText(language))) errors.push(`${style.id}: negative prompt leaked into positive prompt`);
+      if (language === "zh" && intensity === "明显") promptLengths.push(text.length);
+    }
+  }
+}
+const unknownPromptIds = promptEntries.map(([id]) => id).filter((id) => !ids.has(id));
+if (unknownPromptIds.length) errors.push(`Unknown unified prompt ids: ${unknownPromptIds.join(", ")}`);
+const averagePromptLength = promptLengths.reduce((sum, length) => sum + length, 0) / promptLengths.length;
+if (averagePromptLength > 300) errors.push(`Average Chinese prompt is too long: ${averagePromptLength.toFixed(1)} characters`);
 
 const requiredControls = ["composition", "viewpoint", "shot", "lens", "depth", "lighting", "color", "form", "medium", "texture", "mood"];
 const controlIds = PROMPT_CONTROL_GROUPS.map((group) => group.id);

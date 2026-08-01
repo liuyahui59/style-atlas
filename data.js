@@ -24,8 +24,6 @@ const STYLE_DATA = [
     related: ["ukiyo-e", "swiss"],
     palette: ["#20201d", "#ddd9cd", "#a14b37"],
     art: "ink",
-    promptZh: ["文人水墨意境", "散点构图", "大面积留白", "墨色浓淡变化", "书写性笔触", "宣纸肌理"],
-    promptEn: ["literati ink painting sensibility", "shifting perspective", "generous negative space", "tonal ink washes", "calligraphic brushwork", "xuan paper texture"]
   },
   {
     id: "islamic-geometry",
@@ -52,8 +50,6 @@ const STYLE_DATA = [
     related: ["art-nouveau", "bauhaus"],
     palette: ["#165f73", "#d6a84c", "#9f3f35"],
     art: "islamic",
-    promptZh: ["伊斯兰几何装饰", "精密星形镶嵌", "中心对称", "连续互锁图案", "钴蓝与金色", "釉面砖质感"],
-    promptEn: ["Islamic geometric ornament", "precise star tessellation", "radial symmetry", "interlocking pattern", "cobalt blue and gold", "glazed tile texture"]
   },
   {
     id: "renaissance",
@@ -80,8 +76,6 @@ const STYLE_DATA = [
     related: ["baroque", "impressionism"],
     palette: ["#8e4b35", "#315477", "#c7a46a"],
     art: "renaissance",
-    promptZh: ["文艺复兴绘画语境", "稳定三角构图", "精确线性透视", "理想化人体比例", "柔和明暗塑造", "油画薄涂质感"],
-    promptEn: ["Renaissance painting context", "stable triangular composition", "precise linear perspective", "idealized human proportions", "soft chiaroscuro modeling", "layered oil glaze texture"]
   },
   {
     id: "baroque",
@@ -108,8 +102,6 @@ const STYLE_DATA = [
     related: ["renaissance", "surrealism"],
     palette: ["#1d1717", "#8f2d28", "#c49b4b"],
     art: "baroque",
-    promptZh: ["巴洛克戏剧性", "强烈对角线运动", "聚光式明暗对照", "深暗背景", "酒红与金色", "厚重油画质感"],
-    promptEn: ["Baroque theatricality", "strong diagonal movement", "spotlit chiaroscuro", "deep dark background", "wine red and gold", "rich impasto oil texture"]
   },
   {
     id: "ukiyo-e",
@@ -136,8 +128,6 @@ const STYLE_DATA = [
     related: ["art-nouveau", "impressionism"],
     palette: ["#1b4b6c", "#d6533c", "#e8d8b8"],
     art: "ukiyo",
-    promptZh: ["浮世绘木版画", "大胆边缘裁切", "平面套色色块", "清晰墨线", "靛蓝与朱红", "和纸印刷纹理"],
-    promptEn: ["ukiyo-e woodblock print", "bold edge cropping", "flat registered color fields", "crisp ink outlines", "indigo and vermilion", "washi print texture"]
   },
   {
     id: "impressionism",
@@ -164,8 +154,6 @@ const STYLE_DATA = [
     related: ["ukiyo-e", "renaissance"],
     palette: ["#7da3c7", "#9ab77a", "#e2b85c"],
     art: "impressionism",
-    promptZh: ["印象主义绘画", "开放式瞬间构图", "破碎短笔触", "户外自然光", "彩色阴影", "明亮空气感"],
-    promptEn: ["Impressionist painting", "open momentary composition", "broken short brushstrokes", "plein-air daylight", "colored shadows", "luminous atmosphere"]
   },
   {
     id: "art-nouveau",
@@ -192,8 +180,6 @@ const STYLE_DATA = [
     related: ["ukiyo-e", "islamic-geometry"],
     palette: ["#5f7550", "#b96c49", "#d2b56c"],
     art: "nouveau",
-    promptZh: ["新艺术运动海报", "鞭状植物曲线", "装饰边框", "图文一体", "橄榄绿与柔金", "复古平版印刷"],
-    promptEn: ["Art Nouveau poster", "whiplash botanical curves", "ornamental border", "integrated image and lettering", "olive green and soft gold", "vintage lithographic print"]
   },
   {
     id: "constructivism",
@@ -220,8 +206,6 @@ const STYLE_DATA = [
     related: ["bauhaus", "swiss"],
     palette: ["#df2e24", "#171715", "#e7dfca"],
     art: "constructivism",
-    promptZh: ["构成主义平面设计", "强烈斜向构图", "几何形与摄影拼贴", "红黑高对比", "粗体无衬线文字", "粗粝印刷质感"],
-    promptEn: ["Constructivist graphic design", "forceful diagonal composition", "geometric forms and photomontage", "red black high contrast", "bold sans-serif typography", "rough print texture"]
   },
   {
     id: "bauhaus",
@@ -248,8 +232,6 @@ const STYLE_DATA = [
     related: ["constructivism", "swiss"],
     palette: ["#d93a2f", "#efbd2f", "#2459a9"],
     art: "bauhaus",
-    promptZh: ["包豪斯设计语言", "圆方三角基础形", "功能主义非对称版式", "红黄蓝原色", "几何无衬线字体", "平面印刷"],
-    promptEn: ["Bauhaus design language", "circle square triangle primitives", "functional asymmetrical layout", "red yellow blue primaries", "geometric sans-serif typography", "flat print finish"]
   },
   {
     id: "surrealism",
@@ -276,8 +258,6 @@ const STYLE_DATA = [
     related: ["baroque", "pop-art"],
     palette: ["#7a9fbb", "#d0b27b", "#9e514a"],
     art: "surrealism",
-    promptZh: ["超现实主义梦境", "空旷舞台式构图", "日常物体反常组合", "尺度错置", "冷静写实光线", "低饱和神秘色彩"],
-    promptEn: ["Surrealist dreamscape", "empty stage-like composition", "uncanny combination of ordinary objects", "dislocated scale", "cool realistic lighting", "muted mysterious palette"]
   },
   {
     id: "swiss",
@@ -304,8 +284,6 @@ const STYLE_DATA = [
     related: ["bauhaus", "constructivism"],
     palette: ["#f2f2ef", "#161616", "#e04435"],
     art: "swiss",
-    promptZh: ["瑞士国际主义海报", "严格模数网格", "左对齐无衬线排版", "大面积留白", "黑白与单一红色强调", "客观信息层级"],
-    promptEn: ["International Typographic Style poster", "strict modular grid", "left-aligned sans-serif typography", "generous negative space", "black white with one red accent", "objective information hierarchy"]
   },
   {
     id: "pop-art",
@@ -332,8 +310,6 @@ const STYLE_DATA = [
     related: ["surrealism", "memphis"],
     palette: ["#f13b2d", "#f2d43d", "#1f65c1"],
     art: "pop",
-    promptZh: ["波普艺术海报", "漫画式近距离裁切", "粗黑轮廓", "高饱和原色", "半调网点", "丝网印刷质感"],
-    promptEn: ["Pop Art poster", "comic-style close crop", "heavy black outlines", "saturated primary colors", "halftone dots", "screen-print texture"]
   },
   {
     id: "memphis",
@@ -360,8 +336,6 @@ const STYLE_DATA = [
     related: ["pop-art", "y2k"],
     palette: ["#ec4c81", "#28a99a", "#f2cc34"],
     art: "memphis",
-    promptZh: ["孟菲斯设计", "碎片化不对称构图", "彩色几何积木", "波浪线与点阵", "亮粉青绿与黄色", "俏皮塑料质感"],
-    promptEn: ["Memphis design", "fragmented asymmetrical composition", "colorful geometric blocks", "squiggles and dotted patterns", "hot pink teal and yellow", "playful laminate texture"]
   },
   {
     id: "brutalism",
@@ -388,8 +362,6 @@ const STYLE_DATA = [
     related: ["swiss", "y2k"],
     palette: ["#f0ef3d", "#171715", "#f7f7f4"],
     art: "brutalism",
-    promptZh: ["数字新粗野主义", "裸露块状网格", "巨大系统字体", "粗黑边框", "荧光黄与黑白", "直接无修饰界面感"],
-    promptEn: ["digital neo-brutalism", "exposed block grid", "oversized system typography", "heavy black borders", "acid yellow black and white", "raw unpolished interface aesthetic"]
   },
   {
     id: "y2k",
@@ -416,8 +388,6 @@ const STYLE_DATA = [
     related: ["memphis", "brutalism"],
     palette: ["#b9c7d6", "#65d6e8", "#c8ee52"],
     art: "y2k",
-    promptZh: ["Y2K 未来复古", "中心悬浮构图", "液态镀铬形体", "半透明塑料界面", "冰蓝与荧光绿", "早期数字高光"],
-    promptEn: ["Y2K retrofuturism", "centered floating composition", "liquid chrome forms", "translucent plastic interface", "ice blue and acid green", "early digital glossy highlights"]
   }
 ];
 

@@ -110,6 +110,4 @@ if (missingVisualGenes.length || unusedVisualGenes.length) {
 
 STYLE_DATA.forEach((style) => {
   style.visualGenes = STYLE_VISUAL_GENES[style.id].map(([zh, en]) => ({ zh, en }));
-  style.promptZh = [`${style.nameZh}视觉语言`, ...style.visualGenes.map((gene) => gene.zh)];
-  style.promptEn = [`${style.nameEn} visual language`, ...style.visualGenes.map((gene) => gene.en)];
 });

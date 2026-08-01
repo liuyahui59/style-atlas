@@ -46,6 +46,7 @@
     <script src="artworks.js" defer></script>
     <script src="aesthetic-styles.js" defer></script>
     <script src="chinese-visual-directions.js" defer></script>
+    <script src="style-prompt-data.js" defer></script>
     <script src="app.js" defer></script>
     <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" async fetchpriority="low" onload="window.refreshIcons?.()"></script>
   </head>
@@ -62,7 +63,7 @@
           <button class="nav-item" data-view="timeline">时间脉络</button>
           <button class="nav-item" data-view="prompt">Prompt 工坊</button>
         </nav>
-        <div class="header-actions">
+        <div class="header-actions" id="headerActions">
           <button class="icon-button" id="favoritesButton" aria-label="只看收藏" title="只看收藏">
             <i data-lucide="bookmark"></i><span class="action-count" id="favoriteCount">0</span>
           </button>
@@ -236,7 +237,7 @@
                   <label>视觉基因</label>
                   <span id="geneCount"></span>
                 </div>
-                <div class="gene-list" id="promptGenes"></div>
+                <div class="gene-groups" id="promptGenes"></div>
               </div>
               <div class="field-group">
                 <label>风格色板</label>

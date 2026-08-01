@@ -947,6 +947,7 @@ function getNegativePrompt(style) {
 function renderSitemap() {
   const entries = [
     { path: "/", changefreq: "weekly", priority: "1.0" },
+    { path: "/mixer.html", changefreq: "weekly", priority: "0.9" },
     { path: "/styles/", changefreq: "weekly", priority: "0.9" },
     ...styles.map((style) => ({ path: `/styles/${style.id}/`, changefreq: "monthly", priority: "0.8" }))
   ];

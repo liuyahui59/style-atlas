@@ -259,9 +259,14 @@
                   <button data-output="en" role="tab" aria-selected="false">English</button>
                   <button data-output="negative" role="tab" aria-selected="false">排除项</button>
                 </div>
-                <button class="icon-button" id="copyPromptButton" aria-label="复制 Prompt" title="复制 Prompt">
-                  <i data-lucide="copy"></i>
-                </button>
+                <div class="output-heading-actions">
+                  <a class="secondary-button mixer-entry-button" id="openMixerButton" href="mixer.html?primary=cyberpunk" aria-label="用当前风格打开风格混合器">
+                    <i data-lucide="blend"></i><span>风格混合器</span>
+                  </a>
+                  <button class="icon-button" id="copyPromptButton" aria-label="复制 Prompt" title="复制 Prompt">
+                    <i data-lucide="copy"></i>
+                  </button>
+                </div>
               </div>
               <textarea id="promptResult" readonly aria-label="生成的 Prompt"></textarea>
               <div class="prompt-anatomy" id="promptAnatomy"></div>

@@ -131,7 +131,7 @@ function cacheDom() {
     "closeCompareDialog", "detailLayer", "detailDrawer", "detailContent", "detailKicker", "mobileFilterButton", "mobileFilterSheet",
     "timelineAxis", "timelineLanes", "promptSubject", "promptUse", "promptRatio", "intensityControl",
     "selectedPromptStyle", "promptGenes", "geneCount", "palettePicker", "promptControls", "controlCount", "promptResult",
-    "promptAnatomy", "copyPromptButton", "generateImageButton", "generateImageLabel", "resetPromptButton",
+    "promptAnatomy", "openMixerButton", "copyPromptButton", "generateImageButton", "generateImageLabel", "resetPromptButton",
     "imageResult", "imageGenerationStatus", "imageStage", "imageStageState", "imageStateTitle", "imageStateText",
     "generatedImage", "downloadImageButton",
     "browseStylesButton", "promptStyleIndicator", "timelineViewport", "timelineCanvas",
@@ -882,6 +882,7 @@ function setPromptStyle(id, notify = true) {
   state.promptGenes = promptData.genes.map((gene) => ({ ...gene, active: true }));
   state.promptPaletteIndex = null;
   dom.promptStyleIndicator.textContent = `${style.nameZh} · ${style.nameEn}`;
+  dom.openMixerButton.href = `mixer.html?primary=${encodeURIComponent(style.id)}`;
   renderPromptSelectors();
   renderPromptControls();
   renderPromptOutput();

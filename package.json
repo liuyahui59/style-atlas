@@ -7,6 +7,6 @@
     "build:styles": "node scripts/generate-style-pages.mjs",
     "dev": "node --env-file-if-exists=.env.local server.mjs",
     "start": "node --env-file-if-exists=.env.local server.mjs",
-    "check": "node --check app.js && node --check server.mjs && node --check scripts/generate-style-pages.mjs && node --check scripts/validate-style-pages.mjs && node scripts/generate-prompt-data.mjs --check && node scripts/validate-content.mjs && node scripts/validate-progressive-loading.mjs && node scripts/generate-style-pages.mjs --check && node scripts/validate-style-pages.mjs"
+    "check": "node --check app.js && node --check mixer.js && node --check server.mjs && node --check scripts/generate-style-pages.mjs && node --check scripts/validate-style-pages.mjs && node scripts/generate-prompt-data.mjs --check && node scripts/validate-content.mjs && node scripts/validate-mixer.mjs && node scripts/validate-progressive-loading.mjs && node scripts/generate-style-pages.mjs --check && node scripts/validate-style-pages.mjs"
   }
 }

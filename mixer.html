@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="风格谱风格混合器：按视觉维度融合两种风格，生成可控制、可复现的 AI 绘图 Prompt。" />
+    <meta name="theme-color" content="#f3f3f0" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <title>风格混合器 · 风格谱 Style Atlas</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="data.js" defer></script>
+    <script src="data-extra.js" defer></script>
+    <script src="data-more.js" defer></script>
+    <script src="visual-genes.js" defer></script>
+    <script src="artworks.js" defer></script>
+    <script src="aesthetic-styles.js" defer></script>
+    <script src="chinese-visual-directions.js" defer></script>
+    <script src="style-prompt-data.js" defer></script>
+    <script src="mixer.js" defer></script>
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" async fetchpriority="low" onload="window.refreshMixerIcons?.()"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="site-header">
+        <a class="brand" href="index.html#atlas" aria-label="风格谱首页">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span><b>风格谱</b><small>STYLE ATLAS</small></span>
+        </a>
+        <nav class="primary-nav" aria-label="主要导航">
+          <a class="nav-item" href="index.html#atlas">风格图鉴</a>
+          <a class="nav-item" href="index.html#dictionary">视觉词典</a>
+          <a class="nav-item" href="index.html#timeline">时间脉络</a>
+          <a class="nav-item is-active" href="index.html#prompt" aria-current="page">Prompt 工坊</a>
+        </nav>
+        <div class="header-actions">
+          <a class="icon-button" href="index.html#prompt" aria-label="返回 Prompt 工坊" title="返回 Prompt 工坊">
+            <i data-lucide="arrow-left"></i>
+          </a>
+        </div>
+      </header>
+
+      <main>
+        <section class="mixer-header page-band">
+          <p class="eyebrow">STYLE MIXER</p>
+          <div class="page-title-row">
+            <h1>风格混合器</h1>
+            <span class="saved-indicator" id="mixStatusBadge">可控融合</span>
+          </div>
+        </section>
+
+        <div class="mixer-layout page-band">
+          <section class="mixer-config" aria-label="风格混合配置">
+            <div class="field-group">
+              <label for="mixSubject">创作主体</label>
+              <input id="mixSubject" type="text" value="未来城市音乐节" autocomplete="off" />
+            </div>
+            <div class="form-grid">
+              <div class="field-group">
+                <label for="mixUse">用途</label>
+                <span class="select-control">
+                  <select id="mixUse">
+                    <option value="海报">海报</option>
+                    <option value="品牌视觉">品牌视觉</option>
+                    <option value="插画">插画</option>
+                    <option value="数字界面">数字界面</option>
+                    <option value="空间概念">空间概念</option>
+                  </select>
+                  <i data-lucide="chevron-down" aria-hidden="true"></i>
+                </span>
+              </div>
+              <div class="field-group">
+                <label for="mixRatio">画幅</label>
+                <span class="select-control">
+                  <select id="mixRatio">
+                    <option value="纵向 2:3">纵向 2:3</option>
+                    <option value="横向 16:9">横向 16:9</option>
+                    <option value="方形 1:1">方形 1:1</option>
+                  </select>
+                  <i data-lucide="chevron-down" aria-hidden="true"></i>
+                </span>
+              </div>
+            </div>
+
+            <section class="mix-role" aria-labelledby="primaryStyleLabel">
+              <div class="mix-role-heading">
+                <span class="mix-role-index">01</span>
+                <div><strong id="primaryStyleLabel">主风格</strong><small>整体身份与核心结构</small></div>
+              </div>
+              <div class="field-group">
+                <label for="primaryStyleSearch">选择风格</label>
+                <div class="style-combobox" data-style-combobox="primary">
+                  <input id="primaryStyleSearch" type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="primaryStyleMenu" placeholder="搜索或选择风格" autocomplete="off" />
+                  <button class="style-combobox-toggle" type="button" data-combobox-toggle="primary" aria-label="展开主风格列表" title="展开风格列表">
+                    <i data-lucide="chevron-down" aria-hidden="true"></i>
+                  </button>
+                  <div class="style-combobox-menu" id="primaryStyleMenu" role="listbox" aria-label="主风格选项" hidden></div>
+                </div>
+              </div>
+              <div class="mix-style-preview" id="primaryStylePreview"></div>
+            </section>
+
+            <div class="mix-bridge" aria-hidden="true">
+              <span></span><i data-lucide="plus"></i><span></span>
+            </div>
+
+            <section class="mix-role mix-role-accent" aria-labelledby="accentStyleLabel">
+              <div class="mix-role-heading">
+                <span class="mix-role-index">02</span>
+                <div><strong id="accentStyleLabel">辅助风格</strong><small>只影响选定视觉维度</small></div>
+                <button class="icon-button" id="swapStylesButton" aria-label="交换主风格与辅助风格" title="交换风格">
+                  <i data-lucide="arrow-up-down"></i>
+                </button>
+              </div>
+              <div class="field-group">
+                <label for="accentStyleSearch">选择风格</label>
+                <div class="style-combobox" data-style-combobox="accent">
+                  <input id="accentStyleSearch" type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="accentStyleMenu" placeholder="搜索或选择风格" autocomplete="off" />
+                  <button class="style-combobox-toggle" type="button" data-combobox-toggle="accent" aria-label="展开辅助风格列表" title="展开风格列表">
+                    <i data-lucide="chevron-down" aria-hidden="true"></i>
+                  </button>
+                  <div class="style-combobox-menu" id="accentStyleMenu" role="listbox" aria-label="辅助风格选项" hidden></div>
+                </div>
+              </div>
+              <div class="mix-style-preview" id="accentStylePreview"></div>
+              <fieldset class="field-group mix-strength-field">
+                <legend>辅助风格强度</legend>
+                <div class="segmented" id="mixStrengthControl">
+                  <button data-strength="轻度">轻度</button>
+                  <button class="is-active" data-strength="明显">明显</button>
+                </div>
+              </fieldset>
+            </section>
+
+            <div class="field-group mix-dimensions-field">
+              <div class="field-label-row">
+                <label>辅助风格接管维度</label>
+                <span id="mixDimensionCount">0 项已选择</span>
+              </div>
+              <div class="mix-dimension-list" id="mixDimensionList"></div>
+            </div>
+
+            <section class="mix-check" id="mixCheck" aria-live="polite"></section>
+          </section>
+
+          <section class="prompt-output mixer-output" aria-label="融合 Prompt">
+            <div class="output-heading">
+              <div class="output-tabs" role="tablist" aria-label="Prompt 语言">
+                <button class="is-active" data-mix-output="zh" role="tab" aria-selected="true">中文</button>
+                <button data-mix-output="en" role="tab" aria-selected="false">English</button>
+                <button data-mix-output="negative" role="tab" aria-selected="false">排除项</button>
+              </div>
+              <button class="icon-button" id="copyMixPromptButton" aria-label="复制融合 Prompt" title="复制 Prompt">
+                <i data-lucide="copy"></i>
+              </button>
+            </div>
+            <textarea id="mixPromptResult" readonly aria-label="生成的融合 Prompt"></textarea>
+            <div class="prompt-anatomy" id="mixPromptAnatomy"></div>
+            <section class="mix-structure" aria-labelledby="mixStructureTitle">
+              <div class="mix-structure-heading">
+                <h2 id="mixStructureTitle">融合结构</h2>
+                <span id="mixStructureRatio">主导 / 从属</span>
+              </div>
+              <div id="mixStructureContent"></div>
+            </section>
+            <div class="output-actions">
+              <button class="secondary-button" id="resetMixerButton"><i data-lucide="rotate-ccw"></i>重置</button>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <span>风格谱 · 原型 0.2</span>
+        <span class="footer-note">风格混合按视觉维度重新编排 Prompt。</span>
+        <a class="footer-feedback" href="mailto:liuyahui59@qq.com?subject=%E9%A3%8E%E6%A0%BC%E8%B0%B1%E4%BD%BF%E7%94%A8%E5%8F%8D%E9%A6%88">
+          <i data-lucide="mail" aria-hidden="true"></i><span>发现问题或有建议？欢迎来信</span>
+        </a>
+      </footer>
+    </div>
+    <div class="toast" id="mixerToast" role="status" aria-live="polite"></div>
+  </body>
+</html>

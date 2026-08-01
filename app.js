@@ -30,7 +30,7 @@ const state = {
 };
 
 const labels = {
-  type: "主类型",
+  type: "风格分类",
   region: "地域",
   traits: "视觉特征",
   fields: "应用领域",
@@ -343,7 +343,7 @@ function renderQuickFilters() {
 }
 
 function renderFilterGroups() {
-  const groupName = { type: "主类型", region: "地域", traits: "视觉特征", fields: "应用领域" };
+  const groupName = { type: "风格分类", region: "地域", traits: "视觉特征", fields: "应用领域" };
   const markup = Object.entries(FILTER_GROUPS).map(([group, options]) => {
     return `<section class="filter-group"><h3>${groupName[group]}</h3><div class="filter-options">${options.map((option) => {
       const count = STYLE_DATA.filter((style) => group === "traits" || group === "fields" ? style[group].includes(option) : style[group] === option || (group === "type" && style.type === option)).length;

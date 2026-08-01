@@ -31,7 +31,7 @@ const seenTitles = new Set();
 const seenDescriptions = new Set();
 const seenCanonicals = new Set();
 
-if (pagePaths.length !== 111) failures.push(`Expected 111 detail pages, found ${pagePaths.length}`);
+if (pagePaths.length !== 123) failures.push(`Expected 123 detail pages, found ${pagePaths.length}`);
 
 for (const pagePath of pagePaths) {
   const html = await readFile(pagePath, "utf8");

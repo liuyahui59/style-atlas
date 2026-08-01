@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import vm from "node:vm";
 
 const root = new URL("../", import.meta.url);
-const source = `${await readFile(new URL("data.js", root), "utf8")}\n${await readFile(new URL("data-extra.js", root), "utf8")}\n${await readFile(new URL("data-more.js", root), "utf8")}\n${await readFile(new URL("visual-genes.js", root), "utf8")}\n${await readFile(new URL("aesthetic-styles.js", root), "utf8")}\n${await readFile(new URL("prompt-options.js", root), "utf8")}\n${await readFile(new URL("visual-vocabulary-mechanics.js", root), "utf8")}\n${await readFile(new URL("visual-vocabulary.js", root), "utf8")}\nglobalThis.result = { STYLE_DATA, FILTER_GROUPS, PROMPT_CONTROL_GROUPS, VISUAL_VOCABULARY_GROUPS, VISUAL_VOCABULARY_COUNT };`;
+const source = `${await readFile(new URL("data.js", root), "utf8")}\n${await readFile(new URL("data-extra.js", root), "utf8")}\n${await readFile(new URL("data-more.js", root), "utf8")}\n${await readFile(new URL("visual-genes.js", root), "utf8")}\n${await readFile(new URL("prompt-ai-data.js", root), "utf8")}\n${await readFile(new URL("artworks.js", root), "utf8")}\n${await readFile(new URL("aesthetic-styles.js", root), "utf8")}\n${await readFile(new URL("chinese-visual-directions.js", root), "utf8")}\n${await readFile(new URL("prompt-options.js", root), "utf8")}\n${await readFile(new URL("visual-vocabulary-mechanics.js", root), "utf8")}\n${await readFile(new URL("visual-vocabulary.js", root), "utf8")}\nglobalThis.result = { STYLE_DATA, FILTER_GROUPS, PROMPT_CONTROL_GROUPS, VISUAL_VOCABULARY_GROUPS, VISUAL_VOCABULARY_COUNT };`;
 const context = {};
 vm.createContext(context);
 vm.runInContext(source, context);
@@ -14,7 +14,7 @@ const forbiddenVisualGeneTermsZh = ["人物", "角色", "人体", "动物", "鸟
 const forbiddenVisualGeneTermsEn = ["person", "people", "human", "character", "animal", "bird", "flower", "vine", "mask", "corridor", "doorway", "city", "building", "spacecraft", "spacesuit", "bookshelf", "book", "creature", "ruin", "street", "statue", "palm", "gear", "pipe", "landscape", "garden", "wall"];
 const genericPromptTerms = ["高质量", "杰作", "高级感", "震撼", "精致完成度", "清晰视觉层级", "高细节", "high quality", "best quality", "masterpiece", "award-winning", "refined finish", "highly detailed", "ultra-detailed", "high-detail", "visual impact"];
 
-if (STYLE_DATA.length !== 111) errors.push(`Expected 111 styles, found ${STYLE_DATA.length}`);
+if (STYLE_DATA.length !== 123) errors.push(`Expected 123 styles, found ${STYLE_DATA.length}`);
 if (ids.size !== STYLE_DATA.length) errors.push("Duplicate style ids found");
 
 for (const style of STYLE_DATA) {

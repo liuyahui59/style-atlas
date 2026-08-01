@@ -611,7 +611,79 @@ Object.entries(AESTHETIC_PROMPT_DATA).forEach(([id, prompt]) => {
   style.aiPrompt = { ...style.aiPrompt, zh: prompt.zh, negative: prompt.negative };
 });
 
-FILTER_GROUPS.type = [...new Set(STYLE_DATA.map((style) => style.type))];
+const STYLE_CATEGORY_GROUPS = [
+  {
+    name: "艺术史流派",
+    ids: [
+      "ancient-egyptian", "classical-greek", "byzantine", "gothic", "renaissance", "mannerism", "baroque", "rococo",
+      "neoclassicism", "romanticism", "realism", "pre-raphaelite", "impressionism", "post-impressionism", "symbolism",
+      "fauvism", "expressionism", "cubism", "futurism", "dada", "suprematism", "surrealism", "abstract-expressionism",
+      "color-field", "pop-art", "op-art", "conceptual-art", "neo-expressionism", "photorealism", "lowbrow", "mexican-muralism"
+    ]
+  },
+  {
+    name: "设计与建筑",
+    ids: [
+      "arts-crafts", "art-nouveau", "constructivism", "de-stijl", "bauhaus", "art-deco", "minimalism", "postmodernism",
+      "swiss", "mid-century-modern", "scandinavian-modern", "streamline-moderne", "atomic-age", "new-wave-typography",
+      "memphis", "architectural-brutalism", "maximalism", "structuralism", "neo-futurism", "biomorphic"
+    ]
+  },
+  {
+    name: "地域与传统",
+    ids: [
+      "ink-wash", "gongbi", "dunhuang", "chinese-new-year-print", "guochao", "ukiyo-e", "rinpa", "nihonga", "wabi-sabi",
+      "korean-minhwa", "persian-miniature", "mughal-miniature", "madhubani", "islamic-geometry", "thangka", "mexican-folk",
+      "african-wax-print"
+    ]
+  },
+  {
+    name: "平面与流行视觉",
+    ids: [
+      "psychedelic", "street-art", "kawaii", "superflat", "punk-visual", "grunge-design", "anime", "manga", "american-comics",
+      "gothic-subculture", "film-noir", "neo-pop", "collage", "naive-art"
+    ]
+  },
+  {
+    name: "数字与界面",
+    ids: [
+      "brutalism", "flat-design", "corporate-memphis", "material-design", "skeuomorphism", "glassmorphism", "neumorphism",
+      "acid-graphics", "glitch-art", "generative-art", "y2k", "frutiger-aero"
+    ]
+  },
+  {
+    name: "未来与幻想",
+    ids: [
+      "afrofuturism", "cyberpunk", "steampunk", "solarpunk", "retrofuturism", "synthwave", "vaporwave", "dark-fantasy",
+      "atompunk", "wasteland-punk", "dieselpunk"
+    ]
+  },
+  {
+    name: "网络与情绪美学",
+    ids: ["cottagecore", "dark-academia", "dreamcore", "weirdcore", "liminal-space", "kidcore"]
+  }
+];
+
+const categorizedStyleIds = STYLE_CATEGORY_GROUPS.flatMap((group) => group.ids);
+const duplicateCategoryIds = categorizedStyleIds.filter((id, index) => categorizedStyleIds.indexOf(id) !== index);
+const knownStyleIds = new Set(STYLE_DATA.map((style) => style.id));
+const unknownCategoryIds = categorizedStyleIds.filter((id) => !knownStyleIds.has(id));
+const uncategorizedStyleIds = STYLE_DATA.filter((style) => !categorizedStyleIds.includes(style.id)).map((style) => style.id);
+
+if (duplicateCategoryIds.length || unknownCategoryIds.length || uncategorizedStyleIds.length) {
+  throw new Error([
+    duplicateCategoryIds.length ? `Duplicate style categories: ${[...new Set(duplicateCategoryIds)].join(", ")}` : "",
+    unknownCategoryIds.length ? `Unknown categorized styles: ${unknownCategoryIds.join(", ")}` : "",
+    uncategorizedStyleIds.length ? `Uncategorized styles: ${uncategorizedStyleIds.join(", ")}` : ""
+  ].filter(Boolean).join("; "));
+}
+
+const categoryByStyleId = new Map(
+  STYLE_CATEGORY_GROUPS.flatMap((group) => group.ids.map((id) => [id, group.name]))
+);
+STYLE_DATA.forEach((style) => { style.type = categoryByStyleId.get(style.id); });
+
+FILTER_GROUPS.type = STYLE_CATEGORY_GROUPS.map((group) => group.name);
 FILTER_GROUPS.region = [...new Set(STYLE_DATA.map((style) => style.region))];
 FILTER_GROUPS.traits = [...new Set(STYLE_DATA.flatMap((style) => style.traits))];
 FILTER_GROUPS.fields = [...new Set(STYLE_DATA.flatMap((style) => style.fields))];

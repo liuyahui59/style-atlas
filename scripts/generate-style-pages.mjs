@@ -5,9 +5,9 @@ import vm from "node:vm";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const siteUrl = "https://styleatlas.art";
-const lastModified = "2026-07-29";
+const lastModified = "2026-07-31";
 const checkOnly = process.argv.includes("--check");
-const dataFiles = ["data.js", "data-extra.js", "data-more.js", "visual-genes.js", "prompt-ai-data.js", "artworks.js", "aesthetic-styles.js"];
+const dataFiles = ["data.js", "data-extra.js", "data-more.js", "visual-genes.js", "prompt-ai-data.js", "artworks.js", "aesthetic-styles.js", "chinese-visual-directions.js"];
 
 const context = vm.createContext({});
 for (const file of dataFiles) {
@@ -303,7 +303,7 @@ function renderStylePage(style) {
               <div><dt>英文名</dt><dd>${escapeHtml(style.nameEn)}</dd></div>
               <div><dt>时期</dt><dd>${escapeHtml(style.period)}</dd></div>
               <div><dt>地域</dt><dd>${escapeHtml(style.region)}</dd></div>
-              <div><dt>类型</dt><dd>${escapeHtml(style.type)}</dd></div>
+              <div><dt>分类</dt><dd>${escapeHtml(style.type)}</dd></div>
               <div><dt>视觉特征</dt><dd>${style.traits.map(escapeHtml).join("、")}</dd></div>
               <div><dt>适用领域</dt><dd>${style.fields.map(escapeHtml).join("、")}</dd></div>
             </dl>
@@ -323,8 +323,8 @@ function renderStylePage(style) {
 }
 
 function renderStyleIndex() {
-  const title = "111 种艺术与设计风格图鉴 | 风格谱 Style Atlas";
-  const description = "浏览 111 种艺术、设计与视觉文化风格。每种风格都有独立页面，包含历史、识别特征、配色、构图、材质和 AI 绘图 Prompt。";
+  const title = "123 种艺术设计风格与视觉方向图鉴 | 风格谱 Style Atlas";
+  const description = "浏览 123 种艺术、设计与视觉文化风格及视觉方向。每种风格都有独立页面，包含历史、识别特征、配色、构图、材质和 AI 绘图 Prompt。";
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -373,7 +373,7 @@ function renderStyleIndex() {
     <main class="style-index-page">
       <header class="style-index-intro">
         <p class="eyebrow">ART · DESIGN · VISUAL CULTURE</p>
-        <h1>111 种艺术与设计风格</h1>
+        <h1>123 种艺术设计风格与视觉方向</h1>
         <p>${description}</p>
       </header>
       <section class="static-style-grid" aria-label="全部风格">
@@ -418,7 +418,7 @@ function renderFooter(prefix = "../../") {
   return `<footer class="site-footer">
       <span>风格谱 · Style Atlas</span>
       <span class="footer-note">配图仅用于呈现风格特征。</span>
-      <a class="footer-feedback" href="${prefix}index.html#atlas">浏览全部 111 种风格</a>
+      <a class="footer-feedback" href="${prefix}index.html#atlas">浏览全部 123 种风格与视觉方向</a>
     </footer>`;
 }
 
@@ -631,7 +631,7 @@ function buildCommunicationScene(style) {
 function buildAudienceExpectation(style) {
   if (style.traits.some((trait) => ["未来", "反叛", "怪诞"].includes(trait))) return "更容易吸引关注科技文化、青年文化、亚文化或世界观叙事的受众；面向强调稳定与普适信任的人群时，应降低风格强度。";
   if (style.traits.some((trait) => ["理性", "几何", "系统化"].includes(trait))) return "适合重视清晰秩序、功能逻辑和现代专业感的受众；需要亲密、随性或手作温度时，应加入更柔和的信号。";
-  if (style.type === "地域传统" || style.fields.includes("宗教艺术")) return "适合关注文化语境、传统工艺和象征含义的受众；跨文化传播时必须解释符号来源，避免把传统元素当作通用装饰。";
+  if (style.type === "地域与传统" || style.fields.includes("宗教艺术")) return "适合关注文化语境、传统工艺和象征含义的受众；跨文化传播时必须解释符号来源，避免把传统元素当作通用装饰。";
   if (style.traits.some((trait) => ["自然", "手工", "有机"].includes(trait))) return "适合重视自然、材料触感、手工价值和生活方式的受众；强调尖端效率或无瑕精度的内容需要谨慎使用。";
   if (style.traits.some((trait) => ["华丽", "装饰", "高细节"].includes(trait))) return "适合期待仪式感、收藏感和丰富视觉体验的受众；偏好极简效率的人群可能感到信息负担。";
   return `适合希望感受到${style.traits.slice(0, 3).join("、")}的受众；正式采用前应先用一张核心画面测试主题理解是否准确。`;

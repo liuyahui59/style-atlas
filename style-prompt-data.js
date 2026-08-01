@@ -2,35 +2,27 @@
 const STYLE_PROMPT_POLICY = Object.freeze({
   "intensity": {
     "zh": {
-      "借鉴": "轻度借鉴{name}，只保留少量关键视觉特征",
-      "明显": "以{name}为清晰可识别的主要视觉风格",
-      "主导": "由{name}的视觉语言主导画面"
+      "借鉴": "轻度借鉴{name}的视觉处理",
+      "明显": "以{name}作为清晰可识别的整体风格",
+      "主导": "以{name}主导整体视觉"
     },
     "en": {
-      "借鉴": "Use a subtle influence from {name}, retaining only a few defining visual traits",
-      "明显": "Use {name} as the clearly recognizable primary visual style",
-      "主导": "Let the visual language of {name} strongly lead the image"
+      "借鉴": "apply a subtle visual influence from {name}",
+      "明显": "use {name} as the clearly recognizable overall style",
+      "主导": "let {name} lead the overall visual treatment"
     }
   },
   "content": {
-    "zh": "保持用户指定主体的身份、数量和关键动作；允许补充使构图成立所需的环境、光影和辅助元素",
-    "en": "Preserve the identity, count, and key actions of the user-defined subjects; add the environment, lighting, and supporting elements needed for a complete composition"
+    "zh": "只改变视觉处理，保持用户主体的身份、数量、动作与关键结构",
+    "en": "change only the visual treatment; preserve the supplied subjects' identity, count, action, and defining structure"
   },
   "executionLead": {
-    "zh": "具体执行：",
+    "zh": "执行：",
     "en": "Execution: "
   },
-  "override": {
-    "zh": "用户指定的独立控制项优先于风格默认参数，并与整体视觉保持协调",
-    "en": "User-selected controls override the style defaults while remaining visually coherent with the whole image"
-  },
-  "quality": {
-    "zh": "确保主体完整、焦点明确、前中后景关系成立，光线、色彩与材质统一",
-    "en": "Keep subjects complete, the focal point clear, spatial depth coherent, and lighting, color, and materials unified"
-  },
   "negative": {
-    "zh": "主体残缺或重复，关键部位缺失，焦点分散，空间关系断裂，光源冲突，材质混杂，未经请求的文字，乱码，水印，品牌标志",
-    "en": "cropped or duplicated subjects, missing key parts, scattered focal points, broken spatial relationships, conflicting light sources, mixed materials, unrequested text, illegible lettering, watermarks, brand logos"
+    "zh": "主体残缺或重复，关键结构丢失，风格混杂，未经请求的文字，乱码，水印，品牌标志",
+    "en": "cropped or duplicated subjects, lost defining structure, mixed visual styles, unrequested text, illegible lettering, watermarks, brand logos"
   }
 });
 
@@ -44,8 +36,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "正面与侧面复合视点",
         "labelEn": "composite frontal and profile viewpoints",
-        "promptZh": "视角统一为正面与侧面复合视点，所有对象使用同一观察与投影规则",
-        "promptEn": "Use composite frontal and profile viewpoints consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用正面与侧面复合视点",
+        "promptEn": "use composite frontal and profile viewpoints for viewpoint and spatial rendering",
         "weight": 1,
         "level": "定义性"
       },
@@ -56,8 +48,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "严格横向分层",
         "labelEn": "strict horizontal registers",
-        "promptZh": "构图遵循严格横向分层，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through strict horizontal registers, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用严格横向分层",
+        "promptEn": "compose with strict horizontal registers",
         "weight": 0.93,
         "level": "主导"
       },
@@ -68,8 +60,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "形体沿基线排列且极少重叠",
         "labelEn": "forms aligned to baselines with minimal overlap",
-        "promptZh": "构图遵循形体沿基线排列且极少重叠，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through forms aligned to baselines with minimal overlap, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用形体沿基线排列且极少重叠",
+        "promptEn": "compose with forms aligned to baselines with minimal overlap",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -80,8 +72,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "比例由等级而非距离决定",
         "labelEn": "scale determined by hierarchy rather than distance",
-        "promptZh": "造型遵循比例由等级而非距离决定，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through scale determined by hierarchy rather than distance while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为比例由等级而非距离决定，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into scale determined by hierarchy rather than distance while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -92,8 +84,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "均匀深色轮廓与无渐变平涂",
         "labelEn": "uniform dark contours and unmodulated flat fills",
-        "promptZh": "以均匀深色轮廓与无渐变平涂统一笔触、边缘与成像痕迹",
-        "promptEn": "Use uniform dark contours and unmodulated flat fills to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用均匀深色轮廓与无渐变平涂",
+        "promptEn": "render marks and edges with uniform dark contours and unmodulated flat fills",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -104,8 +96,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "赭黄、氧化铁红、埃及蓝与炭黑",
         "labelEn": "yellow ochre, iron-oxide red, Egyptian blue, and charcoal black",
-        "promptZh": "配色限定为赭黄、氧化铁红、埃及蓝与炭黑，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to yellow ochre, iron-oxide red, Egyptian blue, and charcoal black, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为赭黄、氧化铁红、埃及蓝与炭黑",
+        "promptEn": "limit the palette to yellow ochre, iron-oxide red, Egyptian blue, and charcoal black",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -116,8 +108,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "哑光矿物颜料与颗粒石质或灰泥表面",
         "labelEn": "matte mineral pigment and granular stone or plaster surface",
-        "promptZh": "材质表现为哑光矿物颜料与颗粒石质或灰泥表面，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as matte mineral pigment and granular stone or plaster surface, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为哑光矿物颜料与颗粒石质或灰泥表面",
+        "promptEn": "render materials and surfaces as matte mineral pigment and granular stone or plaster surface",
         "weight": 0.55,
         "level": "可调整"
       }
@@ -132,8 +124,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "均衡轴线与和谐比例",
         "labelEn": "balanced axes and harmonic proportions",
-        "promptZh": "构图遵循均衡轴线与和谐比例，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through balanced axes and harmonic proportions, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用均衡轴线与和谐比例",
+        "promptEn": "compose with balanced axes and harmonic proportions",
         "weight": 1,
         "level": "定义性"
       },
@@ -144,8 +136,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "理想化形体与克制动态",
         "labelEn": "idealized form and restrained movement",
-        "promptZh": "造型遵循理想化形体与克制动态，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through idealized form and restrained movement while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为理想化形体与克制动态，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into idealized form and restrained movement while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -156,8 +148,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "清晰连续轮廓与校准曲率",
         "labelEn": "clear continuous contours and calibrated curvature",
-        "promptZh": "造型遵循清晰连续轮廓与校准曲率，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through clear continuous contours and calibrated curvature while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为清晰连续轮廓与校准曲率，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into clear continuous contours and calibrated curvature while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -168,8 +160,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "陶土红、黑、矿物色与石灰白",
         "labelEn": "terracotta red, black, mineral color, and limestone white",
-        "promptZh": "配色限定为陶土红、黑、矿物色与石灰白，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to terracotta red, black, mineral color, and limestone white, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为陶土红、黑、矿物色与石灰白",
+        "promptEn": "limit the palette to terracotta red, black, mineral color, and limestone white",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -180,8 +172,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "柔和转折的雕塑式体积",
         "labelEn": "sculptural volume with gently turning planes",
-        "promptZh": "造型遵循柔和转折的雕塑式体积，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through sculptural volume with gently turning planes while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为柔和转折的雕塑式体积，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into sculptural volume with gently turning planes while preserving identity and defining structure",
         "weight": 0.78,
         "level": "可调整"
       },
@@ -192,8 +184,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "克制彩绘与哑光石质或陶质表面",
         "labelEn": "restrained polychromy with matte stone or ceramic surfaces",
-        "promptZh": "材质表现为克制彩绘与哑光石质或陶质表面，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as restrained polychromy with matte stone or ceramic surfaces, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为克制彩绘与哑光石质或陶质表面",
+        "promptEn": "render materials and surfaces as restrained polychromy with matte stone or ceramic surfaces",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -208,8 +200,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "扁平浅空间与逆透视",
         "labelEn": "flattened shallow space and reverse perspective",
-        "promptZh": "视角统一为扁平浅空间与逆透视，所有对象使用同一观察与投影规则",
-        "promptEn": "Use flattened shallow space and reverse perspective consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用扁平浅空间与逆透视",
+        "promptEn": "use flattened shallow space and reverse perspective for viewpoint and spatial rendering",
         "weight": 1,
         "level": "定义性"
       },
@@ -220,8 +212,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "严格正面轴线与近似对称",
         "labelEn": "strict frontal axis and near symmetry",
-        "promptZh": "构图遵循严格正面轴线与近似对称，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through strict frontal axis and near symmetry, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用严格正面轴线与近似对称",
+        "promptEn": "compose with strict frontal axis and near symmetry",
         "weight": 0.93,
         "level": "主导"
       },
@@ -232,8 +224,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "比例由精神等级决定",
         "labelEn": "scale determined by spiritual hierarchy",
-        "promptZh": "造型遵循比例由精神等级决定，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through scale determined by spiritual hierarchy while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为比例由精神等级决定，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into scale determined by spiritual hierarchy while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -244,8 +236,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "细长比例、明确轮廓与程式化褶线",
         "labelEn": "elongated proportions, defined contours, and stylized fold lines",
-        "promptZh": "造型遵循细长比例、明确轮廓与程式化褶线，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through elongated proportions, defined contours, and stylized fold lines while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为细长比例、明确轮廓与程式化褶线，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into elongated proportions, defined contours, and stylized fold lines while preserving identity and defining structure",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -256,8 +248,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "金色底、群青、朱红与紫色",
         "labelEn": "gold ground, ultramarine, vermilion, and purple",
-        "promptZh": "配色限定为金色底、群青、朱红与紫色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to gold ground, ultramarine, vermilion, and purple, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为金色底、群青、朱红与紫色",
+        "promptEn": "limit the palette to gold ground, ultramarine, vermilion, and purple",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -268,8 +260,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "极少自然投影的正面均匀光",
         "labelEn": "frontal even illumination with minimal natural cast shadow",
-        "promptZh": "光影采用极少自然投影的正面均匀光，统一光源方向与明暗逻辑",
-        "promptEn": "Use frontal even illumination with minimal natural cast shadow for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用极少自然投影的正面均匀光",
+        "promptEn": "use frontal even illumination with minimal natural cast shadow for lighting and tonal rendering",
         "weight": 0.7,
         "level": "可调整"
       },
@@ -280,8 +272,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "蛋彩平涂、玻璃马赛克与金箔光泽",
         "labelEn": "tempera flatness, glass mosaic, and gold-leaf luminosity",
-        "promptZh": "以蛋彩平涂、玻璃马赛克与金箔光泽统一笔触、边缘与成像痕迹",
-        "promptEn": "Use tempera flatness, glass mosaic, and gold-leaf luminosity to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用蛋彩平涂、玻璃马赛克与金箔光泽",
+        "promptEn": "render marks and edges with tempera flatness, glass mosaic, and gold-leaf luminosity",
         "weight": 0.55,
         "level": "可调整"
       }
@@ -296,8 +288,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "强烈垂直延伸节奏",
         "labelEn": "strong vertical upward rhythm",
-        "promptZh": "构图遵循强烈垂直延伸节奏，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through strong vertical upward rhythm, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用强烈垂直延伸节奏",
+        "promptEn": "compose with strong vertical upward rhythm",
         "weight": 1,
         "level": "定义性"
       },
@@ -308,8 +300,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "高密度分区与连续装饰节奏",
         "labelEn": "dense segmentation and continuous ornamental rhythm",
-        "promptZh": "构图遵循高密度分区与连续装饰节奏，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through dense segmentation and continuous ornamental rhythm, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用高密度分区与连续装饰节奏",
+        "promptEn": "compose with dense segmentation and continuous ornamental rhythm",
         "weight": 0.93,
         "level": "主导"
       },
@@ -320,8 +312,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "尖锐细长的线性几何",
         "labelEn": "pointed and elongated linear geometry",
-        "promptZh": "造型遵循尖锐细长的线性几何，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through pointed and elongated linear geometry while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为尖锐细长的线性几何，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into pointed and elongated linear geometry while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -332,8 +324,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "深色轮廓分隔透光色面",
         "labelEn": "dark outlines separating luminous color fields",
-        "promptZh": "造型遵循深色轮廓分隔透光色面，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through dark outlines separating luminous color fields while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为深色轮廓分隔透光色面，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into dark outlines separating luminous color fields while preserving identity and defining structure",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -344,8 +336,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "宝石蓝、深红与金色",
         "labelEn": "jewel blue, deep crimson, and gold",
-        "promptZh": "配色限定为宝石蓝、深红与金色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to jewel blue, deep crimson, and gold, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为宝石蓝、深红与金色",
+        "promptEn": "limit the palette to jewel blue, deep crimson, and gold",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -356,8 +348,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "彩色玻璃般的透光质感",
         "labelEn": "transmitted stained-glass luminosity",
-        "promptZh": "光影采用彩色玻璃般的透光质感，统一光源方向与明暗逻辑",
-        "promptEn": "Use transmitted stained-glass luminosity for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用彩色玻璃般的透光质感",
+        "promptEn": "use transmitted stained-glass luminosity for lighting and tonal rendering",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -372,8 +364,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "精确线性透视与统一空间",
         "labelEn": "precise linear perspective and unified space",
-        "promptZh": "视角统一为精确线性透视与统一空间，所有对象使用同一观察与投影规则",
-        "promptEn": "Use precise linear perspective and unified space consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用精确线性透视与统一空间",
+        "promptEn": "use precise linear perspective and unified space for viewpoint and spatial rendering",
         "weight": 1,
         "level": "定义性"
       },
@@ -384,8 +376,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "稳定三角形或轴线组织",
         "labelEn": "stable triangular or axial organization",
-        "promptZh": "构图遵循稳定三角形或轴线组织，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through stable triangular or axial organization, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用稳定三角形或轴线组织",
+        "promptEn": "compose with stable triangular or axial organization",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -396,8 +388,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "明暗渐变塑造连续圆润体积",
         "labelEn": "continuous rounded volume modeled through tonal gradation",
-        "promptZh": "光影采用明暗渐变塑造连续圆润体积，统一光源方向与明暗逻辑",
-        "promptEn": "Use continuous rounded volume modeled through tonal gradation for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用明暗渐变塑造连续圆润体积",
+        "promptEn": "use continuous rounded volume modeled through tonal gradation for lighting and tonal rendering",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -408,8 +400,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "自然比例与观察一致的结构关系",
         "labelEn": "natural proportions and observationally coherent structure",
-        "promptZh": "造型遵循自然比例与观察一致的结构关系，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through natural proportions and observationally coherent structure while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为自然比例与观察一致的结构关系，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into natural proportions and observationally coherent structure while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -420,8 +412,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "近处清晰、远处低对比的大气透视",
         "labelEn": "atmospheric perspective with crisp near forms and lower-contrast distance",
-        "promptZh": "视角统一为近处清晰、远处低对比的大气透视，所有对象使用同一观察与投影规则",
-        "promptEn": "Use atmospheric perspective with crisp near forms and lower-contrast distance consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用近处清晰、远处低对比的大气透视",
+        "promptEn": "use atmospheric perspective with crisp near forms and lower-contrast distance for viewpoint and spatial rendering",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -432,8 +424,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "土色、朱红与深群青的克制综合色",
         "labelEn": "restrained mixed earth tones, vermilion, and deep ultramarine",
-        "promptZh": "配色限定为土色、朱红与深群青的克制综合色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to restrained mixed earth tones, vermilion, and deep ultramarine, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为土色、朱红与深群青的克制综合色",
+        "promptEn": "limit the palette to restrained mixed earth tones, vermilion, and deep ultramarine",
         "weight": 0.62,
         "level": "可调整"
       },
@@ -444,8 +436,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "层叠油画薄涂与柔化轮廓",
         "labelEn": "layered oil glazing and softened contours",
-        "promptZh": "以层叠油画薄涂与柔化轮廓统一笔触、边缘与成像痕迹",
-        "promptEn": "Use layered oil glazing and softened contours to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用层叠油画薄涂与柔化轮廓",
+        "promptEn": "render marks and edges with layered oil glazing and softened contours",
         "weight": 0.55,
         "level": "可调整"
       }
@@ -460,8 +452,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "拉长比例与蛇形动态",
         "labelEn": "elongated proportions and serpentine movement",
-        "promptZh": "造型遵循拉长比例与蛇形动态，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through elongated proportions and serpentine movement while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为拉长比例与蛇形动态，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into elongated proportions and serpentine movement while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -472,8 +464,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "相互缠绕的轮廓与反自然平衡",
         "labelEn": "intertwined contours and anti-natural balance",
-        "promptZh": "造型遵循相互缠绕的轮廓与反自然平衡，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through intertwined contours and anti-natural balance while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为相互缠绕的轮廓与反自然平衡，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into intertwined contours and anti-natural balance while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -484,8 +476,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "不稳定偏心与垂直拥挤构图",
         "labelEn": "unstable off-center and vertically crowded composition",
-        "promptZh": "构图遵循不稳定偏心与垂直拥挤构图，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through unstable off-center and vertically crowded composition, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用不稳定偏心与垂直拥挤构图",
+        "promptEn": "compose with unstable off-center and vertically crowded composition",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -496,8 +488,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "压缩、陡升且暧昧的空间",
         "labelEn": "compressed, steeply rising, and ambiguous space",
-        "promptZh": "视角统一为压缩、陡升且暧昧的空间，所有对象使用同一观察与投影规则",
-        "promptEn": "Use compressed, steeply rising, and ambiguous space consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用压缩、陡升且暧昧的空间",
+        "promptEn": "use compressed, steeply rising, and ambiguous space for viewpoint and spatial rendering",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -508,8 +500,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "冷粉、酸绿、银蓝与紫色",
         "labelEn": "cool pink, acid green, silver blue, and violet",
-        "promptZh": "配色限定为冷粉、酸绿、银蓝与紫色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to cool pink, acid green, silver blue, and violet, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为冷粉、酸绿、银蓝与紫色",
+        "promptEn": "limit the palette to cool pink, acid green, silver blue, and violet",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -520,8 +512,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "局部照明与非自然色调转折",
         "labelEn": "selective illumination and unnatural tonal transitions",
-        "promptZh": "光影采用局部照明与非自然色调转折，统一光源方向与明暗逻辑",
-        "promptEn": "Use selective illumination and unnatural tonal transitions for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用局部照明与非自然色调转折",
+        "promptEn": "use selective illumination and unnatural tonal transitions for lighting and tonal rendering",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -532,8 +524,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "光滑精细的油画薄涂",
         "labelEn": "smooth finely controlled oil glazing",
-        "promptZh": "以光滑精细的油画薄涂统一笔触、边缘与成像痕迹",
-        "promptEn": "Use smooth finely controlled oil glazing to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用光滑精细的油画薄涂",
+        "promptEn": "render marks and edges with smooth finely controlled oil glazing",
         "weight": 0.55,
         "level": "可调整"
       }
@@ -548,8 +540,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "聚光式明暗对照与大面积暗部",
         "labelEn": "spotlit chiaroscuro and broad shadow masses",
-        "promptZh": "光影采用聚光式明暗对照与大面积暗部，统一光源方向与明暗逻辑",
-        "promptEn": "Use spotlit chiaroscuro and broad shadow masses for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用聚光式明暗对照与大面积暗部",
+        "promptEn": "use spotlit chiaroscuro and broad shadow masses for lighting and tonal rendering",
         "weight": 1,
         "level": "定义性"
       },
@@ -560,8 +552,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "近距离裁切与朝向观看者的透视缩短",
         "labelEn": "close cropping and foreshortening toward the viewer",
-        "promptZh": "视角统一为近距离裁切与朝向观看者的透视缩短，所有对象使用同一观察与投影规则",
-        "promptEn": "Use close cropping and foreshortening toward the viewer consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用近距离裁切与朝向观看者的透视缩短",
+        "promptEn": "use close cropping and foreshortening toward the viewer for viewpoint and spatial rendering",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -572,8 +564,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "强烈对角线与旋动结构",
         "labelEn": "strong diagonals and swirling structure",
-        "promptZh": "造型遵循强烈对角线与旋动结构，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through strong diagonals and swirling structure while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为强烈对角线与旋动结构，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into strong diagonals and swirling structure while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -584,8 +576,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "前后层叠、压缩又贯通的深层空间",
         "labelEn": "deep space built from compressed overlapping layers",
-        "promptZh": "视角统一为前后层叠、压缩又贯通的深层空间，所有对象使用同一观察与投影规则",
-        "promptEn": "Use deep space built from compressed overlapping layers consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用前后层叠、压缩又贯通的深层空间",
+        "promptEn": "use deep space built from compressed overlapping layers for viewpoint and spatial rendering",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -596,8 +588,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "丰厚油彩、锐利高光与触感反差",
         "labelEn": "rich oil paint, sharp highlights, and tactile contrast",
-        "promptZh": "以丰厚油彩、锐利高光与触感反差统一笔触、边缘与成像痕迹",
-        "promptEn": "Use rich oil paint, sharp highlights, and tactile contrast to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用丰厚油彩、锐利高光与触感反差",
+        "promptEn": "render marks and edges with rich oil paint, sharp highlights, and tactile contrast",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -608,8 +600,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "深黑、酒红、土红与暖金",
         "labelEn": "deep black, wine red, earth red, and warm gold",
-        "promptZh": "配色限定为深黑、酒红、土红与暖金，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to deep black, wine red, earth red, and warm gold, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为深黑、酒红、土红与暖金",
+        "promptEn": "limit the palette to deep black, wine red, earth red, and warm gold",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -624,8 +616,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "连续 S 形、C 形与涡卷曲线",
         "labelEn": "continuous S-curves, C-curves, and scrolling contours",
-        "promptZh": "造型遵循连续 S 形、C 形与涡卷曲线，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through continuous S-curves, C-curves, and scrolling contours while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为连续 S 形、C 形与涡卷曲线，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into continuous S-curves, C-curves, and scrolling contours while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -636,8 +628,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "轻盈非对称与偏心布局",
         "labelEn": "light asymmetrical and off-center layout",
-        "promptZh": "构图遵循轻盈非对称与偏心布局，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through light asymmetrical and off-center layout, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用轻盈非对称与偏心布局",
+        "promptEn": "compose with light asymmetrical and off-center layout",
         "weight": 0.93,
         "level": "主导"
       },
@@ -648,8 +640,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "粉蓝、浅粉、奶白与淡金",
         "labelEn": "powder blue, blush pink, creamy white, and pale gold",
-        "promptZh": "配色限定为粉蓝、浅粉、奶白与淡金，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to powder blue, blush pink, creamy white, and pale gold, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为粉蓝、浅粉、奶白与淡金",
+        "promptEn": "limit the palette to powder blue, blush pink, creamy white, and pale gold",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -660,8 +652,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "细密装饰、轻快笔触与丝滑表面",
         "labelEn": "delicate ornament, feathery brushwork, and silky surfaces",
-        "promptZh": "以细密装饰、轻快笔触与丝滑表面统一笔触、边缘与成像痕迹",
-        "promptEn": "Use delicate ornament, feathery brushwork, and silky surfaces to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用细密装饰、轻快笔触与丝滑表面",
+        "promptEn": "render marks and edges with delicate ornament, feathery brushwork, and silky surfaces",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -672,8 +664,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "浅层空间与漂浮式层叠",
         "labelEn": "shallow space and floating layers",
-        "promptZh": "构图遵循浅层空间与漂浮式层叠，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through shallow space and floating layers, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用浅层空间与漂浮式层叠",
+        "promptEn": "compose with shallow space and floating layers",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -684,8 +676,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "柔和漫射光、低对比与明亮阴影",
         "labelEn": "soft diffused light, low contrast, and luminous shadows",
-        "promptZh": "光影采用柔和漫射光、低对比与明亮阴影，统一光源方向与明暗逻辑",
-        "promptEn": "Use soft diffused light, low contrast, and luminous shadows for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用柔和漫射光、低对比与明亮阴影",
+        "promptEn": "use soft diffused light, low contrast, and luminous shadows for lighting and tonal rendering",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -700,8 +692,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "严格轴线、对称与稳定平衡",
         "labelEn": "strict axes, symmetry, and stable balance",
-        "promptZh": "构图遵循严格轴线、对称与稳定平衡，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through strict axes, symmetry, and stable balance, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用严格轴线、对称与稳定平衡",
+        "promptEn": "compose with strict axes, symmetry, and stable balance",
         "weight": 1,
         "level": "定义性"
       },
@@ -712,8 +704,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "浅层舞台式空间与水平排列",
         "labelEn": "shallow stage-like space and horizontal arrangement",
-        "promptZh": "构图遵循浅层舞台式空间与水平排列，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through shallow stage-like space and horizontal arrangement, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用浅层舞台式空间与水平排列",
+        "promptEn": "compose with shallow stage-like space and horizontal arrangement",
         "weight": 0.93,
         "level": "主导"
       },
@@ -724,8 +716,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "理想化比例与克制动作",
         "labelEn": "idealized proportions and restrained movement",
-        "promptZh": "造型遵循理想化比例与克制动作，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through idealized proportions and restrained movement while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为理想化比例与克制动作，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into idealized proportions and restrained movement while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -736,8 +728,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "清晰雕塑式轮廓与平滑体积",
         "labelEn": "crisp sculptural contours and smooth volume",
-        "promptZh": "造型遵循清晰雕塑式轮廓与平滑体积，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through crisp sculptural contours and smooth volume while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为清晰雕塑式轮廓与平滑体积，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into crisp sculptural contours and smooth volume while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -748,8 +740,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "石灰白、庞贝红与低饱和土色",
         "labelEn": "limestone white, Pompeian red, and muted earth tones",
-        "promptZh": "配色限定为石灰白、庞贝红与低饱和土色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to limestone white, Pompeian red, and muted earth tones, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为石灰白、庞贝红与低饱和土色",
+        "promptEn": "limit the palette to limestone white, Pompeian red, and muted earth tones",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -760,8 +752,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "均匀冷静光线与弱化笔触",
         "labelEn": "even cool illumination and suppressed brushwork",
-        "promptZh": "以均匀冷静光线与弱化笔触统一笔触、边缘与成像痕迹",
-        "promptEn": "Use even cool illumination and suppressed brushwork to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用均匀冷静光线与弱化笔触",
+        "promptEn": "render marks and edges with even cool illumination and suppressed brushwork",
         "weight": 0.7,
         "level": "可调整"
       },
@@ -772,8 +764,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "薄涂油彩与抛光表面",
         "labelEn": "thin oil layers and polished surfaces",
-        "promptZh": "以薄涂油彩与抛光表面统一笔触、边缘与成像痕迹",
-        "promptEn": "Use thin oil layers and polished surfaces to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用薄涂油彩与抛光表面",
+        "promptEn": "render marks and edges with thin oil layers and polished surfaces",
         "weight": 0.55,
         "level": "可调整"
       }
@@ -788,8 +780,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "深蓝灰与集中暖色高光",
         "labelEn": "deep blue-gray with concentrated warm highlights",
-        "promptZh": "光影采用深蓝灰与集中暖色高光，统一光源方向与明暗逻辑",
-        "promptEn": "Use deep blue-gray with concentrated warm highlights for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用深蓝灰与集中暖色高光",
+        "promptEn": "use deep blue-gray with concentrated warm highlights for lighting and tonal rendering",
         "weight": 1,
         "level": "定义性"
       },
@@ -800,8 +792,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "深远大气透视",
         "labelEn": "deep atmospheric perspective",
-        "promptZh": "视角统一为深远大气透视，所有对象使用同一观察与投影规则",
-        "promptEn": "Use deep atmospheric perspective consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用深远大气透视",
+        "promptEn": "use deep atmospheric perspective for viewpoint and spatial rendering",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -812,8 +804,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "宏大尺度反差",
         "labelEn": "monumental scale contrast",
-        "promptZh": "造型遵循宏大尺度反差，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through monumental scale contrast while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为宏大尺度反差，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into monumental scale contrast while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -824,8 +816,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "动荡对角线与不稳定平衡",
         "labelEn": "turbulent diagonals and unstable balance",
-        "promptZh": "造型遵循动荡对角线与不稳定平衡，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through turbulent diagonals and unstable balance while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为动荡对角线与不稳定平衡，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into turbulent diagonals and unstable balance while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -836,8 +828,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "透明油彩与雾化边缘",
         "labelEn": "glazed oil color and hazy edges",
-        "promptZh": "以透明油彩与雾化边缘统一笔触、边缘与成像痕迹",
-        "promptEn": "Use glazed oil color and hazy edges to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用透明油彩与雾化边缘",
+        "promptEn": "render marks and edges with glazed oil color and hazy edges",
         "weight": 0.78,
         "level": "支撑"
       }
@@ -852,8 +844,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "平视观察式取景与稳定构图",
         "labelEn": "eye-level observational framing and stable composition",
-        "promptZh": "构图遵循平视观察式取景与稳定构图，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through eye-level observational framing and stable composition, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用平视观察式取景与稳定构图",
+        "promptEn": "compose with eye-level observational framing and stable composition",
         "weight": 1,
         "level": "定义性"
       },
@@ -864,8 +856,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "未经理想化的自然比例",
         "labelEn": "unidealized natural proportions",
-        "promptZh": "造型遵循未经理想化的自然比例，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through unidealized natural proportions while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为未经理想化的自然比例，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into unidealized natural proportions while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -876,8 +868,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "准确重量感与克制的体积塑造",
         "labelEn": "credible weight and restrained volume modeling",
-        "promptZh": "造型遵循准确重量感与克制的体积塑造，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through credible weight and restrained volume modeling while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为准确重量感与克制的体积塑造，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into credible weight and restrained volume modeling while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -888,8 +880,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "土褐、灰绿与低饱和综合色",
         "labelEn": "earth brown, gray-green, and muted mixed color",
-        "promptZh": "配色限定为土褐、灰绿与低饱和综合色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to earth brown, gray-green, and muted mixed color, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为土褐、灰绿与低饱和综合色",
+        "promptEn": "limit the palette to earth brown, gray-green, and muted mixed color",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -900,8 +892,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "均匀自然光与可辨的局部阴影",
         "labelEn": "even natural light and legible local shadows",
-        "promptZh": "光影采用均匀自然光与可辨的局部阴影，统一光源方向与明暗逻辑",
-        "promptEn": "Use even natural light and legible local shadows for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用均匀自然光与可辨的局部阴影",
+        "promptEn": "use even natural light and legible local shadows for lighting and tonal rendering",
         "weight": 0.78,
         "level": "可调整"
       },
@@ -912,8 +904,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "材质差异由色调和笔触直接呈现",
         "labelEn": "material differences stated directly through tone and brushwork",
-        "promptZh": "以材质差异由色调和笔触直接呈现统一笔触、边缘与成像痕迹",
-        "promptEn": "Use material differences stated directly through tone and brushwork to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用材质差异由色调和笔触直接呈现",
+        "promptEn": "render marks and edges with material differences stated directly through tone and brushwork",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -924,8 +916,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "厚实可见但不过度装饰的油画笔触",
         "labelEn": "substantial visible oil brushwork without decorative polish",
-        "promptZh": "以厚实可见但不过度装饰的油画笔触统一笔触、边缘与成像痕迹",
-        "promptEn": "Use substantial visible oil brushwork without decorative polish to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用厚实可见但不过度装饰的油画笔触",
+        "promptEn": "render marks and edges with substantial visible oil brushwork without decorative polish",
         "weight": 0.55,
         "level": "可调整"
       }
@@ -940,8 +932,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "近景密集且浅空间",
         "labelEn": "dense close framing and shallow space",
-        "promptZh": "构图遵循近景密集且浅空间，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through dense close framing and shallow space, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用近景密集且浅空间",
+        "promptEn": "compose with dense close framing and shallow space",
         "weight": 1,
         "level": "定义性"
       },
@@ -952,8 +944,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "前景至远景保持近乎一致的锐度",
         "labelEn": "near-uniform sharpness from foreground to distance",
-        "promptZh": "造型遵循前景至远景保持近乎一致的锐度，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through near-uniform sharpness from foreground to distance while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为前景至远景保持近乎一致的锐度，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into near-uniform sharpness from foreground to distance while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -964,8 +956,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "锐利轮廓、精确纹样与微观细节",
         "labelEn": "crisp contours, precise pattern, and microscopic detail",
-        "promptZh": "造型遵循锐利轮廓、精确纹样与微观细节，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through crisp contours, precise pattern, and microscopic detail while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为锐利轮廓、精确纹样与微观细节，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into crisp contours, precise pattern, and microscopic detail while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -976,8 +968,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "翡翠绿、朱红、群青与明亮白色",
         "labelEn": "emerald, vermilion, ultramarine, and luminous white",
-        "promptZh": "配色限定为翡翠绿、朱红、群青与明亮白色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to emerald, vermilion, ultramarine, and luminous white, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为翡翠绿、朱红、群青与明亮白色",
+        "promptEn": "limit the palette to emerald, vermilion, ultramarine, and luminous white",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -988,8 +980,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "湿白底薄涂形成通透高色度表面",
         "labelEn": "thin paint over a wet white ground producing luminous chroma",
-        "promptZh": "以湿白底薄涂形成通透高色度表面统一笔触、边缘与成像痕迹",
-        "promptEn": "Use thin paint over a wet white ground producing luminous chroma to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用湿白底薄涂形成通透高色度表面",
+        "promptEn": "render marks and edges with thin paint over a wet white ground producing luminous chroma",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -1000,8 +992,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "均匀明亮的冷调光线与极少雾化",
         "labelEn": "even luminous cool-toned light with minimal haze",
-        "promptZh": "光影采用均匀明亮的冷调光线与极少雾化，统一光源方向与明暗逻辑",
-        "promptEn": "Use even luminous cool-toned light with minimal haze for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用均匀明亮的冷调光线与极少雾化",
+        "promptEn": "use even luminous cool-toned light with minimal haze for lighting and tonal rendering",
         "weight": 0.7,
         "level": "可调整"
       }
@@ -1016,8 +1008,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "高明度自然光与彩色阴影",
         "labelEn": "high-key natural light and colored shadows",
-        "promptZh": "光影采用高明度自然光与彩色阴影，统一光源方向与明暗逻辑",
-        "promptEn": "Use high-key natural light and colored shadows for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用高明度自然光与彩色阴影",
+        "promptEn": "use high-key natural light and colored shadows for lighting and tonal rendering",
         "weight": 1,
         "level": "定义性"
       },
@@ -1028,8 +1020,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "破碎短笔触与边缘溶解",
         "labelEn": "broken short strokes and dissolved edges",
-        "promptZh": "以破碎短笔触与边缘溶解统一笔触、边缘与成像痕迹",
-        "promptEn": "Use broken short strokes and dissolved edges to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用破碎短笔触与边缘溶解",
+        "promptEn": "render marks and edges with broken short strokes and dissolved edges",
         "weight": 0.93,
         "level": "主导"
       },
@@ -1040,8 +1032,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "轻薄可见的油画肌理",
         "labelEn": "light visible oil-paint texture",
-        "promptZh": "以轻薄可见的油画肌理统一笔触、边缘与成像痕迹",
-        "promptEn": "Use light visible oil-paint texture to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用轻薄可见的油画肌理",
+        "promptEn": "render marks and edges with light visible oil-paint texture",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -1052,8 +1044,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "并置色彩的光学混合",
         "labelEn": "optical mixing through juxtaposed color",
-        "promptZh": "配色限定为并置色彩的光学混合，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to optical mixing through juxtaposed color, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为并置色彩的光学混合",
+        "promptEn": "limit the palette to optical mixing through juxtaposed color",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -1064,8 +1056,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "开放式裁切构图",
         "labelEn": "open cropped composition",
-        "promptZh": "构图遵循开放式裁切构图，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through open cropped composition, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用开放式裁切构图",
+        "promptEn": "compose with open cropped composition",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -1080,8 +1072,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "简化体积、强化轮廓与几何结构",
         "labelEn": "simplified volume, reinforced contours, and geometric structure",
-        "promptZh": "造型遵循简化体积、强化轮廓与几何结构，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through simplified volume, reinforced contours, and geometric structure while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为简化体积、强化轮廓与几何结构，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into simplified volume, reinforced contours, and geometric structure while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -1092,8 +1084,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "脱离自然综合色的主观高纯度配色",
         "labelEn": "subjective high-chroma color detached from natural mixtures",
-        "promptZh": "配色限定为脱离自然综合色的主观高纯度配色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to subjective high-chroma color detached from natural mixtures, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为脱离自然综合色的主观高纯度配色",
+        "promptEn": "limit the palette to subjective high-chroma color detached from natural mixtures",
         "weight": 0.93,
         "level": "主导"
       },
@@ -1104,8 +1096,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "方向性笔触形成连续表面节奏",
         "labelEn": "directional brushwork forming continuous surface rhythm",
-        "promptZh": "以方向性笔触形成连续表面节奏统一笔触、边缘与成像痕迹",
-        "promptEn": "Use directional brushwork forming continuous surface rhythm to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用方向性笔触形成连续表面节奏",
+        "promptEn": "render marks and edges with directional brushwork forming continuous surface rhythm",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -1116,8 +1108,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "平涂色域与厚涂油彩并置",
         "labelEn": "flat color zones juxtaposed with impasto",
-        "promptZh": "以平涂色域与厚涂油彩并置统一笔触、边缘与成像痕迹",
-        "promptEn": "Use flat color zones juxtaposed with impasto to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用平涂色域与厚涂油彩并置",
+        "promptEn": "render marks and edges with flat color zones juxtaposed with impasto",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -1128,8 +1120,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "压缩但经过明确组织的空间",
         "labelEn": "compressed but deliberately organized space",
-        "promptZh": "视角统一为压缩但经过明确组织的空间，所有对象使用同一观察与投影规则",
-        "promptEn": "Use compressed but deliberately organized space consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用压缩但经过明确组织的空间",
+        "promptEn": "use compressed but deliberately organized space for viewpoint and spatial rendering",
         "weight": 0.78,
         "level": "可调整"
       },
@@ -1140,8 +1132,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "色彩承担明暗与体积塑造",
         "labelEn": "color carrying tonal and volumetric modeling",
-        "promptZh": "光影采用色彩承担明暗与体积塑造，统一光源方向与明暗逻辑",
-        "promptEn": "Use color carrying tonal and volumetric modeling for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用色彩承担明暗与体积塑造",
+        "promptEn": "use color carrying tonal and volumetric modeling for lighting and tonal rendering",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -1156,8 +1148,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "仪式化中心、镜像或封闭式布局",
         "labelEn": "ritualized centered, mirrored, or enclosed layout",
-        "promptZh": "构图遵循仪式化中心、镜像或封闭式布局，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through ritualized centered, mirrored, or enclosed layout, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用仪式化中心、镜像或封闭式布局",
+        "promptEn": "compose with ritualized centered, mirrored, or enclosed layout",
         "weight": 1,
         "level": "定义性"
       },
@@ -1168,8 +1160,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "扁平、悬浮或难以定位的非自然空间",
         "labelEn": "flattened, floating, or spatially indeterminate setting",
-        "promptZh": "构图遵循扁平、悬浮或难以定位的非自然空间，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through flattened, floating, or spatially indeterminate setting, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用扁平、悬浮或难以定位的非自然空间",
+        "promptEn": "compose with flattened, floating, or spatially indeterminate setting",
         "weight": 0.93,
         "level": "主导"
       },
@@ -1180,8 +1172,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "程式化轮廓与隐喻性形体处理",
         "labelEn": "stylized contours and allegorical form treatment",
-        "promptZh": "造型遵循程式化轮廓与隐喻性形体处理，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through stylized contours and allegorical form treatment while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为程式化轮廓与隐喻性形体处理，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into stylized contours and allegorical form treatment while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -1192,8 +1184,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "暗金、夜蓝、灰紫与低明度综合色",
         "labelEn": "antique gold, night blue, gray violet, and low-value mixed color",
-        "promptZh": "配色限定为暗金、夜蓝、灰紫与低明度综合色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to antique gold, night blue, gray violet, and low-value mixed color, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为暗金、夜蓝、灰紫与低明度综合色",
+        "promptEn": "limit the palette to antique gold, night blue, gray violet, and low-value mixed color",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -1204,8 +1196,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "装饰性重复与缓慢连续的线性节奏",
         "labelEn": "decorative repetition and slow continuous linear rhythm",
-        "promptZh": "构图遵循装饰性重复与缓慢连续的线性节奏，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through decorative repetition and slow continuous linear rhythm, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用装饰性重复与缓慢连续的线性节奏",
+        "promptEn": "compose with decorative repetition and slow continuous linear rhythm",
         "weight": 0.78,
         "level": "可调整"
       },
@@ -1216,8 +1208,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "内向漫射光、柔雾边缘与金属箔光泽",
         "labelEn": "inward diffused light, hazy edges, and metal-leaf sheen",
-        "promptZh": "光影采用内向漫射光、柔雾边缘与金属箔光泽，统一光源方向与明暗逻辑",
-        "promptEn": "Use inward diffused light, hazy edges, and metal-leaf sheen for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用内向漫射光、柔雾边缘与金属箔光泽",
+        "promptEn": "use inward diffused light, hazy edges, and metal-leaf sheen for lighting and tonal rendering",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -1232,8 +1224,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "对称满版连续重复",
         "labelEn": "symmetrical all-over repetition",
-        "promptZh": "构图遵循对称满版连续重复，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through symmetrical all-over repetition, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用对称满版连续重复",
+        "promptEn": "compose with symmetrical all-over repetition",
         "weight": 1,
         "level": "定义性"
       },
@@ -1244,8 +1236,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "扁平互锁的有机曲线",
         "labelEn": "flat interlocking organic curves",
-        "promptZh": "造型遵循扁平互锁的有机曲线，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through flat interlocking organic curves while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为扁平互锁的有机曲线，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into flat interlocking organic curves while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -1256,8 +1248,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "手工造成的轻微不规则",
         "labelEn": "subtle irregularity from handcraft",
-        "promptZh": "造型遵循手工造成的轻微不规则，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through subtle irregularity from handcraft while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为手工造成的轻微不规则，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into subtle irregularity from handcraft while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -1268,8 +1260,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "手工衬线字与图案一体化",
         "labelEn": "hand-rendered serif type integrated with pattern",
-        "promptZh": "仅在用户需要文字时采用手工衬线字与图案一体化，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use hand-rendered serif type integrated with pattern while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用手工衬线字与图案一体化并保持原文可读",
+        "promptEn": "only when text is requested, use hand-rendered serif type integrated with pattern and preserve the exact readable wording",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -1280,8 +1272,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "靛蓝、茜红与橄榄绿",
         "labelEn": "indigo, madder red, and olive green",
-        "promptZh": "配色限定为靛蓝、茜红与橄榄绿，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to indigo, madder red, and olive green, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为靛蓝、茜红与橄榄绿",
+        "promptEn": "limit the palette to indigo, madder red, and olive green",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -1292,8 +1284,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "木版压印与织物纤维感",
         "labelEn": "woodblock impression and woven-fiber texture",
-        "promptZh": "材质表现为木版压印与织物纤维感，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as woodblock impression and woven-fiber texture, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为木版压印与织物纤维感",
+        "promptEn": "render materials and surfaces as woodblock impression and woven-fiber texture",
         "weight": 0.7,
         "level": "可调整"
       }
@@ -1308,8 +1300,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "垂直延展的非对称布局",
         "labelEn": "vertically extended asymmetrical layout",
-        "promptZh": "构图遵循垂直延展的非对称布局，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through vertically extended asymmetrical layout, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用垂直延展的非对称布局",
+        "promptEn": "compose with vertically extended asymmetrical layout",
         "weight": 1,
         "level": "定义性"
       },
@@ -1320,8 +1312,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "鞭状曲线与连续轮廓",
         "labelEn": "whiplash curves and continuous contours",
-        "promptZh": "造型遵循鞭状曲线与连续轮廓，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through whiplash curves and continuous contours while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为鞭状曲线与连续轮廓，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into whiplash curves and continuous contours while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -1332,8 +1324,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "扁平剪影与装饰边框",
         "labelEn": "flat silhouettes and ornamental borders",
-        "promptZh": "造型遵循扁平剪影与装饰边框，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through flat silhouettes and ornamental borders while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为扁平剪影与装饰边框，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into flat silhouettes and ornamental borders while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -1344,8 +1336,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "图像与曲线字体一体化",
         "labelEn": "integrated imagery and curvilinear lettering",
-        "promptZh": "仅在用户需要文字时采用图像与曲线字体一体化，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use integrated imagery and curvilinear lettering while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用图像与曲线字体一体化并保持原文可读",
+        "promptEn": "only when text is requested, use integrated imagery and curvilinear lettering and preserve the exact readable wording",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -1356,8 +1348,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "橄榄绿、赭石与柔金",
         "labelEn": "olive green, ochre, and soft gold",
-        "promptZh": "配色限定为橄榄绿、赭石与柔金，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to olive green, ochre, and soft gold, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为橄榄绿、赭石与柔金",
+        "promptEn": "limit the palette to olive green, ochre, and soft gold",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -1368,8 +1360,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "平版印刷线条与平涂色面",
         "labelEn": "lithographic linework and flat color fields",
-        "promptZh": "以平版印刷线条与平涂色面统一笔触、边缘与成像痕迹",
-        "promptEn": "Use lithographic linework and flat color fields to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用平版印刷线条与平涂色面",
+        "promptEn": "render marks and edges with lithographic linework and flat color fields",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -1384,8 +1376,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "非自然的高饱和配色",
         "labelEn": "non-natural high-saturation color",
-        "promptZh": "配色限定为非自然的高饱和配色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to non-natural high-saturation color, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为非自然的高饱和配色",
+        "promptEn": "limit the palette to non-natural high-saturation color",
         "weight": 1,
         "level": "定义性"
       },
@@ -1396,8 +1388,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "简化粗轮廓与宽阔笔触",
         "labelEn": "simplified bold contours and broad strokes",
-        "promptZh": "以简化粗轮廓与宽阔笔触统一笔触、边缘与成像痕迹",
-        "promptEn": "Use simplified bold contours and broad strokes to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用简化粗轮廓与宽阔笔触",
+        "promptEn": "render marks and edges with simplified bold contours and broad strokes",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -1408,8 +1400,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "朱红、钴蓝与翠绿碰撞",
         "labelEn": "vermilion, cobalt, and emerald color clash",
-        "promptZh": "配色限定为朱红、钴蓝与翠绿碰撞，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to vermilion, cobalt, and emerald color clash, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为朱红、钴蓝与翠绿碰撞",
+        "promptEn": "limit the palette to vermilion, cobalt, and emerald color clash",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -1420,8 +1412,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "直接且少调和的油彩表面",
         "labelEn": "direct minimally blended oil surface",
-        "promptZh": "以直接且少调和的油彩表面统一笔触、边缘与成像痕迹",
-        "promptEn": "Use direct minimally blended oil surface to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用直接且少调和的油彩表面",
+        "promptEn": "render marks and edges with direct minimally blended oil surface",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -1432,8 +1424,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "扁平近景空间",
         "labelEn": "flat close-cropped space",
-        "promptZh": "构图遵循扁平近景空间，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through flat close-cropped space, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用扁平近景空间",
+        "promptEn": "compose with flat close-cropped space",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -1448,8 +1440,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "角状变形与尖锐轮廓",
         "labelEn": "angular distortion and jagged contours",
-        "promptZh": "造型遵循角状变形与尖锐轮廓，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through angular distortion and jagged contours while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为角状变形与尖锐轮廓，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into angular distortion and jagged contours while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -1460,8 +1452,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "酸黄、深红与深蓝强撞",
         "labelEn": "acid yellow, deep red, and dark blue clash",
-        "promptZh": "配色限定为酸黄、深红与深蓝强撞，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to acid yellow, deep red, and dark blue clash, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为酸黄、深红与深蓝强撞",
+        "promptEn": "limit the palette to acid yellow, deep red, and dark blue clash",
         "weight": 0.93,
         "level": "主导"
       },
@@ -1472,8 +1464,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "干涩厚涂与木刻般刀痕",
         "labelEn": "dry impasto and woodcut-like marks",
-        "promptZh": "以干涩厚涂与木刻般刀痕统一笔触、边缘与成像痕迹",
-        "promptEn": "Use dry impasto and woodcut-like marks to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用干涩厚涂与木刻般刀痕",
+        "promptEn": "render marks and edges with dry impasto and woodcut-like marks",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -1484,8 +1476,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "倾斜压缩的构图",
         "labelEn": "tilted compressed composition",
-        "promptZh": "构图遵循倾斜压缩的构图，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through tilted compressed composition, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用倾斜压缩的构图",
+        "promptEn": "compose with tilted compressed composition",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -1496,8 +1488,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "高反差且不均匀的明暗",
         "labelEn": "high-contrast uneven tonal structure",
-        "promptZh": "光影采用高反差且不均匀的明暗，统一光源方向与明暗逻辑",
-        "promptEn": "Use high-contrast uneven tonal structure for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用高反差且不均匀的明暗",
+        "promptEn": "use high-contrast uneven tonal structure for lighting and tonal rendering",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -1512,8 +1504,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "多个视点与连续观察时刻叠合",
         "labelEn": "multiple viewpoints and successive moments of observation combined",
-        "promptZh": "视角统一为多个视点与连续观察时刻叠合，所有对象使用同一观察与投影规则",
-        "promptEn": "Use multiple viewpoints and successive moments of observation combined consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用多个视点与连续观察时刻叠合",
+        "promptEn": "use multiple viewpoints and successive moments of observation combined for viewpoint and spatial rendering",
         "weight": 1,
         "level": "定义性"
       },
@@ -1524,8 +1516,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "形体拆解为角状切面与几何平面",
         "labelEn": "forms decomposed into angular facets and geometric planes",
-        "promptZh": "造型遵循形体拆解为角状切面与几何平面，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through forms decomposed into angular facets and geometric planes while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为形体拆解为角状切面与几何平面，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into forms decomposed into angular facets and geometric planes while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -1536,8 +1528,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "透明、重叠与穿透关系取代传统遮挡",
         "labelEn": "transparency, overlap, and interpenetration replacing conventional occlusion",
-        "promptZh": "构图遵循透明、重叠与穿透关系取代传统遮挡，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through transparency, overlap, and interpenetration replacing conventional occlusion, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用透明、重叠与穿透关系取代传统遮挡",
+        "promptEn": "compose with transparency, overlap, and interpenetration replacing conventional occlusion",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -1548,8 +1540,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "压缩为浅层的互锁空间",
         "labelEn": "compressed shallow space of interlocking forms",
-        "promptZh": "视角统一为压缩为浅层的互锁空间，所有对象使用同一观察与投影规则",
-        "promptEn": "Use compressed shallow space of interlocking forms consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用压缩为浅层的互锁空间",
+        "promptEn": "use compressed shallow space of interlocking forms for viewpoint and spatial rendering",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -1560,8 +1552,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "赭石、灰褐、灰绿与墨黑的有限色系",
         "labelEn": "limited ochre, gray-brown, gray-green, and black palette",
-        "promptZh": "配色限定为赭石、灰褐、灰绿与墨黑的有限色系，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to limited ochre, gray-brown, gray-green, and black palette, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为赭石、灰褐、灰绿与墨黑的有限色系",
+        "promptEn": "limit the palette to limited ochre, gray-brown, gray-green, and black palette",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -1572,8 +1564,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "可见颗粒笔触与局部拼贴式平面质感",
         "labelEn": "visible granular brushwork with selective collage-like flat texture",
-        "promptZh": "以可见颗粒笔触与局部拼贴式平面质感统一笔触、边缘与成像痕迹",
-        "promptEn": "Use visible granular brushwork with selective collage-like flat texture to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用可见颗粒笔触与局部拼贴式平面质感",
+        "promptEn": "render marks and edges with visible granular brushwork with selective collage-like flat texture",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -1584,8 +1576,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "弱化单一光源与连续圆润体积",
         "labelEn": "suppressed single-source lighting and continuous rounded volume",
-        "promptZh": "光影采用弱化单一光源与连续圆润体积，统一光源方向与明暗逻辑",
-        "promptEn": "Use suppressed single-source lighting and continuous rounded volume for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用弱化单一光源与连续圆润体积",
+        "promptEn": "use suppressed single-source lighting and continuous rounded volume for lighting and tonal rendering",
         "weight": 0.7,
         "level": "可调整"
       }
@@ -1600,8 +1592,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "放射状对角线结构",
         "labelEn": "radiating diagonal structure",
-        "promptZh": "造型遵循放射状对角线结构，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through radiating diagonal structure while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为放射状对角线结构，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into radiating diagonal structure while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -1612,8 +1604,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "重复轮廓与运动残影",
         "labelEn": "repeated contours and motion trails",
-        "promptZh": "造型遵循重复轮廓与运动残影，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through repeated contours and motion trails while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为重复轮廓与运动残影，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into repeated contours and motion trails while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -1624,8 +1616,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "碎裂的机械感几何",
         "labelEn": "fractured mechanical geometry",
-        "promptZh": "造型遵循碎裂的机械感几何，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through fractured mechanical geometry while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为碎裂的机械感几何，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into fractured mechanical geometry while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -1636,8 +1628,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "斜体字与爆发式排版方向",
         "labelEn": "italic type and explosive typographic direction",
-        "promptZh": "仅在用户需要文字时采用斜体字与爆发式排版方向，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use italic type and explosive typographic direction while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用斜体字与爆发式排版方向并保持原文可读",
+        "promptEn": "only when text is requested, use italic type and explosive typographic direction and preserve the exact readable wording",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -1648,8 +1640,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "钢灰、电蓝与橙红",
         "labelEn": "steel gray, electric blue, and orange-red",
-        "promptZh": "配色限定为钢灰、电蓝与橙红，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to steel gray, electric blue, and orange-red, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为钢灰、电蓝与橙红",
+        "promptEn": "limit the palette to steel gray, electric blue, and orange-red",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -1660,8 +1652,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "粗颗粒印刷与金属感高光",
         "labelEn": "coarse print grain and metallic highlights",
-        "promptZh": "以粗颗粒印刷与金属感高光统一笔触、边缘与成像痕迹",
-        "promptEn": "Use coarse print grain and metallic highlights to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用粗颗粒印刷与金属感高光",
+        "promptEn": "render marks and edges with coarse print grain and metallic highlights",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -1676,8 +1668,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "故意失序的反网格布局",
         "labelEn": "deliberately disordered anti-grid layout",
-        "promptZh": "构图遵循故意失序的反网格布局，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through deliberately disordered anti-grid layout, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用故意失序的反网格布局",
+        "promptEn": "compose with deliberately disordered anti-grid layout",
         "weight": 1,
         "level": "定义性"
       },
@@ -1688,8 +1680,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "瑕疵与视觉效果",
         "labelZh": "撕纸、胶痕与旧报纸纹理",
         "labelEn": "torn paper, glue marks, and aged newsprint",
-        "promptZh": "撕纸、胶痕与旧报纸纹理仅作受控局部效果，不削弱主体轮廓与焦点",
-        "promptEn": "Use torn paper, glue marks, and aged newsprint only as a controlled local effect without weakening subject silhouettes or the focal point",
+        "promptZh": "仅局部使用撕纸、胶痕与旧报纸纹理",
+        "promptEn": "use torn paper, glue marks, and aged newsprint only as a controlled local effect",
         "weight": 0.93,
         "level": "主导"
       },
@@ -1700,8 +1692,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "摄影拼贴与剪贴层叠",
         "labelEn": "photomontage and cut-paper layering",
-        "promptZh": "以摄影拼贴与剪贴层叠统一笔触、边缘与成像痕迹",
-        "promptEn": "Use photomontage and cut-paper layering to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用摄影拼贴与剪贴层叠",
+        "promptEn": "render marks and edges with photomontage and cut-paper layering",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -1712,8 +1704,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "混合字号与旋转排版",
         "labelEn": "mixed-scale rotated typography",
-        "promptZh": "仅在用户需要文字时采用混合字号与旋转排版，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use mixed-scale rotated typography while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用混合字号与旋转排版并保持原文可读",
+        "promptEn": "only when text is requested, use mixed-scale rotated typography and preserve the exact readable wording",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -1724,8 +1716,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "突兀的比例与裁切冲突",
         "labelEn": "abrupt clashes of scale and cropping",
-        "promptZh": "视角统一为突兀的比例与裁切冲突，所有对象使用同一观察与投影规则",
-        "promptEn": "Use abrupt clashes of scale and cropping consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用突兀的比例与裁切冲突",
+        "promptEn": "use abrupt clashes of scale and cropping for viewpoint and spatial rendering",
         "weight": 0.78,
         "level": "可调整"
       },
@@ -1736,8 +1728,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "黑白灰配单一红色",
         "labelEn": "black, white, and gray with one red accent",
-        "promptZh": "配色限定为黑白灰配单一红色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to black, white, and gray with one red accent, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为黑白灰配单一红色",
+        "promptEn": "limit the palette to black, white, and gray with one red accent",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -1752,8 +1744,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "强对角线、放射轴线与不对称平衡",
         "labelEn": "strong diagonals, radial axes, and asymmetrical balance",
-        "promptZh": "构图遵循强对角线、放射轴线与不对称平衡，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through strong diagonals, radial axes, and asymmetrical balance, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用强对角线、放射轴线与不对称平衡",
+        "promptEn": "compose with strong diagonals, radial axes, and asymmetrical balance",
         "weight": 1,
         "level": "定义性"
       },
@@ -1764,8 +1756,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "圆形、矩形与三角形的硬边叠合",
         "labelEn": "hard-edged overlap of circles, rectangles, and triangles",
-        "promptZh": "造型遵循圆形、矩形与三角形的硬边叠合，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through hard-edged overlap of circles, rectangles, and triangles while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为圆形、矩形与三角形的硬边叠合，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into hard-edged overlap of circles, rectangles, and triangles while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -1776,8 +1768,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "摄影蒙太奇与几何色面一体化",
         "labelEn": "photomontage integrated with geometric color planes",
-        "promptZh": "造型遵循摄影蒙太奇与几何色面一体化，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through photomontage integrated with geometric color planes while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为摄影蒙太奇与几何色面一体化，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into photomontage integrated with geometric color planes while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -1788,8 +1780,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "瑕疵与视觉效果",
         "labelZh": "有限套色、粗粝网点与轻微错版",
         "labelEn": "limited-color printing, coarse halftone, and slight misregistration",
-        "promptZh": "有限套色、粗粝网点与轻微错版仅作受控局部效果，不削弱主体轮廓与焦点",
-        "promptEn": "Use limited-color printing, coarse halftone, and slight misregistration only as a controlled local effect without weakening subject silhouettes or the focal point",
+        "promptZh": "仅局部使用有限套色、粗粝网点与轻微错版",
+        "promptEn": "use limited-color printing, coarse halftone, and slight misregistration only as a controlled local effect",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -1800,8 +1792,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "红、黑与纸白的极端明度对比",
         "labelEn": "extreme value contrast of red, black, and paper white",
-        "promptZh": "配色限定为红、黑与纸白的极端明度对比，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to extreme value contrast of red, black, and paper white, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为红、黑与纸白的极端明度对比",
+        "promptEn": "limit the palette to extreme value contrast of red, black, and paper white",
         "weight": 0.78,
         "level": "可调整"
       },
@@ -1812,8 +1804,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "粗体无衬线、斜向文字与尺度跳变",
         "labelEn": "bold sans-serif, angled type, and abrupt scale shifts",
-        "promptZh": "仅在用户需要文字时采用粗体无衬线、斜向文字与尺度跳变，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use bold sans-serif, angled type, and abrupt scale shifts while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用粗体无衬线、斜向文字与尺度跳变并保持原文可读",
+        "promptEn": "only when text is requested, use bold sans-serif, angled type, and abrupt scale shifts and preserve the exact readable wording",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -1828,8 +1820,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "无限白场中的非对称平衡",
         "labelEn": "asymmetric balance in an infinite white field",
-        "promptZh": "构图遵循无限白场中的非对称平衡，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through asymmetric balance in an infinite white field, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用无限白场中的非对称平衡",
+        "promptEn": "compose with asymmetric balance in an infinite white field",
         "weight": 1,
         "level": "定义性"
       },
@@ -1840,8 +1832,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "极少层次的平面空间",
         "labelEn": "extremely shallow flat space",
-        "promptZh": "构图遵循极少层次的平面空间，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through extremely shallow flat space, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用极少层次的平面空间",
+        "promptEn": "compose with extremely shallow flat space",
         "weight": 0.93,
         "level": "主导"
       },
@@ -1852,8 +1844,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "纯粹几何形的悬浮关系",
         "labelEn": "floating relationships of pure geometry",
-        "promptZh": "造型遵循纯粹几何形的悬浮关系，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through floating relationships of pure geometry while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为纯粹几何形的悬浮关系，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into floating relationships of pure geometry while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -1864,8 +1856,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "黑、白与红色有限色系",
         "labelEn": "limited black, white, and red palette",
-        "promptZh": "配色限定为黑、白与红色有限色系，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to limited black, white, and red palette, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为黑、白与红色有限色系",
+        "promptEn": "limit the palette to limited black, white, and red palette",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -1876,8 +1868,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "均匀哑光的平涂油彩",
         "labelEn": "uniform matte flat-painted surface",
-        "promptZh": "以均匀哑光的平涂油彩统一笔触、边缘与成像痕迹",
-        "promptEn": "Use uniform matte flat-painted surface to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用均匀哑光的平涂油彩",
+        "promptEn": "render marks and edges with uniform matte flat-painted surface",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -1892,8 +1884,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "非对称正交网格",
         "labelEn": "asymmetric orthogonal grid",
-        "promptZh": "构图遵循非对称正交网格，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through asymmetric orthogonal grid, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用非对称正交网格",
+        "promptEn": "compose with asymmetric orthogonal grid",
         "weight": 1,
         "level": "定义性"
       },
@@ -1904,8 +1896,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "严格水平垂直线与矩形",
         "labelEn": "strict horizontal and vertical lines with rectangles",
-        "promptZh": "造型遵循严格水平垂直线与矩形，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through strict horizontal and vertical lines with rectangles while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为严格水平垂直线与矩形，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into strict horizontal and vertical lines with rectangles while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -1916,8 +1908,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "红黄蓝与黑白限定色",
         "labelEn": "limited red, yellow, blue, black, and white",
-        "promptZh": "配色限定为红黄蓝与黑白限定色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to limited red, yellow, blue, black, and white, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为红黄蓝与黑白限定色",
+        "promptEn": "limit the palette to limited red, yellow, blue, black, and white",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -1928,8 +1920,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "无渐变的均匀色面",
         "labelEn": "uniform color fields without gradients",
-        "promptZh": "配色限定为无渐变的均匀色面，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to uniform color fields without gradients, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为无渐变的均匀色面",
+        "promptEn": "limit the palette to uniform color fields without gradients",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -1940,8 +1932,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "纯净硬边漆面",
         "labelEn": "clean hard-edged painted finish",
-        "promptZh": "材质表现为纯净硬边漆面，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as clean hard-edged painted finish, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为纯净硬边漆面",
+        "promptEn": "render materials and surfaces as clean hard-edged painted finish",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -1956,8 +1948,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "功能导向的非对称网格",
         "labelEn": "function-led asymmetrical grid",
-        "promptZh": "构图遵循功能导向的非对称网格，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through function-led asymmetrical grid, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用功能导向的非对称网格",
+        "promptEn": "compose with function-led asymmetrical grid",
         "weight": 1,
         "level": "定义性"
       },
@@ -1968,8 +1960,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "平面印刷与充足留白",
         "labelEn": "flat print finish and generous negative space",
-        "promptZh": "构图遵循平面印刷与充足留白，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through flat print finish and generous negative space, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用平面印刷与充足留白",
+        "promptEn": "compose with flat print finish and generous negative space",
         "weight": 0.93,
         "level": "主导"
       },
@@ -1980,8 +1972,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "圆、方、三角的基础几何",
         "labelEn": "elementary circle, square, and triangle geometry",
-        "promptZh": "造型遵循圆、方、三角的基础几何，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through elementary circle, square, and triangle geometry while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为圆、方、三角的基础几何，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into elementary circle, square, and triangle geometry while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -1992,8 +1984,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "几何无衬线与清晰层级",
         "labelEn": "geometric sans-serif and clear hierarchy",
-        "promptZh": "仅在用户需要文字时采用几何无衬线与清晰层级，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use geometric sans-serif and clear hierarchy while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用几何无衬线与清晰层级并保持原文可读",
+        "promptEn": "only when text is requested, use geometric sans-serif and clear hierarchy and preserve the exact readable wording",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -2004,8 +1996,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "红黄蓝与黑白原色体系",
         "labelEn": "primary red, yellow, and blue with black and white",
-        "promptZh": "配色限定为红黄蓝与黑白原色体系，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to primary red, yellow, and blue with black and white, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为红黄蓝与黑白原色体系",
+        "promptEn": "limit the palette to primary red, yellow, and blue with black and white",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -2020,8 +2012,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "深层舞台空间或无固定方位的悬浮空间",
         "labelEn": "deep stage-like space or floating space without fixed orientation",
-        "promptZh": "构图遵循深层舞台空间或无固定方位的悬浮空间，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through deep stage-like space or floating space without fixed orientation, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用深层舞台空间或无固定方位的悬浮空间",
+        "promptEn": "compose with deep stage-like space or floating space without fixed orientation",
         "weight": 1,
         "level": "定义性"
       },
@@ -2032,8 +2024,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "尺度、重力、透视或空间连接被有意错置",
         "labelEn": "deliberate displacement of scale, gravity, perspective, or spatial continuity",
-        "promptZh": "视角统一为尺度、重力、透视或空间连接被有意错置，所有对象使用同一观察与投影规则",
-        "promptEn": "Use deliberate displacement of scale, gravity, perspective, or spatial continuity consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用尺度、重力、透视或空间连接被有意错置",
+        "promptEn": "use deliberate displacement of scale, gravity, perspective, or spatial continuity for viewpoint and spatial rendering",
         "weight": 0.93,
         "level": "主导"
       },
@@ -2044,8 +2036,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "写实连续性与非现实关系并置",
         "labelEn": "naturalistic continuity juxtaposed with impossible relationships",
-        "promptZh": "造型遵循写实连续性与非现实关系并置，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through naturalistic continuity juxtaposed with impossible relationships while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为写实连续性与非现实关系并置，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into naturalistic continuity juxtaposed with impossible relationships while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -2056,8 +2048,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "精确硬边形体与流动生物形态并存",
         "labelEn": "precisely edged forms coexisting with fluid biomorphic shapes",
-        "promptZh": "造型遵循精确硬边形体与流动生物形态并存，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through precisely edged forms coexisting with fluid biomorphic shapes while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为精确硬边形体与流动生物形态并存，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into precisely edged forms coexisting with fluid biomorphic shapes while preserving identity and defining structure",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -2068,8 +2060,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "冷静清晰且来源暧昧的均匀光线",
         "labelEn": "cool, clear, evenly distributed light of ambiguous origin",
-        "promptZh": "光影采用冷静清晰且来源暧昧的均匀光线，统一光源方向与明暗逻辑",
-        "promptEn": "Use cool, clear, evenly distributed light of ambiguous origin for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用冷静清晰且来源暧昧的均匀光线",
+        "promptEn": "use cool, clear, evenly distributed light of ambiguous origin for lighting and tonal rendering",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -2080,8 +2072,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "克制综合色与局部非自然色偏",
         "labelEn": "restrained mixed color with selective unnatural shifts",
-        "promptZh": "配色限定为克制综合色与局部非自然色偏，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to restrained mixed color with selective unnatural shifts, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为克制综合色与局部非自然色偏",
+        "promptEn": "limit the palette to restrained mixed color with selective unnatural shifts",
         "weight": 0.62,
         "level": "可调整"
       },
@@ -2092,8 +2084,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "无明显笔触的平滑油画或无缝合成表面",
         "labelEn": "smooth brushless oil-painted or seamless composite surface",
-        "promptZh": "以无明显笔触的平滑油画或无缝合成表面统一笔触、边缘与成像痕迹",
-        "promptEn": "Use smooth brushless oil-painted or seamless composite surface to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用无明显笔触的平滑油画或无缝合成表面",
+        "promptEn": "render marks and edges with smooth brushless oil-painted or seamless composite surface",
         "weight": 0.55,
         "level": "可调整"
       }
@@ -2108,8 +2100,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "高耸轴线对称",
         "labelEn": "soaring axial symmetry",
-        "promptZh": "构图遵循高耸轴线对称，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through soaring axial symmetry, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用高耸轴线对称",
+        "promptEn": "compose with soaring axial symmetry",
         "weight": 1,
         "level": "定义性"
       },
@@ -2120,8 +2112,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "阶梯形、扇形与流线几何",
         "labelEn": "stepped, fan-shaped, and streamlined geometry",
-        "promptZh": "造型遵循阶梯形、扇形与流线几何，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through stepped, fan-shaped, and streamlined geometry while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为阶梯形、扇形与流线几何，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into stepped, fan-shaped, and streamlined geometry while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -2132,8 +2124,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "黑金与深宝石色",
         "labelEn": "black, gold, and deep jewel tones",
-        "promptZh": "配色限定为黑金与深宝石色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to black, gold, and deep jewel tones, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为黑金与深宝石色",
+        "promptEn": "limit the palette to black, gold, and deep jewel tones",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -2144,8 +2136,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "抛光金属与漆面光泽",
         "labelEn": "polished metal and lacquer sheen",
-        "promptZh": "材质表现为抛光金属与漆面光泽，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as polished metal and lacquer sheen, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为抛光金属与漆面光泽",
+        "promptEn": "render materials and surfaces as polished metal and lacquer sheen",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -2156,8 +2148,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "强烈明暗分区与锐利高光",
         "labelEn": "strong tonal zoning and sharp highlights",
-        "promptZh": "光影采用强烈明暗分区与锐利高光，统一光源方向与明暗逻辑",
-        "promptEn": "Use strong tonal zoning and sharp highlights for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用强烈明暗分区与锐利高光",
+        "promptEn": "use strong tonal zoning and sharp highlights for lighting and tonal rendering",
         "weight": 0.78,
         "level": "可调整"
       },
@@ -2168,8 +2160,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "几何展示字体与宽窄节奏",
         "labelEn": "geometric display type with wide-narrow rhythm",
-        "promptZh": "仅在用户需要文字时采用几何展示字体与宽窄节奏，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use geometric display type with wide-narrow rhythm while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用几何展示字体与宽窄节奏并保持原文可读",
+        "promptEn": "only when text is requested, use geometric display type with wide-narrow rhythm and preserve the exact readable wording",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -2184,8 +2176,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "裸露画布与厚涂并置",
         "labelEn": "raw canvas juxtaposed with impasto",
-        "promptZh": "以裸露画布与厚涂并置统一笔触、边缘与成像痕迹",
-        "promptEn": "Use raw canvas juxtaposed with impasto to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用裸露画布与厚涂并置",
+        "promptEn": "render marks and edges with raw canvas juxtaposed with impasto",
         "weight": 1,
         "level": "定义性"
       },
@@ -2196,8 +2188,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "无中心的满幅结构",
         "labelEn": "decentered all-over structure",
-        "promptZh": "构图遵循无中心的满幅结构，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through decentered all-over structure, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用无中心的满幅结构",
+        "promptEn": "compose with decentered all-over structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -2208,8 +2200,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "大尺度自发性手势",
         "labelEn": "large spontaneous gestures",
-        "promptZh": "造型遵循大尺度自发性手势，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through large spontaneous gestures while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为大尺度自发性手势，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into large spontaneous gestures while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -2220,8 +2212,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "不规则高对比色块",
         "labelEn": "irregular high-contrast color masses",
-        "promptZh": "配色限定为不规则高对比色块，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to irregular high-contrast color masses, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为不规则高对比色块",
+        "promptEn": "limit the palette to irregular high-contrast color masses",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -2232,8 +2224,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "瑕疵与视觉效果",
         "labelZh": "颜料飞溅、滴流与擦抹",
         "labelEn": "paint splashes, drips, and scumbled marks",
-        "promptZh": "颜料飞溅、滴流与擦抹仅作受控局部效果，不削弱主体轮廓与焦点",
-        "promptEn": "Use paint splashes, drips, and scumbled marks only as a controlled local effect without weakening subject silhouettes or the focal point",
+        "promptZh": "仅局部使用颜料飞溅、滴流与擦抹",
+        "promptEn": "use paint splashes, drips, and scumbled marks only as a controlled local effect",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -2248,8 +2240,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "色彩面积与边界关系取代描绘性形体",
         "labelEn": "relationships of color area and boundary replacing descriptive form",
-        "promptZh": "配色限定为色彩面积与边界关系取代描绘性形体，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to relationships of color area and boundary replacing descriptive form, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为色彩面积与边界关系取代描绘性形体",
+        "promptEn": "limit the palette to relationships of color area and boundary replacing descriptive form",
         "weight": 1,
         "level": "定义性"
       },
@@ -2260,8 +2252,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "有限色相之间的明度、饱和度与温度张力",
         "labelEn": "value, saturation, and temperature tension among limited hues",
-        "promptZh": "配色限定为有限色相之间的明度、饱和度与温度张力，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to value, saturation, and temperature tension among limited hues, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为有限色相之间的明度、饱和度与温度张力",
+        "promptEn": "limit the palette to value, saturation, and temperature tension among limited hues",
         "weight": 0.93,
         "level": "主导"
       },
@@ -2272,8 +2264,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "大尺度、低事件密度的连续色域",
         "labelEn": "large-scale uninterrupted color fields with low event density",
-        "promptZh": "构图遵循大尺度、低事件密度的连续色域，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through large-scale uninterrupted color fields with low event density, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用大尺度、低事件密度的连续色域",
+        "promptEn": "compose with large-scale uninterrupted color fields with low event density",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -2284,8 +2276,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "边缘采用柔和渗化或精确硬边",
         "labelEn": "edges treated as soft stains or precise hard boundaries",
-        "promptZh": "以边缘采用柔和渗化或精确硬边统一笔触、边缘与成像痕迹",
-        "promptEn": "Use edges treated as soft stains or precise hard boundaries to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用边缘采用柔和渗化或精确硬边",
+        "promptEn": "render marks and edges with edges treated as soft stains or precise hard boundaries",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -2296,8 +2288,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "弱化笔触、线条与中心焦点",
         "labelEn": "suppressed brush gesture, linework, and central focus",
-        "promptZh": "以弱化笔触、线条与中心焦点统一笔触、边缘与成像痕迹",
-        "promptEn": "Use suppressed brush gesture, linework, and central focus to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用弱化笔触、线条与中心焦点",
+        "promptEn": "render marks and edges with suppressed brush gesture, linework, and central focus",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -2308,8 +2300,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "薄染画布或均匀哑光颜料表面",
         "labelEn": "stained canvas or uniformly matte pigment surface",
-        "promptZh": "光影采用薄染画布或均匀哑光颜料表面，统一光源方向与明暗逻辑",
-        "promptEn": "Use stained canvas or uniformly matte pigment surface for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用薄染画布或均匀哑光颜料表面",
+        "promptEn": "use stained canvas or uniformly matte pigment surface for lighting and tonal rendering",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -2324,8 +2316,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "重复模块与机械复制感",
         "labelEn": "repeated modules and mechanical reproduction",
-        "promptZh": "造型遵循重复模块与机械复制感，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through repeated modules and mechanical reproduction while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为重复模块与机械复制感，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into repeated modules and mechanical reproduction while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -2336,8 +2328,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "粗黑轮廓与平面分区",
         "labelEn": "heavy black contours and flat divisions",
-        "promptZh": "配色限定为粗黑轮廓与平面分区，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to heavy black contours and flat divisions, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为粗黑轮廓与平面分区",
+        "promptEn": "limit the palette to heavy black contours and flat divisions",
         "weight": 0.93,
         "level": "主导"
       },
@@ -2348,8 +2340,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "半调网点与丝网印刷平面感",
         "labelEn": "halftone dots and flat screen-print finish",
-        "promptZh": "以半调网点与丝网印刷平面感统一笔触、边缘与成像痕迹",
-        "promptEn": "Use halftone dots and flat screen-print finish to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用半调网点与丝网印刷平面感",
+        "promptEn": "render marks and edges with halftone dots and flat screen-print finish",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -2360,8 +2352,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "高饱和红黄蓝原色",
         "labelEn": "high-saturation red, yellow, and blue primaries",
-        "promptZh": "配色限定为高饱和红黄蓝原色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to high-saturation red, yellow, and blue primaries, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为高饱和红黄蓝原色",
+        "promptEn": "limit the palette to high-saturation red, yellow, and blue primaries",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -2372,8 +2364,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "大胆近距离裁切",
         "labelEn": "bold close cropping",
-        "promptZh": "视角统一为大胆近距离裁切，所有对象使用同一观察与投影规则",
-        "promptEn": "Use bold close cropping consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用大胆近距离裁切",
+        "promptEn": "use bold close cropping for viewpoint and spatial rendering",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -2388,8 +2380,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "叠纹、视觉振动与虚拟运动效应",
         "labelEn": "moiré, optical vibration, and illusory motion",
-        "promptZh": "造型遵循叠纹、视觉振动与虚拟运动效应，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through moiré, optical vibration, and illusory motion while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为叠纹、视觉振动与虚拟运动效应，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into moiré, optical vibration, and illusory motion while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -2400,8 +2392,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "满幅精密几何重复",
         "labelEn": "full-field precise geometric repetition",
-        "promptZh": "构图遵循满幅精密几何重复，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through full-field precise geometric repetition, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用满幅精密几何重复",
+        "promptEn": "compose with full-field precise geometric repetition",
         "weight": 0.93,
         "level": "主导"
       },
@@ -2412,8 +2404,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "图底反转与不稳定边界",
         "labelEn": "figure-ground reversal and unstable boundaries",
-        "promptZh": "构图遵循图底反转与不稳定边界，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through figure-ground reversal and unstable boundaries, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用图底反转与不稳定边界",
+        "promptEn": "compose with figure-ground reversal and unstable boundaries",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -2424,8 +2416,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "黑白或互补色的极端明度与色相对比",
         "labelEn": "extreme value and hue contrast in black-white or complementary color",
-        "promptZh": "配色限定为黑白或互补色的极端明度与色相对比，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to extreme value and hue contrast in black-white or complementary color, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为黑白或互补色的极端明度与色相对比",
+        "promptEn": "limit the palette to extreme value and hue contrast in black-white or complementary color",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -2436,8 +2428,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "线距、密度、曲率与尺度连续变化",
         "labelEn": "continuous variation in spacing, density, curvature, and scale",
-        "promptZh": "造型遵循线距、密度、曲率与尺度连续变化，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through continuous variation in spacing, density, curvature, and scale while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为线距、密度、曲率与尺度连续变化，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into continuous variation in spacing, density, curvature, and scale while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -2448,8 +2440,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "无纹理、无阴影的锐利硬边",
         "labelEn": "textureless shadowless razor-sharp edges",
-        "promptZh": "光影采用无纹理、无阴影的锐利硬边，统一光源方向与明暗逻辑",
-        "promptEn": "Use textureless shadowless razor-sharp edges for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用无纹理、无阴影的锐利硬边",
+        "promptEn": "use textureless shadowless razor-sharp edges for lighting and tonal rendering",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -2464,8 +2456,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "还原到基础几何",
         "labelEn": "reduction to elementary geometry",
-        "promptZh": "造型遵循还原到基础几何，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through reduction to elementary geometry while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为还原到基础几何，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into reduction to elementary geometry while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -2476,8 +2468,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "均匀比例与重复模块",
         "labelEn": "uniform proportions and repeated modules",
-        "promptZh": "造型遵循均匀比例与重复模块，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through uniform proportions and repeated modules while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为均匀比例与重复模块，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into uniform proportions and repeated modules while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -2488,8 +2480,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "稀疏排列与大面积留白",
         "labelEn": "sparse arrangement and extensive negative space",
-        "promptZh": "构图遵循稀疏排列与大面积留白，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through sparse arrangement and extensive negative space, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用稀疏排列与大面积留白",
+        "promptEn": "compose with sparse arrangement and extensive negative space",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -2500,8 +2492,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "单色或极少色彩",
         "labelEn": "monochrome or highly limited color",
-        "promptZh": "配色限定为单色或极少色彩，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to monochrome or highly limited color, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为单色或极少色彩",
+        "promptEn": "limit the palette to monochrome or highly limited color",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -2512,8 +2504,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "无痕工业表面与均匀光线",
         "labelEn": "seamless industrial surface and even light",
-        "promptZh": "光影采用无痕工业表面与均匀光线，统一光源方向与明暗逻辑",
-        "promptEn": "Use seamless industrial surface and even light for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用无痕工业表面与均匀光线",
+        "promptEn": "use seamless industrial surface and even light for lighting and tonal rendering",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -2528,8 +2520,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "序列化或网格化组织",
         "labelEn": "serial or grid-based organization",
-        "promptZh": "构图遵循序列化或网格化组织，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through serial or grid-based organization, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用序列化或网格化组织",
+        "promptEn": "compose with serial or grid-based organization",
         "weight": 1,
         "level": "定义性"
       },
@@ -2540,8 +2532,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "朴素说明性排版",
         "labelEn": "plain explanatory typography",
-        "promptZh": "仅在用户需要文字时采用朴素说明性排版，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use plain explanatory typography while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用朴素说明性排版并保持原文可读",
+        "promptEn": "only when text is requested, use plain explanatory typography and preserve the exact readable wording",
         "weight": 0.93,
         "level": "主导"
       },
@@ -2552,8 +2544,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "黑白灰与未经美化的记录质感",
         "labelEn": "black, white, and gray with an unembellished documentary finish",
-        "promptZh": "配色限定为黑白灰与未经美化的记录质感，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to black, white, and gray with an unembellished documentary finish, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为黑白灰与未经美化的记录质感",
+        "promptEn": "limit the palette to black, white, and gray with an unembellished documentary finish",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -2564,8 +2556,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "中性档案式呈现",
         "labelEn": "neutral archival presentation",
-        "promptZh": "造型遵循中性档案式呈现，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through neutral archival presentation while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为中性档案式呈现，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into neutral archival presentation while preserving identity and defining structure",
         "weight": 0.78,
         "level": "支撑"
       }
@@ -2580,8 +2572,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "密集失衡的画面结构",
         "labelEn": "dense unbalanced pictorial structure",
-        "promptZh": "造型遵循密集失衡的画面结构，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through dense unbalanced pictorial structure while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为密集失衡的画面结构，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into dense unbalanced pictorial structure while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -2592,8 +2584,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "激烈变形与粗重轮廓",
         "labelEn": "aggressive distortion and heavy contours",
-        "promptZh": "造型遵循激烈变形与粗重轮廓，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through aggressive distortion and heavy contours while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为激烈变形与粗重轮廓，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into aggressive distortion and heavy contours while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -2604,8 +2596,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "宽大快速的方向性笔触",
         "labelEn": "broad rapid directional brushwork",
-        "promptZh": "以宽大快速的方向性笔触统一笔触、边缘与成像痕迹",
-        "promptEn": "Use broad rapid directional brushwork to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用宽大快速的方向性笔触",
+        "promptEn": "render marks and edges with broad rapid directional brushwork",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -2616,8 +2608,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "厚重堆积与刮擦油彩",
         "labelEn": "heavily built and scraped paint",
-        "promptZh": "以厚重堆积与刮擦油彩统一笔触、边缘与成像痕迹",
-        "promptEn": "Use heavily built and scraped paint to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用厚重堆积与刮擦油彩",
+        "promptEn": "render marks and edges with heavily built and scraped paint",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -2628,8 +2620,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "浑浊且强烈的饱和色冲突",
         "labelEn": "muddy yet intense saturated color clashes",
-        "promptZh": "配色限定为浑浊且强烈的饱和色冲突，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to muddy yet intense saturated color clashes, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为浑浊且强烈的饱和色冲突",
+        "promptEn": "limit the palette to muddy yet intense saturated color clashes",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -2644,8 +2636,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "极高微观细节与锐利边缘",
         "labelEn": "extreme micro-detail and sharp edges",
-        "promptZh": "造型遵循极高微观细节与锐利边缘，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through extreme micro-detail and sharp edges while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为极高微观细节与锐利边缘，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into extreme micro-detail and sharp edges while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -2656,8 +2648,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "摄影式精确裁切",
         "labelEn": "precise photographic cropping",
-        "promptZh": "视角统一为摄影式精确裁切，所有对象使用同一观察与投影规则",
-        "promptEn": "Use precise photographic cropping consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用摄影式精确裁切",
+        "promptEn": "use precise photographic cropping for viewpoint and spatial rendering",
         "weight": 0.93,
         "level": "主导"
       },
@@ -2668,8 +2660,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "严格透视与比例还原",
         "labelEn": "rigorous perspective and proportional fidelity",
-        "promptZh": "视角统一为严格透视与比例还原，所有对象使用同一观察与投影规则",
-        "promptEn": "Use rigorous perspective and proportional fidelity consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用严格透视与比例还原",
+        "promptEn": "use rigorous perspective and proportional fidelity for viewpoint and spatial rendering",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -2680,8 +2672,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "自然综合色与准确反射",
         "labelEn": "natural color and accurate reflections",
-        "promptZh": "光影采用自然综合色与准确反射，统一光源方向与明暗逻辑",
-        "promptEn": "Use natural color and accurate reflections for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用自然综合色与准确反射",
+        "promptEn": "use natural color and accurate reflections for lighting and tonal rendering",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -2692,8 +2684,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "无可见笔触的平滑表面",
         "labelEn": "smooth surface with no visible brushwork",
-        "promptZh": "以无可见笔触的平滑表面统一笔触、边缘与成像痕迹",
-        "promptEn": "Use smooth surface with no visible brushwork to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用无可见笔触的平滑表面",
+        "promptEn": "render marks and edges with smooth surface with no visible brushwork",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -2708,8 +2700,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "折衷式非对称层叠与多重视觉中心",
         "labelEn": "eclectic asymmetrical layering and multiple visual centers",
-        "promptZh": "构图遵循折衷式非对称层叠与多重视觉中心，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through eclectic asymmetrical layering and multiple visual centers, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用折衷式非对称层叠与多重视觉中心",
+        "promptEn": "compose with eclectic asymmetrical layering and multiple visual centers",
         "weight": 1,
         "level": "定义性"
       },
@@ -2720,8 +2712,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "刻意比例冲突、碎片化与不连续网格",
         "labelEn": "deliberate scale clashes, fragmentation, and discontinuous grids",
-        "promptZh": "构图遵循刻意比例冲突、碎片化与不连续网格，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through deliberate scale clashes, fragmentation, and discontinuous grids, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用刻意比例冲突、碎片化与不连续网格",
+        "promptEn": "compose with deliberate scale clashes, fragmentation, and discontinuous grids",
         "weight": 0.93,
         "level": "主导"
       },
@@ -2732,8 +2724,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "历史语汇、现代几何与通俗图形并置",
         "labelEn": "juxtaposed historical vocabulary, modern geometry, and vernacular graphics",
-        "promptZh": "造型遵循历史语汇、现代几何与通俗图形并置，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through juxtaposed historical vocabulary, modern geometry, and vernacular graphics while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为历史语汇、现代几何与通俗图形并置，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into juxtaposed historical vocabulary, modern geometry, and vernacular graphics while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -2744,8 +2736,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "衬线、无衬线与装饰字体的反规范混排",
         "labelEn": "rule-breaking mixtures of serif, sans-serif, and decorative type",
-        "promptZh": "仅在用户需要文字时采用衬线、无衬线与装饰字体的反规范混排，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use rule-breaking mixtures of serif, sans-serif, and decorative type while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用衬线、无衬线与装饰字体的反规范混排并保持原文可读",
+        "promptEn": "only when text is requested, use rule-breaking mixtures of serif, sans-serif, and decorative type and preserve the exact readable wording",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -2756,8 +2748,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "中性色中插入互不调和的高饱和强调",
         "labelEn": "discordant saturated accents inserted into neutral color",
-        "promptZh": "配色限定为中性色中插入互不调和的高饱和强调，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to discordant saturated accents inserted into neutral color, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为中性色中插入互不调和的高饱和强调",
+        "promptEn": "limit the palette to discordant saturated accents inserted into neutral color",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -2768,8 +2760,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "平面印刷、光泽材质与装饰纹理并置",
         "labelEn": "juxtaposed flat print, glossy material, and ornamental texture",
-        "promptZh": "以平面印刷、光泽材质与装饰纹理并置统一笔触、边缘与成像痕迹",
-        "promptEn": "Use juxtaposed flat print, glossy material, and ornamental texture to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用平面印刷、光泽材质与装饰纹理并置",
+        "promptEn": "render marks and edges with juxtaposed flat print, glossy material, and ornamental texture",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -2784,8 +2776,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "紧凑中心化插画构图与浅层空间",
         "labelEn": "compact centered illustrative composition and shallow space",
-        "promptZh": "构图遵循紧凑中心化插画构图与浅层空间，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through compact centered illustrative composition and shallow space, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用紧凑中心化插画构图与浅层空间",
+        "promptEn": "compose with compact centered illustrative composition and shallow space",
         "weight": 1,
         "level": "定义性"
       },
@@ -2796,8 +2788,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "夸张圆润比例与均匀粗轮廓",
         "labelEn": "exaggerated rounded proportions and uniform bold contours",
-        "promptZh": "造型遵循夸张圆润比例与均匀粗轮廓，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through exaggerated rounded proportions and uniform bold contours while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为夸张圆润比例与均匀粗轮廓，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into exaggerated rounded proportions and uniform bold contours while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -2808,8 +2800,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "局部密集线纹与平滑喷绘体积并置",
         "labelEn": "dense localized linework juxtaposed with smooth airbrushed volume",
-        "promptZh": "以局部密集线纹与平滑喷绘体积并置统一笔触、边缘与成像痕迹",
-        "promptEn": "Use dense localized linework juxtaposed with smooth airbrushed volume to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用局部密集线纹与平滑喷绘体积并置",
+        "promptEn": "render marks and edges with dense localized linework juxtaposed with smooth airbrushed volume",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -2820,8 +2812,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "糖果色、热红与深色阴影",
         "labelEn": "candy color, hot red, and deep shadows",
-        "promptZh": "配色限定为糖果色、热红与深色阴影，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to candy color, hot red, and deep shadows, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为糖果色、热红与深色阴影",
+        "promptEn": "limit the palette to candy color, hot red, and deep shadows",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -2832,8 +2824,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "锐利边缘、小面积镜面高光与珐琅表面",
         "labelEn": "crisp edges, small specular highlights, and enamel-like surface",
-        "promptZh": "材质表现为锐利边缘、小面积镜面高光与珐琅表面，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as crisp edges, small specular highlights, and enamel-like surface, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为锐利边缘、小面积镜面高光与珐琅表面",
+        "promptEn": "render materials and surfaces as crisp edges, small specular highlights, and enamel-like surface",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -2848,8 +2840,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "放射状或满幅密集布局",
         "labelEn": "radial or dense all-over layout",
-        "promptZh": "构图遵循放射状或满幅密集布局，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through radial or dense all-over layout, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用放射状或满幅密集布局",
+        "promptEn": "compose with radial or dense all-over layout",
         "weight": 1,
         "level": "定义性"
       },
@@ -2860,8 +2852,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "流动扭曲轮廓与图底混淆",
         "labelEn": "flowing warped contours and figure-ground ambiguity",
-        "promptZh": "构图遵循流动扭曲轮廓与图底混淆，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through flowing warped contours and figure-ground ambiguity, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用流动扭曲轮廓与图底混淆",
+        "promptEn": "compose with flowing warped contours and figure-ground ambiguity",
         "weight": 0.93,
         "level": "主导"
       },
@@ -2872,8 +2864,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "极端互补色与高饱和渐变",
         "labelEn": "extreme complementary color and saturated gradients",
-        "promptZh": "配色限定为极端互补色与高饱和渐变，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to extreme complementary color and saturated gradients, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为极端互补色与高饱和渐变",
+        "promptEn": "limit the palette to extreme complementary color and saturated gradients",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -2884,8 +2876,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "膨胀扭曲的展示字体",
         "labelEn": "inflated warped display typography",
-        "promptZh": "仅在用户需要文字时采用膨胀扭曲的展示字体，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use inflated warped display typography while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用膨胀扭曲的展示字体并保持原文可读",
+        "promptEn": "only when text is requested, use inflated warped display typography and preserve the exact readable wording",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -2896,8 +2888,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "重复线条造成视觉振动",
         "labelEn": "repeated lines creating optical vibration",
-        "promptZh": "造型遵循重复线条造成视觉振动，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through repeated lines creating optical vibration while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为重复线条造成视觉振动，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into repeated lines creating optical vibration while preserving identity and defining structure",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -2912,8 +2904,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "超大图形、边缘裁切与满幅大尺度布局",
         "labelEn": "oversized graphics, edge cropping, and full-field large-scale layout",
-        "promptZh": "构图遵循超大图形、边缘裁切与满幅大尺度布局，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through oversized graphics, edge cropping, and full-field large-scale layout, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用超大图形、边缘裁切与满幅大尺度布局",
+        "promptEn": "compose with oversized graphics, edge cropping, and full-field large-scale layout",
         "weight": 1,
         "level": "定义性"
       },
@@ -2924,8 +2916,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "瑕疵与视觉效果",
         "labelZh": "滴流、飞漆、遮盖痕迹与风化表面",
         "labelEn": "drips, overspray, overpainting traces, and weathered surface",
-        "promptZh": "滴流、飞漆、遮盖痕迹与风化表面仅作受控局部效果，不削弱主体轮廓与焦点",
-        "promptEn": "Use drips, overspray, overpainting traces, and weathered surface only as a controlled local effect without weakening subject silhouettes or the focal point",
+        "promptZh": "仅局部使用滴流、飞漆、遮盖痕迹与风化表面",
+        "promptEn": "use drips, overspray, overpainting traces, and weathered surface only as a controlled local effect",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -2936,8 +2928,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "模板喷涂、自由喷漆与书写性线条叠层",
         "labelEn": "layered stencil, free-spray marks, and calligraphic linework",
-        "promptZh": "以模板喷涂、自由喷漆与书写性线条叠层统一笔触、边缘与成像痕迹",
-        "promptEn": "Use layered stencil, free-spray marks, and calligraphic linework to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用模板喷涂、自由喷漆与书写性线条叠层",
+        "promptEn": "render marks and edges with layered stencil, free-spray marks, and calligraphic linework",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -2948,8 +2940,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "黑白底色配少量高饱和强调色",
         "labelEn": "black-white ground with limited saturated accents",
-        "promptZh": "配色限定为黑白底色配少量高饱和强调色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to black-white ground with limited saturated accents, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为黑白底色配少量高饱和强调色",
+        "promptEn": "limit the palette to black-white ground with limited saturated accents",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -2960,8 +2952,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "粗重轮廓、高反差剪影与少量内部细节",
         "labelEn": "heavy contours, high-contrast silhouettes, and limited interior detail",
-        "promptZh": "造型遵循粗重轮廓、高反差剪影与少量内部细节，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through heavy contours, high-contrast silhouettes, and limited interior detail while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为粗重轮廓、高反差剪影与少量内部细节，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into heavy contours, high-contrast silhouettes, and limited interior detail while preserving identity and defining structure",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -2976,8 +2968,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "散点透视与非对称留白",
         "labelEn": "shifting perspective and asymmetrical negative space",
-        "promptZh": "构图遵循散点透视与非对称留白，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through shifting perspective and asymmetrical negative space, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用散点透视与非对称留白",
+        "promptEn": "compose with shifting perspective and asymmetrical negative space",
         "weight": 1,
         "level": "定义性"
       },
@@ -2988,8 +2980,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "边缘渗化与局部飞白",
         "labelEn": "bleeding edges and dry-brush gaps",
-        "promptZh": "以边缘渗化与局部飞白统一笔触、边缘与成像痕迹",
-        "promptEn": "Use bleeding edges and dry-brush gaps to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用边缘渗化与局部飞白",
+        "promptEn": "render marks and edges with bleeding edges and dry-brush gaps",
         "weight": 0.93,
         "level": "主导"
       },
@@ -3000,8 +2992,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "墨色浓淡与干湿层次",
         "labelEn": "tonal ink gradation and wet-dry variation",
-        "promptZh": "配色限定为墨色浓淡与干湿层次，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to tonal ink gradation and wet-dry variation, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为墨色浓淡与干湿层次",
+        "promptEn": "limit the palette to tonal ink gradation and wet-dry variation",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -3012,8 +3004,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "吸水纸纤维与哑光表面",
         "labelEn": "absorbent paper fiber and matte surface",
-        "promptZh": "材质表现为吸水纸纤维与哑光表面，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as absorbent paper fiber and matte surface, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为吸水纸纤维与哑光表面",
+        "promptEn": "render materials and surfaces as absorbent paper fiber and matte surface",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -3024,8 +3016,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "书写性变宽线条",
         "labelEn": "calligraphic variable-width strokes",
-        "promptZh": "造型遵循书写性变宽线条，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through calligraphic variable-width strokes while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为书写性变宽线条，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into calligraphic variable-width strokes while preserving identity and defining structure",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -3040,8 +3032,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "平衡浅空间与克制留白",
         "labelEn": "balanced shallow space and restrained negative space",
-        "promptZh": "构图遵循平衡浅空间与克制留白，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through balanced shallow space and restrained negative space, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用平衡浅空间与克制留白",
+        "promptEn": "compose with balanced shallow space and restrained negative space",
         "weight": 1,
         "level": "定义性"
       },
@@ -3052,8 +3044,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "精细均匀的封闭线描",
         "labelEn": "fine uniform enclosed linework",
-        "promptZh": "以精细均匀的封闭线描统一笔触、边缘与成像痕迹",
-        "promptEn": "Use fine uniform enclosed linework to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用精细均匀的封闭线描",
+        "promptEn": "render marks and edges with fine uniform enclosed linework",
         "weight": 0.93,
         "level": "主导"
       },
@@ -3064,8 +3056,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "多层薄染与局部平涂",
         "labelEn": "layered thin washes with selective flat fill",
-        "promptZh": "以多层薄染与局部平涂统一笔触、边缘与成像痕迹",
-        "promptEn": "Use layered thin washes with selective flat fill to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用多层薄染与局部平涂",
+        "promptEn": "render marks and edges with layered thin washes with selective flat fill",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -3076,8 +3068,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "矿物青绿、朱砂与淡金",
         "labelEn": "mineral blue-green, cinnabar, and pale gold",
-        "promptZh": "配色限定为矿物青绿、朱砂与淡金，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to mineral blue-green, cinnabar, and pale gold, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为矿物青绿、朱砂与淡金",
+        "promptEn": "limit the palette to mineral blue-green, cinnabar, and pale gold",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -3088,8 +3080,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "细腻绢本的柔亮表面",
         "labelEn": "finely luminous silk surface",
-        "promptZh": "材质表现为细腻绢本的柔亮表面，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as finely luminous silk surface, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为细腻绢本的柔亮表面",
+        "promptEn": "render materials and surfaces as finely luminous silk surface",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -3104,8 +3096,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "对称或旋转式装饰布局",
         "labelEn": "symmetrical or rotational ornamental layout",
-        "promptZh": "构图遵循对称或旋转式装饰布局，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through symmetrical or rotational ornamental layout, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用对称或旋转式装饰布局",
+        "promptEn": "compose with symmetrical or rotational ornamental layout",
         "weight": 1,
         "level": "定义性"
       },
@@ -3116,8 +3108,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "连续流动线条与扁平造型",
         "labelEn": "continuous flowing lines and flattened form",
-        "promptZh": "造型遵循连续流动线条与扁平造型，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through continuous flowing lines and flattened form while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为连续流动线条与扁平造型，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into continuous flowing lines and flattened form while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -3128,8 +3120,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "平面设色与柔和层染",
         "labelEn": "flat color with soft layered shading",
-        "promptZh": "以平面设色与柔和层染统一笔触、边缘与成像痕迹",
-        "promptEn": "Use flat color with soft layered shading to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用平面设色与柔和层染",
+        "promptEn": "render marks and edges with flat color with soft layered shading",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -3140,8 +3132,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "矿物土红、石青与赭黄",
         "labelEn": "mineral earth red, azurite blue, and ochre yellow",
-        "promptZh": "配色限定为矿物土红、石青与赭黄，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to mineral earth red, azurite blue, and ochre yellow, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为矿物土红、石青与赭黄",
+        "promptEn": "limit the palette to mineral earth red, azurite blue, and ochre yellow",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -3152,8 +3144,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "瑕疵与视觉效果",
         "labelZh": "褪色开裂的壁画表面",
         "labelEn": "faded and cracked mural surface",
-        "promptZh": "褪色开裂的壁画表面仅作受控局部效果，不削弱主体轮廓与焦点",
-        "promptEn": "Use faded and cracked mural surface only as a controlled local effect without weakening subject silhouettes or the focal point",
+        "promptZh": "仅局部使用褪色开裂的壁画表面",
+        "promptEn": "use faded and cracked mural surface only as a controlled local effect",
         "weight": 0.78,
         "level": "支撑"
       }
@@ -3168,8 +3160,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "正面轴线与饱满对称",
         "labelEn": "frontal axis and full symmetry",
-        "promptZh": "构图遵循正面轴线与饱满对称，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through frontal axis and full symmetry, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用正面轴线与饱满对称",
+        "promptEn": "compose with frontal axis and full symmetry",
         "weight": 1,
         "level": "定义性"
       },
@@ -3180,8 +3172,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "粗壮木刻轮廓与简化比例",
         "labelEn": "bold woodcut contours and simplified proportions",
-        "promptZh": "造型遵循粗壮木刻轮廓与简化比例，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through bold woodcut contours and simplified proportions while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为粗壮木刻轮廓与简化比例，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into bold woodcut contours and simplified proportions while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -3192,8 +3184,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "瑕疵与视觉效果",
         "labelZh": "套色平涂与轻微错版",
         "labelEn": "flat registered color with slight misalignment",
-        "promptZh": "套色平涂与轻微错版仅作受控局部效果，不削弱主体轮廓与焦点",
-        "promptEn": "Use flat registered color with slight misalignment only as a controlled local effect without weakening subject silhouettes or the focal point",
+        "promptZh": "仅局部使用套色平涂与轻微错版",
+        "promptEn": "use flat registered color with slight misalignment only as a controlled local effect",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -3204,8 +3196,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "大红、明黄与翠绿",
         "labelEn": "bright red, yellow, and emerald green",
-        "promptZh": "配色限定为大红、明黄与翠绿，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to bright red, yellow, and emerald green, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为大红、明黄与翠绿",
+        "promptEn": "limit the palette to bright red, yellow, and emerald green",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -3216,8 +3208,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "吸墨纸张与手工压印",
         "labelEn": "absorbent paper and handmade impression",
-        "promptZh": "材质表现为吸墨纸张与手工压印，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as absorbent paper and handmade impression, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为吸墨纸张与手工压印",
+        "promptEn": "render materials and surfaces as absorbent paper and handmade impression",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -3232,8 +3224,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "强中心与高密度海报层级",
         "labelEn": "strong central focus and dense poster hierarchy",
-        "promptZh": "构图遵循强中心与高密度海报层级，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through strong central focus and dense poster hierarchy, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用强中心与高密度海报层级",
+        "promptEn": "compose with strong central focus and dense poster hierarchy",
         "weight": 1,
         "level": "定义性"
       },
@@ -3244,8 +3236,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "紧凑粗体中文展示排版",
         "labelEn": "compact bold Chinese display typography",
-        "promptZh": "仅在用户需要文字时采用紧凑粗体中文展示排版，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use compact bold Chinese display typography while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用紧凑粗体中文展示排版并保持原文可读",
+        "promptEn": "only when text is requested, use compact bold Chinese display typography and preserve the exact readable wording",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -3256,8 +3248,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "传统线性节奏与现代硬边几何",
         "labelEn": "traditional linear rhythm with modern hard-edged geometry",
-        "promptZh": "造型遵循传统线性节奏与现代硬边几何，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through traditional linear rhythm with modern hard-edged geometry while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为传统线性节奏与现代硬边几何，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into traditional linear rhythm with modern hard-edged geometry while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -3268,8 +3260,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "大红、金色与墨黑高对比",
         "labelEn": "high-contrast red, gold, and ink black",
-        "promptZh": "配色限定为大红、金色与墨黑高对比，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to high-contrast red, gold, and ink black, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为大红、金色与墨黑高对比",
+        "promptEn": "limit the palette to high-contrast red, gold, and ink black",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -3280,8 +3272,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "平面插画与金属高光并置",
         "labelEn": "flat illustration juxtaposed with metallic highlights",
-        "promptZh": "光影采用平面插画与金属高光并置，统一光源方向与明暗逻辑",
-        "promptEn": "Use flat illustration juxtaposed with metallic highlights for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用平面插画与金属高光并置",
+        "promptEn": "use flat illustration juxtaposed with metallic highlights for lighting and tonal rendering",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -3296,8 +3288,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "压缩浅空间与高低视点",
         "labelEn": "compressed shallow space and elevated viewpoints",
-        "promptZh": "视角统一为压缩浅空间与高低视点，所有对象使用同一观察与投影规则",
-        "promptEn": "Use compressed shallow space and elevated viewpoints consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用压缩浅空间与高低视点",
+        "promptEn": "use compressed shallow space and elevated viewpoints for viewpoint and spatial rendering",
         "weight": 1,
         "level": "定义性"
       },
@@ -3308,8 +3300,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "非对称构图与大胆边缘裁切",
         "labelEn": "asymmetrical composition and bold edge cropping",
-        "promptZh": "构图遵循非对称构图与大胆边缘裁切，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through asymmetrical composition and bold edge cropping, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用非对称构图与大胆边缘裁切",
+        "promptEn": "compose with asymmetrical composition and bold edge cropping",
         "weight": 0.93,
         "level": "主导"
       },
@@ -3320,8 +3312,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "清晰墨线与平面套色色块",
         "labelEn": "crisp ink outlines and flat registered color fields",
-        "promptZh": "以清晰墨线与平面套色色块统一笔触、边缘与成像痕迹",
-        "promptEn": "Use crisp ink outlines and flat registered color fields to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用清晰墨线与平面套色色块",
+        "promptEn": "render marks and edges with crisp ink outlines and flat registered color fields",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -3332,8 +3324,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "靛蓝、朱红与纸本米色",
         "labelEn": "indigo, vermilion, and paper beige",
-        "promptZh": "配色限定为靛蓝、朱红与纸本米色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to indigo, vermilion, and paper beige, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为靛蓝、朱红与纸本米色",
+        "promptEn": "limit the palette to indigo, vermilion, and paper beige",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -3344,8 +3336,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "瑕疵与视觉效果",
         "labelZh": "木版纹理与轻微套色错位",
         "labelEn": "woodblock grain and slight registration offset",
-        "promptZh": "木版纹理与轻微套色错位仅作受控局部效果，不削弱主体轮廓与焦点",
-        "promptEn": "Use woodblock grain and slight registration offset only as a controlled local effect without weakening subject silhouettes or the focal point",
+        "promptZh": "仅局部使用木版纹理与轻微套色错位",
+        "promptEn": "use woodblock grain and slight registration offset only as a controlled local effect",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -3360,8 +3352,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "屏风式非对称布局与跨幅连续关系",
         "labelEn": "screen-like asymmetry and continuity across panels",
-        "promptZh": "构图遵循屏风式非对称布局与跨幅连续关系，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through screen-like asymmetry and continuity across panels, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用屏风式非对称布局与跨幅连续关系",
+        "promptEn": "compose with screen-like asymmetry and continuity across panels",
         "weight": 1,
         "level": "定义性"
       },
@@ -3372,8 +3364,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "大面积留白与偏置视觉重心",
         "labelEn": "large negative space and an offset visual center",
-        "promptZh": "构图遵循大面积留白与偏置视觉重心，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through large negative space and an offset visual center, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用大面积留白与偏置视觉重心",
+        "promptEn": "compose with large negative space and an offset visual center",
         "weight": 0.93,
         "level": "主导"
       },
@@ -3384,8 +3376,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "简化流线轮廓与平面装饰图案",
         "labelEn": "simplified flowing contours and flat decorative pattern",
-        "promptZh": "造型遵循简化流线轮廓与平面装饰图案，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through simplified flowing contours and flat decorative pattern while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为简化流线轮廓与平面装饰图案，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into simplified flowing contours and flat decorative pattern while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -3396,8 +3388,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "矿物色与金银底的强烈平面反差",
         "labelEn": "strong planar contrast of mineral color and gold-silver grounds",
-        "promptZh": "配色限定为矿物色与金银底的强烈平面反差，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to strong planar contrast of mineral color and gold-silver grounds, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为矿物色与金银底的强烈平面反差",
+        "promptEn": "limit the palette to strong planar contrast of mineral color and gold-silver grounds",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -3408,8 +3400,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "垂らし込み式湿中叠染与颜料积聚边缘",
         "labelEn": "tarashikomi wet-on-wet pooling with pigment tide lines",
-        "promptZh": "以垂らし込み式湿中叠染与颜料积聚边缘统一笔触、边缘与成像痕迹",
-        "promptEn": "Use tarashikomi wet-on-wet pooling with pigment tide lines to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用垂らし込み式湿中叠染与颜料积聚边缘",
+        "promptEn": "render marks and edges with tarashikomi wet-on-wet pooling with pigment tide lines",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -3420,8 +3412,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "形体重复、裁切与节奏化间隔",
         "labelEn": "repetition, cropping, and rhythmic spacing of forms",
-        "promptZh": "构图遵循形体重复、裁切与节奏化间隔，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through repetition, cropping, and rhythmic spacing of forms, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用形体重复、裁切与节奏化间隔",
+        "promptEn": "compose with repetition, cropping, and rhythmic spacing of forms",
         "weight": 0.78,
         "level": "可调整"
       },
@@ -3432,8 +3424,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "金属箔、云母与纹理纸面",
         "labelEn": "metal leaf, mica, and textured paper surface",
-        "promptZh": "材质表现为金属箔、云母与纹理纸面，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as metal leaf, mica, and textured paper surface, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为金属箔、云母与纹理纸面",
+        "promptEn": "render materials and surfaces as metal leaf, mica, and textured paper surface",
         "weight": 0.55,
         "level": "可调整"
       }
@@ -3448,8 +3440,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "平衡克制的浅空间",
         "labelEn": "balanced restrained shallow space",
-        "promptZh": "构图遵循平衡克制的浅空间，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through balanced restrained shallow space, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用平衡克制的浅空间",
+        "promptEn": "compose with balanced restrained shallow space",
         "weight": 1,
         "level": "定义性"
       },
@@ -3460,8 +3452,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "分层矿物颜料与低饱和综合色",
         "labelEn": "layered mineral pigment and muted mixed color",
-        "promptZh": "以分层矿物颜料与低饱和综合色统一笔触、边缘与成像痕迹",
-        "promptEn": "Use layered mineral pigment and muted mixed color to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用分层矿物颜料与低饱和综合色",
+        "promptEn": "render marks and edges with layered mineral pigment and muted mixed color",
         "weight": 0.93,
         "level": "主导"
       },
@@ -3472,8 +3464,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "细腻轮廓与柔和形体概括",
         "labelEn": "delicate contours and softly simplified form",
-        "promptZh": "造型遵循细腻轮廓与柔和形体概括，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through delicate contours and softly simplified form while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为细腻轮廓与柔和形体概括，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into delicate contours and softly simplified form while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -3484,8 +3476,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "细砂般哑光纸绢表面",
         "labelEn": "fine-grained matte paper-silk surface",
-        "promptZh": "材质表现为细砂般哑光纸绢表面，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as fine-grained matte paper-silk surface, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为细砂般哑光纸绢表面",
+        "promptEn": "render materials and surfaces as fine-grained matte paper-silk surface",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -3496,8 +3488,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "均匀柔光与极少硬阴影",
         "labelEn": "even soft light with minimal hard shadow",
-        "promptZh": "光影采用均匀柔光与极少硬阴影，统一光源方向与明暗逻辑",
-        "promptEn": "Use even soft light with minimal hard shadow for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用均匀柔光与极少硬阴影",
+        "promptEn": "use even soft light with minimal hard shadow for lighting and tonal rendering",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -3512,8 +3504,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "稀疏非对称与充足留白",
         "labelEn": "sparse asymmetry and generous negative space",
-        "promptZh": "构图遵循稀疏非对称与充足留白，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through sparse asymmetry and generous negative space, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用稀疏非对称与充足留白",
+        "promptEn": "compose with sparse asymmetry and generous negative space",
         "weight": 1,
         "level": "定义性"
       },
@@ -3524,8 +3516,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "不规则轮廓与不完美比例",
         "labelEn": "irregular contours and imperfect proportions",
-        "promptZh": "造型遵循不规则轮廓与不完美比例，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through irregular contours and imperfect proportions while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为不规则轮廓与不完美比例，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into irregular contours and imperfect proportions while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -3536,8 +3528,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "瑕疵与视觉效果",
         "labelZh": "风化、磨损与哑光触感",
         "labelEn": "weathered, worn, and matte tactility",
-        "promptZh": "风化、磨损与哑光触感仅作受控局部效果，不削弱主体轮廓与焦点",
-        "promptEn": "Use weathered, worn, and matte tactility only as a controlled local effect without weakening subject silhouettes or the focal point",
+        "promptZh": "仅局部使用风化、磨损与哑光触感",
+        "promptEn": "use weathered, worn, and matte tactility only as a controlled local effect",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -3548,8 +3540,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "土灰、褐色与褪色中性色",
         "labelEn": "earth gray, brown, and faded neutrals",
-        "promptZh": "配色限定为土灰、褐色与褪色中性色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to earth gray, brown, and faded neutrals, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为土灰、褐色与褪色中性色",
+        "promptEn": "limit the palette to earth gray, brown, and faded neutrals",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -3560,8 +3552,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "柔和低对比自然光",
         "labelEn": "soft low-contrast natural light",
-        "promptZh": "光影采用柔和低对比自然光，统一光源方向与明暗逻辑",
-        "promptEn": "Use soft low-contrast natural light for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用柔和低对比自然光",
+        "promptEn": "use soft low-contrast natural light for lighting and tonal rendering",
         "weight": 0.78,
         "level": "支撑"
       }
@@ -3576,8 +3568,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "紧凑居中与小尺度模块化布局",
         "labelEn": "compact centered and small-scale modular layout",
-        "promptZh": "构图遵循紧凑居中与小尺度模块化布局，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through compact centered and small-scale modular layout, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用紧凑居中与小尺度模块化布局",
+        "promptEn": "compose with compact centered and small-scale modular layout",
         "weight": 1,
         "level": "定义性"
       },
@@ -3588,8 +3580,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "高明度粉彩与少量深色描边",
         "labelEn": "high-key pastels with limited dark outlining",
-        "promptZh": "配色限定为高明度粉彩与少量深色描边，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to high-key pastels with limited dark outlining, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为高明度粉彩与少量深色描边",
+        "promptEn": "limit the palette to high-key pastels with limited dark outlining",
         "weight": 0.93,
         "level": "主导"
       },
@@ -3600,8 +3592,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "圆润轮廓、短小比例与偏大的主要形体",
         "labelEn": "rounded contours, shortened proportions, and enlarged primary forms",
-        "promptZh": "造型遵循圆润轮廓、短小比例与偏大的主要形体，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through rounded contours, shortened proportions, and enlarged primary forms while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为圆润轮廓、短小比例与偏大的主要形体，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into rounded contours, shortened proportions, and enlarged primary forms while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -3612,8 +3604,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "均匀粗轮廓与极少内部线条",
         "labelEn": "uniform bold contours and minimal interior linework",
-        "promptZh": "造型遵循均匀粗轮廓与极少内部线条，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through uniform bold contours and minimal interior linework while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为均匀粗轮廓与极少内部线条，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into uniform bold contours and minimal interior linework while preserving identity and defining structure",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -3624,8 +3616,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "次要结构被压缩为少量清晰特征",
         "labelEn": "secondary structure reduced to a few legible features",
-        "promptZh": "造型遵循次要结构被压缩为少量清晰特征，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through secondary structure reduced to a few legible features while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为次要结构被压缩为少量清晰特征，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into secondary structure reduced to a few legible features while preserving identity and defining structure",
         "weight": 0.78,
         "level": "可调整"
       },
@@ -3636,8 +3628,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "两级或三级平涂明暗与小面积高光",
         "labelEn": "two- or three-step flat shading with small highlights",
-        "promptZh": "光影采用两级或三级平涂明暗与小面积高光，统一光源方向与明暗逻辑",
-        "promptEn": "Use two- or three-step flat shading with small highlights for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用两级或三级平涂明暗与小面积高光",
+        "promptEn": "use two- or three-step flat shading with small highlights for lighting and tonal rendering",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -3648,8 +3640,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "无颗粒的光洁矢量或赛璐璐表面",
         "labelEn": "grain-free clean vector or cel-painted surface",
-        "promptZh": "以无颗粒的光洁矢量或赛璐璐表面统一笔触、边缘与成像痕迹",
-        "promptEn": "Use grain-free clean vector or cel-painted surface to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用无颗粒的光洁矢量或赛璐璐表面",
+        "promptEn": "render marks and edges with grain-free clean vector or cel-painted surface",
         "weight": 0.55,
         "level": "可调整"
       }
@@ -3664,8 +3656,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "均匀轮廓与平面剪影",
         "labelEn": "uniform outlines and flat silhouettes",
-        "promptZh": "造型遵循均匀轮廓与平面剪影，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through uniform outlines and flat silhouettes while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为均匀轮廓与平面剪影，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into uniform outlines and flat silhouettes while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -3676,8 +3668,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "高饱和糖果色",
         "labelEn": "high-saturation candy color",
-        "promptZh": "配色限定为高饱和糖果色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to high-saturation candy color, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为高饱和糖果色",
+        "promptEn": "limit the palette to high-saturation candy color",
         "weight": 0.93,
         "level": "主导"
       },
@@ -3688,8 +3680,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "赛璐璐平涂与光洁数字表面",
         "labelEn": "cel-flat shading and glossy digital finish",
-        "promptZh": "以赛璐璐平涂与光洁数字表面统一笔触、边缘与成像痕迹",
-        "promptEn": "Use cel-flat shading and glossy digital finish to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用赛璐璐平涂与光洁数字表面",
+        "promptEn": "render marks and edges with cel-flat shading and glossy digital finish",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -3700,8 +3692,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "密集表面图案与重复模块",
         "labelEn": "dense surface pattern and repeated modules",
-        "promptZh": "材质表现为密集表面图案与重复模块，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as dense surface pattern and repeated modules, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为密集表面图案与重复模块",
+        "promptEn": "render materials and surfaces as dense surface pattern and repeated modules",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -3712,8 +3704,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "高度压缩的无深度空间",
         "labelEn": "highly compressed depthless space",
-        "promptZh": "视角统一为高度压缩的无深度空间，所有对象使用同一观察与投影规则",
-        "promptEn": "Use highly compressed depthless space consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用高度压缩的无深度空间",
+        "promptEn": "use highly compressed depthless space for viewpoint and spatial rendering",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -3728,8 +3720,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "正面扁平与装饰性对称",
         "labelEn": "frontal flatness and decorative symmetry",
-        "promptZh": "构图遵循正面扁平与装饰性对称，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through frontal flatness and decorative symmetry, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用正面扁平与装饰性对称",
+        "promptEn": "compose with frontal flatness and decorative symmetry",
         "weight": 1,
         "level": "定义性"
       },
@@ -3740,8 +3732,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "粗朴清晰轮廓",
         "labelEn": "bold naive contours",
-        "promptZh": "造型遵循粗朴清晰轮廓，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through bold naive contours while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为粗朴清晰轮廓，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into bold naive contours while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -3752,8 +3744,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "朱红、群青、明黄与翠绿",
         "labelEn": "vermilion, ultramarine, bright yellow, and emerald",
-        "promptZh": "配色限定为朱红、群青、明黄与翠绿，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to vermilion, ultramarine, bright yellow, and emerald, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为朱红、群青、明黄与翠绿",
+        "promptEn": "limit the palette to vermilion, ultramarine, bright yellow, and emerald",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -3764,8 +3756,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "不透明矿物色与纸张纹理",
         "labelEn": "opaque mineral color and paper texture",
-        "promptZh": "材质表现为不透明矿物色与纸张纹理，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as opaque mineral color and paper texture, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为不透明矿物色与纸张纹理",
+        "promptEn": "render materials and surfaces as opaque mineral color and paper texture",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -3776,8 +3768,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "有意弱化的写实透视",
         "labelEn": "deliberately weakened realistic perspective",
-        "promptZh": "视角统一为有意弱化的写实透视，所有对象使用同一观察与投影规则",
-        "promptEn": "Use deliberately weakened realistic perspective consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用有意弱化的写实透视",
+        "promptEn": "use deliberately weakened realistic perspective for viewpoint and spatial rendering",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -3792,8 +3784,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "满幅密集细节与均匀轮廓",
         "labelEn": "dense all-over detail and uniform contours",
-        "promptZh": "构图遵循满幅密集细节与均匀轮廓，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through dense all-over detail and uniform contours, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用满幅密集细节与均匀轮廓",
+        "promptEn": "compose with dense all-over detail and uniform contours",
         "weight": 1,
         "level": "定义性"
       },
@@ -3804,8 +3796,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "垂直堆叠的高视点空间",
         "labelEn": "vertically stacked high-viewpoint space",
-        "promptZh": "视角统一为垂直堆叠的高视点空间，所有对象使用同一观察与投影规则",
-        "promptEn": "Use vertically stacked high-viewpoint space consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用垂直堆叠的高视点空间",
+        "promptEn": "use vertically stacked high-viewpoint space for viewpoint and spatial rendering",
         "weight": 0.93,
         "level": "主导"
       },
@@ -3816,8 +3808,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "宝石色与精细金色点缀",
         "labelEn": "jewel tones with fine gold accents",
-        "promptZh": "配色限定为宝石色与精细金色点缀，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to jewel tones with fine gold accents, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为宝石色与精细金色点缀",
+        "promptEn": "limit the palette to jewel tones with fine gold accents",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -3828,8 +3820,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "平面图案覆盖形体表面",
         "labelEn": "flat patterns covering form surfaces",
-        "promptZh": "材质表现为平面图案覆盖形体表面，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as flat patterns covering form surfaces, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为平面图案覆盖形体表面",
+        "promptEn": "render materials and surfaces as flat patterns covering form surfaces",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -3840,8 +3832,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "不透明颜料与细滑纸面",
         "labelEn": "opaque pigment and smooth paper surface",
-        "promptZh": "材质表现为不透明颜料与细滑纸面，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as opaque pigment and smooth paper surface, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为不透明颜料与细滑纸面",
+        "promptEn": "render materials and surfaces as opaque pigment and smooth paper surface",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -3852,8 +3844,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "细密边饰与书法式节奏",
         "labelEn": "intricate borders and calligraphic rhythm",
-        "promptZh": "构图遵循细密边饰与书法式节奏，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through intricate borders and calligraphic rhythm, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用细密边饰与书法式节奏",
+        "promptEn": "compose with intricate borders and calligraphic rhythm",
         "weight": 0.7,
         "level": "可调整"
       }
@@ -3868,8 +3860,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "分层高视点与清晰空间区隔",
         "labelEn": "layered high viewpoint and clearly separated space",
-        "promptZh": "构图遵循分层高视点与清晰空间区隔，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through layered high viewpoint and clearly separated space, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用分层高视点与清晰空间区隔",
+        "promptEn": "compose with layered high viewpoint and clearly separated space",
         "weight": 1,
         "level": "定义性"
       },
@@ -3880,8 +3872,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "窄幅细密装饰边框与均衡留白",
         "labelEn": "narrow intricate borders and balanced margins",
-        "promptZh": "构图遵循窄幅细密装饰边框与均衡留白，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through narrow intricate borders and balanced margins, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用窄幅细密装饰边框与均衡留白",
+        "promptEn": "compose with narrow intricate borders and balanced margins",
         "weight": 0.93,
         "level": "主导"
       },
@@ -3892,8 +3884,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "精确写实观察与理想化秩序并存",
         "labelEn": "precise naturalistic observation within idealized order",
-        "promptZh": "造型遵循精确写实观察与理想化秩序并存，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through precise naturalistic observation within idealized order while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为精确写实观察与理想化秩序并存，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into precise naturalistic observation within idealized order while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -3904,8 +3896,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "精微轮廓与细小渐变塑造受控体积",
         "labelEn": "minute contours and fine gradations producing controlled volume",
-        "promptZh": "造型遵循精微轮廓与细小渐变塑造受控体积，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through minute contours and fine gradations producing controlled volume while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为精微轮廓与细小渐变塑造受控体积，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into minute contours and fine gradations producing controlled volume while preserving identity and defining structure",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -3916,8 +3908,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "局部纹样保持平面且高度细密",
         "labelEn": "localized pattern remaining flat and highly intricate",
-        "promptZh": "材质表现为局部纹样保持平面且高度细密，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as localized pattern remaining flat and highly intricate, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为局部纹样保持平面且高度细密",
+        "promptEn": "render materials and surfaces as localized pattern remaining flat and highly intricate",
         "weight": 0.78,
         "level": "可调整"
       },
@@ -3928,8 +3920,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "不透明水粉、透明薄染与抛光纸面",
         "labelEn": "opaque gouache, translucent washes, and burnished paper",
-        "promptZh": "以不透明水粉、透明薄染与抛光纸面统一笔触、边缘与成像痕迹",
-        "promptEn": "Use opaque gouache, translucent washes, and burnished paper to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用不透明水粉、透明薄染与抛光纸面",
+        "promptEn": "render marks and edges with opaque gouache, translucent washes, and burnished paper",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -3940,8 +3932,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "丰富矿物色与克制金色",
         "labelEn": "rich mineral color and restrained gold",
-        "promptZh": "配色限定为丰富矿物色与克制金色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to rich mineral color and restrained gold, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为丰富矿物色与克制金色",
+        "promptEn": "limit the palette to rich mineral color and restrained gold",
         "weight": 0.7,
         "level": "可调整"
       }
@@ -3956,8 +3948,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "边框限定的满幅构图",
         "labelEn": "border-contained all-over composition",
-        "promptZh": "构图遵循边框限定的满幅构图，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through border-contained all-over composition, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用边框限定的满幅构图",
+        "promptEn": "compose with border-contained all-over composition",
         "weight": 1,
         "level": "定义性"
       },
@@ -3968,8 +3960,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "几乎无留白且不使用渐变阴影",
         "labelEn": "almost no negative space and no gradient shading",
-        "promptZh": "构图遵循几乎无留白且不使用渐变阴影，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through almost no negative space and no gradient shading, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用几乎无留白且不使用渐变阴影",
+        "promptEn": "compose with almost no negative space and no gradient shading",
         "weight": 0.93,
         "level": "主导"
       },
@@ -3980,8 +3972,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "双重轮廓与均匀线宽",
         "labelEn": "double contours and consistent line weight",
-        "promptZh": "造型遵循双重轮廓与均匀线宽，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through double contours and consistent line weight while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为双重轮廓与均匀线宽，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into double contours and consistent line weight while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -3992,8 +3984,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "轮廓内部以重复几何线纹密集填充",
         "labelEn": "dense repeated geometric line infill within contours",
-        "promptZh": "造型遵循轮廓内部以重复几何线纹密集填充，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through dense repeated geometric line infill within contours while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为轮廓内部以重复几何线纹密集填充，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into dense repeated geometric line infill within contours while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -4004,8 +3996,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "正面或侧面的扁平视点与无透视空间",
         "labelEn": "flat frontal or profile viewpoints without perspectival depth",
-        "promptZh": "视角统一为正面或侧面的扁平视点与无透视空间，所有对象使用同一观察与投影规则",
-        "promptEn": "Use flat frontal or profile viewpoints without perspectival depth consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用正面或侧面的扁平视点与无透视空间",
+        "promptEn": "use flat frontal or profile viewpoints without perspectival depth for viewpoint and spatial rendering",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -4016,8 +4008,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "高饱和有限色系与黑色线描",
         "labelEn": "high-saturation limited palette with black linework",
-        "promptZh": "配色限定为高饱和有限色系与黑色线描，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to high-saturation limited palette with black linework, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为高饱和有限色系与黑色线描",
+        "promptEn": "limit the palette to high-saturation limited palette with black linework",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -4028,8 +4020,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "手工颜料、轻微不匀与粗纤维纸面",
         "labelEn": "handmade pigment, slight unevenness, and coarse-fiber paper",
-        "promptZh": "材质表现为手工颜料、轻微不匀与粗纤维纸面，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as handmade pigment, slight unevenness, and coarse-fiber paper, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为手工颜料、轻微不匀与粗纤维纸面",
+        "promptEn": "render materials and surfaces as handmade pigment, slight unevenness, and coarse-fiber paper",
         "weight": 0.55,
         "level": "可调整"
       }
@@ -4044,8 +4036,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "星形多边形、互锁多边形与连续线带",
         "labelEn": "star polygons, interlocking polygons, and continuous strapwork",
-        "promptZh": "造型遵循星形多边形、互锁多边形与连续线带，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through star polygons, interlocking polygons, and continuous strapwork while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为星形多边形、互锁多边形与连续线带，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into star polygons, interlocking polygons, and continuous strapwork while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -4056,8 +4048,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "精确等距镶嵌与无缝边缘延展",
         "labelEn": "precise tessellation and seamless continuation beyond the frame",
-        "promptZh": "造型遵循精确等距镶嵌与无缝边缘延展，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through precise tessellation and seamless continuation beyond the frame while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为精确等距镶嵌与无缝边缘延展，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into precise tessellation and seamless continuation beyond the frame while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -4068,8 +4060,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "由圆形分割生成的放射对称",
         "labelEn": "radial symmetry generated through circular subdivision",
-        "promptZh": "构图遵循由圆形分割生成的放射对称，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through radial symmetry generated through circular subdivision, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用由圆形分割生成的放射对称",
+        "promptEn": "compose with radial symmetry generated through circular subdivision",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -4080,8 +4072,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "正负形等权与无单一终点的重复节奏",
         "labelEn": "equal-weight positive-negative space and repetition without a single endpoint",
-        "promptZh": "构图遵循正负形等权与无单一终点的重复节奏，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through equal-weight positive-negative space and repetition without a single endpoint, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用正负形等权与无单一终点的重复节奏",
+        "promptEn": "compose with equal-weight positive-negative space and repetition without a single endpoint",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -4092,8 +4084,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "钴蓝、绿松石、金色与砖红",
         "labelEn": "cobalt, turquoise, gold, and brick red",
-        "promptZh": "配色限定为钴蓝、绿松石、金色与砖红，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to cobalt, turquoise, gold, and brick red, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为钴蓝、绿松石、金色与砖红",
+        "promptEn": "limit the palette to cobalt, turquoise, gold, and brick red",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -4104,8 +4096,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "均匀线宽、硬边平涂与极少体积阴影",
         "labelEn": "uniform line weight, hard-edged flat fills, and minimal volumetric shadow",
-        "promptZh": "以均匀线宽、硬边平涂与极少体积阴影统一笔触、边缘与成像痕迹",
-        "promptEn": "Use uniform line weight, hard-edged flat fills, and minimal volumetric shadow to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用均匀线宽、硬边平涂与极少体积阴影",
+        "promptEn": "render marks and edges with uniform line weight, hard-edged flat fills, and minimal volumetric shadow",
         "weight": 0.7,
         "level": "可调整"
       },
@@ -4116,8 +4108,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "釉面砖、马赛克与细密灰缝表面",
         "labelEn": "glazed tile, mosaic, and fine grout-line surfaces",
-        "promptZh": "以釉面砖、马赛克与细密灰缝表面统一笔触、边缘与成像痕迹",
-        "promptEn": "Use glazed tile, mosaic, and fine grout-line surfaces to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用釉面砖、马赛克与细密灰缝表面",
+        "promptEn": "render marks and edges with glazed tile, mosaic, and fine grout-line surfaces",
         "weight": 0.55,
         "level": "可调整"
       }
@@ -4132,8 +4124,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "严格中心对称与嵌套框架",
         "labelEn": "strict central symmetry and nested framing",
-        "promptZh": "构图遵循严格中心对称与嵌套框架，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through strict central symmetry and nested framing, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用严格中心对称与嵌套框架",
+        "promptEn": "compose with strict central symmetry and nested framing",
         "weight": 1,
         "level": "定义性"
       },
@@ -4144,8 +4136,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "层级明确的比例组织",
         "labelEn": "clearly hierarchical proportional organization",
-        "promptZh": "造型遵循层级明确的比例组织，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through clearly hierarchical proportional organization while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为层级明确的比例组织，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into clearly hierarchical proportional organization while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -4156,8 +4148,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "精确细线与平面设色",
         "labelEn": "precise fine lines and flat coloring",
-        "promptZh": "配色限定为精确细线与平面设色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to precise fine lines and flat coloring, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为精确细线与平面设色",
+        "promptEn": "limit the palette to precise fine lines and flat coloring",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -4168,8 +4160,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "高饱和矿物色与金色",
         "labelEn": "saturated mineral color and gold",
-        "promptZh": "配色限定为高饱和矿物色与金色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to saturated mineral color and gold, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为高饱和矿物色与金色",
+        "promptEn": "limit the palette to saturated mineral color and gold",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -4180,8 +4172,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "细密颜料与织物底材质感",
         "labelEn": "fine pigment and textile-ground texture",
-        "promptZh": "材质表现为细密颜料与织物底材质感，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as fine pigment and textile-ground texture, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为细密颜料与织物底材质感",
+        "promptEn": "render materials and surfaces as fine pigment and textile-ground texture",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -4196,8 +4188,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "纪念碑式尺度与强对角线",
         "labelEn": "monumental scale and strong diagonals",
-        "promptZh": "造型遵循纪念碑式尺度与强对角线，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through monumental scale and strong diagonals while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为纪念碑式尺度与强对角线，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into monumental scale and strong diagonals while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -4208,8 +4200,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "宽阔简化体积与坚实轮廓",
         "labelEn": "broad simplified volumes and firm contours",
-        "promptZh": "造型遵循宽阔简化体积与坚实轮廓，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through broad simplified volumes and firm contours while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为宽阔简化体积与坚实轮廓，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into broad simplified volumes and firm contours while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -4220,8 +4212,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "哑光湿壁画颜料与粗颗粒灰泥底",
         "labelEn": "matte fresco pigment and coarse plaster ground",
-        "promptZh": "以哑光湿壁画颜料与粗颗粒灰泥底统一笔触、边缘与成像痕迹",
-        "promptEn": "Use matte fresco pigment and coarse plaster ground to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用哑光湿壁画颜料与粗颗粒灰泥底",
+        "promptEn": "render marks and edges with matte fresco pigment and coarse plaster ground",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -4232,8 +4224,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "土红、赭黄与深蓝绿色",
         "labelEn": "earth red, ochre yellow, and deep blue-green",
-        "promptZh": "配色限定为土红、赭黄与深蓝绿色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to earth red, ochre yellow, and deep blue-green, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为土红、赭黄与深蓝绿色",
+        "promptEn": "limit the palette to earth red, ochre yellow, and deep blue-green",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -4244,8 +4236,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "大面积明暗分区",
         "labelEn": "large-scale tonal zoning",
-        "promptZh": "光影采用大面积明暗分区，统一光源方向与明暗逻辑",
-        "promptEn": "Use large-scale tonal zoning for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用大面积明暗分区",
+        "promptEn": "use large-scale tonal zoning for lighting and tonal rendering",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -4260,8 +4252,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "正面装饰性对称",
         "labelEn": "frontal decorative symmetry",
-        "promptZh": "构图遵循正面装饰性对称，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through frontal decorative symmetry, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用正面装饰性对称",
+        "promptEn": "compose with frontal decorative symmetry",
         "weight": 1,
         "level": "定义性"
       },
@@ -4272,8 +4264,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "密集但清晰的平面层级",
         "labelEn": "dense yet legible flat hierarchy",
-        "promptZh": "造型遵循密集但清晰的平面层级，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through dense yet legible flat hierarchy while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为密集但清晰的平面层级，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into dense yet legible flat hierarchy while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -4284,8 +4276,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "简化手绘轮廓与重复填纹",
         "labelEn": "simplified hand-painted contours and repeated infill",
-        "promptZh": "以简化手绘轮廓与重复填纹统一笔触、边缘与成像痕迹",
-        "promptEn": "Use simplified hand-painted contours and repeated infill to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用简化手绘轮廓与重复填纹",
+        "promptEn": "render marks and edges with simplified hand-painted contours and repeated infill",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -4296,8 +4288,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "高饱和互补色",
         "labelEn": "high-saturation complementary color",
-        "promptZh": "配色限定为高饱和互补色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to high-saturation complementary color, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为高饱和互补色",
+        "promptEn": "limit the palette to high-saturation complementary color",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -4308,8 +4300,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "哑光手工表面与轻微不规则",
         "labelEn": "matte handmade surface and slight irregularity",
-        "promptZh": "材质表现为哑光手工表面与轻微不规则，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as matte handmade surface and slight irregularity, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为哑光手工表面与轻微不规则",
+        "promptEn": "render materials and surfaces as matte handmade surface and slight irregularity",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -4324,8 +4316,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "强烈几何节奏与图底反转",
         "labelEn": "bold geometric rhythm and figure-ground reversal",
-        "promptZh": "构图遵循强烈几何节奏与图底反转，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through bold geometric rhythm and figure-ground reversal, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用强烈几何节奏与图底反转",
+        "promptEn": "compose with bold geometric rhythm and figure-ground reversal",
         "weight": 1,
         "level": "定义性"
       },
@@ -4336,8 +4328,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "高饱和互补色系",
         "labelEn": "high-saturation complementary palette",
-        "promptZh": "配色限定为高饱和互补色系，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to high-saturation complementary palette, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为高饱和互补色系",
+        "promptEn": "limit the palette to high-saturation complementary palette",
         "weight": 0.93,
         "level": "主导"
       },
@@ -4348,8 +4340,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "满版连续重复",
         "labelEn": "all-over continuous repetition",
-        "promptZh": "造型遵循满版连续重复，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through all-over continuous repetition while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为满版连续重复，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into all-over continuous repetition while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -4360,8 +4352,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "大尺度轮廓与小尺度填纹并置",
         "labelEn": "juxtaposed large contours and small infill patterns",
-        "promptZh": "造型遵循大尺度轮廓与小尺度填纹并置，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through juxtaposed large contours and small infill patterns while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为大尺度轮廓与小尺度填纹并置，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into juxtaposed large contours and small infill patterns while preserving identity and defining structure",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -4372,8 +4364,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "清晰蜡染边缘与棉布纹理",
         "labelEn": "crisp wax-resist edges and cotton texture",
-        "promptZh": "材质表现为清晰蜡染边缘与棉布纹理，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as crisp wax-resist edges and cotton texture, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为清晰蜡染边缘与棉布纹理",
+        "promptEn": "render materials and surfaces as crisp wax-resist edges and cotton texture",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -4388,8 +4380,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "深黑、靛蓝、紫色与高纯度宝石色",
         "labelEn": "deep black, indigo, violet, and saturated jewel tones",
-        "promptZh": "配色限定为深黑、靛蓝、紫色与高纯度宝石色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to deep black, indigo, violet, and saturated jewel tones, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为深黑、靛蓝、紫色与高纯度宝石色",
+        "promptEn": "limit the palette to deep black, indigo, violet, and saturated jewel tones",
         "weight": 0.93,
         "level": "主导"
       },
@@ -4400,8 +4392,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "非洲几何节奏与未来流线形体融合",
         "labelEn": "African geometric rhythm fused with futuristic streamlined form",
-        "promptZh": "造型遵循非洲几何节奏与未来流线形体融合，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through African geometric rhythm fused with futuristic streamlined form while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为非洲几何节奏与未来流线形体融合，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into African geometric rhythm fused with futuristic streamlined form while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -4412,8 +4404,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "重复图案作为结构而非表面点缀",
         "labelEn": "repeated pattern functioning as structure rather than surface accent",
-        "promptZh": "材质表现为重复图案作为结构而非表面点缀，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as repeated pattern functioning as structure rather than surface accent, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为重复图案作为结构而非表面点缀",
+        "promptEn": "render materials and surfaces as repeated pattern functioning as structure rather than surface accent",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -4424,8 +4416,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "轴线式或纪念碑式视觉层级",
         "labelEn": "axial or monumental visual hierarchy",
-        "promptZh": "构图遵循轴线式或纪念碑式视觉层级，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through axial or monumental visual hierarchy, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用轴线式或纪念碑式视觉层级",
+        "promptEn": "compose with axial or monumental visual hierarchy",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -4436,8 +4428,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "金色、铜色或铬色金属高光",
         "labelEn": "gold, copper, or chrome metallic highlights",
-        "promptZh": "光影采用金色、铜色或铬色金属高光，统一光源方向与明暗逻辑",
-        "promptEn": "Use gold, copper, or chrome metallic highlights for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用金色、铜色或铬色金属高光",
+        "promptEn": "use gold, copper, or chrome metallic highlights for lighting and tonal rendering",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -4448,8 +4440,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "低调高反差光线与清晰轮廓光",
         "labelEn": "low-key high-contrast lighting with crisp rim light",
-        "promptZh": "光影采用低调高反差光线与清晰轮廓光，统一光源方向与明暗逻辑",
-        "promptEn": "Use low-key high-contrast lighting with crisp rim light for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用低调高反差光线与清晰轮廓光",
+        "promptEn": "use low-key high-contrast lighting with crisp rim light for lighting and tonal rendering",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -4460,8 +4452,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "抛光金属、珠饰感表面与织物纹理并置",
         "labelEn": "juxtaposed polished metal, bead-like surfaces, and textile texture",
-        "promptZh": "光影采用抛光金属、珠饰感表面与织物纹理并置，统一光源方向与明暗逻辑",
-        "promptEn": "Use juxtaposed polished metal, bead-like surfaces, and textile texture for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用抛光金属、珠饰感表面与织物纹理并置",
+        "promptEn": "use juxtaposed polished metal, bead-like surfaces, and textile texture for lighting and tonal rendering",
         "weight": 0.55,
         "level": "可调整"
       }
@@ -4476,8 +4468,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "严格模数网格与非对称对齐",
         "labelEn": "strict modular grid and asymmetrical alignment",
-        "promptZh": "构图遵循严格模数网格与非对称对齐，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through strict modular grid and asymmetrical alignment, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用严格模数网格与非对称对齐",
+        "promptEn": "compose with strict modular grid and asymmetrical alignment",
         "weight": 1,
         "level": "定义性"
       },
@@ -4488,8 +4480,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "大面积留白与客观信息层级",
         "labelEn": "large negative space and objective hierarchy",
-        "promptZh": "构图遵循大面积留白与客观信息层级，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through large negative space and objective hierarchy, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用大面积留白与客观信息层级",
+        "promptEn": "compose with large negative space and objective hierarchy",
         "weight": 0.93,
         "level": "主导"
       },
@@ -4500,8 +4492,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "左对齐无衬线排版",
         "labelEn": "flush-left sans-serif typography",
-        "promptZh": "仅在用户需要文字时采用左对齐无衬线排版，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use flush-left sans-serif typography while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用左对齐无衬线排版并保持原文可读",
+        "promptEn": "only when text is requested, use flush-left sans-serif typography and preserve the exact readable wording",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -4512,8 +4504,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "黑白配单一红色强调",
         "labelEn": "black and white with one red accent",
-        "promptZh": "配色限定为黑白配单一红色强调，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to black and white with one red accent, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为黑白配单一红色强调",
+        "promptEn": "limit the palette to black and white with one red accent",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -4524,8 +4516,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "精确无纹理的印刷表面",
         "labelEn": "precise textureless print surface",
-        "promptZh": "以精确无纹理的印刷表面统一笔触、边缘与成像痕迹",
-        "promptEn": "Use precise textureless print surface to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用精确无纹理的印刷表面",
+        "promptEn": "render marks and edges with precise textureless print surface",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -4540,8 +4532,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "开放式非对称布局与清晰视觉重心",
         "labelEn": "open asymmetrical layout with a clear visual center",
-        "promptZh": "构图遵循开放式非对称布局与清晰视觉重心，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through open asymmetrical layout with a clear visual center, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用开放式非对称布局与清晰视觉重心",
+        "promptEn": "compose with open asymmetrical layout with a clear visual center",
         "weight": 1,
         "level": "定义性"
       },
@@ -4552,8 +4544,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "简化有机曲线与几何形的尺度对比",
         "labelEn": "scale contrast between simplified organic curves and geometric shapes",
-        "promptZh": "造型遵循简化有机曲线与几何形的尺度对比，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through scale contrast between simplified organic curves and geometric shapes while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为简化有机曲线与几何形的尺度对比，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into scale contrast between simplified organic curves and geometric shapes while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -4564,8 +4556,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "克制几何无衬线与宽松排版",
         "labelEn": "restrained geometric sans-serif with open spacing",
-        "promptZh": "仅在用户需要文字时采用克制几何无衬线与宽松排版，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use restrained geometric sans-serif with open spacing while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用克制几何无衬线与宽松排版并保持原文可读",
+        "promptEn": "only when text is requested, use restrained geometric sans-serif with open spacing and preserve the exact readable wording",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -4576,8 +4568,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "芥末黄、青绿、橄榄绿与暖红",
         "labelEn": "mustard yellow, teal, olive green, and warm red",
-        "promptZh": "配色限定为芥末黄、青绿、橄榄绿与暖红，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to mustard yellow, teal, olive green, and warm red, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为芥末黄、青绿、橄榄绿与暖红",
+        "promptEn": "limit the palette to mustard yellow, teal, olive green, and warm red",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -4588,8 +4580,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "细线结构与大块平涂色面并置",
         "labelEn": "fine linear structure juxtaposed with broad flat color fields",
-        "promptZh": "以细线结构与大块平涂色面并置统一笔触、边缘与成像痕迹",
-        "promptEn": "Use fine linear structure juxtaposed with broad flat color fields to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用细线结构与大块平涂色面并置",
+        "promptEn": "render marks and edges with fine linear structure juxtaposed with broad flat color fields",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -4600,8 +4592,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "轻微错版、丝网颗粒与哑光纸面",
         "labelEn": "slight misregistration, screen-print grain, and matte paper",
-        "promptZh": "以轻微错版、丝网颗粒与哑光纸面统一笔触、边缘与成像痕迹",
-        "promptEn": "Use slight misregistration, screen-print grain, and matte paper to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用轻微错版、丝网颗粒与哑光纸面",
+        "promptEn": "render marks and edges with slight misregistration, screen-print grain, and matte paper",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -4616,8 +4608,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "低密度功能性布局与充足留白",
         "labelEn": "low-density functional layout and generous negative space",
-        "promptZh": "构图遵循低密度功能性布局与充足留白，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through low-density functional layout and generous negative space, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用低密度功能性布局与充足留白",
+        "promptEn": "compose with low-density functional layout and generous negative space",
         "weight": 1,
         "level": "定义性"
       },
@@ -4628,8 +4620,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "简洁有机曲线、圆角连接与柔和比例",
         "labelEn": "simple organic curves, rounded joins, and gentle proportions",
-        "promptZh": "造型遵循简洁有机曲线、圆角连接与柔和比例，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through simple organic curves, rounded joins, and gentle proportions while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为简洁有机曲线、圆角连接与柔和比例，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into simple organic curves, rounded joins, and gentle proportions while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -4640,8 +4632,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "浅色中性色配低饱和强调",
         "labelEn": "pale neutrals with muted accents",
-        "promptZh": "配色限定为浅色中性色配低饱和强调，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to pale neutrals with muted accents, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为浅色中性色配低饱和强调",
+        "promptEn": "limit the palette to pale neutrals with muted accents",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -4652,8 +4644,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "哑光浅木、纺织纤维与无光泽表面",
         "labelEn": "matte pale wood, textile fiber, and non-glossy surfaces",
-        "promptZh": "材质表现为哑光浅木、纺织纤维与无光泽表面，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as matte pale wood, textile fiber, and non-glossy surfaces, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为哑光浅木、纺织纤维与无光泽表面",
+        "promptEn": "render materials and surfaces as matte pale wood, textile fiber, and non-glossy surfaces",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -4664,8 +4656,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "均匀漫射自然光与浅淡阴影",
         "labelEn": "even diffused natural light and pale shadows",
-        "promptZh": "光影采用均匀漫射自然光与浅淡阴影，统一光源方向与明暗逻辑",
-        "promptEn": "Use even diffused natural light and pale shadows for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用均匀漫射自然光与浅淡阴影",
+        "promptEn": "use even diffused natural light and pale shadows for lighting and tonal rendering",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -4680,8 +4672,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "拉长水平轴线",
         "labelEn": "elongated horizontal axis",
-        "promptZh": "构图遵循拉长水平轴线，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through elongated horizontal axis, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用拉长水平轴线",
+        "promptEn": "compose with elongated horizontal axis",
         "weight": 1,
         "level": "定义性"
       },
@@ -4692,8 +4684,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "连续空气动力学曲线",
         "labelEn": "continuous aerodynamic curves",
-        "promptZh": "造型遵循连续空气动力学曲线，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through continuous aerodynamic curves while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为连续空气动力学曲线，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into continuous aerodynamic curves while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -4704,8 +4696,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "平行线带与圆角收口",
         "labelEn": "parallel bands and rounded endings",
-        "promptZh": "造型遵循平行线带与圆角收口，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through parallel bands and rounded endings while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为平行线带与圆角收口，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into parallel bands and rounded endings while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -4716,8 +4708,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "圆润几何无衬线排版",
         "labelEn": "rounded geometric sans-serif typography",
-        "promptZh": "仅在用户需要文字时采用圆润几何无衬线排版，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use rounded geometric sans-serif typography while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用圆润几何无衬线排版并保持原文可读",
+        "promptEn": "only when text is requested, use rounded geometric sans-serif typography and preserve the exact readable wording",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -4728,8 +4720,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "奶油白、海军蓝与铬银",
         "labelEn": "cream, navy, and chrome silver",
-        "promptZh": "配色限定为奶油白、海军蓝与铬银，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to cream, navy, and chrome silver, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为奶油白、海军蓝与铬银",
+        "promptEn": "limit the palette to cream, navy, and chrome silver",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -4740,8 +4732,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "光滑烤漆与抛光金属表面",
         "labelEn": "smooth lacquer and polished metal surface",
-        "promptZh": "光影采用光滑烤漆与抛光金属表面，统一光源方向与明暗逻辑",
-        "promptEn": "Use smooth lacquer and polished metal surface for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用光滑烤漆与抛光金属表面",
+        "promptEn": "use smooth lacquer and polished metal surface for lighting and tonal rendering",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -4756,8 +4748,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "非对称爆发式布局",
         "labelEn": "asymmetrical burst layout",
-        "promptZh": "构图遵循非对称爆发式布局，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through asymmetrical burst layout, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用非对称爆发式布局",
+        "promptEn": "compose with asymmetrical burst layout",
         "weight": 1,
         "level": "定义性"
       },
@@ -4768,8 +4760,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "轨道曲线与尖角放射几何",
         "labelEn": "orbital curves and angular radial geometry",
-        "promptZh": "造型遵循轨道曲线与尖角放射几何，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through orbital curves and angular radial geometry while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为轨道曲线与尖角放射几何，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into orbital curves and angular radial geometry while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -4780,8 +4772,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "松散重复与大小尺度跳变",
         "labelEn": "loose repetition and jumps in scale",
-        "promptZh": "造型遵循松散重复与大小尺度跳变，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through loose repetition and jumps in scale while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为松散重复与大小尺度跳变，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into loose repetition and jumps in scale while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -4792,8 +4784,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "不规则展示字体与图形交错",
         "labelEn": "irregular display typography interwoven with graphics",
-        "promptZh": "仅在用户需要文字时采用不规则展示字体与图形交错，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use irregular display typography interwoven with graphics while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用不规则展示字体与图形交错并保持原文可读",
+        "promptEn": "only when text is requested, use irregular display typography interwoven with graphics and preserve the exact readable wording",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -4804,8 +4796,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "青绿、珊瑚红、芥末黄与黑",
         "labelEn": "teal, coral, mustard, and black",
-        "promptZh": "配色限定为青绿、珊瑚红、芥末黄与黑，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to teal, coral, mustard, and black, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为青绿、珊瑚红、芥末黄与黑",
+        "promptEn": "limit the palette to teal, coral, mustard, and black",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -4816,8 +4808,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "平面丝网印刷与轻微颗粒",
         "labelEn": "flat screen print and subtle grain",
-        "promptZh": "以平面丝网印刷与轻微颗粒统一笔触、边缘与成像痕迹",
-        "promptEn": "Use flat screen print and subtle grain to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用平面丝网印刷与轻微颗粒",
+        "promptEn": "render marks and edges with flat screen print and subtle grain",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -4832,8 +4824,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "文字块的重叠、旋转与越界",
         "labelEn": "overlapping, rotated, and edge-crossing text blocks",
-        "promptZh": "仅在用户需要文字时采用文字块的重叠、旋转与越界，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use overlapping, rotated, and edge-crossing text blocks while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用文字块的重叠、旋转与越界并保持原文可读",
+        "promptEn": "only when text is requested, use overlapping, rotated, and edge-crossing text blocks and preserve the exact readable wording",
         "weight": 1,
         "level": "定义性"
       },
@@ -4844,8 +4836,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "字号、字距与行距的剧烈变化",
         "labelEn": "extreme variation in type scale and spacing",
-        "promptZh": "仅在用户需要文字时采用字号、字距与行距的剧烈变化，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use extreme variation in type scale and spacing while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用字号、字距与行距的剧烈变化并保持原文可读",
+        "promptEn": "only when text is requested, use extreme variation in type scale and spacing and preserve the exact readable wording",
         "weight": 0.93,
         "level": "主导"
       },
@@ -4856,8 +4848,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "破坏模数网格的斜向布局",
         "labelEn": "diagonal layout that breaks the modular grid",
-        "promptZh": "构图遵循破坏模数网格的斜向布局，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through diagonal layout that breaks the modular grid, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用破坏模数网格的斜向布局",
+        "promptEn": "compose with diagonal layout that breaks the modular grid",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -4868,8 +4860,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "瑕疵与视觉效果",
         "labelZh": "复印噪点与错位胶印质感",
         "labelEn": "photocopy noise and misregistered offset texture",
-        "promptZh": "复印噪点与错位胶印质感仅作受控局部效果，不削弱主体轮廓与焦点",
-        "promptEn": "Use photocopy noise and misregistered offset texture only as a controlled local effect without weakening subject silhouettes or the focal point",
+        "promptZh": "仅局部使用复印噪点与错位胶印质感",
+        "promptEn": "use photocopy noise and misregistered offset texture only as a controlled local effect",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -4880,8 +4872,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "黑白配高饱和强调色",
         "labelEn": "black and white with saturated accents",
-        "promptZh": "配色限定为黑白配高饱和强调色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to black and white with saturated accents, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为黑白配高饱和强调色",
+        "promptEn": "limit the palette to black and white with saturated accents",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -4896,8 +4888,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "碎片化非对称布局",
         "labelEn": "fragmented asymmetrical layout",
-        "promptZh": "构图遵循碎片化非对称布局，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through fragmented asymmetrical layout, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用碎片化非对称布局",
+        "promptEn": "compose with fragmented asymmetrical layout",
         "weight": 1,
         "level": "定义性"
       },
@@ -4908,8 +4900,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "基础几何、曲线与点阵混排",
         "labelEn": "mixed elementary geometry, curves, and dots",
-        "promptZh": "造型遵循基础几何、曲线与点阵混排，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through mixed elementary geometry, curves, and dots while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为基础几何、曲线与点阵混排，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into mixed elementary geometry, curves, and dots while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -4920,8 +4912,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "高明度粉彩与黑色对比",
         "labelEn": "high-key pastels contrasted with black",
-        "promptZh": "配色限定为高明度粉彩与黑色对比，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to high-key pastels contrasted with black, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为高明度粉彩与黑色对比",
+        "promptEn": "limit the palette to high-key pastels contrasted with black",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -4932,8 +4924,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "图案叠图案的表面节奏",
         "labelEn": "pattern-on-pattern surface rhythm",
-        "promptZh": "材质表现为图案叠图案的表面节奏，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as pattern-on-pattern surface rhythm, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为图案叠图案的表面节奏",
+        "promptEn": "render materials and surfaces as pattern-on-pattern surface rhythm",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -4944,8 +4936,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "层压板与亮面塑料质感",
         "labelEn": "laminate and glossy plastic texture",
-        "promptZh": "材质表现为层压板与亮面塑料质感，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as laminate and glossy plastic texture, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为层压板与亮面塑料质感",
+        "promptEn": "render materials and surfaces as laminate and glossy plastic texture",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -4960,8 +4952,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "反网格的失序剪贴布局",
         "labelEn": "anti-grid disordered cut-and-paste layout",
-        "promptZh": "构图遵循反网格的失序剪贴布局，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through anti-grid disordered cut-and-paste layout, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用反网格的失序剪贴布局",
+        "promptEn": "compose with anti-grid disordered cut-and-paste layout",
         "weight": 1,
         "level": "定义性"
       },
@@ -4972,8 +4964,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "突兀裁切、越界重叠与粗糙边缘",
         "labelEn": "abrupt cropping, edge-crossing overlap, and rough edges",
-        "promptZh": "构图遵循突兀裁切、越界重叠与粗糙边缘，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through abrupt cropping, edge-crossing overlap, and rough edges, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用突兀裁切、越界重叠与粗糙边缘",
+        "promptEn": "compose with abrupt cropping, edge-crossing overlap, and rough edges",
         "weight": 0.93,
         "level": "主导"
       },
@@ -4984,8 +4976,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "混合字号、剪贴字与打字机字排版",
         "labelEn": "mixed-scale cutout and typewriter typography",
-        "promptZh": "仅在用户需要文字时采用混合字号、剪贴字与打字机字排版，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use mixed-scale cutout and typewriter typography while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用混合字号、剪贴字与打字机字排版并保持原文可读",
+        "promptEn": "only when text is requested, use mixed-scale cutout and typewriter typography and preserve the exact readable wording",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -4996,8 +4988,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "瑕疵与视觉效果",
         "labelZh": "高反差复印、撕纸、胶痕与墨渍",
         "labelEn": "high-contrast photocopy, torn paper, glue marks, and ink stains",
-        "promptZh": "高反差复印、撕纸、胶痕与墨渍仅作受控局部效果，不削弱主体轮廓与焦点",
-        "promptEn": "Use high-contrast photocopy, torn paper, glue marks, and ink stains only as a controlled local effect without weakening subject silhouettes or the focal point",
+        "promptZh": "仅局部使用高反差复印、撕纸、胶痕与墨渍",
+        "promptEn": "use high-contrast photocopy, torn paper, glue marks, and ink stains only as a controlled local effect",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -5008,8 +5000,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "黑白配深红的极端对比",
         "labelEn": "extreme black-white contrast with deep red",
-        "promptZh": "配色限定为黑白配深红的极端对比，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to extreme black-white contrast with deep red, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为黑白配深红的极端对比",
+        "promptEn": "limit the palette to extreme black-white contrast with deep red",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -5024,8 +5016,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "瑕疵与视觉效果",
         "labelZh": "划痕、污渍与油墨渗漏",
         "labelEn": "scratches, stains, and ink bleed",
-        "promptZh": "划痕、污渍与油墨渗漏仅作受控局部效果，不削弱主体轮廓与焦点",
-        "promptEn": "Use scratches, stains, and ink bleed only as a controlled local effect without weakening subject silhouettes or the focal point",
+        "promptZh": "仅局部使用划痕、污渍与油墨渗漏",
+        "promptEn": "use scratches, stains, and ink bleed only as a controlled local effect",
         "weight": 1,
         "level": "定义性"
       },
@@ -5036,8 +5028,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "瑕疵与视觉效果",
         "labelZh": "低保真复印与粗纸纹理",
         "labelEn": "lo-fi photocopy and coarse paper texture",
-        "promptZh": "低保真复印与粗纸纹理仅作受控局部效果，不削弱主体轮廓与焦点",
-        "promptEn": "Use lo-fi photocopy and coarse paper texture only as a controlled local effect without weakening subject silhouettes or the focal point",
+        "promptZh": "仅局部使用低保真复印与粗纸纹理",
+        "promptEn": "use lo-fi photocopy and coarse paper texture only as a controlled local effect",
         "weight": 0.93,
         "level": "主导"
       },
@@ -5048,8 +5040,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "被侵蚀的粗体排版",
         "labelEn": "eroded bold typography",
-        "promptZh": "仅在用户需要文字时采用被侵蚀的粗体排版，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use eroded bold typography while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用被侵蚀的粗体排版并保持原文可读",
+        "promptEn": "only when text is requested, use eroded bold typography and preserve the exact readable wording",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -5060,8 +5052,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "不规则重叠与破损网格",
         "labelEn": "irregular layering and broken grids",
-        "promptZh": "构图遵循不规则重叠与破损网格，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through irregular layering and broken grids, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用不规则重叠与破损网格",
+        "promptEn": "compose with irregular layering and broken grids",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -5072,8 +5064,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "脏灰、暗褐与低饱和强调色",
         "labelEn": "dirty gray, dark brown, and muted accents",
-        "promptZh": "配色限定为脏灰、暗褐与低饱和强调色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to dirty gray, dark brown, and muted accents, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为脏灰、暗褐与低饱和强调色",
+        "promptEn": "limit the palette to dirty gray, dark brown, and muted accents",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -5088,8 +5080,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "巨型块状体量与强烈视觉重量",
         "labelEn": "monumental block massing and pronounced visual weight",
-        "promptZh": "造型遵循巨型块状体量与强烈视觉重量，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through monumental block massing and pronounced visual weight while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为巨型块状体量与强烈视觉重量，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into monumental block massing and pronounced visual weight while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -5100,8 +5092,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "实心体量、深凹空隙与悬挑结构的对比",
         "labelEn": "contrast of solid masses, deep voids, and cantilevered structures",
-        "promptZh": "造型遵循实心体量、深凹空隙与悬挑结构的对比，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through contrast of solid masses, deep voids, and cantilevered structures while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为实心体量、深凹空隙与悬挑结构的对比，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into contrast of solid masses, deep voids, and cantilevered structures while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -5112,8 +5104,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "未修饰清水混凝土、模板接缝与粗骨料纹理",
         "labelEn": "unfinished fair-faced concrete, formwork seams, and coarse aggregate texture",
-        "promptZh": "材质表现为未修饰清水混凝土、模板接缝与粗骨料纹理，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as unfinished fair-faced concrete, formwork seams, and coarse aggregate texture, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为未修饰清水混凝土、模板接缝与粗骨料纹理",
+        "promptEn": "render materials and surfaces as unfinished fair-faced concrete, formwork seams, and coarse aggregate texture",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -5124,8 +5116,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "重复模数、外露承重逻辑与厚重边缘",
         "labelEn": "repeated modules, exposed load-bearing logic, and thick edges",
-        "promptZh": "造型遵循重复模数、外露承重逻辑与厚重边缘，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through repeated modules, exposed load-bearing logic, and thick edges while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为重复模数、外露承重逻辑与厚重边缘，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into repeated modules, exposed load-bearing logic, and thick edges while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -5136,8 +5128,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "深凹阴影、硬质侧光或阴天漫射光",
         "labelEn": "deep recessed shadows, hard side light, or overcast diffuse light",
-        "promptZh": "光影采用深凹阴影、硬质侧光或阴天漫射光，统一光源方向与明暗逻辑",
-        "promptEn": "Use deep recessed shadows, hard side light, or overcast diffuse light for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用深凹阴影、硬质侧光或阴天漫射光",
+        "promptEn": "use deep recessed shadows, hard side light, or overcast diffuse light for lighting and tonal rendering",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -5148,8 +5140,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "灰色单色与极少材料色偏",
         "labelEn": "gray monochrome with minimal material color variation",
-        "promptZh": "配色限定为灰色单色与极少材料色偏，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to gray monochrome with minimal material color variation, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为灰色单色与极少材料色偏",
+        "promptEn": "limit the palette to gray monochrome with minimal material color variation",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -5164,8 +5156,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "裸露刚性的块状网格",
         "labelEn": "exposed rigid block grid",
-        "promptZh": "构图遵循裸露刚性的块状网格，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through exposed rigid block grid, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用裸露刚性的块状网格",
+        "promptEn": "compose with exposed rigid block grid",
         "weight": 1,
         "level": "定义性"
       },
@@ -5176,8 +5168,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "超大系统字体与直接层级",
         "labelEn": "oversized system typography and direct hierarchy",
-        "promptZh": "仅在用户需要文字时采用超大系统字体与直接层级，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use oversized system typography and direct hierarchy while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用超大系统字体与直接层级并保持原文可读",
+        "promptEn": "only when text is requested, use oversized system typography and direct hierarchy and preserve the exact readable wording",
         "weight": 0.93,
         "level": "主导"
       },
@@ -5188,8 +5180,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "粗黑边框与硬切分区",
         "labelEn": "heavy black borders and hard divisions",
-        "promptZh": "配色限定为粗黑边框与硬切分区，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to heavy black borders and hard divisions, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为粗黑边框与硬切分区",
+        "promptEn": "limit the palette to heavy black borders and hard divisions",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -5200,8 +5192,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "黑白配荧光强调色",
         "labelEn": "black and white with fluorescent accents",
-        "promptZh": "配色限定为黑白配荧光强调色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to black and white with fluorescent accents, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为黑白配荧光强调色",
+        "promptEn": "limit the palette to black and white with fluorescent accents",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -5212,8 +5204,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "无阴影、无修饰的平面界面",
         "labelEn": "flat interface without shadow or embellishment",
-        "promptZh": "光影采用无阴影、无修饰的平面界面，统一光源方向与明暗逻辑",
-        "promptEn": "Use flat interface without shadow or embellishment for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用无阴影、无修饰的平面界面",
+        "promptEn": "use flat interface without shadow or embellishment for lighting and tonal rendering",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -5228,8 +5220,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "形体还原为清晰几何剪影",
         "labelEn": "forms reduced to clear geometric silhouettes",
-        "promptZh": "造型遵循形体还原为清晰几何剪影，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through forms reduced to clear geometric silhouettes while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为形体还原为清晰几何剪影，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into forms reduced to clear geometric silhouettes while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -5240,8 +5232,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "前后关系通过重叠、尺度与色块区分",
         "labelEn": "depth indicated through overlap, scale, and color blocks",
-        "promptZh": "构图遵循前后关系通过重叠、尺度与色块区分，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through depth indicated through overlap, scale, and color blocks, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用前后关系通过重叠、尺度与色块区分",
+        "promptEn": "compose with depth indicated through overlap, scale, and color blocks",
         "weight": 0.93,
         "level": "主导"
       },
@@ -5252,8 +5244,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "不使用材质纹理、渐变与写实高光",
         "labelEn": "no material texture, gradients, or realistic highlights",
-        "promptZh": "光影采用不使用材质纹理、渐变与写实高光，统一光源方向与明暗逻辑",
-        "promptEn": "Use no material texture, gradients, or realistic highlights for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用不使用材质纹理、渐变与写实高光",
+        "promptEn": "use no material texture, gradients, or realistic highlights for lighting and tonal rendering",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -5264,8 +5256,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "极少或不使用投影与体积塑造",
         "labelEn": "minimal or absent cast shadows and volume modeling",
-        "promptZh": "光影采用极少或不使用投影与体积塑造，统一光源方向与明暗逻辑",
-        "promptEn": "Use minimal or absent cast shadows and volume modeling for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用极少或不使用投影与体积塑造",
+        "promptEn": "use minimal or absent cast shadows and volume modeling for lighting and tonal rendering",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -5276,8 +5268,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "统一平涂色面与有限明快色板",
         "labelEn": "uniform flat color fields and a limited bright palette",
-        "promptZh": "以统一平涂色面与有限明快色板统一笔触、边缘与成像痕迹",
-        "promptEn": "Use uniform flat color fields and a limited bright palette to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用统一平涂色面与有限明快色板",
+        "promptEn": "render marks and edges with uniform flat color fields and a limited bright palette",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -5288,8 +5280,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "干净矢量边缘与一致线宽",
         "labelEn": "clean vector edges and consistent line weight",
-        "promptZh": "造型遵循干净矢量边缘与一致线宽，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through clean vector edges and consistent line weight while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为干净矢量边缘与一致线宽，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into clean vector edges and consistent line weight while preserving identity and defining structure",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -5304,8 +5296,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "简化圆润比例与流畅曲线",
         "labelEn": "simplified rounded proportions and flowing curves",
-        "promptZh": "造型遵循简化圆润比例与流畅曲线，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through simplified rounded proportions and flowing curves while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为简化圆润比例与流畅曲线，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into simplified rounded proportions and flowing curves while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -5316,8 +5308,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "开放非对称的模块布局",
         "labelEn": "open asymmetrical modular layout",
-        "promptZh": "构图遵循开放非对称的模块布局，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through open asymmetrical modular layout, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用开放非对称的模块布局",
+        "promptEn": "compose with open asymmetrical modular layout",
         "weight": 0.93,
         "level": "主导"
       },
@@ -5328,8 +5320,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "扁平重叠色块与极少细节",
         "labelEn": "flat overlapping color shapes and minimal detail",
-        "promptZh": "构图遵循扁平重叠色块与极少细节，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through flat overlapping color shapes and minimal detail, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用扁平重叠色块与极少细节",
+        "promptEn": "compose with flat overlapping color shapes and minimal detail",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -5340,8 +5332,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "柔和蓝、珊瑚色与芥末黄",
         "labelEn": "soft blue, coral, and mustard yellow",
-        "promptZh": "配色限定为柔和蓝、珊瑚色与芥末黄，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to soft blue, coral, and mustard yellow, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为柔和蓝、珊瑚色与芥末黄",
+        "promptEn": "limit the palette to soft blue, coral, and mustard yellow",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -5352,8 +5344,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "无纹理的干净矢量表面",
         "labelEn": "textureless clean vector finish",
-        "promptZh": "以无纹理的干净矢量表面统一笔触、边缘与成像痕迹",
-        "promptEn": "Use textureless clean vector finish to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用无纹理的干净矢量表面",
+        "promptEn": "render marks and edges with textureless clean vector finish",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -5368,8 +5360,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "分层平面与明确层级",
         "labelEn": "layered planes and explicit hierarchy",
-        "promptZh": "构图遵循分层平面与明确层级，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through layered planes and explicit hierarchy, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用分层平面与明确层级",
+        "promptEn": "compose with layered planes and explicit hierarchy",
         "weight": 1,
         "level": "定义性"
       },
@@ -5380,8 +5372,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "受控投影表达高度关系",
         "labelEn": "controlled shadows expressing elevation",
-        "promptZh": "光影采用受控投影表达高度关系，统一光源方向与明暗逻辑",
-        "promptEn": "Use controlled shadows expressing elevation for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用受控投影表达高度关系",
+        "promptEn": "use controlled shadows expressing elevation for lighting and tonal rendering",
         "weight": 0.93,
         "level": "主导"
       },
@@ -5392,8 +5384,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "一致间距与克制圆角",
         "labelEn": "consistent spacing and restrained corner radius",
-        "promptZh": "造型遵循一致间距与克制圆角，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through consistent spacing and restrained corner radius while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为一致间距与克制圆角，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into consistent spacing and restrained corner radius while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -5404,8 +5396,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "中性色面配单一高饱和强调",
         "labelEn": "neutral surfaces with one saturated accent",
-        "promptZh": "配色限定为中性色面配单一高饱和强调，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to neutral surfaces with one saturated accent, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为中性色面配单一高饱和强调",
+        "promptEn": "limit the palette to neutral surfaces with one saturated accent",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -5416,8 +5408,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "清晰无衬线与统一图标线性",
         "labelEn": "clear sans-serif typography and consistent icon linework",
-        "promptZh": "仅在用户需要文字时采用清晰无衬线与统一图标线性，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use clear sans-serif typography and consistent icon linework while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用清晰无衬线与统一图标线性并保持原文可读",
+        "promptEn": "only when text is requested, use clear sans-serif typography and consistent icon linework and preserve the exact readable wording",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -5432,8 +5424,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "斜面、压印与立体边缘",
         "labelEn": "bevels, embossing, and dimensional edges",
-        "promptZh": "造型遵循斜面、压印与立体边缘，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through bevels, embossing, and dimensional edges while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为斜面、压印与立体边缘，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into bevels, embossing, and dimensional edges while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -5444,8 +5436,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "方向一致的高光与投影",
         "labelEn": "directionally consistent highlights and shadows",
-        "promptZh": "光影采用方向一致的高光与投影，统一光源方向与明暗逻辑",
-        "promptEn": "Use directionally consistent highlights and shadows for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用方向一致的高光与投影",
+        "promptEn": "use directionally consistent highlights and shadows for lighting and tonal rendering",
         "weight": 0.93,
         "level": "主导"
       },
@@ -5456,8 +5448,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "真实材质的界面化模拟",
         "labelEn": "interface-like simulation of real materials",
-        "promptZh": "材质表现为真实材质的界面化模拟，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as interface-like simulation of real materials, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为真实材质的界面化模拟",
+        "promptEn": "render materials and surfaces as interface-like simulation of real materials",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -5468,8 +5460,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "暖中性色与局部高光",
         "labelEn": "warm neutrals and localized highlights",
-        "promptZh": "光影采用暖中性色与局部高光，统一光源方向与明暗逻辑",
-        "promptEn": "Use warm neutrals and localized highlights for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用暖中性色与局部高光",
+        "promptEn": "use warm neutrals and localized highlights for lighting and tonal rendering",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -5480,8 +5472,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "丰富纹理与可触摸深度",
         "labelEn": "rich texture and tactile depth",
-        "promptZh": "材质表现为丰富纹理与可触摸深度，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as rich texture and tactile depth, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为丰富纹理与可触摸深度",
+        "promptEn": "render materials and surfaces as rich texture and tactile depth",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -5496,8 +5488,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "饱和色透过玻璃扩散",
         "labelEn": "saturated color diffused through glass",
-        "promptZh": "材质表现为饱和色透过玻璃扩散，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as saturated color diffused through glass, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为饱和色透过玻璃扩散",
+        "promptEn": "render materials and surfaces as saturated color diffused through glass",
         "weight": 1,
         "level": "定义性"
       },
@@ -5508,8 +5500,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "低对比柔和投影",
         "labelEn": "low-contrast soft shadows",
-        "promptZh": "光影采用低对比柔和投影，统一光源方向与明暗逻辑",
-        "promptEn": "Use low-contrast soft shadows for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用低对比柔和投影",
+        "promptEn": "use low-contrast soft shadows for lighting and tonal rendering",
         "weight": 0.93,
         "level": "主导"
       },
@@ -5520,8 +5512,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "半透明磨砂平面叠层",
         "labelEn": "layered translucent frosted planes",
-        "promptZh": "造型遵循半透明磨砂平面叠层，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through layered translucent frosted planes while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为半透明磨砂平面叠层，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into layered translucent frosted planes while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -5532,8 +5524,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "背景模糊与清晰前景边缘",
         "labelEn": "blurred background with crisp foreground edges",
-        "promptZh": "造型遵循背景模糊与清晰前景边缘，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through blurred background with crisp foreground edges while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为背景模糊与清晰前景边缘，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into blurred background with crisp foreground edges while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -5544,8 +5536,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "细薄高亮边框",
         "labelEn": "thin luminous borders",
-        "promptZh": "造型遵循细薄高亮边框，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through thin luminous borders while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为细薄高亮边框，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into thin luminous borders while preserving identity and defining structure",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -5560,8 +5552,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "同一方向成对出现的浅色高光与深色阴影",
         "labelEn": "paired light highlights and dark shadows following one direction",
-        "promptZh": "光影采用同一方向成对出现的浅色高光与深色阴影，统一光源方向与明暗逻辑",
-        "promptEn": "Use paired light highlights and dark shadows following one direction for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用同一方向成对出现的浅色高光与深色阴影",
+        "promptEn": "use paired light highlights and dark shadows following one direction for lighting and tonal rendering",
         "weight": 1,
         "level": "定义性"
       },
@@ -5572,8 +5564,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "单色哑光表面与极少纹理",
         "labelEn": "monochrome matte surfaces with minimal texture",
-        "promptZh": "材质表现为单色哑光表面与极少纹理，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as monochrome matte surfaces with minimal texture, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为单色哑光表面与极少纹理",
+        "promptEn": "render materials and surfaces as monochrome matte surfaces with minimal texture",
         "weight": 0.93,
         "level": "主导"
       },
@@ -5584,8 +5576,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "柔和凸起与内凹层次",
         "labelEn": "soft raised and inset depth",
-        "promptZh": "造型遵循柔和凸起与内凹层次，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through soft raised and inset depth while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为柔和凸起与内凹层次，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into soft raised and inset depth while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -5596,8 +5588,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "大圆角、无描边与连续融合边缘",
         "labelEn": "large radii, no outlines, and continuously blended edges",
-        "promptZh": "造型遵循大圆角、无描边与连续融合边缘，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through large radii, no outlines, and continuously blended edges while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为大圆角、无描边与连续融合边缘，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into large radii, no outlines, and continuously blended edges while preserving identity and defining structure",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -5608,8 +5600,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "背景与叠层使用同一低对比基础色",
         "labelEn": "background and layered forms sharing one low-contrast base color",
-        "promptZh": "配色限定为背景与叠层使用同一低对比基础色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to background and layered forms sharing one low-contrast base color, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为背景与叠层使用同一低对比基础色",
+        "promptEn": "limit the palette to background and layered forms sharing one low-contrast base color",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -5624,8 +5616,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "液态扭曲与尖锐几何并置",
         "labelEn": "juxtaposed liquid distortion and sharp geometry",
-        "promptZh": "造型遵循液态扭曲与尖锐几何并置，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through juxtaposed liquid distortion and sharp geometry while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为液态扭曲与尖锐几何并置，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into juxtaposed liquid distortion and sharp geometry while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -5636,8 +5628,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "酸绿、电紫与深黑",
         "labelEn": "acid green, electric violet, and deep black",
-        "promptZh": "配色限定为酸绿、电紫与深黑，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to acid green, electric violet, and deep black, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为酸绿、电紫与深黑",
+        "promptEn": "limit the palette to acid green, electric violet, and deep black",
         "weight": 0.93,
         "level": "主导"
       },
@@ -5648,8 +5640,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "镀铬高光与过曝辉光",
         "labelEn": "chrome highlights and overexposed glow",
-        "promptZh": "光影采用镀铬高光与过曝辉光，统一光源方向与明暗逻辑",
-        "promptEn": "Use chrome highlights and overexposed glow for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用镀铬高光与过曝辉光",
+        "promptEn": "use chrome highlights and overexposed glow for lighting and tonal rendering",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -5660,8 +5652,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "数字噪点与极端压缩字体",
         "labelEn": "digital noise and extremely condensed typography",
-        "promptZh": "仅在用户需要文字时采用数字噪点与极端压缩字体，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use digital noise and extremely condensed typography while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用数字噪点与极端压缩字体并保持原文可读",
+        "promptEn": "only when text is requested, use digital noise and extremely condensed typography and preserve the exact readable wording",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -5672,8 +5664,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "密集越界的边到边布局",
         "labelEn": "dense edge-bleeding layout",
-        "promptZh": "构图遵循密集越界的边到边布局，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through dense edge-bleeding layout, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用密集越界的边到边布局",
+        "promptEn": "compose with dense edge-bleeding layout",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -5688,8 +5680,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "瑕疵与视觉效果",
         "labelZh": "水平切片与错位重组",
         "labelEn": "horizontal slicing and displaced reconstruction",
-        "promptZh": "水平切片与错位重组仅作受控局部效果，不削弱主体轮廓与焦点",
-        "promptEn": "Use horizontal slicing and displaced reconstruction only as a controlled local effect without weakening subject silhouettes or the focal point",
+        "promptZh": "仅局部使用水平切片与错位重组",
+        "promptEn": "use horizontal slicing and displaced reconstruction only as a controlled local effect",
         "weight": 1,
         "level": "定义性"
       },
@@ -5700,8 +5692,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "瑕疵与视觉效果",
         "labelZh": "像素撕裂与扫描线",
         "labelEn": "pixel tearing and scanlines",
-        "promptZh": "像素撕裂与扫描线仅作受控局部效果，不削弱主体轮廓与焦点",
-        "promptEn": "Use pixel tearing and scanlines only as a controlled local effect without weakening subject silhouettes or the focal point",
+        "promptZh": "仅局部使用像素撕裂与扫描线",
+        "promptEn": "use pixel tearing and scanlines only as a controlled local effect",
         "weight": 0.93,
         "level": "主导"
       },
@@ -5712,8 +5704,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "RGB 通道分离",
         "labelEn": "RGB channel separation",
-        "promptZh": "造型遵循RGB 通道分离，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through RGB channel separation while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为RGB 通道分离，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into RGB channel separation while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -5724,8 +5716,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "局部过曝与突变高对比",
         "labelEn": "localized clipping and abrupt high contrast",
-        "promptZh": "光影采用局部过曝与突变高对比，统一光源方向与明暗逻辑",
-        "promptEn": "Use localized clipping and abrupt high contrast for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用局部过曝与突变高对比",
+        "promptEn": "use localized clipping and abrupt high contrast for lighting and tonal rendering",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -5736,8 +5728,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "瑕疵与视觉效果",
         "labelZh": "压缩伪影与数字噪声",
         "labelEn": "compression artifacts and digital noise",
-        "promptZh": "压缩伪影与数字噪声仅作受控局部效果，不削弱主体轮廓与焦点",
-        "promptEn": "Use compression artifacts and digital noise only as a controlled local effect without weakening subject silhouettes or the focal point",
+        "promptZh": "仅局部使用压缩伪影与数字噪声",
+        "promptEn": "use compression artifacts and digital noise only as a controlled local effect",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -5752,8 +5744,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "规则驱动的重复系统",
         "labelEn": "rule-driven repetition system",
-        "promptZh": "造型遵循规则驱动的重复系统，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through rule-driven repetition system while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为规则驱动的重复系统，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into rule-driven repetition system while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -5764,8 +5756,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "参数变化形成渐进差异",
         "labelEn": "progressive variation from parameter changes",
-        "promptZh": "造型遵循参数变化形成渐进差异，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through progressive variation from parameter changes while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为参数变化形成渐进差异，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into progressive variation from parameter changes while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -5776,8 +5768,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "密度、尺度与方向的连续分布",
         "labelEn": "continuous distribution of density, scale, and direction",
-        "promptZh": "构图遵循密度、尺度与方向的连续分布，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through continuous distribution of density, scale, and direction, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用密度、尺度与方向的连续分布",
+        "promptEn": "compose with continuous distribution of density, scale, and direction",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -5788,8 +5780,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "精确矢量线或粒子化痕迹",
         "labelEn": "precise vector lines or particle-like marks",
-        "promptZh": "以精确矢量线或粒子化痕迹统一笔触、边缘与成像痕迹",
-        "promptEn": "Use precise vector lines or particle-like marks to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用精确矢量线或粒子化痕迹",
+        "promptEn": "render marks and edges with precise vector lines or particle-like marks",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -5800,8 +5792,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "算法映射色彩与清晰数字表面",
         "labelEn": "algorithmically mapped color and crisp digital finish",
-        "promptZh": "以算法映射色彩与清晰数字表面统一笔触、边缘与成像痕迹",
-        "promptEn": "Use algorithmically mapped color and crisp digital finish to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用算法映射色彩与清晰数字表面",
+        "promptEn": "render marks and edges with algorithmically mapped color and crisp digital finish",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -5816,8 +5808,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "低调高反差光线与大面积暗部",
         "labelEn": "low-key high-contrast lighting and broad shadow masses",
-        "promptZh": "光影采用低调高反差光线与大面积暗部，统一光源方向与明暗逻辑",
-        "promptEn": "Use low-key high-contrast lighting and broad shadow masses for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用低调高反差光线与大面积暗部",
+        "promptEn": "use low-key high-contrast lighting and broad shadow masses for lighting and tonal rendering",
         "weight": 1,
         "level": "定义性"
       },
@@ -5828,8 +5820,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "逆光、轮廓光与局部过曝辉光",
         "labelEn": "backlight, rim light, and localized clipped glow",
-        "promptZh": "光影采用逆光、轮廓光与局部过曝辉光，统一光源方向与明暗逻辑",
-        "promptEn": "Use backlight, rim light, and localized clipped glow for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用逆光、轮廓光与局部过曝辉光",
+        "promptEn": "use backlight, rim light, and localized clipped glow for lighting and tonal rendering",
         "weight": 0.93,
         "level": "主导"
       },
@@ -5840,8 +5832,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "电青与洋红为主的分离式霓虹配色",
         "labelEn": "split neon palette led by electric cyan and magenta",
-        "promptZh": "配色限定为电青与洋红为主的分离式霓虹配色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to split neon palette led by electric cyan and magenta, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为电青与洋红为主的分离式霓虹配色",
+        "promptEn": "limit the palette to split neon palette led by electric cyan and magenta",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -5852,8 +5844,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "高密度信息层叠、遮挡与强纵深",
         "labelEn": "dense informational layering, occlusion, and strong spatial depth",
-        "promptZh": "构图遵循高密度信息层叠、遮挡与强纵深，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through dense informational layering, occlusion, and strong spatial depth, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用高密度信息层叠、遮挡与强纵深",
+        "promptEn": "compose with dense informational layering, occlusion, and strong spatial depth",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -5864,8 +5856,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "瑕疵与视觉效果",
         "labelZh": "半透明数字叠层、扫描纹与色差边缘",
         "labelEn": "translucent digital overlays, scanlines, and chromatic fringes",
-        "promptZh": "半透明数字叠层、扫描纹与色差边缘仅作受控局部效果，不削弱主体轮廓与焦点",
-        "promptEn": "Use translucent digital overlays, scanlines, and chromatic fringes only as a controlled local effect without weakening subject silhouettes or the focal point",
+        "promptZh": "仅局部使用半透明数字叠层、扫描纹与色差边缘",
+        "promptEn": "use translucent digital overlays, scanlines, and chromatic fringes only as a controlled local effect",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -5876,8 +5868,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "金属、玻璃与潮湿表面的镜面反射",
         "labelEn": "specular reflections across metal, glass, and wet surfaces",
-        "promptZh": "材质表现为金属、玻璃与潮湿表面的镜面反射，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as specular reflections across metal, glass, and wet surfaces, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为金属、玻璃与潮湿表面的镜面反射",
+        "promptEn": "render materials and surfaces as specular reflections across metal, glass, and wet surfaces",
         "weight": 0.7,
         "level": "可调整"
       },
@@ -5888,8 +5880,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "冷硬清晰边缘与烟雾化远景并置",
         "labelEn": "hard crisp near edges juxtaposed with hazy distance",
-        "promptZh": "造型遵循冷硬清晰边缘与烟雾化远景并置，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through hard crisp near edges juxtaposed with hazy distance while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为冷硬清晰边缘与烟雾化远景并置，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into hard crisp near edges juxtaposed with hazy distance while preserving identity and defining structure",
         "weight": 0.55,
         "level": "可调整"
       }
@@ -5904,8 +5896,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "维多利亚装饰秩序与工业结构密集融合",
         "labelEn": "dense fusion of Victorian ornament and industrial structure",
-        "promptZh": "造型遵循维多利亚装饰秩序与工业结构密集融合，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through dense fusion of Victorian ornament and industrial structure while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为维多利亚装饰秩序与工业结构密集融合，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into dense fusion of Victorian ornament and industrial structure while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -5916,8 +5908,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "圆形、同心与互锁结构形成机械节奏",
         "labelEn": "circular, concentric, and interlocking forms creating mechanical rhythm",
-        "promptZh": "造型遵循圆形、同心与互锁结构形成机械节奏，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through circular, concentric, and interlocking forms creating mechanical rhythm while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为圆形、同心与互锁结构形成机械节奏，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into circular, concentric, and interlocking forms creating mechanical rhythm while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -5928,8 +5920,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "黄铜、氧化铜棕、煤黑与暗木色",
         "labelEn": "brass, oxidized copper brown, coal black, and dark wood tones",
-        "promptZh": "配色限定为黄铜、氧化铜棕、煤黑与暗木色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to brass, oxidized copper brown, coal black, and dark wood tones, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为黄铜、氧化铜棕、煤黑与暗木色",
+        "promptEn": "limit the palette to brass, oxidized copper brown, coal black, and dark wood tones",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -5940,8 +5932,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "铆接、接缝、刻度与外露连接细节",
         "labelEn": "rivets, seams, graduations, and exposed joints",
-        "promptZh": "配色限定为铆接、接缝、刻度与外露连接细节，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to rivets, seams, graduations, and exposed joints, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为铆接、接缝、刻度与外露连接细节",
+        "promptEn": "limit the palette to rivets, seams, graduations, and exposed joints",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -5952,8 +5944,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "磨损金属、深色皮革、木材与油渍表面",
         "labelEn": "worn metal, dark leather, wood, and oily surfaces",
-        "promptZh": "材质表现为磨损金属、深色皮革、木材与油渍表面，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as worn metal, dark leather, wood, and oily surfaces, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为磨损金属、深色皮革、木材与油渍表面",
+        "promptEn": "render materials and surfaces as worn metal, dark leather, wood, and oily surfaces",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -5964,8 +5956,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "暖色低调光、集中高光与烟雾化阴影",
         "labelEn": "warm low-key light, concentrated highlights, and smoky shadows",
-        "promptZh": "光影采用暖色低调光、集中高光与烟雾化阴影，统一光源方向与明暗逻辑",
-        "promptEn": "Use warm low-key light, concentrated highlights, and smoky shadows for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用暖色低调光、集中高光与烟雾化阴影",
+        "promptEn": "use warm low-key light, concentrated highlights, and smoky shadows for lighting and tonal rendering",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -5976,8 +5968,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "雕刻式线纹、窄幅衬线与标签式排版",
         "labelEn": "engraved linework, narrow serifs, and label-like typography",
-        "promptZh": "仅在用户需要文字时采用雕刻式线纹、窄幅衬线与标签式排版，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use engraved linework, narrow serifs, and label-like typography while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用雕刻式线纹、窄幅衬线与标签式排版并保持原文可读",
+        "promptEn": "only when text is requested, use engraved linework, narrow serifs, and label-like typography and preserve the exact readable wording",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -5992,8 +5984,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "生物形曲线、蜂窝式模数与清洁几何融合",
         "labelEn": "biomorphic curves, cellular modules, and clean geometry integrated",
-        "promptZh": "造型遵循生物形曲线、蜂窝式模数与清洁几何融合，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through biomorphic curves, cellular modules, and clean geometry integrated while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为生物形曲线、蜂窝式模数与清洁几何融合，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into biomorphic curves, cellular modules, and clean geometry integrated while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -6004,8 +5996,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "开放、通透且向上延展的层叠结构",
         "labelEn": "open translucent layering with upward extension",
-        "promptZh": "构图遵循开放、通透且向上延展的层叠结构，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through open translucent layering with upward extension, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用开放、通透且向上延展的层叠结构",
+        "promptEn": "compose with open translucent layering with upward extension",
         "weight": 0.93,
         "level": "主导"
       },
@@ -6016,8 +6008,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "高明度暖日光、通透逆光与柔和阴影",
         "labelEn": "high-key warm daylight, translucent backlight, and soft shadows",
-        "promptZh": "光影采用高明度暖日光、通透逆光与柔和阴影，统一光源方向与明暗逻辑",
-        "promptEn": "Use high-key warm daylight, translucent backlight, and soft shadows for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用高明度暖日光、通透逆光与柔和阴影",
+        "promptEn": "use high-key warm daylight, translucent backlight, and soft shadows for lighting and tonal rendering",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -6028,8 +6020,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "清洁玻璃、浅色金属与再生材质触感",
         "labelEn": "clean glass, pale metal, and recycled-material tactility",
-        "promptZh": "材质表现为清洁玻璃、浅色金属与再生材质触感，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as clean glass, pale metal, and recycled-material tactility, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为清洁玻璃、浅色金属与再生材质触感",
+        "promptEn": "render materials and surfaces as clean glass, pale metal, and recycled-material tactility",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -6040,8 +6032,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "鲜绿、陶土色、暖白与透明浅蓝",
         "labelEn": "vivid green, terracotta, warm white, and transparent pale blue",
-        "promptZh": "配色限定为鲜绿、陶土色、暖白与透明浅蓝，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to vivid green, terracotta, warm white, and transparent pale blue, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为鲜绿、陶土色、暖白与透明浅蓝",
+        "promptEn": "limit the palette to vivid green, terracotta, warm white, and transparent pale blue",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -6052,8 +6044,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "重复小尺度纹理与大尺度流线形体并置",
         "labelEn": "repeated small-scale texture juxtaposed with large streamlined forms",
-        "promptZh": "材质表现为重复小尺度纹理与大尺度流线形体并置，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as repeated small-scale texture juxtaposed with large streamlined forms, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为重复小尺度纹理与大尺度流线形体并置",
+        "promptEn": "render materials and surfaces as repeated small-scale texture juxtaposed with large streamlined forms",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -6068,8 +6060,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "开阔中心、轴线对称与上升对角动势",
         "labelEn": "open centered space, axial symmetry, and rising diagonal movement",
-        "promptZh": "构图遵循开阔中心、轴线对称与上升对角动势，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through open centered space, axial symmetry, and rising diagonal movement, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用开阔中心、轴线对称与上升对角动势",
+        "promptEn": "compose with open centered space, axial symmetry, and rising diagonal movement",
         "weight": 1,
         "level": "定义性"
       },
@@ -6080,8 +6072,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "暖黄、青绿、珊瑚红与铝银",
         "labelEn": "warm yellow, teal, coral red, and aluminum silver",
-        "promptZh": "配色限定为暖黄、青绿、珊瑚红与铝银，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to warm yellow, teal, coral red, and aluminum silver, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为暖黄、青绿、珊瑚红与铝银",
+        "promptEn": "limit the palette to warm yellow, teal, coral red, and aluminum silver",
         "weight": 0.93,
         "level": "主导"
       },
@@ -6092,8 +6084,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "圆润流线、锥形轮廓与太空时代几何",
         "labelEn": "rounded streamlining, tapered contours, and Space Age geometry",
-        "promptZh": "造型遵循圆润流线、锥形轮廓与太空时代几何，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through rounded streamlining, tapered contours, and Space Age geometry while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为圆润流线、锥形轮廓与太空时代几何，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into rounded streamlining, tapered contours, and Space Age geometry while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -6104,8 +6096,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "明亮高调光线与清晰喷绘高光",
         "labelEn": "bright high-key lighting and crisp airbrushed highlights",
-        "promptZh": "光影采用明亮高调光线与清晰喷绘高光，统一光源方向与明暗逻辑",
-        "promptEn": "Use bright high-key lighting and crisp airbrushed highlights for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用明亮高调光线与清晰喷绘高光",
+        "promptEn": "use bright high-key lighting and crisp airbrushed highlights for lighting and tonal rendering",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -6116,8 +6108,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "同心技术线纹与大块喷漆色面并置",
         "labelEn": "concentric technical linework juxtaposed with broad painted color fields",
-        "promptZh": "以同心技术线纹与大块喷漆色面并置统一笔触、边缘与成像痕迹",
-        "promptEn": "Use concentric technical linework juxtaposed with broad painted color fields to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用同心技术线纹与大块喷漆色面并置",
+        "promptEn": "render marks and edges with concentric technical linework juxtaposed with broad painted color fields",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -6128,8 +6120,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "圆角几何展示字体与宽字距",
         "labelEn": "rounded geometric display type with wide spacing",
-        "promptZh": "仅在用户需要文字时采用圆角几何展示字体与宽字距，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use rounded geometric display type with wide spacing while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用圆角几何展示字体与宽字距并保持原文可读",
+        "promptEn": "only when text is requested, use rounded geometric display type with wide spacing and preserve the exact readable wording",
         "weight": 0.62,
         "level": "可调整"
       },
@@ -6140,8 +6132,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "喷漆金属、塑料光泽与旧杂志印刷颗粒",
         "labelEn": "painted metal, plastic gloss, and vintage magazine grain",
-        "promptZh": "以喷漆金属、塑料光泽与旧杂志印刷颗粒统一笔触、边缘与成像痕迹",
-        "promptEn": "Use painted metal, plastic gloss, and vintage magazine grain to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用喷漆金属、塑料光泽与旧杂志印刷颗粒",
+        "promptEn": "render marks and edges with painted metal, plastic gloss, and vintage magazine grain",
         "weight": 0.55,
         "level": "可调整"
       }
@@ -6156,8 +6148,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "中心消失点与深透视网格",
         "labelEn": "central vanishing point and deep perspective grid",
-        "promptZh": "构图遵循中心消失点与深透视网格，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through central vanishing point and deep perspective grid, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用中心消失点与深透视网格",
+        "promptEn": "compose with central vanishing point and deep perspective grid",
         "weight": 1,
         "level": "定义性"
       },
@@ -6168,8 +6160,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "硬边剪影与水平分层",
         "labelEn": "hard-edged silhouettes and horizontal layering",
-        "promptZh": "构图遵循硬边剪影与水平分层，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through hard-edged silhouettes and horizontal layering, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用硬边剪影与水平分层",
+        "promptEn": "compose with hard-edged silhouettes and horizontal layering",
         "weight": 0.93,
         "level": "主导"
       },
@@ -6180,8 +6172,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "洋红、电青与橙色渐变",
         "labelEn": "magenta, electric cyan, and orange gradients",
-        "promptZh": "配色限定为洋红、电青与橙色渐变，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to magenta, electric cyan, and orange gradients, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为洋红、电青与橙色渐变",
+        "promptEn": "limit the palette to magenta, electric cyan, and orange gradients",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -6192,8 +6184,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "深黑背景与强烈霓虹辉光",
         "labelEn": "deep black ground and strong neon bloom",
-        "promptZh": "光影采用深黑背景与强烈霓虹辉光，统一光源方向与明暗逻辑",
-        "promptEn": "Use deep black ground and strong neon bloom for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用深黑背景与强烈霓虹辉光",
+        "promptEn": "use deep black ground and strong neon bloom for lighting and tonal rendering",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -6204,8 +6196,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "光洁数字表面与轻微扫描纹",
         "labelEn": "glossy digital finish and subtle scanlines",
-        "promptZh": "材质表现为光洁数字表面与轻微扫描纹，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as glossy digital finish and subtle scanlines, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为光洁数字表面与轻微扫描纹",
+        "promptEn": "render materials and surfaces as glossy digital finish and subtle scanlines",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -6220,8 +6212,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "粉红、青蓝、薰衣草紫与冷白",
         "labelEn": "pink, cyan, lavender, and cool white",
-        "promptZh": "配色限定为粉红、青蓝、薰衣草紫与冷白，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to pink, cyan, lavender, and cool white, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为粉红、青蓝、薰衣草紫与冷白",
+        "promptEn": "limit the palette to pink, cyan, lavender, and cool white",
         "weight": 1,
         "level": "定义性"
       },
@@ -6232,8 +6224,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "瑕疵与视觉效果",
         "labelZh": "VHS 扫描线、色差、压缩伪影与轻微错位",
         "labelEn": "VHS scanlines, chromatic aberration, compression artifacts, and slight misalignment",
-        "promptZh": "VHS 扫描线、色差、压缩伪影与轻微错位仅作受控局部效果，不削弱主体轮廓与焦点",
-        "promptEn": "Use VHS scanlines, chromatic aberration, compression artifacts, and slight misalignment only as a controlled local effect without weakening subject silhouettes or the focal point",
+        "promptZh": "仅局部使用VHS 扫描线、色差、压缩伪影与轻微错位",
+        "promptEn": "use VHS scanlines, chromatic aberration, compression artifacts, and slight misalignment only as a controlled local effect",
         "weight": 0.93,
         "level": "主导"
       },
@@ -6244,8 +6236,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "对称秩序与刻意错位并存的拼贴布局",
         "labelEn": "collage layout combining symmetry with deliberate displacement",
-        "promptZh": "构图遵循对称秩序与刻意错位并存的拼贴布局，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through collage layout combining symmetry with deliberate displacement, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用对称秩序与刻意错位并存的拼贴布局",
+        "promptEn": "compose with collage layout combining symmetry with deliberate displacement",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -6256,8 +6248,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "扁平色面、低多边形体积与早期数字透视并置",
         "labelEn": "flat color fields, low-poly volume, and early-digital perspective juxtaposed",
-        "promptZh": "视角统一为扁平色面、低多边形体积与早期数字透视并置，所有对象使用同一观察与投影规则",
-        "promptEn": "Use flat color fields, low-poly volume, and early-digital perspective juxtaposed consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用扁平色面、低多边形体积与早期数字透视并置",
+        "promptEn": "use flat color fields, low-poly volume, and early-digital perspective juxtaposed for viewpoint and spatial rendering",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -6268,8 +6260,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "柔和渐变、低对比辉光与色彩漂移",
         "labelEn": "soft gradients, low-contrast glow, and color drift",
-        "promptZh": "光影采用柔和渐变、低对比辉光与色彩漂移，统一光源方向与明暗逻辑",
-        "promptEn": "Use soft gradients, low-contrast glow, and color drift for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用柔和渐变、低对比辉光与色彩漂移",
+        "promptEn": "use soft gradients, low-contrast glow, and color drift for lighting and tonal rendering",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -6280,8 +6272,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "光泽塑料、铬色反射与低清晰数字表面",
         "labelEn": "glossy plastic, chrome-like reflections, and low-definition digital surfaces",
-        "promptZh": "光影采用光泽塑料、铬色反射与低清晰数字表面，统一光源方向与明暗逻辑",
-        "promptEn": "Use glossy plastic, chrome-like reflections, and low-definition digital surfaces for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用光泽塑料、铬色反射与低清晰数字表面",
+        "promptEn": "use glossy plastic, chrome-like reflections, and low-definition digital surfaces for lighting and tonal rendering",
         "weight": 0.7,
         "level": "可调整"
       }
@@ -6296,8 +6288,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "铬金属、虹彩膜与半透明塑料",
         "labelEn": "chrome metal, iridescent film, and translucent plastic",
-        "promptZh": "材质表现为铬金属、虹彩膜与半透明塑料，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as chrome metal, iridescent film, and translucent plastic, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为铬金属、虹彩膜与半透明塑料",
+        "promptEn": "render materials and surfaces as chrome metal, iridescent film, and translucent plastic",
         "weight": 1,
         "level": "定义性"
       },
@@ -6308,8 +6300,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "液态圆润几何与细线技术界面叠层",
         "labelEn": "liquid rounded geometry layered with fine-line technical interfaces",
-        "promptZh": "造型遵循液态圆润几何与细线技术界面叠层，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through liquid rounded geometry layered with fine-line technical interfaces while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为液态圆润几何与细线技术界面叠层，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into liquid rounded geometry layered with fine-line technical interfaces while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -6320,8 +6312,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "强镜面高光、凝胶折射与边缘辉光",
         "labelEn": "strong specular highlights, gel refraction, and edge glow",
-        "promptZh": "光影采用强镜面高光、凝胶折射与边缘辉光，统一光源方向与明暗逻辑",
-        "promptEn": "Use strong specular highlights, gel refraction, and edge glow for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用强镜面高光、凝胶折射与边缘辉光",
+        "promptEn": "use strong specular highlights, gel refraction, and edge glow for lighting and tonal rendering",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -6332,8 +6324,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "冰蓝、荧光绿、银色与半透明白",
         "labelEn": "icy blue, fluorescent green, silver, and translucent white",
-        "promptZh": "配色限定为冰蓝、荧光绿、银色与半透明白，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to icy blue, fluorescent green, silver, and translucent white, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为冰蓝、荧光绿、银色与半透明白",
+        "promptEn": "limit the palette to icy blue, fluorescent green, silver, and translucent white",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -6344,8 +6336,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "中心悬浮、同心环与轨道式布局",
         "labelEn": "centered floating, concentric-ring, and orbital layout",
-        "promptZh": "构图遵循中心悬浮、同心环与轨道式布局，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through centered floating, concentric-ring, and orbital layout, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用中心悬浮、同心环与轨道式布局",
+        "promptEn": "compose with centered floating, concentric-ring, and orbital layout",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -6356,8 +6348,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "窄体科技字、微型标签与宽字距排版",
         "labelEn": "condensed techno type, micro-labels, and wide tracking",
-        "promptZh": "仅在用户需要文字时采用窄体科技字、微型标签与宽字距排版，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use condensed techno type, micro-labels, and wide tracking while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用窄体科技字、微型标签与宽字距排版并保持原文可读",
+        "promptEn": "only when text is requested, use condensed techno type, micro-labels, and wide tracking and preserve the exact readable wording",
         "weight": 0.62,
         "level": "可调整"
       },
@@ -6368,8 +6360,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "平滑早期 CGI 建模与轻微低分辨率锯齿",
         "labelEn": "smooth early-CGI modeling with slight low-resolution aliasing",
-        "promptZh": "光影采用平滑早期 CGI 建模与轻微低分辨率锯齿，统一光源方向与明暗逻辑",
-        "promptEn": "Use smooth early-CGI modeling with slight low-resolution aliasing for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用平滑早期 CGI 建模与轻微低分辨率锯齿",
+        "promptEn": "use smooth early-CGI modeling with slight low-resolution aliasing for lighting and tonal rendering",
         "weight": 0.55,
         "level": "可调整"
       }
@@ -6384,8 +6376,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "柔和圆润的流线几何与膨润曲面",
         "labelEn": "soft rounded streamlining and inflated curved surfaces",
-        "promptZh": "造型遵循柔和圆润的流线几何与膨润曲面，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through soft rounded streamlining and inflated curved surfaces while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为柔和圆润的流线几何与膨润曲面，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into soft rounded streamlining and inflated curved surfaces while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -6396,8 +6388,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "高明度天蓝、鲜绿、青色与纯白",
         "labelEn": "high-key sky blue, vivid green, cyan, and pure white",
-        "promptZh": "配色限定为高明度天蓝、鲜绿、青色与纯白，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to high-key sky blue, vivid green, cyan, and pure white, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为高明度天蓝、鲜绿、青色与纯白",
+        "promptEn": "limit the palette to high-key sky blue, vivid green, cyan, and pure white",
         "weight": 0.93,
         "level": "主导"
       },
@@ -6408,8 +6400,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "明亮漫射日光、柔和轮廓光与低密度阴影",
         "labelEn": "bright diffused daylight, soft rim light, and low-density shadows",
-        "promptZh": "光影采用明亮漫射日光、柔和轮廓光与低密度阴影，统一光源方向与明暗逻辑",
-        "promptEn": "Use bright diffused daylight, soft rim light, and low-density shadows for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用明亮漫射日光、柔和轮廓光与低密度阴影",
+        "promptEn": "use bright diffused daylight, soft rim light, and low-density shadows for lighting and tonal rendering",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -6420,8 +6412,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "圆形镜面高光、凝胶折射与轻微镜头光晕",
         "labelEn": "rounded specular highlights, gel refraction, and subtle lens flare",
-        "promptZh": "光影采用圆形镜面高光、凝胶折射与轻微镜头光晕，统一光源方向与明暗逻辑",
-        "promptEn": "Use rounded specular highlights, gel refraction, and subtle lens flare for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用圆形镜面高光、凝胶折射与轻微镜头光晕",
+        "promptEn": "use rounded specular highlights, gel refraction, and subtle lens flare for lighting and tonal rendering",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -6432,8 +6424,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "清晰前中后分层与开放通透空间",
         "labelEn": "clear foreground-midground-background layering and open translucent space",
-        "promptZh": "视角统一为清晰前中后分层与开放通透空间，所有对象使用同一观察与投影规则",
-        "promptEn": "Use clear foreground-midground-background layering and open translucent space consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用清晰前中后分层与开放通透空间",
+        "promptEn": "use clear foreground-midground-background layering and open translucent space for viewpoint and spatial rendering",
         "weight": 0.78,
         "level": "可调整"
       },
@@ -6444,8 +6436,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "光泽玻璃、透明塑料与水润表面",
         "labelEn": "glossy glass, transparent plastic, and aqueous surfaces",
-        "promptZh": "材质表现为光泽玻璃、透明塑料与水润表面，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as glossy glass, transparent plastic, and aqueous surfaces, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为光泽玻璃、透明塑料与水润表面",
+        "promptEn": "render materials and surfaces as glossy glass, transparent plastic, and aqueous surfaces",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -6456,8 +6448,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "干净高饱和数字合成与平滑抗锯齿边缘",
         "labelEn": "clean saturated digital compositing and smoothly antialiased edges",
-        "promptZh": "以干净高饱和数字合成与平滑抗锯齿边缘统一笔触、边缘与成像痕迹",
-        "promptEn": "Use clean saturated digital compositing and smoothly antialiased edges to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用干净高饱和数字合成与平滑抗锯齿边缘",
+        "promptEn": "render marks and edges with clean saturated digital compositing and smoothly antialiased edges",
         "weight": 0.55,
         "level": "可调整"
       }
@@ -6472,8 +6464,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "简化比例与选择性夸张的主要形体",
         "labelEn": "simplified proportions and selective exaggeration of primary forms",
-        "promptZh": "造型遵循简化比例与选择性夸张的主要形体，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through simplified proportions and selective exaggeration of primary forms while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为简化比例与选择性夸张的主要形体，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into simplified proportions and selective exaggeration of primary forms while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -6484,8 +6476,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "外轮廓较重、内部细节较轻的变线宽线稿",
         "labelEn": "variable-weight linework with heavier outer contours and lighter interior detail",
-        "promptZh": "造型遵循外轮廓较重、内部细节较轻的变线宽线稿，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through variable-weight linework with heavier outer contours and lighter interior detail while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为外轮廓较重、内部细节较轻的变线宽线稿，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into variable-weight linework with heavier outer contours and lighter interior detail while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -6496,8 +6488,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "两级或三级赛璐璐明暗分区",
         "labelEn": "two- or three-step cel-shaded tonal separation",
-        "promptZh": "光影采用两级或三级赛璐璐明暗分区，统一光源方向与明暗逻辑",
-        "promptEn": "Use two- or three-step cel-shaded tonal separation for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用两级或三级赛璐璐明暗分区",
+        "promptEn": "use two- or three-step cel-shaded tonal separation for lighting and tonal rendering",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -6508,8 +6500,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "明快主色、受控环境色与局部色彩反光",
         "labelEn": "bright key colors, controlled ambient color, and selective color bounce",
-        "promptZh": "配色限定为明快主色、受控环境色与局部色彩反光，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to bright key colors, controlled ambient color, and selective color bounce, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为明快主色、受控环境色与局部色彩反光",
+        "promptEn": "limit the palette to bright key colors, controlled ambient color, and selective color bounce",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -6520,8 +6512,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "电影分镜式取景、明确视觉动线与动态裁切",
         "labelEn": "cinematic storyboard framing, clear visual flow, and dynamic cropping",
-        "promptZh": "视角统一为电影分镜式取景、明确视觉动线与动态裁切，所有对象使用同一观察与投影规则",
-        "promptEn": "Use cinematic storyboard framing, clear visual flow, and dynamic cropping consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用电影分镜式取景、明确视觉动线与动态裁切",
+        "promptEn": "use cinematic storyboard framing, clear visual flow, and dynamic cropping for viewpoint and spatial rendering",
         "weight": 0.78,
         "level": "可调整"
       },
@@ -6532,8 +6524,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "干净数字上色与局部柔光或速度化处理",
         "labelEn": "clean digital coloring with selective soft glow or motion treatment",
-        "promptZh": "以干净数字上色与局部柔光或速度化处理统一笔触、边缘与成像痕迹",
-        "promptEn": "Use clean digital coloring with selective soft glow or motion treatment to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用干净数字上色与局部柔光或速度化处理",
+        "promptEn": "render marks and edges with clean digital coloring with selective soft glow or motion treatment",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -6544,8 +6536,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "背景细节层级低于主要形体",
         "labelEn": "background detail hierarchy subordinate to primary forms",
-        "promptZh": "构图遵循背景细节层级低于主要形体，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through background detail hierarchy subordinate to primary forms, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用背景细节层级低于主要形体",
+        "promptEn": "compose with background detail hierarchy subordinate to primary forms",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -6560,8 +6552,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "高反差黑白构成",
         "labelEn": "high-contrast black-and-white construction",
-        "promptZh": "配色限定为高反差黑白构成，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to high-contrast black-and-white construction, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为高反差黑白构成",
+        "promptEn": "limit the palette to high-contrast black-and-white construction",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -6572,8 +6564,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "清晰墨线与大块黑色",
         "labelEn": "crisp ink lines and solid black masses",
-        "promptZh": "以清晰墨线与大块黑色统一笔触、边缘与成像痕迹",
-        "promptEn": "Use crisp ink lines and solid black masses to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用清晰墨线与大块黑色",
+        "promptEn": "render marks and edges with crisp ink lines and solid black masses",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -6584,8 +6576,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "半调网点与分级灰度",
         "labelEn": "halftone screentone and stepped gray values",
-        "promptZh": "以半调网点与分级灰度统一笔触、边缘与成像痕迹",
-        "promptEn": "Use halftone screentone and stepped gray values to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用半调网点与分级灰度",
+        "promptEn": "render marks and edges with halftone screentone and stepped gray values",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -6596,8 +6588,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "动态裁切与连续分格节奏",
         "labelEn": "dynamic cropping and sequential panel rhythm",
-        "promptZh": "构图遵循动态裁切与连续分格节奏，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through dynamic cropping and sequential panel rhythm, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用动态裁切与连续分格节奏",
+        "promptEn": "compose with dynamic cropping and sequential panel rhythm",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -6608,8 +6600,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "速度线与夸张透视",
         "labelEn": "speed lines and exaggerated perspective",
-        "promptZh": "视角统一为速度线与夸张透视，所有对象使用同一观察与投影规则",
-        "promptEn": "Use speed lines and exaggerated perspective consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用速度线与夸张透视",
+        "promptEn": "use speed lines and exaggerated perspective for viewpoint and spatial rendering",
         "weight": 0.78,
         "level": "支撑"
       }
@@ -6624,8 +6616,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "极端透视与动态裁切",
         "labelEn": "extreme perspective and dynamic cropping",
-        "promptZh": "视角统一为极端透视与动态裁切，所有对象使用同一观察与投影规则",
-        "promptEn": "Use extreme perspective and dynamic cropping consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用极端透视与动态裁切",
+        "promptEn": "use extreme perspective and dynamic cropping for viewpoint and spatial rendering",
         "weight": 1,
         "level": "定义性"
       },
@@ -6636,8 +6628,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "清晰分格节奏与爆发式构图",
         "labelEn": "clear panel rhythm and explosive composition",
-        "promptZh": "构图遵循清晰分格节奏与爆发式构图，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through clear panel rhythm and explosive composition, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用清晰分格节奏与爆发式构图",
+        "promptEn": "compose with clear panel rhythm and explosive composition",
         "weight": 0.93,
         "level": "主导"
       },
@@ -6648,8 +6640,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "半调网点与有限套色",
         "labelEn": "halftone dots and limited color registration",
-        "promptZh": "以半调网点与有限套色统一笔触、边缘与成像痕迹",
-        "promptEn": "Use halftone dots and limited color registration to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用半调网点与有限套色",
+        "promptEn": "render marks and edges with halftone dots and limited color registration",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -6660,8 +6652,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "粗黑墨线与硬边阴影",
         "labelEn": "heavy black inks and hard-edged shadows",
-        "promptZh": "光影采用粗黑墨线与硬边阴影，统一光源方向与明暗逻辑",
-        "promptEn": "Use heavy black inks and hard-edged shadows for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用粗黑墨线与硬边阴影",
+        "promptEn": "use heavy black inks and hard-edged shadows for lighting and tonal rendering",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -6672,8 +6664,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "红黄蓝原色高对比",
         "labelEn": "high-contrast red, yellow, and blue primaries",
-        "promptZh": "配色限定为红黄蓝原色高对比，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to high-contrast red, yellow, and blue primaries, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为红黄蓝原色高对比",
+        "promptEn": "limit the palette to high-contrast red, yellow, and blue primaries",
         "weight": 0.78,
         "level": "支撑"
       }
@@ -6688,8 +6680,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "严格中心布局与深暗留白",
         "labelEn": "strict centered layout and deep dark negative space",
-        "promptZh": "构图遵循严格中心布局与深暗留白，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through strict centered layout and deep dark negative space, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用严格中心布局与深暗留白",
+        "promptEn": "compose with strict centered layout and deep dark negative space",
         "weight": 1,
         "level": "定义性"
       },
@@ -6700,8 +6692,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "细长轮廓、尖拱式节奏与精密装饰线",
         "labelEn": "elongated contours, pointed-arch rhythm, and intricate ornamental lines",
-        "promptZh": "构图遵循细长轮廓、尖拱式节奏与精密装饰线，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through elongated contours, pointed-arch rhythm, and intricate ornamental lines, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用细长轮廓、尖拱式节奏与精密装饰线",
+        "promptEn": "compose with elongated contours, pointed-arch rhythm, and intricate ornamental lines",
         "weight": 0.93,
         "level": "主导"
       },
@@ -6712,8 +6704,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "黑、冷灰、酒红与极少银色",
         "labelEn": "black, cool gray, wine red, and restrained silver",
-        "promptZh": "配色限定为黑、冷灰、酒红与极少银色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to black, cool gray, wine red, and restrained silver, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为黑、冷灰、酒红与极少银色",
+        "promptEn": "limit the palette to black, cool gray, wine red, and restrained silver",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -6724,8 +6716,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "苍白高光、低调方向光与深黑阴影",
         "labelEn": "pale highlights, low-key directional light, and deep black shadows",
-        "promptZh": "光影采用苍白高光、低调方向光与深黑阴影，统一光源方向与明暗逻辑",
-        "promptEn": "Use pale highlights, low-key directional light, and deep black shadows for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用苍白高光、低调方向光与深黑阴影",
+        "promptEn": "use pale highlights, low-key directional light, and deep black shadows for lighting and tonal rendering",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -6736,8 +6728,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "瑕疵与视觉效果",
         "labelZh": "天鹅绒、哑光金属、蕾丝状纹理与风化表面",
         "labelEn": "velvet, matte metal, lace-like texture, and weathered surfaces",
-        "promptZh": "天鹅绒、哑光金属、蕾丝状纹理与风化表面仅作受控局部效果，不削弱主体轮廓与焦点",
-        "promptEn": "Use velvet, matte metal, lace-like texture, and weathered surfaces only as a controlled local effect without weakening subject silhouettes or the focal point",
+        "promptZh": "仅局部使用天鹅绒、哑光金属、蕾丝状纹理与风化表面",
+        "promptEn": "use velvet, matte metal, lace-like texture, and weathered surfaces only as a controlled local effect",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -6752,8 +6744,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "低调方向光、局部轮廓光与吞没细节的暗部",
         "labelEn": "low-key directional light, selective rim light, and detail-swallowing shadows",
-        "promptZh": "光影采用低调方向光、局部轮廓光与吞没细节的暗部，统一光源方向与明暗逻辑",
-        "promptEn": "Use low-key directional light, selective rim light, and detail-swallowing shadows for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用低调方向光、局部轮廓光与吞没细节的暗部",
+        "promptEn": "use low-key directional light, selective rim light, and detail-swallowing shadows for lighting and tonal rendering",
         "weight": 1,
         "level": "定义性"
       },
@@ -6764,8 +6756,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "透明暗部薄涂、干涩笔触与局部厚涂高光",
         "labelEn": "glazed transparent shadows, dry brushwork, and selective impasto highlights",
-        "promptZh": "光影采用透明暗部薄涂、干涩笔触与局部厚涂高光，统一光源方向与明暗逻辑",
-        "promptEn": "Use glazed transparent shadows, dry brushwork, and selective impasto highlights for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用透明暗部薄涂、干涩笔触与局部厚涂高光",
+        "promptEn": "use glazed transparent shadows, dry brushwork, and selective impasto highlights for lighting and tonal rendering",
         "weight": 0.93,
         "level": "主导"
       },
@@ -6776,8 +6768,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "陡峭对角线、尖锐轮廓与不稳定平衡",
         "labelEn": "steep diagonals, jagged contours, and unstable balance",
-        "promptZh": "造型遵循陡峭对角线、尖锐轮廓与不稳定平衡，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through steep diagonals, jagged contours, and unstable balance while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为陡峭对角线、尖锐轮廓与不稳定平衡，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into steep diagonals, jagged contours, and unstable balance while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -6788,8 +6780,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "冷灰、暗紫、褐黑与少量旧金",
         "labelEn": "cold gray, dark violet, brown-black, and restrained aged gold",
-        "promptZh": "配色限定为冷灰、暗紫、褐黑与少量旧金，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to cold gray, dark violet, brown-black, and restrained aged gold, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为冷灰、暗紫、褐黑与少量旧金",
+        "promptEn": "limit the palette to cold gray, dark violet, brown-black, and restrained aged gold",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -6800,8 +6792,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "瑕疵与视觉效果",
         "labelZh": "纪念碑式尺度反差与深层压缩空间",
         "labelEn": "monumental scale contrast and compressed deep space",
-        "promptZh": "纪念碑式尺度反差与深层压缩空间仅作受控局部效果，不削弱主体轮廓与焦点",
-        "promptEn": "Use monumental scale contrast and compressed deep space only as a controlled local effect without weakening subject silhouettes or the focal point",
+        "promptZh": "仅局部使用纪念碑式尺度反差与深层压缩空间",
+        "promptEn": "use monumental scale contrast and compressed deep space only as a controlled local effect",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -6812,8 +6804,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "风化粗糙材质与烟雾化空间边缘",
         "labelEn": "weathered rough surfaces and atmospherically hazed spatial edges",
-        "promptZh": "视角统一为风化粗糙材质与烟雾化空间边缘，所有对象使用同一观察与投影规则",
-        "promptEn": "Use weathered rough surfaces and atmospherically hazed spatial edges consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用风化粗糙材质与烟雾化空间边缘",
+        "promptEn": "use weathered rough surfaces and atmospherically hazed spatial edges for viewpoint and spatial rendering",
         "weight": 0.7,
         "level": "可调整"
       }
@@ -6828,8 +6820,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "黑白极端明暗对照与大面积纯黑",
         "labelEn": "extreme black-and-white contrast and broad pure-black masses",
-        "promptZh": "光影采用黑白极端明暗对照与大面积纯黑，统一光源方向与明暗逻辑",
-        "promptEn": "Use extreme black-and-white contrast and broad pure-black masses for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用黑白极端明暗对照与大面积纯黑",
+        "promptEn": "use extreme black-and-white contrast and broad pure-black masses for lighting and tonal rendering",
         "weight": 1,
         "level": "定义性"
       },
@@ -6840,8 +6832,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "低调硬质侧光、逆光与窄束顶光",
         "labelEn": "low-key hard side light, backlight, and narrow overhead beams",
-        "promptZh": "光影采用低调硬质侧光、逆光与窄束顶光，统一光源方向与明暗逻辑",
-        "promptEn": "Use low-key hard side light, backlight, and narrow overhead beams for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用低调硬质侧光、逆光与窄束顶光",
+        "promptEn": "use low-key hard side light, backlight, and narrow overhead beams for lighting and tonal rendering",
         "weight": 0.93,
         "level": "主导"
       },
@@ -6852,8 +6844,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "倾斜机位、低机位与强对角线取景",
         "labelEn": "canted framing, low viewpoints, and strong diagonals",
-        "promptZh": "视角统一为倾斜机位、低机位与强对角线取景，所有对象使用同一观察与投影规则",
-        "promptEn": "Use canted framing, low viewpoints, and strong diagonals consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用倾斜机位、低机位与强对角线取景",
+        "promptEn": "use canted framing, low viewpoints, and strong diagonals for viewpoint and spatial rendering",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -6864,8 +6856,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "深透视构图与前后景同时清晰的深焦",
         "labelEn": "deep-perspective composition with deep focus across spatial layers",
-        "promptZh": "构图遵循深透视构图与前后景同时清晰的深焦，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through deep-perspective composition with deep focus across spatial layers, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用深透视构图与前后景同时清晰的深焦",
+        "promptEn": "compose with deep-perspective composition with deep focus across spatial layers",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -6876,8 +6868,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "条带状投影、剪影与高亮边缘",
         "labelEn": "striped cast shadows, silhouettes, and highlighted edges",
-        "promptZh": "光影采用条带状投影、剪影与高亮边缘，统一光源方向与明暗逻辑",
-        "promptEn": "Use striped cast shadows, silhouettes, and highlighted edges for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用条带状投影、剪影与高亮边缘",
+        "promptEn": "use striped cast shadows, silhouettes, and highlighted edges for lighting and tonal rendering",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -6888,8 +6880,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "银盐颗粒、轻雾与微弱高光晕染",
         "labelEn": "silver-halide grain, light haze, and subtle highlight halation",
-        "promptZh": "光影采用银盐颗粒、轻雾与微弱高光晕染，统一光源方向与明暗逻辑",
-        "promptEn": "Use silver-halide grain, light haze, and subtle highlight halation for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用银盐颗粒、轻雾与微弱高光晕染",
+        "promptEn": "use silver-halide grain, light haze, and subtle highlight halation for lighting and tonal rendering",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -6904,8 +6896,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "亚麻、哑光纸张、浅木色与手作纤维触感",
         "labelEn": "linen, matte paper, pale wood tones, and handmade fiber tactility",
-        "promptZh": "材质表现为亚麻、哑光纸张、浅木色与手作纤维触感，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as linen, matte paper, pale wood tones, and handmade fiber tactility, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为亚麻、哑光纸张、浅木色与手作纤维触感",
+        "promptEn": "render materials and surfaces as linen, matte paper, pale wood tones, and handmade fiber tactility",
         "weight": 1,
         "level": "定义性"
       },
@@ -6916,8 +6908,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "温暖漫射自然光、柔和阴影与轻微逆光",
         "labelEn": "warm diffused natural light, soft shadows, and slight backlight",
-        "promptZh": "光影采用温暖漫射自然光、柔和阴影与轻微逆光，统一光源方向与明暗逻辑",
-        "promptEn": "Use warm diffused natural light, soft shadows, and slight backlight for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用温暖漫射自然光、柔和阴影与轻微逆光",
+        "promptEn": "use warm diffused natural light, soft shadows, and slight backlight for lighting and tonal rendering",
         "weight": 0.93,
         "level": "主导"
       },
@@ -6928,8 +6920,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "鼠尾草绿、柔粉、奶白与褪色土色",
         "labelEn": "sage green, dusty pink, creamy white, and faded earth tones",
-        "promptZh": "配色限定为鼠尾草绿、柔粉、奶白与褪色土色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to sage green, dusty pink, creamy white, and faded earth tones, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为鼠尾草绿、柔粉、奶白与褪色土色",
+        "promptEn": "limit the palette to sage green, dusty pink, creamy white, and faded earth tones",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -6940,8 +6932,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "近景包围式构图与浅层空间",
         "labelEn": "close enclosing composition and shallow space",
-        "promptZh": "构图遵循近景包围式构图与浅层空间，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through close enclosing composition and shallow space, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用近景包围式构图与浅层空间",
+        "promptEn": "compose with close enclosing composition and shallow space",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -6952,8 +6944,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "圆润自然轮廓与不过度规整的手工比例",
         "labelEn": "rounded natural contours and softly irregular handmade proportions",
-        "promptZh": "造型遵循圆润自然轮廓与不过度规整的手工比例，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through rounded natural contours and softly irregular handmade proportions while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为圆润自然轮廓与不过度规整的手工比例，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into rounded natural contours and softly irregular handmade proportions while preserving identity and defining structure",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -6964,8 +6956,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "低对比、浅景深与轻微柔焦",
         "labelEn": "low contrast, shallow depth of field, and subtle soft focus",
-        "promptZh": "视角统一为低对比、浅景深与轻微柔焦，所有对象使用同一观察与投影规则",
-        "promptEn": "Use low contrast, shallow depth of field, and subtle soft focus consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用低对比、浅景深与轻微柔焦",
+        "promptEn": "use low contrast, shallow depth of field, and subtle soft focus for viewpoint and spatial rendering",
         "weight": 0.7,
         "level": "可调整"
       },
@@ -6976,8 +6968,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "褪色印刷、细颗粒与克制的旧化边缘",
         "labelEn": "faded print, fine grain, and restrained aged edges",
-        "promptZh": "以褪色印刷、细颗粒与克制的旧化边缘统一笔触、边缘与成像痕迹",
-        "promptEn": "Use faded print, fine grain, and restrained aged edges to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用褪色印刷、细颗粒与克制的旧化边缘",
+        "promptEn": "render marks and edges with faded print, fine grain, and restrained aged edges",
         "weight": 0.55,
         "level": "可调整"
       }
@@ -6992,8 +6984,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "稳定对称与深层纵向空间",
         "labelEn": "stable symmetry and deep axial space",
-        "promptZh": "构图遵循稳定对称与深层纵向空间，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through stable symmetry and deep axial space, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用稳定对称与深层纵向空间",
+        "promptEn": "compose with stable symmetry and deep axial space",
         "weight": 1,
         "level": "定义性"
       },
@@ -7004,8 +6996,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "低调光配局部暖色高光",
         "labelEn": "low-key light with localized warm highlights",
-        "promptZh": "光影采用低调光配局部暖色高光，统一光源方向与明暗逻辑",
-        "promptEn": "Use low-key light with localized warm highlights for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用低调光配局部暖色高光",
+        "promptEn": "use low-key light with localized warm highlights for lighting and tonal rendering",
         "weight": 0.93,
         "level": "主导"
       },
@@ -7016,8 +7008,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "深棕、墨绿与羊皮纸色",
         "labelEn": "deep brown, forest green, and parchment",
-        "promptZh": "配色限定为深棕、墨绿与羊皮纸色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to deep brown, forest green, and parchment, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为深棕、墨绿与羊皮纸色",
+        "promptEn": "limit the palette to deep brown, forest green, and parchment",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -7028,8 +7020,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "深色木纹、粗纺与旧纸质感",
         "labelEn": "dark wood grain, coarse textile, and aged paper",
-        "promptZh": "材质表现为深色木纹、粗纺与旧纸质感，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as dark wood grain, coarse textile, and aged paper, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为深色木纹、粗纺与旧纸质感",
+        "promptEn": "render materials and surfaces as dark wood grain, coarse textile, and aged paper",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -7040,8 +7032,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "柔和尘雾与古典衬线排版",
         "labelEn": "soft dusty haze and classical serif typography",
-        "promptZh": "仅在用户需要文字时采用柔和尘雾与古典衬线排版，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use soft dusty haze and classical serif typography while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用柔和尘雾与古典衬线排版并保持原文可读",
+        "promptEn": "only when text is requested, use soft dusty haze and classical serif typography and preserve the exact readable wording",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -7056,8 +7048,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "稀疏中心布局与比例异常的留白区",
         "labelEn": "sparse centered layout and disproportionately empty zones",
-        "promptZh": "构图遵循稀疏中心布局与比例异常的留白区，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through sparse centered layout and disproportionately empty zones, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用稀疏中心布局与比例异常的留白区",
+        "promptEn": "compose with sparse centered layout and disproportionately empty zones",
         "weight": 1,
         "level": "定义性"
       },
@@ -7068,8 +7060,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "不合逻辑的尺度、透视与空间连接",
         "labelEn": "illogical scale, perspective, and spatial continuity",
-        "promptZh": "视角统一为不合逻辑的尺度、透视与空间连接，所有对象使用同一观察与投影规则",
-        "promptEn": "Use illogical scale, perspective, and spatial continuity consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用不合逻辑的尺度、透视与空间连接",
+        "promptEn": "use illogical scale, perspective, and spatial continuity for viewpoint and spatial rendering",
         "weight": 0.93,
         "level": "主导"
       },
@@ -7080,8 +7072,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "过曝漫射光、低对比与柔焦边缘",
         "labelEn": "overexposed diffused light, low contrast, and soft-focus edges",
-        "promptZh": "光影采用过曝漫射光、低对比与柔焦边缘，统一光源方向与明暗逻辑",
-        "promptEn": "Use overexposed diffused light, low contrast, and soft-focus edges for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用过曝漫射光、低对比与柔焦边缘",
+        "promptEn": "use overexposed diffused light, low contrast, and soft-focus edges for lighting and tonal rendering",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -7092,8 +7084,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "柔蓝、粉紫与褪色黄",
         "labelEn": "soft blue, pink-violet, and faded yellow",
-        "promptZh": "配色限定为柔蓝、粉紫与褪色黄，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to soft blue, pink-violet, and faded yellow, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为柔蓝、粉紫与褪色黄",
+        "promptEn": "limit the palette to soft blue, pink-violet, and faded yellow",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -7104,8 +7096,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "瑕疵与视觉效果",
         "labelZh": "低清压缩、色彩漂移与旧照片颗粒",
         "labelEn": "lo-fi compression, color drift, and old-photo grain",
-        "promptZh": "低清压缩、色彩漂移与旧照片颗粒仅作受控局部效果，不削弱主体轮廓与焦点",
-        "promptEn": "Use lo-fi compression, color drift, and old-photo grain only as a controlled local effect without weakening subject silhouettes or the focal point",
+        "promptZh": "仅局部使用低清压缩、色彩漂移与旧照片颗粒",
+        "promptEn": "use lo-fi compression, color drift, and old-photo grain only as a controlled local effect",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -7120,8 +7112,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "不稳定中心、突兀边缘裁切与失衡留白",
         "labelEn": "unstable center, abrupt edge cropping, and unbalanced negative space",
-        "promptZh": "构图遵循不稳定中心、突兀边缘裁切与失衡留白，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through unstable center, abrupt edge cropping, and unbalanced negative space, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用不稳定中心、突兀边缘裁切与失衡留白",
+        "promptEn": "compose with unstable center, abrupt edge cropping, and unbalanced negative space",
         "weight": 1,
         "level": "定义性"
       },
@@ -7132,8 +7124,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "瑕疵与视觉效果",
         "labelZh": "像素化、扫描噪点、色差与压缩伪影",
         "labelEn": "pixelation, scan noise, chromatic aberration, and compression artifacts",
-        "promptZh": "像素化、扫描噪点、色差与压缩伪影仅作受控局部效果，不削弱主体轮廓与焦点",
-        "promptEn": "Use pixelation, scan noise, chromatic aberration, and compression artifacts only as a controlled local effect without weakening subject silhouettes or the focal point",
+        "promptZh": "仅局部使用像素化、扫描噪点、色差与压缩伪影",
+        "promptEn": "use pixelation, scan noise, chromatic aberration, and compression artifacts only as a controlled local effect",
         "weight": 0.93,
         "level": "主导"
       },
@@ -7144,8 +7136,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "错位尺度、断裂透视与不连续空间关系",
         "labelEn": "dislocated scale, broken perspective, and discontinuous spatial relationships",
-        "promptZh": "视角统一为错位尺度、断裂透视与不连续空间关系，所有对象使用同一观察与投影规则",
-        "promptEn": "Use dislocated scale, broken perspective, and discontinuous spatial relationships consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用错位尺度、断裂透视与不连续空间关系",
+        "promptEn": "use dislocated scale, broken perspective, and discontinuous spatial relationships for viewpoint and spatial rendering",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -7156,8 +7148,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "脏蓝、洋红与酸绿的突变配色",
         "labelEn": "abrupt palette shifts among dirty blue, magenta, and acid green",
-        "promptZh": "配色限定为脏蓝、洋红与酸绿的突变配色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to abrupt palette shifts among dirty blue, magenta, and acid green, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为脏蓝、洋红与酸绿的突变配色",
+        "promptEn": "limit the palette to abrupt palette shifts among dirty blue, magenta, and acid green",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -7168,8 +7160,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "硬闪光、局部过曝与无过渡暗部",
         "labelEn": "hard flash, localized clipping, and ungraded darkness",
-        "promptZh": "光影采用硬闪光、局部过曝与无过渡暗部，统一光源方向与明暗逻辑",
-        "promptEn": "Use hard flash, localized clipping, and ungraded darkness for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用硬闪光、局部过曝与无过渡暗部",
+        "promptEn": "use hard flash, localized clipping, and ungraded darkness for lighting and tonal rendering",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -7184,8 +7176,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "深远重复透视",
         "labelEn": "deep repetitive perspective",
-        "promptZh": "视角统一为深远重复透视，所有对象使用同一观察与投影规则",
-        "promptEn": "Use deep repetitive perspective consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用深远重复透视",
+        "promptEn": "use deep repetitive perspective for viewpoint and spatial rendering",
         "weight": 1,
         "level": "定义性"
       },
@@ -7196,8 +7188,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "稀疏空置的空间组织",
         "labelEn": "sparse unoccupied spatial organization",
-        "promptZh": "构图遵循稀疏空置的空间组织，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through sparse unoccupied spatial organization, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用稀疏空置的空间组织",
+        "promptEn": "compose with sparse unoccupied spatial organization",
         "weight": 0.93,
         "level": "主导"
       },
@@ -7208,8 +7200,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "平直均匀的冷色人工光",
         "labelEn": "flat even cool artificial light",
-        "promptZh": "配色限定为平直均匀的冷色人工光，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to flat even cool artificial light, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为平直均匀的冷色人工光",
+        "promptEn": "limit the palette to flat even cool artificial light",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -7220,8 +7212,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "褪色黄绿与冷灰",
         "labelEn": "faded yellow-green and cool gray",
-        "promptZh": "配色限定为褪色黄绿与冷灰，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to faded yellow-green and cool gray, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为褪色黄绿与冷灰",
+        "promptEn": "limit the palette to faded yellow-green and cool gray",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -7232,8 +7224,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "瑕疵与视觉效果",
         "labelZh": "低保真噪点与轻微失焦",
         "labelEn": "lo-fi noise and slight defocus",
-        "promptZh": "低保真噪点与轻微失焦仅作受控局部效果，不削弱主体轮廓与焦点",
-        "promptEn": "Use lo-fi noise and slight defocus only as a controlled local effect without weakening subject silhouettes or the focal point",
+        "promptZh": "仅局部使用低保真噪点与轻微失焦",
+        "promptEn": "use lo-fi noise and slight defocus only as a controlled local effect",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -7248,8 +7240,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "满幅高密度与单一主焦点",
         "labelEn": "full-frame density with one dominant focal point",
-        "promptZh": "构图遵循满幅高密度与单一主焦点，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through full-frame density with one dominant focal point, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用满幅高密度与单一主焦点",
+        "promptEn": "compose with full-frame density with one dominant focal point",
         "weight": 1,
         "level": "定义性"
       },
@@ -7260,8 +7252,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "多层重叠与受控尺度对比",
         "labelEn": "layered overlap and controlled scale contrast",
-        "promptZh": "构图遵循多层重叠与受控尺度对比，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through layered overlap and controlled scale contrast, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用多层重叠与受控尺度对比",
+        "promptEn": "compose with layered overlap and controlled scale contrast",
         "weight": 0.93,
         "level": "主导"
       },
@@ -7272,8 +7264,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "织物、漆面、金箔与纸张拼贴",
         "labelEn": "patterned textile, lacquer, gold leaf, and paper collage",
-        "promptZh": "以织物、漆面、金箔与纸张拼贴统一笔触、边缘与成像痕迹",
-        "promptEn": "Use patterned textile, lacquer, gold leaf, and paper collage to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用织物、漆面、金箔与纸张拼贴",
+        "promptEn": "render marks and edges with patterned textile, lacquer, gold leaf, and paper collage",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -7284,8 +7276,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "深色底上的分组宝石色",
         "labelEn": "grouped jewel tones over a dark ground",
-        "promptZh": "配色限定为深色底上的分组宝石色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to grouped jewel tones over a dark ground, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为深色底上的分组宝石色",
+        "promptEn": "limit the palette to grouped jewel tones over a dark ground",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -7296,8 +7288,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "局部高光与深暗部层级",
         "labelEn": "layered local highlights and deep shadow hierarchy",
-        "promptZh": "光影采用局部高光与深暗部层级，统一光源方向与明暗逻辑",
-        "promptEn": "Use layered local highlights and deep shadow hierarchy for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用局部高光与深暗部层级",
+        "promptEn": "use layered local highlights and deep shadow hierarchy for lighting and tonal rendering",
         "weight": 0.78,
         "level": "可调整"
       },
@@ -7308,8 +7300,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "大尺度装饰展示字",
         "labelEn": "large-scale decorative display typography",
-        "promptZh": "仅在用户需要文字时采用大尺度装饰展示字，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use large-scale decorative display typography while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用大尺度装饰展示字并保持原文可读",
+        "promptEn": "only when text is requested, use large-scale decorative display typography and preserve the exact readable wording",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -7324,8 +7316,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "显性网格、模块与序列关系",
         "labelEn": "visible grids, modules, and sequential relationships",
-        "promptZh": "构图遵循显性网格、模块与序列关系，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through visible grids, modules, and sequential relationships, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用显性网格、模块与序列关系",
+        "promptEn": "compose with visible grids, modules, and sequential relationships",
         "weight": 1,
         "level": "定义性"
       },
@@ -7336,8 +7328,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "框架、节点与连接构成的抽象形态",
         "labelEn": "abstract forms built from frames, nodes, and connections",
-        "promptZh": "造型遵循框架、节点与连接构成的抽象形态，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through abstract forms built from frames, nodes, and connections while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为框架、节点与连接构成的抽象形态，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into abstract forms built from frames, nodes, and connections while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -7348,8 +7340,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "严格网格对齐的无衬线或等宽字",
         "labelEn": "grid-aligned sans serif or monospaced typography",
-        "promptZh": "仅在用户需要文字时采用严格网格对齐的无衬线或等宽字，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use grid-aligned sans serif or monospaced typography while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用严格网格对齐的无衬线或等宽字并保持原文可读",
+        "promptEn": "only when text is requested, use grid-aligned sans serif or monospaced typography and preserve the exact readable wording",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -7360,8 +7352,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "黑白灰配一种原色标注",
         "labelEn": "black, white, and gray with one primary annotation color",
-        "promptZh": "配色限定为黑白灰配一种原色标注，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to black, white, and gray with one primary annotation color, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为黑白灰配一种原色标注",
+        "promptEn": "limit the palette to black, white, and gray with one primary annotation color",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -7372,8 +7364,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "均匀分析性照明与低戏剧性",
         "labelEn": "even analytical lighting with low theatricality",
-        "promptZh": "光影采用均匀分析性照明与低戏剧性，统一光源方向与明暗逻辑",
-        "promptEn": "Use even analytical lighting with low theatricality for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用均匀分析性照明与低戏剧性",
+        "promptEn": "use even analytical lighting with low theatricality for lighting and tonal rendering",
         "weight": 0.78,
         "level": "可调整"
       },
@@ -7384,8 +7376,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "技术图纸、线框与半透明叠片",
         "labelEn": "technical drawings, wireframes, and translucent overlays",
-        "promptZh": "材质表现为技术图纸、线框与半透明叠片，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as technical drawings, wireframes, and translucent overlays, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为技术图纸、线框与半透明叠片",
+        "promptEn": "render materials and surfaces as technical drawings, wireframes, and translucent overlays",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -7400,8 +7392,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "对角上升的连续流线动势",
         "labelEn": "continuous rising diagonal flow",
-        "promptZh": "造型遵循对角上升的连续流线动势，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through continuous rising diagonal flow while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为对角上升的连续流线动势，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into continuous rising diagonal flow while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -7412,8 +7404,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "连续壳体、参数化肋骨与空气动力曲面",
         "labelEn": "continuous shells, parametric ribs, and aerodynamic surfaces",
-        "promptZh": "造型遵循连续壳体、参数化肋骨与空气动力曲面，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through continuous shells, parametric ribs, and aerodynamic surfaces while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为连续壳体、参数化肋骨与空气动力曲面，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into continuous shells, parametric ribs, and aerodynamic surfaces while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -7424,8 +7416,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "玻璃、拉丝金属与陶瓷复合表面",
         "labelEn": "glass, brushed metal, and ceramic composite surfaces",
-        "promptZh": "材质表现为玻璃、拉丝金属与陶瓷复合表面，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as glass, brushed metal, and ceramic composite surfaces, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为玻璃、拉丝金属与陶瓷复合表面",
+        "promptEn": "render materials and surfaces as glass, brushed metal, and ceramic composite surfaces",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -7436,8 +7428,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "银白冷灰配少量电青强调",
         "labelEn": "silver-white and cool gray with restrained electric cyan",
-        "promptZh": "配色限定为银白冷灰配少量电青强调，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to silver-white and cool gray with restrained electric cyan, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为银白冷灰配少量电青强调",
+        "promptEn": "limit the palette to silver-white and cool gray with restrained electric cyan",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -7448,8 +7440,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "高明度环境光与干净边缘光",
         "labelEn": "high-key ambient light and clean rim lighting",
-        "promptZh": "光影采用高明度环境光与干净边缘光，统一光源方向与明暗逻辑",
-        "promptEn": "Use high-key ambient light and clean rim lighting for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用高明度环境光与干净边缘光",
+        "promptEn": "use high-key ambient light and clean rim lighting for lighting and tonal rendering",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -7460,8 +7452,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "宽体几何无衬线与宽松字距",
         "labelEn": "wide geometric sans serif with open tracking",
-        "promptZh": "仅在用户需要文字时采用宽体几何无衬线与宽松字距，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use wide geometric sans serif with open tracking while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用宽体几何无衬线与宽松字距并保持原文可读",
+        "promptEn": "only when text is requested, use wide geometric sans serif with open tracking and preserve the exact readable wording",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -7476,8 +7468,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "细胞式圆润轮廓与连续柔性曲面",
         "labelEn": "cell-like rounded contours and continuous flexible surfaces",
-        "promptZh": "造型遵循细胞式圆润轮廓与连续柔性曲面，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through cell-like rounded contours and continuous flexible surfaces while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为细胞式圆润轮廓与连续柔性曲面，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into cell-like rounded contours and continuous flexible surfaces while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -7488,8 +7480,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "去中心化的流动布局与形态包含",
         "labelEn": "decentered flowing layout with nested forms",
-        "promptZh": "构图遵循去中心化的流动布局与形态包含，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through decentered flowing layout with nested forms, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用去中心化的流动布局与形态包含",
+        "promptEn": "compose with decentered flowing layout with nested forms",
         "weight": 0.93,
         "level": "主导"
       },
@@ -7500,8 +7492,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "半透明树脂、胶质与柔软陶土",
         "labelEn": "translucent resin, gel, and soft clay",
-        "promptZh": "材质表现为半透明树脂、胶质与柔软陶土，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as translucent resin, gel, and soft clay, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为半透明树脂、胶质与柔软陶土",
+        "promptEn": "render materials and surfaces as translucent resin, gel, and soft clay",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -7512,8 +7504,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "柔和漫射光、透光与次表面散射",
         "labelEn": "soft diffuse light, translucency, and subsurface scattering",
-        "promptZh": "光影采用柔和漫射光、透光与次表面散射，统一光源方向与明暗逻辑",
-        "promptEn": "Use soft diffuse light, translucency, and subsurface scattering for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用柔和漫射光、透光与次表面散射",
+        "promptEn": "use soft diffuse light, translucency, and subsurface scattering for lighting and tonal rendering",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -7524,8 +7516,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "珊瑚粉、海水绿与乳白过渡",
         "labelEn": "transitions of coral pink, sea green, and milky white",
-        "promptZh": "配色限定为珊瑚粉、海水绿与乳白过渡，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to transitions of coral pink, sea green, and milky white, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为珊瑚粉、海水绿与乳白过渡",
+        "promptEn": "limit the palette to transitions of coral pink, sea green, and milky white",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -7536,8 +7528,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "略带流动曲线的圆润无衬线字",
         "labelEn": "rounded sans serif with subtly flowing curves",
-        "promptZh": "仅在用户需要文字时采用略带流动曲线的圆润无衬线字，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use rounded sans serif with subtly flowing curves while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用略带流动曲线的圆润无衬线字并保持原文可读",
+        "promptEn": "only when text is requested, use rounded sans serif with subtly flowing curves and preserve the exact readable wording",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -7552,8 +7544,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "电光红黄蓝与黑白硬边分区",
         "labelEn": "electric red, yellow, and blue in hard-edged black-and-white zones",
-        "promptZh": "配色限定为电光红黄蓝与黑白硬边分区，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to electric red, yellow, and blue in hard-edged black-and-white zones, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为电光红黄蓝与黑白硬边分区",
+        "promptEn": "limit the palette to electric red, yellow, and blue in hard-edged black-and-white zones",
         "weight": 1,
         "level": "定义性"
       },
@@ -7564,8 +7556,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "粗黑轮廓、简化平涂与图标式剪影",
         "labelEn": "heavy black contours, simplified flat fills, and icon-like silhouettes",
-        "promptZh": "以粗黑轮廓、简化平涂与图标式剪影统一笔触、边缘与成像痕迹",
-        "promptEn": "Use heavy black contours, simplified flat fills, and icon-like silhouettes to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用粗黑轮廓、简化平涂与图标式剪影",
+        "promptEn": "render marks and edges with heavy black contours, simplified flat fills, and icon-like silhouettes",
         "weight": 0.93,
         "level": "主导"
       },
@@ -7576,8 +7568,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "丝网印刷、漫画网点与乙烯基光泽",
         "labelEn": "screen print, comic halftone, and vinyl gloss",
-        "promptZh": "以丝网印刷、漫画网点与乙烯基光泽统一笔触、边缘与成像痕迹",
-        "promptEn": "Use screen print, comic halftone, and vinyl gloss to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用丝网印刷、漫画网点与乙烯基光泽",
+        "promptEn": "render marks and edges with screen print, comic halftone, and vinyl gloss",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -7588,8 +7580,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "超粗无衬线或漫画展示字",
         "labelEn": "ultra-bold sans serif or comic display typography",
-        "promptZh": "仅在用户需要文字时采用超粗无衬线或漫画展示字，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use ultra-bold sans serif or comic display typography while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用超粗无衬线或漫画展示字并保持原文可读",
+        "promptEn": "only when text is requested, use ultra-bold sans serif or comic display typography and preserve the exact readable wording",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -7600,8 +7592,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "两至三级平涂明暗与小面积塑料高光",
         "labelEn": "two- or three-step flat shading with restrained plastic highlights",
-        "promptZh": "光影采用两至三级平涂明暗与小面积塑料高光，统一光源方向与明暗逻辑",
-        "promptEn": "Use two- or three-step flat shading with restrained plastic highlights for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用两至三级平涂明暗与小面积塑料高光",
+        "promptEn": "use two- or three-step flat shading with restrained plastic highlights for lighting and tonal rendering",
         "weight": 0.78,
         "level": "可调整"
       },
@@ -7612,8 +7604,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "单一超大焦点与大胆边缘裁切",
         "labelEn": "one oversized focal point with bold edge cropping",
-        "promptZh": "视角统一为单一超大焦点与大胆边缘裁切，所有对象使用同一观察与投影规则",
-        "promptEn": "Use one oversized focal point with bold edge cropping consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用单一超大焦点与大胆边缘裁切",
+        "promptEn": "use one oversized focal point with bold edge cropping for viewpoint and spatial rendering",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -7628,8 +7620,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "剪贴照片、纸片轮廓与几何遮片",
         "labelEn": "cut photographs, paper silhouettes, and geometric overlays",
-        "promptZh": "以剪贴照片、纸片轮廓与几何遮片统一笔触、边缘与成像痕迹",
-        "promptEn": "Use cut photographs, paper silhouettes, and geometric overlays to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用剪贴照片、纸片轮廓与几何遮片",
+        "promptEn": "render marks and edges with cut photographs, paper silhouettes, and geometric overlays",
         "weight": 1,
         "level": "定义性"
       },
@@ -7640,8 +7632,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "重叠剪切框、尺度跳跃与可见接缝",
         "labelEn": "overlapping cut frames, scale jumps, and visible seams",
-        "promptZh": "构图遵循重叠剪切框、尺度跳跃与可见接缝，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through overlapping cut frames, scale jumps, and visible seams, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用重叠剪切框、尺度跳跃与可见接缝",
+        "promptEn": "compose with overlapping cut frames, scale jumps, and visible seams",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -7652,8 +7644,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "瑕疵与视觉效果",
         "labelZh": "撕裂杂志纸、胶带与复印颗粒",
         "labelEn": "torn magazine paper, tape, and photocopy grain",
-        "promptZh": "撕裂杂志纸、胶带与复印颗粒仅作受控局部效果，不削弱主体轮廓与焦点",
-        "promptEn": "Use torn magazine paper, tape, and photocopy grain only as a controlled local effect without weakening subject silhouettes or the focal point",
+        "promptZh": "仅局部使用撕裂杂志纸、胶带与复印颗粒",
+        "promptEn": "use torn magazine paper, tape, and photocopy grain only as a controlled local effect",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -7664,8 +7656,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "局部照片色配两至三种限定印刷色",
         "labelEn": "local photographic color with two or three limited print colors",
-        "promptZh": "配色限定为局部照片色配两至三种限定印刷色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to local photographic color with two or three limited print colors, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为局部照片色配两至三种限定印刷色",
+        "promptEn": "limit the palette to local photographic color with two or three limited print colors",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -7676,8 +7668,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "平面纸片光与细小边缘投影",
         "labelEn": "flat paper lighting with small edge shadows",
-        "promptZh": "光影采用平面纸片光与细小边缘投影，统一光源方向与明暗逻辑",
-        "promptEn": "Use flat paper lighting with small edge shadows for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用平面纸片光与细小边缘投影",
+        "promptEn": "use flat paper lighting with small edge shadows for lighting and tonal rendering",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -7688,8 +7680,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "报纸衬线、打字机或剪贴字",
         "labelEn": "newspaper serif, typewriter, or cutout typography",
-        "promptZh": "仅在用户需要文字时采用报纸衬线、打字机或剪贴字，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use newspaper serif, typewriter, or cutout typography while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用报纸衬线、打字机或剪贴字并保持原文可读",
+        "promptEn": "only when text is requested, use newspaper serif, typewriter, or cutout typography and preserve the exact readable wording",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -7704,8 +7696,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "直接轮廓、简化形体与非学院比例",
         "labelEn": "direct contours, simplified forms, and nonacademic proportions",
-        "promptZh": "造型遵循直接轮廓、简化形体与非学院比例，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through direct contours, simplified forms, and nonacademic proportions while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为直接轮廓、简化形体与非学院比例，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into direct contours, simplified forms, and nonacademic proportions while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -7716,8 +7708,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "蜡笔、水粉与粗纹纸上的不均匀涂色",
         "labelEn": "uneven crayon and gouache coloring on coarse paper",
-        "promptZh": "以蜡笔、水粉与粗纹纸上的不均匀涂色统一笔触、边缘与成像痕迹",
-        "promptEn": "Use uneven crayon and gouache coloring on coarse paper to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用蜡笔、水粉与粗纹纸上的不均匀涂色",
+        "promptEn": "render marks and edges with uneven crayon and gouache coloring on coarse paper",
         "weight": 0.93,
         "level": "主导"
       },
@@ -7728,8 +7720,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "平面叙事布局与简单前后排列",
         "labelEn": "flat narrative layout with simple front-back ordering",
-        "promptZh": "构图遵循平面叙事布局与简单前后排列，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through flat narrative layout with simple front-back ordering, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用平面叙事布局与简单前后排列",
+        "promptEn": "compose with flat narrative layout with simple front-back ordering",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -7740,8 +7732,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "清澈原色与自然色直接并置",
         "labelEn": "clear primary and natural colors placed directly side by side",
-        "promptZh": "配色限定为清澈原色与自然色直接并置，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to clear primary and natural colors placed directly side by side, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为清澈原色与自然色直接并置",
+        "promptEn": "limit the palette to clear primary and natural colors placed directly side by side",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -7752,8 +7744,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "均匀明亮平光与两级简单阴影",
         "labelEn": "even bright flat light with simple two-step shadows",
-        "promptZh": "光影采用均匀明亮平光与两级简单阴影，统一光源方向与明暗逻辑",
-        "promptEn": "Use even bright flat light with simple two-step shadows for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用均匀明亮平光与两级简单阴影",
+        "promptEn": "use even bright flat light with simple two-step shadows for lighting and tonal rendering",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -7764,8 +7756,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "可读的手绘书写感字形",
         "labelEn": "legible hand-drawn writing-style typography",
-        "promptZh": "仅在用户需要文字时采用可读的手绘书写感字形，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use legible hand-drawn writing-style typography while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用可读的手绘书写感字形并保持原文可读",
+        "promptEn": "only when text is requested, use legible hand-drawn writing-style typography and preserve the exact readable wording",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -7780,8 +7772,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "圆顶、胶囊与回旋镖式流线模块",
         "labelEn": "domes, capsules, and boomerang-shaped streamlined modules",
-        "promptZh": "造型遵循圆顶、胶囊与回旋镖式流线模块，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through domes, capsules, and boomerang-shaped streamlined modules while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为圆顶、胶囊与回旋镖式流线模块，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into domes, capsules, and boomerang-shaped streamlined modules while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -7792,8 +7784,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "乐观未来式放射构图与轨道曲线",
         "labelEn": "optimistic retro-future radial composition and orbital curves",
-        "promptZh": "构图遵循乐观未来式放射构图与轨道曲线，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through optimistic retro-future radial composition and orbital curves, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用乐观未来式放射构图与轨道曲线",
+        "promptEn": "compose with optimistic retro-future radial composition and orbital curves",
         "weight": 0.93,
         "level": "主导"
       },
@@ -7804,8 +7796,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "樱桃红、青绿、奶油黄与铬色",
         "labelEn": "cherry red, teal, cream yellow, and chrome",
-        "promptZh": "配色限定为樱桃红、青绿、奶油黄与铬色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to cherry red, teal, cream yellow, and chrome, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为樱桃红、青绿、奶油黄与铬色",
+        "promptEn": "limit the palette to cherry red, teal, cream yellow, and chrome",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -7816,8 +7808,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "珐琅金属、铬边、玻璃与光滑早期塑料",
         "labelEn": "enamel metal, chrome trim, glass, and smooth early plastic",
-        "promptZh": "材质表现为珐琅金属、铬边、玻璃与光滑早期塑料，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as enamel metal, chrome trim, glass, and smooth early plastic, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为珐琅金属、铬边、玻璃与光滑早期塑料",
+        "promptEn": "render materials and surfaces as enamel metal, chrome trim, glass, and smooth early plastic",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -7828,8 +7820,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "明亮影棚光与干净硬边投影",
         "labelEn": "bright studio light and clean hard-edged shadows",
-        "promptZh": "光影采用明亮影棚光与干净硬边投影，统一光源方向与明暗逻辑",
-        "promptEn": "Use bright studio light and clean hard-edged shadows for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用明亮影棚光与干净硬边投影",
+        "promptEn": "use bright studio light and clean hard-edged shadows for lighting and tonal rendering",
         "weight": 0.78,
         "level": "可调整"
       },
@@ -7840,8 +7832,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "年代未来展示字与几何粗体",
         "labelEn": "period-futurist display type and geometric bold lettering",
-        "promptZh": "仅在用户需要文字时采用年代未来展示字与几何粗体，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use period-futurist display type and geometric bold lettering while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用年代未来展示字与几何粗体并保持原文可读",
+        "promptEn": "only when text is requested, use period-futurist display type and geometric bold lettering and preserve the exact readable wording",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -7856,8 +7848,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "低地平线、广阔空域与偏心拼装结构",
         "labelEn": "low horizon, broad open space, and off-center assembled structure",
-        "promptZh": "构图遵循低地平线、广阔空域与偏心拼装结构，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through low horizon, broad open space, and off-center assembled structure, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用低地平线、广阔空域与偏心拼装结构",
+        "promptEn": "compose with low horizon, broad open space, and off-center assembled structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -7868,8 +7860,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "补丁、螺栓、破损板件与不对称加固",
         "labelEn": "patches, bolts, damaged panels, and asymmetric reinforcement",
-        "promptZh": "造型遵循补丁、螺栓、破损板件与不对称加固，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through patches, bolts, damaged panels, and asymmetric reinforcement while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为补丁、螺栓、破损板件与不对称加固，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into patches, bolts, damaged panels, and asymmetric reinforcement while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -7880,8 +7872,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "瑕疵与视觉效果",
         "labelZh": "锈蚀金属、干裂橡胶与磨损帆布",
         "labelEn": "corroded metal, cracked rubber, and worn canvas",
-        "promptZh": "锈蚀金属、干裂橡胶与磨损帆布仅作受控局部效果，不削弱主体轮廓与焦点",
-        "promptEn": "Use corroded metal, cracked rubber, and worn canvas only as a controlled local effect without weakening subject silhouettes or the focal point",
+        "promptZh": "仅局部使用锈蚀金属、干裂橡胶与磨损帆布",
+        "promptEn": "use corroded metal, cracked rubber, and worn canvas only as a controlled local effect",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -7892,8 +7884,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "沙黄、锈红、焦黑与旧橄榄绿",
         "labelEn": "sand yellow, rust red, charred black, and aged olive",
-        "promptZh": "配色限定为沙黄、锈红、焦黑与旧橄榄绿，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to sand yellow, rust red, charred black, and aged olive, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为沙黄、锈红、焦黑与旧橄榄绿",
+        "promptEn": "limit the palette to sand yellow, rust red, charred black, and aged olive",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -7904,8 +7896,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "烈日硬影、空气灰尘与远景热浪",
         "labelEn": "hard sun shadows, airborne dust, and distant heat haze",
-        "promptZh": "光影采用烈日硬影、空气灰尘与远景热浪，统一光源方向与明暗逻辑",
-        "promptEn": "Use hard sun shadows, airborne dust, and distant heat haze for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用烈日硬影、空气灰尘与远景热浪",
+        "promptEn": "use hard sun shadows, airborne dust, and distant heat haze for lighting and tonal rendering",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -7916,8 +7908,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "磨损工业粗体或模板字",
         "labelEn": "weathered industrial bold or stencil typography",
-        "promptZh": "仅在用户需要文字时采用磨损工业粗体或模板字，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use weathered industrial bold or stencil typography while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用磨损工业粗体或模板字并保持原文可读",
+        "promptEn": "only when text is requested, use weathered industrial bold or stencil typography and preserve the exact readable wording",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -7932,8 +7924,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "厚钢板、铆接流线外壳与大型散热格",
         "labelEn": "thick steel plate, riveted streamlined shells, and large cooling grilles",
-        "promptZh": "造型遵循厚钢板、铆接流线外壳与大型散热格，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through thick steel plate, riveted streamlined shells, and large cooling grilles while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为厚钢板、铆接流线外壳与大型散热格，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into thick steel plate, riveted streamlined shells, and large cooling grilles while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -7944,8 +7936,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "工业宣传式强对角线与重型水平构图",
         "labelEn": "industrial-propaganda diagonals and heavy horizontal composition",
-        "promptZh": "构图遵循工业宣传式强对角线与重型水平构图，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through industrial-propaganda diagonals and heavy horizontal composition, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用工业宣传式强对角线与重型水平构图",
+        "promptEn": "compose with industrial-propaganda diagonals and heavy horizontal composition",
         "weight": 0.93,
         "level": "主导"
       },
@@ -7956,8 +7948,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "烟雾中的硬质方向光与油膜高光",
         "labelEn": "hard directional light through haze with oily highlights",
-        "promptZh": "光影采用烟雾中的硬质方向光与油膜高光，统一光源方向与明暗逻辑",
-        "promptEn": "Use hard directional light through haze with oily highlights for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用烟雾中的硬质方向光与油膜高光",
+        "promptEn": "use hard directional light through haze with oily highlights for lighting and tonal rendering",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -7968,8 +7960,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "军绿、钢灰、烟黑与暗红",
         "labelEn": "military green, steel gray, smoke black, and dark red",
-        "promptZh": "配色限定为军绿、钢灰、烟黑与暗红，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to military green, steel gray, smoke black, and dark red, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为军绿、钢灰、烟黑与暗红",
+        "promptEn": "limit the palette to military green, steel gray, smoke black, and dark red",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -7980,8 +7972,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "瑕疵与视觉效果",
         "labelZh": "铆接钢板、油渍、烟尘与磨损漆面",
         "labelEn": "riveted steel, oil stains, soot, and worn paint",
-        "promptZh": "铆接钢板、油渍、烟尘与磨损漆面仅作受控局部效果，不削弱主体轮廓与焦点",
-        "promptEn": "Use riveted steel, oil stains, soot, and worn paint only as a controlled local effect without weakening subject silhouettes or the focal point",
+        "promptZh": "仅局部使用铆接钢板、油渍、烟尘与磨损漆面",
+        "promptEn": "use riveted steel, oil stains, soot, and worn paint only as a controlled local effect",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -7992,8 +7984,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "压缩工业无衬线、模板字或旧报粗体",
         "labelEn": "condensed industrial sans serif, stencil, or old-news bold typography",
-        "promptZh": "仅在用户需要文字时采用压缩工业无衬线、模板字或旧报粗体，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use condensed industrial sans serif, stencil, or old-news bold typography while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用压缩工业无衬线、模板字或旧报粗体并保持原文可读",
+        "promptEn": "only when text is requested, use condensed industrial sans serif, stencil, or old-news bold typography and preserve the exact readable wording",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -8008,8 +8000,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "幼态短小比例、圆润粗轮廓与简化特征",
         "labelEn": "childlike compact proportions, rounded heavy outlines, and simplified features",
-        "promptZh": "造型遵循幼态短小比例、圆润粗轮廓与简化特征，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through childlike compact proportions, rounded heavy outlines, and simplified features while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为幼态短小比例、圆润粗轮廓与简化特征，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into childlike compact proportions, rounded heavy outlines, and simplified features while preserving identity and defining structure",
         "weight": 1,
         "level": "定义性"
       },
@@ -8020,8 +8012,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "红黄蓝原色、糖果粉与草绿",
         "labelEn": "red-yellow-blue primaries, candy pink, and grass green",
-        "promptZh": "配色限定为红黄蓝原色、糖果粉与草绿，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to red-yellow-blue primaries, candy pink, and grass green, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为红黄蓝原色、糖果粉与草绿",
+        "promptEn": "limit the palette to red-yellow-blue primaries, candy pink, and grass green",
         "weight": 0.93,
         "level": "主导"
       },
@@ -8032,8 +8024,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "中心焦点与小尺度玩具式模块环绕",
         "labelEn": "central focal point surrounded by small toy-like modules",
-        "promptZh": "构图遵循中心焦点与小尺度玩具式模块环绕，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through central focal point surrounded by small toy-like modules, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用中心焦点与小尺度玩具式模块环绕",
+        "promptEn": "compose with central focal point surrounded by small toy-like modules",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -8044,8 +8036,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "可读的泡泡字或手绘儿童字",
         "labelEn": "legible bubble or hand-drawn childlike typography",
-        "promptZh": "仅在用户需要文字时采用可读的泡泡字或手绘儿童字，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use legible bubble or hand-drawn childlike typography while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用可读的泡泡字或手绘儿童字并保持原文可读",
+        "promptEn": "only when text is requested, use legible bubble or hand-drawn childlike typography and preserve the exact readable wording",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -8056,8 +8048,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "均匀明亮平光与两级卡通阴影",
         "labelEn": "even bright flat light with two-step cartoon shadows",
-        "promptZh": "光影采用均匀明亮平光与两级卡通阴影，统一光源方向与明暗逻辑",
-        "promptEn": "Use even bright flat light with two-step cartoon shadows for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用均匀明亮平光与两级卡通阴影",
+        "promptEn": "use even bright flat light with two-step cartoon shadows for lighting and tonal rendering",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -8068,8 +8060,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "蜡笔、彩纸、光滑贴纸与绘本纸",
         "labelEn": "crayon, colored paper, glossy stickers, and illustrated coarse paper",
-        "promptZh": "材质表现为蜡笔、彩纸、光滑贴纸与绘本纸，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as crayon, colored paper, glossy stickers, and illustrated coarse paper, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为蜡笔、彩纸、光滑贴纸与绘本纸",
+        "promptEn": "render materials and surfaces as crayon, colored paper, glossy stickers, and illustrated coarse paper",
         "weight": 0.7,
         "level": "可调整"
       }
@@ -8084,8 +8076,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "视角与镜头",
         "labelZh": "高视点层叠空间与流动负形分隔",
         "labelEn": "high-viewpoint layered space divided by flowing negative shapes",
-        "promptZh": "视角统一为高视点层叠空间与流动负形分隔，所有对象使用同一观察与投影规则",
-        "promptEn": "Use high-viewpoint layered space divided by flowing negative shapes consistently, with one viewing convention and projection system throughout",
+        "promptZh": "视角与空间表现采用高视点层叠空间与流动负形分隔",
+        "promptEn": "use high-viewpoint layered space divided by flowing negative shapes for viewpoint and spatial rendering",
         "weight": 1,
         "level": "核心"
       },
@@ -8096,8 +8088,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "细而连续的轮廓与概括块面体积",
         "labelEn": "fine continuous contours with simplified planar volume",
-        "promptZh": "造型遵循细而连续的轮廓与概括块面体积，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through fine continuous contours with simplified planar volume while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为细而连续的轮廓与概括块面体积，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into fine continuous contours with simplified planar volume while preserving identity and defining structure",
         "weight": 0.93,
         "level": "核心"
       },
@@ -8108,8 +8100,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "石青石绿配少量朱砂与淡金",
         "labelEn": "azurite blue and malachite green with restrained cinnabar and pale gold",
-        "promptZh": "配色限定为石青石绿配少量朱砂与淡金，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to azurite blue and malachite green with restrained cinnabar and pale gold, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为石青石绿配少量朱砂与淡金",
+        "promptEn": "limit the palette to azurite blue and malachite green with restrained cinnabar and pale gold",
         "weight": 0.86,
         "level": "核心"
       },
@@ -8120,8 +8112,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "均匀平面光与克制的局部微光",
         "labelEn": "even flat illumination with restrained local glints",
-        "promptZh": "光影采用均匀平面光与克制的局部微光，统一光源方向与明暗逻辑",
-        "promptEn": "Use even flat illumination with restrained local glints for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用均匀平面光与克制的局部微光",
+        "promptEn": "use even flat illumination with restrained local glints for lighting and tonal rendering",
         "weight": 0.78,
         "level": "可调整"
       },
@@ -8132,8 +8124,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "矿物颗粒、绢本与哑光设色",
         "labelEn": "mineral granulation, silk ground, and matte color layers",
-        "promptZh": "材质表现为矿物颗粒、绢本与哑光设色，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as mineral granulation, silk ground, and matte color layers, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为矿物颗粒、绢本与哑光设色",
+        "promptEn": "render materials and surfaces as mineral granulation, silk ground, and matte color layers",
         "weight": 0.7,
         "level": "可调整"
       },
@@ -8144,8 +8136,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "按需使用克制题跋或印章式点色",
         "labelEn": "restrained inscription or seal-like accent only when requested",
-        "promptZh": "仅在用户需要文字时采用按需使用克制题跋或印章式点色，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use restrained inscription or seal-like accent only when requested while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用克制题跋或印章式点色并保持原文可读",
+        "promptEn": "only when text is requested, use restrained inscription or seal-like accent and preserve the exact readable wording",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -8160,8 +8152,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "偏心小景与充足静空",
         "labelEn": "off-center intimate focus with generous quiet space",
-        "promptZh": "构图遵循偏心小景与充足静空，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through off-center intimate focus with generous quiet space, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用偏心小景与充足静空",
+        "promptEn": "compose with off-center intimate focus with generous quiet space",
         "weight": 1,
         "level": "核心"
       },
@@ -8172,8 +8164,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "自然比例、精细轮廓与柔和层染",
         "labelEn": "natural proportion, precise contours, and soft layered washes",
-        "promptZh": "造型遵循自然比例、精细轮廓与柔和层染，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through natural proportion, precise contours, and soft layered washes while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为自然比例、精细轮廓与柔和层染，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into natural proportion, precise contours, and soft layered washes while preserving identity and defining structure",
         "weight": 0.93,
         "level": "核心"
       },
@@ -8184,8 +8176,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "暖白淡赭配花青与灰绿",
         "labelEn": "warm white and pale ochre with muted blue and gray-green",
-        "promptZh": "配色限定为暖白淡赭配花青与灰绿，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to warm white and pale ochre with muted blue and gray-green, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为暖白淡赭配花青与灰绿",
+        "promptEn": "limit the palette to warm white and pale ochre with muted blue and gray-green",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -8196,8 +8188,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "自然漫射光与轻透阴影",
         "labelEn": "natural diffuse light with light transparent shadows",
-        "promptZh": "光影采用自然漫射光与轻透阴影，统一光源方向与明暗逻辑",
-        "promptEn": "Use natural diffuse light with light transparent shadows for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用自然漫射光与轻透阴影",
+        "promptEn": "use natural diffuse light with light transparent shadows for lighting and tonal rendering",
         "weight": 0.78,
         "level": "可调整"
       },
@@ -8208,8 +8200,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "细绢、薄层矿物色与透明水色",
         "labelEn": "fine silk, thin mineral pigment, and transparent water color",
-        "promptZh": "材质表现为细绢、薄层矿物色与透明水色，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as fine silk, thin mineral pigment, and transparent water color, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为细绢、薄层矿物色与透明水色",
+        "promptEn": "render materials and surfaces as fine silk, thin mineral pigment, and transparent water color",
         "weight": 0.7,
         "level": "可调整"
       },
@@ -8220,8 +8212,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "按需使用避开焦点的小尺度题跋",
         "labelEn": "small inscription kept clear of the focal point only when requested",
-        "promptZh": "仅在用户需要文字时采用按需使用避开焦点的小尺度题跋，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use small inscription kept clear of the focal point only when requested while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用避开焦点的小尺度题跋并保持原文可读",
+        "promptEn": "only when text is requested, use small inscription kept clear of the focal point and preserve the exact readable wording",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -8236,8 +8228,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "开放留白与清晰轮廓层级",
         "labelEn": "open negative space with a clear contour hierarchy",
-        "promptZh": "构图遵循开放留白与清晰轮廓层级，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through open negative space with a clear contour hierarchy, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用开放留白与清晰轮廓层级",
+        "promptEn": "compose with open negative space with a clear contour hierarchy",
         "weight": 1,
         "level": "核心"
       },
@@ -8248,8 +8240,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "连续墨线的粗细、浓淡与转折变化",
         "labelEn": "continuous ink lines with controlled width, density, and turning rhythm",
-        "promptZh": "以连续墨线的粗细、浓淡与转折变化统一笔触、边缘与成像痕迹",
-        "promptEn": "Use continuous ink lines with controlled width, density, and turning rhythm to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用连续墨线的粗细、浓淡与转折变化",
+        "promptEn": "render marks and edges with continuous ink lines with controlled width, density, and turning rhythm",
         "weight": 0.93,
         "level": "核心"
       },
@@ -8260,8 +8252,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "墨黑淡墨与纸白的单色关系",
         "labelEn": "monochrome relationships among black ink, pale ink, and paper white",
-        "promptZh": "配色限定为墨黑淡墨与纸白的单色关系，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to monochrome relationships among black ink, pale ink, and paper white, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为墨黑淡墨与纸白的单色关系",
+        "promptEn": "limit the palette to monochrome relationships among black ink, pale ink, and paper white",
         "weight": 0.86,
         "level": "核心"
       },
@@ -8272,8 +8264,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "不用写实投影并以线条疏密表达体积",
         "labelEn": "volume expressed through line density without realistic cast shadows",
-        "promptZh": "光影采用不用写实投影并以线条疏密表达体积，统一光源方向与明暗逻辑",
-        "promptEn": "Use volume expressed through line density without realistic cast shadows for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用不用写实投影并以线条疏密表达体积",
+        "promptEn": "use volume expressed through line density without realistic cast shadows for lighting and tonal rendering",
         "weight": 0.78,
         "level": "可调整"
       },
@@ -8284,8 +8276,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "细毫笔触、纸纤维与轻微墨线渗化",
         "labelEn": "fine brushwork, paper fiber, and subtle ink bleeding",
-        "promptZh": "以细毫笔触、纸纤维与轻微墨线渗化统一笔触、边缘与成像痕迹",
-        "promptEn": "Use fine brushwork, paper fiber, and subtle ink bleeding to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用细毫笔触、纸纤维与轻微墨线渗化",
+        "promptEn": "render marks and edges with fine brushwork, paper fiber, and subtle ink bleeding",
         "weight": 0.7,
         "level": "可调整"
       },
@@ -8296,8 +8288,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "按需使用与线描一致的细雅书写",
         "labelEn": "delicate writing consistent with the line system only when requested",
-        "promptZh": "仅在用户需要文字时采用按需使用与线描一致的细雅书写，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use delicate writing consistent with the line system only when requested while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用与线描一致的细雅书写并保持原文可读",
+        "promptEn": "only when text is requested, use delicate writing consistent with the line system and preserve the exact readable wording",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -8312,8 +8304,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "严格轴线、模块重复与可读空间层级",
         "labelEn": "strict axes, repeated modules, and readable spatial hierarchy",
-        "promptZh": "构图遵循严格轴线、模块重复与可读空间层级，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through strict axes, repeated modules, and readable spatial hierarchy, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用严格轴线、模块重复与可读空间层级",
+        "promptEn": "compose with strict axes, repeated modules, and readable spatial hierarchy",
         "weight": 1,
         "level": "核心"
       },
@@ -8324,8 +8316,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "精密框架、板件节点与稳定平行线",
         "labelEn": "precise frames, panel joints, and stable parallel lines",
-        "promptZh": "造型遵循精密框架、板件节点与稳定平行线，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through precise frames, panel joints, and stable parallel lines while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为精密框架、板件节点与稳定平行线，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into precise frames, panel joints, and stable parallel lines while preserving identity and defining structure",
         "weight": 0.93,
         "level": "核心"
       },
@@ -8336,8 +8328,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "尺规墨线、细纸绢与薄层矿物淡彩",
         "labelEn": "ruled ink lines, fine paper or silk, and thin mineral washes",
-        "promptZh": "以尺规墨线、细纸绢与薄层矿物淡彩统一笔触、边缘与成像痕迹",
-        "promptEn": "Use ruled ink lines, fine paper or silk, and thin mineral washes to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用尺规墨线、细纸绢与薄层矿物淡彩",
+        "promptEn": "render marks and edges with ruled ink lines, fine paper or silk, and thin mineral washes",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -8348,8 +8340,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "墨线纸白配淡赭石绿与低饱和朱红",
         "labelEn": "ink and paper white with pale ochre, mineral green, and muted vermilion",
-        "promptZh": "配色限定为墨线纸白配淡赭石绿与低饱和朱红，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to ink and paper white with pale ochre, mineral green, and muted vermilion, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为墨线纸白配淡赭石绿与低饱和朱红",
+        "promptEn": "limit the palette to ink and paper white with pale ochre, mineral green, and muted vermilion",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -8360,8 +8352,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "均匀分析光与克制清晰的投影边缘",
         "labelEn": "even analytical light with restrained crisp shadow edges",
-        "promptZh": "光影采用均匀分析光与克制清晰的投影边缘，统一光源方向与明暗逻辑",
-        "promptEn": "Use even analytical light with restrained crisp shadow edges for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用均匀分析光与克制清晰的投影边缘",
+        "promptEn": "use even analytical light with restrained crisp shadow edges for lighting and tonal rendering",
         "weight": 0.78,
         "level": "可调整"
       },
@@ -8372,8 +8364,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "按需使用小尺度楷书或标注式文字",
         "labelEn": "small regular-script or annotation-like type only when requested",
-        "promptZh": "仅在用户需要文字时采用按需使用小尺度楷书或标注式文字，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use small regular-script or annotation-like type only when requested while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用小尺度楷书或标注式文字并保持原文可读",
+        "promptEn": "only when text is requested, use small regular-script or annotation-like type and preserve the exact readable wording",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -8388,8 +8380,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "图谱式陈列、边栏分区与明确阅读顺序",
         "labelEn": "compendium-style display, marginal divisions, and a clear reading order",
-        "promptZh": "构图遵循图谱式陈列、边栏分区与明确阅读顺序，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through compendium-style display, marginal divisions, and a clear reading order, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用图谱式陈列、边栏分区与明确阅读顺序",
+        "promptEn": "compose with compendium-style display, marginal divisions, and a clear reading order",
         "weight": 1,
         "level": "核心"
       },
@@ -8400,8 +8392,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "清晰外轮廓、正交观察与概括纹理",
         "labelEn": "clear silhouettes, orthographic observation, and simplified textures",
-        "promptZh": "造型遵循清晰外轮廓、正交观察与概括纹理，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through clear silhouettes, orthographic observation, and simplified textures while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为清晰外轮廓、正交观察与概括纹理，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into clear silhouettes, orthographic observation, and simplified textures while preserving identity and defining structure",
         "weight": 0.93,
         "level": "核心"
       },
@@ -8412,8 +8404,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "木刻墨迹、粗纤维纸与轻微套色错位",
         "labelEn": "woodcut ink, coarse-fiber paper, and slight registration shifts",
-        "promptZh": "以木刻墨迹、粗纤维纸与轻微套色错位统一笔触、边缘与成像痕迹",
-        "promptEn": "Use woodcut ink, coarse-fiber paper, and slight registration shifts to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用木刻墨迹、粗纤维纸与轻微套色错位",
+        "promptEn": "render marks and edges with woodcut ink, coarse-fiber paper, and slight registration shifts",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -8424,8 +8416,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "旧纸黄配墨黑朱砂石青与石绿",
         "labelEn": "aged paper yellow with black ink, cinnabar, mineral blue, and green",
-        "promptZh": "配色限定为旧纸黄配墨黑朱砂石青与石绿，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to aged paper yellow with black ink, cinnabar, mineral blue, and green, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为旧纸黄配墨黑朱砂石青与石绿",
+        "promptEn": "limit the palette to aged paper yellow with black ink, cinnabar, mineral blue, and green",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -8436,8 +8428,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "均匀平面光与清楚纸面层次",
         "labelEn": "even flat illumination with clearly separated paper layers",
-        "promptZh": "光影采用均匀平面光与清楚纸面层次，统一光源方向与明暗逻辑",
-        "promptEn": "Use even flat illumination with clearly separated paper layers for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用均匀平面光与清楚纸面层次",
+        "promptEn": "use even flat illumination with clearly separated paper layers for lighting and tonal rendering",
         "weight": 0.78,
         "level": "可调整"
       },
@@ -8448,8 +8440,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "仅按原文使用篆隶或刻本字形",
         "labelEn": "seal, clerical, or block-print type using exact supplied text only",
-        "promptZh": "仅在用户需要文字时采用仅按原文使用篆隶或刻本字形，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use seal, clerical, or block-print type using exact supplied text only while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用篆隶或刻本字形并保持原文可读",
+        "promptEn": "only when text is requested, use seal, clerical, or block-print type and preserve the exact readable wording",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -8464,8 +8456,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "礼制般稳定的轴线与环形层级",
         "labelEn": "ritual-like stable axes and concentric hierarchy",
-        "promptZh": "构图遵循礼制般稳定的轴线与环形层级，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through ritual-like stable axes and concentric hierarchy, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用礼制般稳定的轴线与环形层级",
+        "promptEn": "compose with ritual-like stable axes and concentric hierarchy",
         "weight": 1,
         "level": "核心"
       },
@@ -8476,8 +8468,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "厚重块面、凹凸线纹与铸造接缝",
         "labelEn": "weighty masses, recessed and raised lines, and cast seams",
-        "promptZh": "造型遵循厚重块面、凹凸线纹与铸造接缝，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through weighty masses, recessed and raised lines, and cast seams while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为厚重块面、凹凸线纹与铸造接缝，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into weighty masses, recessed and raised lines, and cast seams while preserving identity and defining structure",
         "weight": 0.93,
         "level": "核心"
       },
@@ -8488,8 +8480,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "深青铜铜绿焦黑配少量暗金",
         "labelEn": "dark bronze, verdigris, and charred black with restrained aged gold",
-        "promptZh": "配色限定为深青铜铜绿焦黑配少量暗金，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to dark bronze, verdigris, and charred black with restrained aged gold, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为深青铜铜绿焦黑配少量暗金",
+        "promptEn": "limit the palette to dark bronze, verdigris, and charred black with restrained aged gold",
         "weight": 0.86,
         "level": "核心"
       },
@@ -8500,8 +8492,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "低调侧硬光与金属边缘擦光",
         "labelEn": "low-key hard sidelight with metallic edge glints",
-        "promptZh": "光影采用低调侧硬光与金属边缘擦光，统一光源方向与明暗逻辑",
-        "promptEn": "Use low-key hard sidelight with metallic edge glints for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用低调侧硬光与金属边缘擦光",
+        "promptEn": "use low-key hard sidelight with metallic edge glints for lighting and tonal rendering",
         "weight": 0.78,
         "level": "可调整"
       },
@@ -8512,8 +8504,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "自然氧化、细密腐蚀与局部抛光",
         "labelEn": "natural oxidation, fine corrosion, and selectively polished edges",
-        "promptZh": "材质表现为自然氧化、细密腐蚀与局部抛光，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as natural oxidation, fine corrosion, and selectively polished edges, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为自然氧化、细密腐蚀与局部抛光",
+        "promptEn": "render materials and surfaces as natural oxidation, fine corrosion, and selectively polished edges",
         "weight": 0.7,
         "level": "可调整"
       },
@@ -8524,8 +8516,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "仅按原文使用方整铭文式字形",
         "labelEn": "square inscription-like type using exact supplied text only",
-        "promptZh": "仅在用户需要文字时采用仅按原文使用方整铭文式字形，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use square inscription-like type using exact supplied text only while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用方整铭文式字形并保持原文可读",
+        "promptEn": "only when text is requested, use square inscription-like type and preserve the exact readable wording",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -8540,8 +8532,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "垂直上升、环形回游与层叠深远关系",
         "labelEn": "vertical ascent, circular flow, and layered spatial recession",
-        "promptZh": "构图遵循垂直上升、环形回游与层叠深远关系，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through vertical ascent, circular flow, and layered spatial recession, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用垂直上升、环形回游与层叠深远关系",
+        "promptEn": "compose with vertical ascent, circular flow, and layered spatial recession",
         "weight": 1,
         "level": "核心"
       },
@@ -8552,8 +8544,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "修长流动轮廓、柔和转折与秩序曲线",
         "labelEn": "elongated flowing contours, soft turns, and ordered curves",
-        "promptZh": "造型遵循修长流动轮廓、柔和转折与秩序曲线，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through elongated flowing contours, soft turns, and ordered curves while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为修长流动轮廓、柔和转折与秩序曲线，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into elongated flowing contours, soft turns, and ordered curves while preserving identity and defining structure",
         "weight": 0.93,
         "level": "核心"
       },
@@ -8564,8 +8556,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "柔和顶部天光、轮廓辉光与分层雾化",
         "labelEn": "soft top light, contour glow, and layered atmospheric diffusion",
-        "promptZh": "光影采用柔和顶部天光、轮廓辉光与分层雾化，统一光源方向与明暗逻辑",
-        "promptEn": "Use soft top light, contour glow, and layered atmospheric diffusion for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用柔和顶部天光、轮廓辉光与分层雾化",
+        "promptEn": "use soft top light, contour glow, and layered atmospheric diffusion for lighting and tonal rendering",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -8576,8 +8568,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "石青石绿朱砂夜蓝与少量淡金",
         "labelEn": "mineral blue, green, cinnabar, night blue, and restrained pale gold",
-        "promptZh": "配色限定为石青石绿朱砂夜蓝与少量淡金，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to mineral blue, green, cinnabar, night blue, and restrained pale gold, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为石青石绿朱砂夜蓝与少量淡金",
+        "promptEn": "limit the palette to mineral blue, green, cinnabar, night blue, and restrained pale gold",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -8588,8 +8580,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "绢本矿物色、透明水色与细金线",
         "labelEn": "mineral pigment on silk, transparent washes, and fine gold lines",
-        "promptZh": "材质表现为绢本矿物色、透明水色与细金线，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as mineral pigment on silk, transparent washes, and fine gold lines, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为绢本矿物色、透明水色与细金线",
+        "promptEn": "render materials and surfaces as mineral pigment on silk, transparent washes, and fine gold lines",
         "weight": 0.7,
         "level": "可调整"
       },
@@ -8600,8 +8592,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "按需使用疏朗书写并保持原文",
         "labelEn": "spacious calligraphic treatment preserving exact text only when requested",
-        "promptZh": "仅在用户需要文字时采用按需使用疏朗书写并保持原文，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use spacious calligraphic treatment preserving exact text only when requested while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用疏朗书写并保持原文并保持原文可读",
+        "promptEn": "only when text is requested, use spacious calligraphic treatment and preserve the exact readable wording",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -8616,8 +8608,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "按结构划分大小有序的闭合色区",
         "labelEn": "ordered closed color cells divided according to structure",
-        "promptZh": "构图遵循按结构划分大小有序的闭合色区，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through ordered closed color cells divided according to structure, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用按结构划分大小有序的闭合色区",
+        "promptEn": "compose with ordered closed color cells divided according to structure",
         "weight": 1,
         "level": "核心"
       },
@@ -8628,8 +8620,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "连续金属丝分隔的清晰轮廓与曲面",
         "labelEn": "clear contours and curved cells divided by continuous metal wire",
-        "promptZh": "造型遵循连续金属丝分隔的清晰轮廓与曲面，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through clear contours and curved cells divided by continuous metal wire while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为连续金属丝分隔的清晰轮廓与曲面，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into clear contours and curved cells divided by continuous metal wire while preserving identity and defining structure",
         "weight": 0.93,
         "level": "核心"
       },
@@ -8640,8 +8632,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "掐丝金属、烧制珐琅与细微釉面颗粒",
         "labelEn": "cloison wire, fired enamel, and fine glaze granulation",
-        "promptZh": "材质表现为掐丝金属、烧制珐琅与细微釉面颗粒，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as cloison wire, fired enamel, and fine glaze granulation, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为掐丝金属、烧制珐琅与细微釉面颗粒",
+        "promptEn": "render materials and surfaces as cloison wire, fired enamel, and fine glaze granulation",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -8652,8 +8644,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "宝蓝孔雀绿朱红象牙白与金色",
         "labelEn": "royal blue, peacock green, vermilion, ivory, and gold",
-        "promptZh": "配色限定为宝蓝孔雀绿朱红象牙白与金色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to royal blue, peacock green, vermilion, ivory, and gold, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为宝蓝孔雀绿朱红象牙白与金色",
+        "promptEn": "limit the palette to royal blue, peacock green, vermilion, ivory, and gold",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -8664,8 +8656,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "受控影棚光、釉面小高光与锐利金属反光",
         "labelEn": "controlled studio light, small enamel highlights, and crisp metallic reflections",
-        "promptZh": "光影采用受控影棚光、釉面小高光与锐利金属反光，统一光源方向与明暗逻辑",
-        "promptEn": "Use controlled studio light, small enamel highlights, and crisp metallic reflections for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用受控影棚光、釉面小高光与锐利金属反光",
+        "promptEn": "use controlled studio light, small enamel highlights, and crisp metallic reflections for lighting and tonal rendering",
         "weight": 0.78,
         "level": "可调整"
       },
@@ -8676,8 +8668,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "按需使用清晰金丝字形或独立标签",
         "labelEn": "clear wire-formed lettering or a separate label only when requested",
-        "promptZh": "仅在用户需要文字时采用按需使用清晰金丝字形或独立标签，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use clear wire-formed lettering or a separate label only when requested while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用清晰金丝字形或独立标签并保持原文可读",
+        "promptEn": "only when text is requested, use clear wire-formed lettering or a separate label and preserve the exact readable wording",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -8692,8 +8684,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "大片深色留底与局部高密度嵌片",
         "labelEn": "broad dark ground with locally dense inlay",
-        "promptZh": "构图遵循大片深色留底与局部高密度嵌片，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through broad dark ground with locally dense inlay, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用大片深色留底与局部高密度嵌片",
+        "promptEn": "compose with broad dark ground with locally dense inlay",
         "weight": 1,
         "level": "核心"
       },
@@ -8704,8 +8696,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "沿轮廓和结构节点排列的薄片嵌纹",
         "labelEn": "thin inlay fragments aligned to contours and structural nodes",
-        "promptZh": "造型遵循沿轮廓和结构节点排列的薄片嵌纹，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through thin inlay fragments aligned to contours and structural nodes while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为沿轮廓和结构节点排列的薄片嵌纹，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into thin inlay fragments aligned to contours and structural nodes while preserving identity and defining structure",
         "weight": 0.93,
         "level": "核心"
       },
@@ -8716,8 +8708,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "漆黑配青绿蓝紫玫红与银白虹彩",
         "labelEn": "lacquer black with teal, blue-violet, rose, and silver iridescence",
-        "promptZh": "配色限定为漆黑配青绿蓝紫玫红与银白虹彩，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to lacquer black with teal, blue-violet, rose, and silver iridescence, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为漆黑配青绿蓝紫玫红与银白虹彩",
+        "promptEn": "limit the palette to lacquer black with teal, blue-violet, rose, and silver iridescence",
         "weight": 0.86,
         "level": "核心"
       },
@@ -8728,8 +8720,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "多层黑漆、薄贝壳嵌片与细刻接缝",
         "labelEn": "layered black lacquer, thin shell inlay, and finely engraved joins",
-        "promptZh": "材质表现为多层黑漆、薄贝壳嵌片与细刻接缝，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as layered black lacquer, thin shell inlay, and finely engraved joins, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为多层黑漆、薄贝壳嵌片与细刻接缝",
+        "promptEn": "render materials and surfaces as layered black lacquer, thin shell inlay, and finely engraved joins",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -8740,8 +8732,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "低调侧光、连续漆面反射与锐利彩光",
         "labelEn": "low-key sidelight, continuous lacquer reflection, and crisp colored glints",
-        "promptZh": "光影采用低调侧光、连续漆面反射与锐利彩光，统一光源方向与明暗逻辑",
-        "promptEn": "Use low-key sidelight, continuous lacquer reflection, and crisp colored glints for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用低调侧光、连续漆面反射与锐利彩光",
+        "promptEn": "use low-key sidelight, continuous lacquer reflection, and crisp colored glints for lighting and tonal rendering",
         "weight": 0.78,
         "level": "可调整"
       },
@@ -8752,8 +8744,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "按需使用可读嵌片字或金线字",
         "labelEn": "legible inlay or gold-line lettering only when requested",
-        "promptZh": "仅在用户需要文字时采用按需使用可读嵌片字或金线字，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use legible inlay or gold-line lettering only when requested while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用可读嵌片字或金线字并保持原文可读",
+        "promptEn": "only when text is requested, use legible inlay or gold-line lettering and preserve the exact readable wording",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -8768,8 +8760,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "一个或少量相连整体与正负形层级",
         "labelEn": "one or a few connected masses with a positive-negative hierarchy",
-        "promptZh": "构图遵循一个或少量相连整体与正负形层级，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through one or a few connected masses with a positive-negative hierarchy, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用一个或少量相连整体与正负形层级",
+        "promptEn": "compose with one or a few connected masses with a positive-negative hierarchy",
         "weight": 1,
         "level": "核心"
       },
@@ -8780,8 +8772,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "连续外轮廓、内部镂空与可靠连接桥",
         "labelEn": "continuous outer contours, internal cutouts, and reliable connecting bridges",
-        "promptZh": "造型遵循连续外轮廓、内部镂空与可靠连接桥，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through continuous outer contours, internal cutouts, and reliable connecting bridges while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为连续外轮廓、内部镂空与可靠连接桥，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into continuous outer contours, internal cutouts, and reliable connecting bridges while preserving identity and defining structure",
         "weight": 0.93,
         "level": "核心"
       },
@@ -8792,8 +8784,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "朱红纸白或用户指定的单色高对比",
         "labelEn": "vermilion and paper white or another user-specified monochrome contrast",
-        "promptZh": "配色限定为朱红纸白或用户指定的单色高对比，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to vermilion and paper white or another user-specified monochrome contrast, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为朱红纸白或用户指定的单色高对比",
+        "promptEn": "limit the palette to vermilion and paper white or another user-specified monochrome contrast",
         "weight": 0.86,
         "level": "核心"
       },
@@ -8804,8 +8796,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "均匀平面光与极轻纸边投影",
         "labelEn": "even flat light with only a very slight paper-edge shadow",
-        "promptZh": "光影采用均匀平面光与极轻纸边投影，统一光源方向与明暗逻辑",
-        "promptEn": "Use even flat light with only a very slight paper-edge shadow for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用均匀平面光与极轻纸边投影",
+        "promptEn": "use even flat light with only a very slight paper-edge shadow for lighting and tonal rendering",
         "weight": 0.78,
         "level": "可调整"
       },
@@ -8816,8 +8808,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "纤维纸、细小剪切毛边与手工折痕",
         "labelEn": "fiber paper, fine cut edges, and handmade fold traces",
-        "promptZh": "材质表现为纤维纸、细小剪切毛边与手工折痕，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as fiber paper, fine cut edges, and handmade fold traces, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为纤维纸、细小剪切毛边与手工折痕",
+        "promptEn": "render materials and surfaces as fiber paper, fine cut edges, and handmade fold traces",
         "weight": 0.7,
         "level": "可调整"
       },
@@ -8828,8 +8820,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "按需使用可连接可剪切且清晰的字形",
         "labelEn": "connected, cuttable, and legible lettering only when requested",
-        "promptZh": "仅在用户需要文字时采用按需使用可连接可剪切且清晰的字形，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use connected, cuttable, and legible lettering only when requested while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用可连接可剪切且清晰的字形并保持原文可读",
+        "promptEn": "only when text is requested, use connected, cuttable, and legible lettering and preserve the exact readable wording",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -8844,8 +8836,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "浅层舞台式空间与清晰剪影关系",
         "labelEn": "shallow stage-like space with clearly separated silhouettes",
-        "promptZh": "构图遵循浅层舞台式空间与清晰剪影关系，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through shallow stage-like space with clearly separated silhouettes, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用浅层舞台式空间与清晰剪影关系",
+        "promptEn": "compose with shallow stage-like space with clearly separated silhouettes",
         "weight": 1,
         "level": "核心"
       },
@@ -8856,8 +8848,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "形态与几何",
         "labelZh": "薄而扁平的分节结构、镂刻孔洞与描线",
         "labelEn": "thin flat segmented construction with cutouts and drawn details",
-        "promptZh": "造型遵循薄而扁平的分节结构、镂刻孔洞与描线，同时保留主体身份、动作与关键结构",
-        "promptEn": "Shape the subjects through thin flat segmented construction with cutouts and drawn details while preserving identity, action, and defining structure",
+        "promptZh": "将用户主体转译为薄而扁平的分节结构、镂刻孔洞与描线，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into thin flat segmented construction with cutouts and drawn details while preserving identity and defining structure",
         "weight": 0.93,
         "level": "核心"
       },
@@ -8868,8 +8860,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "单一暖背光穿透半透明表面",
         "labelEn": "a single warm backlight transmitted through a translucent surface",
-        "promptZh": "光影采用单一暖背光穿透半透明表面，统一光源方向与明暗逻辑",
-        "promptEn": "Use a single warm backlight transmitted through a translucent surface for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用单一暖背光穿透半透明表面",
+        "promptEn": "use a single warm backlight transmitted through a translucent surface for lighting and tonal rendering",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -8880,8 +8872,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "暖黄朱红墨黑翠绿与少量蓝色",
         "labelEn": "warm yellow, vermilion, black, jade green, and restrained blue",
-        "promptZh": "配色限定为暖黄朱红墨黑翠绿与少量蓝色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to warm yellow, vermilion, black, jade green, and restrained blue, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为暖黄朱红墨黑翠绿与少量蓝色",
+        "promptEn": "limit the palette to warm yellow, vermilion, black, jade green, and restrained blue",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -8892,8 +8884,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "染色皮革、细线连接与轻微手工磨损",
         "labelEn": "dyed leather, fine connections, and subtle handmade wear",
-        "promptZh": "材质表现为染色皮革、细线连接与轻微手工磨损，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as dyed leather, fine connections, and subtle handmade wear, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为染色皮革、细线连接与轻微手工磨损",
+        "promptEn": "render materials and surfaces as dyed leather, fine connections, and subtle handmade wear",
         "weight": 0.7,
         "level": "可调整"
       },
@@ -8904,8 +8896,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "按需使用清晰平面戏牌式字形",
         "labelEn": "clear flat playbill-style lettering only when requested",
-        "promptZh": "仅在用户需要文字时采用按需使用清晰平面戏牌式字形，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use clear flat playbill-style lettering only when requested while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用清晰平面戏牌式字形并保持原文可读",
+        "promptEn": "only when text is requested, use clear flat playbill-style lettering and preserve the exact readable wording",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -8920,8 +8912,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "构图与空间",
         "labelZh": "大面积瓷白负空间与清晰双色层级",
         "labelEn": "broad porcelain-white negative space with a clear two-color hierarchy",
-        "promptZh": "构图遵循大面积瓷白负空间与清晰双色层级，建立清晰主次、留白与阅读顺序",
-        "promptEn": "Structure the composition through broad porcelain-white negative space with a clear two-color hierarchy, with clear hierarchy, negative space, and reading order",
+        "promptZh": "构图采用大面积瓷白负空间与清晰双色层级",
+        "promptEn": "compose with broad porcelain-white negative space with a clear two-color hierarchy",
         "weight": 1,
         "level": "核心"
       },
@@ -8932,8 +8924,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "媒介与技法",
         "labelZh": "钴蓝线描、浓淡分水与轻微柔边",
         "labelEn": "cobalt linework, graded washes, and subtly softened edges",
-        "promptZh": "以钴蓝线描、浓淡分水与轻微柔边统一笔触、边缘与成像痕迹",
-        "promptEn": "Use cobalt linework, graded washes, and subtly softened edges to unify marks, edges, and imaging traces",
+        "promptZh": "成像与笔触采用钴蓝线描、浓淡分水与轻微柔边",
+        "promptEn": "render marks and edges with cobalt linework, graded washes, and subtly softened edges",
         "weight": 0.93,
         "level": "核心"
       },
@@ -8944,8 +8936,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "色彩与调性",
         "labelZh": "瓷白与不同浓度钴蓝的限定配色",
         "labelEn": "a limited palette of porcelain white and varied cobalt blue",
-        "promptZh": "配色限定为瓷白与不同浓度钴蓝的限定配色，区分主色、辅色与小面积强调色",
-        "promptEn": "Limit the palette to a limited palette of porcelain white and varied cobalt blue, separating dominant, supporting, and small accent colors",
+        "promptZh": "配色限定为瓷白与不同浓度钴蓝的限定配色",
+        "promptEn": "limit the palette to a limited palette of porcelain white and varied cobalt blue",
         "weight": 0.86,
         "level": "核心"
       },
@@ -8956,8 +8948,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "材质与纹理",
         "labelZh": "釉下钴料、白瓷胎与细小烧制差异",
         "labelEn": "underglaze cobalt, white porcelain body, and subtle firing variation",
-        "promptZh": "材质表现为釉下钴料、白瓷胎与细小烧制差异，统一纹理尺度、反光与磨损程度",
-        "promptEn": "Render materials as underglaze cobalt, white porcelain body, and subtle firing variation, with consistent texture scale, reflectance, and wear",
+        "promptZh": "材质与表面呈现为釉下钴料、白瓷胎与细小烧制差异",
+        "promptEn": "render materials and surfaces as underglaze cobalt, white porcelain body, and subtle firing variation",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -8968,8 +8960,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "光线与成像",
         "labelZh": "柔和漫射光与小面积釉面高光",
         "labelEn": "soft diffuse light with small controlled glaze highlights",
-        "promptZh": "光影采用柔和漫射光与小面积釉面高光，统一光源方向与明暗逻辑",
-        "promptEn": "Use soft diffuse light with small controlled glaze highlights for the lighting, with coherent direction and tonal logic",
+        "promptZh": "光影采用柔和漫射光与小面积釉面高光",
+        "promptEn": "use soft diffuse light with small controlled glaze highlights for lighting and tonal rendering",
         "weight": 0.78,
         "level": "可调整"
       },
@@ -8980,8 +8972,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "按需使用清晰钴蓝书写或印章式字形",
         "labelEn": "clear cobalt writing or seal-like type only when requested",
-        "promptZh": "仅在用户需要文字时采用按需使用清晰钴蓝书写或印章式字形，保持原文准确、清晰可读",
-        "promptEn": "Only when text is requested, use clear cobalt writing or seal-like type only when requested while preserving the exact wording and legibility",
+        "promptZh": "仅在用户要求文字时采用清晰钴蓝书写或印章式字形并保持原文可读",
+        "promptEn": "only when text is requested, use clear cobalt writing or seal-like type and preserve the exact readable wording",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -9006,9 +8998,7 @@ function buildStylePromptText(style, options = {}) {
   const parts = [
     direction,
     STYLE_PROMPT_POLICY.content[language],
-    geneText ? STYLE_PROMPT_POLICY.executionLead[language] + geneText : "",
-    options.hasOverrides ? STYLE_PROMPT_POLICY.override[language] : "",
-    STYLE_PROMPT_POLICY.quality[language]
+    geneText ? STYLE_PROMPT_POLICY.executionLead[language] + geneText : ""
   ].filter(Boolean);
   return parts.join(language === "zh" ? "。" : ". " ) + (language === "zh" ? "。" : ".");
 }

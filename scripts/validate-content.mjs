@@ -36,6 +36,8 @@ const forbiddenVisualGeneTermsZh = ["人物", "角色", "人体", "动物", "鸟
 const forbiddenVisualGeneTermsEn = ["person", "people", "human", "character", "animal", "bird", "flower", "vine", "mask", "corridor", "doorway", "city", "building", "spacecraft", "spacesuit", "bookshelf", "book", "creature", "ruin", "street", "statue", "palm", "gear", "pipe", "landscape", "garden", "wall"];
 const genericPromptTerms = ["高质量", "杰作", "高级感", "震撼", "精致完成度", "清晰视觉层级", "高细节", "high quality", "best quality", "masterpiece", "award-winning", "refined finish", "highly detailed", "ultra-detailed", "high-detail", "visual impact"];
 const legacyPromptFields = ["prompt", "promptZh", "promptEn", "aiPrompt", "visualSpec"];
+const modelPromptPrefixesZh = ["构图采用", "视角与空间表现采用", "将用户主体转译为", "配色限定为", "光影采用", "成像与笔触采用", "材质与表面呈现为", "仅在用户要求文字时采用", "仅局部使用", "整体视觉采用"];
+const modelPromptPrefixesEn = ["compose with", "use ", "translate the supplied subjects into", "limit the palette to", "render marks and edges with", "render materials and surfaces as", "only when text is requested", "apply "];
 
 if (STYLE_DATA.length !== 123) errors.push(`Expected 123 styles, found ${STYLE_DATA.length}`);
 if (ids.size !== STYLE_DATA.length) errors.push("Duplicate style ids found");
@@ -92,6 +94,7 @@ for (const style of STYLE_DATA) {
   if (!adjustableGenes.length) errors.push(`${style.id}: missing adjustable prompt genes`);
   const geneLabels = new Set();
   const geneIds = new Set();
+  const promptDimensions = new Set();
   prompt.genes.forEach((gene, index) => {
     const requiredGeneFields = ["id", "kind", "dimension", "dimensionZh", "labelZh", "labelEn", "promptZh", "promptEn", "level"];
     requiredGeneFields.forEach((field) => {
@@ -104,12 +107,16 @@ for (const style of STYLE_DATA) {
     geneIds.add(gene.id);
     if (!Number.isFinite(gene.weight) || gene.weight <= 0 || gene.weight > 1) errors.push(`${style.id}: invalid prompt gene weight ${index}`);
     if (gene.promptZh === gene.labelZh || gene.promptEn === gene.labelEn) errors.push(`${style.id}: prompt gene ${index} copies its human label without model instructions`);
+    if (!modelPromptPrefixesZh.some((prefix) => gene.promptZh.startsWith(prefix))) errors.push(`${style.id}: prompt gene ${index} lacks an executable Chinese instruction`);
+    if (!modelPromptPrefixesEn.some((prefix) => gene.promptEn.startsWith(prefix))) errors.push(`${style.id}: prompt gene ${index} lacks an executable English instruction`);
+    promptDimensions.add(gene.dimension);
     for (const label of [gene.labelZh?.trim(), gene.labelEn?.trim()]) {
       if (!label) continue;
       if (geneLabels.has(label)) errors.push(`${style.id}: duplicate prompt gene label ${label}`);
       geneLabels.add(label);
     }
   });
+  if (promptDimensions.size < 3) errors.push(`${style.id}: complete prompt covers fewer than 3 visual dimensions`);
   for (const group of [coreGenes, adjustableGenes]) {
     group.forEach((gene, index) => {
       if (index > 0 && gene.weight > group[index - 1].weight) errors.push(`${style.id}: ${gene.kind} prompt gene weights are not descending`);
@@ -128,6 +135,12 @@ for (const style of STYLE_DATA) {
     if (reducedPromptZh === fullPromptZh || reducedPromptEn === fullPromptEn) errors.push(`${style.id}: disabling ${gene.id} does not change both prompts`);
   });
 
+  const defaultPromptZh = buildStylePromptText(style, { language: "zh" });
+  const defaultPromptEn = buildStylePromptText(style, { language: "en" });
+  prompt.genes.forEach((gene) => {
+    if (!defaultPromptZh.includes(gene.promptZh) || !defaultPromptEn.includes(gene.promptEn)) errors.push(`${style.id}: complete default prompt omits gene ${gene.id}`);
+  });
+
   for (const language of ["zh", "en"]) {
     for (const intensity of ["借鉴", "明显", "主导"]) {
       const text = buildStylePromptText(style, { language, intensity });
@@ -135,6 +148,7 @@ for (const style of STYLE_DATA) {
       if (language === "zh" && !text.endsWith("。")) errors.push(`${style.id}: Chinese prompt has incorrect terminal punctuation`);
       if (language === "en" && !text.endsWith(".")) errors.push(`${style.id}: English prompt has incorrect terminal punctuation`);
       if (/禁止新增主体|不新增主体|必须同时满足/.test(text)) errors.push(`${style.id}: default prompt contains an over-restrictive instruction`);
+      if (/允许补充|独立控制项优先|确保主体完整/.test(text)) errors.push(`${style.id}: default prompt contains non-style boilerplate`);
       if (text.includes(buildStyleNegativeText(language))) errors.push(`${style.id}: negative prompt leaked into positive prompt`);
       if (language === "zh" && intensity === "明显") promptLengths.push(text.length);
     }
@@ -143,7 +157,7 @@ for (const style of STYLE_DATA) {
 const unknownPromptIds = promptEntries.map(([id]) => id).filter((id) => !ids.has(id));
 if (unknownPromptIds.length) errors.push(`Unknown unified prompt ids: ${unknownPromptIds.join(", ")}`);
 const averagePromptLength = promptLengths.reduce((sum, length) => sum + length, 0) / promptLengths.length;
-if (averagePromptLength > 300) errors.push(`Average Chinese prompt is too long: ${averagePromptLength.toFixed(1)} characters`);
+if (averagePromptLength > 260) errors.push(`Average Chinese prompt is too long: ${averagePromptLength.toFixed(1)} characters`);
 
 const requiredControls = ["composition", "viewpoint", "shot", "lens", "depth", "lighting", "color", "form", "medium", "texture", "mood"];
 const controlIds = PROMPT_CONTROL_GROUPS.map((group) => group.id);

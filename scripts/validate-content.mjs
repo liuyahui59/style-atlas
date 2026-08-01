@@ -98,6 +98,8 @@ for (const style of STYLE_DATA) {
       if (!gene[field]?.trim()) errors.push(`${style.id}: prompt gene ${index} missing ${field}`);
     });
     if (!["core", "adjustable"].includes(gene.kind)) errors.push(`${style.id}: invalid prompt gene kind ${gene.kind}`);
+    if (gene.kind === "core" && gene.weight < 0.86) errors.push(`${style.id}: core prompt gene below audited weight threshold ${gene.labelZh}`);
+    if (gene.kind === "adjustable" && gene.weight >= 0.86) errors.push(`${style.id}: adjustable prompt gene above audited weight threshold ${gene.labelZh}`);
     if (geneIds.has(gene.id)) errors.push(`${style.id}: duplicate prompt gene id ${gene.id}`);
     geneIds.add(gene.id);
     if (!Number.isFinite(gene.weight) || gene.weight <= 0 || gene.weight > 1) errors.push(`${style.id}: invalid prompt gene weight ${index}`);

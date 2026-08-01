@@ -1,0 +1,375 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "description": "人工审校后的视觉基因分类纠错。核心基因以移除后是否导致风格身份明显坍塌为判断标准，不以固定数量或列表顺序决定。",
+    "rules": [
+      "核心基因必须跨主体保持辨识作用，而不是仅代表常见题材、配色或媒介。",
+      "可调整基因改变后，风格身份应仍然成立。",
+      "文字相关基因仅在文字是该视觉体系不可替代的结构时进入核心。",
+      "工艺风格的成形机制或材料关系可作为核心，单纯表面做旧通常不可。"
+    ]
+  },
+  "styles": {
+    "ancient-egyptian": {
+      "promote": ["比例由等级而非距离决定", "均匀深色轮廓与无渐变平涂"],
+      "dimensions": {
+        "哑光矿物颜料与颗粒石质或灰泥表面": "materialTexture"
+      }
+    },
+    "renaissance": {
+      "promote": ["明暗渐变塑造连续圆润体积", "自然比例与观察一致的结构关系"],
+      "demote": ["近处清晰、远处低对比的大气透视"]
+    },
+    "mannerism": {
+      "promote": ["压缩、陡升且暧昧的空间"]
+    },
+    "baroque": {
+      "promote": ["前后层叠、压缩又贯通的深层空间", "强烈对角线与旋动结构"],
+      "demote": ["丰厚油彩、锐利高光与触感反差"],
+      "dimensions": {
+        "丰厚油彩、锐利高光与触感反差": "mediumTechnique"
+      }
+    },
+    "rococo": {
+      "promote": ["粉蓝、浅粉、奶白与淡金", "细密装饰、轻快笔触与丝滑表面"],
+      "demote": ["浅层空间与漂浮式层叠"]
+    },
+    "neoclassicism": {
+      "promote": ["清晰雕塑式轮廓与平滑体积"]
+    },
+    "romanticism": {
+      "promote": ["宏大尺度反差", "动荡对角线与不稳定平衡"],
+      "demote": ["透明油彩与雾化边缘"],
+      "dimensions": {
+        "透明油彩与雾化边缘": "mediumTechnique"
+      }
+    },
+    "impressionism": {
+      "promote": ["并置色彩的光学混合"]
+    },
+    "fauvism": {
+      "demote": ["朱红、钴蓝与翠绿碰撞"]
+    },
+    "cubism": {
+      "promote": ["压缩为浅层的互锁空间"]
+    },
+    "futurism": {
+      "promote": ["碎裂的机械感几何"],
+      "demote": ["斜体字与爆发式排版方向"],
+      "dimensions": {
+        "碎裂的机械感几何": "formGeometry",
+        "粗颗粒印刷与金属感高光": "mediumTechnique"
+      }
+    },
+    "constructivism": {
+      "dimensions": {
+        "红、黑与纸白的极端明度对比": "colorTone"
+      }
+    },
+    "pop-art": {
+      "promote": ["半调网点与丝网印刷平面感"],
+      "demote": ["高饱和红黄蓝原色"]
+    },
+    "op-art": {
+      "promote": ["黑白或互补色的极端明度与色相对比", "线距、密度、曲率与尺度连续变化"],
+      "dimensions": {
+        "线距、密度、曲率与尺度连续变化": "formGeometry"
+      }
+    },
+    "lowbrow": {
+      "dimensions": {
+        "糖果色、热红与深色阴影": "colorTone",
+        "锐利边缘、小面积镜面高光与珐琅表面": "materialTexture"
+      }
+    },
+    "street-art": {
+      "promote": ["模板喷涂、自由喷漆与书写性线条叠层"],
+      "demote": ["黑白底色配少量高饱和强调色"]
+    },
+    "dunhuang": {
+      "promote": ["平面设色与柔和层染", "矿物土红、石青与赭黄"],
+      "demote": ["褪色开裂的壁画表面"]
+    },
+    "guochao": {
+      "promote": ["传统线性节奏与现代硬边几何"],
+      "demote": ["大红、金色与墨黑高对比"]
+    },
+    "rinpa": {
+      "promote": ["矿物色与金银底的强烈平面反差"],
+      "dimensions": {
+        "垂らし込み式湿中叠染与颜料积聚边缘": "mediumTechnique",
+        "形体重复、裁切与节奏化间隔": "compositionSpace"
+      }
+    },
+    "nihonga": {
+      "dimensions": {
+        "分层矿物颜料与低饱和综合色": "mediumTechnique"
+      }
+    },
+    "wabi-sabi": {
+      "promote": ["风化、磨损与哑光触感"],
+      "demote": ["土灰、褐色与褪色中性色"]
+    },
+    "madhubani": {
+      "promote": ["正面或侧面的扁平视点与无透视空间", "轮廓内部以重复几何线纹密集填充"],
+      "dimensions": {
+        "高饱和有限色系与黑色线描": "colorTone",
+        "手工颜料、轻微不匀与粗纤维纸面": "materialTexture"
+      }
+    },
+    "mughal-miniature": {
+      "dimensions": {
+        "局部纹样保持平面且高度细密": "materialTexture"
+      }
+    },
+    "afrofuturism": {
+      "promote": ["重复图案作为结构而非表面点缀", "非洲几何节奏与未来流线形体融合"],
+      "demote": ["轴线式或纪念碑式视觉层级", "金色、铜色或铬色金属高光"]
+    },
+    "architectural-brutalism": {
+      "promote": ["重复模数、外露承重逻辑与厚重边缘"]
+    },
+    "skeuomorphism": {
+      "promote": ["真实材质的界面化模拟"],
+      "demote": ["暖中性色与局部高光"]
+    },
+    "glassmorphism": {
+      "promote": ["背景模糊与清晰前景边缘"]
+    },
+    "cyberpunk": {
+      "promote": ["高密度信息层叠、遮挡与强纵深"]
+    },
+    "steampunk": {
+      "promote": ["铆接、接缝、刻度与外露连接细节", "磨损金属、深色皮革、木材与油渍表面"]
+    },
+    "solarpunk": {
+      "promote": ["高明度暖日光、通透逆光与柔和阴影", "清洁玻璃、浅色金属与再生材质触感"],
+      "demote": ["鲜绿、陶土色、暖白与透明浅蓝"]
+    },
+    "anime": {
+      "promote": ["两级或三级赛璐璐明暗分区"],
+      "demote": ["明快主色、受控环境色与局部色彩反光"],
+      "dimensions": {
+        "干净数字上色与局部柔光或速度化处理": "mediumTechnique",
+        "背景细节层级低于主要形体": "compositionSpace"
+      }
+    },
+    "manga": {
+      "promote": ["清晰墨线与大块黑色", "半调网点与分级灰度"],
+      "demote": ["动态裁切与连续分格节奏", "速度线与夸张透视"],
+      "dimensions": {
+        "清晰墨线与大块黑色": "mediumTechnique",
+        "半调网点与分级灰度": "mediumTechnique"
+      }
+    },
+    "american-comics": {
+      "promote": ["半调网点与有限套色", "粗黑墨线与硬边阴影"],
+      "demote": ["红黄蓝原色高对比"]
+    },
+    "liminal-space": {
+      "promote": ["平直均匀的冷色人工光"],
+      "demote": ["褪色黄绿与冷灰"]
+    },
+    "maximalism": {
+      "promote": ["织物、漆面、金箔与纸张拼贴"],
+      "demote": ["深色底上的分组宝石色"]
+    },
+    "collage": {
+      "promote": ["撕裂杂志纸、胶带与复印颗粒"],
+      "demote": ["局部照片色配两至三种限定印刷色"],
+      "dimensions": {
+        "局部照片色配两至三种限定印刷色": "colorTone"
+      }
+    },
+    "wasteland-punk": {
+      "promote": ["锈蚀金属、干裂橡胶与磨损帆布"],
+      "demote": ["沙黄、锈红、焦黑与旧橄榄绿"],
+      "dimensions": {
+        "低地平线、广阔空域与偏心拼装结构": "compositionSpace",
+        "补丁、螺栓、破损板件与不对称加固": "formGeometry",
+        "烈日硬影、空气灰尘与远景热浪": "lightingImaging"
+      }
+    },
+    "superflat": {
+      "dimensions": {
+        "高度压缩的无深度空间": "viewpointLens"
+      }
+    },
+    "kawaii": {
+      "dimensions": {
+        "次要结构被压缩为少量清晰特征": "formGeometry",
+        "无颗粒的光洁矢量或赛璐璐表面": "mediumTechnique"
+      }
+    },
+    "neo-futurism": {
+      "dimensions": {
+        "高明度环境光与干净边缘光": "lightingImaging",
+        "宽体几何无衬线与宽松字距": "typographyLayout"
+      }
+    },
+    "biomorphic": {
+      "dimensions": {
+        "略带流动曲线的圆润无衬线字": "typographyLayout"
+      }
+    },
+    "neo-pop": {
+      "dimensions": {
+        "两至三级平涂明暗与小面积塑料高光": "lightingImaging"
+      }
+    },
+    "atompunk": {
+      "dimensions": {
+        "樱桃红、青绿、奶油黄与铬色": "colorTone"
+      }
+    },
+    "frutiger-aero": {
+      "dimensions": {
+        "干净高饱和数字合成与平滑抗锯齿边缘": "mediumTechnique"
+      }
+    },
+    "dark-academia": {
+      "dimensions": {
+        "深色木纹、粗纺与旧纸质感": "materialTexture"
+      }
+    },
+    "kidcore": {
+      "dimensions": {
+        "可读的泡泡字或手绘儿童字": "typographyLayout",
+        "蜡笔、彩纸、光滑贴纸与绘本纸": "materialTexture"
+      }
+    },
+    "song-court-painting": {
+      "demote": ["暖白淡赭配花青与灰绿"],
+      "dimensions": {
+        "偏心小景与充足静空": "compositionSpace",
+        "自然比例、精细轮廓与柔和层染": "formGeometry",
+        "暖白淡赭配花青与灰绿": "colorTone",
+        "自然漫射光与轻透阴影": "lightingImaging",
+        "细绢、薄层矿物色与透明水色": "materialTexture",
+        "按需使用避开焦点的小尺度题跋": "typographyLayout"
+      }
+    },
+    "blue-green-landscape": {
+      "dimensions": {
+        "高视点层叠空间与流动负形分隔": "viewpointLens",
+        "细而连续的轮廓与概括块面体积": "formGeometry",
+        "石青石绿配少量朱砂与淡金": "colorTone",
+        "均匀平面光与克制的局部微光": "lightingImaging",
+        "矿物颗粒、绢本与哑光设色": "materialTexture",
+        "按需使用克制题跋或印章式点色": "typographyLayout"
+      }
+    },
+    "baimiao": {
+      "dimensions": {
+        "开放留白与清晰轮廓层级": "compositionSpace",
+        "连续墨线的粗细、浓淡与转折变化": "mediumTechnique",
+        "墨黑淡墨与纸白的单色关系": "colorTone",
+        "不用写实投影并以线条疏密表达体积": "lightingImaging",
+        "细毫笔触、纸纤维与轻微墨线渗化": "mediumTechnique",
+        "按需使用与线描一致的细雅书写": "typographyLayout"
+      }
+    },
+    "jiehua": {
+      "promote": ["尺规墨线、细纸绢与薄层矿物淡彩"],
+      "demote": ["墨线纸白配淡赭石绿与低饱和朱红"],
+      "dimensions": {
+        "严格轴线、模块重复与可读空间层级": "compositionSpace",
+        "精密框架、板件节点与稳定平行线": "formGeometry",
+        "墨线纸白配淡赭石绿与低饱和朱红": "colorTone",
+        "均匀分析光与克制清晰的投影边缘": "lightingImaging",
+        "尺规墨线、细纸绢与薄层矿物淡彩": "mediumTechnique",
+        "按需使用小尺度楷书或标注式文字": "typographyLayout"
+      }
+    },
+    "shanhaijing-compendium": {
+      "promote": ["木刻墨迹、粗纤维纸与轻微套色错位"],
+      "demote": ["旧纸黄配墨黑朱砂石青与石绿"],
+      "dimensions": {
+        "图谱式陈列、边栏分区与明确阅读顺序": "compositionSpace",
+        "清晰外轮廓、正交观察与概括纹理": "formGeometry",
+        "旧纸黄配墨黑朱砂石青与石绿": "colorTone",
+        "均匀平面光与清楚纸面层次": "lightingImaging",
+        "木刻墨迹、粗纤维纸与轻微套色错位": "mediumTechnique",
+        "仅按原文使用篆隶或刻本字形": "typographyLayout"
+      }
+    },
+    "archaic-bronze-mythic": {
+      "dimensions": {
+        "礼制般稳定的轴线与环形层级": "compositionSpace",
+        "厚重块面、凹凸线纹与铸造接缝": "formGeometry",
+        "深青铜铜绿焦黑配少量暗金": "colorTone",
+        "低调侧硬光与金属边缘擦光": "lightingImaging",
+        "自然氧化、细密腐蚀与局部抛光": "materialTexture",
+        "仅按原文使用方整铭文式字形": "typographyLayout"
+      }
+    },
+    "daoist-immortal-realm": {
+      "promote": ["柔和顶部天光、轮廓辉光与分层雾化"],
+      "demote": ["石青石绿朱砂夜蓝与少量淡金"],
+      "dimensions": {
+        "垂直上升、环形回游与层叠深远关系": "compositionSpace",
+        "修长流动轮廓、柔和转折与秩序曲线": "formGeometry",
+        "石青石绿朱砂夜蓝与少量淡金": "colorTone",
+        "柔和顶部天光、轮廓辉光与分层雾化": "lightingImaging",
+        "绢本矿物色、透明水色与细金线": "materialTexture",
+        "按需使用疏朗书写并保持原文": "typographyLayout"
+      }
+    },
+    "cloisonne-enamel": {
+      "promote": ["掐丝金属、烧制珐琅与细微釉面颗粒"],
+      "demote": ["宝蓝孔雀绿朱红象牙白与金色"],
+      "dimensions": {
+        "按结构划分大小有序的闭合色区": "compositionSpace",
+        "连续金属丝分隔的清晰轮廓与曲面": "formGeometry",
+        "宝蓝孔雀绿朱红象牙白与金色": "colorTone",
+        "受控影棚光、釉面小高光与锐利金属反光": "lightingImaging",
+        "掐丝金属、烧制珐琅与细微釉面颗粒": "materialTexture",
+        "按需使用清晰金丝字形或独立标签": "typographyLayout"
+      }
+    },
+    "mother-of-pearl-lacquer": {
+      "promote": ["多层黑漆、薄贝壳嵌片与细刻接缝"],
+      "dimensions": {
+        "大片深色留底与局部高密度嵌片": "compositionSpace",
+        "沿轮廓和结构节点排列的薄片嵌纹": "formGeometry",
+        "漆黑配青绿蓝紫玫红与银白虹彩": "colorTone",
+        "低调侧光、连续漆面反射与锐利彩光": "lightingImaging",
+        "多层黑漆、薄贝壳嵌片与细刻接缝": "materialTexture",
+        "按需使用可读嵌片字或金线字": "typographyLayout"
+      }
+    },
+    "chinese-papercut": {
+      "dimensions": {
+        "一个或少量相连整体与正负形层级": "compositionSpace",
+        "连续外轮廓、内部镂空与可靠连接桥": "formGeometry",
+        "朱红纸白或用户指定的单色高对比": "colorTone",
+        "均匀平面光与极轻纸边投影": "lightingImaging",
+        "纤维纸、细小剪切毛边与手工折痕": "materialTexture",
+        "按需使用可连接可剪切且清晰的字形": "typographyLayout"
+      }
+    },
+    "chinese-shadow-puppetry": {
+      "promote": ["单一暖背光穿透半透明表面"],
+      "demote": ["暖黄朱红墨黑翠绿与少量蓝色"],
+      "dimensions": {
+        "浅层舞台式空间与清晰剪影关系": "compositionSpace",
+        "薄而扁平的分节结构、镂刻孔洞与描线": "formGeometry",
+        "暖黄朱红墨黑翠绿与少量蓝色": "colorTone",
+        "单一暖背光穿透半透明表面": "lightingImaging",
+        "染色皮革、细线连接与轻微手工磨损": "materialTexture",
+        "按需使用清晰平面戏牌式字形": "typographyLayout"
+      }
+    },
+    "blue-white-porcelain": {
+      "promote": ["釉下钴料、白瓷胎与细小烧制差异"],
+      "dimensions": {
+        "大面积瓷白负空间与清晰双色层级": "compositionSpace",
+        "钴蓝线描、浓淡分水与轻微柔边": "mediumTechnique",
+        "瓷白与不同浓度钴蓝的限定配色": "colorTone",
+        "柔和漫射光与小面积釉面高光": "lightingImaging",
+        "釉下钴料、白瓷胎与细小烧制差异": "materialTexture",
+        "按需使用清晰钴蓝书写或印章式字形": "typographyLayout"
+      }
+    }
+  }
+}

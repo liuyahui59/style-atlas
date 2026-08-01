@@ -23,6 +23,10 @@ for (const file of dataFiles) {
 
 const styles = JSON.parse(JSON.stringify(vm.runInContext("STYLE_DATA", context)));
 const profiles = JSON.parse(await readFile(resolve(root, "style-control-profiles.json"), "utf8")).profiles;
+const audits = JSON.parse(await readFile(resolve(root, "style-gene-audit.json"), "utf8")).styles;
+const styleIds = new Set(styles.map((style) => style.id));
+const unknownAuditIds = Object.keys(audits).filter((id) => !styleIds.has(id));
+if (unknownAuditIds.length) throw new Error(`Unknown audited style ids: ${unknownAuditIds.join(", ")}`);
 const visualGeneDimensions = [
   ["compositionSpace", "构图与空间"],
   ["formGeometry", "形态与几何"],
@@ -38,6 +42,7 @@ const dimensionLabels = Object.fromEntries([
   ["imperfectionEffect", "瑕疵与视觉效果"],
   ["styleExecution", "整体执行"]
 ]);
+const validDimensions = new Set(Object.keys(dimensionLabels));
 const defaultWeights = [1, 0.93, 0.86, 0.78, 0.7, 0.62, 0.55, 0.48];
 
 const genePromptTemplates = {
@@ -107,7 +112,7 @@ function inferVisualGeneDimension(gene, index) {
     ["viewpointLens", /视角|视点|透视|俯视|仰视|裁切|景深|空间|viewpoint|perspective|foreshorten|crop|depth|spatial/],
     ["lightingImaging", /光|明暗|阴影|高光|曝光|辉光|暗部|亮部|透光|light|shadow|highlight|exposure|glow|lumin|chiaroscuro|tonal/],
     ["materialTexture", /材质|纹理|肌理|表面|纸|颜料|玻璃|金箔|石质|木纹|金属|塑料|纤维|颗粒|texture|surface|paper|pigment|glass|stone|metal|wood|plastic|fiber|grain/],
-    ["colorTone", /配色|色彩|色调|色域|色阶|单色|多色|蓝|红|黄|绿|紫|黑|白|金色|银色|粉色|palette|color|monochrome|blue|red|yellow|green|violet|black|white|gold|silver|pink/],
+    ["colorTone", /配色|色彩|色调|色域|色阶|单色|多色|蓝|红|黄|绿|紫|黑|白|金色|银色|粉色|palette|colou?r|monochrome|\b(?:blue|red|yellow|green|violet|black|white|gold|silver|pink)\b/],
     ["compositionSpace", /构图|布局|轴线|对称|分层|留白|排列|节奏|网格|重叠|焦点|composition|layout|axis|symmetr|register|negative space|arrangement|rhythm|grid|overlap|focal/],
     ["formGeometry", /轮廓|形态|形体|几何|比例|体积|线条|曲线|结构|模块|边缘|outline|form|geometr|proportion|volume|line|curve|structure|module|edge/],
     ["imperfectionEffect", /故障|噪点|错位|磨损|做旧|失真|glitch|noise|misregistration|distortion|artifact/]
@@ -118,33 +123,77 @@ function inferVisualGeneDimension(gene, index) {
 
 const promptData = Object.fromEntries(styles.map((style) => {
   const profile = profiles[style.id];
-  const genes = profile?.coreGenes?.map((gene) => makeGene({
-    dimension: gene.dimension,
-    dimensionZh: gene.dimensionZh,
-    labelZh: gene.labelZh,
-    labelEn: gene.labelEn,
-    weight: gene.weight,
-    kind: gene.weight >= 0.86 ? "core" : "adjustable",
-    level: gene.level
-  })) || [];
+  const audit = audits[style.id] || {};
+  const promotedLabels = new Set(audit.promote || []);
+  const demotedLabels = new Set(audit.demote || []);
+  const dimensionOverrides = audit.dimensions || {};
+  const seenAuditLabels = new Set();
+  const auditedClassification = (label, weight, fallbackKind, fallbackLevel) => {
+    if (promotedLabels.has(label)) {
+      seenAuditLabels.add(label);
+      return { kind: "core", weight: Math.max(weight, 0.86), level: "强特征" };
+    }
+    if (demotedLabels.has(label)) {
+      seenAuditLabels.add(label);
+      return { kind: "adjustable", weight: Math.min(weight, 0.78), level: "支撑" };
+    }
+    return { kind: fallbackKind, weight, level: fallbackLevel };
+  };
+  const auditedDimension = (label, fallbackDimension) => {
+    if (!dimensionOverrides[label]) return fallbackDimension;
+    seenAuditLabels.add(label);
+    return dimensionOverrides[label];
+  };
+  const genes = profile?.coreGenes?.map((gene) => {
+    const dimension = auditedDimension(gene.labelZh, gene.dimension);
+    const classification = auditedClassification(
+      gene.labelZh,
+      gene.weight,
+      gene.weight >= 0.86 ? "core" : "adjustable",
+      gene.level
+    );
+    return makeGene({
+      dimension,
+      dimensionZh: dimensionLabels[dimension],
+      labelZh: gene.labelZh,
+      labelEn: gene.labelEn,
+      ...classification
+    });
+  }) || [];
   const knownLabels = new Set(genes.flatMap((gene) => [gene.labelZh, gene.labelEn]));
 
   style.visualGenes.forEach((gene, index) => {
     if (knownLabels.has(gene.zh) || knownLabels.has(gene.en)) return;
-    const dimension = inferVisualGeneDimension(gene, index);
+    const dimension = auditedDimension(gene.zh, inferVisualGeneDimension(gene, index));
     const dimensionZh = dimensionLabels[dimension];
-    const weight = defaultWeights[index] || 0.48 * (0.92 ** (index - defaultWeights.length + 1));
+    const inferredWeight = defaultWeights[index] || 0.48 * (0.92 ** (index - defaultWeights.length + 1));
+    const weight = profile ? Math.min(inferredWeight, 0.78) : inferredWeight;
+    const classification = auditedClassification(
+      gene.zh,
+      weight,
+      profile ? "adjustable" : (index < 3 ? "core" : "adjustable")
+    );
     genes.push(makeGene({
       dimension,
       dimensionZh,
       labelZh: gene.zh,
       labelEn: gene.en,
-      weight,
-      kind: profile ? "adjustable" : (index < 3 ? "core" : "adjustable")
+      ...classification
     }));
     knownLabels.add(gene.zh);
     knownLabels.add(gene.en);
   });
+
+  const configuredAuditLabels = new Set([
+    ...promotedLabels,
+    ...demotedLabels,
+    ...Object.keys(dimensionOverrides)
+  ]);
+  const missingAuditLabels = [...configuredAuditLabels].filter((label) => !seenAuditLabels.has(label));
+  if (missingAuditLabels.length) throw new Error(`${style.id}: unmatched audited genes: ${missingAuditLabels.join(", ")}`);
+  for (const [label, dimension] of Object.entries(dimensionOverrides)) {
+    if (!validDimensions.has(dimension)) throw new Error(`${style.id}: invalid audited dimension ${dimension} for ${label}`);
+  }
 
   genes.sort((a, b) => (a.kind === b.kind ? b.weight - a.weight : a.kind === "core" ? -1 : 1));
   genes.forEach((gene, index) => { gene.id = `gene-${index + 1}`; });

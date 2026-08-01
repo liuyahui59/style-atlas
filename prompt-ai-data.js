@@ -501,8 +501,8 @@ const STYLE_AI_PROMPTS = {
   }
 };
 
-STYLE_DATA.forEach((style) => {
-  const prompt = STYLE_AI_PROMPTS[style.id];
-  if (!prompt) throw new Error(`Missing AI prompt for ${style.id}`);
+Object.entries(STYLE_AI_PROMPTS).forEach(([id, prompt]) => {
+  const style = STYLE_DATA.find((item) => item.id === id);
+  if (!style) throw new Error(`Unknown style in AI prompt data: ${id}`);
   style.aiPrompt = prompt;
 });

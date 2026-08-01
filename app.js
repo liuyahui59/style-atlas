@@ -63,6 +63,46 @@ const intensityTranslations = {
 
 const dom = {};
 let toastTimer;
+const optionalScriptLoads = new Map();
+const initializedViews = new Set(["atlas"]);
+
+function loadOptionalScript(src) {
+  if (optionalScriptLoads.has(src)) return optionalScriptLoads.get(src);
+  const promise = new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = src;
+    script.async = true;
+    script.onload = resolve;
+    script.onerror = () => {
+      optionalScriptLoads.delete(src);
+      reject(new Error(`Failed to load ${src}`));
+    };
+    document.head.appendChild(script);
+  });
+  optionalScriptLoads.set(src, promise);
+  return promise;
+}
+
+async function ensureViewInitialized(view) {
+  if (initializedViews.has(view)) return;
+  if (view === "dictionary") {
+    await loadOptionalScript("prompt-options.js");
+    await loadOptionalScript("visual-vocabulary-mechanics.js");
+    await loadOptionalScript("visual-vocabulary.js");
+    renderVocabulary();
+  } else if (view === "timeline") {
+    renderTimeline();
+  } else if (view === "prompt") {
+    await Promise.all([
+      loadOptionalScript("prompt-options.js"),
+      loadOptionalScript("prompt-ai-data.js")
+    ]);
+    const requestedStyleId = new URLSearchParams(window.location.search).get("style");
+    const initialStyleId = getStyle(requestedStyleId) ? requestedStyleId : state.selectedPromptStyleId;
+    setPromptStyle(initialStyleId, false);
+  }
+  initializedViews.add(view);
+}
 
 function trackAnalyticsEvent(action, label = "") {
   if (!Array.isArray(window._hmt)) return;
@@ -77,11 +117,6 @@ function init() {
   bindGlobalEvents();
   renderQuickFilters();
   renderFilterGroups();
-  renderVocabulary();
-  renderTimeline();
-  const requestedStyleId = new URLSearchParams(window.location.search).get("style");
-  const initialStyleId = getStyle(requestedStyleId) ? requestedStyleId : state.selectedPromptStyleId;
-  setPromptStyle(initialStyleId, false);
   renderAtlas();
   const requestedView = window.location.hash.slice(1);
   if (["atlas", "dictionary", "timeline", "prompt"].includes(requestedView) && requestedView !== "atlas") {
@@ -323,8 +358,11 @@ function createVisual(style, className = "style-visual", options = {}) {
   const optimizedSrc = getArtworkVariantSrc(artwork.src, "optimized");
   const imageSrc = options.detail ? optimizedSrc : thumbSrc;
   const loading = options.priority ? "eager" : "lazy";
-  const fetchPriority = options.priority ? ' fetchpriority="high"' : "";
-  const image = `<img src="${imageSrc}" alt="${style.nameZh}风格配图" width="1200" height="900" loading="${loading}" decoding="async"${fetchPriority} />`;
+  const fetchPriority = options.priority ? "high" : "low";
+  const imageTag = `<img src="${imageSrc}" alt="${style.nameZh}风格配图" width="1200" height="900" loading="${loading}" decoding="async" fetchpriority="${fetchPriority}" />`;
+  const image = options.detail
+    ? `<picture><source media="(max-width: 720px)" srcset="${thumbSrc}" />${imageTag}</picture>`
+    : imageTag;
   return `<span class="${className} has-artwork" role="img" aria-label="${style.nameZh}风格配图">${image}</span>`;
 }
 
@@ -428,7 +466,7 @@ function renderAtlas() {
     const compared = state.compare.includes(style.id);
     return `<article class="style-card" data-style-card="${style.id}">
       <a class="style-card-main" href="${getStylePageHref(style.id)}" data-open-detail="${style.id}" aria-label="查看${style.nameZh}详情">
-        ${createVisual(style, "style-visual", { priority: index < 3 })}
+        ${createVisual(style, "style-visual", { priority: index === 0 })}
         <span class="style-meta">
           <span class="style-name-row"><span class="style-card-title">${style.nameZh}</span><span class="style-period">${style.period}</span></span>
           <span class="style-en">${style.nameEn}</span>
@@ -641,10 +679,11 @@ function renderDetail(style) {
     <section class="detail-section"><h3>视觉语言 Prompt</h3><div class="detail-prompt">${style.aiPrompt?.zh || style.promptZh.join("，")}</div></section>
     <section class="detail-section"><h3>相邻风格</h3><div class="detail-tags">${style.related.map((id) => { const related = getStyle(id); return `<a class="relation-chip" href="${getStylePageHref(id)}" data-related-style="${id}">${related.nameZh}</a>`; }).join("")}</div></section>
   </div>`;
-  dom.detailContent.querySelector("[data-use-prompt]").addEventListener("click", () => {
-    setPromptStyle(style.id);
+  dom.detailContent.querySelector("[data-use-prompt]").addEventListener("click", async () => {
     closeDetail();
-    switchView("prompt");
+    state.selectedPromptStyleId = style.id;
+    const switched = await switchView("prompt");
+    if (switched) setPromptStyle(style.id);
   });
   dom.detailContent.querySelector("[data-detail-compare]").addEventListener("click", () => toggleCompare(style.id));
   dom.detailContent.querySelector("[data-detail-favorite]").addEventListener("click", () => toggleFavorite(style.id));
@@ -682,9 +721,10 @@ function closeMobileFilters() {
   dom.mobileFilterButton.focus();
 }
 
-function switchView(view) {
+async function switchView(view) {
   if (view !== state.view) trackAnalyticsEvent("view_open", view);
   state.view = view;
+  const activePanel = document.querySelector(`[data-view-panel="${view}"]`);
   document.querySelectorAll("[data-view-panel]").forEach((panel) => {
     const active = panel.dataset.viewPanel === view;
     panel.hidden = !active;
@@ -698,7 +738,18 @@ function switchView(view) {
   });
   history.replaceState(null, "", `#${view}`);
   window.scrollTo({ top: 0, behavior: "smooth" });
+  activePanel?.setAttribute("aria-busy", "true");
+  try {
+    await ensureViewInitialized(view);
+  } catch (error) {
+    console.error(error);
+    showToast("模块加载失败，请检查网络后重试");
+    return false;
+  } finally {
+    activePanel?.removeAttribute("aria-busy");
+  }
   if (view === "prompt") renderPromptOutput();
+  return true;
 }
 
 function renderTimeline() {

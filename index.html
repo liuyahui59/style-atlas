@@ -17,32 +17,37 @@
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="site.webmanifest" />
     <link rel="preload" as="image" href="assets/artworks/thumbs/ancient-egyptian.webp" fetchpriority="high" />
-    <link rel="preload" as="image" href="assets/artworks/thumbs/classical-greek.webp" fetchpriority="high" />
-    <link rel="preload" as="image" href="assets/artworks/thumbs/byzantine.webp" fetchpriority="high" />
     <title>风格谱 · Style Atlas</title>
     <script>
       var _hmt = _hmt || [];
       (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?8035eab9df85edd545862187c3d27658";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
+        function loadAnalytics() {
+          if (document.querySelector('script[src*="hm.baidu.com/hm.js"]')) return;
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?8035eab9df85edd545862187c3d27658";
+          hm.async = true;
+          hm.fetchPriority = "low";
+          document.head.appendChild(hm);
+        }
+        window.addEventListener("load", function() {
+          if ("requestIdleCallback" in window) {
+            window.requestIdleCallback(loadAnalytics, { timeout: 3000 });
+          } else {
+            window.setTimeout(loadAnalytics, 1500);
+          }
+        }, { once: true });
       })();
     </script>
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
     <script src="data.js" defer></script>
     <script src="data-extra.js" defer></script>
     <script src="data-more.js" defer></script>
     <script src="visual-genes.js" defer></script>
-    <script src="prompt-ai-data.js" defer></script>
     <script src="artworks.js" defer></script>
     <script src="aesthetic-styles.js" defer></script>
     <script src="chinese-visual-directions.js" defer></script>
-    <script src="prompt-options.js" defer></script>
-    <script src="visual-vocabulary-mechanics.js" defer></script>
-    <script src="visual-vocabulary.js" defer></script>
     <script src="app.js" defer></script>
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" async fetchpriority="low" onload="window.refreshIcons?.()"></script>
   </head>
   <body>
     <div class="app-shell">

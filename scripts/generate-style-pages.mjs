@@ -64,8 +64,9 @@ function renderStylePage(style) {
   const title = `${style.nameZh}（${style.nameEn}）：视觉特征、历史与 AI Prompt | 风格谱`;
   const description = `${style.nameZh}风格图鉴：${style.summary}${style.recognition} 查看构图、造型、配色、字体、材质与 AI 绘图 Prompt。`;
   const canonical = `${siteUrl}/styles/${style.id}/`;
-  const imageUrl = `${siteUrl}/${style.artwork.src}`;
   const optimizedImagePath = getArtworkVariantPath(style, "optimized");
+  const thumbnailImagePath = getArtworkVariantPath(style, "thumbs");
+  const imageUrl = `${siteUrl}/${optimizedImagePath}`;
   const relatedStyles = style.related.map((id) => stylesById.get(id)).filter(Boolean);
   const coreGuide = buildCoreGuide(style);
   const recognitionAxes = buildRecognitionAxes(style);
@@ -127,7 +128,8 @@ function renderStylePage(style) {
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="${canonical}" />
     <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
-    <link rel="preload" as="image" href="../../${optimizedImagePath}" fetchpriority="high" />
+    <link rel="preload" as="image" href="../../${thumbnailImagePath}" media="(max-width: 720px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="../../${optimizedImagePath}" media="(min-width: 721px)" fetchpriority="high" />
     <link rel="manifest" href="../../site.webmanifest" />
     <link rel="stylesheet" href="../../styles.css" />
     <link rel="stylesheet" href="../../style-pages.css" />
@@ -156,7 +158,10 @@ function renderStylePage(style) {
             </div>
           </div>
           <figure class="detail-visual has-artwork">
-            <img src="../../${optimizedImagePath}" alt="${escapeHtml(`${style.nameZh}（${style.nameEn}）风格视觉示例`)}" width="1200" height="900" fetchpriority="high" decoding="async" />
+            <picture>
+              <source media="(max-width: 720px)" srcset="../../${thumbnailImagePath}" />
+              <img src="../../${optimizedImagePath}" alt="${escapeHtml(`${style.nameZh}（${style.nameEn}）风格视觉示例`)}" width="1200" height="900" fetchpriority="high" decoding="async" />
+            </picture>
           </figure>
         </header>
 
@@ -378,7 +383,7 @@ function renderStyleIndex() {
       </header>
       <section class="static-style-grid" aria-label="全部风格">
         ${styles.map((style, index) => `<a class="static-style-card" href="${style.id}/">
-          <img src="../${getArtworkVariantPath(style, "thumbs")}" alt="${escapeHtml(`${style.nameZh}风格视觉示例`)}" width="720" height="540" ${index < 3 ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'} decoding="async" />
+          <img src="../${getArtworkVariantPath(style, "thumbs")}" alt="${escapeHtml(`${style.nameZh}风格视觉示例`)}" width="720" height="540" ${index === 0 ? 'loading="eager" fetchpriority="high"' : 'loading="lazy" fetchpriority="low"'} decoding="async" />
           <strong>${escapeHtml(style.nameZh)}</strong><small>${escapeHtml(style.nameEn)}</small><span>${escapeHtml(style.summary)}</span>
         </a>`).join("\n        ")}
       </section>

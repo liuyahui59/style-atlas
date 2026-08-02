@@ -20,6 +20,7 @@ const state = {
 };
 
 const TIMELINE_BASE_WIDTH = 2400;
+const ASSET_VERSION = "20260802-328";
 const TIMELINE_REGIONS = [
   "全球/跨地域",
   "欧洲",
@@ -65,7 +66,7 @@ function loadOptionalScript(src) {
   if (optionalScriptLoads.has(src)) return optionalScriptLoads.get(src);
   const promise = new Promise((resolve, reject) => {
     const script = document.createElement("script");
-    script.src = src;
+    script.src = `${src}?v=${ASSET_VERSION}`;
     script.async = true;
     script.onload = resolve;
     script.onerror = () => {

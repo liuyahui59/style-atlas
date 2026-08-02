@@ -53,8 +53,9 @@ if (!homepage.includes('id="openMixerButton"') || !homepage.includes('href="mixe
 if (!appSource.includes('dom.openMixerButton.href = `mixer.html?primary=${encodeURIComponent(style.id)}`')) {
   errors.push("app.js: mixer entry does not follow the selected Prompt style");
 }
-if (!html.includes('src="mixer.js"')) errors.push("mixer.html: mixer.js is not loaded");
-if (!html.includes('src="strict-catalog.js"')) errors.push("mixer.html: strict catalog is not loaded");
+if (!html.includes('src="mixer.js?v=20260802-328"')) errors.push("mixer.html: mixer.js is not loaded with the current asset version");
+if (!html.includes('src="strict-catalog.js?v=20260802-328"')) errors.push("mixer.html: strict catalog is not loaded with the current asset version");
+if (!html.includes('href="styles.css?v=20260802-328"')) errors.push("mixer.html: stylesheet is not loaded with the current asset version");
 
 const knownDimensions = new Set(Object.keys(api.dimensions));
 for (const [styleId, prompt] of Object.entries(api.prompts)) {

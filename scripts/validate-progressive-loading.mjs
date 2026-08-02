@@ -8,7 +8,11 @@ import { loadClassicScripts, runClassicScripts, STYLE_PROMPT_SOURCE_FILES } from
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const indexHtml = fs.readFileSync(path.join(rootDir, "index.html"), "utf8");
 const appSource = fs.readFileSync(path.join(rootDir, "app.js"), "utf8");
-const initialScriptSources = [...indexHtml.matchAll(/<script\b[^>]*\bsrc="([^"]+)"[^>]*>/g)].map((match) => match[1]);
+const initialScriptUrls = [...indexHtml.matchAll(/<script\b[^>]*\bsrc="([^"]+)"[^>]*>/g)].map((match) => match[1]);
+const initialScriptSources = initialScriptUrls.map((src) => src.split("?")[0]);
+const localAssetVersions = initialScriptUrls
+  .filter((src) => !src.startsWith("http"))
+  .map((src) => src.split("?")[1]);
 const deferredModuleScripts = [
   "prompt-options.js",
   "visual-vocabulary-mechanics.js",
@@ -21,6 +25,9 @@ deferredModuleScripts.forEach((src) => {
 assert(initialScriptSources.includes("style-prompt-data.js"), "Unified prompt data must load before the atlas app");
 assert(initialScriptSources.includes("strict-catalog.js"), "Strict catalog classification must load before the atlas app");
 assert(initialScriptSources.indexOf("strict-catalog.js") < initialScriptSources.indexOf("artworks.js"), "Strict catalog must filter styles before artwork mapping");
+assert(localAssetVersions.length > 0 && localAssetVersions.every((version) => version === "v=20260802-328"), "Initial local scripts must share the current cache-busting version");
+assert.match(indexHtml, /href="styles\.css\?v=20260802-328"/, "Atlas stylesheet must use the current cache-busting version");
+assert.match(appSource, /const ASSET_VERSION = "20260802-328"/, "Lazy-loaded scripts must use the current cache-busting version");
 assert(!initialScriptSources.includes("prompt-ai-data.js"), "Legacy prompt data must not load");
 assert(!indexHtml.includes("contentModeControl"), "Prompt controls must not include the removed content-range option");
 assert.match(indexHtml, /class="header-actions" id="headerActions"/, "Atlas-only header actions need a stable visibility target");

@@ -1,10 +1,10 @@
 import { readFile } from "node:fs/promises";
 import vm from "node:vm";
+import { STYLE_PROMPT_SOURCE_FILES } from "./lib/classic-script-loader.mjs";
 
 const root = new URL("../", import.meta.url);
 const sourceFiles = [
-  "data.js", "data-extra.js", "data-more.js", "visual-genes.js", "artworks.js",
-  "aesthetic-styles.js", "chinese-visual-directions.js", "style-prompt-data.js",
+  ...STYLE_PROMPT_SOURCE_FILES,
   "prompt-options.js", "visual-vocabulary-mechanics.js", "visual-vocabulary.js"
 ];
 const source = `${(await Promise.all(sourceFiles.map((file) => readFile(new URL(file, root), "utf8")))).join("\n")}\nglobalThis.result = {
@@ -24,6 +24,7 @@ vm.runInContext(source, context);
 const {
   STYLE_DATA,
   STYLE_PROMPT_DATA,
+  FILTER_GROUPS,
   PROMPT_CONTROL_GROUPS,
   VISUAL_VOCABULARY_GROUPS,
   VISUAL_VOCABULARY_COUNT,
@@ -32,23 +33,33 @@ const {
 } = context.result;
 const ids = new Set(STYLE_DATA.map((style) => style.id));
 const errors = [];
+const artworkSources = new Map();
 const forbiddenVisualGeneTermsZh = ["人物", "角色", "人体", "动物", "鸟类", "花卉", "花朵", "藤蔓", "面具", "走廊", "门窗", "城市", "建筑物", "飞船", "宇航服", "书架", "旧书", "眼睛", "怪物", "废墟", "街道", "雕像", "棕榈", "齿轮", "管道", "山水", "庭院"];
-const forbiddenVisualGeneTermsEn = ["person", "people", "human", "character", "animal", "bird", "flower", "vine", "mask", "corridor", "doorway", "city", "building", "spacecraft", "spacesuit", "bookshelf", "book", "creature", "ruin", "street", "statue", "palm", "gear", "pipe", "landscape", "garden", "wall"];
+const forbiddenVisualGeneTermsEn = ["person", "people", "human", "animal", "bird", "flower", "vine", "mask", "corridor", "doorway", "city", "building", "spacecraft", "spacesuit", "bookshelf", "book", "creature", "ruin", "street", "statue", "palm", "gear", "pipe", "landscape", "garden", "wall"];
 const genericPromptTerms = ["高质量", "杰作", "高级感", "震撼", "精致完成度", "清晰视觉层级", "高细节", "high quality", "best quality", "masterpiece", "award-winning", "refined finish", "highly detailed", "ultra-detailed", "high-detail", "visual impact"];
+const genericSummaryTerms = ["建立可跨主体迁移的视觉语言"];
+const genericVisualGenePhrasesEn = ["balanced composition with a clear focal point", "controlled color palette", "refined material texture", "coherent visual language"];
 const legacyPromptFields = ["prompt", "promptZh", "promptEn", "aiPrompt", "visualSpec"];
-const modelPromptPrefixesZh = ["构图采用", "视角与空间表现采用", "将用户主体转译为", "配色限定为", "光影采用", "成像与笔触采用", "材质与表面呈现为", "仅在用户要求文字时采用", "仅局部使用", "整体视觉采用"];
+const modelPromptPrefixesZh = ["构图采用", "视角与空间表现采用", "将用户主体转译为", "配色限定为", "光影采用", "成像与笔触采用", "材质与表面呈现为", "仅在用户要求文字时，", "仅局部使用", "整体视觉采用"];
 const modelPromptPrefixesEn = ["compose with", "use ", "translate the supplied subjects into", "limit the palette to", "render marks and edges with", "render materials and surfaces as", "only when text is requested", "apply "];
 
-if (STYLE_DATA.length !== 123) errors.push(`Expected 123 styles, found ${STYLE_DATA.length}`);
+const strictStyleCount = vm.runInContext("STRICT_STYLE_COUNT", context);
+const completeVisualGeneFingerprints = new Map();
+if (STYLE_DATA.length !== strictStyleCount) errors.push(`Expected ${strictStyleCount} strict styles, found ${STYLE_DATA.length}`);
 if (ids.size !== STYLE_DATA.length) errors.push("Duplicate style ids found");
+if (Object.keys(FILTER_GROUPS).join(",") !== "type,region,visualHistory") errors.push("Filters must contain only type, region, and visualHistory");
 
 for (const style of STYLE_DATA) {
-  const required = ["id", "nameZh", "nameEn", "type", "period", "region", "track", "summary", "recognition", "genes", "visualGenes", "palette"];
+  const required = ["id", "nameZh", "nameEn", "type", "period", "region", "broadRegion", "broadRegions", "visualHistory", "visualHistoryTime", "track", "summary", "recognition", "genes", "visualGenes", "palette"];
   required.forEach((field) => {
     if (!style[field]) errors.push(`${style.id}: missing ${field}`);
   });
   legacyPromptFields.forEach((field) => {
     if (field in style) errors.push(`${style.id}: legacy prompt field ${field} must not exist`);
+  });
+  if (!style.editorialReviewed) errors.push(`${style.id}: retained style has not passed editorial review`);
+  genericSummaryTerms.forEach((term) => {
+    if (style.summary.includes(term)) errors.push(`${style.id}: summary retains generated template phrase ${term}`);
   });
   if (!style.visualGenes?.length) errors.push(`${style.id}: missing core visual genes`);
   const visualGenePairs = new Set();
@@ -66,13 +77,28 @@ for (const style of STYLE_DATA) {
     genericPromptTerms.forEach((term) => {
       if (`${gene.zh} ${gene.en}`.toLowerCase().includes(term.toLowerCase())) errors.push(`${style.id}: visual gene ${index} contains generic prompt term ${term}`);
     });
+    genericVisualGenePhrasesEn.forEach((phrase) => {
+      if (gene.en.toLowerCase().includes(phrase)) errors.push(`${style.id}: visual gene ${index} contains generic English fallback phrase ${phrase}`);
+    });
   });
+  const completeFingerprint = (style.visualGenes || []).map((gene) => `${gene.zh.trim()}|${gene.en.trim()}`).join("||");
+  if (completeVisualGeneFingerprints.has(completeFingerprint)) {
+    errors.push(`${style.id}: complete visual-gene fingerprint duplicates ${completeVisualGeneFingerprints.get(completeFingerprint)}`);
+  } else {
+    completeVisualGeneFingerprints.set(completeFingerprint, style.id);
+  }
   Object.entries(style.genes || {}).forEach(([gene, values]) => {
     if (!Array.isArray(values) || values.length < 1) errors.push(`${style.id}: invalid gene ${gene}`);
   });
   (style.related || []).forEach((relatedId) => {
     if (!ids.has(relatedId)) errors.push(`${style.id}: unknown related style ${relatedId}`);
   });
+  if (style.artwork?.src) {
+    const artworkId = style.artwork.src.split("/").pop().replace(/\.[^.]+$/, "");
+    if (artworkId !== style.id) errors.push(`${style.id}: artwork belongs to ${artworkId}`);
+    if (artworkSources.has(style.artwork.src)) errors.push(`${style.id}: artwork repeats ${artworkSources.get(style.artwork.src)}`);
+    artworkSources.set(style.artwork.src, style.id);
+  }
 }
 
 const promptEntries = Object.entries(STYLE_PROMPT_DATA);
@@ -88,6 +114,10 @@ for (const style of STYLE_DATA) {
     errors.push(`${style.id}: expected at least 3 weighted prompt genes`);
     continue;
   }
+  if (prompt.genes.length !== style.visualGenes.length) {
+    errors.push(`${style.id}: prompt gene count ${prompt.genes.length} does not match current visual gene count ${style.visualGenes.length}`);
+  }
+  const currentVisualGenePairs = new Set(style.visualGenes.map((gene) => `${gene.zh.trim()}|${gene.en.trim()}`));
   const coreGenes = prompt.genes.filter((gene) => gene.kind === "core");
   const adjustableGenes = prompt.genes.filter((gene) => gene.kind === "adjustable");
   if (!coreGenes.length) errors.push(`${style.id}: missing core prompt genes`);
@@ -107,8 +137,11 @@ for (const style of STYLE_DATA) {
     geneIds.add(gene.id);
     if (!Number.isFinite(gene.weight) || gene.weight <= 0 || gene.weight > 1) errors.push(`${style.id}: invalid prompt gene weight ${index}`);
     if (gene.promptZh === gene.labelZh || gene.promptEn === gene.labelEn) errors.push(`${style.id}: prompt gene ${index} copies its human label without model instructions`);
+    if (!currentVisualGenePairs.has(`${gene.labelZh.trim()}|${gene.labelEn.trim()}`)) errors.push(`${style.id}: prompt gene ${index} is stale or does not match the current bilingual visual gene`);
     if (!modelPromptPrefixesZh.some((prefix) => gene.promptZh.startsWith(prefix))) errors.push(`${style.id}: prompt gene ${index} lacks an executable Chinese instruction`);
     if (!modelPromptPrefixesEn.some((prefix) => gene.promptEn.startsWith(prefix))) errors.push(`${style.id}: prompt gene ${index} lacks an executable English instruction`);
+    if (/仅在用户要求文字时[，,]?\s*仅在用户要求文字时/.test(gene.promptZh)) errors.push(`${style.id}: prompt gene ${index} repeats the Chinese typography condition`);
+    if (/only when text is requested,?\s*only when text is requested/i.test(gene.promptEn)) errors.push(`${style.id}: prompt gene ${index} repeats the English typography condition`);
     promptDimensions.add(gene.dimension);
     for (const label of [gene.labelZh?.trim(), gene.labelEn?.trim()]) {
       if (!label) continue;
@@ -192,5 +225,5 @@ if (errors.length) {
   console.error(errors.join("\n"));
   process.exitCode = 1;
 } else {
-  console.log(`Validated ${STYLE_DATA.length} styles and ${PROMPT_CONTROL_GROUPS.length} prompt control groups`);
+  console.log(`Validated ${STYLE_DATA.length} styles, ${artworkSources.size} unique matched artworks, and ${PROMPT_CONTROL_GROUPS.length} prompt control groups`);
 }

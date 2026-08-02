@@ -1,4 +1,5 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { evaluateClassicExpression, loadClassicScripts, STYLE_SOURCE_FILES } from "./lib/classic-script-loader.mjs";
 
 const API = "https://commons.wikimedia.org/w/api.php";
 const OUTPUT_DIR = new URL("../assets/artworks/", import.meta.url);
@@ -113,6 +114,36 @@ const searches = {
   "liminal-space": "liminal space empty corridor Creative Commons"
 };
 
+const searchMediumByTrack = Object.freeze({
+  "古代与古典视觉": "museum artwork",
+  "欧洲艺术运动": "painting artwork museum",
+  "现代与当代艺术": "artwork installation museum",
+  "平面设计与传播视觉": "poster graphic design",
+  "建筑与空间视觉": "architecture building",
+  "东亚视觉传统": "artwork museum",
+  "南亚与东南亚视觉": "artwork museum",
+  "西亚与伊斯兰视觉": "artwork museum",
+  "非洲与大洋洲视觉": "artwork museum",
+  "美洲传统与地域视觉": "artwork museum",
+  "摄影、电影与印刷语言": "photograph film print",
+  "时尚与亚文化视觉": "fashion style",
+  "数字推想与网络审美": "digital aesthetic",
+  "可转译工艺视觉系统": "craft museum"
+});
+
+const styleContext = await loadClassicScripts(new URL("../", import.meta.url), STYLE_SOURCE_FILES);
+const catalogStyles = JSON.parse(JSON.stringify(evaluateClassicExpression(styleContext, "STYLE_DATA")));
+for (const style of catalogStyles) {
+  if (searches[style.id]) continue;
+  const formalName = style.nameEn
+    .replace(/\bAesthetic\b/gi, "")
+    .replace(/\bVisual Tradition\b/gi, "")
+    .replace(/\bVisual Art\b/gi, "art")
+    .replace(/\s+/g, " ")
+    .trim();
+  searches[style.id] = `${formalName} ${searchMediumByTrack[style.track] || "artwork"}`;
+}
+
 const clean = (value = "") => value
   .replace(/<[^>]+>/g, "")
   .replace(/&nbsp;/g, " ")
@@ -158,6 +189,23 @@ function queryScore(item, query) {
   return terms.reduce((score, term) => score + (haystack.includes(term) ? 1 : 0), 0) / Math.max(terms.length, 1);
 }
 
+function distinctiveTerms(query) {
+  const ignored = new Set([
+    "the", "and", "with", "from", "style", "aesthetic", "visual", "tradition", "design",
+    "art", "artwork", "painting", "museum", "craft", "fashion", "poster", "graphic", "digital",
+    "architecture", "building", "photograph", "film", "print"
+  ]);
+  return query.toLowerCase().split(/[^a-z0-9]+/).filter((term) => term.length > 2 && !ignored.has(term));
+}
+
+function hasDistinctiveMatch(item, query) {
+  const haystack = clean(`${item.title || ""} ${metadataValue(item, "ImageDescription")} ${metadataValue(item, "Categories")}`).toLowerCase();
+  const terms = distinctiveTerms(query);
+  if (!terms.length) return false;
+  const matched = terms.filter((term) => haystack.includes(term)).length;
+  return matched >= Math.min(2, terms.length) || matched / terms.length >= 0.5;
+}
+
 function isAllowedLicense(item) {
   const license = metadataValue(item, "LicenseShortName");
   return ALLOWED_LICENSES.some((pattern) => pattern.test(license));
@@ -185,7 +233,8 @@ async function searchCommons(query) {
       && /^image\/(jpeg|png|webp)$/i.test(image.mime || "")
       && image.width >= 800
       && image.height >= 500
-      && isAllowedLicense(item);
+      && isAllowedLicense(item)
+      && hasDistinctiveMatch(item, query);
   });
   candidates.sort((a, b) => {
     const aInfo = a.imageinfo[0];
@@ -231,7 +280,7 @@ async function readExistingManifest() {
 async function saveOutputs(manifest) {
   await writeFile(new URL("manifest.json", OUTPUT_DIR), `${JSON.stringify(manifest, null, 2)}\n`);
   const browserArtworkData = Object.fromEntries(Object.entries(manifest).map(([id, artwork]) => [id, { src: artwork.src }]));
-  const browserData = `const ARTWORK_DATA = ${JSON.stringify(browserArtworkData, null, 2)};\n\nSTYLE_DATA.forEach((style) => {\n  style.artwork = ARTWORK_DATA[style.id] || null;\n});\n`;
+  const browserData = `const ARTWORK_DATA = ${JSON.stringify(browserArtworkData, null, 2)};\n\nSTYLE_DATA.forEach((style) => {\n  const exactArtwork = ARTWORK_DATA[style.id] || style.artwork || null;\n  const artworkId = exactArtwork?.src?.split("/").pop()?.replace(/\\.[^.]+$/, "");\n  style.artwork = artworkId === style.id ? exactArtwork : null;\n});\n`;
   await writeFile(new URL("../../artworks.js", OUTPUT_DIR), browserData);
 }
 
@@ -289,4 +338,18 @@ async function main() {
   if (count !== Object.keys(searches).length) process.exitCode = 2;
 }
 
-await main();
+if (process.argv.includes("--sync")) {
+  const manifest = await readExistingManifest();
+  await saveOutputs(manifest);
+  console.log(`Synced ${Object.keys(manifest).length} artworks from manifest`);
+} else if (process.argv.includes("--plan")) {
+  const manifest = await readExistingManifest();
+  const plan = Object.fromEntries(Object.entries(searches).map(([id, query]) => [id, {
+    query,
+    status: manifest[id]?.src ? "sourced" : "pending"
+  }]));
+  await writeFile(new URL("search-plan.json", OUTPUT_DIR), `${JSON.stringify(plan, null, 2)}\n`);
+  console.log(`Prepared artwork search plan for ${Object.keys(plan).length} styles`);
+} else {
+  await main();
+}

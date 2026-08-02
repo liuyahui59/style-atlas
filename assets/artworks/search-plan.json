@@ -1,0 +1,3014 @@
+{
+  "ancient-egyptian": {
+    "query": "Nebamun hunting in the marshes British Museum",
+    "status": "sourced"
+  },
+  "classical-greek": {
+    "query": "Doryphoros ancient Greek sculpture museum",
+    "status": "sourced"
+  },
+  "byzantine": {
+    "query": "Christ Pantocrator Byzantine mosaic",
+    "status": "sourced"
+  },
+  "gothic": {
+    "query": "Chartres Cathedral stained glass rose window",
+    "status": "sourced"
+  },
+  "renaissance": {
+    "query": "Raphael School of Athens fresco",
+    "status": "sourced"
+  },
+  "mannerism": {
+    "query": "Bronzino Eleonora of Toledo portrait",
+    "status": "sourced"
+  },
+  "baroque": {
+    "query": "Caravaggio Calling of Saint Matthew",
+    "status": "sourced"
+  },
+  "rococo": {
+    "query": "Fragonard The Swing painting",
+    "status": "sourced"
+  },
+  "neoclassicism": {
+    "query": "Jacques Louis David Oath of the Horatii",
+    "status": "sourced"
+  },
+  "romanticism": {
+    "query": "Caspar David Friedrich Wanderer above the Sea of Fog",
+    "status": "sourced"
+  },
+  "realism": {
+    "query": "Jean Francois Millet The Gleaners",
+    "status": "sourced"
+  },
+  "pre-raphaelite": {
+    "query": "John Everett Millais Ophelia painting",
+    "status": "sourced"
+  },
+  "impressionism": {
+    "query": "Claude Monet Impression Sunrise painting",
+    "status": "sourced"
+  },
+  "post-impressionism": {
+    "query": "Vincent van Gogh Starry Night",
+    "status": "sourced"
+  },
+  "symbolism": {
+    "query": "Gustav Klimt The Kiss painting",
+    "status": "sourced"
+  },
+  "arts-crafts": {
+    "query": "William Morris Strawberry Thief textile",
+    "status": "sourced"
+  },
+  "art-nouveau": {
+    "query": "Alphonse Mucha Job cigarette poster",
+    "status": "sourced"
+  },
+  "fauvism": {
+    "query": "Andre Derain Charing Cross Bridge painting",
+    "status": "sourced"
+  },
+  "expressionism": {
+    "query": "Edvard Munch The Scream 1893",
+    "status": "sourced"
+  },
+  "cubism": {
+    "query": "Juan Gris Portrait of Picasso painting",
+    "status": "sourced"
+  },
+  "futurism": {
+    "query": "Giacomo Balla Dynamism of a Dog on a Leash",
+    "status": "sourced"
+  },
+  "dada": {
+    "query": "Raoul Hausmann Mechanical Head Dada",
+    "status": "sourced"
+  },
+  "constructivism": {
+    "query": "El Lissitzky Beat the Whites with the Red Wedge",
+    "status": "sourced"
+  },
+  "suprematism": {
+    "query": "Kazimir Malevich Suprematist Composition",
+    "status": "sourced"
+  },
+  "de-stijl": {
+    "query": "Piet Mondrian Composition red blue yellow",
+    "status": "sourced"
+  },
+  "bauhaus": {
+    "query": "Bauhaus Dessau building Walter Gropius",
+    "status": "sourced"
+  },
+  "surrealism": {
+    "query": "Salvador Dali surrealist painting museum",
+    "status": "sourced"
+  },
+  "art-deco": {
+    "query": "Chrysler Building crown Art Deco",
+    "status": "sourced"
+  },
+  "abstract-expressionism": {
+    "query": "abstract expressionist action painting museum",
+    "status": "sourced"
+  },
+  "color-field": {
+    "query": "color field painting museum",
+    "status": "sourced"
+  },
+  "pop-art": {
+    "query": "pop art public mural",
+    "status": "sourced"
+  },
+  "op-art": {
+    "query": "op art optical geometric artwork",
+    "status": "sourced"
+  },
+  "minimalism": {
+    "query": "minimalist sculpture museum installation",
+    "status": "sourced"
+  },
+  "conceptual-art": {
+    "query": "conceptual art museum installation",
+    "status": "sourced"
+  },
+  "neo-expressionism": {
+    "query": "neo expressionist painting museum",
+    "status": "sourced"
+  },
+  "photorealism": {
+    "query": "photorealist painting city reflections",
+    "status": "sourced"
+  },
+  "postmodernism": {
+    "query": "Portland Building Michael Graves",
+    "status": "sourced"
+  },
+  "lowbrow": {
+    "query": "lowbrow pop surrealism mural",
+    "status": "sourced"
+  },
+  "psychedelic": {
+    "query": "1960s psychedelic concert poster",
+    "status": "sourced"
+  },
+  "street-art": {
+    "query": "street art mural Creative Commons",
+    "status": "sourced"
+  },
+  "ink-wash": {
+    "query": "Chinese literati ink landscape painting museum",
+    "status": "sourced"
+  },
+  "gongbi": {
+    "query": "Chinese gongbi bird flower painting museum",
+    "status": "sourced"
+  },
+  "dunhuang": {
+    "query": "Dunhuang Mogao caves mural flying apsara",
+    "status": "sourced"
+  },
+  "chinese-new-year-print": {
+    "query": "Chinese New Year woodblock print door god",
+    "status": "sourced"
+  },
+  "guochao": {
+    "query": "Chinese guochao visual design",
+    "status": "sourced"
+  },
+  "ukiyo-e": {
+    "query": "Hokusai Great Wave off Kanagawa",
+    "status": "sourced"
+  },
+  "rinpa": {
+    "query": "Ogata Korin Red and White Plum Blossoms",
+    "status": "sourced"
+  },
+  "nihonga": {
+    "query": "Yokoyama Taikan Nihonga painting",
+    "status": "sourced"
+  },
+  "wabi-sabi": {
+    "query": "Japanese wabi sabi pottery kintsugi",
+    "status": "sourced"
+  },
+  "kawaii": {
+    "query": "kawaii Japanese street fashion Creative Commons",
+    "status": "sourced"
+  },
+  "superflat": {
+    "query": "superflat Japanese contemporary mural",
+    "status": "sourced"
+  },
+  "korean-minhwa": {
+    "query": "Korean minhwa tiger magpie painting",
+    "status": "sourced"
+  },
+  "persian-miniature": {
+    "query": "Persian miniature painting museum manuscript",
+    "status": "sourced"
+  },
+  "mughal-miniature": {
+    "query": "Akbar Mughal miniature painting museum",
+    "status": "sourced"
+  },
+  "madhubani": {
+    "query": "Madhubani Mithila painting Creative Commons",
+    "status": "sourced"
+  },
+  "islamic-geometry": {
+    "query": "Alhambra Islamic geometric tile pattern",
+    "status": "sourced"
+  },
+  "thangka": {
+    "query": "Tibetan thangka painting museum",
+    "status": "sourced"
+  },
+  "mexican-muralism": {
+    "query": "Diego Rivera mural Mexico public building",
+    "status": "sourced"
+  },
+  "mexican-folk": {
+    "query": "Mexican folk art alebrije",
+    "status": "sourced"
+  },
+  "african-wax-print": {
+    "query": "African wax print fabric pattern",
+    "status": "sourced"
+  },
+  "afrofuturism": {
+    "query": "Afrofuturism art mural Creative Commons",
+    "status": "sourced"
+  },
+  "swiss": {
+    "query": "International Typographic Style Swiss poster",
+    "status": "sourced"
+  },
+  "mid-century-modern": {
+    "query": "Farnsworth House Mies van der Rohe",
+    "status": "sourced"
+  },
+  "scandinavian-modern": {
+    "query": "Scandinavian modern furniture interior",
+    "status": "sourced"
+  },
+  "streamline-moderne": {
+    "query": "Streamline Moderne architecture",
+    "status": "sourced"
+  },
+  "atomic-age": {
+    "query": "Atomic Age mid century graphic design",
+    "status": "sourced"
+  },
+  "new-wave-typography": {
+    "query": "New Wave typography poster design",
+    "status": "sourced"
+  },
+  "memphis": {
+    "query": "Memphis Milano furniture design",
+    "status": "sourced"
+  },
+  "punk-visual": {
+    "query": "punk zine collage poster",
+    "status": "sourced"
+  },
+  "grunge-design": {
+    "query": "grunge graphic design poster",
+    "status": "sourced"
+  },
+  "architectural-brutalism": {
+    "query": "Barbican Estate brutalist architecture",
+    "status": "sourced"
+  },
+  "brutalism": {
+    "query": "brutalist web design screenshot",
+    "status": "sourced"
+  },
+  "flat-design": {
+    "query": "flat design illustration Creative Commons",
+    "status": "sourced"
+  },
+  "corporate-memphis": {
+    "query": "corporate Memphis flat people illustration",
+    "status": "sourced"
+  },
+  "material-design": {
+    "query": "Google Material Design interface",
+    "status": "sourced"
+  },
+  "skeuomorphism": {
+    "query": "skeuomorphic user interface design",
+    "status": "sourced"
+  },
+  "glassmorphism": {
+    "query": "glassmorphism user interface design",
+    "status": "sourced"
+  },
+  "neumorphism": {
+    "query": "neumorphism user interface design",
+    "status": "sourced"
+  },
+  "acid-graphics": {
+    "query": "acid graphics poster design",
+    "status": "sourced"
+  },
+  "glitch-art": {
+    "query": "glitch art RGB distortion",
+    "status": "sourced"
+  },
+  "generative-art": {
+    "query": "generative algorithmic art Creative Commons",
+    "status": "sourced"
+  },
+  "cyberpunk": {
+    "query": "cyberpunk neon city Creative Commons",
+    "status": "sourced"
+  },
+  "steampunk": {
+    "query": "steampunk machinery costume Creative Commons",
+    "status": "sourced"
+  },
+  "solarpunk": {
+    "query": "solarpunk green architecture illustration",
+    "status": "sourced"
+  },
+  "retrofuturism": {
+    "query": "retrofuturism space age illustration",
+    "status": "sourced"
+  },
+  "synthwave": {
+    "query": "synthwave retro future neon artwork",
+    "status": "sourced"
+  },
+  "vaporwave": {
+    "query": "vaporwave aesthetic artwork Creative Commons",
+    "status": "sourced"
+  },
+  "y2k": {
+    "query": "Bondi blue Apple iMac G3",
+    "status": "sourced"
+  },
+  "frutiger-aero": {
+    "query": "Frutiger Aero aesthetic",
+    "status": "sourced"
+  },
+  "anime": {
+    "query": "Japanese anime cel museum",
+    "status": "sourced"
+  },
+  "manga": {
+    "query": "Japanese manga page public domain",
+    "status": "sourced"
+  },
+  "american-comics": {
+    "query": "Golden Age comic book cover public domain",
+    "status": "sourced"
+  },
+  "gothic-subculture": {
+    "query": "gothic subculture fashion portrait Creative Commons",
+    "status": "sourced"
+  },
+  "dark-fantasy": {
+    "query": "dark fantasy artwork Creative Commons",
+    "status": "sourced"
+  },
+  "film-noir": {
+    "query": "film noir still public domain",
+    "status": "sourced"
+  },
+  "cottagecore": {
+    "query": "cottagecore garden interior Creative Commons",
+    "status": "sourced"
+  },
+  "dark-academia": {
+    "query": "dark academia library Creative Commons",
+    "status": "sourced"
+  },
+  "dreamcore": {
+    "query": "dreamcore aesthetic Creative Commons",
+    "status": "sourced"
+  },
+  "weirdcore": {
+    "query": "weirdcore aesthetic Creative Commons",
+    "status": "sourced"
+  },
+  "liminal-space": {
+    "query": "liminal space empty corridor Creative Commons",
+    "status": "sourced"
+  },
+  "maximalism": {
+    "query": "Maximalism artwork",
+    "status": "sourced"
+  },
+  "structuralism": {
+    "query": "Structuralism artwork",
+    "status": "pending"
+  },
+  "neo-futurism": {
+    "query": "Neo-Futurism artwork",
+    "status": "sourced"
+  },
+  "biomorphic": {
+    "query": "Biomorphic Style artwork",
+    "status": "pending"
+  },
+  "neo-pop": {
+    "query": "Neo-Pop Art artwork",
+    "status": "sourced"
+  },
+  "collage": {
+    "query": "Collage Art artwork",
+    "status": "sourced"
+  },
+  "naive-art": {
+    "query": "Naive Art artwork",
+    "status": "sourced"
+  },
+  "atompunk": {
+    "query": "Atompunk artwork",
+    "status": "pending"
+  },
+  "wasteland-punk": {
+    "query": "Wasteland Punk artwork",
+    "status": "pending"
+  },
+  "dieselpunk": {
+    "query": "Dieselpunk artwork",
+    "status": "pending"
+  },
+  "kidcore": {
+    "query": "Kidcore artwork",
+    "status": "pending"
+  },
+  "blue-green-landscape": {
+    "query": "Blue-Green Landscape Painting artwork museum",
+    "status": "sourced"
+  },
+  "song-court-painting": {
+    "query": "Song Court Painting artwork museum",
+    "status": "sourced"
+  },
+  "baimiao": {
+    "query": "Baimiao Line Drawing artwork museum",
+    "status": "sourced"
+  },
+  "jiehua": {
+    "query": "Jiehua Architectural Drawing artwork museum",
+    "status": "sourced"
+  },
+  "shanhaijing-compendium": {
+    "query": "Shanhaijing Illustrated Compendium artwork museum",
+    "status": "sourced"
+  },
+  "archaic-bronze-mythic": {
+    "query": "Archaic Bronze Mythic artwork museum",
+    "status": "sourced"
+  },
+  "daoist-immortal-realm": {
+    "query": "Daoist Immortal-Realm artwork museum",
+    "status": "sourced"
+  },
+  "cloisonne-enamel": {
+    "query": "Cloisonne Enamel artwork museum",
+    "status": "sourced"
+  },
+  "mother-of-pearl-lacquer": {
+    "query": "Mother-of-Pearl Lacquer artwork museum",
+    "status": "sourced"
+  },
+  "chinese-papercut": {
+    "query": "Chinese Papercut artwork museum",
+    "status": "sourced"
+  },
+  "chinese-shadow-puppetry": {
+    "query": "Chinese Shadow Puppetry artwork museum",
+    "status": "sourced"
+  },
+  "blue-white-porcelain": {
+    "query": "Blue-and-White Porcelain artwork museum",
+    "status": "sourced"
+  },
+  "ainu-pattern-aesthetic": {
+    "query": "Ainu Pattern artwork museum",
+    "status": "sourced"
+  },
+  "northern-song-landscape": {
+    "query": "Northern Song Landscape artwork museum",
+    "status": "pending"
+  },
+  "cursive-script-aesthetic": {
+    "query": "Cursive Script artwork museum",
+    "status": "pending"
+  },
+  "zen-painting": {
+    "query": "Zen Painting artwork museum",
+    "status": "pending"
+  },
+  "sosaku-hanga": {
+    "query": "Sosaku-hanga artwork museum",
+    "status": "pending"
+  },
+  "yamato-e": {
+    "query": "Yamato-e artwork museum",
+    "status": "pending"
+  },
+  "shanghai-school-painting": {
+    "query": "Shanghai School Painting artwork museum",
+    "status": "pending"
+  },
+  "dansaekhwa": {
+    "query": "Dansaekhwa artwork museum",
+    "status": "pending"
+  },
+  "chaekgeori": {
+    "query": "Chaekgeori artwork museum",
+    "status": "sourced"
+  },
+  "korean-ink-abstraction": {
+    "query": "Korean Ink Abstraction artwork museum",
+    "status": "pending"
+  },
+  "han-dynasty-silk-painting": {
+    "query": "Han Dynasty Silk Painting artwork museum",
+    "status": "pending"
+  },
+  "han-dynasty-pictorial-stone": {
+    "query": "Han Dynasty Pictorial Stone artwork museum",
+    "status": "pending"
+  },
+  "oracle-bone-script-aesthetic": {
+    "query": "Oracle Bone Script artwork museum",
+    "status": "sourced"
+  },
+  "jinling-school": {
+    "query": "Jinling School artwork museum",
+    "status": "pending"
+  },
+  "bronze-inscription-aesthetic": {
+    "query": "Bronze Inscription artwork museum",
+    "status": "pending"
+  },
+  "gutai-art-association": {
+    "query": "Gutai Art Association artwork museum",
+    "status": "pending"
+  },
+  "regular-script-aesthetic": {
+    "query": "Regular Script artwork museum",
+    "status": "pending"
+  },
+  "clerical-script-aesthetic": {
+    "query": "Clerical Script artwork museum",
+    "status": "pending"
+  },
+  "lingnan-school": {
+    "query": "Lingnan School artwork museum",
+    "status": "pending"
+  },
+  "ryukyu-bingata-aesthetic": {
+    "query": "Ryukyu Bingata artwork museum",
+    "status": "pending"
+  },
+  "ma-xia-school": {
+    "query": "Ma-Xia School artwork museum",
+    "status": "pending"
+  },
+  "mianzhu-new-year-print": {
+    "query": "Mianzhu New Year Print artwork museum",
+    "status": "pending"
+  },
+  "japanese-nanga": {
+    "query": "Japanese Nanga artwork museum",
+    "status": "pending"
+  },
+  "southern-song-landscape": {
+    "query": "Southern Song Landscape artwork museum",
+    "status": "pending"
+  },
+  "japanese-zen-ink-painting": {
+    "query": "Japanese Zen Ink Painting artwork museum",
+    "status": "pending"
+  },
+  "shanghai-moderne": {
+    "query": "Shanghai Moderne artwork museum",
+    "status": "pending"
+  },
+  "kano-school": {
+    "query": "Kano School artwork museum",
+    "status": "pending"
+  },
+  "four-monks-painting": {
+    "query": "Four Monks Painting artwork museum",
+    "status": "pending"
+  },
+  "four-wangs-school": {
+    "query": "Four Wangs School artwork museum",
+    "status": "pending"
+  },
+  "songjiang-school": {
+    "query": "Songjiang School artwork museum",
+    "status": "pending"
+  },
+  "taiwan-indigenous-weaving-aesthetic": {
+    "query": "Taiwan Indigenous Weaving artwork museum",
+    "status": "pending"
+  },
+  "tang-gold-and-blue-landscape": {
+    "query": "Tang Gold-and-Blue Landscape artwork museum",
+    "status": "pending"
+  },
+  "tang-figure-painting": {
+    "query": "Tang Figure Painting artwork museum",
+    "status": "pending"
+  },
+  "taohuawu-new-year-print": {
+    "query": "Taohuawu New Year Print artwork museum",
+    "status": "pending"
+  },
+  "tosa-school": {
+    "query": "Tosa School artwork museum",
+    "status": "pending"
+  },
+  "weifang-new-year-print": {
+    "query": "Weifang New Year Print artwork museum",
+    "status": "pending"
+  },
+  "wei-jin-tomb-mural": {
+    "query": "Wei-Jin Tomb Mural artwork museum",
+    "status": "pending"
+  },
+  "wu-school": {
+    "query": "Wu School artwork museum",
+    "status": "pending"
+  },
+  "mono-ha": {
+    "query": "Mono-ha artwork museum",
+    "status": "pending"
+  },
+  "shin-hanga": {
+    "query": "Shin-hanga artwork museum",
+    "status": "pending"
+  },
+  "running-script-aesthetic": {
+    "query": "Running Script artwork museum",
+    "status": "pending"
+  },
+  "eight-eccentrics-of-yangzhou": {
+    "query": "Eight Eccentrics of Yangzhou artwork museum",
+    "status": "pending"
+  },
+  "yangliuqing-new-year-print": {
+    "query": "Yangliuqing New Year Print artwork museum",
+    "status": "pending"
+  },
+  "yuan-literati-painting": {
+    "query": "Yuan Literati Painting artwork museum",
+    "status": "pending"
+  },
+  "yuefenpai-calendar-art": {
+    "query": "Yuefenpai Calendar Art artwork museum",
+    "status": "pending"
+  },
+  "zhe-school": {
+    "query": "Zhe School artwork museum",
+    "status": "pending"
+  },
+  "chinese-lianhuanhua": {
+    "query": "Chinese Lianhuanhua artwork museum",
+    "status": "pending"
+  },
+  "seal-script-aesthetic": {
+    "query": "Seal Script artwork museum",
+    "status": "pending"
+  },
+  "adinkra-aesthetic": {
+    "query": "Adinkra artwork museum",
+    "status": "pending"
+  },
+  "arnhem-land-bark-painting": {
+    "query": "Arnhem Land Bark Painting artwork museum",
+    "status": "pending"
+  },
+  "asante-visual-tradition": {
+    "query": "Asante artwork museum",
+    "status": "pending"
+  },
+  "ethiopian-icon-painting": {
+    "query": "Ethiopian Icon Painting artwork museum",
+    "status": "pending"
+  },
+  "australian-modernism": {
+    "query": "Australian Modernism artwork museum",
+    "status": "pending"
+  },
+  "australian-aboriginal-dot-painting": {
+    "query": "Australian Aboriginal Dot Painting artwork museum",
+    "status": "pending"
+  },
+  "papua-new-guinea-ceremonial-aesthetic": {
+    "query": "Papua New Guinea Ceremonial artwork museum",
+    "status": "pending"
+  },
+  "benin-court-art": {
+    "query": "Benin Court Art artwork museum",
+    "status": "pending"
+  },
+  "polynesian-tapa-aesthetic": {
+    "query": "Polynesian Tapa artwork museum",
+    "status": "pending"
+  },
+  "bogolan-aesthetic": {
+    "query": "Bogolan artwork museum",
+    "status": "pending"
+  },
+  "ndebele-house-painting": {
+    "query": "Ndebele House Painting artwork museum",
+    "status": "pending"
+  },
+  "african-independence-era-modernism": {
+    "query": "African Independence-Era Modernism artwork museum",
+    "status": "pending"
+  },
+  "west-african-studio-portraiture": {
+    "query": "West African Studio Portraiture artwork museum",
+    "status": "pending"
+  },
+  "kongo-power-figure-aesthetic": {
+    "query": "Kongo Power Figure artwork museum",
+    "status": "pending"
+  },
+  "kente-aesthetic": {
+    "query": "Kente artwork museum",
+    "status": "pending"
+  },
+  "kuba-textile-aesthetic": {
+    "query": "Kuba Textile artwork museum",
+    "status": "pending"
+  },
+  "makonde-carving-aesthetic": {
+    "query": "Makonde Carving artwork museum",
+    "status": "pending"
+  },
+  "maori-carving-aesthetic": {
+    "query": "Maori Carving artwork museum",
+    "status": "pending"
+  },
+  "maori-koru-aesthetic": {
+    "query": "Maori Koru artwork museum",
+    "status": "pending"
+  },
+  "south-african-resistance-poster": {
+    "query": "South African Resistance Poster artwork museum",
+    "status": "pending"
+  },
+  "nok-art": {
+    "query": "Nok Art artwork museum",
+    "status": "pending"
+  },
+  "samoan-tatau-aesthetic": {
+    "query": "Samoan Tatau artwork museum",
+    "status": "pending"
+  },
+  "senegalese-reverse-glass-painting": {
+    "query": "Senegalese Reverse Glass Painting artwork museum",
+    "status": "pending"
+  },
+  "shona-stone-sculpture-aesthetic": {
+    "query": "Shona Stone Sculpture artwork museum",
+    "status": "pending"
+  },
+  "timbuktu-manuscript-aesthetic": {
+    "query": "Timbuktu Manuscript artwork museum",
+    "status": "pending"
+  },
+  "tingatinga-painting": {
+    "query": "Tingatinga Painting artwork museum",
+    "status": "pending"
+  },
+  "uli-aesthetic": {
+    "query": "Uli artwork museum",
+    "status": "pending"
+  },
+  "hawaiian-featherwork-aesthetic": {
+    "query": "Hawaiian Featherwork artwork museum",
+    "status": "pending"
+  },
+  "pacific-contemporary-art": {
+    "query": "Pacific Contemporary Art artwork museum",
+    "status": "pending"
+  },
+  "ife-art": {
+    "query": "Ife Art artwork museum",
+    "status": "pending"
+  },
+  "yoruba-visual-tradition": {
+    "query": "Yoruba artwork museum",
+    "status": "pending"
+  },
+  "aboriginal-x-ray-art": {
+    "query": "Aboriginal X-ray Art artwork museum",
+    "status": "pending"
+  },
+  "akkadian-art": {
+    "query": "Akkadian Art museum artwork",
+    "status": "pending"
+  },
+  "achaemenid-persian-art": {
+    "query": "Achaemenid Persian Art museum artwork",
+    "status": "pending"
+  },
+  "ottonian-art": {
+    "query": "Ottonian Art museum artwork",
+    "status": "pending"
+  },
+  "babylonian-art": {
+    "query": "Babylonian Art museum artwork",
+    "status": "pending"
+  },
+  "northern-renaissance": {
+    "query": "Northern Renaissance museum artwork",
+    "status": "pending"
+  },
+  "international-gothic": {
+    "query": "International Gothic museum artwork",
+    "status": "pending"
+  },
+  "carolingian-art": {
+    "query": "Carolingian Art museum artwork",
+    "status": "pending"
+  },
+  "coptic-art": {
+    "query": "Coptic Art museum artwork",
+    "status": "pending"
+  },
+  "roman-imperial-art": {
+    "query": "Roman Imperial Art museum artwork",
+    "status": "pending"
+  },
+  "roman-republican-art": {
+    "query": "Roman Republican Art museum artwork",
+    "status": "pending"
+  },
+  "romanesque-art": {
+    "query": "Romanesque Art museum artwork",
+    "status": "pending"
+  },
+  "mycenaean-art": {
+    "query": "Mycenaean Art museum artwork",
+    "status": "pending"
+  },
+  "minoan-art": {
+    "query": "Minoan Art museum artwork",
+    "status": "pending"
+  },
+  "early-netherlandish-painting": {
+    "query": "Early Netherlandish Painting museum artwork",
+    "status": "pending"
+  },
+  "parthian-art": {
+    "query": "Parthian Art museum artwork",
+    "status": "pending"
+  },
+  "pompeian-second-style": {
+    "query": "Pompeian Second Style museum artwork",
+    "status": "pending"
+  },
+  "pompeian-third-style": {
+    "query": "Pompeian Third Style museum artwork",
+    "status": "pending"
+  },
+  "pompeian-fourth-style": {
+    "query": "Pompeian Fourth Style museum artwork",
+    "status": "pending"
+  },
+  "pompeian-first-style": {
+    "query": "Pompeian First Style museum artwork",
+    "status": "pending"
+  },
+  "sasanian-art": {
+    "query": "Sasanian Art museum artwork",
+    "status": "pending"
+  },
+  "sumerian-art": {
+    "query": "Sumerian Art museum artwork",
+    "status": "pending"
+  },
+  "venetian-school": {
+    "query": "Venetian School museum artwork",
+    "status": "pending"
+  },
+  "spanish-golden-age-painting": {
+    "query": "Spanish Golden Age Painting museum artwork",
+    "status": "pending"
+  },
+  "greek-orientalizing-style": {
+    "query": "Greek Orientalizing Style museum artwork",
+    "status": "pending"
+  },
+  "archaic-greek-art": {
+    "query": "Archaic Greek Art museum artwork",
+    "status": "pending"
+  },
+  "hellenistic-art": {
+    "query": "Hellenistic Art museum artwork",
+    "status": "pending"
+  },
+  "greek-geometric-style": {
+    "query": "Greek Geometric Style museum artwork",
+    "status": "pending"
+  },
+  "sienese-school": {
+    "query": "Sienese School museum artwork",
+    "status": "pending"
+  },
+  "assyrian-art": {
+    "query": "Assyrian Art museum artwork",
+    "status": "pending"
+  },
+  "etruscan-art": {
+    "query": "Etruscan Art museum artwork",
+    "status": "pending"
+  },
+  "italian-proto-renaissance": {
+    "query": "Italian Proto-Renaissance museum artwork",
+    "status": "pending"
+  },
+  "indus-valley-art": {
+    "query": "Indus Valley Art museum artwork",
+    "status": "pending"
+  },
+  "early-christian-art": {
+    "query": "Early Christian Art museum artwork",
+    "status": "pending"
+  },
+  "amsterdam-school": {
+    "query": "Amsterdam School architecture building",
+    "status": "pending"
+  },
+  "queen-anne-style": {
+    "query": "Queen Anne Style architecture building",
+    "status": "pending"
+  },
+  "passive-house-aesthetic": {
+    "query": "Passive House architecture building",
+    "status": "pending"
+  },
+  "expressionist-architecture": {
+    "query": "Expressionist Architecture architecture building",
+    "status": "pending"
+  },
+  "beaux-arts-architecture": {
+    "query": "Beaux-Arts Architecture architecture building",
+    "status": "pending"
+  },
+  "parametricism": {
+    "query": "Parametricism architecture building",
+    "status": "pending"
+  },
+  "prairie-school": {
+    "query": "Prairie School architecture building",
+    "status": "pending"
+  },
+  "second-empire-style": {
+    "query": "Second Empire Style architecture building",
+    "status": "pending"
+  },
+  "high-tech-architecture": {
+    "query": "High-Tech Architecture architecture building",
+    "status": "pending"
+  },
+  "high-tech-interior": {
+    "query": "High-Tech Interior architecture building",
+    "status": "pending"
+  },
+  "gothic-revival-architecture": {
+    "query": "Gothic Revival Architecture architecture building",
+    "status": "pending"
+  },
+  "constructivist-architecture": {
+    "query": "Constructivist Architecture architecture building",
+    "status": "pending"
+  },
+  "classical-revival-architecture": {
+    "query": "Classical Revival Architecture architecture building",
+    "status": "pending"
+  },
+  "googie-architecture": {
+    "query": "Googie Architecture architecture building",
+    "status": "pending"
+  },
+  "international-style-architecture": {
+    "query": "International Style Architecture architecture building",
+    "status": "pending"
+  },
+  "hollywood-regency": {
+    "query": "Hollywood Regency architecture building",
+    "status": "pending"
+  },
+  "postmodern-architecture": {
+    "query": "Postmodern Architecture architecture building",
+    "status": "pending"
+  },
+  "structural-expressionism": {
+    "query": "Structural Expressionism architecture building",
+    "status": "pending"
+  },
+  "deconstructivist-architecture": {
+    "query": "Deconstructivist Architecture architecture building",
+    "status": "pending"
+  },
+  "streamline-moderne-architecture": {
+    "query": "Streamline Moderne Architecture architecture building",
+    "status": "pending"
+  },
+  "miami-modernism": {
+    "query": "Miami Modernism architecture building",
+    "status": "pending"
+  },
+  "critical-regionalism": {
+    "query": "Critical Regionalism architecture building",
+    "status": "pending"
+  },
+  "tropical-modernism": {
+    "query": "Tropical Modernism architecture building",
+    "status": "pending"
+  },
+  "japandi": {
+    "query": "Japandi architecture building",
+    "status": "pending"
+  },
+  "desert-modernism": {
+    "query": "Desert Modernism architecture building",
+    "status": "pending"
+  },
+  "ecological-architecture": {
+    "query": "Ecological Architecture architecture building",
+    "status": "pending"
+  },
+  "bioclimatic-architecture": {
+    "query": "Bioclimatic Architecture architecture building",
+    "status": "pending"
+  },
+  "biophilic-design": {
+    "query": "Biophilic Design architecture building",
+    "status": "pending"
+  },
+  "space-age-interior": {
+    "query": "Space Age Interior architecture building",
+    "status": "pending"
+  },
+  "blobitecture": {
+    "query": "Blobitecture architecture building",
+    "status": "pending"
+  },
+  "viennese-modern-architecture": {
+    "query": "Viennese Modern Architecture architecture building",
+    "status": "pending"
+  },
+  "futurist-retail-interior": {
+    "query": "Futurist Retail Interior architecture building",
+    "status": "pending"
+  },
+  "metabolism": {
+    "query": "Metabolism architecture building",
+    "status": "pending"
+  },
+  "neo-brutalist-interior": {
+    "query": "Neo-Brutalist Interior architecture building",
+    "status": "pending"
+  },
+  "romanesque-revival-architecture": {
+    "query": "Romanesque Revival Architecture architecture building",
+    "status": "pending"
+  },
+  "neo-vernacular-architecture": {
+    "query": "Neo-Vernacular Architecture architecture building",
+    "status": "pending"
+  },
+  "italian-radical-design": {
+    "query": "Italian Radical Design architecture building",
+    "status": "pending"
+  },
+  "organic-architecture": {
+    "query": "Organic Architecture architecture building",
+    "status": "pending"
+  },
+  "eclectic-interior-style": {
+    "query": "Eclectic Interior Style architecture building",
+    "status": "pending"
+  },
+  "chicago-school": {
+    "query": "Chicago School architecture building",
+    "status": "pending"
+  },
+  "aran-knit-aesthetic": {
+    "query": "Aran Knit craft museum",
+    "status": "pending"
+  },
+  "whitework-embroidery-aesthetic": {
+    "query": "Whitework Embroidery craft museum",
+    "status": "pending"
+  },
+  "byzantine-mosaic-aesthetic": {
+    "query": "Byzantine Mosaic craft museum",
+    "status": "pending"
+  },
+  "knotted-carpet-aesthetic": {
+    "query": "Knotted Carpet craft museum",
+    "status": "pending"
+  },
+  "stained-glass-aesthetic": {
+    "query": "Stained Glass craft museum",
+    "status": "pending"
+  },
+  "straw-weaving-aesthetic": {
+    "query": "Straw Weaving craft museum",
+    "status": "pending"
+  },
+  "sashiko-aesthetic": {
+    "query": "Sashiko craft museum",
+    "status": "pending"
+  },
+  "east-asian-lacquer-aesthetic": {
+    "query": "East Asian Lacquer craft museum",
+    "status": "pending"
+  },
+  "eggshell-inlay-aesthetic": {
+    "query": "Eggshell Inlay craft museum",
+    "status": "pending"
+  },
+  "dehua-blanc-de-chine-aesthetic": {
+    "query": "Dehua Blanc de Chine craft museum",
+    "status": "pending"
+  },
+  "carved-lacquer-aesthetic": {
+    "query": "Carved Lacquer craft museum",
+    "status": "pending"
+  },
+  "tsuishu-aesthetic": {
+    "query": "Tsuishu craft museum",
+    "status": "pending"
+  },
+  "luneville-embroidery-aesthetic": {
+    "query": "Luneville Embroidery craft museum",
+    "status": "pending"
+  },
+  "painted-enamel-aesthetic": {
+    "query": "Painted Enamel craft museum",
+    "status": "pending"
+  },
+  "fair-isle-knit-aesthetic": {
+    "query": "Fair Isle Knit craft museum",
+    "status": "pending"
+  },
+  "crazy-quilt-aesthetic": {
+    "query": "Crazy Quilt craft museum",
+    "status": "pending"
+  },
+  "pietra-dura-aesthetic": {
+    "query": "Pietra Dura craft museum",
+    "status": "pending"
+  },
+  "crochet-aesthetic": {
+    "query": "Crochet craft museum",
+    "status": "pending"
+  },
+  "sgraffito-aesthetic": {
+    "query": "Sgraffito craft museum",
+    "status": "pending"
+  },
+  "tapestry-aesthetic": {
+    "query": "Tapestry craft museum",
+    "status": "pending"
+  },
+  "guan-ware-crackle-aesthetic": {
+    "query": "Guan Ware Crackle craft museum",
+    "status": "pending"
+  },
+  "delftware-aesthetic": {
+    "query": "Delftware craft museum",
+    "status": "pending"
+  },
+  "blackwork-embroidery-aesthetic": {
+    "query": "Blackwork Embroidery craft museum",
+    "status": "pending"
+  },
+  "knotwork-aesthetic": {
+    "query": "Knotwork craft museum",
+    "status": "pending"
+  },
+  "filigree-aesthetic": {
+    "query": "Filigree craft museum",
+    "status": "pending"
+  },
+  "stucco-relief-aesthetic": {
+    "query": "Stucco Relief craft museum",
+    "status": "pending"
+  },
+  "clamp-resist-dye-aesthetic": {
+    "query": "Clamp-Resist Dye craft museum",
+    "status": "pending"
+  },
+  "scrapbook-aesthetic": {
+    "query": "Scrapbook craft museum",
+    "status": "pending"
+  },
+  "shou-sugi-ban-aesthetic": {
+    "query": "Shou Sugi Ban craft museum",
+    "status": "pending"
+  },
+  "kintsugi-aesthetic": {
+    "query": "Kintsugi craft museum",
+    "status": "pending"
+  },
+  "metal-mesh-weaving-aesthetic": {
+    "query": "Metal Mesh Weaving craft museum",
+    "status": "pending"
+  },
+  "chasing-and-repousse-aesthetic": {
+    "query": "Chasing and Repousse craft museum",
+    "status": "pending"
+  },
+  "gold-and-silver-inlay-aesthetic": {
+    "query": "Gold and Silver Inlay craft museum",
+    "status": "pending"
+  },
+  "brocade-aesthetic": {
+    "query": "Brocade craft museum",
+    "status": "pending"
+  },
+  "jun-ware-aesthetic": {
+    "query": "Jun Ware craft museum",
+    "status": "pending"
+  },
+  "kesi-tapestry-aesthetic": {
+    "query": "Kesi Tapestry craft museum",
+    "status": "pending"
+  },
+  "wax-resist-dye-aesthetic": {
+    "query": "Wax-Resist Dye craft museum",
+    "status": "pending"
+  },
+  "chinese-indigo-resist-aesthetic": {
+    "query": "Chinese Indigo Resist craft museum",
+    "status": "pending"
+  },
+  "boro-aesthetic": {
+    "query": "Boro craft museum",
+    "status": "pending"
+  },
+  "lace-aesthetic": {
+    "query": "Lace craft museum",
+    "status": "pending"
+  },
+  "fire-gilded-aesthetic": {
+    "query": "Fire-Gilded craft museum",
+    "status": "pending"
+  },
+  "longquan-celadon-aesthetic": {
+    "query": "Longquan Celadon craft museum",
+    "status": "pending"
+  },
+  "roman-mosaic-aesthetic": {
+    "query": "Roman Mosaic craft museum",
+    "status": "pending"
+  },
+  "miao-embroidery-aesthetic": {
+    "query": "Miao Embroidery craft museum",
+    "status": "pending"
+  },
+  "modular-origami-aesthetic": {
+    "query": "Modular Origami craft museum",
+    "status": "pending"
+  },
+  "suminagashi-aesthetic": {
+    "query": "Suminagashi craft museum",
+    "status": "pending"
+  },
+  "color-woodblock-aesthetic": {
+    "query": "Color Woodblock craft museum",
+    "status": "pending"
+  },
+  "marquetry-aesthetic": {
+    "query": "Marquetry craft museum",
+    "status": "pending"
+  },
+  "goldwork-embroidery-aesthetic": {
+    "query": "Goldwork Embroidery craft museum",
+    "status": "pending"
+  },
+  "patchwork-quilt-aesthetic": {
+    "query": "Patchwork Quilt craft museum",
+    "status": "pending"
+  },
+  "azulejo-aesthetic": {
+    "query": "Azulejo craft museum",
+    "status": "pending"
+  },
+  "shippo-enamel-aesthetic": {
+    "query": "Shippo Enamel craft museum",
+    "status": "pending"
+  },
+  "celadon-aesthetic": {
+    "query": "Celadon craft museum",
+    "status": "pending"
+  },
+  "shibori-aesthetic": {
+    "query": "Shibori craft museum",
+    "status": "pending"
+  },
+  "raku-aesthetic": {
+    "query": "Raku craft museum",
+    "status": "pending"
+  },
+  "toile-de-jouy-aesthetic": {
+    "query": "Toile de Jouy craft museum",
+    "status": "pending"
+  },
+  "ru-ware-aesthetic": {
+    "query": "Ru Ware craft museum",
+    "status": "pending"
+  },
+  "charred-wood-aesthetic": {
+    "query": "Charred Wood craft museum",
+    "status": "pending"
+  },
+  "maki-e-aesthetic": {
+    "query": "Maki-e craft museum",
+    "status": "pending"
+  },
+  "soapstone-carving-aesthetic": {
+    "query": "Soapstone Carving craft museum",
+    "status": "pending"
+  },
+  "sichuan-embroidery-aesthetic": {
+    "query": "Sichuan Embroidery craft museum",
+    "status": "pending"
+  },
+  "marbling-aesthetic": {
+    "query": "Marbling craft museum",
+    "status": "pending"
+  },
+  "song-brocade-aesthetic": {
+    "query": "Song Brocade craft museum",
+    "status": "pending"
+  },
+  "suzhou-embroidery-aesthetic": {
+    "query": "Suzhou Embroidery craft museum",
+    "status": "pending"
+  },
+  "tang-sancai-aesthetic": {
+    "query": "Tang Sancai craft museum",
+    "status": "pending"
+  },
+  "rattan-weaving-aesthetic": {
+    "query": "Rattan Weaving craft museum",
+    "status": "pending"
+  },
+  "plique-a-jour-aesthetic": {
+    "query": "Plique-a-jour craft museum",
+    "status": "pending"
+  },
+  "venetian-plaster-aesthetic": {
+    "query": "Venetian Plaster craft museum",
+    "status": "pending"
+  },
+  "hispano-moresque-tile-aesthetic": {
+    "query": "Hispano-Moresque Tile craft museum",
+    "status": "pending"
+  },
+  "nishijin-ori-aesthetic": {
+    "query": "Nishijin-ori craft museum",
+    "status": "pending"
+  },
+  "intarsia-aesthetic": {
+    "query": "Intarsia craft museum",
+    "status": "pending"
+  },
+  "hunan-embroidery-aesthetic": {
+    "query": "Hunan Embroidery craft museum",
+    "status": "pending"
+  },
+  "miniature-carving-aesthetic": {
+    "query": "Miniature Carving craft museum",
+    "status": "pending"
+  },
+  "rubber-stamp-aesthetic": {
+    "query": "Rubber Stamp craft museum",
+    "status": "pending"
+  },
+  "katazome-aesthetic": {
+    "query": "Katazome craft museum",
+    "status": "pending"
+  },
+  "quilling-aesthetic": {
+    "query": "Quilling craft museum",
+    "status": "pending"
+  },
+  "ise-katagami-aesthetic": {
+    "query": "Ise Katagami craft museum",
+    "status": "pending"
+  },
+  "transferware-aesthetic": {
+    "query": "Transferware craft museum",
+    "status": "pending"
+  },
+  "yuzen-dyeing-aesthetic": {
+    "query": "Yuzen Dyeing craft museum",
+    "status": "pending"
+  },
+  "feather-mosaic-aesthetic": {
+    "query": "Feather Mosaic craft museum",
+    "status": "pending"
+  },
+  "jade-carving-aesthetic": {
+    "query": "Jade Carving craft museum",
+    "status": "pending"
+  },
+  "cantonese-embroidery-aesthetic": {
+    "query": "Cantonese Embroidery craft museum",
+    "status": "pending"
+  },
+  "yunjin-brocade-aesthetic": {
+    "query": "Yunjin Brocade craft museum",
+    "status": "pending"
+  },
+  "tie-dye-aesthetic": {
+    "query": "Tie-Dye craft museum",
+    "status": "pending"
+  },
+  "origami-aesthetic": {
+    "query": "Origami craft museum",
+    "status": "pending"
+  },
+  "oribe-ware-aesthetic": {
+    "query": "Oribe Ware craft museum",
+    "status": "pending"
+  },
+  "papier-mache-aesthetic": {
+    "query": "Papier-mache craft museum",
+    "status": "pending"
+  },
+  "paper-relief-aesthetic": {
+    "query": "Paper Relief craft museum",
+    "status": "pending"
+  },
+  "shino-ware-aesthetic": {
+    "query": "Shino Ware craft museum",
+    "status": "pending"
+  },
+  "chinese-knotting-aesthetic": {
+    "query": "Chinese Knotting craft museum",
+    "status": "pending"
+  },
+  "beadwork-aesthetic": {
+    "query": "Beadwork craft museum",
+    "status": "pending"
+  },
+  "bamboo-weaving-aesthetic": {
+    "query": "Bamboo Weaving craft museum",
+    "status": "pending"
+  },
+  "zhuang-brocade-aesthetic": {
+    "query": "Zhuang Brocade craft museum",
+    "status": "pending"
+  },
+  "amish-quilt-aesthetic": {
+    "query": "Amish Quilt artwork museum",
+    "status": "pending"
+  },
+  "aztec-art": {
+    "query": "Aztec Art artwork museum",
+    "status": "pending"
+  },
+  "andean-indigenismo": {
+    "query": "Andean Indigenismo artwork museum",
+    "status": "pending"
+  },
+  "andean-textile-aesthetic": {
+    "query": "Andean Textile artwork museum",
+    "status": "pending"
+  },
+  "olmec-art": {
+    "query": "Olmec Art artwork museum",
+    "status": "pending"
+  },
+  "brazilian-concretism": {
+    "query": "Brazilian Concretism artwork museum",
+    "status": "pending"
+  },
+  "brazilian-modernism": {
+    "query": "Brazilian Modernism artwork museum",
+    "status": "pending"
+  },
+  "brazilian-neo-concretism": {
+    "query": "Brazilian Neo-Concretism artwork museum",
+    "status": "pending"
+  },
+  "chavin-art": {
+    "query": "Chavin Art artwork museum",
+    "status": "pending"
+  },
+  "tiwanaku-art": {
+    "query": "Tiwanaku Art artwork museum",
+    "status": "pending"
+  },
+  "cuban-modernism": {
+    "query": "Cuban Modernism artwork museum",
+    "status": "pending"
+  },
+  "harlem-renaissance-visual-art": {
+    "query": "Harlem Renaissance art artwork museum",
+    "status": "pending"
+  },
+  "haida-visual-tradition": {
+    "query": "Haida artwork museum",
+    "status": "pending"
+  },
+  "haitian-naive-painting": {
+    "query": "Haitian Naive Painting artwork museum",
+    "status": "pending"
+  },
+  "haitian-vodou-flag-aesthetic": {
+    "query": "Haitian Vodou Flag artwork museum",
+    "status": "pending"
+  },
+  "black-arts-movement": {
+    "query": "Black Arts Movement artwork museum",
+    "status": "pending"
+  },
+  "caribbean-carnival-aesthetic": {
+    "query": "Caribbean Carnival artwork museum",
+    "status": "pending"
+  },
+  "maya-art": {
+    "query": "Maya Art artwork museum",
+    "status": "pending"
+  },
+  "american-folk-sign-painting": {
+    "query": "American Folk Sign Painting artwork museum",
+    "status": "pending"
+  },
+  "mixtec-art": {
+    "query": "Mixtec Art artwork museum",
+    "status": "pending"
+  },
+  "moche-art": {
+    "query": "Moche Art artwork museum",
+    "status": "pending"
+  },
+  "dia-de-muertos-aesthetic": {
+    "query": "Dia de Muertos artwork museum",
+    "status": "pending"
+  },
+  "nazca-art": {
+    "query": "Nazca Art artwork museum",
+    "status": "pending"
+  },
+  "navajo-weaving-aesthetic": {
+    "query": "Navajo Weaving artwork museum",
+    "status": "pending"
+  },
+  "plains-beadwork-aesthetic": {
+    "query": "Plains Beadwork artwork museum",
+    "status": "pending"
+  },
+  "pueblo-pottery-painting": {
+    "query": "Pueblo Pottery Painting artwork museum",
+    "status": "pending"
+  },
+  "chimu-art": {
+    "query": "Chimu Art artwork museum",
+    "status": "pending"
+  },
+  "chola-aesthetic": {
+    "query": "Chola artwork museum",
+    "status": "pending"
+  },
+  "tropicalia": {
+    "query": "Tropicalia artwork museum",
+    "status": "pending"
+  },
+  "zapotec-art": {
+    "query": "Zapotec Art artwork museum",
+    "status": "pending"
+  },
+  "talavera-aesthetic": {
+    "query": "Talavera artwork museum",
+    "status": "pending"
+  },
+  "teotihuacan-art": {
+    "query": "Teotihuacan Art artwork museum",
+    "status": "pending"
+  },
+  "wari-art": {
+    "query": "Wari Art artwork museum",
+    "status": "pending"
+  },
+  "wixarika-yarn-and-bead-art": {
+    "query": "Wixarika Yarn and Bead Art artwork museum",
+    "status": "pending"
+  },
+  "northwest-coast-formline-art": {
+    "query": "Northwest Coast Formline Art artwork museum",
+    "status": "pending"
+  },
+  "amazonian-featherwork-aesthetic": {
+    "query": "Amazonian Featherwork artwork museum",
+    "status": "pending"
+  },
+  "inuit-printmaking": {
+    "query": "Inuit Printmaking artwork museum",
+    "status": "pending"
+  },
+  "inuit-sculpture-aesthetic": {
+    "query": "Inuit Sculpture artwork museum",
+    "status": "pending"
+  },
+  "inca-art": {
+    "query": "Inca Art artwork museum",
+    "status": "pending"
+  },
+  "traditional-balinese-painting": {
+    "query": "Traditional Balinese Painting artwork museum",
+    "status": "pending"
+  },
+  "ubud-school-painting": {
+    "query": "Ubud School Painting artwork museum",
+    "status": "pending"
+  },
+  "deccani-painting": {
+    "query": "Deccani Painting artwork museum",
+    "status": "pending"
+  },
+  "philippine-modernism": {
+    "query": "Philippine Modernism artwork museum",
+    "status": "pending"
+  },
+  "khmer-angkor-art": {
+    "query": "Khmer Angkor Art artwork museum",
+    "status": "pending"
+  },
+  "company-painting": {
+    "query": "Company Painting artwork museum",
+    "status": "pending"
+  },
+  "gond-painting": {
+    "query": "Gond Painting artwork museum",
+    "status": "pending"
+  },
+  "jeepney-art": {
+    "query": "Jeepney Art artwork museum",
+    "status": "pending"
+  },
+  "gupta-art": {
+    "query": "Gupta Art artwork museum",
+    "status": "pending"
+  },
+  "gandhara-art": {
+    "query": "Gandhara Art artwork museum",
+    "status": "pending"
+  },
+  "kalamkari-aesthetic": {
+    "query": "Kalamkari artwork museum",
+    "status": "pending"
+  },
+  "kalighat-painting": {
+    "query": "Kalighat Painting artwork museum",
+    "status": "pending"
+  },
+  "kolam-aesthetic": {
+    "query": "Kolam artwork museum",
+    "status": "pending"
+  },
+  "rajasthani-miniature": {
+    "query": "Rajasthani Miniature artwork museum",
+    "status": "pending"
+  },
+  "rangoli-aesthetic": {
+    "query": "Rangoli artwork museum",
+    "status": "pending"
+  },
+  "lao-temple-painting": {
+    "query": "Lao Temple Painting artwork museum",
+    "status": "pending"
+  },
+  "bengal-school": {
+    "query": "Bengal School artwork museum",
+    "status": "pending"
+  },
+  "bagan-mural-painting": {
+    "query": "Bagan Mural Painting artwork museum",
+    "status": "pending"
+  },
+  "mathura-art": {
+    "query": "Mathura Art artwork museum",
+    "status": "pending"
+  },
+  "nanyang-style": {
+    "query": "Nanyang Style artwork museum",
+    "status": "pending"
+  },
+  "newar-paubha-painting": {
+    "query": "Newar Paubha Painting artwork museum",
+    "status": "pending"
+  },
+  "peranakan-aesthetic": {
+    "query": "Peranakan artwork museum",
+    "status": "pending"
+  },
+  "pahari-painting": {
+    "query": "Pahari Painting artwork museum",
+    "status": "pending"
+  },
+  "pala-art": {
+    "query": "Pala Art artwork museum",
+    "status": "pending"
+  },
+  "pattachitra": {
+    "query": "Pattachitra artwork museum",
+    "status": "pending"
+  },
+  "kandyan-temple-painting": {
+    "query": "Kandyan Temple Painting artwork museum",
+    "status": "pending"
+  },
+  "songket-aesthetic": {
+    "query": "Songket artwork museum",
+    "status": "pending"
+  },
+  "thai-folk-pop": {
+    "query": "Thai Folk Pop artwork museum",
+    "status": "pending"
+  },
+  "thai-temple-mural": {
+    "query": "Thai Temple Mural artwork museum",
+    "status": "pending"
+  },
+  "warli-painting": {
+    "query": "Warli Painting artwork museum",
+    "status": "sourced"
+  },
+  "wayang-aesthetic": {
+    "query": "Wayang artwork museum",
+    "status": "pending"
+  },
+  "vijayanagara-art": {
+    "query": "Vijayanagara Art artwork museum",
+    "status": "pending"
+  },
+  "southeast-asian-ikat-aesthetic": {
+    "query": "Southeast Asian Ikat artwork museum",
+    "status": "pending"
+  },
+  "phad-painting": {
+    "query": "Phad Painting artwork museum",
+    "status": "pending"
+  },
+  "indonesian-batik-aesthetic": {
+    "query": "Indonesian Batik artwork museum",
+    "status": "pending"
+  },
+  "dong-ho-painting": {
+    "query": "Dong Ho Painting artwork museum",
+    "status": "pending"
+  },
+  "vietnamese-lacquer-painting": {
+    "query": "Vietnamese Lacquer Painting artwork museum",
+    "status": "pending"
+  },
+  "classical-javanese-art": {
+    "query": "Classical Javanese Art artwork museum",
+    "status": "pending"
+  },
+  "chola-art": {
+    "query": "Chola Art artwork museum",
+    "status": "pending"
+  },
+  "orphism": {
+    "query": "Orphism painting artwork museum",
+    "status": "pending"
+  },
+  "barbizon-school": {
+    "query": "Barbizon School painting artwork museum",
+    "status": "pending"
+  },
+  "school-of-paris": {
+    "query": "School of Paris painting artwork museum",
+    "status": "pending"
+  },
+  "art-informel": {
+    "query": "Art Informel painting artwork museum",
+    "status": "pending"
+  },
+  "sublime-landscape": {
+    "query": "Sublime Landscape painting artwork museum",
+    "status": "pending"
+  },
+  "purism": {
+    "query": "Purism painting artwork museum",
+    "status": "pending"
+  },
+  "pointillism": {
+    "query": "Pointillism painting artwork museum",
+    "status": "pending"
+  },
+  "orientalist-painting": {
+    "query": "Orientalist Painting painting artwork museum",
+    "status": "pending"
+  },
+  "kinetic-art": {
+    "query": "Kinetic Art painting artwork museum",
+    "status": "pending"
+  },
+  "secessionism": {
+    "query": "Secessionism painting artwork museum",
+    "status": "pending"
+  },
+  "divisionism": {
+    "query": "Divisionism painting artwork museum",
+    "status": "pending"
+  },
+  "genre-painting-tradition": {
+    "query": "Genre Painting Tradition painting artwork museum",
+    "status": "pending"
+  },
+  "flemish-baroque": {
+    "query": "Flemish Baroque painting artwork museum",
+    "status": "pending"
+  },
+  "rayonism": {
+    "query": "Rayonism painting artwork museum",
+    "status": "pending"
+  },
+  "glasgow-style": {
+    "query": "Glasgow Style painting artwork museum",
+    "status": "pending"
+  },
+  "hudson-river-school": {
+    "query": "Hudson River School painting artwork museum",
+    "status": "pending"
+  },
+  "dutch-golden-age-painting": {
+    "query": "Dutch Golden Age Painting painting artwork museum",
+    "status": "pending"
+  },
+  "fluxus": {
+    "query": "Fluxus painting artwork museum",
+    "status": "pending"
+  },
+  "precisionism": {
+    "query": "Precisionism painting artwork museum",
+    "status": "pending"
+  },
+  "spatialism": {
+    "query": "Spatialism painting artwork museum",
+    "status": "pending"
+  },
+  "der-blaue-reiter": {
+    "query": "Der Blaue Reiter painting artwork museum",
+    "status": "pending"
+  },
+  "zero-group": {
+    "query": "ZERO Group painting artwork museum",
+    "status": "pending"
+  },
+  "magic-realism-painting": {
+    "query": "Magic Realism Painting painting artwork museum",
+    "status": "pending"
+  },
+  "nazarene-movement": {
+    "query": "Nazarene Movement painting artwork museum",
+    "status": "pending"
+  },
+  "les-nabis": {
+    "query": "Les Nabis painting artwork museum",
+    "status": "pending"
+  },
+  "arte-povera": {
+    "query": "Arte Povera painting artwork museum",
+    "status": "pending"
+  },
+  "die-bruecke": {
+    "query": "Die Bruecke painting artwork museum",
+    "status": "pending"
+  },
+  "young-british-artists": {
+    "query": "Young British Artists painting artwork museum",
+    "status": "pending"
+  },
+  "situationist-international": {
+    "query": "Situationist International painting artwork museum",
+    "status": "pending"
+  },
+  "picturesque-aesthetic": {
+    "query": "Picturesque painting artwork museum",
+    "status": "pending"
+  },
+  "social-realism": {
+    "query": "Social Realism painting artwork museum",
+    "status": "pending"
+  },
+  "socialist-realism": {
+    "query": "Socialist Realism painting artwork museum",
+    "status": "pending"
+  },
+  "lyrical-abstraction": {
+    "query": "Lyrical Abstraction painting artwork museum",
+    "status": "pending"
+  },
+  "tachisme": {
+    "query": "Tachisme painting artwork museum",
+    "status": "pending"
+  },
+  "aesthetic-movement": {
+    "query": "Movement painting artwork museum",
+    "status": "pending"
+  },
+  "vienna-secession": {
+    "query": "Vienna Secession painting artwork museum",
+    "status": "pending"
+  },
+  "utrecht-caravaggism": {
+    "query": "Utrecht Caravaggism painting artwork museum",
+    "status": "pending"
+  },
+  "matter-painting": {
+    "query": "Matter Painting painting artwork museum",
+    "status": "pending"
+  },
+  "neo-geo": {
+    "query": "Neo-Geo painting artwork museum",
+    "status": "pending"
+  },
+  "new-objectivity": {
+    "query": "New Objectivity painting artwork museum",
+    "status": "pending"
+  },
+  "nouveau-realisme": {
+    "query": "Nouveau Realisme painting artwork museum",
+    "status": "pending"
+  },
+  "metaphysical-painting": {
+    "query": "Metaphysical Painting painting artwork museum",
+    "status": "pending"
+  },
+  "vorticism": {
+    "query": "Vorticism painting artwork museum",
+    "status": "pending"
+  },
+  "academic-art": {
+    "query": "Academic Art painting artwork museum",
+    "status": "pending"
+  },
+  "english-modernism": {
+    "query": "English Modernism painting artwork museum",
+    "status": "pending"
+  },
+  "supports-surfaces": {
+    "query": "Supports/Surfaces painting artwork museum",
+    "status": "pending"
+  },
+  "naturalism": {
+    "query": "Naturalism painting artwork museum",
+    "status": "pending"
+  },
+  "cobra": {
+    "query": "CoBrA painting artwork museum",
+    "status": "pending"
+  },
+  "emigre-typography": {
+    "query": "Emigre Typography poster graphic design",
+    "status": "pending"
+  },
+  "newspaper-editorial-design": {
+    "query": "Newspaper Editorial Design poster graphic design",
+    "status": "pending"
+  },
+  "polish-poster-school": {
+    "query": "Polish Poster School poster graphic design",
+    "status": "pending"
+  },
+  "album-cover-design": {
+    "query": "Album Cover Design poster graphic design",
+    "status": "pending"
+  },
+  "supergraphics": {
+    "query": "Supergraphics poster graphic design",
+    "status": "pending"
+  },
+  "wayfinding-design": {
+    "query": "Wayfinding Design poster graphic design",
+    "status": "pending"
+  },
+  "plakatstil": {
+    "query": "Plakatstil poster graphic design",
+    "status": "pending"
+  },
+  "kinetic-typography": {
+    "query": "Kinetic Typography poster graphic design",
+    "status": "pending"
+  },
+  "indie-magazine-design": {
+    "query": "Indie Magazine Design poster graphic design",
+    "status": "pending"
+  },
+  "xerox-aesthetic": {
+    "query": "Xerox poster graphic design",
+    "status": "pending"
+  },
+  "cuban-revolutionary-poster": {
+    "query": "Cuban Revolutionary Poster poster graphic design",
+    "status": "pending"
+  },
+  "international-corporate-identity": {
+    "query": "International Corporate Identity poster graphic design",
+    "status": "pending"
+  },
+  "dutch-studio-graphic-design": {
+    "query": "Dutch Studio Graphic Design poster graphic design",
+    "status": "pending"
+  },
+  "dutch-modern-typography": {
+    "query": "Dutch Modern Typography poster graphic design",
+    "status": "pending"
+  },
+  "postmodern-swiss-design": {
+    "query": "Postmodern Swiss Design poster graphic design",
+    "status": "pending"
+  },
+  "letterpress-design": {
+    "query": "Letterpress Design poster graphic design",
+    "status": "pending"
+  },
+  "deconstructivist-graphic-design": {
+    "query": "Deconstructivist Graphic Design poster graphic design",
+    "status": "pending"
+  },
+  "cranbrook-design": {
+    "query": "Cranbrook Design poster graphic design",
+    "status": "pending"
+  },
+  "risograph-aesthetic": {
+    "query": "Risograph poster graphic design",
+    "status": "pending"
+  },
+  "modular-typography": {
+    "query": "Modular Typography poster graphic design",
+    "status": "pending"
+  },
+  "japanese-corporate-identity-design": {
+    "query": "Japanese Corporate Identity Design poster graphic design",
+    "status": "pending"
+  },
+  "japanese-modern-poster": {
+    "query": "Japanese Modern Poster poster graphic design",
+    "status": "pending"
+  },
+  "rave-flyer-graphics": {
+    "query": "Rave Flyer Graphics poster graphic design",
+    "status": "pending"
+  },
+  "luxury-packaging-visual-system": {
+    "query": "Luxury Packaging Visual System poster graphic design",
+    "status": "pending"
+  },
+  "editorial-design": {
+    "query": "Editorial Design poster graphic design",
+    "status": "pending"
+  },
+  "experimental-typography": {
+    "query": "Experimental Typography poster graphic design",
+    "status": "pending"
+  },
+  "modernist-book-design": {
+    "query": "Modernist Book Design poster graphic design",
+    "status": "pending"
+  },
+  "data-visualization-aesthetic": {
+    "query": "Data Visualization poster graphic design",
+    "status": "pending"
+  },
+  "digital-new-wave-design": {
+    "query": "Digital New Wave Design poster graphic design",
+    "status": "pending"
+  },
+  "screen-printed-poster-style": {
+    "query": "Screen-Printed Poster Style poster graphic design",
+    "status": "pending"
+  },
+  "soviet-propaganda-poster": {
+    "query": "Soviet Propaganda Poster poster graphic design",
+    "status": "pending"
+  },
+  "victorian-graphic-design": {
+    "query": "Victorian Graphic Design poster graphic design",
+    "status": "pending"
+  },
+  "wiener-werkstatte-graphics": {
+    "query": "Wiener Werkstatte Graphics poster graphic design",
+    "status": "pending"
+  },
+  "sachplakat": {
+    "query": "Sachplakat poster graphic design",
+    "status": "pending"
+  },
+  "new-typography": {
+    "query": "New Typography poster graphic design",
+    "status": "pending"
+  },
+  "infographic-design": {
+    "query": "Infographic Design poster graphic design",
+    "status": "pending"
+  },
+  "interwar-travel-poster": {
+    "query": "Interwar Travel Poster poster graphic design",
+    "status": "pending"
+  },
+  "protest-poster-design": {
+    "query": "Protest Poster Design poster graphic design",
+    "status": "pending"
+  },
+  "chinese-calendar-poster": {
+    "query": "Chinese Calendar Poster poster graphic design",
+    "status": "pending"
+  },
+  "isotype": {
+    "query": "ISOTYPE poster graphic design",
+    "status": "pending"
+  },
+  "zine-aesthetic": {
+    "query": "Zine poster graphic design",
+    "status": "pending"
+  },
+  "darkroom-photomontage": {
+    "query": "Darkroom Photomontage photograph film print",
+    "status": "pending"
+  },
+  "polaroid-aesthetic": {
+    "query": "Polaroid photograph film print",
+    "status": "pending"
+  },
+  "color-documentary-photography": {
+    "query": "Color Documentary Photography photograph film print",
+    "status": "pending"
+  },
+  "surrealist-photography": {
+    "query": "Surrealist Photography photograph film print",
+    "status": "pending"
+  },
+  "german-expressionist-cinema": {
+    "query": "German Expressionist Cinema photograph film print",
+    "status": "pending"
+  },
+  "new-german-cinema": {
+    "query": "New German Cinema photograph film print",
+    "status": "pending"
+  },
+  "cinematic-photography": {
+    "query": "Cinematic Photography photograph film print",
+    "status": "pending"
+  },
+  "dusseldorf-school-photography": {
+    "query": "Dusseldorf School Photography photograph film print",
+    "status": "pending"
+  },
+  "french-new-wave-cinema": {
+    "query": "French New Wave Cinema photograph film print",
+    "status": "pending"
+  },
+  "infrared-photography-aesthetic": {
+    "query": "Infrared Photography photograph film print",
+    "status": "pending"
+  },
+  "pictorialism": {
+    "query": "Pictorialism photograph film print",
+    "status": "pending"
+  },
+  "chanbara-film-aesthetic": {
+    "query": "Chanbara Film photograph film print",
+    "status": "pending"
+  },
+  "cross-processed-film-aesthetic": {
+    "query": "Cross-Processed Film photograph film print",
+    "status": "pending"
+  },
+  "street-photography": {
+    "query": "Street Photography photograph film print",
+    "status": "pending"
+  },
+  "czechoslovak-new-wave": {
+    "query": "Czechoslovak New Wave photograph film print",
+    "status": "pending"
+  },
+  "tech-noir": {
+    "query": "Tech Noir photograph film print",
+    "status": "pending"
+  },
+  "analog-horror-aesthetic": {
+    "query": "Analog Horror photograph film print",
+    "status": "pending"
+  },
+  "cyanotype-aesthetic": {
+    "query": "Cyanotype photograph film print",
+    "status": "pending"
+  },
+  "new-hollywood-cinema": {
+    "query": "New Hollywood Cinema photograph film print",
+    "status": "pending"
+  },
+  "woodcut-aesthetic": {
+    "query": "Woodcut photograph film print",
+    "status": "pending"
+  },
+  "instant-flash-aesthetic": {
+    "query": "Instant Flash photograph film print",
+    "status": "pending"
+  },
+  "letterpress-texture-aesthetic": {
+    "query": "Letterpress Texture photograph film print",
+    "status": "pending"
+  },
+  "humanist-photography": {
+    "query": "Humanist Photography photograph film print",
+    "status": "pending"
+  },
+  "provoke-photography": {
+    "query": "Provoke Photography photograph film print",
+    "status": "pending"
+  },
+  "japanese-new-wave-cinema": {
+    "query": "Japanese New Wave Cinema photograph film print",
+    "status": "pending"
+  },
+  "social-documentary-photography": {
+    "query": "Social Documentary Photography photograph film print",
+    "status": "pending"
+  },
+  "photo-secession": {
+    "query": "Photo-Secession photograph film print",
+    "status": "pending"
+  },
+  "poetic-realism-cinema": {
+    "query": "Poetic Realism Cinema photograph film print",
+    "status": "pending"
+  },
+  "wet-plate-collodion-aesthetic": {
+    "query": "Wet Plate Collodion photograph film print",
+    "status": "pending"
+  },
+  "lithographic-aesthetic": {
+    "query": "Lithographic photograph film print",
+    "status": "pending"
+  },
+  "golden-age-fashion-photography": {
+    "query": "Golden Age Fashion Photography photograph film print",
+    "status": "pending"
+  },
+  "duotone-print-aesthetic": {
+    "query": "Duotone Print photograph film print",
+    "status": "pending"
+  },
+  "japanese-i-photography": {
+    "query": "Japanese I-Photography photograph film print",
+    "status": "pending"
+  },
+  "soviet-montage-cinema": {
+    "query": "Soviet Montage Cinema photograph film print",
+    "status": "pending"
+  },
+  "taiwan-new-cinema": {
+    "query": "Taiwan New Cinema photograph film print",
+    "status": "pending"
+  },
+  "engraving-aesthetic": {
+    "query": "Engraving photograph film print",
+    "status": "pending"
+  },
+  "halftone-print-aesthetic": {
+    "query": "Halftone Print photograph film print",
+    "status": "pending"
+  },
+  "macro-photography-aesthetic": {
+    "query": "Macro Photography photograph film print",
+    "status": "pending"
+  },
+  "wuxia-cinema-aesthetic": {
+    "query": "Wuxia Cinema photograph film print",
+    "status": "pending"
+  },
+  "hong-kong-neon-noir": {
+    "query": "Hong Kong Neon Noir photograph film print",
+    "status": "pending"
+  },
+  "hong-kong-new-wave-cinema": {
+    "query": "Hong Kong New Wave Cinema photograph film print",
+    "status": "pending"
+  },
+  "new-topographics": {
+    "query": "New Topographics photograph film print",
+    "status": "pending"
+  },
+  "neo-noir": {
+    "query": "Neo-Noir photograph film print",
+    "status": "pending"
+  },
+  "new-objectivity-photography": {
+    "query": "New Objectivity Photography photograph film print",
+    "status": "pending"
+  },
+  "new-vision-photography": {
+    "query": "New Vision Photography photograph film print",
+    "status": "pending"
+  },
+  "giallo-cinema": {
+    "query": "Giallo Cinema photograph film print",
+    "status": "pending"
+  },
+  "italian-neorealism": {
+    "query": "Italian Neorealism photograph film print",
+    "status": "pending"
+  },
+  "daguerreotype-aesthetic": {
+    "query": "Daguerreotype photograph film print",
+    "status": "pending"
+  },
+  "straight-photography": {
+    "query": "Straight Photography photograph film print",
+    "status": "pending"
+  },
+  "subjective-photography": {
+    "query": "Subjective Photography photograph film print",
+    "status": "pending"
+  },
+  "lomography": {
+    "query": "Lomography photograph film print",
+    "status": "pending"
+  },
+  "balletcore": {
+    "query": "Balletcore fashion style",
+    "status": "pending"
+  },
+  "yami-kawaii": {
+    "query": "Yami Kawaii fashion style",
+    "status": "pending"
+  },
+  "normcore": {
+    "query": "Normcore fashion style",
+    "status": "pending"
+  },
+  "scene-aesthetic": {
+    "query": "Scene fashion style",
+    "status": "pending"
+  },
+  "jirai-kei": {
+    "query": "Jirai Kei fashion style",
+    "status": "pending"
+  },
+  "disco-aesthetic": {
+    "query": "Disco fashion style",
+    "status": "pending"
+  },
+  "indie-sleaze": {
+    "query": "Indie Sleaze fashion style",
+    "status": "pending"
+  },
+  "african-street-fashion": {
+    "query": "African Street Fashion fashion style",
+    "status": "pending"
+  },
+  "gothic-lolita": {
+    "query": "Gothic Lolita fashion style",
+    "status": "pending"
+  },
+  "gothic-cottagecore": {
+    "query": "Gothic Cottagecore fashion style",
+    "status": "pending"
+  },
+  "skinhead-aesthetic": {
+    "query": "Skinhead fashion style",
+    "status": "pending"
+  },
+  "piratecore": {
+    "query": "Piratecore fashion style",
+    "status": "pending"
+  },
+  "golden-age-hollywood-glamour": {
+    "query": "Golden Age Hollywood Glamour fashion style",
+    "status": "pending"
+  },
+  "black-metal-aesthetic": {
+    "query": "Black Metal fashion style",
+    "status": "pending"
+  },
+  "gorpcore": {
+    "query": "Gorpcore fashion style",
+    "status": "pending"
+  },
+  "glam-rock-aesthetic": {
+    "query": "Glam Rock fashion style",
+    "status": "pending"
+  },
+  "techwear": {
+    "query": "Techwear fashion style",
+    "status": "pending"
+  },
+  "coquette-aesthetic": {
+    "query": "Coquette fashion style",
+    "status": "pending"
+  },
+  "armored-fashion-aesthetic": {
+    "query": "Armored Fashion fashion style",
+    "status": "pending"
+  },
+  "old-money-aesthetic": {
+    "query": "Old Money fashion style",
+    "status": "pending"
+  },
+  "club-kids-aesthetic": {
+    "query": "Club Kids fashion style",
+    "status": "pending"
+  },
+  "techno-aesthetic": {
+    "query": "Techno fashion style",
+    "status": "pending"
+  },
+  "two-tone-ska-aesthetic": {
+    "query": "Two-Tone Ska fashion style",
+    "status": "pending"
+  },
+  "mermaidcore": {
+    "query": "Mermaidcore fashion style",
+    "status": "pending"
+  },
+  "flapper-style": {
+    "query": "Flapper Style fashion style",
+    "status": "pending"
+  },
+  "mod-aesthetic": {
+    "query": "Mod fashion style",
+    "status": "pending"
+  },
+  "clean-girl-aesthetic": {
+    "query": "Clean Girl fashion style",
+    "status": "pending"
+  },
+  "emo-aesthetic": {
+    "query": "Emo fashion style",
+    "status": "pending"
+  },
+  "rave-aesthetic": {
+    "query": "Rave fashion style",
+    "status": "pending"
+  },
+  "cybergoth": {
+    "query": "Cybergoth fashion style",
+    "status": "pending"
+  },
+  "gyaru-aesthetic": {
+    "query": "Gyaru fashion style",
+    "status": "pending"
+  },
+  "mori-kei": {
+    "query": "Mori Kei fashion style",
+    "status": "pending"
+  },
+  "visual-kei": {
+    "query": "Visual Kei fashion style",
+    "status": "pending"
+  },
+  "death-metal-aesthetic": {
+    "query": "Death Metal fashion style",
+    "status": "pending"
+  },
+  "sweet-lolita": {
+    "query": "Sweet Lolita fashion style",
+    "status": "pending"
+  },
+  "dandyism": {
+    "query": "Dandyism fashion style",
+    "status": "pending"
+  },
+  "hippie-aesthetic": {
+    "query": "Hippie fashion style",
+    "status": "pending"
+  },
+  "fairycore": {
+    "query": "Fairycore fashion style",
+    "status": "pending"
+  },
+  "new-romantic-aesthetic": {
+    "query": "New Romantic fashion style",
+    "status": "pending"
+  },
+  "rocker-aesthetic": {
+    "query": "Rocker fashion style",
+    "status": "pending"
+  },
+  "hardcore-punk-aesthetic": {
+    "query": "Hardcore Punk fashion style",
+    "status": "pending"
+  },
+  "harajuku-street-style": {
+    "query": "Harajuku Street Style fashion style",
+    "status": "pending"
+  },
+  "heavy-metal-aesthetic": {
+    "query": "Heavy Metal fashion style",
+    "status": "pending"
+  },
+  "decora-kei": {
+    "query": "Decora Kei fashion style",
+    "status": "pending"
+  },
+  "meme-surrealism": {
+    "query": "Meme Surrealism digital aesthetic",
+    "status": "pending"
+  },
+  "sickly-aesthetic": {
+    "query": "Sickly digital aesthetic",
+    "status": "pending"
+  },
+  "bloghouse-aesthetic": {
+    "query": "Bloghouse digital aesthetic",
+    "status": "pending"
+  },
+  "outrun-aesthetic": {
+    "query": "Outrun digital aesthetic",
+    "status": "pending"
+  },
+  "code-poetry-aesthetic": {
+    "query": "Code Poetry digital aesthetic",
+    "status": "pending"
+  },
+  "isometric-pixel-aesthetic": {
+    "query": "Isometric Pixel digital aesthetic",
+    "status": "pending"
+  },
+  "point-cloud-aesthetic": {
+    "query": "Point Cloud digital aesthetic",
+    "status": "pending"
+  },
+  "chromecore": {
+    "query": "Chromecore digital aesthetic",
+    "status": "pending"
+  },
+  "seapunk": {
+    "query": "Seapunk digital aesthetic",
+    "status": "pending"
+  },
+  "synthetic-media-aesthetic": {
+    "query": "Synthetic Media digital aesthetic",
+    "status": "pending"
+  },
+  "nuclearpunk": {
+    "query": "Nuclearpunk digital aesthetic",
+    "status": "pending"
+  },
+  "cassette-futurism": {
+    "query": "Cassette Futurism digital aesthetic",
+    "status": "pending"
+  },
+  "hacker-aesthetic": {
+    "query": "Hacker digital aesthetic",
+    "status": "pending"
+  },
+  "jrpg-interface-aesthetic": {
+    "query": "JRPG Interface digital aesthetic",
+    "status": "pending"
+  },
+  "minimal-os-aesthetic": {
+    "query": "Minimal OS digital aesthetic",
+    "status": "pending"
+  },
+  "surveillance-aesthetic": {
+    "query": "Surveillance digital aesthetic",
+    "status": "pending"
+  },
+  "liquid-metal-aesthetic": {
+    "query": "Liquid Metal digital aesthetic",
+    "status": "pending"
+  },
+  "crystalpunk": {
+    "query": "Crystalpunk digital aesthetic",
+    "status": "pending"
+  },
+  "etherealwave-aesthetic": {
+    "query": "Etherealwave digital aesthetic",
+    "status": "pending"
+  },
+  "miami-retrofuturism": {
+    "query": "Miami Retrofuturism digital aesthetic",
+    "status": "pending"
+  },
+  "woodpunk": {
+    "query": "Woodpunk digital aesthetic",
+    "status": "pending"
+  },
+  "climate-punk": {
+    "query": "Climate Punk digital aesthetic",
+    "status": "pending"
+  },
+  "holographic-futurism": {
+    "query": "Holographic Futurism digital aesthetic",
+    "status": "pending"
+  },
+  "ai-surrealism": {
+    "query": "AI Surrealism digital aesthetic",
+    "status": "pending"
+  },
+  "soft-grunge": {
+    "query": "Soft Grunge digital aesthetic",
+    "status": "pending"
+  },
+  "cyber-zen": {
+    "query": "Cyber Zen digital aesthetic",
+    "status": "pending"
+  },
+  "cyber-mysticism": {
+    "query": "Cyber Mysticism digital aesthetic",
+    "status": "pending"
+  },
+  "cel-shaded-aesthetic": {
+    "query": "Cel-Shaded digital aesthetic",
+    "status": "pending"
+  },
+  "3d-scan-aesthetic": {
+    "query": "3D Scan digital aesthetic",
+    "status": "pending"
+  },
+  "scanography-glitch": {
+    "query": "Scanography Glitch digital aesthetic",
+    "status": "pending"
+  },
+  "photogrammetry-aesthetic": {
+    "query": "Photogrammetry digital aesthetic",
+    "status": "pending"
+  },
+  "latent-space-aesthetic": {
+    "query": "Latent Space digital aesthetic",
+    "status": "pending"
+  },
+  "biopunk": {
+    "query": "Biopunk digital aesthetic",
+    "status": "pending"
+  },
+  "stonepunk": {
+    "query": "Stonepunk digital aesthetic",
+    "status": "pending"
+  },
+  "clockpunk": {
+    "query": "Clockpunk digital aesthetic",
+    "status": "pending"
+  },
+  "databending-art": {
+    "query": "Databending Art digital aesthetic",
+    "status": "pending"
+  },
+  "digital-mysticism": {
+    "query": "Digital Mysticism digital aesthetic",
+    "status": "pending"
+  },
+  "silkpunk": {
+    "query": "Silkpunk digital aesthetic",
+    "status": "pending"
+  },
+  "voxel-art": {
+    "query": "Voxel Art digital aesthetic",
+    "status": "pending"
+  },
+  "angelcore": {
+    "query": "Angelcore digital aesthetic",
+    "status": "pending"
+  },
+  "internet-collage": {
+    "query": "Internet Collage digital aesthetic",
+    "status": "pending"
+  },
+  "net-art": {
+    "query": "Net Art digital aesthetic",
+    "status": "pending"
+  },
+  "pixel-art": {
+    "query": "Pixel Art digital aesthetic",
+    "status": "pending"
+  },
+  "new-aesthetic": {
+    "query": "New digital aesthetic",
+    "status": "pending"
+  },
+  "internet-y2k-nostalgia": {
+    "query": "Internet Y2K Nostalgia digital aesthetic",
+    "status": "pending"
+  },
+  "virtual-idol-aesthetic": {
+    "query": "Virtual Idol digital aesthetic",
+    "status": "pending"
+  },
+  "digital-fashion-aesthetic": {
+    "query": "Digital Fashion digital aesthetic",
+    "status": "pending"
+  },
+  "demoscene-aesthetic": {
+    "query": "Demoscene digital aesthetic",
+    "status": "pending"
+  },
+  "console-low-poly-aesthetic": {
+    "query": "Console Low-Poly digital aesthetic",
+    "status": "pending"
+  },
+  "early-metaverse-aesthetic": {
+    "query": "Early Metaverse digital aesthetic",
+    "status": "pending"
+  },
+  "lunarpunk": {
+    "query": "Lunarpunk digital aesthetic",
+    "status": "pending"
+  },
+  "terminal-aesthetic": {
+    "query": "Terminal digital aesthetic",
+    "status": "pending"
+  },
+  "decopunk": {
+    "query": "Decopunk digital aesthetic",
+    "status": "pending"
+  },
+  "desktop-metaphor-aesthetic": {
+    "query": "Desktop Metaphor digital aesthetic",
+    "status": "pending"
+  },
+  "cursed-image-aesthetic": {
+    "query": "Cursed Image digital aesthetic",
+    "status": "pending"
+  },
+  "ascii-art": {
+    "query": "ASCII Art digital aesthetic",
+    "status": "pending"
+  },
+  "frutiger-metro": {
+    "query": "Frutiger Metro digital aesthetic",
+    "status": "pending"
+  },
+  "n64-aesthetic": {
+    "query": "N64 digital aesthetic",
+    "status": "pending"
+  },
+  "ps1-aesthetic": {
+    "query": "PS1 digital aesthetic",
+    "status": "pending"
+  },
+  "2010s-tumblr-aesthetic": {
+    "query": "2010s Tumblr digital aesthetic",
+    "status": "pending"
+  },
+  "web-1-0-aesthetic": {
+    "query": "Web 1.0 digital aesthetic",
+    "status": "pending"
+  },
+  "web-2-0-gloss-aesthetic": {
+    "query": "Web 2.0 Gloss digital aesthetic",
+    "status": "pending"
+  },
+  "andalusian-ornament": {
+    "query": "Andalusian Ornament artwork museum",
+    "status": "pending"
+  },
+  "ottoman-miniature": {
+    "query": "Ottoman Miniature artwork museum",
+    "status": "pending"
+  },
+  "ottoman-decorative-art": {
+    "query": "Ottoman Decorative Art artwork museum",
+    "status": "pending"
+  },
+  "palestinian-tatreez-aesthetic": {
+    "query": "Palestinian Tatreez artwork museum",
+    "status": "pending"
+  },
+  "zoroastrian-visual-tradition": {
+    "query": "Zoroastrian artwork museum",
+    "status": "pending"
+  },
+  "persian-carpet-aesthetic": {
+    "query": "Persian Carpet artwork museum",
+    "status": "pending"
+  },
+  "diwani-calligraphy-aesthetic": {
+    "query": "Diwani Calligraphy artwork museum",
+    "status": "pending"
+  },
+  "georgian-sacred-art": {
+    "query": "Georgian Sacred Art artwork museum",
+    "status": "pending"
+  },
+  "hurufiyya-movement": {
+    "query": "Hurufiyya Movement artwork museum",
+    "status": "pending"
+  },
+  "qajar-painting": {
+    "query": "Qajar Painting artwork museum",
+    "status": "pending"
+  },
+  "kufic-calligraphy-aesthetic": {
+    "query": "Kufic Calligraphy artwork museum",
+    "status": "pending"
+  },
+  "mamluk-decorative-art": {
+    "query": "Mamluk Decorative Art artwork museum",
+    "status": "pending"
+  },
+  "mesopotamian-cylinder-seal-aesthetic": {
+    "query": "Mesopotamian Cylinder Seal artwork museum",
+    "status": "pending"
+  },
+  "zellige-aesthetic": {
+    "query": "Zellige artwork museum",
+    "status": "pending"
+  },
+  "muqarnas-aesthetic": {
+    "query": "Muqarnas artwork museum",
+    "status": "pending"
+  },
+  "naskh-calligraphy-aesthetic": {
+    "query": "Naskh Calligraphy artwork museum",
+    "status": "pending"
+  },
+  "nastaliq-calligraphy-aesthetic": {
+    "query": "Nastaliq Calligraphy artwork museum",
+    "status": "pending"
+  },
+  "safavid-miniature": {
+    "query": "Safavid Miniature artwork museum",
+    "status": "pending"
+  },
+  "seljuk-art": {
+    "query": "Seljuk Art artwork museum",
+    "status": "pending"
+  },
+  "timurid-art": {
+    "query": "Timurid Art artwork museum",
+    "status": "pending"
+  },
+  "turkish-ebru-aesthetic": {
+    "query": "Turkish Ebru artwork museum",
+    "status": "pending"
+  },
+  "urartian-art": {
+    "query": "Urartian Art artwork museum",
+    "status": "pending"
+  },
+  "armenian-manuscript-art": {
+    "query": "Armenian Manuscript Art artwork museum",
+    "status": "pending"
+  },
+  "ilkhanid-art": {
+    "query": "Ilkhanid Art artwork museum",
+    "status": "pending"
+  },
+  "islamic-arabesque": {
+    "query": "Islamic Arabesque artwork museum",
+    "status": "pending"
+  },
+  "islamic-manuscript-illumination": {
+    "query": "Islamic Manuscript Illumination artwork museum",
+    "status": "pending"
+  },
+  "iznik-aesthetic": {
+    "query": "Iznik artwork museum",
+    "status": "pending"
+  },
+  "post-superflat": {
+    "query": "Post-Superflat artwork installation museum",
+    "status": "pending"
+  },
+  "hyperrealism": {
+    "query": "Hyperrealism artwork installation museum",
+    "status": "pending"
+  },
+  "immersive-art": {
+    "query": "Immersive Art artwork installation museum",
+    "status": "pending"
+  },
+  "urban-art": {
+    "query": "Urban Art artwork installation museum",
+    "status": "pending"
+  },
+  "land-art": {
+    "query": "Land Art artwork installation museum",
+    "status": "pending"
+  },
+  "monochrome-painting": {
+    "query": "Monochrome Painting artwork installation museum",
+    "status": "pending"
+  },
+  "low-poly-art": {
+    "query": "Low-Poly Art artwork installation museum",
+    "status": "pending"
+  },
+  "light-and-space": {
+    "query": "Light and Space artwork installation museum",
+    "status": "pending"
+  },
+  "post-internet-art": {
+    "query": "Post-Internet Art artwork installation museum",
+    "status": "pending"
+  },
+  "post-painterly-abstraction": {
+    "query": "Post-Painterly Abstraction artwork installation museum",
+    "status": "pending"
+  },
+  "post-minimalism": {
+    "query": "Post-Minimalism artwork installation museum",
+    "status": "pending"
+  },
+  "washington-color-school": {
+    "query": "Washington Color School artwork installation museum",
+    "status": "pending"
+  },
+  "environmental-art": {
+    "query": "Environmental Art artwork installation museum",
+    "status": "pending"
+  },
+  "geometric-abstraction": {
+    "query": "Geometric Abstraction artwork installation museum",
+    "status": "pending"
+  },
+  "concrete-art": {
+    "query": "Concrete Art artwork installation museum",
+    "status": "pending"
+  },
+  "video-art": {
+    "query": "Video Art artwork installation museum",
+    "status": "pending"
+  },
+  "pattern-and-decoration": {
+    "query": "Pattern and Decoration artwork installation museum",
+    "status": "pending"
+  },
+  "appropriation-art": {
+    "query": "Appropriation Art artwork installation museum",
+    "status": "pending"
+  },
+  "social-practice-art": {
+    "query": "Social Practice Art artwork installation museum",
+    "status": "pending"
+  },
+  "body-art": {
+    "query": "Body Art artwork installation museum",
+    "status": "pending"
+  },
+  "bio-art": {
+    "query": "Bio Art artwork installation museum",
+    "status": "pending"
+  },
+  "sound-art": {
+    "query": "Sound Art artwork installation museum",
+    "status": "pending"
+  },
+  "data-art": {
+    "query": "Data Art artwork installation museum",
+    "status": "pending"
+  },
+  "pictures-generation": {
+    "query": "Pictures Generation artwork installation museum",
+    "status": "pending"
+  },
+  "graffiti-art": {
+    "query": "Graffiti Art artwork installation museum",
+    "status": "pending"
+  },
+  "toyism": {
+    "query": "Toyism artwork installation museum",
+    "status": "pending"
+  },
+  "miniature-model-art": {
+    "query": "Miniature Model Art artwork installation museum",
+    "status": "pending"
+  },
+  "neo-concretism": {
+    "query": "Neo-Concretism artwork installation museum",
+    "status": "pending"
+  },
+  "new-leipzig-school": {
+    "query": "New Leipzig School artwork installation museum",
+    "status": "pending"
+  },
+  "new-media-art": {
+    "query": "New Media Art artwork installation museum",
+    "status": "pending"
+  },
+  "performance-art": {
+    "query": "Performance Art artwork installation museum",
+    "status": "pending"
+  },
+  "hard-edge-painting": {
+    "query": "Hard-Edge Painting artwork installation museum",
+    "status": "pending"
+  },
+  "installation-art": {
+    "query": "Installation Art artwork installation museum",
+    "status": "pending"
+  }
+}

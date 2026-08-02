@@ -7,14 +7,14 @@ const STYLE_PROMPT_POLICY = Object.freeze({
       "主导": "以{name}主导整体视觉"
     },
     "en": {
-      "借鉴": "apply a subtle visual influence from {name}",
-      "明显": "use {name} as the clearly recognizable overall style",
-      "主导": "let {name} lead the overall visual treatment"
+      "借鉴": "Apply a subtle visual influence from {name}",
+      "明显": "Use {name} as the clearly recognizable overall style",
+      "主导": "Let {name} lead the overall visual treatment"
     }
   },
   "content": {
     "zh": "只改变视觉处理，保持用户主体的身份、数量、动作与关键结构",
-    "en": "change only the visual treatment; preserve the supplied subjects' identity, count, action, and defining structure"
+    "en": "Change only the visual treatment; preserve the supplied subjects' identity, count, action, and defining structure"
   },
   "executionLead": {
     "zh": "执行：",
@@ -1260,8 +1260,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "手工衬线字与图案一体化",
         "labelEn": "hand-rendered serif type integrated with pattern",
-        "promptZh": "仅在用户要求文字时采用手工衬线字与图案一体化并保持原文可读",
-        "promptEn": "only when text is requested, use hand-rendered serif type integrated with pattern and preserve the exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用手工衬线字与图案一体化，并保持原文可读",
+        "promptEn": "only when text is requested, use hand-rendered serif type integrated with pattern, and preserve the exact readable wording",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -1336,8 +1336,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "图像与曲线字体一体化",
         "labelEn": "integrated imagery and curvilinear lettering",
-        "promptZh": "仅在用户要求文字时采用图像与曲线字体一体化并保持原文可读",
-        "promptEn": "only when text is requested, use integrated imagery and curvilinear lettering and preserve the exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用图像与曲线字体一体化，并保持原文可读",
+        "promptEn": "only when text is requested, use integrated imagery and curvilinear lettering, and preserve the exact readable wording",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -1628,8 +1628,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "斜体字与爆发式排版方向",
         "labelEn": "italic type and explosive typographic direction",
-        "promptZh": "仅在用户要求文字时采用斜体字与爆发式排版方向并保持原文可读",
-        "promptEn": "only when text is requested, use italic type and explosive typographic direction and preserve the exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用斜体字与爆发式排版方向，并保持原文可读",
+        "promptEn": "only when text is requested, use italic type and explosive typographic direction, and preserve the exact readable wording",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -1676,12 +1676,12 @@ const STYLE_PROMPT_DATA = Object.freeze({
       {
         "id": "gene-2",
         "kind": "core",
-        "dimension": "imperfectionEffect",
-        "dimensionZh": "瑕疵与视觉效果",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
         "labelZh": "撕纸、胶痕与旧报纸纹理",
         "labelEn": "torn paper, glue marks, and aged newsprint",
-        "promptZh": "仅局部使用撕纸、胶痕与旧报纸纹理",
-        "promptEn": "use torn paper, glue marks, and aged newsprint only as a controlled local effect",
+        "promptZh": "材质与表面呈现为撕纸、胶痕与旧报纸纹理",
+        "promptEn": "render materials and surfaces as torn paper, glue marks, and aged newsprint",
         "weight": 0.93,
         "level": "主导"
       },
@@ -1704,8 +1704,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "混合字号与旋转排版",
         "labelEn": "mixed-scale rotated typography",
-        "promptZh": "仅在用户要求文字时采用混合字号与旋转排版并保持原文可读",
-        "promptEn": "only when text is requested, use mixed-scale rotated typography and preserve the exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用混合字号与旋转排版，并保持原文可读",
+        "promptEn": "only when text is requested, use mixed-scale rotated typography, and preserve the exact readable wording",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -1804,8 +1804,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "粗体无衬线、斜向文字与尺度跳变",
         "labelEn": "bold sans-serif, angled type, and abrupt scale shifts",
-        "promptZh": "仅在用户要求文字时采用粗体无衬线、斜向文字与尺度跳变并保持原文可读",
-        "promptEn": "only when text is requested, use bold sans-serif, angled type, and abrupt scale shifts and preserve the exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用粗体无衬线、斜向文字与尺度跳变，并保持原文可读",
+        "promptEn": "only when text is requested, use bold sans-serif, angled type, and abrupt scale shifts, and preserve the exact readable wording",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -1984,8 +1984,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "几何无衬线与清晰层级",
         "labelEn": "geometric sans-serif and clear hierarchy",
-        "promptZh": "仅在用户要求文字时采用几何无衬线与清晰层级并保持原文可读",
-        "promptEn": "only when text is requested, use geometric sans-serif and clear hierarchy and preserve the exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用几何无衬线与清晰层级，并保持原文可读",
+        "promptEn": "only when text is requested, use geometric sans-serif and clear hierarchy, and preserve the exact readable wording",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -2160,8 +2160,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "几何展示字体与宽窄节奏",
         "labelEn": "geometric display type with wide-narrow rhythm",
-        "promptZh": "仅在用户要求文字时采用几何展示字体与宽窄节奏并保持原文可读",
-        "promptEn": "only when text is requested, use geometric display type with wide-narrow rhythm and preserve the exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用几何展示字体与宽窄节奏，并保持原文可读",
+        "promptEn": "only when text is requested, use geometric display type with wide-narrow rhythm, and preserve the exact readable wording",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -2220,12 +2220,12 @@ const STYLE_PROMPT_DATA = Object.freeze({
       {
         "id": "gene-5",
         "kind": "adjustable",
-        "dimension": "imperfectionEffect",
-        "dimensionZh": "瑕疵与视觉效果",
+        "dimension": "mediumTechnique",
+        "dimensionZh": "媒介与技法",
         "labelZh": "颜料飞溅、滴流与擦抹",
         "labelEn": "paint splashes, drips, and scumbled marks",
-        "promptZh": "仅局部使用颜料飞溅、滴流与擦抹",
-        "promptEn": "use paint splashes, drips, and scumbled marks only as a controlled local effect",
+        "promptZh": "成像与笔触采用颜料飞溅、滴流与擦抹",
+        "promptEn": "render marks and edges with paint splashes, drips, and scumbled marks",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -2236,12 +2236,12 @@ const STYLE_PROMPT_DATA = Object.freeze({
       {
         "id": "gene-1",
         "kind": "core",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
         "labelZh": "色彩面积与边界关系取代描绘性形体",
         "labelEn": "relationships of color area and boundary replacing descriptive form",
-        "promptZh": "配色限定为色彩面积与边界关系取代描绘性形体",
-        "promptEn": "limit the palette to relationships of color area and boundary replacing descriptive form",
+        "promptZh": "构图采用色彩面积与边界关系取代描绘性形体",
+        "promptEn": "compose with relationships of color area and boundary replacing descriptive form",
         "weight": 1,
         "level": "定义性"
       },
@@ -2296,12 +2296,12 @@ const STYLE_PROMPT_DATA = Object.freeze({
       {
         "id": "gene-6",
         "kind": "adjustable",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
         "labelZh": "薄染画布或均匀哑光颜料表面",
         "labelEn": "stained canvas or uniformly matte pigment surface",
-        "promptZh": "光影采用薄染画布或均匀哑光颜料表面",
-        "promptEn": "use stained canvas or uniformly matte pigment surface for lighting and tonal rendering",
+        "promptZh": "材质与表面呈现为薄染画布或均匀哑光颜料表面",
+        "promptEn": "render materials and surfaces as stained canvas or uniformly matte pigment surface",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -2324,12 +2324,12 @@ const STYLE_PROMPT_DATA = Object.freeze({
       {
         "id": "gene-2",
         "kind": "core",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
         "labelZh": "粗黑轮廓与平面分区",
         "labelEn": "heavy black contours and flat divisions",
-        "promptZh": "配色限定为粗黑轮廓与平面分区",
-        "promptEn": "limit the palette to heavy black contours and flat divisions",
+        "promptZh": "将用户主体转译为粗黑轮廓与平面分区，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into heavy black contours and flat divisions while preserving identity and defining structure",
         "weight": 0.93,
         "level": "主导"
       },
@@ -2511,58 +2511,6 @@ const STYLE_PROMPT_DATA = Object.freeze({
       }
     ]
   },
-  "conceptual-art": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "序列化或网格化组织",
-        "labelEn": "serial or grid-based organization",
-        "promptZh": "构图采用序列化或网格化组织",
-        "promptEn": "compose with serial or grid-based organization",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "typographyLayout",
-        "dimensionZh": "字体与版式",
-        "labelZh": "朴素说明性排版",
-        "labelEn": "plain explanatory typography",
-        "promptZh": "仅在用户要求文字时采用朴素说明性排版并保持原文可读",
-        "promptEn": "only when text is requested, use plain explanatory typography and preserve the exact readable wording",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "黑白灰与未经美化的记录质感",
-        "labelEn": "black, white, and gray with an unembellished documentary finish",
-        "promptZh": "配色限定为黑白灰与未经美化的记录质感",
-        "promptEn": "limit the palette to black, white, and gray with an unembellished documentary finish",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "中性档案式呈现",
-        "labelEn": "neutral archival presentation",
-        "promptZh": "将用户主体转译为中性档案式呈现，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into neutral archival presentation while preserving identity and defining structure",
-        "weight": 0.78,
-        "level": "支撑"
-      }
-    ]
-  },
   "neo-expressionism": {
     "genes": [
       {
@@ -2736,8 +2684,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "衬线、无衬线与装饰字体的反规范混排",
         "labelEn": "rule-breaking mixtures of serif, sans-serif, and decorative type",
-        "promptZh": "仅在用户要求文字时采用衬线、无衬线与装饰字体的反规范混排并保持原文可读",
-        "promptEn": "only when text is requested, use rule-breaking mixtures of serif, sans-serif, and decorative type and preserve the exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用衬线、无衬线与装饰字体的反规范混排，并保持原文可读",
+        "promptEn": "only when text is requested, use rule-breaking mixtures of serif, sans-serif, and decorative type, and preserve the exact readable wording",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -2876,8 +2824,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "膨胀扭曲的展示字体",
         "labelEn": "inflated warped display typography",
-        "promptZh": "仅在用户要求文字时采用膨胀扭曲的展示字体并保持原文可读",
-        "promptEn": "only when text is requested, use inflated warped display typography and preserve the exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用膨胀扭曲的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use inflated warped display typography, and preserve the exact readable wording",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -2890,70 +2838,6 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "labelEn": "repeated lines creating optical vibration",
         "promptZh": "将用户主体转译为重复线条造成视觉振动，保持身份与关键结构",
         "promptEn": "translate the supplied subjects into repeated lines creating optical vibration while preserving identity and defining structure",
-        "weight": 0.7,
-        "level": "可弹性调整"
-      }
-    ]
-  },
-  "street-art": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "超大图形、边缘裁切与满幅大尺度布局",
-        "labelEn": "oversized graphics, edge cropping, and full-field large-scale layout",
-        "promptZh": "构图采用超大图形、边缘裁切与满幅大尺度布局",
-        "promptEn": "compose with oversized graphics, edge cropping, and full-field large-scale layout",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "imperfectionEffect",
-        "dimensionZh": "瑕疵与视觉效果",
-        "labelZh": "滴流、飞漆、遮盖痕迹与风化表面",
-        "labelEn": "drips, overspray, overpainting traces, and weathered surface",
-        "promptZh": "仅局部使用滴流、飞漆、遮盖痕迹与风化表面",
-        "promptEn": "use drips, overspray, overpainting traces, and weathered surface only as a controlled local effect",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "mediumTechnique",
-        "dimensionZh": "媒介与技法",
-        "labelZh": "模板喷涂、自由喷漆与书写性线条叠层",
-        "labelEn": "layered stencil, free-spray marks, and calligraphic linework",
-        "promptZh": "成像与笔触采用模板喷涂、自由喷漆与书写性线条叠层",
-        "promptEn": "render marks and edges with layered stencil, free-spray marks, and calligraphic linework",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "黑白底色配少量高饱和强调色",
-        "labelEn": "black-white ground with limited saturated accents",
-        "promptZh": "配色限定为黑白底色配少量高饱和强调色",
-        "promptEn": "limit the palette to black-white ground with limited saturated accents",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "粗重轮廓、高反差剪影与少量内部细节",
-        "labelEn": "heavy contours, high-contrast silhouettes, and limited interior detail",
-        "promptZh": "将用户主体转译为粗重轮廓、高反差剪影与少量内部细节，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into heavy contours, high-contrast silhouettes, and limited interior detail while preserving identity and defining structure",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -3082,198 +2966,6 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "labelEn": "finely luminous silk surface",
         "promptZh": "材质与表面呈现为细腻绢本的柔亮表面",
         "promptEn": "render materials and surfaces as finely luminous silk surface",
-        "weight": 0.7,
-        "level": "可弹性调整"
-      }
-    ]
-  },
-  "dunhuang": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "对称或旋转式装饰布局",
-        "labelEn": "symmetrical or rotational ornamental layout",
-        "promptZh": "构图采用对称或旋转式装饰布局",
-        "promptEn": "compose with symmetrical or rotational ornamental layout",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "连续流动线条与扁平造型",
-        "labelEn": "continuous flowing lines and flattened form",
-        "promptZh": "将用户主体转译为连续流动线条与扁平造型，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into continuous flowing lines and flattened form while preserving identity and defining structure",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "mediumTechnique",
-        "dimensionZh": "媒介与技法",
-        "labelZh": "平面设色与柔和层染",
-        "labelEn": "flat color with soft layered shading",
-        "promptZh": "成像与笔触采用平面设色与柔和层染",
-        "promptEn": "render marks and edges with flat color with soft layered shading",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "core",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "矿物土红、石青与赭黄",
-        "labelEn": "mineral earth red, azurite blue, and ochre yellow",
-        "promptZh": "配色限定为矿物土红、石青与赭黄",
-        "promptEn": "limit the palette to mineral earth red, azurite blue, and ochre yellow",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "imperfectionEffect",
-        "dimensionZh": "瑕疵与视觉效果",
-        "labelZh": "褪色开裂的壁画表面",
-        "labelEn": "faded and cracked mural surface",
-        "promptZh": "仅局部使用褪色开裂的壁画表面",
-        "promptEn": "use faded and cracked mural surface only as a controlled local effect",
-        "weight": 0.78,
-        "level": "支撑"
-      }
-    ]
-  },
-  "chinese-new-year-print": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "正面轴线与饱满对称",
-        "labelEn": "frontal axis and full symmetry",
-        "promptZh": "构图采用正面轴线与饱满对称",
-        "promptEn": "compose with frontal axis and full symmetry",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "粗壮木刻轮廓与简化比例",
-        "labelEn": "bold woodcut contours and simplified proportions",
-        "promptZh": "将用户主体转译为粗壮木刻轮廓与简化比例，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into bold woodcut contours and simplified proportions while preserving identity and defining structure",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "imperfectionEffect",
-        "dimensionZh": "瑕疵与视觉效果",
-        "labelZh": "套色平涂与轻微错版",
-        "labelEn": "flat registered color with slight misalignment",
-        "promptZh": "仅局部使用套色平涂与轻微错版",
-        "promptEn": "use flat registered color with slight misalignment only as a controlled local effect",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "大红、明黄与翠绿",
-        "labelEn": "bright red, yellow, and emerald green",
-        "promptZh": "配色限定为大红、明黄与翠绿",
-        "promptEn": "limit the palette to bright red, yellow, and emerald green",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "materialTexture",
-        "dimensionZh": "材质与纹理",
-        "labelZh": "吸墨纸张与手工压印",
-        "labelEn": "absorbent paper and handmade impression",
-        "promptZh": "材质与表面呈现为吸墨纸张与手工压印",
-        "promptEn": "render materials and surfaces as absorbent paper and handmade impression",
-        "weight": 0.7,
-        "level": "可弹性调整"
-      }
-    ]
-  },
-  "guochao": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "强中心与高密度海报层级",
-        "labelEn": "strong central focus and dense poster hierarchy",
-        "promptZh": "构图采用强中心与高密度海报层级",
-        "promptEn": "compose with strong central focus and dense poster hierarchy",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "typographyLayout",
-        "dimensionZh": "字体与版式",
-        "labelZh": "紧凑粗体中文展示排版",
-        "labelEn": "compact bold Chinese display typography",
-        "promptZh": "仅在用户要求文字时采用紧凑粗体中文展示排版并保持原文可读",
-        "promptEn": "only when text is requested, use compact bold Chinese display typography and preserve the exact readable wording",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "传统线性节奏与现代硬边几何",
-        "labelEn": "traditional linear rhythm with modern hard-edged geometry",
-        "promptZh": "将用户主体转译为传统线性节奏与现代硬边几何，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into traditional linear rhythm with modern hard-edged geometry while preserving identity and defining structure",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "大红、金色与墨黑高对比",
-        "labelEn": "high-contrast red, gold, and ink black",
-        "promptZh": "配色限定为大红、金色与墨黑高对比",
-        "promptEn": "limit the palette to high-contrast red, gold, and ink black",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "平面插画与金属高光并置",
-        "labelEn": "flat illustration juxtaposed with metallic highlights",
-        "promptZh": "光影采用平面插画与金属高光并置",
-        "promptEn": "use flat illustration juxtaposed with metallic highlights for lighting and tonal rendering",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -3495,158 +3187,6 @@ const STYLE_PROMPT_DATA = Object.freeze({
       }
     ]
   },
-  "wabi-sabi": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "稀疏非对称与充足留白",
-        "labelEn": "sparse asymmetry and generous negative space",
-        "promptZh": "构图采用稀疏非对称与充足留白",
-        "promptEn": "compose with sparse asymmetry and generous negative space",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "不规则轮廓与不完美比例",
-        "labelEn": "irregular contours and imperfect proportions",
-        "promptZh": "将用户主体转译为不规则轮廓与不完美比例，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into irregular contours and imperfect proportions while preserving identity and defining structure",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "imperfectionEffect",
-        "dimensionZh": "瑕疵与视觉效果",
-        "labelZh": "风化、磨损与哑光触感",
-        "labelEn": "weathered, worn, and matte tactility",
-        "promptZh": "仅局部使用风化、磨损与哑光触感",
-        "promptEn": "use weathered, worn, and matte tactility only as a controlled local effect",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "土灰、褐色与褪色中性色",
-        "labelEn": "earth gray, brown, and faded neutrals",
-        "promptZh": "配色限定为土灰、褐色与褪色中性色",
-        "promptEn": "limit the palette to earth gray, brown, and faded neutrals",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "柔和低对比自然光",
-        "labelEn": "soft low-contrast natural light",
-        "promptZh": "光影采用柔和低对比自然光",
-        "promptEn": "use soft low-contrast natural light for lighting and tonal rendering",
-        "weight": 0.78,
-        "level": "支撑"
-      }
-    ]
-  },
-  "kawaii": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "紧凑居中与小尺度模块化布局",
-        "labelEn": "compact centered and small-scale modular layout",
-        "promptZh": "构图采用紧凑居中与小尺度模块化布局",
-        "promptEn": "compose with compact centered and small-scale modular layout",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "高明度粉彩与少量深色描边",
-        "labelEn": "high-key pastels with limited dark outlining",
-        "promptZh": "配色限定为高明度粉彩与少量深色描边",
-        "promptEn": "limit the palette to high-key pastels with limited dark outlining",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "圆润轮廓、短小比例与偏大的主要形体",
-        "labelEn": "rounded contours, shortened proportions, and enlarged primary forms",
-        "promptZh": "将用户主体转译为圆润轮廓、短小比例与偏大的主要形体，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into rounded contours, shortened proportions, and enlarged primary forms while preserving identity and defining structure",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "均匀粗轮廓与极少内部线条",
-        "labelEn": "uniform bold contours and minimal interior linework",
-        "promptZh": "将用户主体转译为均匀粗轮廓与极少内部线条，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into uniform bold contours and minimal interior linework while preserving identity and defining structure",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "次要结构被压缩为少量清晰特征",
-        "labelEn": "secondary structure reduced to a few legible features",
-        "promptZh": "将用户主体转译为次要结构被压缩为少量清晰特征，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into secondary structure reduced to a few legible features while preserving identity and defining structure",
-        "weight": 0.78,
-        "level": "可调整"
-      },
-      {
-        "id": "gene-6",
-        "kind": "adjustable",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "两级或三级平涂明暗与小面积高光",
-        "labelEn": "two- or three-step flat shading with small highlights",
-        "promptZh": "光影采用两级或三级平涂明暗与小面积高光",
-        "promptEn": "use two- or three-step flat shading with small highlights for lighting and tonal rendering",
-        "weight": 0.7,
-        "level": "可弹性调整"
-      },
-      {
-        "id": "gene-7",
-        "kind": "adjustable",
-        "dimension": "mediumTechnique",
-        "dimensionZh": "媒介与技法",
-        "labelZh": "无颗粒的光洁矢量或赛璐璐表面",
-        "labelEn": "grain-free clean vector or cel-painted surface",
-        "promptZh": "成像与笔触采用无颗粒的光洁矢量或赛璐璐表面",
-        "promptEn": "render marks and edges with grain-free clean vector or cel-painted surface",
-        "weight": 0.55,
-        "level": "可调整"
-      }
-    ]
-  },
   "superflat": {
     "genes": [
       {
@@ -3816,12 +3356,12 @@ const STYLE_PROMPT_DATA = Object.freeze({
       {
         "id": "gene-4",
         "kind": "adjustable",
-        "dimension": "materialTexture",
-        "dimensionZh": "材质与纹理",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
         "labelZh": "平面图案覆盖形体表面",
         "labelEn": "flat patterns covering form surfaces",
-        "promptZh": "材质与表面呈现为平面图案覆盖形体表面",
-        "promptEn": "render materials and surfaces as flat patterns covering form surfaces",
+        "promptZh": "将用户主体转译为平面图案覆盖形体表面，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into flat patterns covering form surfaces while preserving identity and defining structure",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -3904,12 +3444,12 @@ const STYLE_PROMPT_DATA = Object.freeze({
       {
         "id": "gene-5",
         "kind": "adjustable",
-        "dimension": "materialTexture",
-        "dimensionZh": "材质与纹理",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
         "labelZh": "局部纹样保持平面且高度细密",
         "labelEn": "localized pattern remaining flat and highly intricate",
-        "promptZh": "材质与表面呈现为局部纹样保持平面且高度细密",
-        "promptEn": "render materials and surfaces as localized pattern remaining flat and highly intricate",
+        "promptZh": "将用户主体转译为局部纹样保持平面且高度细密，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into localized pattern remaining flat and highly intricate while preserving identity and defining structure",
         "weight": 0.78,
         "level": "可调整"
       },
@@ -4104,12 +3644,12 @@ const STYLE_PROMPT_DATA = Object.freeze({
       {
         "id": "gene-7",
         "kind": "adjustable",
-        "dimension": "mediumTechnique",
-        "dimensionZh": "媒介与技法",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
         "labelZh": "釉面砖、马赛克与细密灰缝表面",
         "labelEn": "glazed tile, mosaic, and fine grout-line surfaces",
-        "promptZh": "成像与笔触采用釉面砖、马赛克与细密灰缝表面",
-        "promptEn": "render marks and edges with glazed tile, mosaic, and fine grout-line surfaces",
+        "promptZh": "材质与表面呈现为釉面砖、马赛克与细密灰缝表面",
+        "promptEn": "render materials and surfaces as glazed tile, mosaic, and fine grout-line surfaces",
         "weight": 0.55,
         "level": "可调整"
       }
@@ -4144,12 +3684,12 @@ const STYLE_PROMPT_DATA = Object.freeze({
       {
         "id": "gene-3",
         "kind": "core",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
+        "dimension": "mediumTechnique",
+        "dimensionZh": "媒介与技法",
         "labelZh": "精确细线与平面设色",
         "labelEn": "precise fine lines and flat coloring",
-        "promptZh": "配色限定为精确细线与平面设色",
-        "promptEn": "limit the palette to precise fine lines and flat coloring",
+        "promptZh": "成像与笔触采用精确细线与平面设色",
+        "promptEn": "render marks and edges with precise fine lines and flat coloring",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -4184,12 +3724,12 @@ const STYLE_PROMPT_DATA = Object.freeze({
       {
         "id": "gene-1",
         "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
         "labelZh": "纪念碑式尺度与强对角线",
         "labelEn": "monumental scale and strong diagonals",
-        "promptZh": "将用户主体转译为纪念碑式尺度与强对角线，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into monumental scale and strong diagonals while preserving identity and defining structure",
+        "promptZh": "构图采用纪念碑式尺度与强对角线",
+        "promptEn": "compose with monumental scale and strong diagonals",
         "weight": 1,
         "level": "定义性"
       },
@@ -4243,134 +3783,6 @@ const STYLE_PROMPT_DATA = Object.freeze({
       }
     ]
   },
-  "mexican-folk": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "正面装饰性对称",
-        "labelEn": "frontal decorative symmetry",
-        "promptZh": "构图采用正面装饰性对称",
-        "promptEn": "compose with frontal decorative symmetry",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "密集但清晰的平面层级",
-        "labelEn": "dense yet legible flat hierarchy",
-        "promptZh": "将用户主体转译为密集但清晰的平面层级，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into dense yet legible flat hierarchy while preserving identity and defining structure",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "mediumTechnique",
-        "dimensionZh": "媒介与技法",
-        "labelZh": "简化手绘轮廓与重复填纹",
-        "labelEn": "simplified hand-painted contours and repeated infill",
-        "promptZh": "成像与笔触采用简化手绘轮廓与重复填纹",
-        "promptEn": "render marks and edges with simplified hand-painted contours and repeated infill",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "高饱和互补色",
-        "labelEn": "high-saturation complementary color",
-        "promptZh": "配色限定为高饱和互补色",
-        "promptEn": "limit the palette to high-saturation complementary color",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "materialTexture",
-        "dimensionZh": "材质与纹理",
-        "labelZh": "哑光手工表面与轻微不规则",
-        "labelEn": "matte handmade surface and slight irregularity",
-        "promptZh": "材质与表面呈现为哑光手工表面与轻微不规则",
-        "promptEn": "render materials and surfaces as matte handmade surface and slight irregularity",
-        "weight": 0.7,
-        "level": "可弹性调整"
-      }
-    ]
-  },
-  "african-wax-print": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "强烈几何节奏与图底反转",
-        "labelEn": "bold geometric rhythm and figure-ground reversal",
-        "promptZh": "构图采用强烈几何节奏与图底反转",
-        "promptEn": "compose with bold geometric rhythm and figure-ground reversal",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "高饱和互补色系",
-        "labelEn": "high-saturation complementary palette",
-        "promptZh": "配色限定为高饱和互补色系",
-        "promptEn": "limit the palette to high-saturation complementary palette",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "满版连续重复",
-        "labelEn": "all-over continuous repetition",
-        "promptZh": "将用户主体转译为满版连续重复，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into all-over continuous repetition while preserving identity and defining structure",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "大尺度轮廓与小尺度填纹并置",
-        "labelEn": "juxtaposed large contours and small infill patterns",
-        "promptZh": "将用户主体转译为大尺度轮廓与小尺度填纹并置，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into juxtaposed large contours and small infill patterns while preserving identity and defining structure",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "materialTexture",
-        "dimensionZh": "材质与纹理",
-        "labelZh": "清晰蜡染边缘与棉布纹理",
-        "labelEn": "crisp wax-resist edges and cotton texture",
-        "promptZh": "材质与表面呈现为清晰蜡染边缘与棉布纹理",
-        "promptEn": "render materials and surfaces as crisp wax-resist edges and cotton texture",
-        "weight": 0.7,
-        "level": "可弹性调整"
-      }
-    ]
-  },
   "afrofuturism": {
     "genes": [
       {
@@ -4400,12 +3812,12 @@ const STYLE_PROMPT_DATA = Object.freeze({
       {
         "id": "gene-3",
         "kind": "core",
-        "dimension": "materialTexture",
-        "dimensionZh": "材质与纹理",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
         "labelZh": "重复图案作为结构而非表面点缀",
         "labelEn": "repeated pattern functioning as structure rather than surface accent",
-        "promptZh": "材质与表面呈现为重复图案作为结构而非表面点缀",
-        "promptEn": "render materials and surfaces as repeated pattern functioning as structure rather than surface accent",
+        "promptZh": "将用户主体转译为重复图案作为结构而非表面点缀，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into repeated pattern functioning as structure rather than surface accent while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -4448,12 +3860,12 @@ const STYLE_PROMPT_DATA = Object.freeze({
       {
         "id": "gene-7",
         "kind": "adjustable",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
         "labelZh": "抛光金属、珠饰感表面与织物纹理并置",
         "labelEn": "juxtaposed polished metal, bead-like surfaces, and textile texture",
-        "promptZh": "光影采用抛光金属、珠饰感表面与织物纹理并置",
-        "promptEn": "use juxtaposed polished metal, bead-like surfaces, and textile texture for lighting and tonal rendering",
+        "promptZh": "材质与表面呈现为抛光金属、珠饰感表面与织物纹理并置",
+        "promptEn": "render materials and surfaces as juxtaposed polished metal, bead-like surfaces, and textile texture",
         "weight": 0.55,
         "level": "可调整"
       }
@@ -4492,8 +3904,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "左对齐无衬线排版",
         "labelEn": "flush-left sans-serif typography",
-        "promptZh": "仅在用户要求文字时采用左对齐无衬线排版并保持原文可读",
-        "promptEn": "only when text is requested, use flush-left sans-serif typography and preserve the exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用左对齐无衬线排版，并保持原文可读",
+        "promptEn": "only when text is requested, use flush-left sans-serif typography, and preserve the exact readable wording",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -4556,8 +3968,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "克制几何无衬线与宽松排版",
         "labelEn": "restrained geometric sans-serif with open spacing",
-        "promptZh": "仅在用户要求文字时采用克制几何无衬线与宽松排版并保持原文可读",
-        "promptEn": "only when text is requested, use restrained geometric sans-serif with open spacing and preserve the exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用克制几何无衬线与宽松排版，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained geometric sans-serif with open spacing, and preserve the exact readable wording",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -4708,8 +4120,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "圆润几何无衬线排版",
         "labelEn": "rounded geometric sans-serif typography",
-        "promptZh": "仅在用户要求文字时采用圆润几何无衬线排版并保持原文可读",
-        "promptEn": "only when text is requested, use rounded geometric sans-serif typography and preserve the exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用圆润几何无衬线排版，并保持原文可读",
+        "promptEn": "only when text is requested, use rounded geometric sans-serif typography, and preserve the exact readable wording",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -4728,12 +4140,12 @@ const STYLE_PROMPT_DATA = Object.freeze({
       {
         "id": "gene-6",
         "kind": "adjustable",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
         "labelZh": "光滑烤漆与抛光金属表面",
         "labelEn": "smooth lacquer and polished metal surface",
-        "promptZh": "光影采用光滑烤漆与抛光金属表面",
-        "promptEn": "use smooth lacquer and polished metal surface for lighting and tonal rendering",
+        "promptZh": "材质与表面呈现为光滑烤漆与抛光金属表面",
+        "promptEn": "render materials and surfaces as smooth lacquer and polished metal surface",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -4784,8 +4196,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "不规则展示字体与图形交错",
         "labelEn": "irregular display typography interwoven with graphics",
-        "promptZh": "仅在用户要求文字时采用不规则展示字体与图形交错并保持原文可读",
-        "promptEn": "only when text is requested, use irregular display typography interwoven with graphics and preserve the exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用不规则展示字体与图形交错，并保持原文可读",
+        "promptEn": "only when text is requested, use irregular display typography interwoven with graphics, and preserve the exact readable wording",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -4824,8 +4236,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "文字块的重叠、旋转与越界",
         "labelEn": "overlapping, rotated, and edge-crossing text blocks",
-        "promptZh": "仅在用户要求文字时采用文字块的重叠、旋转与越界并保持原文可读",
-        "promptEn": "only when text is requested, use overlapping, rotated, and edge-crossing text blocks and preserve the exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用文字块的重叠、旋转与越界，并保持原文可读",
+        "promptEn": "only when text is requested, use overlapping, rotated, and edge-crossing text blocks, and preserve the exact readable wording",
         "weight": 1,
         "level": "定义性"
       },
@@ -4836,8 +4248,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "字号、字距与行距的剧烈变化",
         "labelEn": "extreme variation in type scale and spacing",
-        "promptZh": "仅在用户要求文字时采用字号、字距与行距的剧烈变化并保持原文可读",
-        "promptEn": "only when text is requested, use extreme variation in type scale and spacing and preserve the exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用字号、字距与行距的剧烈变化，并保持原文可读",
+        "promptEn": "only when text is requested, use extreme variation in type scale and spacing, and preserve the exact readable wording",
         "weight": 0.93,
         "level": "主导"
       },
@@ -4920,12 +4332,12 @@ const STYLE_PROMPT_DATA = Object.freeze({
       {
         "id": "gene-4",
         "kind": "adjustable",
-        "dimension": "materialTexture",
-        "dimensionZh": "材质与纹理",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
         "labelZh": "图案叠图案的表面节奏",
         "labelEn": "pattern-on-pattern surface rhythm",
-        "promptZh": "材质与表面呈现为图案叠图案的表面节奏",
-        "promptEn": "render materials and surfaces as pattern-on-pattern surface rhythm",
+        "promptZh": "构图采用图案叠图案的表面节奏",
+        "promptEn": "compose with pattern-on-pattern surface rhythm",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -4976,20 +4388,20 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "混合字号、剪贴字与打字机字排版",
         "labelEn": "mixed-scale cutout and typewriter typography",
-        "promptZh": "仅在用户要求文字时采用混合字号、剪贴字与打字机字排版并保持原文可读",
-        "promptEn": "only when text is requested, use mixed-scale cutout and typewriter typography and preserve the exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用混合字号、剪贴字与打字机字排版，并保持原文可读",
+        "promptEn": "only when text is requested, use mixed-scale cutout and typewriter typography, and preserve the exact readable wording",
         "weight": 0.86,
         "level": "强特征"
       },
       {
         "id": "gene-4",
         "kind": "adjustable",
-        "dimension": "imperfectionEffect",
-        "dimensionZh": "瑕疵与视觉效果",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
         "labelZh": "高反差复印、撕纸、胶痕与墨渍",
         "labelEn": "high-contrast photocopy, torn paper, glue marks, and ink stains",
-        "promptZh": "仅局部使用高反差复印、撕纸、胶痕与墨渍",
-        "promptEn": "use high-contrast photocopy, torn paper, glue marks, and ink stains only as a controlled local effect",
+        "promptZh": "材质与表面呈现为高反差复印、撕纸、胶痕与墨渍",
+        "promptEn": "render materials and surfaces as high-contrast photocopy, torn paper, glue marks, and ink stains",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -5012,24 +4424,24 @@ const STYLE_PROMPT_DATA = Object.freeze({
       {
         "id": "gene-1",
         "kind": "core",
-        "dimension": "imperfectionEffect",
-        "dimensionZh": "瑕疵与视觉效果",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
         "labelZh": "划痕、污渍与油墨渗漏",
         "labelEn": "scratches, stains, and ink bleed",
-        "promptZh": "仅局部使用划痕、污渍与油墨渗漏",
-        "promptEn": "use scratches, stains, and ink bleed only as a controlled local effect",
+        "promptZh": "材质与表面呈现为划痕、污渍与油墨渗漏",
+        "promptEn": "render materials and surfaces as scratches, stains, and ink bleed",
         "weight": 1,
         "level": "定义性"
       },
       {
         "id": "gene-2",
         "kind": "core",
-        "dimension": "imperfectionEffect",
-        "dimensionZh": "瑕疵与视觉效果",
+        "dimension": "mediumTechnique",
+        "dimensionZh": "媒介与技法",
         "labelZh": "低保真复印与粗纸纹理",
         "labelEn": "lo-fi photocopy and coarse paper texture",
-        "promptZh": "仅局部使用低保真复印与粗纸纹理",
-        "promptEn": "use lo-fi photocopy and coarse paper texture only as a controlled local effect",
+        "promptZh": "成像与笔触采用低保真复印与粗纸纹理",
+        "promptEn": "render marks and edges with lo-fi photocopy and coarse paper texture",
         "weight": 0.93,
         "level": "主导"
       },
@@ -5040,8 +4452,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "被侵蚀的粗体排版",
         "labelEn": "eroded bold typography",
-        "promptZh": "仅在用户要求文字时采用被侵蚀的粗体排版并保持原文可读",
-        "promptEn": "only when text is requested, use eroded bold typography and preserve the exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用被侵蚀的粗体排版，并保持原文可读",
+        "promptEn": "only when text is requested, use eroded bold typography, and preserve the exact readable wording",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -5168,20 +4580,20 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "超大系统字体与直接层级",
         "labelEn": "oversized system typography and direct hierarchy",
-        "promptZh": "仅在用户要求文字时采用超大系统字体与直接层级并保持原文可读",
-        "promptEn": "only when text is requested, use oversized system typography and direct hierarchy and preserve the exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用超大系统字体与直接层级，并保持原文可读",
+        "promptEn": "only when text is requested, use oversized system typography and direct hierarchy, and preserve the exact readable wording",
         "weight": 0.93,
         "level": "主导"
       },
       {
         "id": "gene-3",
         "kind": "core",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
         "labelZh": "粗黑边框与硬切分区",
         "labelEn": "heavy black borders and hard divisions",
-        "promptZh": "配色限定为粗黑边框与硬切分区",
-        "promptEn": "limit the palette to heavy black borders and hard divisions",
+        "promptZh": "将用户主体转译为粗黑边框与硬切分区，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into heavy black borders and hard divisions while preserving identity and defining structure",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -5264,12 +4676,12 @@ const STYLE_PROMPT_DATA = Object.freeze({
       {
         "id": "gene-5",
         "kind": "adjustable",
-        "dimension": "mediumTechnique",
-        "dimensionZh": "媒介与技法",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
         "labelZh": "统一平涂色面与有限明快色板",
         "labelEn": "uniform flat color fields and a limited bright palette",
-        "promptZh": "成像与笔触采用统一平涂色面与有限明快色板",
-        "promptEn": "render marks and edges with uniform flat color fields and a limited bright palette",
+        "promptZh": "配色限定为统一平涂色面与有限明快色板",
+        "promptEn": "limit the palette to uniform flat color fields and a limited bright palette",
         "weight": 0.7,
         "level": "可弹性调整"
       },
@@ -5284,134 +4696,6 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "promptEn": "translate the supplied subjects into clean vector edges and consistent line weight while preserving identity and defining structure",
         "weight": 0.62,
         "level": "可调整"
-      }
-    ]
-  },
-  "corporate-memphis": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "简化圆润比例与流畅曲线",
-        "labelEn": "simplified rounded proportions and flowing curves",
-        "promptZh": "将用户主体转译为简化圆润比例与流畅曲线，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into simplified rounded proportions and flowing curves while preserving identity and defining structure",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "开放非对称的模块布局",
-        "labelEn": "open asymmetrical modular layout",
-        "promptZh": "构图采用开放非对称的模块布局",
-        "promptEn": "compose with open asymmetrical modular layout",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "扁平重叠色块与极少细节",
-        "labelEn": "flat overlapping color shapes and minimal detail",
-        "promptZh": "构图采用扁平重叠色块与极少细节",
-        "promptEn": "compose with flat overlapping color shapes and minimal detail",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "柔和蓝、珊瑚色与芥末黄",
-        "labelEn": "soft blue, coral, and mustard yellow",
-        "promptZh": "配色限定为柔和蓝、珊瑚色与芥末黄",
-        "promptEn": "limit the palette to soft blue, coral, and mustard yellow",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "mediumTechnique",
-        "dimensionZh": "媒介与技法",
-        "labelZh": "无纹理的干净矢量表面",
-        "labelEn": "textureless clean vector finish",
-        "promptZh": "成像与笔触采用无纹理的干净矢量表面",
-        "promptEn": "render marks and edges with textureless clean vector finish",
-        "weight": 0.7,
-        "level": "可弹性调整"
-      }
-    ]
-  },
-  "material-design": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "分层平面与明确层级",
-        "labelEn": "layered planes and explicit hierarchy",
-        "promptZh": "构图采用分层平面与明确层级",
-        "promptEn": "compose with layered planes and explicit hierarchy",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "受控投影表达高度关系",
-        "labelEn": "controlled shadows expressing elevation",
-        "promptZh": "光影采用受控投影表达高度关系",
-        "promptEn": "use controlled shadows expressing elevation for lighting and tonal rendering",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "一致间距与克制圆角",
-        "labelEn": "consistent spacing and restrained corner radius",
-        "promptZh": "将用户主体转译为一致间距与克制圆角，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into consistent spacing and restrained corner radius while preserving identity and defining structure",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "中性色面配单一高饱和强调",
-        "labelEn": "neutral surfaces with one saturated accent",
-        "promptZh": "配色限定为中性色面配单一高饱和强调",
-        "promptEn": "limit the palette to neutral surfaces with one saturated accent",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "typographyLayout",
-        "dimensionZh": "字体与版式",
-        "labelZh": "清晰无衬线与统一图标线性",
-        "labelEn": "clear sans-serif typography and consistent icon linework",
-        "promptZh": "仅在用户要求文字时采用清晰无衬线与统一图标线性并保持原文可读",
-        "promptEn": "only when text is requested, use clear sans-serif typography and consistent icon linework and preserve the exact readable wording",
-        "weight": 0.7,
-        "level": "可弹性调整"
       }
     ]
   },
@@ -5479,134 +4763,6 @@ const STYLE_PROMPT_DATA = Object.freeze({
       }
     ]
   },
-  "glassmorphism": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "materialTexture",
-        "dimensionZh": "材质与纹理",
-        "labelZh": "饱和色透过玻璃扩散",
-        "labelEn": "saturated color diffused through glass",
-        "promptZh": "材质与表面呈现为饱和色透过玻璃扩散",
-        "promptEn": "render materials and surfaces as saturated color diffused through glass",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "低对比柔和投影",
-        "labelEn": "low-contrast soft shadows",
-        "promptZh": "光影采用低对比柔和投影",
-        "promptEn": "use low-contrast soft shadows for lighting and tonal rendering",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "半透明磨砂平面叠层",
-        "labelEn": "layered translucent frosted planes",
-        "promptZh": "将用户主体转译为半透明磨砂平面叠层，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into layered translucent frosted planes while preserving identity and defining structure",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "背景模糊与清晰前景边缘",
-        "labelEn": "blurred background with crisp foreground edges",
-        "promptZh": "将用户主体转译为背景模糊与清晰前景边缘，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into blurred background with crisp foreground edges while preserving identity and defining structure",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "细薄高亮边框",
-        "labelEn": "thin luminous borders",
-        "promptZh": "将用户主体转译为细薄高亮边框，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into thin luminous borders while preserving identity and defining structure",
-        "weight": 0.7,
-        "level": "可弹性调整"
-      }
-    ]
-  },
-  "neumorphism": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "同一方向成对出现的浅色高光与深色阴影",
-        "labelEn": "paired light highlights and dark shadows following one direction",
-        "promptZh": "光影采用同一方向成对出现的浅色高光与深色阴影",
-        "promptEn": "use paired light highlights and dark shadows following one direction for lighting and tonal rendering",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "materialTexture",
-        "dimensionZh": "材质与纹理",
-        "labelZh": "单色哑光表面与极少纹理",
-        "labelEn": "monochrome matte surfaces with minimal texture",
-        "promptZh": "材质与表面呈现为单色哑光表面与极少纹理",
-        "promptEn": "render materials and surfaces as monochrome matte surfaces with minimal texture",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "柔和凸起与内凹层次",
-        "labelEn": "soft raised and inset depth",
-        "promptZh": "将用户主体转译为柔和凸起与内凹层次，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into soft raised and inset depth while preserving identity and defining structure",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "大圆角、无描边与连续融合边缘",
-        "labelEn": "large radii, no outlines, and continuously blended edges",
-        "promptZh": "将用户主体转译为大圆角、无描边与连续融合边缘，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into large radii, no outlines, and continuously blended edges while preserving identity and defining structure",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "背景与叠层使用同一低对比基础色",
-        "labelEn": "background and layered forms sharing one low-contrast base color",
-        "promptZh": "配色限定为背景与叠层使用同一低对比基础色",
-        "promptEn": "limit the palette to background and layered forms sharing one low-contrast base color",
-        "weight": 0.7,
-        "level": "可弹性调整"
-      }
-    ]
-  },
   "acid-graphics": {
     "genes": [
       {
@@ -5648,18 +4804,6 @@ const STYLE_PROMPT_DATA = Object.freeze({
       {
         "id": "gene-4",
         "kind": "adjustable",
-        "dimension": "typographyLayout",
-        "dimensionZh": "字体与版式",
-        "labelZh": "数字噪点与极端压缩字体",
-        "labelEn": "digital noise and extremely condensed typography",
-        "promptZh": "仅在用户要求文字时采用数字噪点与极端压缩字体并保持原文可读",
-        "promptEn": "only when text is requested, use digital noise and extremely condensed typography and preserve the exact readable wording",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
         "dimension": "compositionSpace",
         "dimensionZh": "构图与空间",
         "labelZh": "密集越界的边到边布局",
@@ -5668,6 +4812,30 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "promptEn": "compose with dense edge-bleeding layout",
         "weight": 0.7,
         "level": "可弹性调整"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "超窄、横向拉伸或纵向堆叠的极端展示字体",
+        "labelEn": "extremely condensed, horizontally stretched, or vertically stacked display typography",
+        "promptZh": "仅在用户要求文字时，采用超窄、横向拉伸或纵向堆叠的极端展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use extremely condensed, horizontally stretched, or vertically stacked display typography, and preserve the exact readable wording",
+        "weight": 0.7,
+        "level": "可调整"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "imperfectionEffect",
+        "dimensionZh": "瑕疵与视觉效果",
+        "labelZh": "数字噪点、扫描纹与压缩伪影形成表面干扰",
+        "labelEn": "digital noise, scan texture, and compression artifacts forming surface interference",
+        "promptZh": "仅局部使用数字噪点、扫描纹与压缩伪影形成表面干扰",
+        "promptEn": "use digital noise, scan texture, and compression artifacts forming surface interference only as a controlled local effect",
+        "weight": 0.62,
+        "level": "可调整"
       }
     ]
   },
@@ -5730,322 +4898,6 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "labelEn": "compression artifacts and digital noise",
         "promptZh": "仅局部使用压缩伪影与数字噪声",
         "promptEn": "use compression artifacts and digital noise only as a controlled local effect",
-        "weight": 0.7,
-        "level": "可弹性调整"
-      }
-    ]
-  },
-  "generative-art": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "规则驱动的重复系统",
-        "labelEn": "rule-driven repetition system",
-        "promptZh": "将用户主体转译为规则驱动的重复系统，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into rule-driven repetition system while preserving identity and defining structure",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "参数变化形成渐进差异",
-        "labelEn": "progressive variation from parameter changes",
-        "promptZh": "将用户主体转译为参数变化形成渐进差异，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into progressive variation from parameter changes while preserving identity and defining structure",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "密度、尺度与方向的连续分布",
-        "labelEn": "continuous distribution of density, scale, and direction",
-        "promptZh": "构图采用密度、尺度与方向的连续分布",
-        "promptEn": "compose with continuous distribution of density, scale, and direction",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "mediumTechnique",
-        "dimensionZh": "媒介与技法",
-        "labelZh": "精确矢量线或粒子化痕迹",
-        "labelEn": "precise vector lines or particle-like marks",
-        "promptZh": "成像与笔触采用精确矢量线或粒子化痕迹",
-        "promptEn": "render marks and edges with precise vector lines or particle-like marks",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "mediumTechnique",
-        "dimensionZh": "媒介与技法",
-        "labelZh": "算法映射色彩与清晰数字表面",
-        "labelEn": "algorithmically mapped color and crisp digital finish",
-        "promptZh": "成像与笔触采用算法映射色彩与清晰数字表面",
-        "promptEn": "render marks and edges with algorithmically mapped color and crisp digital finish",
-        "weight": 0.7,
-        "level": "可弹性调整"
-      }
-    ]
-  },
-  "cyberpunk": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "低调高反差光线与大面积暗部",
-        "labelEn": "low-key high-contrast lighting and broad shadow masses",
-        "promptZh": "光影采用低调高反差光线与大面积暗部",
-        "promptEn": "use low-key high-contrast lighting and broad shadow masses for lighting and tonal rendering",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "逆光、轮廓光与局部过曝辉光",
-        "labelEn": "backlight, rim light, and localized clipped glow",
-        "promptZh": "光影采用逆光、轮廓光与局部过曝辉光",
-        "promptEn": "use backlight, rim light, and localized clipped glow for lighting and tonal rendering",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "电青与洋红为主的分离式霓虹配色",
-        "labelEn": "split neon palette led by electric cyan and magenta",
-        "promptZh": "配色限定为电青与洋红为主的分离式霓虹配色",
-        "promptEn": "limit the palette to split neon palette led by electric cyan and magenta",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "高密度信息层叠、遮挡与强纵深",
-        "labelEn": "dense informational layering, occlusion, and strong spatial depth",
-        "promptZh": "构图采用高密度信息层叠、遮挡与强纵深",
-        "promptEn": "compose with dense informational layering, occlusion, and strong spatial depth",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "imperfectionEffect",
-        "dimensionZh": "瑕疵与视觉效果",
-        "labelZh": "半透明数字叠层、扫描纹与色差边缘",
-        "labelEn": "translucent digital overlays, scanlines, and chromatic fringes",
-        "promptZh": "仅局部使用半透明数字叠层、扫描纹与色差边缘",
-        "promptEn": "use translucent digital overlays, scanlines, and chromatic fringes only as a controlled local effect",
-        "weight": 0.7,
-        "level": "可弹性调整"
-      },
-      {
-        "id": "gene-6",
-        "kind": "adjustable",
-        "dimension": "materialTexture",
-        "dimensionZh": "材质与纹理",
-        "labelZh": "金属、玻璃与潮湿表面的镜面反射",
-        "labelEn": "specular reflections across metal, glass, and wet surfaces",
-        "promptZh": "材质与表面呈现为金属、玻璃与潮湿表面的镜面反射",
-        "promptEn": "render materials and surfaces as specular reflections across metal, glass, and wet surfaces",
-        "weight": 0.7,
-        "level": "可调整"
-      },
-      {
-        "id": "gene-7",
-        "kind": "adjustable",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "冷硬清晰边缘与烟雾化远景并置",
-        "labelEn": "hard crisp near edges juxtaposed with hazy distance",
-        "promptZh": "将用户主体转译为冷硬清晰边缘与烟雾化远景并置，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into hard crisp near edges juxtaposed with hazy distance while preserving identity and defining structure",
-        "weight": 0.55,
-        "level": "可调整"
-      }
-    ]
-  },
-  "steampunk": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "维多利亚装饰秩序与工业结构密集融合",
-        "labelEn": "dense fusion of Victorian ornament and industrial structure",
-        "promptZh": "将用户主体转译为维多利亚装饰秩序与工业结构密集融合，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into dense fusion of Victorian ornament and industrial structure while preserving identity and defining structure",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "圆形、同心与互锁结构形成机械节奏",
-        "labelEn": "circular, concentric, and interlocking forms creating mechanical rhythm",
-        "promptZh": "将用户主体转译为圆形、同心与互锁结构形成机械节奏，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into circular, concentric, and interlocking forms creating mechanical rhythm while preserving identity and defining structure",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "黄铜、氧化铜棕、煤黑与暗木色",
-        "labelEn": "brass, oxidized copper brown, coal black, and dark wood tones",
-        "promptZh": "配色限定为黄铜、氧化铜棕、煤黑与暗木色",
-        "promptEn": "limit the palette to brass, oxidized copper brown, coal black, and dark wood tones",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "core",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "铆接、接缝、刻度与外露连接细节",
-        "labelEn": "rivets, seams, graduations, and exposed joints",
-        "promptZh": "配色限定为铆接、接缝、刻度与外露连接细节",
-        "promptEn": "limit the palette to rivets, seams, graduations, and exposed joints",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-5",
-        "kind": "core",
-        "dimension": "materialTexture",
-        "dimensionZh": "材质与纹理",
-        "labelZh": "磨损金属、深色皮革、木材与油渍表面",
-        "labelEn": "worn metal, dark leather, wood, and oily surfaces",
-        "promptZh": "材质与表面呈现为磨损金属、深色皮革、木材与油渍表面",
-        "promptEn": "render materials and surfaces as worn metal, dark leather, wood, and oily surfaces",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-6",
-        "kind": "adjustable",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "暖色低调光、集中高光与烟雾化阴影",
-        "labelEn": "warm low-key light, concentrated highlights, and smoky shadows",
-        "promptZh": "光影采用暖色低调光、集中高光与烟雾化阴影",
-        "promptEn": "use warm low-key light, concentrated highlights, and smoky shadows for lighting and tonal rendering",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-7",
-        "kind": "adjustable",
-        "dimension": "typographyLayout",
-        "dimensionZh": "字体与版式",
-        "labelZh": "雕刻式线纹、窄幅衬线与标签式排版",
-        "labelEn": "engraved linework, narrow serifs, and label-like typography",
-        "promptZh": "仅在用户要求文字时采用雕刻式线纹、窄幅衬线与标签式排版并保持原文可读",
-        "promptEn": "only when text is requested, use engraved linework, narrow serifs, and label-like typography and preserve the exact readable wording",
-        "weight": 0.7,
-        "level": "可弹性调整"
-      }
-    ]
-  },
-  "solarpunk": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "生物形曲线、蜂窝式模数与清洁几何融合",
-        "labelEn": "biomorphic curves, cellular modules, and clean geometry integrated",
-        "promptZh": "将用户主体转译为生物形曲线、蜂窝式模数与清洁几何融合，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into biomorphic curves, cellular modules, and clean geometry integrated while preserving identity and defining structure",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "开放、通透且向上延展的层叠结构",
-        "labelEn": "open translucent layering with upward extension",
-        "promptZh": "构图采用开放、通透且向上延展的层叠结构",
-        "promptEn": "compose with open translucent layering with upward extension",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "高明度暖日光、通透逆光与柔和阴影",
-        "labelEn": "high-key warm daylight, translucent backlight, and soft shadows",
-        "promptZh": "光影采用高明度暖日光、通透逆光与柔和阴影",
-        "promptEn": "use high-key warm daylight, translucent backlight, and soft shadows for lighting and tonal rendering",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "core",
-        "dimension": "materialTexture",
-        "dimensionZh": "材质与纹理",
-        "labelZh": "清洁玻璃、浅色金属与再生材质触感",
-        "labelEn": "clean glass, pale metal, and recycled-material tactility",
-        "promptZh": "材质与表面呈现为清洁玻璃、浅色金属与再生材质触感",
-        "promptEn": "render materials and surfaces as clean glass, pale metal, and recycled-material tactility",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "鲜绿、陶土色、暖白与透明浅蓝",
-        "labelEn": "vivid green, terracotta, warm white, and transparent pale blue",
-        "promptZh": "配色限定为鲜绿、陶土色、暖白与透明浅蓝",
-        "promptEn": "limit the palette to vivid green, terracotta, warm white, and transparent pale blue",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-6",
-        "kind": "adjustable",
-        "dimension": "materialTexture",
-        "dimensionZh": "材质与纹理",
-        "labelZh": "重复小尺度纹理与大尺度流线形体并置",
-        "labelEn": "repeated small-scale texture juxtaposed with large streamlined forms",
-        "promptZh": "材质与表面呈现为重复小尺度纹理与大尺度流线形体并置",
-        "promptEn": "render materials and surfaces as repeated small-scale texture juxtaposed with large streamlined forms",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -6120,20 +4972,20 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "圆角几何展示字体与宽字距",
         "labelEn": "rounded geometric display type with wide spacing",
-        "promptZh": "仅在用户要求文字时采用圆角几何展示字体与宽字距并保持原文可读",
-        "promptEn": "only when text is requested, use rounded geometric display type with wide spacing and preserve the exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用圆角几何展示字体与宽字距，并保持原文可读",
+        "promptEn": "only when text is requested, use rounded geometric display type with wide spacing, and preserve the exact readable wording",
         "weight": 0.62,
         "level": "可调整"
       },
       {
         "id": "gene-7",
         "kind": "adjustable",
-        "dimension": "mediumTechnique",
-        "dimensionZh": "媒介与技法",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
         "labelZh": "喷漆金属、塑料光泽与旧杂志印刷颗粒",
         "labelEn": "painted metal, plastic gloss, and vintage magazine grain",
-        "promptZh": "成像与笔触采用喷漆金属、塑料光泽与旧杂志印刷颗粒",
-        "promptEn": "render marks and edges with painted metal, plastic gloss, and vintage magazine grain",
+        "promptZh": "材质与表面呈现为喷漆金属、塑料光泽与旧杂志印刷颗粒",
+        "promptEn": "render materials and surfaces as painted metal, plastic gloss, and vintage magazine grain",
         "weight": 0.55,
         "level": "可调整"
       }
@@ -6268,12 +5120,12 @@ const STYLE_PROMPT_DATA = Object.freeze({
       {
         "id": "gene-6",
         "kind": "adjustable",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
         "labelZh": "光泽塑料、铬色反射与低清晰数字表面",
         "labelEn": "glossy plastic, chrome-like reflections, and low-definition digital surfaces",
-        "promptZh": "光影采用光泽塑料、铬色反射与低清晰数字表面",
-        "promptEn": "use glossy plastic, chrome-like reflections, and low-definition digital surfaces for lighting and tonal rendering",
+        "promptZh": "材质与表面呈现为光泽塑料、铬色反射与低清晰数字表面",
+        "promptEn": "render materials and surfaces as glossy plastic, chrome-like reflections, and low-definition digital surfaces",
         "weight": 0.7,
         "level": "可调整"
       }
@@ -6348,326 +5200,22 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "窄体科技字、微型标签与宽字距排版",
         "labelEn": "condensed techno type, micro-labels, and wide tracking",
-        "promptZh": "仅在用户要求文字时采用窄体科技字、微型标签与宽字距排版并保持原文可读",
-        "promptEn": "only when text is requested, use condensed techno type, micro-labels, and wide tracking and preserve the exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用窄体科技字、微型标签与宽字距排版，并保持原文可读",
+        "promptEn": "only when text is requested, use condensed techno type, micro-labels, and wide tracking, and preserve the exact readable wording",
         "weight": 0.62,
         "level": "可调整"
       },
       {
         "id": "gene-7",
         "kind": "adjustable",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
+        "dimension": "imperfectionEffect",
+        "dimensionZh": "瑕疵与视觉效果",
         "labelZh": "平滑早期 CGI 建模与轻微低分辨率锯齿",
         "labelEn": "smooth early-CGI modeling with slight low-resolution aliasing",
-        "promptZh": "光影采用平滑早期 CGI 建模与轻微低分辨率锯齿",
-        "promptEn": "use smooth early-CGI modeling with slight low-resolution aliasing for lighting and tonal rendering",
+        "promptZh": "仅局部使用平滑早期 CGI 建模与轻微低分辨率锯齿",
+        "promptEn": "use smooth early-CGI modeling with slight low-resolution aliasing only as a controlled local effect",
         "weight": 0.55,
         "level": "可调整"
-      }
-    ]
-  },
-  "frutiger-aero": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "柔和圆润的流线几何与膨润曲面",
-        "labelEn": "soft rounded streamlining and inflated curved surfaces",
-        "promptZh": "将用户主体转译为柔和圆润的流线几何与膨润曲面，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into soft rounded streamlining and inflated curved surfaces while preserving identity and defining structure",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "高明度天蓝、鲜绿、青色与纯白",
-        "labelEn": "high-key sky blue, vivid green, cyan, and pure white",
-        "promptZh": "配色限定为高明度天蓝、鲜绿、青色与纯白",
-        "promptEn": "limit the palette to high-key sky blue, vivid green, cyan, and pure white",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "明亮漫射日光、柔和轮廓光与低密度阴影",
-        "labelEn": "bright diffused daylight, soft rim light, and low-density shadows",
-        "promptZh": "光影采用明亮漫射日光、柔和轮廓光与低密度阴影",
-        "promptEn": "use bright diffused daylight, soft rim light, and low-density shadows for lighting and tonal rendering",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "圆形镜面高光、凝胶折射与轻微镜头光晕",
-        "labelEn": "rounded specular highlights, gel refraction, and subtle lens flare",
-        "promptZh": "光影采用圆形镜面高光、凝胶折射与轻微镜头光晕",
-        "promptEn": "use rounded specular highlights, gel refraction, and subtle lens flare for lighting and tonal rendering",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "viewpointLens",
-        "dimensionZh": "视角与镜头",
-        "labelZh": "清晰前中后分层与开放通透空间",
-        "labelEn": "clear foreground-midground-background layering and open translucent space",
-        "promptZh": "视角与空间表现采用清晰前中后分层与开放通透空间",
-        "promptEn": "use clear foreground-midground-background layering and open translucent space for viewpoint and spatial rendering",
-        "weight": 0.78,
-        "level": "可调整"
-      },
-      {
-        "id": "gene-6",
-        "kind": "adjustable",
-        "dimension": "materialTexture",
-        "dimensionZh": "材质与纹理",
-        "labelZh": "光泽玻璃、透明塑料与水润表面",
-        "labelEn": "glossy glass, transparent plastic, and aqueous surfaces",
-        "promptZh": "材质与表面呈现为光泽玻璃、透明塑料与水润表面",
-        "promptEn": "render materials and surfaces as glossy glass, transparent plastic, and aqueous surfaces",
-        "weight": 0.7,
-        "level": "可弹性调整"
-      },
-      {
-        "id": "gene-7",
-        "kind": "adjustable",
-        "dimension": "mediumTechnique",
-        "dimensionZh": "媒介与技法",
-        "labelZh": "干净高饱和数字合成与平滑抗锯齿边缘",
-        "labelEn": "clean saturated digital compositing and smoothly antialiased edges",
-        "promptZh": "成像与笔触采用干净高饱和数字合成与平滑抗锯齿边缘",
-        "promptEn": "render marks and edges with clean saturated digital compositing and smoothly antialiased edges",
-        "weight": 0.55,
-        "level": "可调整"
-      }
-    ]
-  },
-  "anime": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "简化比例与选择性夸张的主要形体",
-        "labelEn": "simplified proportions and selective exaggeration of primary forms",
-        "promptZh": "将用户主体转译为简化比例与选择性夸张的主要形体，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into simplified proportions and selective exaggeration of primary forms while preserving identity and defining structure",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "外轮廓较重、内部细节较轻的变线宽线稿",
-        "labelEn": "variable-weight linework with heavier outer contours and lighter interior detail",
-        "promptZh": "将用户主体转译为外轮廓较重、内部细节较轻的变线宽线稿，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into variable-weight linework with heavier outer contours and lighter interior detail while preserving identity and defining structure",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "两级或三级赛璐璐明暗分区",
-        "labelEn": "two- or three-step cel-shaded tonal separation",
-        "promptZh": "光影采用两级或三级赛璐璐明暗分区",
-        "promptEn": "use two- or three-step cel-shaded tonal separation for lighting and tonal rendering",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "明快主色、受控环境色与局部色彩反光",
-        "labelEn": "bright key colors, controlled ambient color, and selective color bounce",
-        "promptZh": "配色限定为明快主色、受控环境色与局部色彩反光",
-        "promptEn": "limit the palette to bright key colors, controlled ambient color, and selective color bounce",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "viewpointLens",
-        "dimensionZh": "视角与镜头",
-        "labelZh": "电影分镜式取景、明确视觉动线与动态裁切",
-        "labelEn": "cinematic storyboard framing, clear visual flow, and dynamic cropping",
-        "promptZh": "视角与空间表现采用电影分镜式取景、明确视觉动线与动态裁切",
-        "promptEn": "use cinematic storyboard framing, clear visual flow, and dynamic cropping for viewpoint and spatial rendering",
-        "weight": 0.78,
-        "level": "可调整"
-      },
-      {
-        "id": "gene-6",
-        "kind": "adjustable",
-        "dimension": "mediumTechnique",
-        "dimensionZh": "媒介与技法",
-        "labelZh": "干净数字上色与局部柔光或速度化处理",
-        "labelEn": "clean digital coloring with selective soft glow or motion treatment",
-        "promptZh": "成像与笔触采用干净数字上色与局部柔光或速度化处理",
-        "promptEn": "render marks and edges with clean digital coloring with selective soft glow or motion treatment",
-        "weight": 0.7,
-        "level": "可弹性调整"
-      },
-      {
-        "id": "gene-7",
-        "kind": "adjustable",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "背景细节层级低于主要形体",
-        "labelEn": "background detail hierarchy subordinate to primary forms",
-        "promptZh": "构图采用背景细节层级低于主要形体",
-        "promptEn": "compose with background detail hierarchy subordinate to primary forms",
-        "weight": 0.62,
-        "level": "可调整"
-      }
-    ]
-  },
-  "manga": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "高反差黑白构成",
-        "labelEn": "high-contrast black-and-white construction",
-        "promptZh": "配色限定为高反差黑白构成",
-        "promptEn": "limit the palette to high-contrast black-and-white construction",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "mediumTechnique",
-        "dimensionZh": "媒介与技法",
-        "labelZh": "清晰墨线与大块黑色",
-        "labelEn": "crisp ink lines and solid black masses",
-        "promptZh": "成像与笔触采用清晰墨线与大块黑色",
-        "promptEn": "render marks and edges with crisp ink lines and solid black masses",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "mediumTechnique",
-        "dimensionZh": "媒介与技法",
-        "labelZh": "半调网点与分级灰度",
-        "labelEn": "halftone screentone and stepped gray values",
-        "promptZh": "成像与笔触采用半调网点与分级灰度",
-        "promptEn": "render marks and edges with halftone screentone and stepped gray values",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "动态裁切与连续分格节奏",
-        "labelEn": "dynamic cropping and sequential panel rhythm",
-        "promptZh": "构图采用动态裁切与连续分格节奏",
-        "promptEn": "compose with dynamic cropping and sequential panel rhythm",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "viewpointLens",
-        "dimensionZh": "视角与镜头",
-        "labelZh": "速度线与夸张透视",
-        "labelEn": "speed lines and exaggerated perspective",
-        "promptZh": "视角与空间表现采用速度线与夸张透视",
-        "promptEn": "use speed lines and exaggerated perspective for viewpoint and spatial rendering",
-        "weight": 0.78,
-        "level": "支撑"
-      }
-    ]
-  },
-  "american-comics": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "viewpointLens",
-        "dimensionZh": "视角与镜头",
-        "labelZh": "极端透视与动态裁切",
-        "labelEn": "extreme perspective and dynamic cropping",
-        "promptZh": "视角与空间表现采用极端透视与动态裁切",
-        "promptEn": "use extreme perspective and dynamic cropping for viewpoint and spatial rendering",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "清晰分格节奏与爆发式构图",
-        "labelEn": "clear panel rhythm and explosive composition",
-        "promptZh": "构图采用清晰分格节奏与爆发式构图",
-        "promptEn": "compose with clear panel rhythm and explosive composition",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "mediumTechnique",
-        "dimensionZh": "媒介与技法",
-        "labelZh": "半调网点与有限套色",
-        "labelEn": "halftone dots and limited color registration",
-        "promptZh": "成像与笔触采用半调网点与有限套色",
-        "promptEn": "render marks and edges with halftone dots and limited color registration",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "core",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "粗黑墨线与硬边阴影",
-        "labelEn": "heavy black inks and hard-edged shadows",
-        "promptZh": "光影采用粗黑墨线与硬边阴影",
-        "promptEn": "use heavy black inks and hard-edged shadows for lighting and tonal rendering",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "红黄蓝原色高对比",
-        "labelEn": "high-contrast red, yellow, and blue primaries",
-        "promptZh": "配色限定为红黄蓝原色高对比",
-        "promptEn": "limit the palette to high-contrast red, yellow, and blue primaries",
-        "weight": 0.78,
-        "level": "支撑"
       }
     ]
   },
@@ -6724,90 +5272,14 @@ const STYLE_PROMPT_DATA = Object.freeze({
       {
         "id": "gene-5",
         "kind": "adjustable",
-        "dimension": "imperfectionEffect",
-        "dimensionZh": "瑕疵与视觉效果",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
         "labelZh": "天鹅绒、哑光金属、蕾丝状纹理与风化表面",
         "labelEn": "velvet, matte metal, lace-like texture, and weathered surfaces",
-        "promptZh": "仅局部使用天鹅绒、哑光金属、蕾丝状纹理与风化表面",
-        "promptEn": "use velvet, matte metal, lace-like texture, and weathered surfaces only as a controlled local effect",
+        "promptZh": "材质与表面呈现为天鹅绒、哑光金属、蕾丝状纹理与风化表面",
+        "promptEn": "render materials and surfaces as velvet, matte metal, lace-like texture, and weathered surfaces",
         "weight": 0.7,
         "level": "可弹性调整"
-      }
-    ]
-  },
-  "dark-fantasy": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "低调方向光、局部轮廓光与吞没细节的暗部",
-        "labelEn": "low-key directional light, selective rim light, and detail-swallowing shadows",
-        "promptZh": "光影采用低调方向光、局部轮廓光与吞没细节的暗部",
-        "promptEn": "use low-key directional light, selective rim light, and detail-swallowing shadows for lighting and tonal rendering",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "透明暗部薄涂、干涩笔触与局部厚涂高光",
-        "labelEn": "glazed transparent shadows, dry brushwork, and selective impasto highlights",
-        "promptZh": "光影采用透明暗部薄涂、干涩笔触与局部厚涂高光",
-        "promptEn": "use glazed transparent shadows, dry brushwork, and selective impasto highlights for lighting and tonal rendering",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "陡峭对角线、尖锐轮廓与不稳定平衡",
-        "labelEn": "steep diagonals, jagged contours, and unstable balance",
-        "promptZh": "将用户主体转译为陡峭对角线、尖锐轮廓与不稳定平衡，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into steep diagonals, jagged contours, and unstable balance while preserving identity and defining structure",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "冷灰、暗紫、褐黑与少量旧金",
-        "labelEn": "cold gray, dark violet, brown-black, and restrained aged gold",
-        "promptZh": "配色限定为冷灰、暗紫、褐黑与少量旧金",
-        "promptEn": "limit the palette to cold gray, dark violet, brown-black, and restrained aged gold",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "imperfectionEffect",
-        "dimensionZh": "瑕疵与视觉效果",
-        "labelZh": "纪念碑式尺度反差与深层压缩空间",
-        "labelEn": "monumental scale contrast and compressed deep space",
-        "promptZh": "仅局部使用纪念碑式尺度反差与深层压缩空间",
-        "promptEn": "use monumental scale contrast and compressed deep space only as a controlled local effect",
-        "weight": 0.7,
-        "level": "可弹性调整"
-      },
-      {
-        "id": "gene-6",
-        "kind": "adjustable",
-        "dimension": "viewpointLens",
-        "dimensionZh": "视角与镜头",
-        "labelZh": "风化粗糙材质与烟雾化空间边缘",
-        "labelEn": "weathered rough surfaces and atmospherically hazed spatial edges",
-        "promptZh": "视角与空间表现采用风化粗糙材质与烟雾化空间边缘",
-        "promptEn": "use weathered rough surfaces and atmospherically hazed spatial edges for viewpoint and spatial rendering",
-        "weight": 0.7,
-        "level": "可调整"
       }
     ]
   },
@@ -6876,358 +5348,14 @@ const STYLE_PROMPT_DATA = Object.freeze({
       {
         "id": "gene-6",
         "kind": "adjustable",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "银盐颗粒、轻雾与微弱高光晕染",
-        "labelEn": "silver-halide grain, light haze, and subtle highlight halation",
-        "promptZh": "光影采用银盐颗粒、轻雾与微弱高光晕染",
-        "promptEn": "use silver-halide grain, light haze, and subtle highlight halation for lighting and tonal rendering",
-        "weight": 0.62,
-        "level": "可调整"
-      }
-    ]
-  },
-  "cottagecore": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "materialTexture",
-        "dimensionZh": "材质与纹理",
-        "labelZh": "亚麻、哑光纸张、浅木色与手作纤维触感",
-        "labelEn": "linen, matte paper, pale wood tones, and handmade fiber tactility",
-        "promptZh": "材质与表面呈现为亚麻、哑光纸张、浅木色与手作纤维触感",
-        "promptEn": "render materials and surfaces as linen, matte paper, pale wood tones, and handmade fiber tactility",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "温暖漫射自然光、柔和阴影与轻微逆光",
-        "labelEn": "warm diffused natural light, soft shadows, and slight backlight",
-        "promptZh": "光影采用温暖漫射自然光、柔和阴影与轻微逆光",
-        "promptEn": "use warm diffused natural light, soft shadows, and slight backlight for lighting and tonal rendering",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "鼠尾草绿、柔粉、奶白与褪色土色",
-        "labelEn": "sage green, dusty pink, creamy white, and faded earth tones",
-        "promptZh": "配色限定为鼠尾草绿、柔粉、奶白与褪色土色",
-        "promptEn": "limit the palette to sage green, dusty pink, creamy white, and faded earth tones",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "近景包围式构图与浅层空间",
-        "labelEn": "close enclosing composition and shallow space",
-        "promptZh": "构图采用近景包围式构图与浅层空间",
-        "promptEn": "compose with close enclosing composition and shallow space",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "圆润自然轮廓与不过度规整的手工比例",
-        "labelEn": "rounded natural contours and softly irregular handmade proportions",
-        "promptZh": "将用户主体转译为圆润自然轮廓与不过度规整的手工比例，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into rounded natural contours and softly irregular handmade proportions while preserving identity and defining structure",
-        "weight": 0.7,
-        "level": "可弹性调整"
-      },
-      {
-        "id": "gene-6",
-        "kind": "adjustable",
-        "dimension": "viewpointLens",
-        "dimensionZh": "视角与镜头",
-        "labelZh": "低对比、浅景深与轻微柔焦",
-        "labelEn": "low contrast, shallow depth of field, and subtle soft focus",
-        "promptZh": "视角与空间表现采用低对比、浅景深与轻微柔焦",
-        "promptEn": "use low contrast, shallow depth of field, and subtle soft focus for viewpoint and spatial rendering",
-        "weight": 0.7,
-        "level": "可调整"
-      },
-      {
-        "id": "gene-7",
-        "kind": "adjustable",
         "dimension": "mediumTechnique",
         "dimensionZh": "媒介与技法",
-        "labelZh": "褪色印刷、细颗粒与克制的旧化边缘",
-        "labelEn": "faded print, fine grain, and restrained aged edges",
-        "promptZh": "成像与笔触采用褪色印刷、细颗粒与克制的旧化边缘",
-        "promptEn": "render marks and edges with faded print, fine grain, and restrained aged edges",
-        "weight": 0.55,
+        "labelZh": "银盐颗粒、轻雾与微弱高光晕染",
+        "labelEn": "silver-halide grain, light haze, and subtle highlight halation",
+        "promptZh": "成像与笔触采用银盐颗粒、轻雾与微弱高光晕染",
+        "promptEn": "render marks and edges with silver-halide grain, light haze, and subtle highlight halation",
+        "weight": 0.62,
         "level": "可调整"
-      }
-    ]
-  },
-  "dark-academia": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "稳定对称与深层纵向空间",
-        "labelEn": "stable symmetry and deep axial space",
-        "promptZh": "构图采用稳定对称与深层纵向空间",
-        "promptEn": "compose with stable symmetry and deep axial space",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "低调光配局部暖色高光",
-        "labelEn": "low-key light with localized warm highlights",
-        "promptZh": "光影采用低调光配局部暖色高光",
-        "promptEn": "use low-key light with localized warm highlights for lighting and tonal rendering",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "深棕、墨绿与羊皮纸色",
-        "labelEn": "deep brown, forest green, and parchment",
-        "promptZh": "配色限定为深棕、墨绿与羊皮纸色",
-        "promptEn": "limit the palette to deep brown, forest green, and parchment",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "materialTexture",
-        "dimensionZh": "材质与纹理",
-        "labelZh": "深色木纹、粗纺与旧纸质感",
-        "labelEn": "dark wood grain, coarse textile, and aged paper",
-        "promptZh": "材质与表面呈现为深色木纹、粗纺与旧纸质感",
-        "promptEn": "render materials and surfaces as dark wood grain, coarse textile, and aged paper",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "typographyLayout",
-        "dimensionZh": "字体与版式",
-        "labelZh": "柔和尘雾与古典衬线排版",
-        "labelEn": "soft dusty haze and classical serif typography",
-        "promptZh": "仅在用户要求文字时采用柔和尘雾与古典衬线排版并保持原文可读",
-        "promptEn": "only when text is requested, use soft dusty haze and classical serif typography and preserve the exact readable wording",
-        "weight": 0.7,
-        "level": "可弹性调整"
-      }
-    ]
-  },
-  "dreamcore": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "稀疏中心布局与比例异常的留白区",
-        "labelEn": "sparse centered layout and disproportionately empty zones",
-        "promptZh": "构图采用稀疏中心布局与比例异常的留白区",
-        "promptEn": "compose with sparse centered layout and disproportionately empty zones",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "viewpointLens",
-        "dimensionZh": "视角与镜头",
-        "labelZh": "不合逻辑的尺度、透视与空间连接",
-        "labelEn": "illogical scale, perspective, and spatial continuity",
-        "promptZh": "视角与空间表现采用不合逻辑的尺度、透视与空间连接",
-        "promptEn": "use illogical scale, perspective, and spatial continuity for viewpoint and spatial rendering",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "过曝漫射光、低对比与柔焦边缘",
-        "labelEn": "overexposed diffused light, low contrast, and soft-focus edges",
-        "promptZh": "光影采用过曝漫射光、低对比与柔焦边缘",
-        "promptEn": "use overexposed diffused light, low contrast, and soft-focus edges for lighting and tonal rendering",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "柔蓝、粉紫与褪色黄",
-        "labelEn": "soft blue, pink-violet, and faded yellow",
-        "promptZh": "配色限定为柔蓝、粉紫与褪色黄",
-        "promptEn": "limit the palette to soft blue, pink-violet, and faded yellow",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "imperfectionEffect",
-        "dimensionZh": "瑕疵与视觉效果",
-        "labelZh": "低清压缩、色彩漂移与旧照片颗粒",
-        "labelEn": "lo-fi compression, color drift, and old-photo grain",
-        "promptZh": "仅局部使用低清压缩、色彩漂移与旧照片颗粒",
-        "promptEn": "use lo-fi compression, color drift, and old-photo grain only as a controlled local effect",
-        "weight": 0.7,
-        "level": "可弹性调整"
-      }
-    ]
-  },
-  "weirdcore": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "不稳定中心、突兀边缘裁切与失衡留白",
-        "labelEn": "unstable center, abrupt edge cropping, and unbalanced negative space",
-        "promptZh": "构图采用不稳定中心、突兀边缘裁切与失衡留白",
-        "promptEn": "compose with unstable center, abrupt edge cropping, and unbalanced negative space",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "imperfectionEffect",
-        "dimensionZh": "瑕疵与视觉效果",
-        "labelZh": "像素化、扫描噪点、色差与压缩伪影",
-        "labelEn": "pixelation, scan noise, chromatic aberration, and compression artifacts",
-        "promptZh": "仅局部使用像素化、扫描噪点、色差与压缩伪影",
-        "promptEn": "use pixelation, scan noise, chromatic aberration, and compression artifacts only as a controlled local effect",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "viewpointLens",
-        "dimensionZh": "视角与镜头",
-        "labelZh": "错位尺度、断裂透视与不连续空间关系",
-        "labelEn": "dislocated scale, broken perspective, and discontinuous spatial relationships",
-        "promptZh": "视角与空间表现采用错位尺度、断裂透视与不连续空间关系",
-        "promptEn": "use dislocated scale, broken perspective, and discontinuous spatial relationships for viewpoint and spatial rendering",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "脏蓝、洋红与酸绿的突变配色",
-        "labelEn": "abrupt palette shifts among dirty blue, magenta, and acid green",
-        "promptZh": "配色限定为脏蓝、洋红与酸绿的突变配色",
-        "promptEn": "limit the palette to abrupt palette shifts among dirty blue, magenta, and acid green",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "硬闪光、局部过曝与无过渡暗部",
-        "labelEn": "hard flash, localized clipping, and ungraded darkness",
-        "promptZh": "光影采用硬闪光、局部过曝与无过渡暗部",
-        "promptEn": "use hard flash, localized clipping, and ungraded darkness for lighting and tonal rendering",
-        "weight": 0.7,
-        "level": "可弹性调整"
-      }
-    ]
-  },
-  "liminal-space": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "viewpointLens",
-        "dimensionZh": "视角与镜头",
-        "labelZh": "深远重复透视",
-        "labelEn": "deep repetitive perspective",
-        "promptZh": "视角与空间表现采用深远重复透视",
-        "promptEn": "use deep repetitive perspective for viewpoint and spatial rendering",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "稀疏空置的空间组织",
-        "labelEn": "sparse unoccupied spatial organization",
-        "promptZh": "构图采用稀疏空置的空间组织",
-        "promptEn": "compose with sparse unoccupied spatial organization",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "平直均匀的冷色人工光",
-        "labelEn": "flat even cool artificial light",
-        "promptZh": "配色限定为平直均匀的冷色人工光",
-        "promptEn": "limit the palette to flat even cool artificial light",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "褪色黄绿与冷灰",
-        "labelEn": "faded yellow-green and cool gray",
-        "promptZh": "配色限定为褪色黄绿与冷灰",
-        "promptEn": "limit the palette to faded yellow-green and cool gray",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "imperfectionEffect",
-        "dimensionZh": "瑕疵与视觉效果",
-        "labelZh": "低保真噪点与轻微失焦",
-        "labelEn": "lo-fi noise and slight defocus",
-        "promptZh": "仅局部使用低保真噪点与轻微失焦",
-        "promptEn": "use lo-fi noise and slight defocus only as a controlled local effect",
-        "weight": 0.7,
-        "level": "可弹性调整"
       }
     ]
   },
@@ -7300,84 +5428,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "大尺度装饰展示字",
         "labelEn": "large-scale decorative display typography",
-        "promptZh": "仅在用户要求文字时采用大尺度装饰展示字并保持原文可读",
-        "promptEn": "only when text is requested, use large-scale decorative display typography and preserve the exact readable wording",
-        "weight": 0.7,
-        "level": "可弹性调整"
-      }
-    ]
-  },
-  "structuralism": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "显性网格、模块与序列关系",
-        "labelEn": "visible grids, modules, and sequential relationships",
-        "promptZh": "构图采用显性网格、模块与序列关系",
-        "promptEn": "compose with visible grids, modules, and sequential relationships",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "框架、节点与连接构成的抽象形态",
-        "labelEn": "abstract forms built from frames, nodes, and connections",
-        "promptZh": "将用户主体转译为框架、节点与连接构成的抽象形态，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into abstract forms built from frames, nodes, and connections while preserving identity and defining structure",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "typographyLayout",
-        "dimensionZh": "字体与版式",
-        "labelZh": "严格网格对齐的无衬线或等宽字",
-        "labelEn": "grid-aligned sans serif or monospaced typography",
-        "promptZh": "仅在用户要求文字时采用严格网格对齐的无衬线或等宽字并保持原文可读",
-        "promptEn": "only when text is requested, use grid-aligned sans serif or monospaced typography and preserve the exact readable wording",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "黑白灰配一种原色标注",
-        "labelEn": "black, white, and gray with one primary annotation color",
-        "promptZh": "配色限定为黑白灰配一种原色标注",
-        "promptEn": "limit the palette to black, white, and gray with one primary annotation color",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "均匀分析性照明与低戏剧性",
-        "labelEn": "even analytical lighting with low theatricality",
-        "promptZh": "光影采用均匀分析性照明与低戏剧性",
-        "promptEn": "use even analytical lighting with low theatricality for lighting and tonal rendering",
-        "weight": 0.78,
-        "level": "可调整"
-      },
-      {
-        "id": "gene-6",
-        "kind": "adjustable",
-        "dimension": "materialTexture",
-        "dimensionZh": "材质与纹理",
-        "labelZh": "技术图纸、线框与半透明叠片",
-        "labelEn": "technical drawings, wireframes, and translucent overlays",
-        "promptZh": "材质与表面呈现为技术图纸、线框与半透明叠片",
-        "promptEn": "render materials and surfaces as technical drawings, wireframes, and translucent overlays",
+        "promptZh": "仅在用户要求文字时，采用大尺度装饰展示字，并保持原文可读",
+        "promptEn": "only when text is requested, use large-scale decorative display typography, and preserve the exact readable wording",
         "weight": 0.7,
         "level": "可弹性调整"
       }
@@ -7452,8 +5504,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "宽体几何无衬线与宽松字距",
         "labelEn": "wide geometric sans serif with open tracking",
-        "promptZh": "仅在用户要求文字时采用宽体几何无衬线与宽松字距并保持原文可读",
-        "promptEn": "only when text is requested, use wide geometric sans serif with open tracking and preserve the exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用宽体几何无衬线与宽松字距，并保持原文可读",
+        "promptEn": "only when text is requested, use wide geometric sans serif with open tracking, and preserve the exact readable wording",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -7528,8 +5580,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "略带流动曲线的圆润无衬线字",
         "labelEn": "rounded sans serif with subtly flowing curves",
-        "promptZh": "仅在用户要求文字时采用略带流动曲线的圆润无衬线字并保持原文可读",
-        "promptEn": "only when text is requested, use rounded sans serif with subtly flowing curves and preserve the exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用略带流动曲线的圆润无衬线字，并保持原文可读",
+        "promptEn": "only when text is requested, use rounded sans serif with subtly flowing curves, and preserve the exact readable wording",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -7580,8 +5632,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "超粗无衬线或漫画展示字",
         "labelEn": "ultra-bold sans serif or comic display typography",
-        "promptZh": "仅在用户要求文字时采用超粗无衬线或漫画展示字并保持原文可读",
-        "promptEn": "only when text is requested, use ultra-bold sans serif or comic display typography and preserve the exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用超粗无衬线或漫画展示字，并保持原文可读",
+        "promptEn": "only when text is requested, use ultra-bold sans serif or comic display typography, and preserve the exact readable wording",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -7608,82 +5660,6 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "promptEn": "use one oversized focal point with bold edge cropping for viewpoint and spatial rendering",
         "weight": 0.7,
         "level": "可弹性调整"
-      }
-    ]
-  },
-  "collage": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "mediumTechnique",
-        "dimensionZh": "媒介与技法",
-        "labelZh": "剪贴照片、纸片轮廓与几何遮片",
-        "labelEn": "cut photographs, paper silhouettes, and geometric overlays",
-        "promptZh": "成像与笔触采用剪贴照片、纸片轮廓与几何遮片",
-        "promptEn": "render marks and edges with cut photographs, paper silhouettes, and geometric overlays",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "重叠剪切框、尺度跳跃与可见接缝",
-        "labelEn": "overlapping cut frames, scale jumps, and visible seams",
-        "promptZh": "构图采用重叠剪切框、尺度跳跃与可见接缝",
-        "promptEn": "compose with overlapping cut frames, scale jumps, and visible seams",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "imperfectionEffect",
-        "dimensionZh": "瑕疵与视觉效果",
-        "labelZh": "撕裂杂志纸、胶带与复印颗粒",
-        "labelEn": "torn magazine paper, tape, and photocopy grain",
-        "promptZh": "仅局部使用撕裂杂志纸、胶带与复印颗粒",
-        "promptEn": "use torn magazine paper, tape, and photocopy grain only as a controlled local effect",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "局部照片色配两至三种限定印刷色",
-        "labelEn": "local photographic color with two or three limited print colors",
-        "promptZh": "配色限定为局部照片色配两至三种限定印刷色",
-        "promptEn": "limit the palette to local photographic color with two or three limited print colors",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "平面纸片光与细小边缘投影",
-        "labelEn": "flat paper lighting with small edge shadows",
-        "promptZh": "光影采用平面纸片光与细小边缘投影",
-        "promptEn": "use flat paper lighting with small edge shadows for lighting and tonal rendering",
-        "weight": 0.7,
-        "level": "可弹性调整"
-      },
-      {
-        "id": "gene-6",
-        "kind": "adjustable",
-        "dimension": "typographyLayout",
-        "dimensionZh": "字体与版式",
-        "labelZh": "报纸衬线、打字机或剪贴字",
-        "labelEn": "newspaper serif, typewriter, or cutout typography",
-        "promptZh": "仅在用户要求文字时采用报纸衬线、打字机或剪贴字并保持原文可读",
-        "promptEn": "only when text is requested, use newspaper serif, typewriter, or cutout typography and preserve the exact readable wording",
-        "weight": 0.62,
-        "level": "可调整"
       }
     ]
   },
@@ -7756,313 +5732,9 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "可读的手绘书写感字形",
         "labelEn": "legible hand-drawn writing-style typography",
-        "promptZh": "仅在用户要求文字时采用可读的手绘书写感字形并保持原文可读",
-        "promptEn": "only when text is requested, use legible hand-drawn writing-style typography and preserve the exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用可读的手绘书写感字形，并保持原文可读",
+        "promptEn": "only when text is requested, use legible hand-drawn writing-style typography, and preserve the exact readable wording",
         "weight": 0.62,
-        "level": "可调整"
-      }
-    ]
-  },
-  "atompunk": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "圆顶、胶囊与回旋镖式流线模块",
-        "labelEn": "domes, capsules, and boomerang-shaped streamlined modules",
-        "promptZh": "将用户主体转译为圆顶、胶囊与回旋镖式流线模块，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into domes, capsules, and boomerang-shaped streamlined modules while preserving identity and defining structure",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "乐观未来式放射构图与轨道曲线",
-        "labelEn": "optimistic retro-future radial composition and orbital curves",
-        "promptZh": "构图采用乐观未来式放射构图与轨道曲线",
-        "promptEn": "compose with optimistic retro-future radial composition and orbital curves",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "樱桃红、青绿、奶油黄与铬色",
-        "labelEn": "cherry red, teal, cream yellow, and chrome",
-        "promptZh": "配色限定为樱桃红、青绿、奶油黄与铬色",
-        "promptEn": "limit the palette to cherry red, teal, cream yellow, and chrome",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "materialTexture",
-        "dimensionZh": "材质与纹理",
-        "labelZh": "珐琅金属、铬边、玻璃与光滑早期塑料",
-        "labelEn": "enamel metal, chrome trim, glass, and smooth early plastic",
-        "promptZh": "材质与表面呈现为珐琅金属、铬边、玻璃与光滑早期塑料",
-        "promptEn": "render materials and surfaces as enamel metal, chrome trim, glass, and smooth early plastic",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "明亮影棚光与干净硬边投影",
-        "labelEn": "bright studio light and clean hard-edged shadows",
-        "promptZh": "光影采用明亮影棚光与干净硬边投影",
-        "promptEn": "use bright studio light and clean hard-edged shadows for lighting and tonal rendering",
-        "weight": 0.78,
-        "level": "可调整"
-      },
-      {
-        "id": "gene-6",
-        "kind": "adjustable",
-        "dimension": "typographyLayout",
-        "dimensionZh": "字体与版式",
-        "labelZh": "年代未来展示字与几何粗体",
-        "labelEn": "period-futurist display type and geometric bold lettering",
-        "promptZh": "仅在用户要求文字时采用年代未来展示字与几何粗体并保持原文可读",
-        "promptEn": "only when text is requested, use period-futurist display type and geometric bold lettering and preserve the exact readable wording",
-        "weight": 0.7,
-        "level": "可弹性调整"
-      }
-    ]
-  },
-  "wasteland-punk": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "低地平线、广阔空域与偏心拼装结构",
-        "labelEn": "low horizon, broad open space, and off-center assembled structure",
-        "promptZh": "构图采用低地平线、广阔空域与偏心拼装结构",
-        "promptEn": "compose with low horizon, broad open space, and off-center assembled structure",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "补丁、螺栓、破损板件与不对称加固",
-        "labelEn": "patches, bolts, damaged panels, and asymmetric reinforcement",
-        "promptZh": "将用户主体转译为补丁、螺栓、破损板件与不对称加固，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into patches, bolts, damaged panels, and asymmetric reinforcement while preserving identity and defining structure",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "imperfectionEffect",
-        "dimensionZh": "瑕疵与视觉效果",
-        "labelZh": "锈蚀金属、干裂橡胶与磨损帆布",
-        "labelEn": "corroded metal, cracked rubber, and worn canvas",
-        "promptZh": "仅局部使用锈蚀金属、干裂橡胶与磨损帆布",
-        "promptEn": "use corroded metal, cracked rubber, and worn canvas only as a controlled local effect",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "沙黄、锈红、焦黑与旧橄榄绿",
-        "labelEn": "sand yellow, rust red, charred black, and aged olive",
-        "promptZh": "配色限定为沙黄、锈红、焦黑与旧橄榄绿",
-        "promptEn": "limit the palette to sand yellow, rust red, charred black, and aged olive",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "烈日硬影、空气灰尘与远景热浪",
-        "labelEn": "hard sun shadows, airborne dust, and distant heat haze",
-        "promptZh": "光影采用烈日硬影、空气灰尘与远景热浪",
-        "promptEn": "use hard sun shadows, airborne dust, and distant heat haze for lighting and tonal rendering",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-6",
-        "kind": "adjustable",
-        "dimension": "typographyLayout",
-        "dimensionZh": "字体与版式",
-        "labelZh": "磨损工业粗体或模板字",
-        "labelEn": "weathered industrial bold or stencil typography",
-        "promptZh": "仅在用户要求文字时采用磨损工业粗体或模板字并保持原文可读",
-        "promptEn": "only when text is requested, use weathered industrial bold or stencil typography and preserve the exact readable wording",
-        "weight": 0.62,
-        "level": "可调整"
-      }
-    ]
-  },
-  "dieselpunk": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "厚钢板、铆接流线外壳与大型散热格",
-        "labelEn": "thick steel plate, riveted streamlined shells, and large cooling grilles",
-        "promptZh": "将用户主体转译为厚钢板、铆接流线外壳与大型散热格，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into thick steel plate, riveted streamlined shells, and large cooling grilles while preserving identity and defining structure",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "工业宣传式强对角线与重型水平构图",
-        "labelEn": "industrial-propaganda diagonals and heavy horizontal composition",
-        "promptZh": "构图采用工业宣传式强对角线与重型水平构图",
-        "promptEn": "compose with industrial-propaganda diagonals and heavy horizontal composition",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "烟雾中的硬质方向光与油膜高光",
-        "labelEn": "hard directional light through haze with oily highlights",
-        "promptZh": "光影采用烟雾中的硬质方向光与油膜高光",
-        "promptEn": "use hard directional light through haze with oily highlights for lighting and tonal rendering",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "军绿、钢灰、烟黑与暗红",
-        "labelEn": "military green, steel gray, smoke black, and dark red",
-        "promptZh": "配色限定为军绿、钢灰、烟黑与暗红",
-        "promptEn": "limit the palette to military green, steel gray, smoke black, and dark red",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "imperfectionEffect",
-        "dimensionZh": "瑕疵与视觉效果",
-        "labelZh": "铆接钢板、油渍、烟尘与磨损漆面",
-        "labelEn": "riveted steel, oil stains, soot, and worn paint",
-        "promptZh": "仅局部使用铆接钢板、油渍、烟尘与磨损漆面",
-        "promptEn": "use riveted steel, oil stains, soot, and worn paint only as a controlled local effect",
-        "weight": 0.7,
-        "level": "可弹性调整"
-      },
-      {
-        "id": "gene-6",
-        "kind": "adjustable",
-        "dimension": "typographyLayout",
-        "dimensionZh": "字体与版式",
-        "labelZh": "压缩工业无衬线、模板字或旧报粗体",
-        "labelEn": "condensed industrial sans serif, stencil, or old-news bold typography",
-        "promptZh": "仅在用户要求文字时采用压缩工业无衬线、模板字或旧报粗体并保持原文可读",
-        "promptEn": "only when text is requested, use condensed industrial sans serif, stencil, or old-news bold typography and preserve the exact readable wording",
-        "weight": 0.62,
-        "level": "可调整"
-      }
-    ]
-  },
-  "kidcore": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "幼态短小比例、圆润粗轮廓与简化特征",
-        "labelEn": "childlike compact proportions, rounded heavy outlines, and simplified features",
-        "promptZh": "将用户主体转译为幼态短小比例、圆润粗轮廓与简化特征，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into childlike compact proportions, rounded heavy outlines, and simplified features while preserving identity and defining structure",
-        "weight": 1,
-        "level": "定义性"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "红黄蓝原色、糖果粉与草绿",
-        "labelEn": "red-yellow-blue primaries, candy pink, and grass green",
-        "promptZh": "配色限定为红黄蓝原色、糖果粉与草绿",
-        "promptEn": "limit the palette to red-yellow-blue primaries, candy pink, and grass green",
-        "weight": 0.93,
-        "level": "主导"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "中心焦点与小尺度玩具式模块环绕",
-        "labelEn": "central focal point surrounded by small toy-like modules",
-        "promptZh": "构图采用中心焦点与小尺度玩具式模块环绕",
-        "promptEn": "compose with central focal point surrounded by small toy-like modules",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "typographyLayout",
-        "dimensionZh": "字体与版式",
-        "labelZh": "可读的泡泡字或手绘儿童字",
-        "labelEn": "legible bubble or hand-drawn childlike typography",
-        "promptZh": "仅在用户要求文字时采用可读的泡泡字或手绘儿童字并保持原文可读",
-        "promptEn": "only when text is requested, use legible bubble or hand-drawn childlike typography and preserve the exact readable wording",
-        "weight": 0.78,
-        "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "均匀明亮平光与两级卡通阴影",
-        "labelEn": "even bright flat light with two-step cartoon shadows",
-        "promptZh": "光影采用均匀明亮平光与两级卡通阴影",
-        "promptEn": "use even bright flat light with two-step cartoon shadows for lighting and tonal rendering",
-        "weight": 0.7,
-        "level": "可弹性调整"
-      },
-      {
-        "id": "gene-6",
-        "kind": "adjustable",
-        "dimension": "materialTexture",
-        "dimensionZh": "材质与纹理",
-        "labelZh": "蜡笔、彩纸、光滑贴纸与绘本纸",
-        "labelEn": "crayon, colored paper, glossy stickers, and illustrated coarse paper",
-        "promptZh": "材质与表面呈现为蜡笔、彩纸、光滑贴纸与绘本纸",
-        "promptEn": "render materials and surfaces as crayon, colored paper, glossy stickers, and illustrated coarse paper",
-        "weight": 0.7,
         "level": "可调整"
       }
     ]
@@ -8136,8 +5808,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "按需使用克制题跋或印章式点色",
         "labelEn": "restrained inscription or seal-like accent only when requested",
-        "promptZh": "仅在用户要求文字时采用克制题跋或印章式点色并保持原文可读",
-        "promptEn": "only when text is requested, use restrained inscription or seal-like accent and preserve the exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用克制题跋或印章式点色，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained inscription or seal-like accent, and preserve the exact readable wording",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -8212,8 +5884,8 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "按需使用避开焦点的小尺度题跋",
         "labelEn": "small inscription kept clear of the focal point only when requested",
-        "promptZh": "仅在用户要求文字时采用避开焦点的小尺度题跋并保持原文可读",
-        "promptEn": "only when text is requested, use small inscription kept clear of the focal point and preserve the exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用避开焦点的小尺度题跋，并保持原文可读",
+        "promptEn": "only when text is requested, use small inscription kept clear of the focal point, and preserve the exact readable wording",
         "weight": 0.62,
         "level": "可调整"
       }
@@ -8288,48 +5960,48 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "dimensionZh": "字体与版式",
         "labelZh": "按需使用与线描一致的细雅书写",
         "labelEn": "delicate writing consistent with the line system only when requested",
-        "promptZh": "仅在用户要求文字时采用与线描一致的细雅书写并保持原文可读",
-        "promptEn": "only when text is requested, use delicate writing consistent with the line system and preserve the exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用与线描一致的细雅书写，并保持原文可读",
+        "promptEn": "only when text is requested, use delicate writing consistent with the line system, and preserve the exact readable wording",
         "weight": 0.62,
         "level": "可调整"
       }
     ]
   },
-  "jiehua": {
+  "zen-painting": {
     "genes": [
       {
         "id": "gene-1",
         "kind": "core",
         "dimension": "compositionSpace",
         "dimensionZh": "构图与空间",
-        "labelZh": "严格轴线、模块重复与可读空间层级",
-        "labelEn": "strict axes, repeated modules, and readable spatial hierarchy",
-        "promptZh": "构图采用严格轴线、模块重复与可读空间层级",
-        "promptEn": "compose with strict axes, repeated modules, and readable spatial hierarchy",
+        "labelZh": "散点或浅层空间、疏密节奏与主动留白",
+        "labelEn": "asymmetrical sparse placement, shallow space, and active unpainted ground",
+        "promptZh": "构图采用散点或浅层空间、疏密节奏与主动留白",
+        "promptEn": "compose with asymmetrical sparse placement, shallow space, and active unpainted ground",
         "weight": 1,
-        "level": "核心"
+        "level": "强特征"
       },
       {
         "id": "gene-2",
         "kind": "core",
         "dimension": "formGeometry",
         "dimensionZh": "形态与几何",
-        "labelZh": "精密框架、板件节点与稳定平行线",
-        "labelEn": "precise frames, panel joints, and stable parallel lines",
-        "promptZh": "将用户主体转译为精密框架、板件节点与稳定平行线，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into precise frames, panel joints, and stable parallel lines while preserving identity and defining structure",
+        "labelZh": "书写性轮廓、线宽变化与概括形体",
+        "labelEn": "abbreviated calligraphic contours, abrupt line-weight changes, and reduced forms",
+        "promptZh": "将用户主体转译为书写性轮廓、线宽变化与概括形体，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into abbreviated calligraphic contours, abrupt line-weight changes, and reduced forms while preserving identity and defining structure",
         "weight": 0.93,
-        "level": "核心"
+        "level": "强特征"
       },
       {
         "id": "gene-3",
         "kind": "core",
-        "dimension": "mediumTechnique",
-        "dimensionZh": "媒介与技法",
-        "labelZh": "尺规墨线、细纸绢与薄层矿物淡彩",
-        "labelEn": "ruled ink lines, fine paper or silk, and thin mineral washes",
-        "promptZh": "成像与笔触采用尺规墨线、细纸绢与薄层矿物淡彩",
-        "promptEn": "render marks and edges with ruled ink lines, fine paper or silk, and thin mineral washes",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "纸绢纤维、墨色渗化与薄层矿物颜料",
+        "labelEn": "absorbent paper, pooled ink, dry-brush breaks, and exposed fibers",
+        "promptZh": "材质与表面呈现为纸绢纤维、墨色渗化与薄层矿物颜料",
+        "promptEn": "render materials and surfaces as absorbent paper, pooled ink, dry-brush breaks, and exposed fibers",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -8338,10 +6010,10 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "kind": "adjustable",
         "dimension": "colorTone",
         "dimensionZh": "色彩与调性",
-        "labelZh": "墨线纸白配淡赭石绿与低饱和朱红",
-        "labelEn": "ink and paper white with pale ochre, mineral green, and muted vermilion",
-        "promptZh": "配色限定为墨线纸白配淡赭石绿与低饱和朱红",
-        "promptEn": "limit the palette to ink and paper white with pale ochre, mineral green, and muted vermilion",
+        "labelZh": "纸绢底色、墨色与克制矿物强调色",
+        "labelEn": "ink black, soft gray washes, and warm paper with almost no chromatic accent",
+        "promptZh": "配色限定为纸绢底色、墨色与克制矿物强调色",
+        "promptEn": "limit the palette to ink black, soft gray washes, and warm paper with almost no chromatic accent",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -8350,62 +6022,62 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "kind": "adjustable",
         "dimension": "lightingImaging",
         "dimensionZh": "光线与成像",
-        "labelZh": "均匀分析光与克制清晰的投影边缘",
-        "labelEn": "even analytical light with restrained crisp shadow edges",
-        "promptZh": "光影采用均匀分析光与克制清晰的投影边缘",
-        "promptEn": "use even analytical light with restrained crisp shadow edges for lighting and tonal rendering",
+        "labelZh": "均匀柔光，以墨色和色层而非写实投影塑形",
+        "labelEn": "even ambient light with depth carried by ink density rather than cast shadows",
+        "promptZh": "光影采用均匀柔光，以墨色和色层而非写实投影塑形",
+        "promptEn": "use even ambient light with depth carried by ink density rather than cast shadows for lighting and tonal rendering",
         "weight": 0.78,
-        "level": "可调整"
+        "level": "支撑"
       },
       {
         "id": "gene-6",
         "kind": "adjustable",
         "dimension": "typographyLayout",
         "dimensionZh": "字体与版式",
-        "labelZh": "按需使用小尺度楷书或标注式文字",
-        "labelEn": "small regular-script or annotation-like type only when requested",
-        "promptZh": "仅在用户要求文字时采用小尺度楷书或标注式文字并保持原文可读",
-        "promptEn": "only when text is requested, use small regular-script or annotation-like type and preserve the exact readable wording",
+        "labelZh": "仅按需使用与画面节奏一致的书写或刻本字形",
+        "labelEn": "only when text is requested, use restrained calligraphic inscriptions aligned with the empty space",
+        "promptZh": "仅在用户要求文字时，采用与画面节奏一致的书写或刻本字形，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained calligraphic inscriptions aligned with the empty space, and preserve the exact readable wording",
         "weight": 0.62,
-        "level": "可调整"
+        "level": "支撑"
       }
     ]
   },
-  "shanhaijing-compendium": {
+  "sosaku-hanga": {
     "genes": [
       {
         "id": "gene-1",
         "kind": "core",
         "dimension": "compositionSpace",
         "dimensionZh": "构图与空间",
-        "labelZh": "图谱式陈列、边栏分区与明确阅读顺序",
-        "labelEn": "compendium-style display, marginal divisions, and a clear reading order",
-        "promptZh": "构图采用图谱式陈列、边栏分区与明确阅读顺序",
-        "promptEn": "compose with compendium-style display, marginal divisions, and a clear reading order",
+        "labelZh": "直接构图、版面留痕与个人化不对称",
+        "labelEn": "direct asymmetrical composition with visible block boundaries and personal mark-making",
+        "promptZh": "构图采用直接构图、版面留痕与个人化不对称",
+        "promptEn": "compose with direct asymmetrical composition with visible block boundaries and personal mark-making",
         "weight": 1,
-        "level": "核心"
+        "level": "强特征"
       },
       {
         "id": "gene-2",
         "kind": "core",
         "dimension": "formGeometry",
         "dimensionZh": "形态与几何",
-        "labelZh": "清晰外轮廓、正交观察与概括纹理",
-        "labelEn": "clear silhouettes, orthographic observation, and simplified textures",
-        "promptZh": "将用户主体转译为清晰外轮廓、正交观察与概括纹理，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into clear silhouettes, orthographic observation, and simplified textures while preserving identity and defining structure",
+        "labelZh": "粗刻线、简化块面与手工边缘",
+        "labelEn": "coarse carved lines, simplified planes, and irregular handmade edges",
+        "promptZh": "将用户主体转译为粗刻线、简化块面与手工边缘，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into coarse carved lines, simplified planes, and irregular handmade edges while preserving identity and defining structure",
         "weight": 0.93,
-        "level": "核心"
+        "level": "强特征"
       },
       {
         "id": "gene-3",
         "kind": "core",
-        "dimension": "mediumTechnique",
-        "dimensionZh": "媒介与技法",
-        "labelZh": "木刻墨迹、粗纤维纸与轻微套色错位",
-        "labelEn": "woodcut ink, coarse-fiber paper, and slight registration shifts",
-        "promptZh": "成像与笔触采用木刻墨迹、粗纤维纸与轻微套色错位",
-        "promptEn": "render marks and edges with woodcut ink, coarse-fiber paper, and slight registration shifts",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "自刻自印木版、刀痕与套印偏差",
+        "labelEn": "self-carved and self-printed woodblock texture, knife marks, and imperfect registration",
+        "promptZh": "材质与表面呈现为自刻自印木版、刀痕与套印偏差",
+        "promptEn": "render materials and surfaces as self-carved and self-printed woodblock texture, knife marks, and imperfect registration",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -8414,10 +6086,10 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "kind": "adjustable",
         "dimension": "colorTone",
         "dimensionZh": "色彩与调性",
-        "labelZh": "旧纸黄配墨黑朱砂石青与石绿",
-        "labelEn": "aged paper yellow with black ink, cinnabar, mineral blue, and green",
-        "promptZh": "配色限定为旧纸黄配墨黑朱砂石青与石绿",
-        "promptEn": "limit the palette to aged paper yellow with black ink, cinnabar, mineral blue, and green",
+        "labelZh": "有限套色、黑色主版与纸张底色",
+        "labelEn": "limited color blocks, a strong black key block, and exposed paper tone",
+        "promptZh": "配色限定为有限套色、黑色主版与纸张底色",
+        "promptEn": "limit the palette to limited color blocks, a strong black key block, and exposed paper tone",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -8426,214 +6098,746 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "kind": "adjustable",
         "dimension": "lightingImaging",
         "dimensionZh": "光线与成像",
-        "labelZh": "均匀平面光与清楚纸面层次",
-        "labelEn": "even flat illumination with clearly separated paper layers",
-        "promptZh": "光影采用均匀平面光与清楚纸面层次",
-        "promptEn": "use even flat illumination with clearly separated paper layers for lighting and tonal rendering",
+        "labelZh": "平面印刷光与色块明度关系",
+        "labelEn": "flat print illumination organized by the value of the carved color shapes",
+        "promptZh": "光影采用平面印刷光与色块明度关系",
+        "promptEn": "use flat print illumination organized by the value of the carved color shapes for lighting and tonal rendering",
         "weight": 0.78,
-        "level": "可调整"
+        "level": "支撑"
       },
       {
         "id": "gene-6",
         "kind": "adjustable",
         "dimension": "typographyLayout",
         "dimensionZh": "字体与版式",
-        "labelZh": "仅按原文使用篆隶或刻本字形",
-        "labelEn": "seal, clerical, or block-print type using exact supplied text only",
-        "promptZh": "仅在用户要求文字时采用篆隶或刻本字形并保持原文可读",
-        "promptEn": "only when text is requested, use seal, clerical, or block-print type and preserve the exact readable wording",
+        "labelZh": "仅按需使用与画面节奏一致的书写或刻本字形",
+        "labelEn": "only when text is requested, use simple legible lettering cut in the same block language",
+        "promptZh": "仅在用户要求文字时，采用与画面节奏一致的书写或刻本字形，并保持原文可读",
+        "promptEn": "only when text is requested, use simple legible lettering cut in the same block language, and preserve the exact readable wording",
         "weight": 0.62,
-        "level": "可调整"
+        "level": "支撑"
       }
     ]
   },
-  "archaic-bronze-mythic": {
+  "yamato-e": {
     "genes": [
       {
         "id": "gene-1",
         "kind": "core",
         "dimension": "compositionSpace",
         "dimensionZh": "构图与空间",
-        "labelZh": "礼制般稳定的轴线与环形层级",
-        "labelEn": "ritual-like stable axes and concentric hierarchy",
-        "promptZh": "构图采用礼制般稳定的轴线与环形层级",
-        "promptEn": "compose with ritual-like stable axes and concentric hierarchy",
+        "labelZh": "斜向俯视、屋顶揭除式分区与卷轴叙事",
+        "labelEn": "elevated oblique views, roofless interior compartments, and continuous handscroll narration",
+        "promptZh": "构图采用斜向俯视、屋顶揭除式分区与卷轴叙事",
+        "promptEn": "compose with elevated oblique views, roofless interior compartments, and continuous handscroll narration",
         "weight": 1,
-        "level": "核心"
+        "level": "强特征"
       },
       {
         "id": "gene-2",
         "kind": "core",
         "dimension": "formGeometry",
         "dimensionZh": "形态与几何",
-        "labelZh": "厚重块面、凹凸线纹与铸造接缝",
-        "labelEn": "weighty masses, recessed and raised lines, and cast seams",
-        "promptZh": "将用户主体转译为厚重块面、凹凸线纹与铸造接缝，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into weighty masses, recessed and raised lines, and cast seams while preserving identity and defining structure",
+        "labelZh": "细线轮廓、平面色区与柔和主体比例",
+        "labelEn": "fine contours, flat color zones, and gently proportioned forms",
+        "promptZh": "将用户主体转译为细线轮廓、平面色区与柔和主体比例，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into fine contours, flat color zones, and gently proportioned forms while preserving identity and defining structure",
         "weight": 0.93,
-        "level": "核心"
+        "level": "强特征"
       },
       {
         "id": "gene-3",
         "kind": "core",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "深青铜铜绿焦黑配少量暗金",
-        "labelEn": "dark bronze, verdigris, and charred black with restrained aged gold",
-        "promptZh": "配色限定为深青铜铜绿焦黑配少量暗金",
-        "promptEn": "limit the palette to dark bronze, verdigris, and charred black with restrained aged gold",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "纸绢矿物色、金银箔与细密线描",
+        "labelEn": "mineral color on paper or silk, gold and silver leaf, and fine linework",
+        "promptZh": "材质与表面呈现为纸绢矿物色、金银箔与细密线描",
+        "promptEn": "render materials and surfaces as mineral color on paper or silk, gold and silver leaf, and fine linework",
         "weight": 0.86,
-        "level": "核心"
+        "level": "强特征"
       },
       {
         "id": "gene-4",
         "kind": "adjustable",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "低调侧硬光与金属边缘擦光",
-        "labelEn": "low-key hard sidelight with metallic edge glints",
-        "promptZh": "光影采用低调侧硬光与金属边缘擦光",
-        "promptEn": "use low-key hard sidelight with metallic edge glints for lighting and tonal rendering",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "矿物群青、朱红、绿、金与纸绢暖白",
+        "labelEn": "mineral ultramarine, vermilion, green, gold, and warm paper or silk",
+        "promptZh": "配色限定为矿物群青、朱红、绿、金与纸绢暖白",
+        "promptEn": "limit the palette to mineral ultramarine, vermilion, green, gold, and warm paper or silk",
         "weight": 0.78,
-        "level": "可调整"
+        "level": "支撑"
       },
       {
         "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀平面光与金地微光",
+        "labelEn": "even flat illumination with restrained gold-ground shimmer",
+        "promptZh": "光影采用均匀平面光与金地微光",
+        "promptEn": "use even flat illumination with restrained gold-ground shimmer for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面节奏一致的书写或刻本字形",
+        "labelEn": "only when text is requested, use legible calligraphic lettering paced to the scroll",
+        "promptZh": "仅在用户要求文字时，采用与画面节奏一致的书写或刻本字形，并保持原文可读",
+        "promptEn": "only when text is requested, use legible calligraphic lettering paced to the scroll, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "shanghai-school-painting": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "传统卷轴结构与近代图像裁切并置",
+        "labelEn": "scroll structure combined with close cropping and emphatic market-facing focal placement",
+        "promptZh": "构图采用传统卷轴结构与近代图像裁切并置",
+        "promptEn": "compose with scroll structure combined with close cropping and emphatic market-facing focal placement",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "书写线条、综合色面与较强写生体积",
+        "labelEn": "epigraphic brush lines, abbreviated masses, and strongly modeled accents",
+        "promptZh": "将用户主体转译为书写线条、综合色面与较强写生体积，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into epigraphic brush lines, abbreviated masses, and strongly modeled accents while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "纸本水墨、矿物或水彩设色与印刷影响",
+        "labelEn": "paper, ink, opaque or transparent color, seal impressions, and print-influenced edges",
+        "promptZh": "材质与表面呈现为纸本水墨、矿物或水彩设色与印刷影响",
+        "promptEn": "render materials and surfaces as paper, ink, opaque or transparent color, seal impressions, and print-influenced edges",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "墨色、鲜明设色与纸本暖白",
+        "labelEn": "ink black, vivid mineral or vegetal color, and warm paper",
+        "promptZh": "配色限定为墨色、鲜明设色与纸本暖白",
+        "promptEn": "limit the palette to ink black, vivid mineral or vegetal color, and warm paper",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "自然观察光与水墨层次结合",
+        "labelEn": "observational light translated into layered ink and color rather than full realism",
+        "promptZh": "光影采用自然观察光与水墨层次结合",
+        "promptEn": "use observational light translated into layered ink and color rather than full realism for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面节奏一致的书写或刻本字形",
+        "labelEn": "only when text is requested, use bold legible calligraphy integrated with the commercial pictorial rhythm",
+        "promptZh": "仅在用户要求文字时，采用与画面节奏一致的书写或刻本字形，并保持原文可读",
+        "promptEn": "only when text is requested, use bold legible calligraphy integrated with the commercial pictorial rhythm, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "dansaekhwa": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "满幅单色场、重复动作与细微网格",
+        "labelEn": "all-over monochrome fields structured by repeated actions and subtle grids",
+        "promptZh": "构图采用满幅单色场、重复动作与细微网格",
+        "promptEn": "compose with all-over monochrome fields structured by repeated actions and subtle grids",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "刮、推、点、压形成的微小表面单位",
+        "labelEn": "minute surface units made by pushing, scraping, dotting, pressing, or soaking",
+        "promptZh": "将用户主体转译为刮、推、点、压形成的微小表面单位，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into minute surface units made by pushing, scraping, dotting, pressing, or soaking while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "厚薄颜料、画布纤维与重复手工痕迹",
+        "labelEn": "canvas fibers, variable pigment thickness, absorption, and repetitive handmade traces",
+        "promptZh": "材质与表面呈现为厚薄颜料、画布纤维与重复手工痕迹",
+        "promptEn": "render materials and surfaces as canvas fibers, variable pigment thickness, absorption, and repetitive handmade traces",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "白、灰、土色、深蓝等克制单色",
+        "labelEn": "restrained white, gray, earth color, or deep blue within a narrow tonal range",
+        "promptZh": "配色限定为白、灰、土色、深蓝等克制单色",
+        "promptEn": "limit the palette to restrained white, gray, earth color, or deep blue within a narrow tonal range",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "柔侧光显示极低浮雕和综合色差",
+        "labelEn": "soft grazing light revealing very low relief and minute color shifts",
+        "promptZh": "光影采用柔侧光显示极低浮雕和综合色差",
+        "promptEn": "use soft grazing light revealing very low relief and minute color shifts for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面节奏一致的书写或刻本字形",
+        "labelEn": "only when text is requested, use sparse neutral typography outside the monochrome field",
+        "promptZh": "仅在用户要求文字时，采用与画面节奏一致的书写或刻本字形，并保持原文可读",
+        "promptEn": "only when text is requested, use sparse neutral typography outside the monochrome field, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "han-dynasty-silk-painting": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "上下层叠的宇宙分区、中心轴与贯穿画面的流动曲线",
+        "labelEn": "vertically tiered cosmological zones, a central axis, and flowing curves that connect the full field",
+        "promptZh": "构图采用上下层叠的宇宙分区、中心轴与贯穿画面的流动曲线",
+        "promptEn": "compose with vertically tiered cosmological zones, a central axis, and flowing curves that connect the full field",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "细而连续的墨线、平面色区与舒展的带状轮廓",
+        "labelEn": "fine continuous ink contours, flat color areas, and elongated ribbon-like curves",
+        "promptZh": "将用户主体转译为细而连续的墨线、平面色区与舒展的带状轮廓，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into fine continuous ink contours, flat color areas, and elongated ribbon-like curves while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "老化绢纹、细密墨线、薄层矿物色与局部颜料脱落",
+        "labelEn": "aged silk grain, fine ink linework, thin mineral color, and restrained pigment loss",
+        "promptZh": "材质与表面呈现为老化绢纹、细密墨线、薄层矿物色与局部颜料脱落",
+        "promptEn": "render materials and surfaces as aged silk grain, fine ink linework, thin mineral color, and restrained pigment loss",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "暖褐绢地、墨黑、朱红、土黄与低饱和矿物青绿",
+        "labelEn": "warm brown silk, ink black, vermilion, ochre, and muted mineral blue-green",
+        "promptZh": "配色限定为暖褐绢地、墨黑、朱红、土黄与低饱和矿物青绿",
+        "promptEn": "limit the palette to warm brown silk, ink black, vermilion, ochre, and muted mineral blue-green",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀平面光，以色层和遮叠建立浅层空间，不使用写实投影",
+        "labelEn": "even flat illumination, with shallow space built by color layers and overlap rather than cast shadows",
+        "promptZh": "光影采用均匀平面光，以色层和遮叠建立浅层空间，不使用写实投影",
+        "promptEn": "use even flat illumination, with shallow space built by color layers and overlap rather than cast shadows for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用清楚可读、与秦汉书写结构相容的字形",
+        "labelEn": "only when text is requested, use legible lettering compatible with Qin-Han script structure",
+        "promptZh": "仅在用户要求文字时，采用清楚可读、与秦汉书写结构相容的字形，并保持原文可读",
+        "promptEn": "only when text is requested, use legible lettering compatible with Qin-Han script structure, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "han-dynasty-pictorial-stone": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "横向分栏、连续叙事与压缩的浅层空间",
+        "labelEn": "horizontal registers, continuous episodic sequencing, and compressed shallow space",
+        "promptZh": "构图采用横向分栏、连续叙事与压缩的浅层空间",
+        "promptEn": "compose with horizontal registers, continuous episodic sequencing, and compressed shallow space",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "减地浅浮雕、侧面剪影、硬边凿线与概括体块",
+        "labelEn": "low-relief carving, profile silhouettes, hard incised edges, and simplified masses",
+        "promptZh": "将用户主体转译为减地浅浮雕、侧面剪影、硬边凿线与概括体块，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into low-relief carving, profile silhouettes, hard incised edges, and simplified masses while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "粗粒石面、凿刻沟槽、墨拓渗印与纤维纸纹",
+        "labelEn": "coarse stone grain, chiseled grooves, ink-rubbing transfer, and fibrous paper texture",
+        "promptZh": "材质与表面呈现为粗粒石面、凿刻沟槽、墨拓渗印与纤维纸纹",
+        "promptEn": "render materials and surfaces as coarse stone grain, chiseled grooves, ink-rubbing transfer, and fibrous paper texture",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "石灰灰、炭黑与纸白构成拓片式高反差",
+        "labelEn": "limestone gray, charcoal black, and paper white in a rubbing-like high-contrast range",
+        "promptZh": "配色限定为石灰灰、炭黑与纸白构成拓片式高反差",
+        "promptEn": "limit the palette to limestone gray, charcoal black, and paper white in a rubbing-like high-contrast range",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "拓片版本采用均匀平面明暗，石刻版本采用擦边侧光显示凿刻深浅",
+        "labelEn": "even flat tonal contrast for rubbing treatments or grazing sidelight to reveal carved depth",
+        "promptZh": "光影采用拓片版本采用均匀平面明暗，石刻版本采用擦边侧光显示凿刻深浅",
+        "promptEn": "use even flat tonal contrast for rubbing treatments or grazing sidelight to reveal carved depth for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用准确可读的汉代刻铭式字形",
+        "labelEn": "only when text is requested, use accurate legible lettering derived from Han carved inscriptions",
+        "promptZh": "仅在用户要求文字时，准确可读的汉代刻铭式字形，并保持原文可读",
+        "promptEn": "only when text is requested, use accurate legible lettering derived from Han carved inscriptions, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "oracle-bone-script-aesthetic": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "细直刀刻线、尖折转角、象形结构与不对称字势",
+        "labelEn": "thin straight incisions, pointed angular turns, pictographic construction, and asymmetrical glyph posture",
+        "promptZh": "将用户主体转译为细直刀刻线、尖折转角、象形结构与不对称字势，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into thin straight incisions, pointed angular turns, pictographic construction, and asymmetrical glyph posture while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "龟甲兽骨、刀刻凹线、占卜裂纹、风化斑与拓印颗粒",
+        "labelEn": "tortoise plastron or scapula, knife-cut grooves, divination cracks, weathered mottling, and rubbing grain",
+        "promptZh": "材质与表面呈现为龟甲兽骨、刀刻凹线、占卜裂纹、风化斑与拓印颗粒",
+        "promptEn": "render materials and surfaces as tortoise plastron or scapula, knife-cut grooves, divination cracks, weathered mottling, and rubbing grain",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时准确保留原文，并采用甲骨刻辞式的细直象形构形",
+        "labelEn": "only when text is requested, preserve the exact wording and use thin angular oracle-bone inscription construction",
+        "promptZh": "仅在用户要求文字时，准确保留原文，并采用甲骨刻辞式的细直象形构形，字形保持清楚可读",
+        "promptEn": "only when text is requested, preserve the exact wording and use thin angular oracle-bone inscription construction, with clearly legible glyph construction",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "字形顺应骨片边界与裂纹疏密排列，字距、尺度和朝向保留手工变化",
+        "labelEn": "glyphs arranged around bone edges and fissures with handmade variation in spacing, scale, and orientation",
+        "promptZh": "构图采用字形顺应骨片边界与裂纹疏密排列，字距、尺度和朝向保留手工变化",
+        "promptEn": "compose with glyphs arranged around bone edges and fissures with handmade variation in spacing, scale, and orientation",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "骨甲米白、刻槽深褐与拓片黑",
+        "labelEn": "bone ivory, dark brown incisions, and rubbing black",
+        "promptZh": "配色限定为骨甲米白、刻槽深褐与拓片黑",
+        "promptEn": "limit the palette to bone ivory, dark brown incisions, and rubbing black",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "平面档案光，或以擦边侧光清楚显示浅刻槽",
+        "labelEn": "flat archival light or grazing sidelight that clearly reveals shallow incisions",
+        "promptZh": "光影采用平面档案光，或以擦边侧光清楚显示浅刻槽",
+        "promptEn": "use flat archival light or grazing sidelight that clearly reveals shallow incisions for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      }
+    ]
+  },
+  "bronze-inscription-aesthetic": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "粗厚圆转的铸刻线、团块字形、柔化转角与不均匀边缘",
+        "labelEn": "thick rounded cast strokes, compact glyph masses, softened turns, and irregular edges",
+        "promptZh": "将用户主体转译为粗厚圆转的铸刻线、团块字形、柔化转角与不均匀边缘，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into thick rounded cast strokes, compact glyph masses, softened turns, and irregular edges while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "青铜铸纹、凹凸铭文、氧化绿锈、腐蚀斑与拓印墨迹",
+        "labelEn": "cast bronze texture, raised or recessed inscriptions, verdigris oxidation, corrosion marks, and ink-rubbing traces",
+        "promptZh": "材质与表面呈现为青铜铸纹、凹凸铭文、氧化绿锈、腐蚀斑与拓印墨迹",
+        "promptEn": "render materials and surfaces as cast bronze texture, raised or recessed inscriptions, verdigris oxidation, corrosion marks, and ink-rubbing traces",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时准确保留原文，并采用西周至战国金文的圆厚铸刻构形",
+        "labelEn": "only when text is requested, preserve the exact wording and use rounded cast inscription forms derived from Zhou bronze script",
+        "promptZh": "仅在用户要求文字时，准确保留原文，并采用西周至战国金文的圆厚铸刻构形，字形保持清楚可读",
+        "promptEn": "only when text is requested, preserve the exact wording and use rounded cast inscription forms derived from Zhou bronze script, with clearly legible glyph construction",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "字列顺应器内铸面纵向成行，间距紧凑、大小略有变化而整体重心稳定",
+        "labelEn": "compact vertical columns fitted to the interior cast field, with slight size variation and a stable overall block",
+        "promptZh": "构图采用字列顺应器内铸面纵向成行，间距紧凑、大小略有变化而整体重心稳定",
+        "promptEn": "compose with compact vertical columns fitted to the interior cast field, with slight size variation and a stable overall block",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "青铜金、绿锈、深褐、金属黑与拓片白",
+        "labelEn": "bronze gold, verdigris, dark brown, metallic black, and rubbing white",
+        "promptZh": "配色限定为青铜金、绿锈、深褐、金属黑与拓片白",
+        "promptEn": "limit the palette to bronze gold, verdigris, dark brown, metallic black, and rubbing white",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "以擦边侧光显示铸刻深浅、金属起伏与绿锈层次",
+        "labelEn": "grazing sidelight revealing cast depth, metal relief, and layered patina",
+        "promptZh": "光影采用以擦边侧光显示铸刻深浅、金属起伏与绿锈层次",
+        "promptEn": "use grazing sidelight revealing cast depth, metal relief, and layered patina for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      }
+    ]
+  },
+  "gutai-art-association": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "行动痕迹、非中心扩散与材料事件",
+        "labelEn": "decentered material events, impact zones, and traces spreading from physical actions",
+        "promptZh": "构图采用行动痕迹、非中心扩散与材料事件",
+        "promptEn": "compose with decentered material events, impact zones, and traces spreading from physical actions",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "撕裂、泼洒、穿透与大尺度手势",
+        "labelEn": "tears, pours, punctures, impacts, and large bodily gestures",
+        "promptZh": "将用户主体转译为撕裂、泼洒、穿透与大尺度手势，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into tears, pours, punctures, impacts, and large bodily gestures while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "厚颜料、纸布破口与行为制作痕迹",
+        "labelEn": "heavy pigment, torn paper or cloth, punctures, and direct evidence of bodily process",
+        "promptZh": "材质与表面呈现为厚颜料、纸布破口与行为制作痕迹",
+        "promptEn": "render materials and surfaces as heavy pigment, torn paper or cloth, punctures, and direct evidence of bodily process",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "高对比原色、黑白与材料本色",
+        "labelEn": "high-contrast primary color, black and white, and exposed material color",
+        "promptZh": "配色限定为高对比原色、黑白与材料本色",
+        "promptEn": "limit the palette to high-contrast primary color, black and white, and exposed material color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "展示光突出凹凸和材料变化",
+        "labelEn": "exhibition light revealing relief, rupture, and changes in surface thickness",
+        "promptZh": "光影采用展示光突出凹凸和材料变化",
+        "promptEn": "use exhibition light revealing relief, rupture, and changes in surface thickness for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面节奏一致的书写或刻本字形",
+        "labelEn": "only when text is requested, keep typography minimal and separate from the material action",
+        "promptZh": "仅在用户要求文字时，采用与画面节奏一致的书写或刻本字形，并保持原文可读",
+        "promptEn": "only when text is requested, keep typography minimal and separate from the material action, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "clerical-script-aesthetic": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "横向舒展的扁方字域、清楚行列、稳定基线与均衡字距",
+        "labelEn": "horizontally expanded oblong glyph fields, clear rows, stable baselines, and balanced spacing",
+        "promptZh": "构图采用横向舒展的扁方字域、清楚行列、稳定基线与均衡字距",
+        "promptEn": "compose with horizontally expanded oblong glyph fields, clear rows, stable baselines, and balanced spacing",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "横画波磔、蚕头雁尾、方折转角与左右开张结构",
+        "labelEn": "flared horizontal strokes, silkworm-head and wild-goose-tail terminals, angular turns, and laterally opened structure",
+        "promptZh": "将用户主体转译为横画波磔、蚕头雁尾、方折转角与左右开张结构，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into flared horizontal strokes, silkworm-head and wild-goose-tail terminals, angular turns, and laterally opened structure while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时准确保留原文，并采用隶书扁方、波磔清楚的可读结构",
+        "labelEn": "only when text is requested, preserve the exact wording in legible clerical-script forms with oblong proportions and flared strokes",
+        "promptZh": "仅在用户要求文字时，准确保留原文，并采用隶书扁方、波磔清楚的可读结构，字形保持清楚可读",
+        "promptEn": "only when text is requested, preserve the exact wording in legible clerical-script forms with oblong proportions and flared strokes, with clearly legible glyph construction",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "墨黑、纸白、碑石灰与少量朱砂印色",
+        "labelEn": "ink black, paper white, stele gray, and restrained cinnabar seal red",
+        "promptZh": "配色限定为墨黑、纸白、碑石灰与少量朱砂印色",
+        "promptEn": "limit the palette to ink black, paper white, stele gray, and restrained cinnabar seal red",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "纸墨版本完全平面化，碑刻版本只用轻微擦边光显示刻痕",
+        "labelEn": "fully flat ink-on-paper rendering, with only slight grazing light for carved stele traces",
+        "promptZh": "光影采用纸墨版本完全平面化，碑刻版本只用轻微擦边光显示刻痕",
+        "promptEn": "use fully flat ink-on-paper rendering, with only slight grazing light for carved stele traces for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
         "kind": "adjustable",
         "dimension": "materialTexture",
         "dimensionZh": "材质与纹理",
-        "labelZh": "自然氧化、细密腐蚀与局部抛光",
-        "labelEn": "natural oxidation, fine corrosion, and selectively polished edges",
-        "promptZh": "材质与表面呈现为自然氧化、细密腐蚀与局部抛光",
-        "promptEn": "render materials and surfaces as natural oxidation, fine corrosion, and selectively polished edges",
+        "labelZh": "毛笔墨迹、汉碑刻痕、拓片颗粒、纸纤维与克制飞白",
+        "labelEn": "brush ink, Han stele incisions, rubbing grain, paper fibers, and restrained dry-brush streaks",
+        "promptZh": "材质与表面呈现为毛笔墨迹、汉碑刻痕、拓片颗粒、纸纤维与克制飞白",
+        "promptEn": "render materials and surfaces as brush ink, Han stele incisions, rubbing grain, paper fibers, and restrained dry-brush streaks",
         "weight": 0.7,
-        "level": "可调整"
-      },
-      {
-        "id": "gene-6",
-        "kind": "adjustable",
-        "dimension": "typographyLayout",
-        "dimensionZh": "字体与版式",
-        "labelZh": "仅按原文使用方整铭文式字形",
-        "labelEn": "square inscription-like type using exact supplied text only",
-        "promptZh": "仅在用户要求文字时采用方整铭文式字形并保持原文可读",
-        "promptEn": "only when text is requested, use square inscription-like type and preserve the exact readable wording",
-        "weight": 0.62,
-        "level": "可调整"
-      }
-    ]
-  },
-  "daoist-immortal-realm": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "垂直上升、环形回游与层叠深远关系",
-        "labelEn": "vertical ascent, circular flow, and layered spatial recession",
-        "promptZh": "构图采用垂直上升、环形回游与层叠深远关系",
-        "promptEn": "compose with vertical ascent, circular flow, and layered spatial recession",
-        "weight": 1,
-        "level": "核心"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "修长流动轮廓、柔和转折与秩序曲线",
-        "labelEn": "elongated flowing contours, soft turns, and ordered curves",
-        "promptZh": "将用户主体转译为修长流动轮廓、柔和转折与秩序曲线，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into elongated flowing contours, soft turns, and ordered curves while preserving identity and defining structure",
-        "weight": 0.93,
-        "level": "核心"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "柔和顶部天光、轮廓辉光与分层雾化",
-        "labelEn": "soft top light, contour glow, and layered atmospheric diffusion",
-        "promptZh": "光影采用柔和顶部天光、轮廓辉光与分层雾化",
-        "promptEn": "use soft top light, contour glow, and layered atmospheric diffusion for lighting and tonal rendering",
-        "weight": 0.86,
-        "level": "强特征"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "石青石绿朱砂夜蓝与少量淡金",
-        "labelEn": "mineral blue, green, cinnabar, night blue, and restrained pale gold",
-        "promptZh": "配色限定为石青石绿朱砂夜蓝与少量淡金",
-        "promptEn": "limit the palette to mineral blue, green, cinnabar, night blue, and restrained pale gold",
-        "weight": 0.78,
         "level": "支撑"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "materialTexture",
-        "dimensionZh": "材质与纹理",
-        "labelZh": "绢本矿物色、透明水色与细金线",
-        "labelEn": "mineral pigment on silk, transparent washes, and fine gold lines",
-        "promptZh": "材质与表面呈现为绢本矿物色、透明水色与细金线",
-        "promptEn": "render materials and surfaces as mineral pigment on silk, transparent washes, and fine gold lines",
-        "weight": 0.7,
-        "level": "可调整"
-      },
-      {
-        "id": "gene-6",
-        "kind": "adjustable",
-        "dimension": "typographyLayout",
-        "dimensionZh": "字体与版式",
-        "labelZh": "按需使用疏朗书写并保持原文",
-        "labelEn": "spacious calligraphic treatment preserving exact text only when requested",
-        "promptZh": "仅在用户要求文字时采用疏朗书写并保持原文并保持原文可读",
-        "promptEn": "only when text is requested, use spacious calligraphic treatment and preserve the exact readable wording",
-        "weight": 0.62,
-        "level": "可调整"
       }
     ]
   },
-  "cloisonne-enamel": {
+  "lingnan-school": {
     "genes": [
       {
         "id": "gene-1",
         "kind": "core",
         "dimension": "compositionSpace",
         "dimensionZh": "构图与空间",
-        "labelZh": "按结构划分大小有序的闭合色区",
-        "labelEn": "ordered closed color cells divided according to structure",
-        "promptZh": "构图采用按结构划分大小有序的闭合色区",
-        "promptEn": "compose with ordered closed color cells divided according to structure",
+        "labelZh": "近代裁切、明确焦点、浅层景深与保留卷轴留白",
+        "labelEn": "modern cropping, a clear focal point, shallow depth, and retained scroll-like negative space",
+        "promptZh": "构图采用近代裁切、明确焦点、浅层景深与保留卷轴留白",
+        "promptEn": "compose with modern cropping, a clear focal point, shallow depth, and retained scroll-like negative space",
         "weight": 1,
-        "level": "核心"
+        "level": "强特征"
       },
       {
         "id": "gene-2",
         "kind": "core",
         "dimension": "formGeometry",
         "dimensionZh": "形态与几何",
-        "labelZh": "连续金属丝分隔的清晰轮廓与曲面",
-        "labelEn": "clear contours and curved cells divided by continuous metal wire",
-        "promptZh": "将用户主体转译为连续金属丝分隔的清晰轮廓与曲面，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into clear contours and curved cells divided by continuous metal wire while preserving identity and defining structure",
+        "labelZh": "写生轮廓、湿润综合色面与水墨线条并置",
+        "labelEn": "observational contours, wet color masses, and ink linework in deliberate contrast",
+        "promptZh": "将用户主体转译为写生轮廓、湿润综合色面与水墨线条并置，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into observational contours, wet color masses, and ink linework in deliberate contrast while preserving identity and defining structure",
         "weight": 0.93,
-        "level": "核心"
+        "level": "强特征"
       },
       {
         "id": "gene-3",
         "kind": "core",
         "dimension": "materialTexture",
         "dimensionZh": "材质与纹理",
-        "labelZh": "掐丝金属、烧制珐琅与细微釉面颗粒",
-        "labelEn": "cloison wire, fired enamel, and fine glaze granulation",
-        "promptZh": "材质与表面呈现为掐丝金属、烧制珐琅与细微釉面颗粒",
-        "promptEn": "render materials and surfaces as cloison wire, fired enamel, and fine glaze granulation",
+        "labelZh": "纸本水墨、水彩或日本画颜料、撞水撞粉边缘与细颗粒",
+        "labelEn": "paper, ink, watercolor or nihonga pigment, blooming wet edges, and fine granulation",
+        "promptZh": "材质与表面呈现为纸本水墨、水彩或日本画颜料、撞水撞粉边缘与细颗粒",
+        "promptEn": "render materials and surfaces as paper, ink, watercolor or nihonga pigment, blooming wet edges, and fine granulation",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -8642,10 +6846,10 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "kind": "adjustable",
         "dimension": "colorTone",
         "dimensionZh": "色彩与调性",
-        "labelZh": "宝蓝孔雀绿朱红象牙白与金色",
-        "labelEn": "royal blue, peacock green, vermilion, ivory, and gold",
-        "promptZh": "配色限定为宝蓝孔雀绿朱红象牙白与金色",
-        "promptEn": "limit the palette to royal blue, peacock green, vermilion, ivory, and gold",
+        "labelZh": "墨色、明亮综合色、灰绿与纸本暖白",
+        "labelEn": "ink, brighter mixed color, gray-green, and warm paper",
+        "promptZh": "配色限定为墨色、明亮综合色、灰绿与纸本暖白",
+        "promptEn": "limit the palette to ink, brighter mixed color, gray-green, and warm paper",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -8654,214 +6858,62 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "kind": "adjustable",
         "dimension": "lightingImaging",
         "dimensionZh": "光线与成像",
-        "labelZh": "受控影棚光、釉面小高光与锐利金属反光",
-        "labelEn": "controlled studio light, small enamel highlights, and crisp metallic reflections",
-        "promptZh": "光影采用受控影棚光、釉面小高光与锐利金属反光",
-        "promptEn": "use controlled studio light, small enamel highlights, and crisp metallic reflections for lighting and tonal rendering",
+        "labelZh": "自然方向光、空气综合色与水墨晕染共同塑形",
+        "labelEn": "directional natural light and atmospheric color fused with diffused ink washes",
+        "promptZh": "光影采用自然方向光、空气综合色与水墨晕染共同塑形",
+        "promptEn": "use directional natural light and atmospheric color fused with diffused ink washes for lighting and tonal rendering",
         "weight": 0.78,
-        "level": "可调整"
+        "level": "支撑"
       },
       {
         "id": "gene-6",
         "kind": "adjustable",
         "dimension": "typographyLayout",
         "dimensionZh": "字体与版式",
-        "labelZh": "按需使用清晰金丝字形或独立标签",
-        "labelEn": "clear wire-formed lettering or a separate label only when requested",
-        "promptZh": "仅在用户要求文字时采用清晰金丝字形或独立标签并保持原文可读",
-        "promptEn": "only when text is requested, use clear wire-formed lettering or a separate label and preserve the exact readable wording",
+        "labelZh": "仅在用户要求文字时使用清楚克制的现代书写题款",
+        "labelEn": "only when text is requested, use clear restrained modern calligraphic inscriptions",
+        "promptZh": "仅在用户要求文字时，采用清楚克制的现代书写题款，并保持原文可读",
+        "promptEn": "only when text is requested, use clear restrained modern calligraphic inscriptions, and preserve the exact readable wording",
         "weight": 0.62,
-        "level": "可调整"
+        "level": "支撑"
       }
     ]
   },
-  "mother-of-pearl-lacquer": {
+  "ma-xia-school": {
     "genes": [
       {
         "id": "gene-1",
         "kind": "core",
         "dimension": "compositionSpace",
         "dimensionZh": "构图与空间",
-        "labelZh": "大片深色留底与局部高密度嵌片",
-        "labelEn": "broad dark ground with locally dense inlay",
-        "promptZh": "构图采用大片深色留底与局部高密度嵌片",
-        "promptEn": "compose with broad dark ground with locally dense inlay",
+        "labelZh": "偏角取景、大片留白与近景强焦点",
+        "labelEn": "corner-weighted framing, expansive voids, and a strong near-field focal mass",
+        "promptZh": "构图采用偏角取景、大片留白与近景强焦点",
+        "promptEn": "compose with corner-weighted framing, expansive voids, and a strong near-field focal mass",
         "weight": 1,
-        "level": "核心"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "沿轮廓和结构节点排列的薄片嵌纹",
-        "labelEn": "thin inlay fragments aligned to contours and structural nodes",
-        "promptZh": "将用户主体转译为沿轮廓和结构节点排列的薄片嵌纹，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into thin inlay fragments aligned to contours and structural nodes while preserving identity and defining structure",
-        "weight": 0.93,
-        "level": "核心"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "漆黑配青绿蓝紫玫红与银白虹彩",
-        "labelEn": "lacquer black with teal, blue-violet, rose, and silver iridescence",
-        "promptZh": "配色限定为漆黑配青绿蓝紫玫红与银白虹彩",
-        "promptEn": "limit the palette to lacquer black with teal, blue-violet, rose, and silver iridescence",
-        "weight": 0.86,
-        "level": "核心"
-      },
-      {
-        "id": "gene-4",
-        "kind": "core",
-        "dimension": "materialTexture",
-        "dimensionZh": "材质与纹理",
-        "labelZh": "多层黑漆、薄贝壳嵌片与细刻接缝",
-        "labelEn": "layered black lacquer, thin shell inlay, and finely engraved joins",
-        "promptZh": "材质与表面呈现为多层黑漆、薄贝壳嵌片与细刻接缝",
-        "promptEn": "render materials and surfaces as layered black lacquer, thin shell inlay, and finely engraved joins",
-        "weight": 0.86,
         "level": "强特征"
       },
       {
-        "id": "gene-5",
-        "kind": "adjustable",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "低调侧光、连续漆面反射与锐利彩光",
-        "labelEn": "low-key sidelight, continuous lacquer reflection, and crisp colored glints",
-        "promptZh": "光影采用低调侧光、连续漆面反射与锐利彩光",
-        "promptEn": "use low-key sidelight, continuous lacquer reflection, and crisp colored glints for lighting and tonal rendering",
-        "weight": 0.78,
-        "level": "可调整"
-      },
-      {
-        "id": "gene-6",
-        "kind": "adjustable",
-        "dimension": "typographyLayout",
-        "dimensionZh": "字体与版式",
-        "labelZh": "按需使用可读嵌片字或金线字",
-        "labelEn": "legible inlay or gold-line lettering only when requested",
-        "promptZh": "仅在用户要求文字时采用可读嵌片字或金线字并保持原文可读",
-        "promptEn": "only when text is requested, use legible inlay or gold-line lettering and preserve the exact readable wording",
-        "weight": 0.62,
-        "level": "可调整"
-      }
-    ]
-  },
-  "chinese-papercut": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "一个或少量相连整体与正负形层级",
-        "labelEn": "one or a few connected masses with a positive-negative hierarchy",
-        "promptZh": "构图采用一个或少量相连整体与正负形层级",
-        "promptEn": "compose with one or a few connected masses with a positive-negative hierarchy",
-        "weight": 1,
-        "level": "核心"
-      },
-      {
         "id": "gene-2",
         "kind": "core",
         "dimension": "formGeometry",
         "dimensionZh": "形态与几何",
-        "labelZh": "连续外轮廓、内部镂空与可靠连接桥",
-        "labelEn": "continuous outer contours, internal cutouts, and reliable connecting bridges",
-        "promptZh": "将用户主体转译为连续外轮廓、内部镂空与可靠连接桥，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into continuous outer contours, internal cutouts, and reliable connecting bridges while preserving identity and defining structure",
+        "labelZh": "斧劈式硬折、简练远景与粗细线对比",
+        "labelEn": "angular axe-cut texture strokes, abbreviated distance, and sharp thick-thin line contrast",
+        "promptZh": "将用户主体转译为斧劈式硬折、简练远景与粗细线对比，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into angular axe-cut texture strokes, abbreviated distance, and sharp thick-thin line contrast while preserving identity and defining structure",
         "weight": 0.93,
-        "level": "核心"
+        "level": "强特征"
       },
       {
         "id": "gene-3",
         "kind": "core",
-        "dimension": "colorTone",
-        "dimensionZh": "色彩与调性",
-        "labelZh": "朱红纸白或用户指定的单色高对比",
-        "labelEn": "vermilion and paper white or another user-specified monochrome contrast",
-        "promptZh": "配色限定为朱红纸白或用户指定的单色高对比",
-        "promptEn": "limit the palette to vermilion and paper white or another user-specified monochrome contrast",
-        "weight": 0.86,
-        "level": "核心"
-      },
-      {
-        "id": "gene-4",
-        "kind": "adjustable",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "均匀平面光与极轻纸边投影",
-        "labelEn": "even flat light with only a very slight paper-edge shadow",
-        "promptZh": "光影采用均匀平面光与极轻纸边投影",
-        "promptEn": "use even flat light with only a very slight paper-edge shadow for lighting and tonal rendering",
-        "weight": 0.78,
-        "level": "可调整"
-      },
-      {
-        "id": "gene-5",
-        "kind": "adjustable",
         "dimension": "materialTexture",
         "dimensionZh": "材质与纹理",
-        "labelZh": "纤维纸、细小剪切毛边与手工折痕",
-        "labelEn": "fiber paper, fine cut edges, and handmade fold traces",
-        "promptZh": "材质与表面呈现为纤维纸、细小剪切毛边与手工折痕",
-        "promptEn": "render materials and surfaces as fiber paper, fine cut edges, and handmade fold traces",
-        "weight": 0.7,
-        "level": "可调整"
-      },
-      {
-        "id": "gene-6",
-        "kind": "adjustable",
-        "dimension": "typographyLayout",
-        "dimensionZh": "字体与版式",
-        "labelZh": "按需使用可连接可剪切且清晰的字形",
-        "labelEn": "connected, cuttable, and legible lettering only when requested",
-        "promptZh": "仅在用户要求文字时采用可连接可剪切且清晰的字形并保持原文可读",
-        "promptEn": "only when text is requested, use connected, cuttable, and legible lettering and preserve the exact readable wording",
-        "weight": 0.62,
-        "level": "可调整"
-      }
-    ]
-  },
-  "chinese-shadow-puppetry": {
-    "genes": [
-      {
-        "id": "gene-1",
-        "kind": "core",
-        "dimension": "compositionSpace",
-        "dimensionZh": "构图与空间",
-        "labelZh": "浅层舞台式空间与清晰剪影关系",
-        "labelEn": "shallow stage-like space with clearly separated silhouettes",
-        "promptZh": "构图采用浅层舞台式空间与清晰剪影关系",
-        "promptEn": "compose with shallow stage-like space with clearly separated silhouettes",
-        "weight": 1,
-        "level": "核心"
-      },
-      {
-        "id": "gene-2",
-        "kind": "core",
-        "dimension": "formGeometry",
-        "dimensionZh": "形态与几何",
-        "labelZh": "薄而扁平的分节结构、镂刻孔洞与描线",
-        "labelEn": "thin flat segmented construction with cutouts and drawn details",
-        "promptZh": "将用户主体转译为薄而扁平的分节结构、镂刻孔洞与描线，保持身份与关键结构",
-        "promptEn": "translate the supplied subjects into thin flat segmented construction with cutouts and drawn details while preserving identity and defining structure",
-        "weight": 0.93,
-        "level": "核心"
-      },
-      {
-        "id": "gene-3",
-        "kind": "core",
-        "dimension": "lightingImaging",
-        "dimensionZh": "光线与成像",
-        "labelZh": "单一暖背光穿透半透明表面",
-        "labelEn": "a single warm backlight transmitted through a translucent surface",
-        "promptZh": "光影采用单一暖背光穿透半透明表面",
-        "promptEn": "use a single warm backlight transmitted through a translucent surface for lighting and tonal rendering",
+        "labelZh": "绢本水墨、湿润墨层与锐利皴线",
+        "labelEn": "ink on silk, wet washes, and sharp axe-cut texture marks",
+        "promptZh": "材质与表面呈现为绢本水墨、湿润墨层与锐利皴线",
+        "promptEn": "render materials and surfaces as ink on silk, wet washes, and sharp axe-cut texture marks",
         "weight": 0.86,
         "level": "强特征"
       },
@@ -8870,10 +6922,8294 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "kind": "adjustable",
         "dimension": "colorTone",
         "dimensionZh": "色彩与调性",
-        "labelZh": "暖黄朱红墨黑翠绿与少量蓝色",
-        "labelEn": "warm yellow, vermilion, black, jade green, and restrained blue",
-        "promptZh": "配色限定为暖黄朱红墨黑翠绿与少量蓝色",
-        "promptEn": "limit the palette to warm yellow, vermilion, black, jade green, and restrained blue",
+        "labelZh": "墨黑、灰褐、淡绿与绢本暖白",
+        "labelEn": "ink black, gray-brown, pale green, and warm silk",
+        "promptZh": "配色限定为墨黑、灰褐、淡绿与绢本暖白",
+        "promptEn": "limit the palette to ink black, gray-brown, pale green, and warm silk",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "雾化远景与局部明暗对比",
+        "labelEn": "mist-softened distance with concentrated local tonal contrast",
+        "promptZh": "光影采用雾化远景与局部明暗对比",
+        "promptEn": "use mist-softened distance with concentrated local tonal contrast for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面节奏一致的书写或刻本字形",
+        "labelEn": "only when text is requested, use a restrained inscription outside the primary void",
+        "promptZh": "仅在用户要求文字时，采用与画面节奏一致的书写或刻本字形，并保持原文可读",
+        "promptEn": "only when text is requested, use a restrained inscription outside the primary void, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "mianzhu-new-year-print": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "中心主图、粗线边框与较自由的手绘填色",
+        "labelEn": "a dominant central field, bold border lines, and freely hand-painted color placement",
+        "promptZh": "构图采用中心主图、粗线边框与较自由的手绘填色",
+        "promptEn": "compose with a dominant central field, bold border lines, and freely hand-painted color placement",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "木版墨线、夸张概括轮廓和粗放手绘边缘",
+        "labelEn": "strong woodblock outlines, exaggerated reduction, and visibly brushed edges",
+        "promptZh": "将用户主体转译为木版墨线、夸张概括轮廓和粗放手绘边缘，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into strong woodblock outlines, exaggerated reduction, and visibly brushed edges while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "木版墨线、手绘综合色、粉笺和明显刷色差",
+        "labelEn": "printed ink outlines, hand-brushed color, tinted paper, and visible variation in wash density",
+        "promptZh": "材质与表面呈现为木版墨线、手绘综合色、粉笺和明显刷色差",
+        "promptEn": "render materials and surfaces as printed ink outlines, hand-brushed color, tinted paper, and visible variation in wash density",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "大红、桃红、黄、绿、蓝与纸白",
+        "labelEn": "bright red, pink, yellow, green, blue, and exposed paper white",
+        "promptZh": "配色限定为大红、桃红、黄、绿、蓝与纸白",
+        "promptEn": "limit the palette to bright red, pink, yellow, green, blue, and exposed paper white",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "完全平面化",
+        "labelEn": "fully flat illumination without modeled cast shadows",
+        "promptZh": "光影采用完全平面化",
+        "promptEn": "use fully flat illumination without modeled cast shadows for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面节奏一致的书写或刻本字形",
+        "labelEn": "only when text is requested, use bold legible woodblock-derived lettering",
+        "promptZh": "仅在用户要求文字时，采用与画面节奏一致的书写或刻本字形，并保持原文可读",
+        "promptEn": "only when text is requested, use bold legible woodblock-derived lettering, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "japanese-nanga": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "平远层叠、文人式留白与书画并置",
+        "labelEn": "level-distance layering, literati-style voids, and integrated painting-calligraphy zones",
+        "promptZh": "构图采用平远层叠、文人式留白与书画并置",
+        "promptEn": "compose with level-distance layering, literati-style voids, and integrated painting-calligraphy zones",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "干笔皴擦、松动轮廓与书写性点线",
+        "labelEn": "dry texture strokes, loosened contours, and calligraphic dots and lines",
+        "promptZh": "将用户主体转译为干笔皴擦、松动轮廓与书写性点线，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into dry texture strokes, loosened contours, and calligraphic dots and lines while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "纸本水墨、淡彩与干湿笔触",
+        "labelEn": "paper, dry-wet ink variation, and light transparent washes",
+        "promptZh": "材质与表面呈现为纸本水墨、淡彩与干湿笔触",
+        "promptEn": "render materials and surfaces as paper, dry-wet ink variation, and light transparent washes",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "墨色、淡赭与克制水色",
+        "labelEn": "graded ink, pale ochre, and restrained transparent color",
+        "promptZh": "配色限定为墨色、淡赭与克制水色",
+        "promptEn": "limit the palette to graded ink, pale ochre, and restrained transparent color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀柔光，以墨色和色层而非写实投影塑形",
+        "labelEn": "soft even illumination with spatial depth carried by ink layers",
+        "promptZh": "光影采用均匀柔光，以墨色和色层而非写实投影塑形",
+        "promptEn": "use soft even illumination with spatial depth carried by ink layers for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面节奏一致的书写或刻本字形",
+        "labelEn": "only when text is requested, use legible literati calligraphy integrated with the composition",
+        "promptZh": "仅在用户要求文字时，采用与画面节奏一致的书写或刻本字形，并保持原文可读",
+        "promptEn": "only when text is requested, use legible literati calligraphy integrated with the composition, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "kano-school": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "屏风式大构图、强主轴与大片金地留空",
+        "labelEn": "large screen-scale composition, a dominant axis, and broad gold-ground intervals",
+        "promptZh": "构图采用屏风式大构图、强主轴与大片金地留空",
+        "promptEn": "compose with large screen-scale composition, a dominant axis, and broad gold-ground intervals",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "强劲墨线、概括体块与装饰性色面",
+        "labelEn": "forceful ink contours, simplified masses, and controlled decorative color shapes",
+        "promptZh": "将用户主体转译为强劲墨线、概括体块与装饰性色面，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into forceful ink contours, simplified masses, and controlled decorative color shapes while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "屏风纸本、金箔、水墨与矿物颜料",
+        "labelEn": "folding-screen paper, gold leaf, ink, mineral pigment, and visible brush structure",
+        "promptZh": "材质与表面呈现为屏风纸本、金箔、水墨与矿物颜料",
+        "promptEn": "render materials and surfaces as folding-screen paper, gold leaf, ink, mineral pigment, and visible brush structure",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "墨色、金地、矿物绿蓝与朱红",
+        "labelEn": "ink black, gold ground, mineral blue-green, and vermilion",
+        "promptZh": "配色限定为墨色、金地、矿物绿蓝与朱红",
+        "promptEn": "limit the palette to ink black, gold ground, mineral blue-green, and vermilion",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "金地反光与墨色层次共同塑形",
+        "labelEn": "gold reflection working with layered ink values to model depth",
+        "promptZh": "光影采用金地反光与墨色层次共同塑形",
+        "promptEn": "use gold reflection working with layered ink values to model depth for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面节奏一致的书写或刻本字形",
+        "labelEn": "only when text is requested, use compact legible inscriptions subordinate to the screen composition",
+        "promptZh": "仅在用户要求文字时，采用与画面节奏一致的书写或刻本字形，并保持原文可读",
+        "promptEn": "only when text is requested, use compact legible inscriptions subordinate to the screen composition, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "four-wangs-school": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "传统层叠景物程式的重组、层叠与节奏控制",
+        "labelEn": "carefully reassembled orthodox pictorial schemas with layered progression and measured rhythm",
+        "promptZh": "构图采用传统层叠景物程式的重组、层叠与节奏控制",
+        "promptEn": "compose with carefully reassembled orthodox pictorial schemas with layered progression and measured rhythm",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "皴法模块、书写轮廓与结构化笔墨",
+        "labelEn": "modular texture strokes, calligraphic contours, and tightly structured brushwork",
+        "promptZh": "将用户主体转译为皴法模块、书写轮廓与结构化笔墨，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into modular texture strokes, calligraphic contours, and tightly structured brushwork while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "纸本水墨、干湿叠加与笔触积层",
+        "labelEn": "paper, layered dry-wet ink, repeated texture strokes, and restrained translucent color",
+        "promptZh": "材质与表面呈现为纸本水墨、干湿叠加与笔触积层",
+        "promptEn": "render materials and surfaces as paper, layered dry-wet ink, repeated texture strokes, and restrained translucent color",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "墨色、淡赭、灰绿与纸本暖白",
+        "labelEn": "graded ink, pale ochre, muted gray-green, and warm paper",
+        "promptZh": "配色限定为墨色、淡赭、灰绿与纸本暖白",
+        "promptEn": "limit the palette to graded ink, pale ochre, muted gray-green, and warm paper",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀柔光，以墨色和色层而非写实投影塑形",
+        "labelEn": "soft even illumination with form built through accumulated ink layers",
+        "promptZh": "光影采用均匀柔光，以墨色和色层而非写实投影塑形",
+        "promptEn": "use soft even illumination with form built through accumulated ink layers for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面节奏一致的书写或刻本字形",
+        "labelEn": "only when text is requested, integrate formal calligraphic inscriptions into the measured structure",
+        "promptZh": "仅在用户要求文字时，采用与画面节奏一致的书写或刻本字形，并保持原文可读",
+        "promptEn": "only when text is requested, integrate formal calligraphic inscriptions into the measured structure, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "taohuawu-new-year-print": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "精细分区、雅致场景、装饰边框与较深的建筑式层次",
+        "labelEn": "finely divided scenes, decorative borders, and comparatively deep architectural layering",
+        "promptZh": "构图采用精细分区、雅致场景、装饰边框与较深的建筑式层次",
+        "promptEn": "compose with finely divided scenes, decorative borders, and comparatively deep architectural layering",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "细密木版线、精确套色和柔和形体轮廓",
+        "labelEn": "precise woodcut lines, controlled registration, and softly modeled contours",
+        "promptZh": "将用户主体转译为细密木版线、精确套色和柔和形体轮廓，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into precise woodcut lines, controlled registration, and softly modeled contours while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "木版套色、细纸纤维、版次叠印和轻微套色偏差",
+        "labelEn": "multi-block color printing, fine paper fibers, layered impressions, and slight registration variation",
+        "promptZh": "材质与表面呈现为木版套色、细纸纤维、版次叠印和轻微套色偏差",
+        "promptEn": "render materials and surfaces as multi-block color printing, fine paper fibers, layered impressions, and slight registration variation",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "桃红、嫩绿、淡黄、蓝与墨黑",
+        "labelEn": "peach red, tender green, pale yellow, blue, and ink black",
+        "promptZh": "配色限定为桃红、嫩绿、淡黄、蓝与墨黑",
+        "promptEn": "limit the palette to peach red, tender green, pale yellow, blue, and ink black",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "平面印刷光，以色层微差建层",
+        "labelEn": "flat print illumination with shallow depth built by small color-value shifts",
+        "promptZh": "光影采用平面印刷光，以色层微差建层",
+        "promptEn": "use flat print illumination with shallow depth built by small color-value shifts for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面节奏一致的书写或刻本字形",
+        "labelEn": "only when text is requested, use legible woodblock lettering aligned with the border structure",
+        "promptZh": "仅在用户要求文字时，采用与画面节奏一致的书写或刻本字形，并保持原文可读",
+        "promptEn": "only when text is requested, use legible woodblock lettering aligned with the border structure, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "tosa-school": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "紧密卷轴或册页分区、金云遮断与连续宫廷叙事",
+        "labelEn": "dense handscroll or album compartments, gold-cloud separators, and continuous courtly narration",
+        "promptZh": "构图采用紧密卷轴或册页分区、金云遮断与连续宫廷叙事",
+        "promptEn": "compose with dense handscroll or album compartments, gold-cloud separators, and continuous courtly narration",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "极细轮廓、程式化比例与精密衣纹节点",
+        "labelEn": "extremely fine contours, codified proportions, and precise patterned details",
+        "promptZh": "将用户主体转译为极细轮廓、程式化比例与精密衣纹节点，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into extremely fine contours, codified proportions, and precise patterned details while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "细绢或纸本矿物色、金箔、细密描线与反复罩染",
+        "labelEn": "fine paper or silk, mineral pigment, gold leaf, precise linework, and repeated glazing",
+        "promptZh": "材质与表面呈现为细绢或纸本矿物色、金箔、细密描线与反复罩染",
+        "promptEn": "render materials and surfaces as fine paper or silk, mineral pigment, gold leaf, precise linework, and repeated glazing",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "群青、朱红、石绿、金与高明度纸绢底",
+        "labelEn": "ultramarine, vermilion, mineral green, gold, and a light paper or silk ground",
+        "promptZh": "配色限定为群青、朱红、石绿、金与高明度纸绢底",
+        "promptEn": "limit the palette to ultramarine, vermilion, mineral green, gold, and a light paper or silk ground",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀平面光，以金云和色区分隔空间",
+        "labelEn": "even flat illumination with space divided by gold clouds and color fields",
+        "promptZh": "光影采用均匀平面光，以金云和色区分隔空间",
+        "promptEn": "use even flat illumination with space divided by gold clouds and color fields for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时采用清楚可读的宫廷书写式题签",
+        "labelEn": "only when text is requested, use legible courtly inscription-style lettering",
+        "promptZh": "仅在用户要求文字时，采用清楚可读的宫廷书写式题签，并保持原文可读",
+        "promptEn": "only when text is requested, use legible courtly inscription-style lettering, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "wei-jin-tomb-mural": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "长幅横向推进、分区叙事、浅层遮叠与克制留空",
+        "labelEn": "long horizontal progression, segmented narrative zones, shallow overlap, and restrained open ground",
+        "promptZh": "构图采用长幅横向推进、分区叙事、浅层遮叠与克制留空",
+        "promptEn": "compose with long horizontal progression, segmented narrative zones, shallow overlap, and restrained open ground",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "舒展而有节奏的轮廓线、简化体积与连续动势",
+        "labelEn": "rhythmic flowing contours, simplified volume, and continuous directional movement",
+        "promptZh": "将用户主体转译为舒展而有节奏的轮廓线、简化体积与连续动势，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into rhythmic flowing contours, simplified volume, and continuous directional movement while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "墓室砖墙或灰泥、干壁画矿物颜料、磨蚀边缘与细颗粒",
+        "labelEn": "tomb brick or plaster, dry-fresco mineral pigment, abraded edges, and fine granular wear",
+        "promptZh": "材质与表面呈现为墓室砖墙或灰泥、干壁画矿物颜料、磨蚀边缘与细颗粒",
+        "promptEn": "render materials and surfaces as tomb brick or plaster, dry-fresco mineral pigment, abraded edges, and fine granular wear",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "砖红、赭黄、灰绿、墨黑与石灰白的低饱和综合色",
+        "labelEn": "a muted range of brick red, ochre, gray-green, ink black, and lime white",
+        "promptZh": "配色限定为砖红、赭黄、灰绿、墨黑与石灰白的低饱和综合色",
+        "promptEn": "limit the palette to a muted range of brick red, ochre, gray-green, ink black, and lime white",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀壁画光，以线条、综合色层和遮叠组织空间",
+        "labelEn": "even mural illumination, with space organized by line, color layers, and overlap",
+        "promptZh": "光影采用均匀壁画光，以线条、综合色层和遮叠组织空间",
+        "promptEn": "use even mural illumination, with space organized by line, color layers, and overlap for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用简洁可读、与魏晋书写相容的题记",
+        "labelEn": "only when text is requested, use concise legible inscriptions compatible with Wei-Jin writing",
+        "promptZh": "仅在用户要求文字时，采用简洁可读、与魏晋书写相容的题记，并保持原文可读",
+        "promptEn": "only when text is requested, use concise legible inscriptions compatible with Wei-Jin writing, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "wu-school": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "散点层叠、卷轴式游观与虚实分区",
+        "labelEn": "layered roaming perspective, scroll-like progression, and alternation between occupied and empty zones",
+        "promptZh": "构图采用散点层叠、卷轴式游观与虚实分区",
+        "promptEn": "compose with layered roaming perspective, scroll-like progression, and alternation between occupied and empty zones",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "书写线条、皴法差异与概括山形",
+        "labelEn": "calligraphic contours, varied texture strokes, and structurally simplified masses",
+        "promptZh": "将用户主体转译为书写线条、皴法差异与概括山形，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into calligraphic contours, varied texture strokes, and structurally simplified masses while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "纸绢水墨、设色层染与可见笔触",
+        "labelEn": "paper or silk, dry-wet ink variation, translucent color, and visible brushwork",
+        "promptZh": "材质与表面呈现为纸绢水墨、设色层染与可见笔触",
+        "promptEn": "render materials and surfaces as paper or silk, dry-wet ink variation, translucent color, and visible brushwork",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "墨色、淡赭、灰绿与克制矿物色",
+        "labelEn": "graded ink, pale ochre, muted gray-green, and restrained mineral accents",
+        "promptZh": "配色限定为墨色、淡赭、灰绿与克制矿物色",
+        "promptEn": "limit the palette to graded ink, pale ochre, muted gray-green, and restrained mineral accents",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀柔光，以墨色和色层而非写实投影塑形",
+        "labelEn": "soft even illumination with depth carried by ink and layered washes",
+        "promptZh": "光影采用均匀柔光，以墨色和色层而非写实投影塑形",
+        "promptEn": "use soft even illumination with depth carried by ink and layered washes for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面节奏一致的书写或刻本字形",
+        "labelEn": "only when text is requested, integrate legible calligraphic inscriptions with the pictorial rhythm",
+        "promptZh": "仅在用户要求文字时，采用与画面节奏一致的书写或刻本字形，并保持原文可读",
+        "promptEn": "only when text is requested, integrate legible calligraphic inscriptions with the pictorial rhythm, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "mono-ha": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "少量元素、重力关系与开放负空间",
+        "labelEn": "few elements, explicit gravity and contact relations, and extensive open space",
+        "promptZh": "构图采用少量元素、重力关系与开放负空间",
+        "promptEn": "compose with few elements, explicit gravity and contact relations, and extensive open space",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "未经修饰的几何或自然材料原形",
+        "labelEn": "unmodified geometric sheets or raw material forms with minimal fabrication",
+        "promptZh": "将用户主体转译为未经修饰的几何或自然材料原形，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into unmodified geometric sheets or raw material forms with minimal fabrication while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "石、木、玻璃、钢与现场接触关系",
+        "labelEn": "raw stone, timber, glass, steel, earth, and visible points of support or contact",
+        "promptZh": "材质与表面呈现为石、木、玻璃、钢与现场接触关系",
+        "promptEn": "render materials and surfaces as raw stone, timber, glass, steel, earth, and visible points of support or contact",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "石木土金属本色与中性背景",
+        "labelEn": "natural stone, wood, earth, glass, and metal color against a neutral setting",
+        "promptZh": "配色限定为石木土金属本色与中性背景",
+        "promptEn": "limit the palette to natural stone, wood, earth, glass, and metal color against a neutral setting",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "自然展示光与接触阴影",
+        "labelEn": "ambient exhibition light with real contact shadows and reflections",
+        "promptZh": "光影采用自然展示光与接触阴影",
+        "promptEn": "use ambient exhibition light with real contact shadows and reflections for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面节奏一致的书写或刻本字形",
+        "labelEn": "only when text is requested, keep typography neutral, sparse, and outside the material relation",
+        "promptZh": "仅在用户要求文字时，采用与画面节奏一致的书写或刻本字形，并保持原文可读",
+        "promptEn": "only when text is requested, keep typography neutral, sparse, and outside the material relation, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "shin-hanga": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "现代裁切、单一焦点与清楚前中后层次",
+        "labelEn": "modern cropping, one clear focal point, and readable foreground-middle-distance layers",
+        "promptZh": "构图采用现代裁切、单一焦点与清楚前中后层次",
+        "promptEn": "compose with modern cropping, one clear focal point, and readable foreground-middle-distance layers",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "木版轮廓、柔和综合色阶与精确套色",
+        "labelEn": "woodblock contours, soft tonal gradation, and precise multi-block registration",
+        "promptZh": "将用户主体转译为木版轮廓、柔和综合色阶与精确套色，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into woodblock contours, soft tonal gradation, and precise multi-block registration while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "木版套色、纸纹与精密版次叠印",
+        "labelEn": "multi-block woodcut, visible paper grain, fine carving, and precise layered impressions",
+        "promptZh": "材质与表面呈现为木版套色、纸纹与精密版次叠印",
+        "promptEn": "render materials and surfaces as multi-block woodcut, visible paper grain, fine carving, and precise layered impressions",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "综合色、深蓝、暖红与纸白",
+        "labelEn": "muted mixed color, deep blue, warm red, and paper white",
+        "promptZh": "配色限定为综合色、深蓝、暖红与纸白",
+        "promptEn": "limit the palette to muted mixed color, deep blue, warm red, and paper white",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "大气光、夜色或雨雪的综合色阶",
+        "labelEn": "atmospheric daylight, night color, rain, or snow rendered through graded printing",
+        "promptZh": "光影采用大气光、夜色或雨雪的综合色阶",
+        "promptEn": "use atmospheric daylight, night color, rain, or snow rendered through graded printing for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面节奏一致的书写或刻本字形",
+        "labelEn": "only when text is requested, use restrained legible woodblock lettering",
+        "promptZh": "仅在用户要求文字时，采用与画面节奏一致的书写或刻本字形，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained legible woodblock lettering, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "eight-eccentrics-of-yangzhou": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "偏心取势、大块留白与突出的单一笔墨焦点",
+        "labelEn": "off-center balance, large blank areas, and one emphatic brush focal point",
+        "promptZh": "构图采用偏心取势、大块留白与突出的单一笔墨焦点",
+        "promptEn": "compose with off-center balance, large blank areas, and one emphatic brush focal point",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "夸张概括、书写性强线与枯湿突变",
+        "labelEn": "exaggerated reduction, forceful calligraphic contours, and abrupt dry-wet transitions",
+        "promptZh": "将用户主体转译为夸张概括、书写性强线与枯湿突变，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into exaggerated reduction, forceful calligraphic contours, and abrupt dry-wet transitions while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "纸本水墨、飞白、泼写与干笔颗粒",
+        "labelEn": "absorbent paper, dry-brush streaks, splashed ink, and granular broken marks",
+        "promptZh": "材质与表面呈现为纸本水墨、飞白、泼写与干笔颗粒",
+        "promptEn": "render materials and surfaces as absorbent paper, dry-brush streaks, splashed ink, and granular broken marks",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "墨黑、纸白与少量朱砂或淡彩",
+        "labelEn": "ink black, paper white, and restrained cinnabar or pale color",
+        "promptZh": "配色限定为墨黑、纸白与少量朱砂或淡彩",
+        "promptEn": "limit the palette to ink black, paper white, and restrained cinnabar or pale color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀柔光，以墨色和色层而非写实投影塑形",
+        "labelEn": "flat ambient light with depth carried by ink density",
+        "promptZh": "光影采用均匀柔光，以墨色和色层而非写实投影塑形",
+        "promptEn": "use flat ambient light with depth carried by ink density for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面节奏一致的书写或刻本字形",
+        "labelEn": "only when text is requested, use expressive but legible epigraphic calligraphy",
+        "promptZh": "仅在用户要求文字时，采用与画面节奏一致的书写或刻本字形，并保持原文可读",
+        "promptEn": "only when text is requested, use expressive but legible epigraphic calligraphy, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "yangliuqing-new-year-print": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "中心对称、丰满群组、室内框景和吉庆装饰层级",
+        "labelEn": "centered symmetry, full grouped arrangement, framed interiors, and layered auspicious ornament",
+        "promptZh": "构图采用中心对称、丰满群组、室内框景和吉庆装饰层级",
+        "promptEn": "compose with centered symmetry, full grouped arrangement, framed interiors, and layered auspicious ornament",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "木版轮廓结合手工开脸与综合色晕染",
+        "labelEn": "woodblock outlines combined with hand-painted facial modeling and soft color gradation",
+        "promptZh": "将用户主体转译为木版轮廓结合手工开脸与综合色晕染，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into woodblock outlines combined with hand-painted facial modeling and soft color gradation while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "木版套印、手工彩绘、金粉和纸面综合色",
+        "labelEn": "multi-block printing, hand-applied color, gold powder, and softly worked paper surfaces",
+        "promptZh": "材质与表面呈现为木版套印、手工彩绘、金粉和纸面综合色",
+        "promptEn": "render materials and surfaces as multi-block printing, hand-applied color, gold powder, and softly worked paper surfaces",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "朱红、粉、黄、绿、蓝与金色",
+        "labelEn": "vermilion, pink, yellow, green, blue, and gold",
+        "promptZh": "配色限定为朱红、粉、黄、绿、蓝与金色",
+        "promptEn": "limit the palette to vermilion, pink, yellow, green, blue, and gold",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "平面套色配手绘综合色明暗",
+        "labelEn": "flat printed color supplemented by controlled hand-painted tonal modeling",
+        "promptZh": "光影采用平面套色配手绘综合色明暗",
+        "promptEn": "use flat printed color supplemented by controlled hand-painted tonal modeling for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面节奏一致的书写或刻本字形",
+        "labelEn": "only when text is requested, use legible festive woodblock lettering within the decorative hierarchy",
+        "promptZh": "仅在用户要求文字时，采用与画面节奏一致的书写或刻本字形，并保持原文可读",
+        "promptEn": "only when text is requested, use legible festive woodblock lettering within the decorative hierarchy, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "yuefenpai-calendar-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "中心商业主图、装饰边框与广告文字区",
+        "labelEn": "a centered commercial image, ornamental frame, and reserved advertising text zones",
+        "promptZh": "构图采用中心商业主图、装饰边框与广告文字区",
+        "promptEn": "compose with a centered commercial image, ornamental frame, and reserved advertising text zones",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "柔化写实体积、清楚轮廓与装饰几何",
+        "labelEn": "softened realist volume, clear contours, and Art Deco-influenced decorative geometry",
+        "promptZh": "将用户主体转译为柔化写实体积、清楚轮廓与装饰几何，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into softened realist volume, clear contours, and Art Deco-influenced decorative geometry while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "石印或胶印网点、纸张与手工修饰",
+        "labelEn": "lithographic or offset dots, coated paper, airbrushed shading, and hand-finished color",
+        "promptZh": "材质与表面呈现为石印或胶印网点、纸张与手工修饰",
+        "promptEn": "render materials and surfaces as lithographic or offset dots, coated paper, airbrushed shading, and hand-finished color",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "粉彩综合色、朱红、青绿、金色与米白",
+        "labelEn": "pastel mixed color, vermilion, blue-green, gold, and warm cream",
+        "promptZh": "配色限定为粉彩综合色、朱红、青绿、金色与米白",
+        "promptEn": "limit the palette to pastel mixed color, vermilion, blue-green, gold, and warm cream",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "柔和影棚光与平滑综合色阶",
+        "labelEn": "soft studio illumination with smooth tonal gradation",
+        "promptZh": "光影采用柔和影棚光与平滑综合色阶",
+        "promptEn": "use soft studio illumination with smooth tonal gradation for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面节奏一致的书写或刻本字形",
+        "labelEn": "only when text is requested, preserve exact brand wording in legible period-appropriate display lettering",
+        "promptZh": "仅在用户要求文字时，采用与画面节奏一致的书写或刻本字形，并保持原文可读",
+        "promptEn": "only when text is requested, preserve exact brand wording in legible period-appropriate display lettering, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "zhe-school": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "强对角或垂直动势、近景压迫与紧凑层叠",
+        "labelEn": "strong diagonal or vertical thrust, compressed foreground masses, and tight layering",
+        "promptZh": "构图采用强对角或垂直动势、近景压迫与紧凑层叠",
+        "promptEn": "compose with strong diagonal or vertical thrust, compressed foreground masses, and tight layering",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "斧劈式硬折、粗重轮廓与浓淡突变的笔墨",
+        "labelEn": "axe-cut angular strokes, heavy contours, and abrupt wet-dry ink contrast",
+        "promptZh": "将用户主体转译为斧劈式硬折、粗重轮廓与浓淡突变的笔墨，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into axe-cut angular strokes, heavy contours, and abrupt wet-dry ink contrast while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "纸绢水墨、湿笔重墨、干皴与迅疾落笔痕迹",
+        "labelEn": "ink on paper or silk, loaded wet strokes, dry texture cuts, and rapid brush traces",
+        "promptZh": "材质与表面呈现为纸绢水墨、湿笔重墨、干皴与迅疾落笔痕迹",
+        "promptEn": "render materials and surfaces as ink on paper or silk, loaded wet strokes, dry texture cuts, and rapid brush traces",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "深墨、灰褐、淡赭与少量冷绿",
+        "labelEn": "deep ink, gray-brown, pale ochre, and restrained cool green",
+        "promptZh": "配色限定为深墨、灰褐、淡赭与少量冷绿",
+        "promptEn": "limit the palette to deep ink, gray-brown, pale ochre, and restrained cool green",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "局部高反差墨块穿出雾化远景",
+        "labelEn": "high-contrast ink masses emerging against mist-softened distance",
+        "promptZh": "光影采用局部高反差墨块穿出雾化远景",
+        "promptEn": "use high-contrast ink masses emerging against mist-softened distance for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用不削弱画面动势的简洁题款",
+        "labelEn": "only when text is requested, use a concise inscription that does not weaken the pictorial thrust",
+        "promptZh": "仅在用户要求文字时，采用不削弱画面动势的简洁题款，并保持原文可读",
+        "promptEn": "only when text is requested, use a concise inscription that does not weaken the pictorial thrust, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "arnhem-land-bark-painting": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "平面中心场、轮廓内外连续排线与边界清楚的综合色区",
+        "labelEn": "a flat central field, continuous hatching within and around bounded forms, and clearly separated color zones",
+        "promptZh": "构图采用平面中心场、轮廓内外连续排线与边界清楚的综合色区",
+        "promptEn": "compose with a flat central field, continuous hatching within and around bounded forms, and clearly separated color zones",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "细密交叉 rarrk 排线、硬边外轮廓与重复线性节奏",
+        "labelEn": "fine crossed rarrk hatching, hard outer contours, and repeated linear rhythm",
+        "promptZh": "将用户主体转译为细密交叉 rarrk 排线、硬边外轮廓与重复线性节奏，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into fine crossed rarrk hatching, hard outer contours, and repeated linear rhythm while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "桉树皮、天然赭石、细笔排线、纤维裂边与哑光表面",
+        "labelEn": "eucalyptus bark, natural ochre, fine brush hatching, fibrous split edges, and a matte surface",
+        "promptZh": "材质与表面呈现为桉树皮、天然赭石、细笔排线、纤维裂边与哑光表面",
+        "promptEn": "render materials and surfaces as eucalyptus bark, natural ochre, fine brush hatching, fibrous split edges, and a matte surface",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "赭红、黄赭、炭黑、白土与树皮棕",
+        "labelEn": "red ochre, yellow ochre, charcoal black, white clay, and bark brown",
+        "promptZh": "配色限定为赭红、黄赭、炭黑、白土与树皮棕",
+        "promptEn": "limit the palette to red ochre, yellow ochre, charcoal black, white clay, and bark brown",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀平面光，以排线密度和综合色差建立层级",
+        "labelEn": "even flat illumination with hierarchy built through hatch density and color difference",
+        "promptZh": "光影采用均匀平面光，以排线密度和综合色差建立层级",
+        "promptEn": "use even flat illumination with hierarchy built through hatch density and color difference for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用中性现代标签，不仿造受文化权限约束的符号",
+        "labelEn": "only when text is requested, use neutral modern labels without imitating culturally restricted signs",
+        "promptZh": "仅在用户要求文字时，采用中性现代标签，不仿造受文化权限约束的符号，并保持原文可读",
+        "promptEn": "only when text is requested, use neutral modern labels without imitating culturally restricted signs, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "ethiopian-icon-painting": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "严格正面、层级对称与边框式叙事分区",
+        "labelEn": "strict frontality, hierarchical symmetry, and framed narrative divisions",
+        "promptZh": "构图采用严格正面、层级对称与边框式叙事分区",
+        "promptEn": "compose with strict frontality, hierarchical symmetry, and framed narrative divisions",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "放大杏仁眼、粗黑轮廓与扁平正面体积",
+        "labelEn": "enlarged almond-shaped eyes, heavy dark contours, and flat frontal volume",
+        "promptZh": "将用户主体转译为放大杏仁眼、粗黑轮廓与扁平正面体积，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into enlarged almond-shaped eyes, heavy dark contours, and flat frontal volume while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "木板或羊皮纸蛋彩、矿物颜料与粗线描",
+        "labelEn": "tempera and mineral pigment on wood panel or parchment with bold linework",
+        "promptZh": "材质与表面呈现为木板或羊皮纸蛋彩、矿物颜料与粗线描",
+        "promptEn": "render materials and surfaces as tempera and mineral pigment on wood panel or parchment with bold linework",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "朱红、明黄、绿、蓝、黑与纸白",
+        "labelEn": "vermilion, bright yellow, green, blue, black, and paper white",
+        "promptZh": "配色限定为朱红、明黄、绿、蓝、黑与纸白",
+        "promptEn": "limit the palette to vermilion, bright yellow, green, blue, black, and paper white",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀平面光，不以写实阴影塑形",
+        "labelEn": "even flat illumination without naturalistic shadow modeling",
+        "promptZh": "光影采用均匀平面光，不以写实阴影塑形",
+        "promptEn": "use even flat illumination without naturalistic shadow modeling for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与织纹节奏一致的清晰字体",
+        "labelEn": "only when text is requested, use clear legible Ge'ez-compatible inscriptional lettering",
+        "promptZh": "仅在用户要求文字时，采用与织纹节奏一致的清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use clear legible Ge'ez-compatible inscriptional lettering, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "australian-aboriginal-dot-painting": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "同心路径、点阵场、隐性地形网与全幅节奏",
+        "labelEn": "concentric paths, all-over dot fields, latent spatial networks, and continuous surface rhythm",
+        "promptZh": "构图采用同心路径、点阵场、隐性地形网与全幅节奏",
+        "promptEn": "compose with concentric paths, all-over dot fields, latent spatial networks, and continuous surface rhythm",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "大小受控的圆点、路径线与符号化平面单位",
+        "labelEn": "controlled dots of varied scale, path lines, and flat emblematic units",
+        "promptZh": "将用户主体转译为大小受控的圆点、路径线与符号化平面单位，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into controlled dots of varied scale, path lines, and flat emblematic units while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "画布丙烯点触、可见点粒与叠点边缘",
+        "labelEn": "acrylic dotting on canvas, visible pigment beads, and layered dot edges",
+        "promptZh": "材质与表面呈现为画布丙烯点触、可见点粒与叠点边缘",
+        "promptEn": "render materials and surfaces as acrylic dotting on canvas, visible pigment beads, and layered dot edges",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "土红、赭黄、黑、白与当代高饱和综合色",
+        "labelEn": "earth red, ochre, black, white, and selected contemporary saturated color",
+        "promptZh": "配色限定为土红、赭黄、黑、白与当代高饱和综合色",
+        "promptEn": "limit the palette to earth red, ochre, black, white, and selected contemporary saturated color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "完全平面化，以点密度和综合色对比建层",
+        "labelEn": "fully flat illumination with layers built through dot density and color contrast",
+        "promptZh": "光影采用完全平面化，以点密度和综合色对比建层",
+        "promptEn": "use fully flat illumination with layers built through dot density and color contrast for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与织纹节奏一致的清晰字体",
+        "labelEn": "only when text is requested, use neutral modern labels without inventing culturally restricted signs",
+        "promptZh": "仅在用户要求文字时，采用与织纹节奏一致的清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use neutral modern labels without inventing culturally restricted signs, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "benin-court-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "正面等级构图、中心主轴与密集浮雕背景",
+        "labelEn": "frontal hierarchical composition, a central axis, and densely patterned relief grounds",
+        "promptZh": "构图采用正面等级构图、中心主轴与密集浮雕背景",
+        "promptEn": "compose with frontal hierarchical composition, a central axis, and densely patterned relief grounds",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "高低比例、粗壮轮廓与珠饰式重复节点",
+        "labelEn": "scale determined by rank, robust contours, and repeated bead-like nodes",
+        "promptZh": "将用户主体转译为高低比例、粗壮轮廓与珠饰式重复节点，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into scale determined by rank, robust contours, and repeated bead-like nodes while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "失蜡黄铜、象牙雕刻与高浮雕颗粒",
+        "labelEn": "lost-wax brass, carved ivory, high relief, and granular cast surfaces",
+        "promptZh": "材质与表面呈现为失蜡黄铜、象牙雕刻与高浮雕颗粒",
+        "promptEn": "render materials and surfaces as lost-wax brass, carved ivory, high relief, and granular cast surfaces",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "黄铜金、深褐、绿锈与象牙白",
+        "labelEn": "brass gold, deep brown, verdigris, and ivory white",
+        "promptZh": "配色限定为黄铜金、深褐、绿锈与象牙白",
+        "promptEn": "limit the palette to brass gold, deep brown, verdigris, and ivory white",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "擦边侧光强化浮雕深浅和金属反光",
+        "labelEn": "grazing sidelight emphasizing relief depth and metallic reflection",
+        "promptZh": "光影采用擦边侧光强化浮雕深浅和金属反光",
+        "promptEn": "use grazing sidelight emphasizing relief depth and metallic reflection for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与织纹节奏一致的清晰字体",
+        "labelEn": "only when text is requested, use neutral modern labels separate from the court imagery",
+        "promptZh": "仅在用户要求文字时，采用与织纹节奏一致的清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use neutral modern labels separate from the court imagery, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "ndebele-house-painting": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "立面式大色块、强对称或均衡分区与连续边框",
+        "labelEn": "facade-scale color blocks, strong symmetry or balanced zoning, and continuous borders",
+        "promptZh": "构图采用立面式大色块、强对称或均衡分区与连续边框",
+        "promptEn": "compose with facade-scale color blocks, strong symmetry or balanced zoning, and continuous borders",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "黑色粗线分隔的阶梯几何、三角与矩形",
+        "labelEn": "stepped geometry, triangles, and rectangles separated by heavy black lines",
+        "promptZh": "将用户主体转译为黑色粗线分隔的阶梯几何、三角与矩形，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into stepped geometry, triangles, and rectangles separated by heavy black lines while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "灰泥墙、哑光涂料与手绘边缘",
+        "labelEn": "plaster surface, matte paint, and slightly irregular hand-painted edges",
+        "promptZh": "材质与表面呈现为灰泥墙、哑光涂料与手绘边缘",
+        "promptEn": "render materials and surfaces as plaster surface, matte paint, and slightly irregular hand-painted edges",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "白底配黑、蓝、黄、红、绿的高饱和色",
+        "labelEn": "a white ground with saturated black, blue, yellow, red, and green",
+        "promptZh": "配色限定为白底配黑、蓝、黄、红、绿的高饱和色",
+        "promptEn": "limit the palette to a white ground with saturated black, blue, yellow, red, and green",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀日光保持墙面色块清楚",
+        "labelEn": "even daylight preserving crisp painted color blocks",
+        "promptZh": "光影采用均匀日光保持墙面色块清楚",
+        "promptEn": "use even daylight preserving crisp painted color blocks for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与织纹节奏一致的清晰字体",
+        "labelEn": "only when text is requested, use clear modern lettering kept separate from the geometric pattern",
+        "promptZh": "仅在用户要求文字时，采用与织纹节奏一致的清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use clear modern lettering kept separate from the geometric pattern, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "west-african-studio-portraiture": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "正面或三分之四全身、图案背景与道具形成平衡舞台",
+        "labelEn": "frontal or three-quarter full-length framing with patterned backdrops and balanced studio props",
+        "promptZh": "构图采用正面或三分之四全身、图案背景与道具形成平衡舞台",
+        "promptEn": "compose with frontal or three-quarter full-length framing with patterned backdrops and balanced studio props",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "直接棚灯或正面闪光，阴影简洁",
+        "labelEn": "direct studio lamps or frontal flash with simple controlled shadows",
+        "promptZh": "光影采用直接棚灯或正面闪光，阴影简洁",
+        "promptEn": "use direct studio lamps or frontal flash with simple controlled shadows for lighting and tonal rendering",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "中画幅胶片颗粒、印相纸与手绘布景",
+        "labelEn": "medium-format film grain, photographic paper, and hand-painted fabric backdrops",
+        "promptZh": "材质与表面呈现为中画幅胶片颗粒、印相纸与手绘布景",
+        "promptEn": "render materials and surfaces as medium-format film grain, photographic paper, and hand-painted fabric backdrops",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "清楚主体轮廓、姿态几何与服装图案并置",
+        "labelEn": "a crisp primary silhouette, geometric posing, and deliberate interaction with garment patterns",
+        "promptZh": "将用户主体转译为清楚主体轮廓、姿态几何与服装图案并置，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into a crisp primary silhouette, geometric posing, and deliberate interaction with garment patterns while preserving identity and defining structure",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "高反差黑白或饱和综合色胶片色",
+        "labelEn": "high-contrast black and white or saturated period film color",
+        "promptZh": "配色限定为高反差黑白或饱和综合色胶片色",
+        "promptEn": "limit the palette to high-contrast black and white or saturated period film color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与织纹节奏一致的清晰字体",
+        "labelEn": "only when text is requested, use accurate restrained studio-caption typography",
+        "promptZh": "仅在用户要求文字时，采用与织纹节奏一致的清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use accurate restrained studio-caption typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "nok-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "三角或穿孔眼、几何化面部与柱状体积",
+        "labelEn": "triangular or perforated eyes, geometrically organized facial structure, and columnar volume",
+        "promptZh": "将用户主体转译为三角或穿孔眼、几何化面部与柱状体积，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into triangular or perforated eyes, geometrically organized facial structure, and columnar volume while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "擦边侧光强调穿孔和陶塑起伏",
+        "labelEn": "grazing sidelight emphasizing perforations and modeled clay relief",
+        "promptZh": "光影采用擦边侧光强调穿孔和陶塑起伏",
+        "promptEn": "use grazing sidelight emphasizing perforations and modeled clay relief for lighting and tonal rendering",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "粗粒赤陶、手塑接缝与烧制差异",
+        "labelEn": "coarse terracotta, hand-built seams, tool marks, and firing variation",
+        "promptZh": "材质与表面呈现为粗粒赤陶、手塑接缝与烧制差异",
+        "promptEn": "render materials and surfaces as coarse terracotta, hand-built seams, tool marks, and firing variation",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "独立体量、正面或三分之四视点与稳定垂直重心",
+        "labelEn": "a self-contained upright mass, frontal or three-quarter presentation, and stable vertical balance",
+        "promptZh": "构图采用独立体量、正面或三分之四视点与稳定垂直重心",
+        "promptEn": "compose with a self-contained upright mass, frontal or three-quarter presentation, and stable vertical balance",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "赤陶红、土褐与烧制黑斑",
+        "labelEn": "terracotta red, earth brown, and dark firing marks",
+        "promptZh": "配色限定为赤陶红、土褐与烧制黑斑",
+        "promptEn": "limit the palette to terracotta red, earth brown, and dark firing marks",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与织纹节奏一致的清晰字体",
+        "labelEn": "only when text is requested, use neutral modern museum-style labels",
+        "promptZh": "仅在用户要求文字时，采用与织纹节奏一致的清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use neutral modern museum-style labels, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "tingatinga-painting": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "单一或重复形体平铺、强轮廓与浅背景",
+        "labelEn": "one or repeated flat forms, forceful outlines, and a shallow uncluttered ground",
+        "promptZh": "构图采用单一或重复形体平铺、强轮廓与浅背景",
+        "promptEn": "compose with one or repeated flat forms, forceful outlines, and a shallow uncluttered ground",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "圆润简化剪影、点状装饰与平滑硬边",
+        "labelEn": "rounded simplified silhouettes, dotted ornament, and smooth hard edges",
+        "promptZh": "将用户主体转译为圆润简化剪影、点状装饰与平滑硬边，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into rounded simplified silhouettes, dotted ornament, and smooth hard edges while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "硬质板面、工业瓷漆的光滑高饱和平涂",
+        "labelEn": "hardboard, glossy industrial enamel, opaque flat fills, and smooth brush edges",
+        "promptZh": "材质与表面呈现为硬质板面、工业瓷漆的光滑高饱和平涂",
+        "promptEn": "render materials and surfaces as hardboard, glossy industrial enamel, opaque flat fills, and smooth brush edges",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "高饱和红黄蓝绿、黑色轮廓与纯色底",
+        "labelEn": "saturated red, yellow, blue, and green with black contours and a pure-color ground",
+        "promptZh": "配色限定为高饱和红黄蓝绿、黑色轮廓与纯色底",
+        "promptEn": "limit the palette to saturated red, yellow, blue, and green with black contours and a pure-color ground",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀平面光，以色块关系塑形",
+        "labelEn": "even flat illumination with form defined by color relationships",
+        "promptZh": "光影采用均匀平面光，以色块关系塑形",
+        "promptEn": "use even flat illumination with form defined by color relationships for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与织纹节奏一致的清晰字体",
+        "labelEn": "only when text is requested, use simple legible sign-painting lettering",
+        "promptZh": "仅在用户要求文字时，采用与织纹节奏一致的清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use simple legible sign-painting lettering, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "aboriginal-x-ray-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "单一清楚轮廓、内部结构分区、浅层重叠与周边排线场",
+        "labelEn": "one clear outer contour, internally divided structure, shallow overlap, and a surrounding hatch field",
+        "promptZh": "构图采用单一清楚轮廓、内部结构分区、浅层重叠与周边排线场",
+        "promptEn": "compose with one clear outer contour, internally divided structure, shallow overlap, and a surrounding hatch field",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "外形与内部骨架式线形同时呈现，配合细密交叉排线",
+        "labelEn": "simultaneous exterior outline and skeletal internal line structure with fine cross-hatching",
+        "promptZh": "将用户主体转译为外形与内部骨架式线形同时呈现，配合细密交叉排线，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into simultaneous exterior outline and skeletal internal line structure with fine cross-hatching while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "树皮或岩面、天然赭石、细笔排线与颗粒综合色层",
+        "labelEn": "bark or rock surface, natural ochre, fine hatching, and granular pigment layers",
+        "promptZh": "材质与表面呈现为树皮或岩面、天然赭石、细笔排线与颗粒综合色层",
+        "promptEn": "render materials and surfaces as bark or rock surface, natural ochre, fine hatching, and granular pigment layers",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "赭红、黄赭、炭黑、白土与树皮棕",
+        "labelEn": "red ochre, yellow ochre, charcoal black, white clay, and bark brown",
+        "promptZh": "配色限定为赭红、黄赭、炭黑、白土与树皮棕",
+        "promptEn": "limit the palette to red ochre, yellow ochre, charcoal black, white clay, and bark brown",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "完全平面化，以内部线密度和综合色分区塑形",
+        "labelEn": "fully flat illumination with form built through internal line density and bounded color",
+        "promptZh": "光影采用完全平面化，以内部线密度和综合色分区塑形",
+        "promptEn": "use fully flat illumination with form built through internal line density and bounded color for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用中性现代标签，不生成文化专属图符",
+        "labelEn": "only when text is requested, use neutral modern labels without generating culturally restricted emblems",
+        "promptZh": "仅在用户要求文字时，采用中性现代标签，不生成文化专属图符，并保持原文可读",
+        "promptEn": "only when text is requested, use neutral modern labels without generating culturally restricted emblems, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "akkadian-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "单一主轴结合上升对角线",
+        "labelEn": "one dominant axis combined with a rising diagonal and concentrated hierarchy",
+        "promptZh": "构图采用单一主轴结合上升对角线",
+        "promptEn": "compose with one dominant axis combined with a rising diagonal and concentrated hierarchy",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "有力体块、深刻线与浮雕转折",
+        "labelEn": "forceful compact volume, deep incisions, and sharply turning relief planes",
+        "promptZh": "将用户主体转译为有力体块、深刻线与浮雕转折，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into forceful compact volume, deep incisions, and sharply turning relief planes while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "磨光石材、铜铸表面与清晰刻痕",
+        "labelEn": "polished stone, cast copper-alloy surfaces, and crisp carved marks",
+        "promptZh": "材质与表面呈现为磨光石材、铜铸表面与清晰刻痕",
+        "promptEn": "render materials and surfaces as polished stone, cast copper-alloy surfaces, and crisp carved marks",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "矿物土色、炭黑、石灰白与克制强调色",
+        "labelEn": "warm stone, dark bronze, earth red, and restrained lapis accents",
+        "promptZh": "配色限定为矿物土色、炭黑、石灰白与克制强调色",
+        "promptEn": "limit the palette to warm stone, dark bronze, earth red, and restrained lapis accents",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀正面光或擦边侧光，避免现代电影式光效",
+        "labelEn": "grazing sidelight clarifying relief depth and polished high points",
+        "promptZh": "光影采用均匀正面光或擦边侧光，避免现代电影式光效",
+        "promptEn": "use grazing sidelight clarifying relief depth and polished high points for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use a compact legible inscription band subordinate to the main axis",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use a compact legible inscription band subordinate to the main axis, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "achaemenid-persian-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "轴线对称、长列重复与阶梯层级",
+        "labelEn": "axial symmetry, long repeated processions, and stepped hierarchical progression",
+        "promptZh": "构图采用轴线对称、长列重复与阶梯层级",
+        "promptEn": "compose with axial symmetry, long repeated processions, and stepped hierarchical progression",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "克制侧面造型、浅浮雕与精确轮廓",
+        "labelEn": "restrained profile forms, shallow relief, and exceptionally precise contours",
+        "promptZh": "将用户主体转译为克制侧面造型、浅浮雕与精确轮廓，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into restrained profile forms, shallow relief, and exceptionally precise contours while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "磨光石材、浅浮雕与釉砖细节",
+        "labelEn": "polished stone, shallow carving, glazed-brick detail, and precise joints",
+        "promptZh": "材质与表面呈现为磨光石材、浅浮雕与釉砖细节",
+        "promptEn": "render materials and surfaces as polished stone, shallow carving, glazed-brick detail, and precise joints",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "矿物土色、炭黑、石灰白与克制强调色",
+        "labelEn": "pale stone, deep blue, earth red, gold, and restrained dark accents",
+        "promptZh": "配色限定为矿物土色、炭黑、石灰白与克制强调色",
+        "promptEn": "limit the palette to pale stone, deep blue, earth red, gold, and restrained dark accents",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀正面光或擦边侧光，避免现代电影式光效",
+        "labelEn": "even daylight or low grazing light preserving the calm relief rhythm",
+        "promptZh": "光影采用均匀正面光或擦边侧光，避免现代电影式光效",
+        "promptEn": "use even daylight or low grazing light preserving the calm relief rhythm for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use a compact legible inscription band aligned with the architecture",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use a compact legible inscription band aligned with the architecture, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "ottonian-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "严格中心轴、层叠分区与大面积金地",
+        "labelEn": "strict central axes, stacked hierarchical zones, and broad gold grounds",
+        "promptZh": "构图采用严格中心轴、层叠分区与大面积金地",
+        "promptEn": "compose with strict central axes, stacked hierarchical zones, and broad gold grounds",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "拉长比例、强烈手势与平面体积",
+        "labelEn": "elongated proportion, emphatic gesture, and flattened monumental volume",
+        "promptZh": "将用户主体转译为拉长比例、强烈手势与平面体积，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into elongated proportion, emphatic gesture, and flattened monumental volume while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "羊皮纸蛋彩、金箔、珐琅与浮雕金属",
+        "labelEn": "parchment tempera, gold leaf, enamel, and relief metalwork",
+        "promptZh": "材质与表面呈现为羊皮纸蛋彩、金箔、珐琅与浮雕金属",
+        "promptEn": "render materials and surfaces as parchment tempera, gold leaf, enamel, and relief metalwork",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "矿物土色、炭黑、石灰白与克制强调色",
+        "labelEn": "gold, purple, deep red, blue, green, and parchment cream",
+        "promptZh": "配色限定为矿物土色、炭黑、石灰白与克制强调色",
+        "promptEn": "limit the palette to gold, purple, deep red, blue, green, and parchment cream",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀正面光或擦边侧光，避免现代电影式光效",
+        "labelEn": "even frontal illumination with strong gold-ground luminosity",
+        "promptZh": "光影采用均匀正面光或擦边侧光，避免现代电影式光效",
+        "promptEn": "use even frontal illumination with strong gold-ground luminosity for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use a clear legible Ottonian manuscript hand",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use a clear legible Ottonian manuscript hand, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "babylonian-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "模块化墙面分区与带状重复",
+        "labelEn": "modular architectural zoning, continuous horizontal bands, and repeated processional rhythm",
+        "promptZh": "构图采用模块化墙面分区与带状重复",
+        "promptEn": "compose with modular architectural zoning, continuous horizontal bands, and repeated processional rhythm",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "清楚外轮廓、低浮雕模块与规则节奏",
+        "labelEn": "clear outer contours, low-relief modules, and regular repeated units",
+        "promptZh": "将用户主体转译为清楚外轮廓、低浮雕模块与规则节奏，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into clear outer contours, low-relief modules, and regular repeated units while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "彩釉砖、烧结陶面与深色勾缝",
+        "labelEn": "glazed brick, fired ceramic surfaces, and dark recessed joints",
+        "promptZh": "材质与表面呈现为彩釉砖、烧结陶面与深色勾缝",
+        "promptEn": "render materials and surfaces as glazed brick, fired ceramic surfaces, and dark recessed joints",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "钴蓝、青绿、赭黄、砖红与黑边",
+        "labelEn": "cobalt blue, turquoise, ochre, brick red, and dark outlines",
+        "promptZh": "配色限定为钴蓝、青绿、赭黄、砖红与黑边",
+        "promptEn": "limit the palette to cobalt blue, turquoise, ochre, brick red, and dark outlines",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀正面光或擦边侧光，避免现代电影式光效",
+        "labelEn": "even daylight with restrained glazed highlights and clear joint shadows",
+        "promptZh": "光影采用均匀正面光或擦边侧光，避免现代电影式光效",
+        "promptEn": "use even daylight with restrained glazed highlights and clear joint shadows for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use a separate accurate inscription band",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use a separate accurate inscription band, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "northern-renaissance": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "稳定室内或开放空间、层层景深与多个可读细节焦点",
+        "labelEn": "stable interior or open space, layered depth, and several readable detail foci",
+        "promptZh": "构图采用稳定室内或开放空间、层层景深与多个可读细节焦点",
+        "promptEn": "compose with stable interior or open space, layered depth, and several readable detail foci",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "精确轮廓、具体表面差异、自然比例与微小反光",
+        "labelEn": "precise contours, specific surface differences, natural proportion, and minute reflections",
+        "promptZh": "将用户主体转译为精确轮廓、具体表面差异、自然比例与微小反光，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into precise contours, specific surface differences, natural proportion, and minute reflections while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "多层透明油釉、木板底、细织物与高分辨材质描写",
+        "labelEn": "layered transparent oil glaze, wood panel, fine textiles, and high-resolution material description",
+        "promptZh": "材质与表面呈现为多层透明油釉、木板底、细织物与高分辨材质描写",
+        "promptEn": "render materials and surfaces as layered transparent oil glaze, wood panel, fine textiles, and high-resolution material description",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "深红、综合色绿、群青、土色与冷暖综合色肤色",
+        "labelEn": "deep red, mixed green, ultramarine, earth tones, and nuanced warm-cool flesh color",
+        "promptZh": "配色限定为深红、综合色绿、群青、土色与冷暖综合色肤色",
+        "promptEn": "limit the palette to deep red, mixed green, ultramarine, earth tones, and nuanced warm-cool flesh color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "可追踪的综合色光、细腻反射与透明阴影",
+        "labelEn": "traceable natural light, fine reflections, and transparent shadows",
+        "promptZh": "光影采用可追踪的综合色光、细腻反射与透明阴影",
+        "promptEn": "use traceable natural light, fine reflections, and transparent shadows for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用清楚的时代衬线或手抄体",
+        "labelEn": "only when text is requested, use clear period serif or manuscript-derived lettering",
+        "promptZh": "仅在用户要求文字时，采用清楚的时代衬线或手抄体，并保持原文可读",
+        "promptEn": "only when text is requested, use clear period serif or manuscript-derived lettering, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "international-gothic": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "浅层舞台空间、S形动线与精密边框",
+        "labelEn": "shallow stage-like space, flowing S-curves, and precise ornamental framing",
+        "promptZh": "构图采用浅层舞台空间、S形动线与精密边框",
+        "promptEn": "compose with shallow stage-like space, flowing S-curves, and precise ornamental framing",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "修长比例、柔软曲线与尖细轮廓",
+        "labelEn": "slender proportion, soft continuous curves, and pointed fine contours",
+        "promptZh": "将用户主体转译为修长比例、柔软曲线与尖细轮廓，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into slender proportion, soft continuous curves, and pointed fine contours while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "羊皮纸蛋彩、金箔与细织物表面",
+        "labelEn": "parchment tempera, gold leaf, and minutely patterned textile surfaces",
+        "promptZh": "材质与表面呈现为羊皮纸蛋彩、金箔与细织物表面",
+        "promptEn": "render materials and surfaces as parchment tempera, gold leaf, and minutely patterned textile surfaces",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "矿物土色、炭黑、石灰白与克制强调色",
+        "labelEn": "ultramarine, vermilion, rose, green, gold, and parchment cream",
+        "promptZh": "配色限定为矿物土色、炭黑、石灰白与克制强调色",
+        "promptEn": "limit the palette to ultramarine, vermilion, rose, green, gold, and parchment cream",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀正面光或擦边侧光，避免现代电影式光效",
+        "labelEn": "even courtly illumination with small gold highlights and minimal cast shadow",
+        "promptZh": "光影采用均匀正面光或擦边侧光，避免现代电影式光效",
+        "promptEn": "use even courtly illumination with small gold highlights and minimal cast shadow for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use a refined legible Gothic court hand",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use a refined legible Gothic court hand, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "carolingian-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "页框层级、中心图像与装饰边界",
+        "labelEn": "hierarchical page framing, a centered image field, and clearly bounded ornament",
+        "promptZh": "构图采用页框层级、中心图像与装饰边界",
+        "promptEn": "compose with hierarchical page framing, a centered image field, and clearly bounded ornament",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "古典体积、快速线描与精密首字结构",
+        "labelEn": "revived classical volume, rapid contour drawing, and intricate initial construction",
+        "promptZh": "将用户主体转译为古典体积、快速线描与精密首字结构，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into revived classical volume, rapid contour drawing, and intricate initial construction while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "羊皮纸、蛋彩、金箔、象牙与金属",
+        "labelEn": "parchment, tempera, gold leaf, carved ivory, and metalwork detail",
+        "promptZh": "材质与表面呈现为羊皮纸、蛋彩、金箔、象牙与金属",
+        "promptEn": "render materials and surfaces as parchment, tempera, gold leaf, carved ivory, and metalwork detail",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "矿物土色、炭黑、石灰白与克制强调色",
+        "labelEn": "parchment cream, purple, red, green, blue, and restrained gold",
+        "promptZh": "配色限定为矿物土色、炭黑、石灰白与克制强调色",
+        "promptEn": "limit the palette to parchment cream, purple, red, green, blue, and restrained gold",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀正面光或擦边侧光，避免现代电影式光效",
+        "labelEn": "even manuscript illumination with small gold reflections",
+        "promptZh": "光影采用均匀正面光或擦边侧光，避免现代电影式光效",
+        "promptEn": "use even manuscript illumination with small gold reflections for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use accurate legible Carolingian minuscule or display initials",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use accurate legible Carolingian minuscule or display initials, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "coptic-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "中心正面、近似对称与边带结构",
+        "labelEn": "frontal centering, near symmetry, and clearly bounded border structures",
+        "promptZh": "构图采用中心正面、近似对称与边带结构",
+        "promptEn": "compose with frontal centering, near symmetry, and clearly bounded border structures",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "正面性、粗线轮廓与平面体积",
+        "labelEn": "strong frontal construction, thick contours, and flattened volume",
+        "promptZh": "将用户主体转译为正面性、粗线轮廓与平面体积，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into strong frontal construction, thick contours, and flattened volume while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "亚麻羊毛织物、蛋彩木板与干燥壁画",
+        "labelEn": "linen-wool textile, tempera panel, dry fresco, and visible woven grain",
+        "promptZh": "材质与表面呈现为亚麻羊毛织物、蛋彩木板与干燥壁画",
+        "promptEn": "render materials and surfaces as linen-wool textile, tempera panel, dry fresco, and visible woven grain",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "矿物土色、炭黑、石灰白与克制强调色",
+        "labelEn": "undyed linen, wool red, dark blue, ochre, black, and cream",
+        "promptZh": "配色限定为矿物土色、炭黑、石灰白与克制强调色",
+        "promptEn": "limit the palette to undyed linen, wool red, dark blue, ochre, black, and cream",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀正面光或擦边侧光，避免现代电影式光效",
+        "labelEn": "even flat illumination with little naturalistic modeling",
+        "promptZh": "光影采用均匀正面光或擦边侧光，避免现代电影式光效",
+        "promptEn": "use even flat illumination with little naturalistic modeling for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use a clear Coptic-manuscript-derived hand while preserving exact wording",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use a clear Coptic-manuscript-derived hand while preserving exact wording, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "roman-imperial-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "宏大轴线、连续叙事带与深层空间",
+        "labelEn": "monumental axes, continuous narrative bands, and expanded spatial depth",
+        "promptZh": "构图采用宏大轴线、连续叙事带与深层空间",
+        "promptEn": "compose with monumental axes, continuous narrative bands, and expanded spatial depth",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "理想化比例、坚实体块与深浅浮雕",
+        "labelEn": "idealized proportion, solid masses, and transitions between shallow and deep relief",
+        "promptZh": "将用户主体转译为理想化比例、坚实体块与深浅浮雕，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into idealized proportion, solid masses, and transitions between shallow and deep relief while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "抛光大理石、铸铜、马赛克与彩绘灰泥",
+        "labelEn": "polished marble, cast bronze, mosaic, and painted plaster",
+        "promptZh": "材质与表面呈现为抛光大理石、铸铜、马赛克与彩绘灰泥",
+        "promptEn": "render materials and surfaces as polished marble, cast bronze, mosaic, and painted plaster",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "矿物土色、炭黑、石灰白与克制强调色",
+        "labelEn": "marble white, porphyry red, bronze, gold, and restrained mineral color",
+        "promptZh": "配色限定为矿物土色、炭黑、石灰白与克制强调色",
+        "promptEn": "limit the palette to marble white, porphyry red, bronze, gold, and restrained mineral color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀正面光或擦边侧光，避免现代电影式光效",
+        "labelEn": "clear civic daylight or grazing light revealing relief hierarchy",
+        "promptZh": "光影采用均匀正面光或擦边侧光，避免现代电影式光效",
+        "promptEn": "use clear civic daylight or grazing light revealing relief hierarchy for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use precise legible Roman-capital inscriptions aligned to the monument",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use precise legible Roman-capital inscriptions aligned to the monument, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "roman-republican-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "稳定正面或三分之四视点与清楚中心",
+        "labelEn": "stable frontal or three-quarter presentation with one clear center",
+        "promptZh": "构图采用稳定正面或三分之四视点与清楚中心",
+        "promptEn": "compose with stable frontal or three-quarter presentation with one clear center",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "具体表面转折、坚实比例与清晰轮廓",
+        "labelEn": "specific surface transitions, solid proportion, and sharply observed contours",
+        "promptZh": "将用户主体转译为具体表面转折、坚实比例与清晰轮廓，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into specific surface transitions, solid proportion, and sharply observed contours while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "大理石、青铜、灰泥与湿壁画",
+        "labelEn": "marble, bronze, plaster, and true-fresco surfaces",
+        "promptZh": "材质与表面呈现为大理石、青铜、灰泥与湿壁画",
+        "promptEn": "render materials and surfaces as marble, bronze, plaster, and true-fresco surfaces",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "矿物土色、炭黑、石灰白与克制强调色",
+        "labelEn": "marble white, bronze brown, warm earth color, and restrained painted accents",
+        "promptZh": "配色限定为矿物土色、炭黑、石灰白与克制强调色",
+        "promptEn": "limit the palette to marble white, bronze brown, warm earth color, and restrained painted accents",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "方向明确的自然侧光",
+        "labelEn": "clearly directional natural sidelight with readable volume",
+        "promptZh": "光影采用方向明确的自然侧光",
+        "promptEn": "use clearly directional natural sidelight with readable volume for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use compact legible Roman-capital lettering",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use compact legible Roman-capital lettering, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "romanesque-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "半圆框、横向分区与等级比例",
+        "labelEn": "semicircular framing, horizontal registers, and hierarchy-driven scale",
+        "promptZh": "构图采用半圆框、横向分区与等级比例",
+        "promptEn": "compose with semicircular framing, horizontal registers, and hierarchy-driven scale",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "厚重轮廓、拉长几何体与模式褶线",
+        "labelEn": "heavy contours, elongated geometric volume, and patterned fold lines",
+        "promptZh": "将用户主体转译为厚重轮廓、拉长几何体与模式褶线，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into heavy contours, elongated geometric volume, and patterned fold lines while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "石雕、湿壁画与蛋彩羊皮纸",
+        "labelEn": "carved stone, true fresco, and tempera on parchment",
+        "promptZh": "材质与表面呈现为石雕、湿壁画与蛋彩羊皮纸",
+        "promptEn": "render materials and surfaces as carved stone, true fresco, and tempera on parchment",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "矿物土色、炭黑、石灰白与克制强调色",
+        "labelEn": "stone white, ochre, deep red, blue-green, black, and restrained gold",
+        "promptZh": "配色限定为矿物土色、炭黑、石灰白与克制强调色",
+        "promptEn": "limit the palette to stone white, ochre, deep red, blue-green, black, and restrained gold",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀正面光或擦边侧光，避免现代电影式光效",
+        "labelEn": "even frontal illumination or grazing light revealing architectural relief",
+        "promptZh": "光影采用均匀正面光或擦边侧光，避免现代电影式光效",
+        "promptEn": "use even frontal illumination or grazing light revealing architectural relief for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use robust legible Romanesque display lettering",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use robust legible Romanesque display lettering, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "mycenaean-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "中心轴、环形边带与紧凑对称",
+        "labelEn": "central axes, circular borders, and compact symmetry",
+        "promptZh": "构图采用中心轴、环形边带与紧凑对称",
+        "promptEn": "compose with central axes, circular borders, and compact symmetry",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "厚重剪影、螺旋波带与直接轮廓",
+        "labelEn": "heavy silhouettes, spiral-wave bands, and direct strongly bounded contours",
+        "promptZh": "将用户主体转译为厚重剪影、螺旋波带与直接轮廓，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into heavy silhouettes, spiral-wave bands, and direct strongly bounded contours while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "锤揲金片、青铜、巨石与陶面线绘",
+        "labelEn": "hammered gold, bronze, monumental stone, and line-painted ceramic",
+        "promptZh": "材质与表面呈现为锤揲金片、青铜、巨石与陶面线绘",
+        "promptEn": "render materials and surfaces as hammered gold, bronze, monumental stone, and line-painted ceramic",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "暗金、青铜、赤陶红、黑与石灰白",
+        "labelEn": "dark gold, bronze, terracotta red, black, and lime white",
+        "promptZh": "配色限定为暗金、青铜、赤陶红、黑与石灰白",
+        "promptEn": "limit the palette to dark gold, bronze, terracotta red, black, and lime white",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀正面光或擦边侧光，避免现代电影式光效",
+        "labelEn": "grazing light emphasizing hammered metal and carved depth",
+        "promptZh": "光影采用均匀正面光或擦边侧光，避免现代电影式光效",
+        "promptEn": "use grazing light emphasizing hammered metal and carved depth for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use a compact legible inscription-like label outside the ornament",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use a compact legible inscription-like label outside the ornament, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "minoan-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "开放场域、环绕曲线与非对称节奏",
+        "labelEn": "open fields, encircling curves, and asymmetrical rhythmic flow",
+        "promptZh": "构图采用开放场域、环绕曲线与非对称节奏",
+        "promptEn": "compose with open fields, encircling curves, and asymmetrical rhythmic flow",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "弹性轮廓、收放曲线与轻盈动态",
+        "labelEn": "elastic contours, expanding and contracting curves, and light continuous movement",
+        "promptZh": "将用户主体转译为弹性轮廓、收放曲线与轻盈动态，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into elastic contours, expanding and contracting curves, and light continuous movement while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "湿壁画、细线陶绘与抛光石膏",
+        "labelEn": "true fresco, fine painted ceramic lines, and polished plaster",
+        "promptZh": "材质与表面呈现为湿壁画、细线陶绘与抛光石膏",
+        "promptEn": "render materials and surfaces as true fresco, fine painted ceramic lines, and polished plaster",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "赤陶红、埃及蓝、黑、白与暖黄",
+        "labelEn": "terracotta red, Egyptian blue, black, white, and warm yellow",
+        "promptZh": "配色限定为赤陶红、埃及蓝、黑、白与暖黄",
+        "promptEn": "limit the palette to terracotta red, Egyptian blue, black, white, and warm yellow",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀正面光或擦边侧光，避免现代电影式光效",
+        "labelEn": "even fresco illumination with volume minimized in favor of contour rhythm",
+        "promptZh": "光影采用均匀正面光或擦边侧光，避免现代电影式光效",
+        "promptEn": "use even fresco illumination with volume minimized in favor of contour rhythm for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use a small neutral caption outside the flowing field",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use a small neutral caption outside the flowing field, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "early-netherlandish-painting": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "封闭室内或紧凑祭坛空间、稳定轴线与前后连续景深",
+        "labelEn": "enclosed interiors or compact altarpiece space, stable axes, and continuous foreground-to-distance depth",
+        "promptZh": "构图采用封闭室内或紧凑祭坛空间、稳定轴线与前后连续景深",
+        "promptEn": "compose with enclosed interiors or compact altarpiece space, stable axes, and continuous foreground-to-distance depth",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "极细轮廓、微型材质细节、综合色体积与精确反射",
+        "labelEn": "extremely fine contours, minute material detail, tonal volume, and precise reflections",
+        "promptZh": "将用户主体转译为极细轮廓、微型材质细节、综合色体积与精确反射，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into extremely fine contours, minute material detail, tonal volume, and precise reflections while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "细木板底、多层油釉、抛光颜料与极少可见笔触",
+        "labelEn": "fine wood panel, multiple oil glazes, polished pigment, and almost no visible brushwork",
+        "promptZh": "材质与表面呈现为细木板底、多层油釉、抛光颜料与极少可见笔触",
+        "promptEn": "render materials and surfaces as fine wood panel, multiple oil glazes, polished pigment, and almost no visible brushwork",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "宝石红蓝、深绿、综合色肤色、金与冷灰",
+        "labelEn": "jewel red and blue, deep green, nuanced flesh color, gold, and cool gray",
+        "promptZh": "配色限定为宝石红蓝、深绿、综合色肤色、金与冷灰",
+        "promptEn": "limit the palette to jewel red and blue, deep green, nuanced flesh color, gold, and cool gray",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "单向窗光、透明综合色阴影与可追踪镜面反射",
+        "labelEn": "directional window light, transparent colored shadows, and traceable specular reflection",
+        "promptZh": "光影采用单向窗光、透明综合色阴影与可追踪镜面反射",
+        "promptEn": "use directional window light, transparent colored shadows, and traceable specular reflection for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用准确可读的哥特手抄体或小型衬线",
+        "labelEn": "only when text is requested, use accurate legible Gothic manuscript or small serif lettering",
+        "promptZh": "仅在用户要求文字时，准确可读的哥特手抄体或小型衬线，并保持原文可读",
+        "promptEn": "only when text is requested, use accurate legible Gothic manuscript or small serif lettering, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "parthian-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "正面中心、近似对称与浅层空间",
+        "labelEn": "frontal centering, near symmetry, and a compressed shallow field",
+        "promptZh": "构图采用正面中心、近似对称与浅层空间",
+        "promptEn": "compose with frontal centering, near symmetry, and a compressed shallow field",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "正面性、硬边轮廓与较少透视缩短",
+        "labelEn": "rigid frontal construction, hard contours, and minimal foreshortening",
+        "promptZh": "将用户主体转译为正面性、硬边轮廓与较少透视缩短，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into rigid frontal construction, hard contours, and minimal foreshortening while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "石材、灰泥、陶土或金属的哑光手工表面",
+        "labelEn": "matte stone, plaster, fired clay, and restrained metal surfaces",
+        "promptZh": "材质与表面呈现为石材、灰泥、陶土或金属的哑光手工表面",
+        "promptEn": "render materials and surfaces as matte stone, plaster, fired clay, and restrained metal surfaces",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "矿物土色、炭黑、石灰白与克制强调色",
+        "labelEn": "warm stone, deep red, muted blue-green, and dark linear accents",
+        "promptZh": "配色限定为矿物土色、炭黑、石灰白与克制强调色",
+        "promptEn": "limit the palette to warm stone, deep red, muted blue-green, and dark linear accents",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀正面光或擦边侧光，避免现代电影式光效",
+        "labelEn": "even frontal illumination with shallow local modeling",
+        "promptZh": "光影采用均匀正面光或擦边侧光，避免现代电影式光效",
+        "promptEn": "use even frontal illumination with shallow local modeling for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use a clear inscription band outside the frontal focal field",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use a clear inscription band outside the frontal focal field, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "pompeian-second-style": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "中心透视、虚构开口与前景框架",
+        "labelEn": "central perspective, fictive openings, and a strong foreground architectural frame",
+        "promptZh": "构图采用中心透视、虚构开口与前景框架",
+        "promptEn": "compose with central perspective, fictive openings, and a strong foreground architectural frame",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "细建筑线、透视缩短与实体框景",
+        "labelEn": "fine architectural lines, foreshortened planes, and solid framing elements",
+        "promptZh": "将用户主体转译为细建筑线、透视缩短与实体框景，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into fine architectural lines, foreshortened planes, and solid framing elements while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "平整湿壁画、仿石与精密建筑描线",
+        "labelEn": "smooth true fresco, faux stone, and precise architectural linework",
+        "promptZh": "材质与表面呈现为平整湿壁画、仿石与精密建筑描线",
+        "promptEn": "render materials and surfaces as smooth true fresco, faux stone, and precise architectural linework",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "朱红、深黑、赭黄、蓝绿与石材白",
+        "labelEn": "vermilion, deep black, ochre, blue-green, and stone white",
+        "promptZh": "配色限定为朱红、深黑、赭黄、蓝绿与石材白",
+        "promptEn": "limit the palette to vermilion, deep black, ochre, blue-green, and stone white",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀正面光或擦边侧光，避免现代电影式光效",
+        "labelEn": "painted illusionistic light coordinated with the perspectival opening",
+        "promptZh": "光影采用均匀正面光或擦边侧光，避免现代电影式光效",
+        "promptEn": "use painted illusionistic light coordinated with the perspectival opening for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use restrained lettering outside the fictive opening",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained lettering outside the fictive opening, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "pompeian-third-style": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "大面积单色面板、纤细轴线与小焦点",
+        "labelEn": "large monochrome panels, slender axial lines, and a very small floating focal image",
+        "promptZh": "构图采用大面积单色面板、纤细轴线与小焦点",
+        "promptEn": "compose with large monochrome panels, slender axial lines, and a very small floating focal image",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "极细线性构架、轻巧对称与悬浮小形",
+        "labelEn": "extremely fine linear frameworks, light symmetry, and weightless miniature forms",
+        "promptZh": "将用户主体转译为极细线性构架、轻巧对称与悬浮小形，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into extremely fine linear frameworks, light symmetry, and weightless miniature forms while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "平滑湿壁画、哑光色面与精细线绘",
+        "labelEn": "smooth fresco, matte color fields, and extremely fine painted lines",
+        "promptZh": "材质与表面呈现为平滑湿壁画、哑光色面与精细线绘",
+        "promptEn": "render materials and surfaces as smooth fresco, matte color fields, and extremely fine painted lines",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "朱红、黑、白、赭黄与少量绿蓝",
+        "labelEn": "vermilion, black, white, ochre, and restrained green-blue",
+        "promptZh": "配色限定为朱红、黑、白、赭黄与少量绿蓝",
+        "promptEn": "limit the palette to vermilion, black, white, ochre, and restrained green-blue",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀正面光或擦边侧光，避免现代电影式光效",
+        "labelEn": "fully flat interior illumination preserving the panel surface",
+        "promptZh": "光影采用均匀正面光或擦边侧光，避免现代电影式光效",
+        "promptEn": "use fully flat interior illumination preserving the panel surface for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use tiny legible lettering subordinate to the panel grid",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use tiny legible lettering subordinate to the panel grid, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "pompeian-fourth-style": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "多层框架、上下分区与复杂幻觉空间",
+        "labelEn": "multiple nested frames, upper-lower zoning, and complex fragmentary illusionistic depth",
+        "promptZh": "构图采用多层框架、上下分区与复杂幻觉空间",
+        "promptEn": "compose with multiple nested frames, upper-lower zoning, and complex fragmentary illusionistic depth",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "粗细结构并置、透视片段与密集节点",
+        "labelEn": "contrasts of heavy and fine structures, perspectival fragments, and dense ornamental nodes",
+        "promptZh": "将用户主体转译为粗细结构并置、透视片段与密集节点，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into contrasts of heavy and fine structures, perspectival fragments, and dense ornamental nodes while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "湿壁画、灰泥、仿石与精细装饰描线",
+        "labelEn": "true fresco, modeled plaster, faux stone, and precise ornamental linework",
+        "promptZh": "材质与表面呈现为湿壁画、灰泥、仿石与精细装饰描线",
+        "promptEn": "render materials and surfaces as true fresco, modeled plaster, faux stone, and precise ornamental linework",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "朱红、黑、金黄、蓝绿与石材白",
+        "labelEn": "vermilion, black, golden yellow, blue-green, and stone white",
+        "promptZh": "配色限定为朱红、黑、金黄、蓝绿与石材白",
+        "promptEn": "limit the palette to vermilion, black, golden yellow, blue-green, and stone white",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀正面光或擦边侧光，避免现代电影式光效",
+        "labelEn": "mixed flat and illusionistic illumination coordinated across nested frames",
+        "promptZh": "光影采用均匀正面光或擦边侧光，避免现代电影式光效",
+        "promptEn": "use mixed flat and illusionistic illumination coordinated across nested frames for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use restrained lettering fitted to a stable frame zone",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained lettering fitted to a stable frame zone, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "pompeian-first-style": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "仿石矩形墙面分区与粗细水平带",
+        "labelEn": "rectangular faux-masonry zoning with alternating thick and thin horizontal bands",
+        "promptZh": "构图采用仿石矩形墙面分区与粗细水平带",
+        "promptEn": "compose with rectangular faux-masonry zoning with alternating thick and thin horizontal bands",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "凸起灰泥板、清楚接缝与石材式几何",
+        "labelEn": "raised plaster panels, clear joints, and block-like stone geometry",
+        "promptZh": "将用户主体转译为凸起灰泥板、清楚接缝与石材式几何，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into raised plaster panels, clear joints, and block-like stone geometry while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "彩绘灰泥、仿石纹与浅浮雕板块",
+        "labelEn": "painted plaster, simulated stone veining, and raised panel edges",
+        "promptZh": "材质与表面呈现为彩绘灰泥、仿石纹与浅浮雕板块",
+        "promptEn": "render materials and surfaces as painted plaster, simulated stone veining, and raised panel edges",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "深红、赭黄、黑、绿与仿大理石杂色",
+        "labelEn": "deep red, ochre, black, green, and varied faux-marble color",
+        "promptZh": "配色限定为深红、赭黄、黑、绿与仿大理石杂色",
+        "promptEn": "limit the palette to deep red, ochre, black, green, and varied faux-marble color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀正面光或擦边侧光，避免现代电影式光效",
+        "labelEn": "grazing interior light revealing shallow plaster relief",
+        "promptZh": "光影采用均匀正面光或擦边侧光，避免现代电影式光效",
+        "promptEn": "use grazing interior light revealing shallow plaster relief for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use a small legible label outside the faux-masonry system",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use a small legible label outside the faux-masonry system, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "sasanian-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "中心轴或圆形徽章与成对重复",
+        "labelEn": "a central axis or circular medallion with paired repetition",
+        "promptZh": "构图采用中心轴或圆形徽章与成对重复",
+        "promptEn": "compose with a central axis or circular medallion with paired repetition",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "饱满体块、连续弧线与纹章式轮廓",
+        "labelEn": "full rounded masses, continuous arcs, and heraldic contours",
+        "promptZh": "将用户主体转译为饱满体块、连续弧线与纹章式轮廓，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into full rounded masses, continuous arcs, and heraldic contours while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "银器锤揲、鎏金与岩壁浮雕",
+        "labelEn": "hammered silver, gilding, rock relief, and patterned textile surfaces",
+        "promptZh": "材质与表面呈现为银器锤揲、鎏金与岩壁浮雕",
+        "promptEn": "render materials and surfaces as hammered silver, gilding, rock relief, and patterned textile surfaces",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "银白、暗金、深红、钴蓝与墨绿",
+        "labelEn": "silver white, dark gold, deep red, cobalt, and dark green",
+        "promptZh": "配色限定为银白、暗金、深红、钴蓝与墨绿",
+        "promptEn": "limit the palette to silver white, dark gold, deep red, cobalt, and dark green",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀正面光或擦边侧光，避免现代电影式光效",
+        "labelEn": "grazing light producing controlled silver highlights and clear relief shadows",
+        "promptZh": "光影采用均匀正面光或擦边侧光，避免现代电影式光效",
+        "promptEn": "use grazing light producing controlled silver highlights and clear relief shadows for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use a compact legible inscription outside the medallion structure",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use a compact legible inscription outside the medallion structure, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "sumerian-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "横向分层、基线秩序与等级比例",
+        "labelEn": "horizontal narrative registers, firm baselines, and scale determined by hierarchy",
+        "promptZh": "构图采用横向分层、基线秩序与等级比例",
+        "promptEn": "compose with horizontal narrative registers, firm baselines, and scale determined by hierarchy",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "正侧复合视点、紧凑轮廓与几何体块",
+        "labelEn": "composite frontal-profile construction, compact contours, and geometric masses",
+        "promptZh": "将用户主体转译为正侧复合视点、紧凑轮廓与几何体块，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into composite frontal-profile construction, compact contours, and geometric masses while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "石灰岩、雪花石膏与镶嵌颗粒",
+        "labelEn": "limestone, alabaster, shell-and-stone inlay, and granular bitumen joints",
+        "promptZh": "材质与表面呈现为石灰岩、雪花石膏与镶嵌颗粒",
+        "promptEn": "render materials and surfaces as limestone, alabaster, shell-and-stone inlay, and granular bitumen joints",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "石灰白、沥青黑、赭红与青金石蓝",
+        "labelEn": "limestone white, bitumen black, ochre red, and lapis blue",
+        "promptZh": "配色限定为石灰白、沥青黑、赭红与青金石蓝",
+        "promptEn": "limit the palette to limestone white, bitumen black, ochre red, and lapis blue",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀正面光或擦边侧光，避免现代电影式光效",
+        "labelEn": "even frontal illumination or grazing light revealing shallow relief",
+        "promptZh": "光影采用均匀正面光或擦边侧光，避免现代电影式光效",
+        "promptEn": "use even frontal illumination or grazing light revealing shallow relief for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use a separate legible inscription-like band",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use a separate legible inscription-like band, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "venetian-school": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "宽阔三角或对角组织与色光连接",
+        "labelEn": "broad triangular or diagonal organization connected through color and light",
+        "promptZh": "构图采用宽阔三角或对角组织与色光连接",
+        "promptEn": "compose with broad triangular or diagonal organization connected through color and light",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "柔边体块、综合色面与少量轮廓线",
+        "labelEn": "soft-edged masses, chromatic planes, and very little hard contour",
+        "promptZh": "将用户主体转译为柔边体块、综合色面与少量轮廓线，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into soft-edged masses, chromatic planes, and very little hard contour while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "多层油画罩染与柔润表面",
+        "labelEn": "multiple translucent oil glazes, canvas weave, and a softly fused surface",
+        "promptZh": "材质与表面呈现为多层油画罩染与柔润表面",
+        "promptEn": "render materials and surfaces as multiple translucent oil glazes, canvas weave, and a softly fused surface",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "暖金、深红、群青、橄榄绿与粉灰",
+        "labelEn": "warm gold, deep red, ultramarine, olive green, and rose gray",
+        "promptZh": "配色限定为暖金、深红、群青、橄榄绿与粉灰",
+        "promptEn": "limit the palette to warm gold, deep red, ultramarine, olive green, and rose gray",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "温暖漫射光、空气透视与柔和反射",
+        "labelEn": "warm diffuse illumination, atmospheric depth, and soft reflected color",
+        "promptZh": "光影采用温暖漫射光、空气透视与柔和反射",
+        "promptEn": "use warm diffuse illumination, atmospheric depth, and soft reflected color for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use restrained legible Renaissance serif lettering",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained legible Renaissance serif lettering, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "spanish-golden-age-painting": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "单一焦点、深色大背景与稳定结构",
+        "labelEn": "one concentrated focal area, a broad dark ground, and stable structural balance",
+        "promptZh": "构图采用单一焦点、深色大背景与稳定结构",
+        "promptEn": "compose with one concentrated focal area, a broad dark ground, and stable structural balance",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "具体比例、坚实轮廓与克制笔触",
+        "labelEn": "specific proportion, solid contours, and restrained visible brushwork",
+        "promptZh": "将用户主体转译为具体比例、坚实轮廓与克制笔触，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into specific proportion, solid contours, and restrained visible brushwork while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "吸光油层、粗织画布与局部厚涂",
+        "labelEn": "absorbent oil layers, coarse canvas, and selective impasto",
+        "promptZh": "材质与表面呈现为吸光油层、粗织画布与局部厚涂",
+        "promptEn": "render materials and surfaces as absorbent oil layers, coarse canvas, and selective impasto",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "矿物土色、炭黑、石灰白与克制强调色",
+        "labelEn": "earth brown, deep black, lead white, muted red, and restrained blue",
+        "promptZh": "配色限定为矿物土色、炭黑、石灰白与克制强调色",
+        "promptEn": "limit the palette to earth brown, deep black, lead white, muted red, and restrained blue",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "强定向侧光穿出深暗空间",
+        "labelEn": "strong directional sidelight emerging through deep shadow",
+        "promptZh": "光影采用强定向侧光穿出深暗空间",
+        "promptEn": "use strong directional sidelight emerging through deep shadow for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use restrained legible period serif lettering",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained legible period serif lettering, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "greek-orientalizing-style": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "连续饰带、中心徽章与疏密填充",
+        "labelEn": "continuous ornamental bands, central medallions, and alternating dense-open fill",
+        "promptZh": "构图采用连续饰带、中心徽章与疏密填充",
+        "promptEn": "compose with continuous ornamental bands, central medallions, and alternating dense-open fill",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "卷曲轮廓、莲瓣式几何与刻线",
+        "labelEn": "curling contours, lotus-derived geometry, and incised details",
+        "promptZh": "将用户主体转译为卷曲轮廓、莲瓣式几何与刻线，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into curling contours, lotus-derived geometry, and incised details while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "陶土、黑釉、附加彩与刻划细节",
+        "labelEn": "fired clay, black slip, added color, and incised linework",
+        "promptZh": "材质与表面呈现为陶土、黑釉、附加彩与刻划细节",
+        "promptEn": "render materials and surfaces as fired clay, black slip, added color, and incised linework",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "陶土红、黑、乳白与暗紫红",
+        "labelEn": "terracotta red, black, cream, and dark purple-red",
+        "promptZh": "配色限定为陶土红、黑、乳白与暗紫红",
+        "promptEn": "limit the palette to terracotta red, black, cream, and dark purple-red",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀正面光或擦边侧光，避免现代电影式光效",
+        "labelEn": "flat ceramic illumination with slight grazing light for incisions",
+        "promptZh": "光影采用均匀正面光或擦边侧光，避免现代电影式光效",
+        "promptEn": "use flat ceramic illumination with slight grazing light for incisions for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use neutral legible labels outside the ornamental bands",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use neutral legible labels outside the ornamental bands, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "archaic-greek-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "正面中心、稳定轴线与对称平衡",
+        "labelEn": "frontal centering, stable axes, and near-symmetrical balance",
+        "promptZh": "构图采用正面中心、稳定轴线与对称平衡",
+        "promptEn": "compose with frontal centering, stable axes, and near-symmetrical balance",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "几何化比例、连续轮廓与模式化转折",
+        "labelEn": "geometrically ordered proportion, continuous contours, and codified turns",
+        "promptZh": "将用户主体转译为几何化比例、连续轮廓与模式化转折，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into geometrically ordered proportion, continuous contours, and codified turns while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "哑光石材、陶绘黑釉与克制彩绘",
+        "labelEn": "matte stone, black-figure ceramic slip, and restrained polychromy",
+        "promptZh": "材质与表面呈现为哑光石材、陶绘黑釉与克制彩绘",
+        "promptEn": "render materials and surfaces as matte stone, black-figure ceramic slip, and restrained polychromy",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "矿物土色、炭黑、石灰白与克制强调色",
+        "labelEn": "pale stone, terracotta red, black, and restrained painted traces",
+        "promptZh": "配色限定为矿物土色、炭黑、石灰白与克制强调色",
+        "promptEn": "limit the palette to pale stone, terracotta red, black, and restrained painted traces",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀正面光或擦边侧光，避免现代电影式光效",
+        "labelEn": "even frontal light or gentle grazing light preserving the formal contour",
+        "promptZh": "光影采用均匀正面光或擦边侧光，避免现代电影式光效",
+        "promptEn": "use even frontal light or gentle grazing light preserving the formal contour for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use a compact legible inscription outside the primary axis",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use a compact legible inscription outside the primary axis, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "hellenistic-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "对角线、旋转动势与深浅交错",
+        "labelEn": "diagonal organization, rotational movement, and interwoven near-far depth",
+        "promptZh": "构图采用对角线、旋转动势与深浅交错",
+        "promptEn": "compose with diagonal organization, rotational movement, and interwoven near-far depth",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "扭转体块、深褶线与强透视缩短",
+        "labelEn": "twisting volume, deep folds, and forceful foreshortening",
+        "promptZh": "将用户主体转译为扭转体块、深褶线与强透视缩短，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into twisting volume, deep folds, and forceful foreshortening while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "高低浮雕、大理石凿痕与青铜表面",
+        "labelEn": "high and low relief, marble chisel marks, and cast bronze surfaces",
+        "promptZh": "材质与表面呈现为高低浮雕、大理石凿痕与青铜表面",
+        "promptEn": "render materials and surfaces as high and low relief, marble chisel marks, and cast bronze surfaces",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "矿物土色、炭黑、石灰白与克制强调色",
+        "labelEn": "marble white, bronze darks, earth red, and restrained mineral color",
+        "promptZh": "配色限定为矿物土色、炭黑、石灰白与克制强调色",
+        "promptEn": "limit the palette to marble white, bronze darks, earth red, and restrained mineral color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "强侧光形成深阴影与明亮边缘",
+        "labelEn": "strong sidelight creating deep recesses and bright relief edges",
+        "promptZh": "光影采用强侧光形成深阴影与明亮边缘",
+        "promptEn": "use strong sidelight creating deep recesses and bright relief edges for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use a restrained inscription outside the moving composition",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use a restrained inscription outside the moving composition, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "greek-geometric-style": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "严格横向分带、环形连续与满幅节奏",
+        "labelEn": "strict horizontal registers, wraparound continuity, and dense all-over rhythm",
+        "promptZh": "构图采用严格横向分带、环形连续与满幅节奏",
+        "promptEn": "compose with strict horizontal registers, wraparound continuity, and dense all-over rhythm",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "折线、回纹、三角与概括黑色剪影",
+        "labelEn": "meanders, zigzags, triangles, and reduced black silhouettes",
+        "promptZh": "将用户主体转译为折线、回纹、三角与概括黑色剪影，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into meanders, zigzags, triangles, and reduced black silhouettes while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "哑光陶土、黑釉与细密手绘线",
+        "labelEn": "matte fired clay, black slip, and minute hand-painted lines",
+        "promptZh": "材质与表面呈现为哑光陶土、黑釉与细密手绘线",
+        "promptEn": "render materials and surfaces as matte fired clay, black slip, and minute hand-painted lines",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "陶土红、炭黑与少量米白",
+        "labelEn": "terracotta red, charcoal black, and restrained cream",
+        "promptZh": "配色限定为陶土红、炭黑与少量米白",
+        "promptEn": "limit the palette to terracotta red, charcoal black, and restrained cream",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀正面光或擦边侧光，避免现代电影式光效",
+        "labelEn": "fully flat illumination with no modeled cast shadows",
+        "promptZh": "光影采用均匀正面光或擦边侧光，避免现代电影式光效",
+        "promptEn": "use fully flat illumination with no modeled cast shadows for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use modern legible lettering outside the continuous bands",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use modern legible lettering outside the continuous bands, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "sienese-school": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "浅层叠置、中心轴与节奏化群组",
+        "labelEn": "shallow overlap, a stable central axis, and rhythmically grouped forms",
+        "promptZh": "构图采用浅层叠置、中心轴与节奏化群组",
+        "promptEn": "compose with shallow overlap, a stable central axis, and rhythmically grouped forms",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "修长比例、连续曲线与图案化褶线",
+        "labelEn": "elongated proportion, continuous curves, and patterned fold lines",
+        "promptZh": "将用户主体转译为修长比例、连续曲线与图案化褶线，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into elongated proportion, continuous curves, and patterned fold lines while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "木板蛋彩、金箔压纹与精刻线",
+        "labelEn": "tempera on wood panel, punched gold leaf, and finely incised lines",
+        "promptZh": "材质与表面呈现为木板蛋彩、金箔压纹与精刻线",
+        "promptEn": "render materials and surfaces as tempera on wood panel, punched gold leaf, and finely incised lines",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "矿物土色、炭黑、石灰白与克制强调色",
+        "labelEn": "gold, ultramarine, vermilion, rose, olive, and warm flesh tones",
+        "promptZh": "配色限定为矿物土色、炭黑、石灰白与克制强调色",
+        "promptEn": "limit the palette to gold, ultramarine, vermilion, rose, olive, and warm flesh tones",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀正面光或擦边侧光，避免现代电影式光效",
+        "labelEn": "even tempera illumination with gold reflection and restrained shallow modeling",
+        "promptZh": "光影采用均匀正面光或擦边侧光，避免现代电影式光效",
+        "promptEn": "use even tempera illumination with gold reflection and restrained shallow modeling for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use a clear legible Gothic or early humanist inscription",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use a clear legible Gothic or early humanist inscription, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "assyrian-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "连续长幅叙事、平行基线与横向推进",
+        "labelEn": "continuous long-form narration, parallel baselines, and forceful horizontal progression",
+        "promptZh": "构图采用连续长幅叙事、平行基线与横向推进",
+        "promptEn": "compose with continuous long-form narration, parallel baselines, and forceful horizontal progression",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "侧面轮廓、浅浮雕与精密刻线",
+        "labelEn": "profile contours, shallow relief, patterned surfaces, and extremely fine incision",
+        "promptZh": "将用户主体转译为侧面轮廓、浅浮雕与精密刻线，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into profile contours, shallow relief, patterned surfaces, and extremely fine incision while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "石灰石板、细密凿刻与哑光石面",
+        "labelEn": "limestone slabs, dense chisel marks, and a dry matte stone surface",
+        "promptZh": "材质与表面呈现为石灰石板、细密凿刻与哑光石面",
+        "promptEn": "render materials and surfaces as limestone slabs, dense chisel marks, and a dry matte stone surface",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "矿物土色、炭黑、石灰白与克制强调色",
+        "labelEn": "pale limestone, charcoal shadow, muted earth color, and restrained blue-red traces",
+        "promptZh": "配色限定为矿物土色、炭黑、石灰白与克制强调色",
+        "promptEn": "limit the palette to pale limestone, charcoal shadow, muted earth color, and restrained blue-red traces",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀正面光或擦边侧光，避免现代电影式光效",
+        "labelEn": "grazing sidelight revealing low relief without theatrical darkness",
+        "promptZh": "光影采用均匀正面光或擦边侧光，避免现代电影式光效",
+        "promptEn": "use grazing sidelight revealing low relief without theatrical darkness for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use a narrow legible cuneiform-like information band without fabricating glyphs",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use a narrow legible cuneiform-like information band without fabricating glyphs, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "etruscan-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "分层叙事、稳定轴线与等级清楚的空间",
+        "labelEn": "horizontal episodic bands, stable baselines, and lively asymmetrical grouping",
+        "promptZh": "构图采用分层叙事、稳定轴线与等级清楚的空间",
+        "promptEn": "compose with horizontal episodic bands, stable baselines, and lively asymmetrical grouping",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "概括轮廓、纪念性比例与克制的几何体块",
+        "labelEn": "strong profile contours, simplified volume, and direct rhythmic gestures",
+        "promptZh": "将用户主体转译为概括轮廓、纪念性比例与克制的几何体块，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into strong profile contours, simplified volume, and direct rhythmic gestures while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "石材、灰泥、陶土或金属的哑光手工表面",
+        "labelEn": "painted plaster, terracotta sculpture, engraved bronze, and granular earth pigment",
+        "promptZh": "材质与表面呈现为石材、灰泥、陶土或金属的哑光手工表面",
+        "promptEn": "render materials and surfaces as painted plaster, terracotta sculpture, engraved bronze, and granular earth pigment",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "矿物土色、炭黑、石灰白与克制强调色",
+        "labelEn": "terracotta red, ochre yellow, black, white, and muted blue-green",
+        "promptZh": "配色限定为矿物土色、炭黑、石灰白与克制强调色",
+        "promptEn": "limit the palette to terracotta red, ochre yellow, black, white, and muted blue-green",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀正面光或擦边侧光，避免现代电影式光效",
+        "labelEn": "even tomb-mural illumination with little natural cast shadow",
+        "promptZh": "光影采用均匀正面光或擦边侧光，避免现代电影式光效",
+        "promptEn": "use even tomb-mural illumination with little natural cast shadow for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use modern legible labels without fabricating Etruscan inscriptions",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use modern legible labels without fabricating Etruscan inscriptions, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "italian-proto-renaissance": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "稳定中心、浅建筑空间与清楚叙事层级",
+        "labelEn": "stable centering, shallow architectural space, and a clearly readable narrative hierarchy",
+        "promptZh": "构图采用稳定中心、浅建筑空间与清楚叙事层级",
+        "promptEn": "compose with stable centering, shallow architectural space, and a clearly readable narrative hierarchy",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "坚实体积、柔和褶线与连续轮廓",
+        "labelEn": "solid modeled volume, softened fold lines, and continuous contours",
+        "promptZh": "将用户主体转译为坚实体积、柔和褶线与连续轮廓，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into solid modeled volume, softened fold lines, and continuous contours while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "湿壁画、木板蛋彩与金箔",
+        "labelEn": "true fresco, tempera on wood panel, and gold leaf",
+        "promptZh": "材质与表面呈现为湿壁画、木板蛋彩与金箔",
+        "promptEn": "render materials and surfaces as true fresco, tempera on wood panel, and gold leaf",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "矿物土色、炭黑、石灰白与克制强调色",
+        "labelEn": "ultramarine, vermilion, earth color, gold, and warm plaster white",
+        "promptZh": "配色限定为矿物土色、炭黑、石灰白与克制强调色",
+        "promptEn": "limit the palette to ultramarine, vermilion, earth color, gold, and warm plaster white",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀正面光或擦边侧光，避免现代电影式光效",
+        "labelEn": "even illumination with early directional modeling and restrained cast shadow",
+        "promptZh": "光影采用均匀正面光或擦边侧光，避免现代电影式光效",
+        "promptEn": "use even illumination with early directional modeling and restrained cast shadow for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use clear early humanist or Gothic inscription lettering",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use clear early humanist or Gothic inscription lettering, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "indus-valley-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "小尺度方形框、中心图形与信息带",
+        "labelEn": "small square framing, a compact central emblem, and a narrow information band",
+        "promptZh": "构图采用小尺度方形框、中心图形与信息带",
+        "promptEn": "compose with small square framing, a compact central emblem, and a narrow information band",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "简练侧面轮廓、凹刻线与紧密比例",
+        "labelEn": "concise profile contours, recessed incisions, and tightly compressed proportion",
+        "promptZh": "将用户主体转译为简练侧面轮廓、凹刻线与紧密比例，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into concise profile contours, recessed incisions, and tightly compressed proportion while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "烧制皂石、陶土、铜与印压颗粒",
+        "labelEn": "fired soapstone, clay, copper, seal impressions, and granular wear",
+        "promptZh": "材质与表面呈现为烧制皂石、陶土、铜与印压颗粒",
+        "promptEn": "render materials and surfaces as fired soapstone, clay, copper, seal impressions, and granular wear",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "矿物土色、炭黑、石灰白与克制强调色",
+        "labelEn": "soapstone cream, fired-clay brown, charcoal black, and restrained mineral color",
+        "promptZh": "配色限定为矿物土色、炭黑、石灰白与克制强调色",
+        "promptEn": "limit the palette to soapstone cream, fired-clay brown, charcoal black, and restrained mineral color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀正面光或擦边侧光，避免现代电影式光效",
+        "labelEn": "flat archival illumination or grazing light revealing minute recesses",
+        "promptZh": "光影采用均匀正面光或擦边侧光，避免现代电影式光效",
+        "promptEn": "use flat archival illumination or grazing light revealing minute recesses for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use modern legible labels and never fabricate undeciphered Indus signs",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use modern legible labels and never fabricate undeciphered Indus signs, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "early-christian-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "中心或横向叙事、等级比例与清楚分区",
+        "labelEn": "centered or horizontal narration, hierarchical scale, and clearly separated zones",
+        "promptZh": "构图采用中心或横向叙事、等级比例与清楚分区",
+        "promptEn": "compose with centered or horizontal narration, hierarchical scale, and clearly separated zones",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "正面造型、简化体积与厚实轮廓",
+        "labelEn": "frontal construction, simplified volume, and strong continuous contours",
+        "promptZh": "将用户主体转译为正面造型、简化体积与厚实轮廓，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into frontal construction, simplified volume, and strong continuous contours while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "湿壁画、金色马赛克与手抄本颜料",
+        "labelEn": "true fresco, gold mosaic, manuscript pigment, and matte plaster",
+        "promptZh": "材质与表面呈现为湿壁画、金色马赛克与手抄本颜料",
+        "promptEn": "render materials and surfaces as true fresco, gold mosaic, manuscript pigment, and matte plaster",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "矿物土色、炭黑、石灰白与克制强调色",
+        "labelEn": "porphyry red, gold, deep blue, green, and pale plaster",
+        "promptZh": "配色限定为矿物土色、炭黑、石灰白与克制强调色",
+        "promptEn": "limit the palette to porphyry red, gold, deep blue, green, and pale plaster",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀正面光或擦边侧光，避免现代电影式光效",
+        "labelEn": "even frontal illumination with minimal natural cast shadow",
+        "promptZh": "光影采用均匀正面光或擦边侧光，避免现代电影式光效",
+        "promptEn": "use even frontal illumination with minimal natural cast shadow for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与刻铭结构一致的文字",
+        "labelEn": "only when text is requested, use a clear legible late-Roman or early manuscript hand",
+        "promptZh": "仅在用户要求文字时，采用与刻铭结构一致的文字，并保持原文可读",
+        "promptEn": "only when text is requested, use a clear legible late-Roman or early manuscript hand, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "amsterdam-school": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "街角体量连续转折、非对称立面与开口节奏密集变化",
+        "labelEn": "continuous turning corner masses, asymmetrical elevations, and densely varied opening rhythms",
+        "promptZh": "构图采用街角体量连续转折、非对称立面与开口节奏密集变化",
+        "promptEn": "compose with continuous turning corner masses, asymmetrical elevations, and densely varied opening rhythms",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "表现性砖砌曲面、塔冠、梯形开口与雕塑化节点",
+        "labelEn": "expressive curved brickwork, crown-like towers, trapezoidal openings, and sculptural junctions",
+        "promptZh": "将用户主体转译为表现性砖砌曲面、塔冠、梯形开口与雕塑化节点，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into expressive curved brickwork, crown-like towers, trapezoidal openings, and sculptural junctions while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "手工砖、木石细部、陶饰与深砌缝",
+        "labelEn": "handmade brick, carved wood and stone, ceramic ornament, and deep mortar joints",
+        "promptZh": "材质与表面呈现为手工砖、木石细部、陶饰与深砌缝",
+        "promptEn": "render materials and surfaces as handmade brick, carved wood and stone, ceramic ornament, and deep mortar joints",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "深红砖、褐、黑与铜绿",
+        "labelEn": "deep red brick, brown, black, and oxidized copper green",
+        "promptZh": "配色限定为深红砖、褐、黑与铜绿",
+        "promptEn": "limit the palette to deep red brick, brown, black, and oxidized copper green",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "低角度侧光强调砖面凹凸和曲线体量",
+        "labelEn": "low-angle sidelight emphasizing brick relief and curved massing",
+        "promptZh": "光影采用低角度侧光强调砖面凹凸和曲线体量",
+        "promptEn": "use low-angle sidelight emphasizing brick relief and curved massing for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用建筑标识式清晰字体",
+        "labelEn": "only when text is requested, use clear architectural signage typography",
+        "promptZh": "仅在用户要求文字时，采用建筑标识式清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use clear architectural signage typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "queen-anne-style": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "不对称立面、凸窗塔楼与多重屋顶轮廓",
+        "labelEn": "asymmetrical elevations, projecting bays and towers, and a compound roof silhouette",
+        "promptZh": "构图采用不对称立面、凸窗塔楼与多重屋顶轮廓",
+        "promptEn": "compose with asymmetrical elevations, projecting bays and towers, and a compound roof silhouette",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "陡坡屋顶、圆塔、山墙与尺度多变的开口",
+        "labelEn": "steep roofs, round turrets, gables, and openings varied in scale",
+        "promptZh": "将用户主体转译为陡坡屋顶、圆塔、山墙与尺度多变的开口，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into steep roofs, round turrets, gables, and openings varied in scale while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "砖、木瓦、彩绘木构与纹样玻璃",
+        "labelEn": "brick, timber shingles, painted joinery, and patterned glass",
+        "promptZh": "材质与表面呈现为砖、木瓦、彩绘木构与纹样玻璃",
+        "promptEn": "render materials and surfaces as brick, timber shingles, painted joinery, and patterned glass",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "砖红、深绿、奶白与多色木饰",
+        "labelEn": "brick red, deep green, cream, and polychrome timber accents",
+        "promptZh": "配色限定为砖红、深绿、奶白与多色木饰",
+        "promptEn": "limit the palette to brick red, deep green, cream, and polychrome timber accents",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "自然侧光显示层叠轮廓和檐下阴影",
+        "labelEn": "natural sidelight revealing layered silhouettes and deep eave shadows",
+        "promptZh": "光影采用自然侧光显示层叠轮廓和檐下阴影",
+        "promptEn": "use natural sidelight revealing layered silhouettes and deep eave shadows for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用建筑标识式清晰字体",
+        "labelEn": "only when text is requested, use clear period-compatible architectural signage",
+        "promptZh": "仅在用户要求文字时，采用建筑标识式清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use clear period-compatible architectural signage, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "expressionist-architecture": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "单一雕塑性主量、动态轴线与戏剧化进入路径",
+        "labelEn": "one dominant sculptural mass, a dynamic axis, and a dramatized approach sequence",
+        "promptZh": "构图采用单一雕塑性主量、动态轴线与戏剧化进入路径",
+        "promptEn": "compose with one dominant sculptural mass, a dynamic axis, and a dramatized approach sequence",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "晶体尖角、弯曲砖体或有机壳体的夸张轮廓",
+        "labelEn": "crystalline angles, curved brick masses, or exaggerated organic shells",
+        "promptZh": "将用户主体转译为晶体尖角、弯曲砖体或有机壳体的夸张轮廓，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into crystalline angles, curved brick masses, or exaggerated organic shells while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "表现性砖砌、玻璃、混凝土与手工接缝",
+        "labelEn": "expressive brickwork, glass, concrete, and visibly crafted joints",
+        "promptZh": "材质与表面呈现为表现性砖砌、玻璃、混凝土与手工接缝",
+        "promptEn": "render materials and surfaces as expressive brickwork, glass, concrete, and visibly crafted joints",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "砖红、深褐、玻璃综合色与石材灰",
+        "labelEn": "brick red, deep brown, glass color, and stone gray",
+        "promptZh": "配色限定为砖红、深褐、玻璃综合色与石材灰",
+        "promptEn": "limit the palette to brick red, deep brown, glass color, and stone gray",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "强侧光和内部辉光共同强化雕塑轮廓",
+        "labelEn": "strong sidelight combined with interior glow to intensify the sculptural outline",
+        "promptZh": "光影采用强侧光和内部辉光共同强化雕塑轮廓",
+        "promptEn": "use strong sidelight combined with interior glow to intensify the sculptural outline for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用建筑标识式清晰字体",
+        "labelEn": "only when text is requested, use clear signage subordinate to the sculptural form",
+        "promptZh": "仅在用户要求文字时，采用建筑标识式清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use clear signage subordinate to the sculptural form, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "beaux-arts-architecture": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "宏大中轴、严格对称、层级入口与仪式性序列",
+        "labelEn": "a monumental central axis, strict symmetry, hierarchical entrances, and ceremonial progression",
+        "promptZh": "构图采用宏大中轴、严格对称、层级入口与仪式性序列",
+        "promptEn": "compose with a monumental central axis, strict symmetry, hierarchical entrances, and ceremonial progression",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "古典柱式、拱券、山花与尺度清楚的雕饰",
+        "labelEn": "classical orders, arches, pediments, and sculpture organized by legible scale",
+        "promptZh": "将用户主体转译为古典柱式、拱券、山花与尺度清楚的雕饰，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into classical orders, arches, pediments, and sculpture organized by legible scale while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "切石、灰泥、铜与精细雕刻接缝",
+        "labelEn": "cut stone, stucco, copper, and precisely carved joints",
+        "promptZh": "材质与表面呈现为切石、灰泥、铜与精细雕刻接缝",
+        "promptEn": "render materials and surfaces as cut stone, stucco, copper, and precisely carved joints",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "石灰岩白、暖灰、铜绿与克制金色",
+        "labelEn": "limestone white, warm gray, oxidized copper, and restrained gold",
+        "promptZh": "配色限定为石灰岩白、暖灰、铜绿与克制金色",
+        "promptEn": "limit the palette to limestone white, warm gray, oxidized copper, and restrained gold",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀日光配深檐投影，强调纪念体量",
+        "labelEn": "even daylight with deep cornice shadows emphasizing monumental volume",
+        "promptZh": "光影采用均匀日光配深檐投影，强调纪念体量",
+        "promptEn": "use even daylight with deep cornice shadows emphasizing monumental volume for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用建筑标识式清晰字体",
+        "labelEn": "only when text is requested, use formal legible architectural inscriptions",
+        "promptZh": "仅在用户要求文字时，采用建筑标识式清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use formal legible architectural inscriptions, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "parametricism": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "连续场、梯度变化、流线汇聚与无硬性分区",
+        "labelEn": "continuous fields, gradient change, converging flows, and minimal hard zoning",
+        "promptZh": "构图采用连续场、梯度变化、流线汇聚与无硬性分区",
+        "promptEn": "compose with continuous fields, gradient change, converging flows, and minimal hard zoning",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "参数曲面、分形网格、渐变孔洞与平滑连接",
+        "labelEn": "parametric surfaces, recursive grids, graded apertures, and smooth relational transitions",
+        "promptZh": "将用户主体转译为参数曲面、分形网格、渐变孔洞与平滑连接，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into parametric surfaces, recursive grids, graded apertures, and smooth relational transitions while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "复合板、玻璃、金属网与数字制造接缝",
+        "labelEn": "composite panels, glass, metal mesh, and digitally fabricated seams",
+        "promptZh": "材质与表面呈现为复合板、玻璃、金属网与数字制造接缝",
+        "promptEn": "render materials and surfaces as composite panels, glass, metal mesh, and digitally fabricated seams",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "白、银灰、黑与连续综合色",
+        "labelEn": "white, silver gray, black, and continuous controlled color gradients",
+        "promptZh": "配色限定为白、银灰、黑与连续综合色",
+        "promptEn": "limit the palette to white, silver gray, black, and continuous controlled color gradients",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "掠射光沿连续曲面移动并显示细密网格",
+        "labelEn": "grazing light traveling across continuous surfaces and revealing fine grids",
+        "promptZh": "光影采用掠射光沿连续曲面移动并显示细密网格",
+        "promptEn": "use grazing light traveling across continuous surfaces and revealing fine grids for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用建筑标识式清晰字体",
+        "labelEn": "only when text is requested, use restrained wayfinding aligned with the generative grid",
+        "promptZh": "仅在用户要求文字时，采用建筑标识式清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained wayfinding aligned with the generative grid, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "prairie-school": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "强水平延展、低矮中心与室内外连续轴线",
+        "labelEn": "strong horizontal extension, a low center of gravity, and continuous interior-exterior axes",
+        "promptZh": "构图采用强水平延展、低矮中心与室内外连续轴线",
+        "promptEn": "compose with strong horizontal extension, a low center of gravity, and continuous interior-exterior axes",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "低坡悬挑屋顶、长窗带与层叠平台",
+        "labelEn": "low-pitched cantilevered roofs, long window bands, and layered terraces",
+        "promptZh": "将用户主体转译为低坡悬挑屋顶、长窗带与层叠平台，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into low-pitched cantilevered roofs, long window bands, and layered terraces while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "砖、木、石与细长水平接缝",
+        "labelEn": "brick, timber, stone, and long horizontal joints",
+        "promptZh": "材质与表面呈现为砖、木、石与细长水平接缝",
+        "promptEn": "render materials and surfaces as brick, timber, stone, and long horizontal joints",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "土褐、砖红、橄榄绿与暖白",
+        "labelEn": "earth brown, brick red, olive green, and warm white",
+        "promptZh": "配色限定为土褐、砖红、橄榄绿与暖白",
+        "promptEn": "limit the palette to earth brown, brick red, olive green, and warm white",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "宽阔自然侧光和深悬挑形成的柔影",
+        "labelEn": "broad natural sidelight with soft shadows formed by deep overhangs",
+        "promptZh": "光影采用宽阔自然侧光和深悬挑形成的柔影",
+        "promptEn": "use broad natural sidelight with soft shadows formed by deep overhangs for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用建筑标识式清晰字体",
+        "labelEn": "only when text is requested, use clear low-profile architectural lettering",
+        "promptZh": "仅在用户要求文字时，采用建筑标识式清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use clear low-profile architectural lettering, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "second-empire-style": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "对称立面、突出中央段与水平檐线层级",
+        "labelEn": "symmetrical elevations, a projecting center, and layered horizontal cornice lines",
+        "promptZh": "构图采用对称立面、突出中央段与水平檐线层级",
+        "promptEn": "compose with symmetrical elevations, a projecting center, and layered horizontal cornice lines",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "孟莎屋顶、老虎窗、成组柱饰与高耸轮廓",
+        "labelEn": "mansard roofs, dormers, grouped classical ornament, and a tall silhouette",
+        "promptZh": "将用户主体转译为孟莎屋顶、老虎窗、成组柱饰与高耸轮廓，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into mansard roofs, dormers, grouped classical ornament, and a tall silhouette while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "切石、板岩、铸铁与精细窗饰",
+        "labelEn": "cut stone, slate, cast iron, and finely detailed window surrounds",
+        "promptZh": "材质与表面呈现为切石、板岩、铸铁与精细窗饰",
+        "promptEn": "render materials and surfaces as cut stone, slate, cast iron, and finely detailed window surrounds",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "石材暖灰、深色屋面、白与金属绿锈",
+        "labelEn": "warm gray stone, dark roofing, white, and oxidized metal green",
+        "promptZh": "配色限定为石材暖灰、深色屋面、白与金属绿锈",
+        "promptEn": "limit the palette to warm gray stone, dark roofing, white, and oxidized metal green",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "清楚自然侧光与深屋檐阴影",
+        "labelEn": "clear natural sidelight with deep roof and cornice shadows",
+        "promptZh": "光影采用清楚自然侧光与深屋檐阴影",
+        "promptEn": "use clear natural sidelight with deep roof and cornice shadows for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用建筑标识式清晰字体",
+        "labelEn": "only when text is requested, use formal period-compatible architectural signage",
+        "promptZh": "仅在用户要求文字时，采用建筑标识式清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use formal period-compatible architectural signage, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "high-tech-architecture": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "结构与设备外置、重复跨格和清楚服务动线",
+        "labelEn": "externalized structure and services, repeated bays, and clearly legible circulation",
+        "promptZh": "构图采用结构与设备外置、重复跨格和清楚服务动线",
+        "promptEn": "compose with externalized structure and services, repeated bays, and clearly legible circulation",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "桁架、拉索、管线、节点与可替换模块",
+        "labelEn": "trusses, tension cables, conduits, exposed joints, and replaceable modules",
+        "promptZh": "将用户主体转译为桁架、拉索、管线、节点与可替换模块，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into trusses, tension cables, conduits, exposed joints, and replaceable modules while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "钢、铝、玻璃、膜材和精密工业连接",
+        "labelEn": "steel, aluminum, glass, membrane, and precise industrial connections",
+        "promptZh": "材质与表面呈现为钢、铝、玻璃、膜材和精密工业连接",
+        "promptEn": "render materials and surfaces as steel, aluminum, glass, membrane, and precise industrial connections",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "金属本色、玻璃灰配红黄蓝功能色",
+        "labelEn": "natural metal, glass gray, and red-yellow-blue functional accents",
+        "promptZh": "配色限定为金属本色、玻璃灰配红黄蓝功能色",
+        "promptEn": "limit the palette to natural metal, glass gray, and red-yellow-blue functional accents",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "明亮分析光与金属边缘高光",
+        "labelEn": "bright analytical light with crisp highlights on metal edges",
+        "promptZh": "光影采用明亮分析光与金属边缘高光",
+        "promptEn": "use bright analytical light with crisp highlights on metal edges for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用建筑标识式清晰字体",
+        "labelEn": "only when text is requested, use clear technical wayfinding typography",
+        "promptZh": "仅在用户要求文字时，采用建筑标识式清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use clear technical wayfinding typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "gothic-revival-architecture": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "强垂直轴、尖塔群与重复跨间节奏",
+        "labelEn": "a strong vertical axis, clustered spires, and repeated structural bays",
+        "promptZh": "构图采用强垂直轴、尖塔群与重复跨间节奏",
+        "promptEn": "compose with a strong vertical axis, clustered spires, and repeated structural bays",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "尖拱、肋架、扶壁、花窗与细长比例",
+        "labelEn": "pointed arches, ribs, buttresses, tracery, and elongated proportions",
+        "promptZh": "将用户主体转译为尖拱、肋架、扶壁、花窗与细长比例，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into pointed arches, ribs, buttresses, tracery, and elongated proportions while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "石砌、彩色玻璃、木构与精细雕刻",
+        "labelEn": "masonry, stained glass, timber structure, and fine carving",
+        "promptZh": "材质与表面呈现为石砌、彩色玻璃、木构与精细雕刻",
+        "promptEn": "render materials and surfaces as masonry, stained glass, timber structure, and fine carving",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "石材灰、深木色、彩玻璃宝石色",
+        "labelEn": "stone gray, dark timber, and jewel-toned stained glass",
+        "promptZh": "配色限定为石材灰、深木色、彩玻璃宝石色",
+        "promptEn": "limit the palette to stone gray, dark timber, and jewel-toned stained glass",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "穿透彩窗的综合色光与深凹石刻阴影",
+        "labelEn": "colored transmitted light with deep shadows in recessed carving",
+        "promptZh": "光影采用穿透彩窗的综合色光与深凹石刻阴影",
+        "promptEn": "use colored transmitted light with deep shadows in recessed carving for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用建筑标识式清晰字体",
+        "labelEn": "only when text is requested, use legible Gothic Revival architectural lettering",
+        "promptZh": "仅在用户要求文字时，采用建筑标识式清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use legible Gothic Revival architectural lettering, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "constructivist-architecture": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "互穿几何体、悬挑水平件与可读功能分区",
+        "labelEn": "interpenetrating geometry, cantilevered horizontal elements, and legible functional zoning",
+        "promptZh": "构图采用互穿几何体、悬挑水平件与可读功能分区",
+        "promptEn": "compose with interpenetrating geometry, cantilevered horizontal elements, and legible functional zoning",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "圆筒、直角盒体、外露楼梯与动态图形体量",
+        "labelEn": "cylinders, orthogonal boxes, exposed stairs, and dynamically balanced masses",
+        "promptZh": "将用户主体转译为圆筒、直角盒体、外露楼梯与动态图形体量，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into cylinders, orthogonal boxes, exposed stairs, and dynamically balanced masses while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "钢、玻璃、砖、灰泥与早期混凝土",
+        "labelEn": "steel, glass, brick, stucco, and early concrete",
+        "promptZh": "材质与表面呈现为钢、玻璃、砖、灰泥与早期混凝土",
+        "promptEn": "render materials and surfaces as steel, glass, brick, stucco, and early concrete",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "混凝土灰、白、黑与红色功能强调",
+        "labelEn": "concrete gray, white, black, and red functional accents",
+        "promptZh": "配色限定为混凝土灰、白、黑与红色功能强调",
+        "promptEn": "limit the palette to concrete gray, white, black, and red functional accents",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "清楚分析光和硬边体块阴影",
+        "labelEn": "clear analytical light with hard-edged volumetric shadows",
+        "promptZh": "光影采用清楚分析光和硬边体块阴影",
+        "promptEn": "use clear analytical light with hard-edged volumetric shadows for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用建筑标识式清晰字体",
+        "labelEn": "only when text is requested, use bold legible Constructivist signage",
+        "promptZh": "仅在用户要求文字时，采用建筑标识式清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use bold legible Constructivist signage, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "classical-revival-architecture": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "严格中轴、对称立面与清楚基座—柱列—檐部层级",
+        "labelEn": "a strict central axis, symmetrical elevation, and clear base-column-entablature hierarchy",
+        "promptZh": "构图采用严格中轴、对称立面与清楚基座—柱列—檐部层级",
+        "promptEn": "compose with a strict central axis, symmetrical elevation, and clear base-column-entablature hierarchy",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "古典柱式、山花、拱券与规范比例",
+        "labelEn": "classical orders, pediments, arches, and canonically regulated proportions",
+        "promptZh": "将用户主体转译为古典柱式、山花、拱券与规范比例，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into classical orders, pediments, arches, and canonically regulated proportions while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "切石、灰泥、金属与平整雕饰",
+        "labelEn": "cut stone, stucco, metal, and smoothly finished carved details",
+        "promptZh": "材质与表面呈现为切石、灰泥、金属与平整雕饰",
+        "promptEn": "render materials and surfaces as cut stone, stucco, metal, and smoothly finished carved details",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "石灰白、暖灰、铜绿与低饱和综合色",
+        "labelEn": "limestone white, warm gray, oxidized copper, and muted earth color",
+        "promptZh": "配色限定为石灰白、暖灰、铜绿与低饱和综合色",
+        "promptEn": "limit the palette to limestone white, warm gray, oxidized copper, and muted earth color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀日光和清楚柱列投影",
+        "labelEn": "even daylight with clearly cast colonnade shadows",
+        "promptZh": "光影采用均匀日光和清楚柱列投影",
+        "promptEn": "use even daylight with clearly cast colonnade shadows for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用建筑标识式清晰字体",
+        "labelEn": "only when text is requested, use restrained classical inscriptional lettering",
+        "promptZh": "仅在用户要求文字时，采用建筑标识式清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained classical inscriptional lettering, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "googie-architecture": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "路边招牌式强焦点、上扬对角线与非对称轮廓",
+        "labelEn": "a roadside-sign focal point, rising diagonals, and an asymmetrical silhouette",
+        "promptZh": "构图采用路边招牌式强焦点、上扬对角线与非对称轮廓",
+        "promptEn": "compose with a roadside-sign focal point, rising diagonals, and an asymmetrical silhouette",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "飞翼屋顶、回旋镖、星爆、原子轨道与细柱",
+        "labelEn": "wing-like roofs, boomerangs, starbursts, orbital motifs, and slender supports",
+        "promptZh": "将用户主体转译为飞翼屋顶、回旋镖、星爆、原子轨道与细柱，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into wing-like roofs, boomerangs, starbursts, orbital motifs, and slender supports while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "玻璃、钢、塑料、霓虹管与彩色面板",
+        "labelEn": "glass, steel, plastic, neon tubing, and colored panels",
+        "promptZh": "材质与表面呈现为玻璃、钢、塑料、霓虹管与彩色面板",
+        "promptEn": "render materials and surfaces as glass, steel, plastic, neon tubing, and colored panels",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "青绿、珊瑚红、黄、白与金属银",
+        "labelEn": "turquoise, coral red, yellow, white, and metallic silver",
+        "promptZh": "配色限定为青绿、珊瑚红、黄、白与金属银",
+        "promptEn": "limit the palette to turquoise, coral red, yellow, white, and metallic silver",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "明亮日光或彩色霓虹勾勒锐利轮廓",
+        "labelEn": "bright daylight or colored neon tracing sharp outlines",
+        "promptZh": "光影采用明亮日光或彩色霓虹勾勒锐利轮廓",
+        "promptEn": "use bright daylight or colored neon tracing sharp outlines for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用建筑标识式清晰字体",
+        "labelEn": "only when text is requested, use large legible atomic-age display lettering",
+        "promptZh": "仅在用户要求文字时，采用建筑标识式清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use large legible atomic-age display lettering, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "international-style-architecture": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "正交网格、自由平面、非对称平衡与无装饰留空",
+        "labelEn": "orthogonal grids, free planning, asymmetrical balance, and ornament-free open space",
+        "promptZh": "构图采用正交网格、自由平面、非对称平衡与无装饰留空",
+        "promptEn": "compose with orthogonal grids, free planning, asymmetrical balance, and ornament-free open space",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "薄板、直角盒体、水平窗带与架空体量",
+        "labelEn": "thin slabs, rectilinear boxes, horizontal window bands, and raised volumes",
+        "promptZh": "将用户主体转译为薄板、直角盒体、水平窗带与架空体量，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into thin slabs, rectilinear boxes, horizontal window bands, and raised volumes while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "白色灰泥、钢、玻璃与平整混凝土",
+        "labelEn": "white stucco, steel, glass, and smooth concrete",
+        "promptZh": "材质与表面呈现为白色灰泥、钢、玻璃与平整混凝土",
+        "promptEn": "render materials and surfaces as white stucco, steel, glass, and smooth concrete",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "白、玻璃灰、黑与材料中性色",
+        "labelEn": "white, glass gray, black, and neutral material tones",
+        "promptZh": "配色限定为白、玻璃灰、黑与材料中性色",
+        "promptEn": "limit the palette to white, glass gray, black, and neutral material tones",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀自然光显示纯净体量与薄边",
+        "labelEn": "even natural light revealing clean volumes and thin edges",
+        "promptZh": "光影采用均匀自然光显示纯净体量与薄边",
+        "promptEn": "use even natural light revealing clean volumes and thin edges for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用建筑标识式清晰字体",
+        "labelEn": "only when text is requested, use neutral modernist wayfinding typography",
+        "promptZh": "仅在用户要求文字时，采用建筑标识式清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use neutral modernist wayfinding typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "hollywood-regency": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "对称陈设、戏剧性中心与镜面反射层叠",
+        "labelEn": "symmetrical furnishing, a dramatic center, and layered mirrored reflections",
+        "promptZh": "构图采用对称陈设、戏剧性中心与镜面反射层叠",
+        "promptEn": "compose with symmetrical furnishing, a dramatic center, and layered mirrored reflections",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "古典曲线、细腿家具、几何屏风与装饰轮廓",
+        "labelEn": "classical curves, slender furniture, geometric screens, and decorative silhouettes",
+        "promptZh": "将用户主体转译为古典曲线、细腿家具、几何屏风与装饰轮廓，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into classical curves, slender furniture, geometric screens, and decorative silhouettes while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "漆面、镜面、黄铜、丝绒与玻璃",
+        "labelEn": "lacquer, mirror, brass, velvet, and glass",
+        "promptZh": "材质与表面呈现为漆面、镜面、黄铜、丝绒与玻璃",
+        "promptEn": "render materials and surfaces as lacquer, mirror, brass, velvet, and glass",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "黑白、高饱和宝石色、金与镜面银",
+        "labelEn": "black and white, saturated jewel tones, gold, and mirrored silver",
+        "promptZh": "配色限定为黑白、高饱和宝石色、金与镜面银",
+        "promptEn": "limit the palette to black and white, saturated jewel tones, gold, and mirrored silver",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "柔和棚灯式环境光配晶亮局部高光",
+        "labelEn": "soft studio-like ambient light with crisp local highlights",
+        "promptZh": "光影采用柔和棚灯式环境光配晶亮局部高光",
+        "promptEn": "use soft studio-like ambient light with crisp local highlights for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用建筑标识式清晰字体",
+        "labelEn": "only when text is requested, use elegant legible display typography",
+        "promptZh": "仅在用户要求文字时，采用建筑标识式清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use elegant legible display typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "postmodern-architecture": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "清楚正面性、古典或地方原型的拼接、尺度反转与符号化入口",
+        "labelEn": "clear frontality, collage of classical or local prototypes, reversed scale, and an emblematic entrance",
+        "promptZh": "构图采用清楚正面性、古典或地方原型的拼接、尺度反转与符号化入口",
+        "promptEn": "compose with clear frontality, collage of classical or local prototypes, reversed scale, and an emblematic entrance",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "断裂山花、夸张柱式、几何贴面、拱形引用与有意不一致的构件",
+        "labelEn": "broken pediments, exaggerated orders, geometric veneer, arch references, and deliberately inconsistent elements",
+        "promptZh": "将用户主体转译为断裂山花、夸张柱式、几何贴面、拱形引用与有意不一致的构件，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into broken pediments, exaggerated orders, geometric veneer, arch references, and deliberately inconsistent elements while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "石材贴面、彩色灰泥、瓷砖、金属与平整商业化表面",
+        "labelEn": "stone veneer, colored stucco, tile, metal, and smooth commercial finishes",
+        "promptZh": "材质与表面呈现为石材贴面、彩色灰泥、瓷砖、金属与平整商业化表面",
+        "promptEn": "render materials and surfaces as stone veneer, colored stucco, tile, metal, and smooth commercial finishes",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "石材综合色、粉彩、砖红、综合色绿与高对比强调色",
+        "labelEn": "stone color, pastel, brick red, muted green, and high-contrast accents",
+        "promptZh": "配色限定为石材综合色、粉彩、砖红、综合色绿与高对比强调色",
+        "promptEn": "limit the palette to stone color, pastel, brick red, muted green, and high-contrast accents",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀展示光配真实檐口阴影，保持综合色与构件引用清楚",
+        "labelEn": "even display light with real cornice shadows preserving color and quoted elements",
+        "promptZh": "光影采用均匀展示光配真实檐口阴影，保持综合色与构件引用清楚",
+        "promptEn": "use even display light with real cornice shadows preserving color and quoted elements for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用可读且带历史引用的展示字体",
+        "labelEn": "only when text is requested, use legible display lettering with a controlled historical reference",
+        "promptZh": "仅在用户要求文字时，采用可读且带历史引用的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use legible display lettering with a controlled historical reference, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "deconstructivist-architecture": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "轴线冲突、碎片叠置、倾斜切割与不稳定平衡",
+        "labelEn": "conflicting axes, layered fragments, oblique cuts, and controlled unstable balance",
+        "promptZh": "构图采用轴线冲突、碎片叠置、倾斜切割与不稳定平衡",
+        "promptEn": "compose with conflicting axes, layered fragments, oblique cuts, and controlled unstable balance",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "断裂板片、锐角楔体、扭曲网格与非正交交接",
+        "labelEn": "fractured planes, acute wedges, distorted grids, and non-orthogonal joints",
+        "promptZh": "将用户主体转译为断裂板片、锐角楔体、扭曲网格与非正交交接，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into fractured planes, acute wedges, distorted grids, and non-orthogonal joints while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "金属板、玻璃、混凝土与复杂异形接缝",
+        "labelEn": "metal panels, glass, concrete, and complex custom joints",
+        "promptZh": "材质与表面呈现为金属板、玻璃、混凝土与复杂异形接缝",
+        "promptEn": "render materials and surfaces as metal panels, glass, concrete, and complex custom joints",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "金属灰、混凝土、黑白与有限强色",
+        "labelEn": "metal gray, concrete, black and white, and restricted strong color",
+        "promptZh": "配色限定为金属灰、混凝土、黑白与有限强色",
+        "promptEn": "limit the palette to metal gray, concrete, black and white, and restricted strong color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "硬侧光切出多重折面和深缝",
+        "labelEn": "hard sidelight cutting across multiple facets and deep seams",
+        "promptZh": "光影采用硬侧光切出多重折面和深缝",
+        "promptEn": "use hard sidelight cutting across multiple facets and deep seams for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用建筑标识式清晰字体",
+        "labelEn": "only when text is requested, use restrained signage aligned with a dominant spatial axis",
+        "promptZh": "仅在用户要求文字时，采用建筑标识式清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained signage aligned with a dominant spatial axis, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "miami-modernism": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "水平阳台、重复遮阳模块与轻盈场地立面",
+        "labelEn": "horizontal balconies, repeated sun-control modules, and light site-facing elevations",
+        "promptZh": "构图采用水平阳台、重复遮阳模块与轻盈场地立面",
+        "promptEn": "compose with horizontal balconies, repeated sun-control modules, and light site-facing elevations",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "薄板、曲面雨棚、穿孔墙与热带几何装饰",
+        "labelEn": "thin slabs, curved canopies, perforated screens, and tropical geometric ornament",
+        "promptZh": "将用户主体转译为薄板、曲面雨棚、穿孔墙与热带几何装饰，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into thin slabs, curved canopies, perforated screens, and tropical geometric ornament while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "浅色灰泥、玻璃、铝、马赛克与水磨石",
+        "labelEn": "light stucco, glass, aluminum, mosaic, and terrazzo",
+        "promptZh": "材质与表面呈现为浅色灰泥、玻璃、铝、马赛克与水磨石",
+        "promptEn": "render materials and surfaces as light stucco, glass, aluminum, mosaic, and terrazzo",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "粉、薄荷绿、浅蓝、白与珊瑚色",
+        "labelEn": "pink, mint green, pale blue, white, and coral",
+        "promptZh": "配色限定为粉、薄荷绿、浅蓝、白与珊瑚色",
+        "promptEn": "limit the palette to pink, mint green, pale blue, white, and coral",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "强烈热带日光和清楚遮阳投影",
+        "labelEn": "strong tropical daylight with clearly patterned sun-control shadows",
+        "promptZh": "光影采用强烈热带日光和清楚遮阳投影",
+        "promptEn": "use strong tropical daylight with clearly patterned sun-control shadows for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用建筑标识式清晰字体",
+        "labelEn": "only when text is requested, use clear period-compatible resort signage",
+        "promptZh": "仅在用户要求文字时，采用建筑标识式清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use clear period-compatible resort signage, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "critical-regionalism": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "现代几何秩序顺应地形轴线、气候路径与步行序列",
+        "labelEn": "modern geometric order adjusted to topography, climate paths, and bodily movement",
+        "promptZh": "构图采用现代几何秩序顺应地形轴线、气候路径与步行序列",
+        "promptEn": "compose with modern geometric order adjusted to topography, climate paths, and bodily movement",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "抽象体量经由檐、墙、庭和开口回应具体场所",
+        "labelEn": "abstract volumes responding to place through eaves, enclosing planes, courts, and calibrated openings",
+        "promptZh": "将用户主体转译为抽象体量经由檐、墙、庭和开口回应具体场所，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into abstract volumes responding to place through eaves, enclosing planes, courts, and calibrated openings while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "地方石、砖、木、粗混凝土与清楚的现代连接节点",
+        "labelEn": "local stone, brick, timber, rough concrete, and clearly expressed modern joints",
+        "promptZh": "材质与表面呈现为地方石、砖、木、粗混凝土与清楚的现代连接节点",
+        "promptEn": "render materials and surfaces as local stone, brick, timber, rough concrete, and clearly expressed modern joints",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "地方石土木色、混凝土灰与低饱和环境综合色",
+        "labelEn": "local stone, earth, and timber color with concrete gray and muted environmental tones",
+        "promptZh": "配色限定为地方石土木色、混凝土灰与低饱和环境综合色",
+        "promptEn": "limit the palette to local stone, earth, and timber color with concrete gray and muted environmental tones",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "由朝向、深檐和缝隙控制的自然光与真实阴影",
+        "labelEn": "natural light and real shadow controlled by orientation, deep overhangs, and narrow apertures",
+        "promptZh": "光影采用由朝向、深檐和缝隙控制的自然光与真实阴影",
+        "promptEn": "use natural light and real shadow controlled by orientation, deep overhangs, and narrow apertures for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用克制清楚的建筑导视字体",
+        "labelEn": "only when text is requested, use restrained clear architectural wayfinding typography",
+        "promptZh": "仅在用户要求文字时，采用克制清楚的建筑导视字体，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained clear architectural wayfinding typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "tropical-modernism": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "穿堂通风、架空体量、深阳台与内外连续",
+        "labelEn": "cross-ventilation paths, raised volumes, deep verandas, and continuous interior-exterior space",
+        "promptZh": "构图采用穿堂通风、架空体量、深阳台与内外连续",
+        "promptEn": "compose with cross-ventilation paths, raised volumes, deep verandas, and continuous interior-exterior space",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "遮阳板、花格墙、薄屋顶与开放框架",
+        "labelEn": "sun-breakers, perforated screens, thin roofs, and open structural frames",
+        "promptZh": "将用户主体转译为遮阳板、花格墙、薄屋顶与开放框架，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into sun-breakers, perforated screens, thin roofs, and open structural frames while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "混凝土、砖花格、木、玻璃与透气表皮",
+        "labelEn": "concrete, perforated brick, timber, glass, and breathable skins",
+        "promptZh": "材质与表面呈现为混凝土、砖花格、木、玻璃与透气表皮",
+        "promptEn": "render materials and surfaces as concrete, perforated brick, timber, glass, and breathable skins",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "混凝土灰、白、木色与热带综合色",
+        "labelEn": "concrete gray, white, timber color, and restrained tropical accents",
+        "promptZh": "配色限定为混凝土灰、白、木色与热带综合色",
+        "promptEn": "limit the palette to concrete gray, white, timber color, and restrained tropical accents",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "强日光经遮阳构件形成节律化投影",
+        "labelEn": "strong daylight filtered into rhythmic shadows by climate-control elements",
+        "promptZh": "光影采用强日光经遮阳构件形成节律化投影",
+        "promptEn": "use strong daylight filtered into rhythmic shadows by climate-control elements for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用建筑标识式清晰字体",
+        "labelEn": "only when text is requested, use clear climate-responsive wayfinding typography",
+        "promptZh": "仅在用户要求文字时，采用建筑标识式清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use clear climate-responsive wayfinding typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "desert-modernism": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "低矮水平体量、开放场域与远景连续",
+        "labelEn": "low horizontal masses, open site continuity, and long-distance visual extension",
+        "promptZh": "构图采用低矮水平体量、开放场域与远景连续",
+        "promptEn": "compose with low horizontal masses, open site continuity, and long-distance visual extension",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "薄屋面、大挑檐、玻璃幕墙与简洁直线",
+        "labelEn": "thin roofs, deep overhangs, glass planes, and concise straight lines",
+        "promptZh": "将用户主体转译为薄屋面、大挑檐、玻璃幕墙与简洁直线，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into thin roofs, deep overhangs, glass planes, and concise straight lines while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "石、木、钢、玻璃与粗细对比的墙面",
+        "labelEn": "stone, timber, steel, glass, and contrasting coarse-smooth enclosing surfaces",
+        "promptZh": "材质与表面呈现为石、木、钢、玻璃与粗细对比的墙面",
+        "promptEn": "render materials and surfaces as stone, timber, steel, glass, and contrasting coarse-smooth enclosing surfaces",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "砂岩色、暖白、炭黑与综合色植被绿",
+        "labelEn": "sandstone color, warm white, charcoal, and restrained vegetation green",
+        "promptZh": "配色限定为砂岩色、暖白、炭黑与综合色植被绿",
+        "promptEn": "limit the palette to sandstone color, warm white, charcoal, and restrained vegetation green",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "高照度硬日光、深檐阴影与清晰地面反射",
+        "labelEn": "hard high-intensity daylight, deep eave shadows, and clear ground reflection",
+        "promptZh": "光影采用高照度硬日光、深檐阴影与清晰地面反射",
+        "promptEn": "use hard high-intensity daylight, deep eave shadows, and clear ground reflection for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用建筑标识式清晰字体",
+        "labelEn": "only when text is requested, use restrained low-profile signage",
+        "promptZh": "仅在用户要求文字时，采用建筑标识式清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained low-profile signage, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "blobitecture": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "单一或相连团块、柔性动线与周边开放留空",
+        "labelEn": "one or several connected blobs, fluid circulation, and open surrounding space",
+        "promptZh": "构图采用单一或相连团块、柔性动线与周边开放留空",
+        "promptEn": "compose with one or several connected blobs, fluid circulation, and open surrounding space",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "无直角的膨胀曲面、滴状轮廓与连续壳体",
+        "labelEn": "inflated non-orthogonal surfaces, droplet contours, and continuous shells",
+        "promptZh": "将用户主体转译为无直角的膨胀曲面、滴状轮廓与连续壳体，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into inflated non-orthogonal surfaces, droplet contours, and continuous shells while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "玻璃纤维、金属板、膜材与平滑连续表皮",
+        "labelEn": "fiberglass, metal panels, membrane, and smoothly joined skins",
+        "promptZh": "材质与表面呈现为玻璃纤维、金属板、膜材与平滑连续表皮",
+        "promptEn": "render materials and surfaces as fiberglass, metal panels, membrane, and smoothly joined skins",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "白、银灰、半透明综合色与材料本色",
+        "labelEn": "white, silver gray, translucent color, and exposed material tones",
+        "promptZh": "配色限定为白、银灰、半透明综合色与材料本色",
+        "promptEn": "limit the palette to white, silver gray, translucent color, and exposed material tones",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "宽阔软光形成连续高光带",
+        "labelEn": "broad soft light creating continuous highlight bands",
+        "promptZh": "光影采用宽阔软光形成连续高光带",
+        "promptEn": "use broad soft light creating continuous highlight bands for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用建筑标识式清晰字体",
+        "labelEn": "only when text is requested, use minimal signage kept separate from the continuous shell",
+        "promptZh": "仅在用户要求文字时，采用建筑标识式清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use minimal signage kept separate from the continuous shell, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "metabolism": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "核心筒与可增殖舱体、重复模块和垂直生长",
+        "labelEn": "core structures with proliferating cells, repeated modules, and vertical growth",
+        "promptZh": "构图采用核心筒与可增殖舱体、重复模块和垂直生长",
+        "promptEn": "compose with core structures with proliferating cells, repeated modules, and vertical growth",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "胶囊、巨构框架、桥接单元与可替换节点",
+        "labelEn": "capsules, megastructural frames, bridging units, and replaceable joints",
+        "promptZh": "将用户主体转译为胶囊、巨构框架、桥接单元与可替换节点，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into capsules, megastructural frames, bridging units, and replaceable joints while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "预制混凝土、钢、玻璃与外露螺栓",
+        "labelEn": "precast concrete, steel, glass, and exposed bolts",
+        "promptZh": "材质与表面呈现为预制混凝土、钢、玻璃与外露螺栓",
+        "promptEn": "render materials and surfaces as precast concrete, steel, glass, and exposed bolts",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "混凝土灰、白、黑与工业原色",
+        "labelEn": "concrete gray, white, black, and industrial primary colors",
+        "promptZh": "配色限定为混凝土灰、白、黑与工业原色",
+        "promptEn": "limit the palette to concrete gray, white, black, and industrial primary colors",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "清楚日光强调模块投影和连接深度",
+        "labelEn": "clear daylight emphasizing modular shadows and connection depth",
+        "promptZh": "光影采用清楚日光强调模块投影和连接深度",
+        "promptEn": "use clear daylight emphasizing modular shadows and connection depth for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用建筑标识式清晰字体",
+        "labelEn": "only when text is requested, use clear modular technical signage",
+        "promptZh": "仅在用户要求文字时，采用建筑标识式清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use clear modular technical signage, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "romanesque-revival-architecture": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "厚重对称或均衡体量、连续拱廊与稳定基座",
+        "labelEn": "heavy symmetrical or balanced masses, continuous arcades, and a stable base",
+        "promptZh": "构图采用厚重对称或均衡体量、连续拱廊与稳定基座",
+        "promptEn": "compose with heavy symmetrical or balanced masses, continuous arcades, and a stable base",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "半圆拱、粗短柱、深凹开口与堡垒式块体",
+        "labelEn": "round arches, short robust columns, deep openings, and fortress-like blocks",
+        "promptZh": "将用户主体转译为半圆拱、粗短柱、深凹开口与堡垒式块体，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into round arches, short robust columns, deep openings, and fortress-like blocks while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "粗琢石、厚砌缝与砖石拱券",
+        "labelEn": "rough-cut stone, heavy joints, and brick or stone vaulting",
+        "promptZh": "材质与表面呈现为粗琢石、厚砌缝与砖石拱券",
+        "promptEn": "render materials and surfaces as rough-cut stone, heavy joints, and brick or stone vaulting",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "粗面石灰、砂岩暖褐与砖红",
+        "labelEn": "rough stone gray, warm sandstone, and brick red",
+        "promptZh": "配色限定为粗面石灰、砂岩暖褐与砖红",
+        "promptEn": "limit the palette to rough stone gray, warm sandstone, and brick red",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "硬侧光形成深拱阴影和厚墙感",
+        "labelEn": "hard sidelight creating deep arch shadows and a sense of thick enclosure",
+        "promptZh": "光影采用硬侧光形成深拱阴影和厚墙感",
+        "promptEn": "use hard sidelight creating deep arch shadows and a sense of thick enclosure for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用建筑标识式清晰字体",
+        "labelEn": "only when text is requested, use robust legible Romanesque Revival lettering",
+        "promptZh": "仅在用户要求文字时，采用建筑标识式清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use robust legible Romanesque Revival lettering, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "neo-vernacular-architecture": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "地方院落、屋顶群、巷道尺度与重复开间的当代重组",
+        "labelEn": "contemporary recombination of local courts, roof clusters, lane scale, and repeated structural bays",
+        "promptZh": "构图采用地方院落、屋顶群、巷道尺度与重复开间的当代重组",
+        "promptEn": "compose with contemporary recombination of local courts, roof clusters, lane scale, and repeated structural bays",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "可识别的坡顶、厚墙、木架或地方构件经简化后组合",
+        "labelEn": "recognizable pitched roofs, thick enclosing planes, timber frames, or local components simplified into new assemblies",
+        "promptZh": "将用户主体转译为可识别的坡顶、厚墙、木架或地方构件经简化后组合，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into recognizable pitched roofs, thick enclosing planes, timber frames, or local components simplified into new assemblies while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "夯土、地方砖瓦、木构、手工灰泥与现代加固节点",
+        "labelEn": "rammed earth, local brick and tile, timber, hand plaster, and visible modern reinforcement",
+        "promptZh": "材质与表面呈现为夯土、地方砖瓦、木构、手工灰泥与现代加固节点",
+        "promptEn": "render materials and surfaces as rammed earth, local brick and tile, timber, hand plaster, and visible modern reinforcement",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "土、砖、瓦、木本色与少量现代中性色",
+        "labelEn": "earth, brick, tile, and timber color with a few modern neutrals",
+        "promptZh": "配色限定为土、砖、瓦、木本色与少量现代中性色",
+        "promptEn": "limit the palette to earth, brick, tile, and timber color with a few modern neutrals",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "深檐阴影、院落天光与开口形成的综合色明暗",
+        "labelEn": "deep-eave shadow, courtyard sky light, and tonal contrast shaped by small openings",
+        "promptZh": "光影采用深檐阴影、院落天光与开口形成的综合色明暗",
+        "promptEn": "use deep-eave shadow, courtyard sky light, and tonal contrast shaped by small openings for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用朴素清楚且与地方材料协调的标识",
+        "labelEn": "only when text is requested, use plain clear signage coordinated with the local material language",
+        "promptZh": "仅在用户要求文字时，采用朴素清楚且与地方材料协调的标识，并保持原文可读",
+        "promptEn": "only when text is requested, use plain clear signage coordinated with the local material language, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "italian-radical-design": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "舞台化单一概念、尺度错置与强烈路径引导",
+        "labelEn": "one staged concept, displaced scale, and strongly directed movement",
+        "promptZh": "构图采用舞台化单一概念、尺度错置与强烈路径引导",
+        "promptEn": "compose with one staged concept, displaced scale, and strongly directed movement",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "超大几何、软体模块、镜面曲面或实验装置",
+        "labelEn": "oversized geometry, soft modules, mirrored curves, or experimental installations",
+        "promptZh": "将用户主体转译为超大几何、软体模块、镜面曲面或实验装置，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into oversized geometry, soft modules, mirrored curves, or experimental installations while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "塑料、泡沫、镜面金属、层压板与临时构件",
+        "labelEn": "plastic, foam, mirrored metal, laminate, and temporary components",
+        "promptZh": "材质与表面呈现为塑料、泡沫、镜面金属、层压板与临时构件",
+        "promptEn": "render materials and surfaces as plastic, foam, mirrored metal, laminate, and temporary components",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "高纯度原色、黑白与荧光强调",
+        "labelEn": "saturated primary colors, black and white, and fluorescent accents",
+        "promptZh": "配色限定为高纯度原色、黑白与荧光强调",
+        "promptEn": "limit the palette to saturated primary colors, black and white, and fluorescent accents",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "戏剧灯带、综合色环境光与镜面反射",
+        "labelEn": "theatrical light bands, colored ambient light, and mirrored reflection",
+        "promptZh": "光影采用戏剧灯带、综合色环境光与镜面反射",
+        "promptEn": "use theatrical light bands, colored ambient light, and mirrored reflection for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用建筑标识式清晰字体",
+        "labelEn": "only when text is requested, use bold legible experimental display typography",
+        "promptZh": "仅在用户要求文字时，采用建筑标识式清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use bold legible experimental display typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "organic-architecture": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "建筑沿地形展开、空间连续流动与内外相互嵌入",
+        "labelEn": "massing extended along topography, continuous spatial flow, and interlocking interior-exterior zones",
+        "promptZh": "构图采用建筑沿地形展开、空间连续流动与内外相互嵌入",
+        "promptEn": "compose with massing extended along topography, continuous spatial flow, and interlocking interior-exterior zones",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "水平延展、自然曲线、悬挑与场地生成体量",
+        "labelEn": "horizontal extension, natural curves, cantilevers, and site-generated volumes",
+        "promptZh": "将用户主体转译为水平延展、自然曲线、悬挑与场地生成体量，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into horizontal extension, natural curves, cantilevers, and site-generated volumes while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "地方石、木、砖、混凝土与连续手工接缝",
+        "labelEn": "local stone, timber, brick, concrete, and continuous crafted joints",
+        "promptZh": "材质与表面呈现为地方石、木、砖、混凝土与连续手工接缝",
+        "promptEn": "render materials and surfaces as local stone, timber, brick, concrete, and continuous crafted joints",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "石木土色、暖灰与自然综合色",
+        "labelEn": "stone, timber, and earth tones with warm gray and restrained natural color",
+        "promptZh": "配色限定为石木土色、暖灰与自然综合色",
+        "promptEn": "limit the palette to stone, timber, and earth tones with warm gray and restrained natural color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "自然光顺材料和空间路径渐变",
+        "labelEn": "natural light graded along materials and spatial paths",
+        "promptZh": "光影采用自然光顺材料和空间路径渐变",
+        "promptEn": "use natural light graded along materials and spatial paths for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用建筑标识式清晰字体",
+        "labelEn": "only when text is requested, use restrained signage integrated with the material system",
+        "promptZh": "仅在用户要求文字时，采用建筑标识式清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained signage integrated with the material system, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "chicago-school": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "底部—重复中段—顶部的高层立面三段式秩序",
+        "labelEn": "a tripartite high-rise elevation with base, repeated middle, and terminating top",
+        "promptZh": "构图采用底部—重复中段—顶部的高层立面三段式秩序",
+        "promptEn": "compose with a tripartite high-rise elevation with base, repeated middle, and terminating top",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "钢框架网格、宽大窗洞与垂直体量",
+        "labelEn": "steel-frame grids, broad window openings, and strong vertical massing",
+        "promptZh": "将用户主体转译为钢框架网格、宽大窗洞与垂直体量，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into steel-frame grids, broad window openings, and strong vertical massing while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "钢框架、砖石包覆、陶饰与大面积玻璃",
+        "labelEn": "steel frame, masonry cladding, terra-cotta ornament, and broad glass areas",
+        "promptZh": "材质与表面呈现为钢框架、砖石包覆、陶饰与大面积玻璃",
+        "promptEn": "render materials and surfaces as steel frame, masonry cladding, terra-cotta ornament, and broad glass areas",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "砖石暖褐、深铁色与玻璃灰蓝",
+        "labelEn": "warm brick and stone, dark iron, and glass blue-gray",
+        "promptZh": "配色限定为砖石暖褐、深铁色与玻璃灰蓝",
+        "promptEn": "limit the palette to warm brick and stone, dark iron, and glass blue-gray",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀环境日光强调窗格重复",
+        "labelEn": "even ambient daylight emphasizing repeated window bays",
+        "promptZh": "光影采用均匀环境日光强调窗格重复",
+        "promptEn": "use even ambient daylight emphasizing repeated window bays for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用建筑标识式清晰字体",
+        "labelEn": "only when text is requested, use clear commercial-era architectural lettering",
+        "promptZh": "仅在用户要求文字时，采用建筑标识式清晰字体，并保持原文可读",
+        "promptEn": "only when text is requested, use clear commercial-era architectural lettering, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "aztec-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "严格轴线、阶梯层级、历书式方格与密集符号场",
+        "labelEn": "strict axes, stepped hierarchy, codex-like cells, and dense emblematic fields",
+        "promptZh": "构图采用严格轴线、阶梯层级、历书式方格与密集符号场",
+        "promptEn": "compose with strict axes, stepped hierarchy, codex-like cells, and dense emblematic fields",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "粗壮轮廓、正面或侧面复合形、阶梯几何与深刻线",
+        "labelEn": "heavy contours, composite frontal-profile forms, stepped geometry, and deep incisions",
+        "promptZh": "将用户主体转译为粗壮轮廓、正面或侧面复合形、阶梯几何与深刻线，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into heavy contours, composite frontal-profile forms, stepped geometry, and deep incisions while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "火山石凿痕、灰泥综合色、羽毛镶嵌与折页纸纤维",
+        "labelEn": "volcanic-stone tool marks, painted plaster, feather mosaic, and folded-paper fibers",
+        "promptZh": "材质与表面呈现为火山石凿痕、灰泥综合色、羽毛镶嵌与折页纸纤维",
+        "promptEn": "render materials and surfaces as volcanic-stone tool marks, painted plaster, feather mosaic, and folded-paper fibers",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "玄武岩灰、赤铁红、赭黄、绿松石蓝与炭黑",
+        "labelEn": "basalt gray, hematite red, ochre, turquoise blue, and charcoal black",
+        "promptZh": "配色限定为玄武岩灰、赤铁红、赭黄、绿松石蓝与炭黑",
+        "promptEn": "limit the palette to basalt gray, hematite red, ochre, turquoise blue, and charcoal black",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "石刻采用强擦边光，图绘采用无投影平面光",
+        "labelEn": "strong grazing light for carved relief or fully flat illumination for painted treatments",
+        "promptZh": "光影采用石刻采用强擦边光，图绘采用无投影平面光",
+        "promptEn": "use strong grazing light for carved relief or fully flat illumination for painted treatments for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用清楚可读的象形方格式版面，不伪造历史文字",
+        "labelEn": "only when text is requested, use a legible pictorial-cell layout without inventing historical glyphs",
+        "promptZh": "仅在用户要求文字时，采用清楚可读的象形方格式版面，不伪造历史文字，并保持原文可读",
+        "promptEn": "only when text is requested, use a legible pictorial-cell layout without inventing historical glyphs, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "olmec-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "宽阔头部、厚唇轮廓与圆钝巨石体积",
+        "labelEn": "broad cranial volume, thick curved contours, and rounded megalithic massing",
+        "promptZh": "将用户主体转译为宽阔头部、厚唇轮廓与圆钝巨石体积，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into broad cranial volume, thick curved contours, and rounded megalithic massing while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "硬侧光强调巨石体积和深刻线",
+        "labelEn": "hard sidelight emphasizing massive volume and deeply cut lines",
+        "promptZh": "光影采用硬侧光强调巨石体积和深刻线",
+        "promptEn": "use hard sidelight emphasizing massive volume and deeply cut lines for lighting and tonal rendering",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "玄武岩、玉石或陶土的重凿与抛光表面",
+        "labelEn": "heavily carved basalt, polished jade, or modeled ceramic surfaces",
+        "promptZh": "材质与表面呈现为玄武岩、玉石或陶土的重凿与抛光表面",
+        "promptEn": "render materials and surfaces as heavily carved basalt, polished jade, or modeled ceramic surfaces",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "独立纪念体量、严格正面与稳定低重心",
+        "labelEn": "a self-contained monumental mass, strict frontality, and a stable low center of gravity",
+        "promptZh": "构图采用独立纪念体量、严格正面与稳定低重心",
+        "promptEn": "compose with a self-contained monumental mass, strict frontality, and a stable low center of gravity",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "玄武岩深灰、玉石绿与土色",
+        "labelEn": "dark basalt gray, jade green, and restrained earth tones",
+        "promptZh": "配色限定为玄武岩深灰、玉石绿与土色",
+        "promptEn": "limit the palette to dark basalt gray, jade green, and restrained earth tones",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与边饰结构一致的可读文字",
+        "labelEn": "only when text is requested, use neutral modern labels without invented ancient glyphs",
+        "promptZh": "仅在用户要求文字时，采用与边饰结构一致的可读文字，并保持原文可读",
+        "promptEn": "only when text is requested, use neutral modern labels without invented ancient glyphs, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "brazilian-concretism": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "严格网格、数学序列和非再现几何模块",
+        "labelEn": "strict grids, mathematical sequences, and nonrepresentational geometric modules",
+        "promptZh": "构图采用严格网格、数学序列和非再现几何模块",
+        "promptEn": "compose with strict grids, mathematical sequences, and nonrepresentational geometric modules",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "直线、方形、圆与精确硬边",
+        "labelEn": "straight lines, squares, circles, and precisely controlled hard edges",
+        "promptZh": "将用户主体转译为直线、方形、圆与精确硬边，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into straight lines, squares, circles, and precisely controlled hard edges while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "平滑工业颜料、印刷或硬质板面",
+        "labelEn": "smooth industrial paint, print, or rigid-panel surfaces",
+        "promptZh": "材质与表面呈现为平滑工业颜料、印刷或硬质板面",
+        "promptEn": "render materials and surfaces as smooth industrial paint, print, or rigid-panel surfaces",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "黑白、红黄蓝与系统化纯色",
+        "labelEn": "black and white, red-yellow-blue, and systematically assigned pure colors",
+        "promptZh": "配色限定为黑白、红黄蓝与系统化纯色",
+        "promptEn": "limit the palette to black and white, red-yellow-blue, and systematically assigned pure colors",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "完全平面化",
+        "labelEn": "fully flat illumination without modeled depth",
+        "promptZh": "光影采用完全平面化",
+        "promptEn": "use fully flat illumination without modeled depth for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与边饰结构一致的可读文字",
+        "labelEn": "only when text is requested, use neutral geometric typography aligned to the grid",
+        "promptZh": "仅在用户要求文字时，采用与边饰结构一致的可读文字，并保持原文可读",
+        "promptEn": "only when text is requested, use neutral geometric typography aligned to the grid, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "maya-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "纪念碑式中心场、横向叙事带与象形文字块的交错层级",
+        "labelEn": "a monumental central field interwoven with narrative bands and block-like inscription zones",
+        "promptZh": "构图采用纪念碑式中心场、横向叙事带与象形文字块的交错层级",
+        "promptEn": "compose with a monumental central field interwoven with narrative bands and block-like inscription zones",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "流动曲线、复杂负形、浅浮雕体积与精细刻线",
+        "labelEn": "flowing curves, complex negative shapes, low-relief volume, and fine incisions",
+        "promptZh": "将用户主体转译为流动曲线、复杂负形、浅浮雕体积与精细刻线，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into flowing curves, complex negative shapes, low-relief volume, and fine incisions while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "石灰岩、模塑灰泥、陶面综合色与树皮纸折页纹理",
+        "labelEn": "limestone, modeled stucco, painted ceramic surfaces, and folded bark-paper texture",
+        "promptZh": "材质与表面呈现为石灰岩、模塑灰泥、陶面综合色与树皮纸折页纹理",
+        "promptEn": "render materials and surfaces as limestone, modeled stucco, painted ceramic surfaces, and folded bark-paper texture",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "石灰白、赤铁红、玛雅蓝、赭黄与炭黑",
+        "labelEn": "lime white, hematite red, Maya blue, ochre, and charcoal black",
+        "promptZh": "配色限定为石灰白、赤铁红、玛雅蓝、赭黄与炭黑",
+        "promptEn": "limit the palette to lime white, hematite red, Maya blue, ochre, and charcoal black",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀壁画光或柔擦边光，保持刻线与综合色层清楚",
+        "labelEn": "even mural light or soft grazing light preserving both carved lines and color layers",
+        "promptZh": "光影采用均匀壁画光或柔擦边光，保持刻线与综合色层清楚",
+        "promptEn": "use even mural light or soft grazing light preserving both carved lines and color layers for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时保留清楚信息层级，不生成伪玛雅文字",
+        "labelEn": "only when text is requested, preserve a clear information hierarchy without fabricating Maya glyphs",
+        "promptZh": "仅在用户要求文字时，保留清楚信息层级，不生成伪玛雅文字，并保持原文可读",
+        "promptEn": "only when text is requested, preserve a clear information hierarchy without fabricating Maya glyphs, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "mixtec-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "折页书式连续方格、方向明确的谱系叙事与边界分区",
+        "labelEn": "continuous screenfold cells, directional genealogical sequencing, and clearly bounded zones",
+        "promptZh": "构图采用折页书式连续方格、方向明确的谱系叙事与边界分区",
+        "promptEn": "compose with continuous screenfold cells, directional genealogical sequencing, and clearly bounded zones",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "细硬侧面轮廓、扁平符号形与紧凑彩色节点",
+        "labelEn": "fine hard profile contours, flat emblematic shapes, and compact color nodes",
+        "promptZh": "将用户主体转译为细硬侧面轮廓、扁平符号形与紧凑彩色节点，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into fine hard profile contours, flat emblematic shapes, and compact color nodes while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "鹿皮折页、矿物综合色、金工压纹与绿松石镶嵌",
+        "labelEn": "deerskin screenfold, mineral color, embossed goldwork, and turquoise mosaic",
+        "promptZh": "材质与表面呈现为鹿皮折页、矿物综合色、金工压纹与绿松石镶嵌",
+        "promptEn": "render materials and surfaces as deerskin screenfold, mineral color, embossed goldwork, and turquoise mosaic",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "赭红、黄、绿松石蓝、黑与鹿皮暖白",
+        "labelEn": "ochre red, yellow, turquoise blue, black, and warm deerskin white",
+        "promptZh": "配色限定为赭红、黄、绿松石蓝、黑与鹿皮暖白",
+        "promptEn": "limit the palette to ochre red, yellow, turquoise blue, black, and warm deerskin white",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "完全平面化，以综合色边界和重叠表示次序",
+        "labelEn": "fully flat illumination with order expressed through color boundaries and overlap",
+        "promptZh": "光影采用完全平面化，以综合色边界和重叠表示次序",
+        "promptEn": "use fully flat illumination with order expressed through color boundaries and overlap for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用可读标签，不模仿或伪造古代图像文字",
+        "labelEn": "only when text is requested, use legible labels without imitating or fabricating ancient pictorial writing",
+        "promptZh": "仅在用户要求文字时，采用可读标签，不模仿或伪造古代图像文字，并保持原文可读",
+        "promptEn": "only when text is requested, use legible labels without imitating or fabricating ancient pictorial writing, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "moche-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "环绕器表的连续叙事带、单一强焦点与清楚等级比例",
+        "labelEn": "continuous vessel-wrapping narratives, one strong focal point, and clear hierarchical scale",
+        "promptZh": "构图采用环绕器表的连续叙事带、单一强焦点与清楚等级比例",
+        "promptEn": "compose with continuous vessel-wrapping narratives, one strong focal point, and clear hierarchical scale",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "有力轮廓、具体体积、细线重复与高识别侧面形",
+        "labelEn": "forceful contours, specific volume, repeated fine lines, and highly legible profile forms",
+        "promptZh": "将用户主体转译为有力轮廓、具体体积、细线重复与高识别侧面形，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into forceful contours, specific volume, repeated fine lines, and highly legible profile forms while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "模制陶土、细线黑彩、锤揲金属与综合色壁面",
+        "labelEn": "molded ceramic, fine dark slip lines, hammered metal, and painted plaster",
+        "promptZh": "材质与表面呈现为模制陶土、细线黑彩、锤揲金属与综合色壁面",
+        "promptEn": "render materials and surfaces as molded ceramic, fine dark slip lines, hammered metal, and painted plaster",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "乳白、铁红、土褐、黑与有限综合色",
+        "labelEn": "cream, iron red, earth brown, black, and restricted mixed color",
+        "promptZh": "配色限定为乳白、铁红、土褐、黑与有限综合色",
+        "promptEn": "limit the palette to cream, iron red, earth brown, black, and restricted mixed color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "陶绘保持平面明暗，立体版本使用柔侧光显示塑形",
+        "labelEn": "flat tonal treatment for painted surfaces or soft sidelight for modeled relief",
+        "promptZh": "光影采用陶绘保持平面明暗，立体版本使用柔侧光显示塑形",
+        "promptEn": "use flat tonal treatment for painted surfaces or soft sidelight for modeled relief for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用现代清晰标签，不添加伪古代符号",
+        "labelEn": "only when text is requested, use modern clear labels without invented ancient symbols",
+        "promptZh": "仅在用户要求文字时，采用现代清晰标签，不添加伪古代符号，并保持原文可读",
+        "promptEn": "only when text is requested, use modern clear labels without invented ancient symbols, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "nazca-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "满幅平面图案、环绕重复、放射节奏与少量清楚留底",
+        "labelEn": "all-over flat patterning, wraparound repetition, radial rhythm, and small controlled open areas",
+        "promptZh": "构图采用满幅平面图案、环绕重复、放射节奏与少量清楚留底",
+        "promptEn": "compose with all-over flat patterning, wraparound repetition, radial rhythm, and small controlled open areas",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "连续硬边、扁平符号形、锯齿转折与细密填充",
+        "labelEn": "continuous hard edges, flat emblematic forms, zigzag turns, and dense infill",
+        "promptZh": "将用户主体转译为连续硬边、扁平符号形、锯齿转折与细密填充，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into continuous hard edges, flat emblematic forms, zigzag turns, and dense infill while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "细陶土、多色泥釉、紧密经纬织物与干燥综合色表面",
+        "labelEn": "fine ceramic, polychrome slip, dense woven fibers, and dry matte color surfaces",
+        "promptZh": "材质与表面呈现为细陶土、多色泥釉、紧密经纬织物与干燥综合色表面",
+        "promptEn": "render materials and surfaces as fine ceramic, polychrome slip, dense woven fibers, and dry matte color surfaces",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "高纯度红、橙、黄、黑、白、蓝绿与综合色棕",
+        "labelEn": "saturated red, orange, yellow, black, white, blue-green, and mixed brown",
+        "promptZh": "配色限定为高纯度红、橙、黄、黑、白、蓝绿与综合色棕",
+        "promptEn": "limit the palette to saturated red, orange, yellow, black, white, blue-green, and mixed brown",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "完全平面化，不用写实体积和投影",
+        "labelEn": "fully flat illumination without realistic volume or cast shadows",
+        "promptZh": "光影采用完全平面化，不用写实体积和投影",
+        "promptEn": "use fully flat illumination without realistic volume or cast shadows for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用不破坏连续图案的现代可读字形",
+        "labelEn": "only when text is requested, use modern legible lettering that does not interrupt the continuous pattern",
+        "promptZh": "仅在用户要求文字时，采用不破坏连续图案的现代可读字形，并保持原文可读",
+        "promptEn": "only when text is requested, use modern legible lettering that does not interrupt the continuous pattern, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "tropicalia": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "流行媒体、热带图像、政治文字与综合色舞台的杂交拼贴",
+        "labelEn": "hybrid collage combining mass media, tropical color, political text, and staged space",
+        "promptZh": "构图采用流行媒体、热带图像、政治文字与综合色舞台的杂交拼贴",
+        "promptEn": "compose with hybrid collage combining mass media, tropical color, political text, and staged space",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "摄影剪贴、手绘曲线、广告图形和装置模块",
+        "labelEn": "photographic cutouts, hand-drawn curves, advertising graphics, and installation-like modules",
+        "promptZh": "将用户主体转译为摄影剪贴、手绘曲线、广告图形和装置模块，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into photographic cutouts, hand-drawn curves, advertising graphics, and installation-like modules while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "丝网、拼贴、塑料、织物、电视图像和廉价消费材料",
+        "labelEn": "screenprint, collage, plastic, textile, broadcast imagery, and inexpensive consumer materials",
+        "promptZh": "材质与表面呈现为丝网、拼贴、塑料、织物、电视图像和廉价消费材料",
+        "promptEn": "render materials and surfaces as screenprint, collage, plastic, textile, broadcast imagery, and inexpensive consumer materials",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "高饱和绿黄红蓝、黑白与综合色冲突",
+        "labelEn": "saturated green, yellow, red, and blue colliding with black and white",
+        "promptZh": "配色限定为高饱和绿黄红蓝、黑白与综合色冲突",
+        "promptEn": "limit the palette to saturated green, yellow, red, and blue colliding with black and white",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "舞台综合色光、平面印刷光和现场日光混合",
+        "labelEn": "mixed stage color, flat print light, and direct ambient daylight",
+        "promptZh": "光影采用舞台综合色光、平面印刷光和现场日光混合",
+        "promptEn": "use mixed stage color, flat print light, and direct ambient daylight for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与边饰结构一致的可读文字",
+        "labelEn": "only when text is requested, preserve exact wording in bold legible media-derived typography",
+        "promptZh": "仅在用户要求文字时，采用与边饰结构一致的可读文字，并保持原文可读",
+        "promptEn": "only when text is requested, preserve exact wording in bold legible media-derived typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "teotihuacan-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "宏大中轴、平台递进、矩形壁画分区与连续边带",
+        "labelEn": "a monumental central axis, stepped platforms, rectangular mural zones, and continuous borders",
+        "promptZh": "构图采用宏大中轴、平台递进、矩形壁画分区与连续边带",
+        "promptEn": "compose with a monumental central axis, stepped platforms, rectangular mural zones, and continuous borders",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "正面模块、阶梯轮廓、平直硬边与重复几何单元",
+        "labelEn": "frontal modules, stepped contours, straight hard edges, and repeated geometric units",
+        "promptZh": "将用户主体转译为正面模块、阶梯轮廓、平直硬边与重复几何单元，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into frontal modules, stepped contours, straight hard edges, and repeated geometric units while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "火山石、石灰灰泥、哑光矿物色与磨蚀墙面",
+        "labelEn": "volcanic stone, lime plaster, matte mineral color, and abraded surfaces",
+        "promptZh": "材质与表面呈现为火山石、石灰灰泥、哑光矿物色与磨蚀墙面",
+        "promptEn": "render materials and surfaces as volcanic stone, lime plaster, matte mineral color, and abraded surfaces",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "赤铁红、深红、赭黄、绿、黑与石灰白",
+        "labelEn": "hematite red, deep red, ochre, green, black, and lime white",
+        "promptZh": "配色限定为赤铁红、深红、赭黄、绿、黑与石灰白",
+        "promptEn": "limit the palette to hematite red, deep red, ochre, green, black, and lime white",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀壁画光，建筑体量采用清楚日照阴影",
+        "labelEn": "even mural illumination, with clear daylight shadows only for architectural volume",
+        "promptZh": "光影采用均匀壁画光，建筑体量采用清楚日照阴影",
+        "promptEn": "use even mural illumination, with clear daylight shadows only for architectural volume for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用现代可读标签并保持几何分区",
+        "labelEn": "only when text is requested, use modern legible labels that preserve the geometric zoning",
+        "promptZh": "仅在用户要求文字时，采用现代可读标签并保持几何分区，并保持原文可读",
+        "promptEn": "only when text is requested, use modern legible labels that preserve the geometric zoning, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "northwest-coast-formline-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "双向对称、卵形主单元与轮廓线连续嵌套",
+        "labelEn": "bilateral balance, ovoid primary units, and continuously nested contour systems",
+        "promptZh": "构图采用双向对称、卵形主单元与轮廓线连续嵌套",
+        "promptEn": "compose with bilateral balance, ovoid primary units, and continuously nested contour systems",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "粗黑形线、卵形、U 形与分裂形组成闭合结构",
+        "labelEn": "heavy black formlines, ovoids, U-forms, and split forms joined into closed structures",
+        "promptZh": "将用户主体转译为粗黑形线、卵形、U 形与分裂形组成闭合结构，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into heavy black formlines, ovoids, U-forms, and split forms joined into closed structures while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "木雕、树皮编织或平涂颜料的硬边表面",
+        "labelEn": "carved timber, woven bark, or hard-edged flat pigment surfaces",
+        "promptZh": "材质与表面呈现为木雕、树皮编织或平涂颜料的硬边表面",
+        "promptEn": "render materials and surfaces as carved timber, woven bark, or hard-edged flat pigment surfaces",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "黑、朱红、蓝绿与木材本色",
+        "labelEn": "black, vermilion, blue-green, and exposed timber color",
+        "promptZh": "配色限定为黑、朱红、蓝绿与木材本色",
+        "promptEn": "limit the palette to black, vermilion, blue-green, and exposed timber color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "平面图形光或擦边光显示雕刻深度",
+        "labelEn": "flat graphic illumination or grazing light revealing carved depth",
+        "promptZh": "光影采用平面图形光或擦边光显示雕刻深度",
+        "promptEn": "use flat graphic illumination or grazing light revealing carved depth for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与边饰结构一致的可读文字",
+        "labelEn": "only when text is requested, use neutral modern labels without fabricating culturally specific crests",
+        "promptZh": "仅在用户要求文字时，采用与边饰结构一致的可读文字，并保持原文可读",
+        "promptEn": "only when text is requested, use neutral modern labels without fabricating culturally specific crests, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "inuit-printmaking": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "单一轮廓、宽阔纸面留白与偏心平衡",
+        "labelEn": "one primary contour, broad paper negative space, and off-center balance",
+        "promptZh": "构图采用单一轮廓、宽阔纸面留白与偏心平衡",
+        "promptEn": "compose with one primary contour, broad paper negative space, and off-center balance",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "石刻或版刻硬边、概括剪影与少量内部纹理",
+        "labelEn": "stonecut or relief-print hard edges, simplified silhouettes, and sparse internal texture",
+        "promptZh": "将用户主体转译为石刻或版刻硬边、概括剪影与少量内部纹理，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into stonecut or relief-print hard edges, simplified silhouettes, and sparse internal texture while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "石版、模板或木版压印、纸纤维与手工墨色",
+        "labelEn": "stonecut, stencil, or relief impressions, paper fibers, and hand-rolled ink variation",
+        "promptZh": "材质与表面呈现为石版、模板或木版压印、纸纤维与手工墨色",
+        "promptEn": "render materials and surfaces as stonecut, stencil, or relief impressions, paper fibers, and hand-rolled ink variation",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "黑、石墨灰、纸白与有限红黄蓝套色",
+        "labelEn": "black, graphite gray, paper white, and limited red-yellow-blue printing",
+        "promptZh": "配色限定为黑、石墨灰、纸白与有限红黄蓝套色",
+        "promptEn": "limit the palette to black, graphite gray, paper white, and limited red-yellow-blue printing",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "平面印刷光，以黑白形建立空间",
+        "labelEn": "flat print illumination with space defined by black-white shape relationships",
+        "promptZh": "光影采用平面印刷光，以黑白形建立空间",
+        "promptEn": "use flat print illumination with space defined by black-white shape relationships for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与边饰结构一致的可读文字",
+        "labelEn": "only when text is requested, use accurate restrained print-caption typography",
+        "promptZh": "仅在用户要求文字时，采用与边饰结构一致的可读文字，并保持原文可读",
+        "promptEn": "only when text is requested, use accurate restrained print-caption typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "inca-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "严格矩形网格、托卡普方格、阶梯对称与模块重复",
+        "labelEn": "strict rectangular grids, tocapu cells, stepped symmetry, and modular repetition",
+        "promptZh": "构图采用严格矩形网格、托卡普方格、阶梯对称与模块重复",
+        "promptEn": "compose with strict rectangular grids, tocapu cells, stepped symmetry, and modular repetition",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "精确多边石块、直线折角与紧凑几何符号",
+        "labelEn": "precisely fitted polygonal blocks, straight angular turns, and compact geometric emblems",
+        "promptZh": "将用户主体转译为精确多边石块、直线折角与紧凑几何符号，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into precisely fitted polygonal blocks, straight angular turns, and compact geometric emblems while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "高密度羊驼纤维、无灰缝石作、锤揲金属与细密接缝",
+        "labelEn": "dense camelid fiber, mortarless fitted stone, hammered metal, and precise seams",
+        "promptZh": "材质与表面呈现为高密度羊驼纤维、无灰缝石作、锤揲金属与细密接缝",
+        "promptEn": "render materials and surfaces as dense camelid fiber, mortarless fitted stone, hammered metal, and precise seams",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "黑、白、赭红、黄与克制绿蓝",
+        "labelEn": "black, white, ochre red, yellow, and restrained green-blue",
+        "promptZh": "配色限定为黑、白、赭红、黄与克制绿蓝",
+        "promptEn": "limit the palette to black, white, ochre red, yellow, and restrained green-blue",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "织物保持平面色差，石作采用清晰自然侧光",
+        "labelEn": "flat color separation for textiles or clear natural sidelight for masonry",
+        "promptZh": "光影采用织物保持平面色差，石作采用清晰自然侧光",
+        "promptEn": "use flat color separation for textiles or clear natural sidelight for masonry for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用现代可读字形并与方格对齐",
+        "labelEn": "only when text is requested, use modern legible lettering aligned to the cell grid",
+        "promptZh": "仅在用户要求文字时，采用现代可读字形并与方格对齐，并保持原文可读",
+        "promptEn": "only when text is requested, use modern legible lettering aligned to the cell grid, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "traditional-balinese-painting": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "横向叙事分层、等级清楚的密集群组与几乎无空白的连续场",
+        "labelEn": "horizontal narrative registers, dense hierarchical groups, and an almost uninterrupted field",
+        "promptZh": "构图采用横向叙事分层、等级清楚的密集群组与几乎无空白的连续场",
+        "promptEn": "compose with horizontal narrative registers, dense hierarchical groups, and an almost uninterrupted field",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "程式化侧面轮廓、重复手势、细密装饰线与尺度等级",
+        "labelEn": "codified profile contours, repeated gestures, fine ornamental lines, and hierarchical scale",
+        "promptZh": "将用户主体转译为程式化侧面轮廓、重复手势、细密装饰线与尺度等级，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into codified profile contours, repeated gestures, fine ornamental lines, and hierarchical scale while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "棉布或树皮布、天然综合色、墨线与哑光手绘表面",
+        "labelEn": "cotton or bark cloth, natural pigment, ink contours, and a matte painted surface",
+        "promptZh": "材质与表面呈现为棉布或树皮布、天然综合色、墨线与哑光手绘表面",
+        "promptEn": "render materials and surfaces as cotton or bark cloth, natural pigment, ink contours, and a matte painted surface",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "土黄、赭红、黑、白与克制靛蓝",
+        "labelEn": "earth yellow, ochre red, black, white, and restrained indigo",
+        "promptZh": "配色限定为土黄、赭红、黑、白与克制靛蓝",
+        "promptEn": "limit the palette to earth yellow, ochre red, black, white, and restrained indigo",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "完全平面化，以线密度和综合色分区建立层次",
+        "labelEn": "fully flat illumination with depth built through line density and bounded color zones",
+        "promptZh": "光影采用完全平面化，以线密度和综合色分区建立层次",
+        "promptEn": "use fully flat illumination with depth built through line density and bounded color zones for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用不干扰叙事分层的清楚标签",
+        "labelEn": "only when text is requested, use clear labels that do not disrupt the narrative registers",
+        "promptZh": "仅在用户要求文字时，采用不干扰叙事分层的清楚标签，并保持原文可读",
+        "promptEn": "only when text is requested, use clear labels that do not disrupt the narrative registers, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "ubud-school-painting": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "高密度全幅、弯曲路径、多点观察与相互咬合的日常空间",
+        "labelEn": "dense all-over organization, winding paths, multiple viewpoints, and interlocking everyday spaces",
+        "promptZh": "构图采用高密度全幅、弯曲路径、多点观察与相互咬合的日常空间",
+        "promptEn": "compose with dense all-over organization, winding paths, multiple viewpoints, and interlocking everyday spaces",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "细密流线、个体化比例、植物式节奏与综合色阴影",
+        "labelEn": "fine flowing lines, individualized proportions, organic rhythm, and tonal shading",
+        "promptZh": "将用户主体转译为细密流线、个体化比例、植物式节奏与综合色阴影，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into fine flowing lines, individualized proportions, organic rhythm, and tonal shading while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "纸或布、墨、水彩或综合色层染与细密手绘痕迹",
+        "labelEn": "paper or cloth, ink, watercolor or layered pigment, and minute hand-painted marks",
+        "promptZh": "材质与表面呈现为纸或布、墨、水彩或综合色层染与细密手绘痕迹",
+        "promptEn": "render materials and surfaces as paper or cloth, ink, watercolor or layered pigment, and minute hand-painted marks",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "墨褐、灰绿、土色与更宽的现代综合色域",
+        "labelEn": "ink brown, gray-green, earth color, and a broader modern mixed palette",
+        "promptZh": "配色限定为墨褐、灰绿、土色与更宽的现代综合色域",
+        "promptEn": "limit the palette to ink brown, gray-green, earth color, and a broader modern mixed palette",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "漫射热带光，以综合色明暗和线密度塑造浅层体积",
+        "labelEn": "diffuse tropical light with shallow volume built by tonal color and line density",
+        "promptZh": "光影采用漫射热带光，以综合色明暗和线密度塑造浅层体积",
+        "promptEn": "use diffuse tropical light with shallow volume built by tonal color and line density for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用克制可读的现代标签",
+        "labelEn": "only when text is requested, use restrained legible modern labels",
+        "promptZh": "仅在用户要求文字时，采用克制可读的现代标签，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained legible modern labels, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "deccani-painting": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "高视点宫廷场域、偏心焦点、夸张留空与装饰边框",
+        "labelEn": "high-view courtly space, an off-center focal point, exaggerated voids, and an ornamental border",
+        "promptZh": "构图采用高视点宫廷场域、偏心焦点、夸张留空与装饰边框",
+        "promptEn": "compose with high-view courtly space, an off-center focal point, exaggerated voids, and an ornamental border",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "拉长比例、细密轮廓、综合色体积与奇异尺度关系",
+        "labelEn": "elongated proportions, fine contours, softly modeled volume, and uncanny scale shifts",
+        "promptZh": "将用户主体转译为拉长比例、细密轮廓、综合色体积与奇异尺度关系，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into elongated proportions, fine contours, softly modeled volume, and uncanny scale shifts while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "纸本不透明水彩、金箔、精细描线与抛光综合色面",
+        "labelEn": "opaque watercolor on paper, gold leaf, fine linework, and burnished color surfaces",
+        "promptZh": "材质与表面呈现为纸本不透明水彩、金箔、精细描线与抛光综合色面",
+        "promptEn": "render materials and surfaces as opaque watercolor on paper, gold leaf, fine linework, and burnished color surfaces",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "深群青、孔雀绿、紫红、综合色金与夜色背景",
+        "labelEn": "deep ultramarine, peacock green, magenta, rich gold, and nocturnal grounds",
+        "promptZh": "配色限定为深群青、孔雀绿、紫红、综合色金与夜色背景",
+        "promptEn": "limit the palette to deep ultramarine, peacock green, magenta, rich gold, and nocturnal grounds",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀珠宝式综合色光，局部柔亮光晕而无写实投影",
+        "labelEn": "even jewel-like color illumination with soft local halos and no realistic cast shadow",
+        "promptZh": "光影采用均匀珠宝式综合色光，局部柔亮光晕而无写实投影",
+        "promptEn": "use even jewel-like color illumination with soft local halos and no realistic cast shadow for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用清楚可读的波斯体题签",
+        "labelEn": "only when text is requested, use a clear legible Persianate inscription panel",
+        "promptZh": "仅在用户要求文字时，采用清楚可读的波斯体题签，并保持原文可读",
+        "promptEn": "only when text is requested, use a clear legible Persianate inscription panel, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "company-painting": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "单一对象式陈列、宽阔纸面留白与档案图谱秩序",
+        "labelEn": "single-specimen presentation, broad paper margins, and an archival catalog order",
+        "promptZh": "构图采用单一对象式陈列、宽阔纸面留白与档案图谱秩序",
+        "promptEn": "compose with single-specimen presentation, broad paper margins, and an archival catalog order",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "精确观察轮廓、自然比例、透明综合色阶与轻微投影",
+        "labelEn": "observed contours, natural proportion, transparent tonal modeling, and slight cast shadows",
+        "promptZh": "将用户主体转译为精确观察轮廓、自然比例、透明综合色阶与轻微投影，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into observed contours, natural proportion, transparent tonal modeling, and slight cast shadows while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "欧洲纸、水彩或不透明综合色、精细毛笔与档案式表面",
+        "labelEn": "European paper, transparent or opaque watercolor, fine brushwork, and an archival finish",
+        "promptZh": "材质与表面呈现为欧洲纸、水彩或不透明综合色、精细毛笔与档案式表面",
+        "promptEn": "render materials and surfaces as European paper, transparent or opaque watercolor, fine brushwork, and an archival finish",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "透明水彩综合色、纸白、植物综合色与克制土色",
+        "labelEn": "transparent watercolor, paper white, botanical color, and restrained earth tones",
+        "promptZh": "配色限定为透明水彩综合色、纸白、植物综合色与克制土色",
+        "promptEn": "limit the palette to transparent watercolor, paper white, botanical color, and restrained earth tones",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "柔和单向自然光、轻投影与清楚综合色体积",
+        "labelEn": "soft directional daylight with slight shadows and clearly modeled volume",
+        "promptZh": "光影采用柔和单向自然光、轻投影与清楚综合色体积",
+        "promptEn": "use soft directional daylight with slight shadows and clearly modeled volume for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用准确可读的中性图谱标签",
+        "labelEn": "only when text is requested, use accurate legible neutral catalog labels",
+        "promptZh": "仅在用户要求文字时，准确可读的中性图谱标签，并保持原文可读",
+        "promptEn": "only when text is requested, use accurate legible neutral catalog labels, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "gond-painting": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "轮廓内满布重复纹理、密集全幅与分形节奏",
+        "labelEn": "outlined forms densely filled with repeated texture, all-over organization, and branching rhythm",
+        "promptZh": "构图采用轮廓内满布重复纹理、密集全幅与分形节奏",
+        "promptEn": "compose with outlined forms densely filled with repeated texture, all-over organization, and branching rhythm",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "清楚外轮廓、点线填充与分叉式内部结构",
+        "labelEn": "clear outer contours, dot-line infill, and bifurcating internal structures",
+        "promptZh": "将用户主体转译为清楚外轮廓、点线填充与分叉式内部结构，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into clear outer contours, dot-line infill, and bifurcating internal structures while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "纸或画布、细笔点线与不透明平涂",
+        "labelEn": "paper or canvas, fine pen or brush dots and lines, and opaque flat color",
+        "promptZh": "材质与表面呈现为纸或画布、细笔点线与不透明平涂",
+        "promptEn": "render materials and surfaces as paper or canvas, fine pen or brush dots and lines, and opaque flat color",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "高饱和红黄绿蓝、黑色轮廓与浅色底",
+        "labelEn": "saturated red, yellow, green, and blue with black contours and a light ground",
+        "promptZh": "配色限定为高饱和红黄绿蓝、黑色轮廓与浅色底",
+        "promptEn": "limit the palette to saturated red, yellow, green, and blue with black contours and a light ground",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀平面光，以纹样密度形成明暗",
+        "labelEn": "even flat illumination with value built through pattern density",
+        "promptZh": "光影采用均匀平面光，以纹样密度形成明暗",
+        "promptEn": "use even flat illumination with value built through pattern density for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与边饰结构一致的可读文字",
+        "labelEn": "only when text is requested, use simple modern lettering outside the patterned forms",
+        "promptZh": "仅在用户要求文字时，采用与边饰结构一致的可读文字，并保持原文可读",
+        "promptEn": "only when text is requested, use simple modern lettering outside the patterned forms, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "gandhara-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "稳定正面或三分之四视点、浅龛式空间与清楚垂直轴",
+        "labelEn": "stable frontal or three-quarter presentation, shallow niche-like space, and a clear vertical axis",
+        "promptZh": "构图采用稳定正面或三分之四视点、浅龛式空间与清楚垂直轴",
+        "promptEn": "compose with stable frontal or three-quarter presentation, shallow niche-like space, and a clear vertical axis",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "自然主义体积、深衣褶、波浪发束与克制姿态",
+        "labelEn": "naturalistic volume, deeply cut drapery folds, waved hair masses, and restrained posture",
+        "promptZh": "将用户主体转译为自然主义体积、深衣褶、波浪发束与克制姿态，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into naturalistic volume, deeply cut drapery folds, waved hair masses, and restrained posture while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "灰色片岩、灰泥或陶塑的细凿表面",
+        "labelEn": "gray schist, stucco, or ceramic with fine carving and worn edges",
+        "promptZh": "材质与表面呈现为灰色片岩、灰泥或陶塑的细凿表面",
+        "promptEn": "render materials and surfaces as gray schist, stucco, or ceramic with fine carving and worn edges",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "片岩灰、灰泥白与残存矿物综合色",
+        "labelEn": "schist gray, stucco white, and traces of mineral color",
+        "promptZh": "配色限定为片岩灰、灰泥白与残存矿物综合色",
+        "promptEn": "limit the palette to schist gray, stucco white, and traces of mineral color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "柔侧光塑造深衣褶和圆润体积",
+        "labelEn": "soft sidelight modeling deep folds and rounded volume",
+        "promptZh": "光影采用柔侧光塑造深衣褶和圆润体积",
+        "promptEn": "use soft sidelight modeling deep folds and rounded volume for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与边饰结构一致的可读文字",
+        "labelEn": "only when text is requested, use neutral legible inscriptional labels",
+        "promptZh": "仅在用户要求文字时，采用与边饰结构一致的可读文字，并保持原文可读",
+        "promptEn": "only when text is requested, use neutral legible inscriptional labels, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "kalighat-painting": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "单一主体、大面积素底与直接居中或偏心取势",
+        "labelEn": "one enlarged focal form, broad unpainted paper, and direct centered or off-center placement",
+        "promptZh": "构图采用单一主体、大面积素底与直接居中或偏心取势",
+        "promptEn": "compose with one enlarged focal form, broad unpainted paper, and direct centered or off-center placement",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "粗黑连续轮廓、扫刷式体积与高度概括造型",
+        "labelEn": "heavy continuous black contours, sweeping tonal brushwork, and radical simplification",
+        "promptZh": "将用户主体转译为粗黑连续轮廓、扫刷式体积与高度概括造型，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into heavy continuous black contours, sweeping tonal brushwork, and radical simplification while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "纸本水彩或不透明色、快速笔线与平滑刷痕",
+        "labelEn": "watercolor or opaque color on paper, rapid lines, and smooth sweeping brush marks",
+        "promptZh": "材质与表面呈现为纸本水彩或不透明色、快速笔线与平滑刷痕",
+        "promptEn": "render materials and surfaces as watercolor or opaque color on paper, rapid lines, and smooth sweeping brush marks",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "有限明亮综合色、墨黑与纸白",
+        "labelEn": "limited bright color, ink black, and paper white",
+        "promptZh": "配色限定为有限明亮综合色、墨黑与纸白",
+        "promptEn": "limit the palette to limited bright color, ink black, and paper white",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "平面画面光，仅以宽笔综合色提示体积",
+        "labelEn": "flat pictorial illumination with volume indicated only by broad tonal strokes",
+        "promptZh": "光影采用平面画面光，仅以宽笔综合色提示体积",
+        "promptEn": "use flat pictorial illumination with volume indicated only by broad tonal strokes for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与边饰结构一致的可读文字",
+        "labelEn": "only when text is requested, use concise legible bazaar-print lettering",
+        "promptZh": "仅在用户要求文字时，采用与边饰结构一致的可读文字，并保持原文可读",
+        "promptEn": "only when text is requested, use concise legible bazaar-print lettering, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "rajasthani-miniature": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "平面宫廷或户外分区、清楚矩形边框与单一叙事焦点",
+        "labelEn": "flat courtly or open-air compartments, a clear rectangular border, and one narrative focus",
+        "promptZh": "构图采用平面宫廷或户外分区、清楚矩形边框与单一叙事焦点",
+        "promptEn": "compose with flat courtly or open-air compartments, a clear rectangular border, and one narrative focus",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "硬边细线、侧面轮廓、扁平体积与重复装饰节点",
+        "labelEn": "fine hard edges, profile contours, flat volume, and repeated ornamental details",
+        "promptZh": "将用户主体转译为硬边细线、侧面轮廓、扁平体积与重复装饰节点，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into fine hard edges, profile contours, flat volume, and repeated ornamental details while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "纸本不透明水彩、矿物色、金饰与细密描线",
+        "labelEn": "opaque watercolor on paper, mineral pigment, gold detail, and fine linework",
+        "promptZh": "材质与表面呈现为纸本不透明水彩、矿物色、金饰与细密描线",
+        "promptEn": "render materials and surfaces as opaque watercolor on paper, mineral pigment, gold detail, and fine linework",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "朱红、明黄、孔雀蓝绿、黑与金",
+        "labelEn": "vermilion, bright yellow, peacock blue-green, black, and gold",
+        "promptZh": "配色限定为朱红、明黄、孔雀蓝绿、黑与金",
+        "promptEn": "limit the palette to vermilion, bright yellow, peacock blue-green, black, and gold",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀平面光，以纯色区和遮叠建立层级",
+        "labelEn": "even flat illumination with hierarchy built through pure color areas and overlap",
+        "promptZh": "光影采用均匀平面光，以纯色区和遮叠建立层级",
+        "promptEn": "use even flat illumination with hierarchy built through pure color areas and overlap for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用清楚可读的边栏题签",
+        "labelEn": "only when text is requested, use a clear legible marginal inscription",
+        "promptZh": "仅在用户要求文字时，采用清楚可读的边栏题签，并保持原文可读",
+        "promptEn": "only when text is requested, use a clear legible marginal inscription, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "bengal-school": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "疏朗中心、雾化背景与诗性留白",
+        "labelEn": "a sparse central focus, mist-softened ground, and poetic negative space",
+        "promptZh": "构图采用疏朗中心、雾化背景与诗性留白",
+        "promptEn": "compose with a sparse central focus, mist-softened ground, and poetic negative space",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "柔化轮廓、流动线条与轻薄综合色体积",
+        "labelEn": "softened contours, flowing lines, and thin translucent tonal volume",
+        "promptZh": "将用户主体转译为柔化轮廓、流动线条与轻薄综合色体积，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into softened contours, flowing lines, and thin translucent tonal volume while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "水彩洗染、蛋彩薄层与吸水纸面",
+        "labelEn": "watercolor wash, thin tempera layers, and absorbent paper",
+        "promptZh": "材质与表面呈现为水彩洗染、蛋彩薄层与吸水纸面",
+        "promptEn": "render materials and surfaces as watercolor wash, thin tempera layers, and absorbent paper",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "淡褐、灰绿、靛蓝与低饱和暖色",
+        "labelEn": "pale brown, gray-green, indigo, and muted warm color",
+        "promptZh": "配色限定为淡褐、灰绿、靛蓝与低饱和暖色",
+        "promptEn": "limit the palette to pale brown, gray-green, indigo, and muted warm color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "低对比漫射光与薄雾式层次",
+        "labelEn": "low-contrast diffuse light with atmospheric layering",
+        "promptZh": "光影采用低对比漫射光与薄雾式层次",
+        "promptEn": "use low-contrast diffuse light with atmospheric layering for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与边饰结构一致的可读文字",
+        "labelEn": "only when text is requested, use restrained legible period-compatible lettering",
+        "promptZh": "仅在用户要求文字时，采用与边饰结构一致的可读文字，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained legible period-compatible lettering, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "nanyang-style": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "热带现场取景、浅层空间和现代主义画面分区",
+        "labelEn": "on-site tropical framing, shallow space, and modernist pictorial zoning",
+        "promptZh": "构图采用热带现场取景、浅层空间和现代主义画面分区",
+        "promptEn": "compose with on-site tropical framing, shallow space, and modernist pictorial zoning",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "简化综合色块、清楚轮廓与书写性线条",
+        "labelEn": "simplified color masses, clear contours, and calligraphic lines",
+        "promptZh": "将用户主体转译为简化综合色块、清楚轮廓与书写性线条，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into simplified color masses, clear contours, and calligraphic lines while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "油彩、水墨或综合色媒介的可见笔触和纸布纹",
+        "labelEn": "visible brushwork in oil, ink, or mixed media with paper or canvas grain",
+        "promptZh": "材质与表面呈现为油彩、水墨或综合色媒介的可见笔触和纸布纹",
+        "promptEn": "render materials and surfaces as visible brushwork in oil, ink, or mixed media with paper or canvas grain",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "综合色赭黄、热带绿、蓝与朱红",
+        "labelEn": "mixed ochre, tropical green, blue, and vermilion",
+        "promptZh": "配色限定为综合色赭黄、热带绿、蓝与朱红",
+        "promptEn": "limit the palette to mixed ochre, tropical green, blue, and vermilion",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "强热带日光、综合色阴影与暖湿空气感",
+        "labelEn": "strong tropical daylight, colored shadows, and warm humid atmosphere",
+        "promptZh": "光影采用强热带日光、综合色阴影与暖湿空气感",
+        "promptEn": "use strong tropical daylight, colored shadows, and warm humid atmosphere for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与边饰结构一致的可读文字",
+        "labelEn": "only when text is requested, use restrained legible modern lettering",
+        "promptZh": "仅在用户要求文字时，采用与边饰结构一致的可读文字，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained legible modern lettering, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "pahari-painting": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "起伏层叠的抒情空间、柔和对角动线与细窄边框",
+        "labelEn": "gently layered lyrical space, soft diagonal movement, and a narrow refined border",
+        "promptZh": "构图采用起伏层叠的抒情空间、柔和对角动线与细窄边框",
+        "promptEn": "compose with gently layered lyrical space, soft diagonal movement, and a narrow refined border",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "圆润细线、柔缓姿态、细密叶簇与综合色体积",
+        "labelEn": "rounded fine lines, relaxed forms, minute clustered foliage, and soft tonal volume",
+        "promptZh": "将用户主体转译为圆润细线、柔缓姿态、细密叶簇与综合色体积，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into rounded fine lines, relaxed forms, minute clustered foliage, and soft tonal volume while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "纸本不透明水彩、透明层染、精细描线与抛光表面",
+        "labelEn": "opaque watercolor on paper, transparent glazing, fine linework, and a burnished finish",
+        "promptZh": "材质与表面呈现为纸本不透明水彩、透明层染、精细描线与抛光表面",
+        "promptEn": "render materials and surfaces as opaque watercolor on paper, transparent glazing, fine linework, and a burnished finish",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "嫩绿、天蓝、淡粉、赭色、白与克制金色",
+        "labelEn": "fresh green, sky blue, pale pink, ochre, white, and restrained gold",
+        "promptZh": "配色限定为嫩绿、天蓝、淡粉、赭色、白与克制金色",
+        "promptEn": "limit the palette to fresh green, sky blue, pale pink, ochre, white, and restrained gold",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "柔和自然光、薄雾综合色与轻微明暗塑形",
+        "labelEn": "soft natural light, atmospheric color, and slight tonal modeling",
+        "promptZh": "光影采用柔和自然光、薄雾综合色与轻微明暗塑形",
+        "promptEn": "use soft natural light, atmospheric color, and slight tonal modeling for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用纤细可读的边栏题签",
+        "labelEn": "only when text is requested, use a slender legible marginal inscription",
+        "promptZh": "仅在用户要求文字时，采用纤细可读的边栏题签，并保持原文可读",
+        "promptEn": "only when text is requested, use a slender legible marginal inscription, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "pattachitra": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "连续叙事分区、密集边框与几乎无空白的满幅组织",
+        "labelEn": "continuous narrative zones, dense borders, and almost no unoccupied ground",
+        "promptZh": "构图采用连续叙事分区、密集边框与几乎无空白的满幅组织",
+        "promptEn": "compose with continuous narrative zones, dense borders, and almost no unoccupied ground",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "粗细一致的深色轮廓、平面形与重复装饰节点",
+        "labelEn": "uniform dark contours, flat forms, and repeated ornamental nodes",
+        "promptZh": "将用户主体转译为粗细一致的深色轮廓、平面形与重复装饰节点，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into uniform dark contours, flat forms, and repeated ornamental nodes while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "布或处理纸面、矿物与植物颜料、精细线绘",
+        "labelEn": "prepared cloth or paper, mineral and vegetal pigment, and precise linework",
+        "promptZh": "材质与表面呈现为布或处理纸面、矿物与植物颜料、精细线绘",
+        "promptEn": "render materials and surfaces as prepared cloth or paper, mineral and vegetal pigment, and precise linework",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "朱红、黄、绿、黑、白与矿物蓝",
+        "labelEn": "vermilion, yellow, green, black, white, and mineral blue",
+        "promptZh": "配色限定为朱红、黄、绿、黑、白与矿物蓝",
+        "promptEn": "limit the palette to vermilion, yellow, green, black, white, and mineral blue",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀平面光，以色块对比区分层级",
+        "labelEn": "even flat illumination with hierarchy separated by color contrast",
+        "promptZh": "光影采用均匀平面光，以色块对比区分层级",
+        "promptEn": "use even flat illumination with hierarchy separated by color contrast for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与边饰结构一致的可读文字",
+        "labelEn": "only when text is requested, use clear legible lettering confined to a border zone",
+        "promptZh": "仅在用户要求文字时，采用与边饰结构一致的可读文字，并保持原文可读",
+        "promptEn": "only when text is requested, use clear legible lettering confined to a border zone, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "warli-painting": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "中心环舞或叙事场景、基线串联与均匀留底",
+        "labelEn": "a centered circular rhythm or baseline-linked sequence with evenly preserved ground",
+        "promptZh": "构图采用中心环舞或叙事场景、基线串联与均匀留底",
+        "promptEn": "compose with a centered circular rhythm or baseline-linked sequence with evenly preserved ground",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "圆、三角与短线组成的白色几何形",
+        "labelEn": "white geometric forms assembled from circles, triangles, and short lines",
+        "promptZh": "将用户主体转译为圆、三角与短线组成的白色几何形，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into white geometric forms assembled from circles, triangles, and short lines while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "泥墙颗粒、稻米浆白色笔痕与手绘不均",
+        "labelEn": "granular mud plaster, white rice-paste marks, and visibly uneven hand painting",
+        "promptZh": "材质与表面呈现为泥墙颗粒、稻米浆白色笔痕与手绘不均",
+        "promptEn": "render materials and surfaces as granular mud plaster, white rice-paste marks, and visibly uneven hand painting",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "稻米白与红褐泥墙的双色对比",
+        "labelEn": "two-tone contrast between rice-paste white and red-brown earthen ground",
+        "promptZh": "配色限定为稻米白与红褐泥墙的双色对比",
+        "promptEn": "limit the palette to two-tone contrast between rice-paste white and red-brown earthen ground",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "完全平面化，不使用体积投影",
+        "labelEn": "fully flat illumination without volumetric cast shadows",
+        "promptZh": "光影采用完全平面化，不使用体积投影",
+        "promptEn": "use fully flat illumination without volumetric cast shadows for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与边饰结构一致的可读文字",
+        "labelEn": "only when text is requested, use neutral modern labels outside the painted sequence",
+        "promptZh": "仅在用户要求文字时，采用与边饰结构一致的可读文字，并保持原文可读",
+        "promptEn": "only when text is requested, use neutral modern labels outside the painted sequence, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "orphism": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "同心圆弧、交叠色盘与旋转节奏",
+        "labelEn": "concentric arcs, overlapping color discs, and rotational rhythm",
+        "promptZh": "构图采用同心圆弧、交叠色盘与旋转节奏",
+        "promptEn": "compose with concentric arcs, overlapping color discs, and rotational rhythm",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "分割圆形、棱面与透明综合色片",
+        "labelEn": "segmented circles, faceted planes, and transparent interlocking color shapes",
+        "promptZh": "将用户主体转译为分割圆形、棱面与透明综合色片，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into segmented circles, faceted planes, and transparent interlocking color shapes while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "高纯度互补色与光谱式渐变",
+        "labelEn": "high-purity complementary color and spectrum-like transitions",
+        "promptZh": "配色限定为高纯度互补色与光谱式渐变",
+        "promptEn": "limit the palette to high-purity complementary color and spectrum-like transitions",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "色彩自身明度制造发光与运动",
+        "labelEn": "color value itself producing luminosity and motion",
+        "promptZh": "光影采用色彩自身明度制造发光与运动",
+        "promptEn": "use color value itself producing luminosity and motion for lighting and tonal rendering",
         "weight": 0.78,
         "level": "支撑"
       },
@@ -8882,100 +15218,7852 @@ const STYLE_PROMPT_DATA = Object.freeze({
         "kind": "adjustable",
         "dimension": "materialTexture",
         "dimensionZh": "材质与纹理",
-        "labelZh": "染色皮革、细线连接与轻微手工磨损",
-        "labelEn": "dyed leather, fine connections, and subtle handmade wear",
-        "promptZh": "材质与表面呈现为染色皮革、细线连接与轻微手工磨损",
-        "promptEn": "render materials and surfaces as dyed leather, fine connections, and subtle handmade wear",
+        "labelZh": "平面油彩、综合色叠层与清楚几何边缘",
+        "labelEn": "flat oil color, transparent layering, and crisp geometric edges",
+        "promptZh": "材质与表面呈现为平面油彩、综合色叠层与清楚几何边缘",
+        "promptEn": "render materials and surfaces as flat oil color, transparent layering, and crisp geometric edges",
         "weight": 0.7,
-        "level": "可调整"
+        "level": "支撑"
       },
       {
         "id": "gene-6",
         "kind": "adjustable",
         "dimension": "typographyLayout",
         "dimensionZh": "字体与版式",
-        "labelZh": "按需使用清晰平面戏牌式字形",
-        "labelEn": "clear flat playbill-style lettering only when requested",
-        "promptZh": "仅在用户要求文字时采用清晰平面戏牌式字形并保持原文可读",
-        "promptEn": "only when text is requested, use clear flat playbill-style lettering and preserve the exact readable wording",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use restrained geometric display typography",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained geometric display typography, and preserve the exact readable wording",
         "weight": 0.62,
-        "level": "可调整"
+        "level": "支撑"
       }
     ]
   },
-  "blue-white-porcelain": {
+  "barbizon-school": {
     "genes": [
       {
         "id": "gene-1",
         "kind": "core",
         "dimension": "compositionSpace",
         "dimensionZh": "构图与空间",
-        "labelZh": "大面积瓷白负空间与清晰双色层级",
-        "labelEn": "broad porcelain-white negative space with a clear two-color hierarchy",
-        "promptZh": "构图采用大面积瓷白负空间与清晰双色层级",
-        "promptEn": "compose with broad porcelain-white negative space with a clear two-color hierarchy",
+        "labelZh": "低地平线、林地近景与自然观察式平衡",
+        "labelEn": "a low horizon, near-field wooded masses, and balanced direct observation",
+        "promptZh": "构图采用低地平线、林地近景与自然观察式平衡",
+        "promptEn": "compose with a low horizon, near-field wooded masses, and balanced direct observation",
         "weight": 1,
-        "level": "核心"
+        "level": "强特征"
       },
       {
         "id": "gene-2",
         "kind": "core",
-        "dimension": "mediumTechnique",
-        "dimensionZh": "媒介与技法",
-        "labelZh": "钴蓝线描、浓淡分水与轻微柔边",
-        "labelEn": "cobalt linework, graded washes, and subtly softened edges",
-        "promptZh": "成像与笔触采用钴蓝线描、浓淡分水与轻微柔边",
-        "promptEn": "render marks and edges with cobalt linework, graded washes, and subtly softened edges",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "松动自然轮廓、综合色块与直接地貌结构",
+        "labelEn": "loose natural contours, broad tonal masses, and plainly described terrain structure",
+        "promptZh": "将用户主体转译为松动自然轮廓、综合色块与直接地貌结构，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into loose natural contours, broad tonal masses, and plainly described terrain structure while preserving identity and defining structure",
         "weight": 0.93,
-        "level": "核心"
+        "level": "强特征"
       },
       {
         "id": "gene-3",
         "kind": "core",
         "dimension": "colorTone",
         "dimensionZh": "色彩与调性",
-        "labelZh": "瓷白与不同浓度钴蓝的限定配色",
-        "labelEn": "a limited palette of porcelain white and varied cobalt blue",
-        "promptZh": "配色限定为瓷白与不同浓度钴蓝的限定配色",
-        "promptEn": "limit the palette to a limited palette of porcelain white and varied cobalt blue",
-        "weight": 0.86,
-        "level": "核心"
-      },
-      {
-        "id": "gene-4",
-        "kind": "core",
-        "dimension": "materialTexture",
-        "dimensionZh": "材质与纹理",
-        "labelZh": "釉下钴料、白瓷胎与细小烧制差异",
-        "labelEn": "underglaze cobalt, white porcelain body, and subtle firing variation",
-        "promptZh": "材质与表面呈现为釉下钴料、白瓷胎与细小烧制差异",
-        "promptEn": "render materials and surfaces as underglaze cobalt, white porcelain body, and subtle firing variation",
+        "labelZh": "土褐、橄榄绿、灰蓝与低饱和综合色",
+        "labelEn": "earth brown, olive green, gray-blue, and low-saturation natural color",
+        "promptZh": "配色限定为土褐、橄榄绿、灰蓝与低饱和综合色",
+        "promptEn": "limit the palette to earth brown, olive green, gray-blue, and low-saturation natural color",
         "weight": 0.86,
         "level": "强特征"
       },
       {
-        "id": "gene-5",
+        "id": "gene-4",
         "kind": "adjustable",
         "dimension": "lightingImaging",
         "dimensionZh": "光线与成像",
-        "labelZh": "柔和漫射光与小面积釉面高光",
-        "labelEn": "soft diffuse light with small controlled glaze highlights",
-        "promptZh": "光影采用柔和漫射光与小面积釉面高光",
-        "promptEn": "use soft diffuse light with small controlled glaze highlights for lighting and tonal rendering",
+        "labelZh": "阴天或黄昏的自然综合色光",
+        "labelEn": "overcast or twilight natural illumination",
+        "promptZh": "光影采用阴天或黄昏的自然综合色光",
+        "promptEn": "use overcast or twilight natural illumination for lighting and tonal rendering",
         "weight": 0.78,
-        "level": "可调整"
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "可见油画笔触、薄厚交替与画布颗粒",
+        "labelEn": "visible oil brushwork, alternating thin and thick paint, and canvas grain",
+        "promptZh": "材质与表面呈现为可见油画笔触、薄厚交替与画布颗粒",
+        "promptEn": "render materials and surfaces as visible oil brushwork, alternating thin and thick paint, and canvas grain",
+        "weight": 0.7,
+        "level": "支撑"
       },
       {
         "id": "gene-6",
         "kind": "adjustable",
         "dimension": "typographyLayout",
         "dimensionZh": "字体与版式",
-        "labelZh": "按需使用清晰钴蓝书写或印章式字形",
-        "labelEn": "clear cobalt writing or seal-like type only when requested",
-        "promptZh": "仅在用户要求文字时采用清晰钴蓝书写或印章式字形并保持原文可读",
-        "promptEn": "only when text is requested, use clear cobalt writing or seal-like type and preserve the exact readable wording",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use restrained period-compatible titling",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained period-compatible titling, and preserve the exact readable wording",
         "weight": 0.62,
-        "level": "可调整"
+        "level": "支撑"
+      }
+    ]
+  },
+  "art-informel": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "无中心满幅、即兴扩散与不稳定密度",
+        "labelEn": "decentered all-over organization, improvised spread, and unstable density",
+        "promptZh": "构图采用无中心满幅、即兴扩散与不稳定密度",
+        "promptEn": "compose with decentered all-over organization, improvised spread, and unstable density",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "不规则斑块、手势线与未封闭形",
+        "labelEn": "irregular patches, gestural lines, and deliberately unclosed forms",
+        "promptZh": "将用户主体转译为不规则斑块、手势线与未封闭形，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into irregular patches, gestural lines, and deliberately unclosed forms while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "土色、黑白与局部高纯度综合色",
+        "labelEn": "earth color, black-white contrast, and local saturated accents",
+        "promptZh": "配色限定为土色、黑白与局部高纯度综合色",
+        "promptEn": "limit the palette to earth color, black-white contrast, and local saturated accents",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "平面画面光，以颜料厚薄产生阴影",
+        "labelEn": "flat pictorial illumination with real shadows produced only by paint thickness",
+        "promptZh": "光影采用平面画面光，以颜料厚薄产生阴影",
+        "promptEn": "use flat pictorial illumination with real shadows produced only by paint thickness for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "厚涂、刮擦、滴洒与砂质粗糙表面",
+        "labelEn": "impasto, scraping, dripping, and coarse sand-like surfaces",
+        "promptZh": "材质与表面呈现为厚涂、刮擦、滴洒与砂质粗糙表面",
+        "promptEn": "render materials and surfaces as impasto, scraping, dripping, and coarse sand-like surfaces",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, keep typography minimal and separate from the gestural field",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, keep typography minimal and separate from the gestural field, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "purism": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "稳定正交网格、重叠轮廓与清楚比例秩序",
+        "labelEn": "stable orthogonal order, overlapping contours, and clearly regulated proportion",
+        "promptZh": "构图采用稳定正交网格、重叠轮廓与清楚比例秩序",
+        "promptEn": "compose with stable orthogonal order, overlapping contours, and clearly regulated proportion",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "净化几何体、精确曲线与机械对象式轮廓",
+        "labelEn": "purified geometric volumes, precise curves, and machine-object-like outlines",
+        "promptZh": "将用户主体转译为净化几何体、精确曲线与机械对象式轮廓，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into purified geometric volumes, precise curves, and machine-object-like outlines while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "白、灰、赭、蓝与低饱和综合色",
+        "labelEn": "white, gray, ochre, blue, and muted mixed color",
+        "promptZh": "配色限定为白、灰、赭、蓝与低饱和综合色",
+        "promptEn": "limit the palette to white, gray, ochre, blue, and muted mixed color",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀冷静光与简化体积阴影",
+        "labelEn": "even cool illumination with simplified volumetric shadow",
+        "promptZh": "光影采用均匀冷静光与简化体积阴影",
+        "promptEn": "use even cool illumination with simplified volumetric shadow for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "平滑薄油层、清楚硬边与少见笔触",
+        "labelEn": "thin smooth oil layers, crisp hard edges, and little visible brushwork",
+        "promptZh": "材质与表面呈现为平滑薄油层、清楚硬边与少见笔触",
+        "promptEn": "render materials and surfaces as thin smooth oil layers, crisp hard edges, and little visible brushwork",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use restrained geometric modernist typography",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained geometric modernist typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "pointillism": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "稳定整体轮廓与均匀点触覆盖",
+        "labelEn": "stable overall contours covered by evenly distributed dot marks",
+        "promptZh": "构图采用稳定整体轮廓与均匀点触覆盖",
+        "promptEn": "compose with stable overall contours covered by evenly distributed dot marks",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "规则小圆点在观看距离中合成清楚体积",
+        "labelEn": "small regular dots optically merging into clearly readable volume at viewing distance",
+        "promptZh": "将用户主体转译为规则小圆点在观看距离中合成清楚体积，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into small regular dots optically merging into clearly readable volume at viewing distance while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "高纯度互补色点与光学综合色",
+        "labelEn": "high-purity complementary dots and optical color mixture",
+        "promptZh": "配色限定为高纯度互补色点与光学综合色",
+        "promptEn": "limit the palette to high-purity complementary dots and optical color mixture",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "以点色明度而非连续灰阶表现日光",
+        "labelEn": "daylight modeled through dot values rather than continuous tonal blending",
+        "promptZh": "光影采用以点色明度而非连续灰阶表现日光",
+        "promptEn": "use daylight modeled through dot values rather than continuous tonal blending for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "细小规则油彩点、干燥表面与可见画布",
+        "labelEn": "small regular oil dots, a dry surface, and visible canvas",
+        "promptZh": "材质与表面呈现为细小规则油彩点、干燥表面与可见画布",
+        "promptEn": "render materials and surfaces as small regular oil dots, a dry surface, and visible canvas",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use restrained period titling outside the dotted field",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained period titling outside the dotted field, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "orientalist-painting": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "舞台式深景、密集细节与强烈异域化陈设",
+        "labelEn": "stage-like depth, dense decorative detail, and deliberately exoticized display",
+        "promptZh": "构图采用舞台式深景、密集细节与强烈异域化陈设",
+        "promptEn": "compose with stage-like depth, dense decorative detail, and deliberately exoticized display",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "学院写实体积、精确装饰纹样与戏剧姿态",
+        "labelEn": "academic tonal volume, precise ornament, and dramatized posing",
+        "promptZh": "将用户主体转译为学院写实体积、精确装饰纹样与戏剧姿态，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into academic tonal volume, precise ornament, and dramatized posing while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "宝石色、土金色、深红蓝与暖光综合色",
+        "labelEn": "jewel tones, earthy gold, deep red-blue, and warm mixed color",
+        "promptZh": "配色限定为宝石色、土金色、深红蓝与暖光综合色",
+        "promptEn": "limit the palette to jewel tones, earthy gold, deep red-blue, and warm mixed color",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "强烈日照或室内侧光形成综合色反差",
+        "labelEn": "strong sunlight or directional interior light producing chromatic contrast",
+        "promptZh": "光影采用强烈日照或室内侧光形成综合色反差",
+        "promptEn": "use strong sunlight or directional interior light producing chromatic contrast for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "平滑油层、细密织物与金属陶面描绘",
+        "labelEn": "smooth oil layers with minute textile, metal, and ceramic surface description",
+        "promptZh": "材质与表面呈现为平滑油层、细密织物与金属陶面描绘",
+        "promptEn": "render materials and surfaces as smooth oil layers with minute textile, metal, and ceramic surface description",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use accurate legible period titling without fabricated scripts",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use accurate legible period titling without fabricated scripts, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "kinetic-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "悬置序列、观看路径与真实运动形成的时间结构",
+        "labelEn": "suspended sequences, viewing paths, and real movement forming a temporal structure",
+        "promptZh": "构图采用悬置序列、观看路径与真实运动形成的时间结构",
+        "promptEn": "compose with suspended sequences, viewing paths, and real movement forming a temporal structure",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "可动杆件、重复几何片与平衡连接",
+        "labelEn": "movable rods, repeated geometric plates, and balanced connections",
+        "promptZh": "将用户主体转译为可动杆件、重复几何片与平衡连接，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into movable rods, repeated geometric plates, and balanced connections while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "材料本色、黑白与有限高纯度色",
+        "labelEn": "exposed material color, black-white contrast, and restricted saturated accents",
+        "promptZh": "配色限定为材料本色、黑白与有限高纯度色",
+        "promptEn": "limit the palette to exposed material color, black-white contrast, and restricted saturated accents",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "移动阴影、反射和环境光随运动变化",
+        "labelEn": "moving shadows and reflections changing with ambient light",
+        "promptZh": "光影采用移动阴影、反射和环境光随运动变化",
+        "promptEn": "use moving shadows and reflections changing with ambient light for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "金属、塑料、线材、电机与可见连接",
+        "labelEn": "metal, plastic, wire, motors, and visibly articulated joints",
+        "promptZh": "材质与表面呈现为金属、塑料、线材、电机与可见连接",
+        "promptEn": "render materials and surfaces as metal, plastic, wire, motors, and visibly articulated joints",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use minimal technical typography outside the moving structure",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use minimal technical typography outside the moving structure, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "secessionism": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "非对称或轴线式装饰框架、图文整合与清楚平面分区",
+        "labelEn": "decorative framing that may be asymmetric or axial, integrated image and type, and clear flat zoning",
+        "promptZh": "构图采用非对称或轴线式装饰框架、图文整合与清楚平面分区",
+        "promptEn": "compose with decorative framing that may be asymmetric or axial, integrated image and type, and clear flat zoning",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "自然曲线与几何简化并存，轮廓平整且装饰节点受控",
+        "labelEn": "natural curves combined with geometric reduction, flat contours, and controlled ornamental nodes",
+        "promptZh": "将用户主体转译为自然曲线与几何简化并存，轮廓平整且装饰节点受控，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into natural curves combined with geometric reduction, flat contours, and controlled ornamental nodes while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "低至中饱和综合色、黑白、金与少量深色强调",
+        "labelEn": "low-to-medium saturation, black and white, gold, and restrained dark accents",
+        "promptZh": "配色限定为低至中饱和综合色、黑白、金与少量深色强调",
+        "promptEn": "limit the palette to low-to-medium saturation, black and white, gold, and restrained dark accents",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "平面综合色光，不使用写实电影式投影",
+        "labelEn": "flat pictorial illumination without realistic cinematic cast shadows",
+        "promptZh": "光影采用平面综合色光，不使用写实电影式投影",
+        "promptEn": "use flat pictorial illumination without realistic cinematic cast shadows for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "平涂印刷、壁面综合色、金属或综合工艺的清楚边缘",
+        "labelEn": "flat print, painted surface, metalwork, or mixed craft with clearly controlled edges",
+        "promptZh": "材质与表面呈现为平涂印刷、壁面综合色、金属或综合工艺的清楚边缘",
+        "promptEn": "render materials and surfaces as flat print, painted surface, metalwork, or mixed craft with clearly controlled edges",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用与具体分支年代相符的可读展示字体",
+        "labelEn": "only when text is requested, use legible display lettering appropriate to the named Secession branch",
+        "promptZh": "仅在用户要求文字时，采用与具体分支年代相符的可读展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use legible display lettering appropriate to the named Secession branch, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "divisionism": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "象征或社会场景的稳定结构与方向性分色笔触",
+        "labelEn": "stable symbolic or social structure articulated by directional separated-color strokes",
+        "promptZh": "构图采用象征或社会场景的稳定结构与方向性分色笔触",
+        "promptEn": "compose with stable symbolic or social structure articulated by directional separated-color strokes",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "由短线或点划组成的轮廓和体积",
+        "labelEn": "contours and volume assembled from short lines, dashes, or dots",
+        "promptZh": "将用户主体转译为由短线或点划组成的轮廓和体积，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into contours and volume assembled from short lines, dashes, or dots while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "分离的高纯度综合色与互补色",
+        "labelEn": "separated high-purity colors and complementary relationships",
+        "promptZh": "配色限定为分离的高纯度综合色与互补色",
+        "promptEn": "limit the palette to separated high-purity colors and complementary relationships",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "以方向性分色笔触建立发光感",
+        "labelEn": "luminosity built through directional divided-color marks",
+        "promptZh": "光影采用以方向性分色笔触建立发光感",
+        "promptEn": "use luminosity built through directional divided-color marks for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "细短油彩线点、画布纹理与综合色振动",
+        "labelEn": "short oil dashes and dots, canvas texture, and chromatic vibration",
+        "promptZh": "材质与表面呈现为细短油彩线点、画布纹理与综合色振动",
+        "promptEn": "render materials and surfaces as short oil dashes and dots, canvas texture, and chromatic vibration",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use restrained period titling outside the divided-color surface",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained period titling outside the divided-color surface, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "flemish-baroque": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "旋转群组、强对角线与饱满画面边缘",
+        "labelEn": "rotating groups, forceful diagonals, and forms pressing toward the pictorial edges",
+        "promptZh": "构图采用旋转群组、强对角线与饱满画面边缘",
+        "promptEn": "compose with rotating groups, forceful diagonals, and forms pressing toward the pictorial edges",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "丰厚体积、连续曲线与强烈动作联结",
+        "labelEn": "full-bodied volume, continuous curves, and strongly linked action",
+        "promptZh": "将用户主体转译为丰厚体积、连续曲线与强烈动作联结，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into full-bodied volume, continuous curves, and strongly linked action while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "深红、金、综合色肉色、深绿与黑",
+        "labelEn": "deep red, gold, nuanced flesh color, deep green, and black",
+        "promptZh": "配色限定为深红、金、综合色肉色、深绿与黑",
+        "promptEn": "limit the palette to deep red, gold, nuanced flesh color, deep green, and black",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "温暖聚光、深暗背景与明亮反射",
+        "labelEn": "warm concentrated light, deep grounds, and bright reflections",
+        "promptZh": "光影采用温暖聚光、深暗背景与明亮反射",
+        "promptEn": "use warm concentrated light, deep grounds, and bright reflections for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "多层油画罩染、厚亮笔触与丝绒金属质感",
+        "labelEn": "layered oil glazes, thick luminous accents, and richly differentiated velvet-metal surfaces",
+        "promptZh": "材质与表面呈现为多层油画罩染、厚亮笔触与丝绒金属质感",
+        "promptEn": "render materials and surfaces as layered oil glazes, thick luminous accents, and richly differentiated velvet-metal surfaces",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use formal restrained Baroque titling",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use formal restrained Baroque titling, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "rayonism": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "多方向光束交叉、中心爆发与棱面碎裂",
+        "labelEn": "crossing multidirectional rays, central bursts, and fragmented facets",
+        "promptZh": "构图采用多方向光束交叉、中心爆发与棱面碎裂",
+        "promptEn": "compose with crossing multidirectional rays, central bursts, and fragmented facets",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "锐利射线、细长三角与交错直线",
+        "labelEn": "sharp rays, elongated triangles, and intersecting straight lines",
+        "promptZh": "将用户主体转译为锐利射线、细长三角与交错直线，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into sharp rays, elongated triangles, and intersecting straight lines while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "高纯度红蓝黄绿与综合色交叠",
+        "labelEn": "high-purity red, blue, yellow, and green with transparent color overlap",
+        "promptZh": "配色限定为高纯度红蓝黄绿与综合色交叠",
+        "promptEn": "limit the palette to high-purity red, blue, yellow, and green with transparent color overlap",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "光束本身成为结构并切割形体",
+        "labelEn": "light rays acting as structure and cutting through volume",
+        "promptZh": "光影采用光束本身成为结构并切割形体",
+        "promptEn": "use light rays acting as structure and cutting through volume for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "油彩硬边、短线笔触与透明综合色叠压",
+        "labelEn": "hard-edged oil marks, short linear strokes, and transparent color layering",
+        "promptZh": "材质与表面呈现为油彩硬边、短线笔触与透明综合色叠压",
+        "promptEn": "render materials and surfaces as hard-edged oil marks, short linear strokes, and transparent color layering",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use restrained angular avant-garde typography",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained angular avant-garde typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "glasgow-style": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "高挑矩形框架、严格竖向节奏、轴线平衡与局部偏心",
+        "labelEn": "tall rectangular frames, strict vertical rhythm, axial balance, and controlled off-center accents",
+        "promptZh": "构图采用高挑矩形框架、严格竖向节奏、轴线平衡与局部偏心",
+        "promptEn": "compose with tall rectangular frames, strict vertical rhythm, axial balance, and controlled off-center accents",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "细长直线、方格、抽象玫瑰与极少柔曲线的对照",
+        "labelEn": "slender straight lines, squares, abstract roses, and a few contrasting soft curves",
+        "promptZh": "将用户主体转译为细长直线、方格、抽象玫瑰与极少柔曲线的对照，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into slender straight lines, squares, abstract roses, and a few contrasting soft curves while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "黑白、银灰、浅紫、综合色绿与克制粉色",
+        "labelEn": "black and white, silver gray, pale violet, muted green, and restrained pink",
+        "promptZh": "配色限定为黑白、银灰、浅紫、综合色绿与克制粉色",
+        "promptEn": "limit the palette to black and white, silver gray, pale violet, muted green, and restrained pink",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀平面光，强调线框和色面边界",
+        "labelEn": "even flat illumination emphasizing linear frames and color boundaries",
+        "promptZh": "光影采用均匀平面光，强调线框和色面边界",
+        "promptEn": "use even flat illumination emphasizing linear frames and color boundaries for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "平涂纸面、铅条玻璃、细木作与金属线性节点",
+        "labelEn": "flat paper color, leaded glass, fine joinery, and linear metal details",
+        "promptZh": "材质与表面呈现为平涂纸面、铅条玻璃、细木作与金属线性节点",
+        "promptEn": "render materials and surfaces as flat paper color, leaded glass, fine joinery, and linear metal details",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用纤长几何且保持可读的展示字体",
+        "labelEn": "only when text is requested, use slender geometric display lettering while preserving readability",
+        "promptZh": "仅在用户要求文字时，采用纤长几何且保持可读的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use slender geometric display lettering while preserving readability, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "hudson-river-school": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "宽阔全景、层层大气远景与稳定地平线",
+        "labelEn": "broad panoramic depth, layered atmospheric distance, and a stable horizon",
+        "promptZh": "构图采用宽阔全景、层层大气远景与稳定地平线",
+        "promptEn": "compose with broad panoramic depth, layered atmospheric distance, and a stable horizon",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "精确地貌轮廓、微小细节与宏大尺度关系",
+        "labelEn": "precisely described terrain contours, minute detail, and monumental scale relationships",
+        "promptZh": "将用户主体转译为精确地貌轮廓、微小细节与宏大尺度关系，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into precisely described terrain contours, minute detail, and monumental scale relationships while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "综合色绿褐、天空蓝与日落金",
+        "labelEn": "muted green-brown, sky blue, and sunset gold",
+        "promptZh": "配色限定为综合色绿褐、天空蓝与日落金",
+        "promptEn": "limit the palette to muted green-brown, sky blue, and sunset gold",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "清澈空气光、远景雾化与集中日光",
+        "labelEn": "clear atmospheric light, softened distance, and concentrated sunlight",
+        "promptZh": "光影采用清澈空气光、远景雾化与集中日光",
+        "promptEn": "use clear atmospheric light, softened distance, and concentrated sunlight for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "细腻油画罩染、平滑表面与少量细笔纹理",
+        "labelEn": "fine oil glazing, a smooth surface, and sparse minute brush texture",
+        "promptZh": "材质与表面呈现为细腻油画罩染、平滑表面与少量细笔纹理",
+        "promptEn": "render materials and surfaces as fine oil glazing, a smooth surface, and sparse minute brush texture",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use restrained nineteenth-century titling",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained nineteenth-century titling, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "dutch-golden-age-painting": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "稳定室内或风景空间、精密日常焦点与清楚尺度",
+        "labelEn": "stable interior or open space, precise everyday foci, and clearly legible scale",
+        "promptZh": "构图采用稳定室内或风景空间、精密日常焦点与清楚尺度",
+        "promptEn": "compose with stable interior or open space, precise everyday foci, and clearly legible scale",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "具体轮廓、细腻材质差异与克制动作",
+        "labelEn": "specific contours, fine material differentiation, and restrained action",
+        "promptZh": "将用户主体转译为具体轮廓、细腻材质差异与克制动作，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into specific contours, fine material differentiation, and restrained action while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "土褐、灰蓝、综合色黑白与局部高纯度色",
+        "labelEn": "earth brown, gray-blue, nuanced black-white, and local saturated accents",
+        "promptZh": "配色限定为土褐、灰蓝、综合色黑白与局部高纯度色",
+        "promptEn": "limit the palette to earth brown, gray-blue, nuanced black-white, and local saturated accents",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "窗侧自然光、柔和暗部与可追踪反射",
+        "labelEn": "natural window light, soft shadows, and traceable reflections",
+        "promptZh": "光影采用窗侧自然光、柔和暗部与可追踪反射",
+        "promptEn": "use natural window light, soft shadows, and traceable reflections for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "细腻油画罩染、木板或画布和精确表面描绘",
+        "labelEn": "fine oil glazing on panel or canvas with precise surface description",
+        "promptZh": "材质与表面呈现为细腻油画罩染、木板或画布和精确表面描绘",
+        "promptEn": "render materials and surfaces as fine oil glazing on panel or canvas with precise surface description",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use restrained period-compatible titling",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained period-compatible titling, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "precisionism": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "工业垂直水平轴、近距裁切与寂静留空",
+        "labelEn": "industrial vertical-horizontal axes, close cropping, and silent negative space",
+        "promptZh": "构图采用工业垂直水平轴、近距裁切与寂静留空",
+        "promptEn": "compose with industrial vertical-horizontal axes, close cropping, and silent negative space",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "锐利轮廓、圆筒与直角机械体积",
+        "labelEn": "sharp contours, cylinders, and rectilinear machine-like volumes",
+        "promptZh": "将用户主体转译为锐利轮廓、圆筒与直角机械体积，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into sharp contours, cylinders, and rectilinear machine-like volumes while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "冷灰、砖红、米白与克制蓝",
+        "labelEn": "cool gray, brick red, cream, and restrained blue",
+        "promptZh": "配色限定为冷灰、砖红、米白与克制蓝",
+        "promptEn": "limit the palette to cool gray, brick red, cream, and restrained blue",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "清澈硬光与精确投影",
+        "labelEn": "clear hard light with precisely cast shadows",
+        "promptZh": "光影采用清澈硬光与精确投影",
+        "promptEn": "use clear hard light with precisely cast shadows for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "平滑油层、喷绘般渐变与无痕表面",
+        "labelEn": "smooth oil layers, airbrush-like gradation, and a nearly markless surface",
+        "promptZh": "材质与表面呈现为平滑油层、喷绘般渐变与无痕表面",
+        "promptEn": "render materials and surfaces as smooth oil layers, airbrush-like gradation, and a nearly markless surface",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use clear restrained machine-age typography",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use clear restrained machine-age typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "spatialism": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "单色场、单一切口或穿孔与大面积负空间",
+        "labelEn": "a monochrome field, one incision or perforation, and extensive negative space",
+        "promptZh": "构图采用单色场、单一切口或穿孔与大面积负空间",
+        "promptEn": "compose with a monochrome field, one incision or perforation, and extensive negative space",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "锋利切缝、圆孔与真实画布开口",
+        "labelEn": "sharp slits, round holes, and real openings through the support",
+        "promptZh": "将用户主体转译为锋利切缝、圆孔与真实画布开口，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into sharp slits, round holes, and real openings through the support while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "白、红、蓝、黑或金属单色",
+        "labelEn": "white, red, blue, black, or metallic monochrome",
+        "promptZh": "配色限定为白、红、蓝、黑或金属单色",
+        "promptEn": "limit the palette to white, red, blue, black, or metallic monochrome",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "真实环境光在切口内产生阴影",
+        "labelEn": "ambient light producing real shadow within the opening",
+        "promptZh": "光影采用真实环境光在切口内产生阴影",
+        "promptEn": "use ambient light producing real shadow within the opening for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "被切割或穿孔的画布、单色涂层与裸露边缘",
+        "labelEn": "cut or perforated canvas, monochrome coating, and exposed edges",
+        "promptZh": "材质与表面呈现为被切割或穿孔的画布、单色涂层与裸露边缘",
+        "promptEn": "render materials and surfaces as cut or perforated canvas, monochrome coating, and exposed edges",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, keep typography minimal and physically separate from the opening",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, keep typography minimal and physically separate from the opening, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "der-blaue-reiter": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "斜向节奏、色块交错与趋向抽象的开放空间",
+        "labelEn": "diagonal rhythm, interlocking color masses, and open space tending toward abstraction",
+        "promptZh": "构图采用斜向节奏、色块交错与趋向抽象的开放空间",
+        "promptEn": "compose with diagonal rhythm, interlocking color masses, and open space tending toward abstraction",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "简化轮廓、弧线动势与分解体积",
+        "labelEn": "simplified contours, arcing movement, and decomposed volume",
+        "promptZh": "将用户主体转译为简化轮廓、弧线动势与分解体积，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into simplified contours, arcing movement, and decomposed volume while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "高纯度蓝黄红绿与主观综合色",
+        "labelEn": "high-purity blue, yellow, red, and green in subjective relationships",
+        "promptZh": "配色限定为高纯度蓝黄红绿与主观综合色",
+        "promptEn": "limit the palette to high-purity blue, yellow, red, and green in subjective relationships",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "综合色明度而非自然光塑形",
+        "labelEn": "color value rather than natural light modeling the image",
+        "promptZh": "光影采用综合色明度而非自然光塑形",
+        "promptEn": "use color value rather than natural light modeling the image for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "可见油画笔触、透明与不透明色层并置",
+        "labelEn": "visible oil brushwork with transparent and opaque layers combined",
+        "promptZh": "材质与表面呈现为可见油画笔触、透明与不透明色层并置",
+        "promptEn": "render materials and surfaces as visible oil brushwork with transparent and opaque layers combined",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use restrained expressive avant-garde typography",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained expressive avant-garde typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "zero-group": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "重复序列、单色场、光学振动与开放空间",
+        "labelEn": "repeated sequences, monochrome fields, optical vibration, and open space",
+        "promptZh": "构图采用重复序列、单色场、光学振动与开放空间",
+        "promptEn": "compose with repeated sequences, monochrome fields, optical vibration, and open space",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "规则点阵、浮起模块与反光小单元",
+        "labelEn": "regular dot arrays, raised modules, and small reflective units",
+        "promptZh": "将用户主体转译为规则点阵、浮起模块与反光小单元，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into regular dot arrays, raised modules, and small reflective units while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "白、银、黑与极少纯色",
+        "labelEn": "white, silver, black, and almost no saturated color",
+        "promptZh": "配色限定为白、银、黑与极少纯色",
+        "promptEn": "limit the palette to white, silver, black, and almost no saturated color",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "定向光、反射和真实阴影参与构图",
+        "labelEn": "directional light, reflection, and real shadow participating in the composition",
+        "promptZh": "光影采用定向光、反射和真实阴影参与构图",
+        "promptEn": "use directional light, reflection, and real shadow participating in the composition for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "铝、镜面、单色涂层与工业网面",
+        "labelEn": "aluminum, mirror, monochrome coating, and industrial mesh",
+        "promptZh": "材质与表面呈现为铝、镜面、单色涂层与工业网面",
+        "promptEn": "render materials and surfaces as aluminum, mirror, monochrome coating, and industrial mesh",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use minimal neutral typography",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use minimal neutral typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "magic-realism-painting": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "稳定日常空间、异常静止与清楚物体间隔",
+        "labelEn": "stable everyday space, uncanny stillness, and clearly separated forms",
+        "promptZh": "构图采用稳定日常空间、异常静止与清楚物体间隔",
+        "promptEn": "compose with stable everyday space, uncanny stillness, and clearly separated forms",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "精确轮廓、略带陌生化的坚实体积",
+        "labelEn": "precise contours and solid volume made subtly unfamiliar",
+        "promptZh": "将用户主体转译为精确轮廓、略带陌生化的坚实体积，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into precise contours and solid volume made subtly unfamiliar while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "低饱和自然色配冷暖不协调节点",
+        "labelEn": "low-saturation natural color with discordant warm-cool accents",
+        "promptZh": "配色限定为低饱和自然色配冷暖不协调节点",
+        "promptEn": "limit the palette to low-saturation natural color with discordant warm-cool accents",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "清晰均匀且略显不自然的定向光",
+        "labelEn": "clear even but slightly unnatural directional light",
+        "promptZh": "光影采用清晰均匀且略显不自然的定向光",
+        "promptEn": "use clear even but slightly unnatural directional light for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "平滑油层、细密表面与压低笔触",
+        "labelEn": "smooth oil layers, finely resolved surfaces, and suppressed brushwork",
+        "promptZh": "材质与表面呈现为平滑油层、细密表面与压低笔触",
+        "promptEn": "render materials and surfaces as smooth oil layers, finely resolved surfaces, and suppressed brushwork",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use restrained period-compatible titling",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained period-compatible titling, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "nazarene-movement": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "清楚叙事中心、稳定群组与浅层古典空间",
+        "labelEn": "a clear narrative center, stable grouping, and shallow classical space",
+        "promptZh": "构图采用清楚叙事中心、稳定群组与浅层古典空间",
+        "promptEn": "compose with a clear narrative center, stable grouping, and shallow classical space",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "清晰轮廓、克制理想比例与简洁衣褶",
+        "labelEn": "clean contours, restrained ideal proportion, and simple drapery folds",
+        "promptZh": "将用户主体转译为清晰轮廓、克制理想比例与简洁衣褶，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into clean contours, restrained ideal proportion, and simple drapery folds while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "清澈矿物色、暖肤色与综合色背景",
+        "labelEn": "clear mineral color, warm flesh tones, and controlled grounds",
+        "promptZh": "配色限定为清澈矿物色、暖肤色与综合色背景",
+        "promptEn": "limit the palette to clear mineral color, warm flesh tones, and controlled grounds",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀纯净光，抑制戏剧性阴影",
+        "labelEn": "even pure illumination with dramatic shadow suppressed",
+        "promptZh": "光影采用均匀纯净光，抑制戏剧性阴影",
+        "promptEn": "use even pure illumination with dramatic shadow suppressed for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "湿壁画或平滑油层、细线和少见笔触",
+        "labelEn": "fresco or smooth oil layers, fine linework, and little visible brushwork",
+        "promptZh": "材质与表面呈现为湿壁画或平滑油层、细线和少见笔触",
+        "promptEn": "render materials and surfaces as fresco or smooth oil layers, fine linework, and little visible brushwork",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use clear manuscript-derived or restrained serif titling",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use clear manuscript-derived or restrained serif titling, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "les-nabis": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "浅空间、装饰性裁切与大色面不对称平衡",
+        "labelEn": "shallow space, decorative cropping, and asymmetrical balance between broad color fields",
+        "promptZh": "构图采用浅空间、装饰性裁切与大色面不对称平衡",
+        "promptEn": "compose with shallow space, decorative cropping, and asymmetrical balance between broad color fields",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "简化硬边轮廓、平面色区与图案化形体",
+        "labelEn": "simplified hard contours, flat color zones, and patterned forms",
+        "promptZh": "将用户主体转译为简化硬边轮廓、平面色区与图案化形体，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into simplified hard contours, flat color zones, and patterned forms while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "综合色黄绿、紫、赭红与深色轮廓",
+        "labelEn": "muted yellow-green, violet, ochre red, and dark contours",
+        "promptZh": "配色限定为综合色黄绿、紫、赭红与深色轮廓",
+        "promptEn": "limit the palette to muted yellow-green, violet, ochre red, and dark contours",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "平面综合色关系取代写实光影",
+        "labelEn": "flat chromatic relationships replacing realistic illumination",
+        "promptZh": "光影采用平面综合色关系取代写实光影",
+        "promptEn": "use flat chromatic relationships replacing realistic illumination for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "哑光平涂、纸板或画布与装饰性笔触",
+        "labelEn": "matte flat paint on board or canvas with decorative brushwork",
+        "promptZh": "材质与表面呈现为哑光平涂、纸板或画布与装饰性笔触",
+        "promptEn": "render materials and surfaces as matte flat paint on board or canvas with decorative brushwork",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use integrated but legible decorative titling",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use integrated but legible decorative titling, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "arte-povera": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "开放组合、重力关系与非纪念尺度",
+        "labelEn": "open combinations, gravity relations, and deliberately non-monumental scale",
+        "promptZh": "构图采用开放组合、重力关系与非纪念尺度",
+        "promptEn": "compose with open combinations, gravity relations, and deliberately non-monumental scale",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "简单堆叠、张力、折叠与材料原形",
+        "labelEn": "simple stacking, tension, folding, and largely unmodified material forms",
+        "promptZh": "将用户主体转译为简单堆叠、张力、折叠与材料原形，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into simple stacking, tension, folding, and largely unmodified material forms while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "土色、中性色与材料本色",
+        "labelEn": "earth tones, neutrals, and exposed material color",
+        "promptZh": "配色限定为土色、中性色与材料本色",
+        "promptEn": "limit the palette to earth tones, neutrals, and exposed material color",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "自然展示光和真实接触阴影",
+        "labelEn": "ambient exhibition light with real contact shadows",
+        "promptZh": "光影采用自然展示光和真实接触阴影",
+        "promptEn": "use ambient exhibition light with real contact shadows for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "石、木、布、土与非贵重工业材料",
+        "labelEn": "stone, timber, cloth, earth, and inexpensive industrial materials",
+        "promptZh": "材质与表面呈现为石、木、布、土与非贵重工业材料",
+        "promptEn": "render materials and surfaces as stone, timber, cloth, earth, and inexpensive industrial materials",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use minimal neutral labels separate from the material relation",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use minimal neutral labels separate from the material relation, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "die-bruecke": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "近距压缩、强对角线与不稳定画面边缘",
+        "labelEn": "compressed close framing, forceful diagonals, and unstable pictorial edges",
+        "promptZh": "构图采用近距压缩、强对角线与不稳定画面边缘",
+        "promptEn": "compose with compressed close framing, forceful diagonals, and unstable pictorial edges",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "尖锐粗轮廓、木刻式硬折与拉长比例",
+        "labelEn": "sharp coarse contours, woodcut-like angular breaks, and elongated proportion",
+        "promptZh": "将用户主体转译为尖锐粗轮廓、木刻式硬折与拉长比例，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into sharp coarse contours, woodcut-like angular breaks, and elongated proportion while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "酸性黄绿、朱红、蓝与黑色轮廓",
+        "labelEn": "acid yellow-green, vermilion, blue, and black contours",
+        "promptZh": "配色限定为酸性黄绿、朱红、蓝与黑色轮廓",
+        "promptEn": "limit the palette to acid yellow-green, vermilion, blue, and black contours",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "高反差平面色而非连续自然明暗",
+        "labelEn": "high-contrast flat color rather than continuous natural modeling",
+        "promptZh": "光影采用高反差平面色而非连续自然明暗",
+        "promptEn": "use high-contrast flat color rather than continuous natural modeling for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "粗砺油彩、木刻刀痕与裸露底材",
+        "labelEn": "coarse oil paint, woodcut gouges, and exposed support",
+        "promptZh": "材质与表面呈现为粗砺油彩、木刻刀痕与裸露底材",
+        "promptEn": "render materials and surfaces as coarse oil paint, woodcut gouges, and exposed support",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use raw but legible Expressionist display lettering",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use raw but legible Expressionist display lettering, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "social-realism": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "群体行动、直接视点与环境压力形成的清楚叙事",
+        "labelEn": "collective action, a direct viewpoint, and environmental pressure forming a legible narrative",
+        "promptZh": "构图采用群体行动、直接视点与环境压力形成的清楚叙事",
+        "promptEn": "compose with collective action, a direct viewpoint, and environmental pressure forming a legible narrative",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "坚实体量、具体劳动姿态与概括写实轮廓",
+        "labelEn": "solid volume, specific working gestures, and simplified realist contours",
+        "promptZh": "将用户主体转译为坚实体量、具体劳动姿态与概括写实轮廓，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into solid volume, specific working gestures, and simplified realist contours while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "土红、灰蓝、褐与有限高纯度强调",
+        "labelEn": "earth red, gray-blue, brown, and restricted saturated accents",
+        "promptZh": "配色限定为土红、灰蓝、褐与有限高纯度强调",
+        "promptEn": "limit the palette to earth red, gray-blue, brown, and restricted saturated accents",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "自然或硬侧光，保持场景信息可读",
+        "labelEn": "natural or hard sidelight keeping contextual information readable",
+        "promptZh": "光影采用自然或硬侧光，保持场景信息可读",
+        "promptEn": "use natural or hard sidelight keeping contextual information readable for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "油画、壁画、版画或摄影式颗粒",
+        "labelEn": "oil painting, mural, relief print, or photographic grain",
+        "promptZh": "材质与表面呈现为油画、壁画、版画或摄影式颗粒",
+        "promptEn": "render materials and surfaces as oil painting, mural, relief print, or photographic grain",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use clear legible documentary or poster typography",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use clear legible documentary or poster typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "socialist-realism": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "仰视中心、上升对角线与清楚集体层级",
+        "labelEn": "a low-angle central focus, rising diagonals, and clearly ranked collective hierarchy",
+        "promptZh": "构图采用仰视中心、上升对角线与清楚集体层级",
+        "promptEn": "compose with a low-angle central focus, rising diagonals, and clearly ranked collective hierarchy",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "理想化坚实体量、积极姿态与纪念性轮廓",
+        "labelEn": "idealized solid volume, affirmative posture, and monumental contours",
+        "promptZh": "将用户主体转译为理想化坚实体量、积极姿态与纪念性轮廓，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into idealized solid volume, affirmative posture, and monumental contours while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "暖红、金、天蓝、综合色肤色与深色基底",
+        "labelEn": "warm red, gold, sky blue, nuanced flesh color, and a dark structural base",
+        "promptZh": "配色限定为暖红、金、天蓝、综合色肤色与深色基底",
+        "promptEn": "limit the palette to warm red, gold, sky blue, nuanced flesh color, and a dark structural base",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "明亮主光与清楚轮廓光，压低复杂暗部",
+        "labelEn": "bright key light and clear rim separation with complex shadow reduced",
+        "promptZh": "光影采用明亮主光与清楚轮廓光，压低复杂暗部",
+        "promptEn": "use bright key light and clear rim separation with complex shadow reduced for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "平滑油画、壁画或宣传印刷表面",
+        "labelEn": "smooth oil painting, mural, or propaganda-print surfaces",
+        "promptZh": "材质与表面呈现为平滑油画、壁画或宣传印刷表面",
+        "promptEn": "render materials and surfaces as smooth oil painting, mural, or propaganda-print surfaces",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use bold legible period poster typography while preserving exact wording",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use bold legible period poster typography while preserving exact wording, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "lyrical-abstraction": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "开放流动场、长线联结与呼吸式留空",
+        "labelEn": "an open flowing field, long linking lines, and breathing negative space",
+        "promptZh": "构图采用开放流动场、长线联结与呼吸式留空",
+        "promptEn": "compose with an open flowing field, long linking lines, and breathing negative space",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "书写性弧线、柔边色块与透明叠层",
+        "labelEn": "calligraphic arcs, soft-edged color masses, and transparent layering",
+        "promptZh": "将用户主体转译为书写性弧线、柔边色块与透明叠层，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into calligraphic arcs, soft-edged color masses, and transparent layering while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "高纯度综合色配大面积中性底",
+        "labelEn": "saturated mixed color against broad neutral grounds",
+        "promptZh": "配色限定为高纯度综合色配大面积中性底",
+        "promptEn": "limit the palette to saturated mixed color against broad neutral grounds",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "综合色透明度形成内发光层次",
+        "labelEn": "color transparency producing inner luminosity",
+        "promptZh": "光影采用综合色透明度形成内发光层次",
+        "promptEn": "use color transparency producing inner luminosity for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "稀释油彩或丙烯、泼洒与柔化边缘",
+        "labelEn": "diluted oil or acrylic, pouring, and softened edges",
+        "promptZh": "材质与表面呈现为稀释油彩或丙烯、泼洒与柔化边缘",
+        "promptEn": "render materials and surfaces as diluted oil or acrylic, pouring, and softened edges",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, keep typography minimal and outside the flowing field",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, keep typography minimal and outside the flowing field, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "tachisme": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "色斑快速分布、非中心平衡与开放边缘",
+        "labelEn": "rapidly distributed color stains, decentered balance, and open edges",
+        "promptZh": "构图采用色斑快速分布、非中心平衡与开放边缘",
+        "promptEn": "compose with rapidly distributed color stains, decentered balance, and open edges",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "自发斑点、短促手势与液态边界",
+        "labelEn": "spontaneous blotches, short gestures, and liquid boundaries",
+        "promptZh": "将用户主体转译为自发斑点、短促手势与液态边界，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into spontaneous blotches, short gestures, and liquid boundaries while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "综合色斑、黑线与纸布底色",
+        "labelEn": "mixed color stains, black lines, and exposed paper or fabric tone",
+        "promptZh": "配色限定为综合色斑、黑线与纸布底色",
+        "promptEn": "limit the palette to mixed color stains, black lines, and exposed paper or fabric tone",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "平面光，以综合色浓度和叠压建层",
+        "labelEn": "flat illumination with layers built through pigment concentration and overlap",
+        "promptZh": "光影采用平面光，以综合色浓度和叠压建层",
+        "promptEn": "use flat illumination with layers built through pigment concentration and overlap for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "泼洒、滴染、擦涂与吸收边缘",
+        "labelEn": "splashing, dripping, wiping, and absorbent edges",
+        "promptZh": "材质与表面呈现为泼洒、滴染、擦涂与吸收边缘",
+        "promptEn": "render materials and surfaces as splashing, dripping, wiping, and absorbent edges",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, keep typography minimal and separate from the stain field",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, keep typography minimal and separate from the stain field, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "aesthetic-movement": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "非对称日式平衡、装饰边框、扁平图案与精心陈列的留空",
+        "labelEn": "asymmetrical Japonist balance, ornamental borders, flat pattern, and carefully staged open space",
+        "promptZh": "构图采用非对称日式平衡、装饰边框、扁平图案与精心陈列的留空",
+        "promptEn": "compose with asymmetrical Japonist balance, ornamental borders, flat pattern, and carefully staged open space",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "细长轮廓、扇面或格架结构、精致植物曲线与克制体积",
+        "labelEn": "slender contours, fan or lattice structures, refined vegetal curves, and restrained volume",
+        "promptZh": "将用户主体转译为细长轮廓、扇面或格架结构、精致植物曲线与克制体积，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into slender contours, fan or lattice structures, refined vegetal curves, and restrained volume while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "孔雀蓝绿、金、橄榄绿、综合色黄与深色木质综合色",
+        "labelEn": "peacock blue-green, gold, olive, muted yellow, and dark wood color",
+        "promptZh": "配色限定为孔雀蓝绿、金、橄榄绿、综合色黄与深色木质综合色",
+        "promptEn": "limit the palette to peacock blue-green, gold, olive, muted yellow, and dark wood color",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "柔和室内光、金属微光与低反差综合色层",
+        "labelEn": "soft interior light, slight metallic shimmer, and low-contrast tonal layers",
+        "promptZh": "光影采用柔和室内光、金属微光与低反差综合色层",
+        "promptEn": "use soft interior light, slight metallic shimmer, and low-contrast tonal layers for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "壁纸、陶瓷、漆面木作、织物与精细印刷表面",
+        "labelEn": "wallpaper, ceramic, lacquered joinery, textile, and finely printed surfaces",
+        "promptZh": "材质与表面呈现为壁纸、陶瓷、漆面木作、织物与精细印刷表面",
+        "promptEn": "render materials and surfaces as wallpaper, ceramic, lacquered joinery, textile, and finely printed surfaces",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用优雅可读的维多利亚展示字体",
+        "labelEn": "only when text is requested, use elegant legible Victorian display lettering",
+        "promptZh": "仅在用户要求文字时，采用优雅可读的维多利亚展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use elegant legible Victorian display lettering, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "vienna-secession": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "严格轴线或方格分区、宽阔留白、连续边带与徽章式焦点",
+        "labelEn": "strict axial or gridded zoning, broad negative space, continuous borders, and an emblematic focal point",
+        "promptZh": "构图采用严格轴线或方格分区、宽阔留白、连续边带与徽章式焦点",
+        "promptEn": "compose with strict axial or gridded zoning, broad negative space, continuous borders, and an emblematic focal point",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "圆、方格、棋盘模块、几何化植物形与精确硬边",
+        "labelEn": "circles, squares, checker modules, geometrically reduced vegetal forms, and precise hard edges",
+        "promptZh": "将用户主体转译为圆、方格、棋盘模块、几何化植物形与精确硬边，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into circles, squares, checker modules, geometrically reduced vegetal forms, and precise hard edges while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "黑白、金、深蓝、综合色绿与少量红",
+        "labelEn": "black and white, gold, deep blue, muted green, and restrained red",
+        "promptZh": "配色限定为黑白、金、深蓝、综合色绿与少量红",
+        "promptEn": "limit the palette to black and white, gold, deep blue, muted green, and restrained red",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀平面光与局部金色反射，不使用自然主义塑形",
+        "labelEn": "even flat illumination with local gold reflection and no naturalistic modeling",
+        "promptZh": "光影采用均匀平面光与局部金色反射，不使用自然主义塑形",
+        "promptEn": "use even flat illumination with local gold reflection and no naturalistic modeling for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "平版印刷、金箔、马赛克、陶瓷与精密工艺表面",
+        "labelEn": "lithographic print, gold leaf, mosaic, ceramic, and precisely crafted surfaces",
+        "promptZh": "材质与表面呈现为平版印刷、金箔、马赛克、陶瓷与精密工艺表面",
+        "promptEn": "render materials and surfaces as lithographic print, gold leaf, mosaic, ceramic, and precisely crafted surfaces",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用清楚的几何无衬线或分离派展示字体",
+        "labelEn": "only when text is requested, use clear geometric sans-serif or Vienna Secession display lettering",
+        "promptZh": "仅在用户要求文字时，采用清楚的几何无衬线或分离派展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use clear geometric sans-serif or Vienna Secession display lettering, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "utrecht-caravaggism": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "近距离半身群组、单一烛光焦点与深暗背景",
+        "labelEn": "close half-length grouping, one visible candle-like focus, and a deep dark ground",
+        "promptZh": "构图采用近距离半身群组、单一烛光焦点与深暗背景",
+        "promptEn": "compose with close half-length grouping, one visible candle-like focus, and a deep dark ground",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "强烈手势、具体体积与硬边明暗转折",
+        "labelEn": "forceful gestures, specific volume, and hard-edged tonal turns",
+        "promptZh": "将用户主体转译为强烈手势、具体体积与硬边明暗转折，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into forceful gestures, specific volume, and hard-edged tonal turns while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "黑、暖褐、暗红与烛光金黄",
+        "labelEn": "black, warm brown, dark red, and candle gold",
+        "promptZh": "配色限定为黑、暖褐、暗红与烛光金黄",
+        "promptEn": "limit the palette to black, warm brown, dark red, and candle gold",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "可见光源式强明暗对照和深阴影",
+        "labelEn": "strong chiaroscuro from a visible source with deep shadow",
+        "promptZh": "光影采用可见光源式强明暗对照和深阴影",
+        "promptEn": "use strong chiaroscuro from a visible source with deep shadow for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "吸光油层、局部厚亮与粗织画布",
+        "labelEn": "light-absorbing oil layers, local thick highlights, and coarse canvas",
+        "promptZh": "材质与表面呈现为吸光油层、局部厚亮与粗织画布",
+        "promptEn": "render materials and surfaces as light-absorbing oil layers, local thick highlights, and coarse canvas",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use restrained legible seventeenth-century titling",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained legible seventeenth-century titling, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "matter-painting": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "厚重表面场、裂缝方向与材料堆积形成结构",
+        "labelEn": "a heavy surface field structured by cracks, material accumulation, and directional fissures",
+        "promptZh": "构图采用厚重表面场、裂缝方向与材料堆积形成结构",
+        "promptEn": "compose with a heavy surface field structured by cracks, material accumulation, and directional fissures",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "凸起团块、刮槽、孔洞与不规则边缘",
+        "labelEn": "raised clumps, scraped grooves, holes, and irregular edges",
+        "promptZh": "将用户主体转译为凸起团块、刮槽、孔洞与不规则边缘，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into raised clumps, scraped grooves, holes, and irregular edges while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "土褐、灰黑、白与材料本色",
+        "labelEn": "earth brown, gray-black, white, and exposed material color",
+        "promptZh": "配色限定为土褐、灰黑、白与材料本色",
+        "promptEn": "limit the palette to earth brown, gray-black, white, and exposed material color",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "擦边侧光强化高低起伏和阴影",
+        "labelEn": "grazing sidelight intensifying real relief and cast shadow",
+        "promptZh": "光影采用擦边侧光强化高低起伏和阴影",
+        "promptEn": "use grazing sidelight intensifying real relief and cast shadow for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "砂、灰泥、厚颜料、布与物质性裂纹",
+        "labelEn": "sand, plaster, heavy pigment, cloth, and material cracks",
+        "promptZh": "材质与表面呈现为砂、灰泥、厚颜料、布与物质性裂纹",
+        "promptEn": "render materials and surfaces as sand, plaster, heavy pigment, cloth, and material cracks",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, keep typography minimal and physically separate from the relief",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, keep typography minimal and physically separate from the relief, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "neo-geo": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "大尺度规则网格、靶形或重复企业符号",
+        "labelEn": "large regular grids, target-like structures, and repeated corporate-style emblems",
+        "promptZh": "构图采用大尺度规则网格、靶形或重复企业符号",
+        "promptEn": "compose with large regular grids, target-like structures, and repeated corporate-style emblems",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "硬边圆环、方格与工业化抽象单元",
+        "labelEn": "hard-edged rings, square grids, and industrial abstract units",
+        "promptZh": "将用户主体转译为硬边圆环、方格与工业化抽象单元，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into hard-edged rings, square grids, and industrial abstract units while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "高纯度红黄蓝、黑白或光亮商业综合色",
+        "labelEn": "saturated red-yellow-blue, black-white contrast, or glossy commercial color",
+        "promptZh": "配色限定为高纯度红黄蓝、黑白或光亮商业综合色",
+        "promptEn": "limit the palette to saturated red-yellow-blue, black-white contrast, or glossy commercial color",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀画面光或商品展示式反光",
+        "labelEn": "even pictorial illumination or product-display reflection",
+        "promptZh": "光影采用均匀画面光或商品展示式反光",
+        "promptEn": "use even pictorial illumination or product-display reflection for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "光滑丙烯、金属、层压板与无手工痕迹表面",
+        "labelEn": "smooth acrylic, metal, laminate, and surfaces without handmade traces",
+        "promptZh": "材质与表面呈现为光滑丙烯、金属、层压板与无手工痕迹表面",
+        "promptEn": "render materials and surfaces as smooth acrylic, metal, laminate, and surfaces without handmade traces",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use precise legible corporate-derived typography without fabricated brands",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use precise legible corporate-derived typography without fabricated brands, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "new-objectivity": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "冷静正面或三分之四视点、清楚间隔与疏离空间",
+        "labelEn": "cool frontal or three-quarter presentation, clear spacing, and detached shallow space",
+        "promptZh": "构图采用冷静正面或三分之四视点、清楚间隔与疏离空间",
+        "promptEn": "compose with cool frontal or three-quarter presentation, clear spacing, and detached shallow space",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "锐利具体轮廓、坚实体积与略带夸张的细节",
+        "labelEn": "sharp specific contours, solid volume, and slightly exaggerated detail",
+        "promptZh": "将用户主体转译为锐利具体轮廓、坚实体积与略带夸张的细节，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into sharp specific contours, solid volume, and slightly exaggerated detail while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "低饱和冷暖分区、综合色灰与局部强色",
+        "labelEn": "low-saturation warm-cool zoning, mixed gray, and local strong color",
+        "promptZh": "配色限定为低饱和冷暖分区、综合色灰与局部强色",
+        "promptEn": "limit the palette to low-saturation warm-cool zoning, mixed gray, and local strong color",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "冷硬均匀光或直接侧光",
+        "labelEn": "hard even illumination or direct sidelight",
+        "promptZh": "光影采用冷硬均匀光或直接侧光",
+        "promptEn": "use hard even illumination or direct sidelight for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "平滑薄油层、精确边缘与少见笔触",
+        "labelEn": "thin smooth oil layers, precise edges, and little visible brushwork",
+        "promptZh": "材质与表面呈现为平滑薄油层、精确边缘与少见笔触",
+        "promptEn": "render materials and surfaces as thin smooth oil layers, precise edges, and little visible brushwork",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use restrained legible interwar typography",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained legible interwar typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "nouveau-realisme": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "现成材料的积聚、切割或压缩构成非中心物质场",
+        "labelEn": "decentered material fields formed by accumulation, cutting, compression, or appropriation",
+        "promptZh": "构图采用现成材料的积聚、切割或压缩构成非中心物质场",
+        "promptEn": "compose with decentered material fields formed by accumulation, cutting, compression, or appropriation",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "撕裂、堆积、包裹、压扁与机械重复形成直接轮廓",
+        "labelEn": "tearing, stacking, wrapping, crushing, and mechanical repetition creating direct physical contours",
+        "promptZh": "将用户主体转译为撕裂、堆积、包裹、压扁与机械重复形成直接轮廓，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into tearing, stacking, wrapping, crushing, and mechanical repetition creating direct physical contours while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "消费综合色、工业综合色、纸张褪色与材料本色并置",
+        "labelEn": "consumer color, industrial paint, faded paper, and exposed material color in collision",
+        "promptZh": "配色限定为消费综合色、工业综合色、纸张褪色与材料本色并置",
+        "promptEn": "limit the palette to consumer color, industrial paint, faded paper, and exposed material color in collision",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "展厅方向光显示真实厚度、阴影和反射",
+        "labelEn": "directional exhibition light revealing actual thickness, shadow, and reflection",
+        "promptZh": "光影采用展厅方向光显示真实厚度、阴影和反射",
+        "promptEn": "use directional exhibition light revealing actual thickness, shadow, and reflection for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "撕裂海报、金属废料、塑料、包装与可见固定痕迹",
+        "labelEn": "torn posters, scrap metal, plastic, packaging, and visible attachment traces",
+        "promptZh": "材质与表面呈现为撕裂海报、金属废料、塑料、包装与可见固定痕迹",
+        "promptEn": "render materials and surfaces as torn posters, scrap metal, plastic, packaging, and visible attachment traces",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时保留现成印刷文字的真实碎片，不伪造品牌",
+        "labelEn": "only when text is requested, retain truthful fragments of existing print without fabricating brands",
+        "promptZh": "仅在用户要求文字时，保留现成印刷文字的真实碎片，不伪造品牌，并保持原文可读",
+        "promptEn": "only when text is requested, retain truthful fragments of existing print without fabricating brands, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "metaphysical-painting": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "空旷广场、深透视、孤立形体与不合逻辑的尺度关系",
+        "labelEn": "empty deep-perspective space, isolated forms, and illogical scale relationships",
+        "promptZh": "构图采用空旷广场、深透视、孤立形体与不合逻辑的尺度关系",
+        "promptEn": "compose with empty deep-perspective space, isolated forms, and illogical scale relationships",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "硬边古典体块、实体模型式轮廓与长直阴影",
+        "labelEn": "hard-edged classical masses, model-like contours, and long straight shadows",
+        "promptZh": "将用户主体转译为硬边古典体块、实体模型式轮廓与长直阴影，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into hard-edged classical masses, model-like contours, and long straight shadows while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "赭黄、砖红、墨绿、深蓝与灰白",
+        "labelEn": "ochre yellow, brick red, dark green, deep blue, and gray-white",
+        "promptZh": "配色限定为赭黄、砖红、墨绿、深蓝与灰白",
+        "promptEn": "limit the palette to ochre yellow, brick red, dark green, deep blue, and gray-white",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "低角度硬光制造超长阴影和寂静感",
+        "labelEn": "low-angle hard light producing unnaturally long shadows and stillness",
+        "promptZh": "光影采用低角度硬光制造超长阴影和寂静感",
+        "promptEn": "use low-angle hard light producing unnaturally long shadows and stillness for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "平滑油层、石膏木质般哑光表面",
+        "labelEn": "smooth oil layers and matte plaster- or timber-like surfaces",
+        "promptZh": "材质与表面呈现为平滑油层、石膏木质般哑光表面",
+        "promptEn": "render materials and surfaces as smooth oil layers and matte plaster- or timber-like surfaces",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use restrained classical or early-modern display typography",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained classical or early-modern display typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "vorticism": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "旋涡式中心、强斜线与机械块面压缩",
+        "labelEn": "a vortex-like center, forceful diagonals, and compressed mechanical planes",
+        "promptZh": "构图采用旋涡式中心、强斜线与机械块面压缩",
+        "promptEn": "compose with a vortex-like center, forceful diagonals, and compressed mechanical planes",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "锐角折线、楔形与硬边机械几何",
+        "labelEn": "acute zigzags, wedges, and hard-edged machine geometry",
+        "promptZh": "将用户主体转译为锐角折线、楔形与硬边机械几何，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into acute zigzags, wedges, and hard-edged machine geometry while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "黑、白、赭、深蓝与克制强色",
+        "labelEn": "black, white, ochre, deep blue, and restrained strong color",
+        "promptZh": "配色限定为黑、白、赭、深蓝与克制强色",
+        "promptEn": "limit the palette to black, white, ochre, deep blue, and restrained strong color",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "硬边明度块切分，不使用柔和综合色",
+        "labelEn": "hard-edged value blocks with no soft tonal blending",
+        "promptZh": "光影采用硬边明度块切分，不使用柔和综合色",
+        "promptEn": "use hard-edged value blocks with no soft tonal blending for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "平涂油彩、墨线与粗糙印刷表面",
+        "labelEn": "flat oil color, ink line, and coarse printed surfaces",
+        "promptZh": "材质与表面呈现为平涂油彩、墨线与粗糙印刷表面",
+        "promptEn": "render materials and surfaces as flat oil color, ink line, and coarse printed surfaces",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use bold legible angular Vorticist typography",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use bold legible angular Vorticist typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "academic-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "金字塔或轴线结构、清楚叙事高潮与完整空间层级",
+        "labelEn": "pyramidal or axial structure, a clear narrative climax, and complete spatial hierarchy",
+        "promptZh": "构图采用金字塔或轴线结构、清楚叙事高潮与完整空间层级",
+        "promptEn": "compose with pyramidal or axial structure, a clear narrative climax, and complete spatial hierarchy",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "理想化解剖、平滑体积与受控姿态",
+        "labelEn": "idealized anatomy, smooth volume, and controlled posing",
+        "promptZh": "将用户主体转译为理想化解剖、平滑体积与受控姿态，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into idealized anatomy, smooth volume, and controlled posing while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "综合色肉色、土色、深红蓝与克制金色",
+        "labelEn": "nuanced flesh color, earth tones, deep red-blue, and restrained gold",
+        "promptZh": "配色限定为综合色肉色、土色、深红蓝与克制金色",
+        "promptEn": "limit the palette to nuanced flesh color, earth tones, deep red-blue, and restrained gold",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "工作室式定向光与连续明暗塑形",
+        "labelEn": "directional studio light with continuous tonal modeling",
+        "promptZh": "光影采用工作室式定向光与连续明暗塑形",
+        "promptEn": "use directional studio light with continuous tonal modeling for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "多层油画罩染、无痕平滑表面与精细素描底",
+        "labelEn": "multiple oil glazes, a markless smooth surface, and precise drawn understructure",
+        "promptZh": "材质与表面呈现为多层油画罩染、无痕平滑表面与精细素描底",
+        "promptEn": "render materials and surfaces as multiple oil glazes, a markless smooth surface, and precise drawn understructure",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use formal legible classical serif titling",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use formal legible classical serif titling, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "supports-surfaces": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "画布、边框与悬挂方式被拆分后形成开放结构",
+        "labelEn": "canvas, frame, and hanging method separated into an open structure",
+        "promptZh": "构图采用画布、边框与悬挂方式被拆分后形成开放结构",
+        "promptEn": "compose with canvas, frame, and hanging method separated into an open structure",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "未绷画布、折叠条带与重复染色单元",
+        "labelEn": "unstretched cloth, folded bands, and repeated dyed units",
+        "promptZh": "将用户主体转译为未绷画布、折叠条带与重复染色单元，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into unstretched cloth, folded bands, and repeated dyed units while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "未经调和的综合色、布本色与简单重复色",
+        "labelEn": "unmixed color, raw fabric tone, and simple repeated hues",
+        "promptZh": "配色限定为未经调和的综合色、布本色与简单重复色",
+        "promptEn": "limit the palette to unmixed color, raw fabric tone, and simple repeated hues",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀展示光显示折叠和悬挂阴影",
+        "labelEn": "even exhibition light revealing folds and hanging shadows",
+        "promptZh": "光影采用均匀展示光显示折叠和悬挂阴影",
+        "promptEn": "use even exhibition light revealing folds and hanging shadows for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "未处理画布、染料、绳、木框与裁切边缘",
+        "labelEn": "untreated canvas, dye, rope, timber frames, and cut edges",
+        "promptZh": "材质与表面呈现为未处理画布、染料、绳、木框与裁切边缘",
+        "promptEn": "render materials and surfaces as untreated canvas, dye, rope, timber frames, and cut edges",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, keep typography neutral and separate from the decomposed support",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, keep typography neutral and separate from the decomposed support, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "naturalism": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "现场观察式视点、稳定环境关系与非理想化叙事",
+        "labelEn": "an observational viewpoint, stable environmental relations, and non-idealized narrative",
+        "promptZh": "构图采用现场观察式视点、稳定环境关系与非理想化叙事",
+        "promptEn": "compose with an observational viewpoint, stable environmental relations, and non-idealized narrative",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "具体自然比例、可读重量与真实表面差异",
+        "labelEn": "specific natural proportion, legible weight, and truthful surface differences",
+        "promptZh": "将用户主体转译为具体自然比例、可读重量与真实表面差异，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into specific natural proportion, legible weight, and truthful surface differences while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "低至中饱和自然综合色",
+        "labelEn": "low-to-medium saturation natural color",
+        "promptZh": "配色限定为低至中饱和自然综合色",
+        "promptEn": "limit the palette to low-to-medium saturation natural color",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "连续自然光和可信局部阴影",
+        "labelEn": "continuous natural light with credible local shadows",
+        "promptZh": "光影采用连续自然光和可信局部阴影",
+        "promptEn": "use continuous natural light with credible local shadows for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "直接油画笔触、真实织物木石与皮肤表面",
+        "labelEn": "direct oil brushwork and specifically differentiated textile, timber, stone, and flesh surfaces",
+        "promptZh": "材质与表面呈现为直接油画笔触、真实织物木石与皮肤表面",
+        "promptEn": "render materials and surfaces as direct oil brushwork and specifically differentiated textile, timber, stone, and flesh surfaces",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use restrained legible period typography",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained legible period typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "cobra": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "非中心即兴扩散、密集满幅与形色相互挤压",
+        "labelEn": "decentered improvisational spread, dense all-over pressure, and interlocking color-form collisions",
+        "promptZh": "构图采用非中心即兴扩散、密集满幅与形色相互挤压",
+        "promptEn": "compose with decentered improvisational spread, dense all-over pressure, and interlocking color-form collisions",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "粗黑手势线、未封闭形、简化符号与故意笨拙的轮廓",
+        "labelEn": "coarse black gestures, unclosed forms, simplified signs, and deliberately awkward contours",
+        "promptZh": "将用户主体转译为粗黑手势线、未封闭形、简化符号与故意笨拙的轮廓，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into coarse black gestures, unclosed forms, simplified signs, and deliberately awkward contours while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "高纯度红黄蓝绿、黑白与综合色冲突",
+        "labelEn": "saturated red, yellow, blue, and green colliding with black and white",
+        "promptZh": "配色限定为高纯度红黄蓝绿、黑白与综合色冲突",
+        "promptEn": "limit the palette to saturated red, yellow, blue, and green colliding with black and white",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "平面综合色光，以色块碰撞和颜料厚薄形成层次",
+        "labelEn": "flat pictorial illumination with depth built by color collision and paint thickness",
+        "promptZh": "光影采用平面综合色光，以色块碰撞和颜料厚薄形成层次",
+        "promptEn": "use flat pictorial illumination with depth built by color collision and paint thickness for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "粗糙油彩、刮擦、滴洒、裸露底材与直接手工痕迹",
+        "labelEn": "rough oil paint, scraping, dripping, exposed support, and direct handmade traces",
+        "promptZh": "材质与表面呈现为粗糙油彩、刮擦、滴洒、裸露底材与直接手工痕迹",
+        "promptEn": "render materials and surfaces as rough oil paint, scraping, dripping, exposed support, and direct handmade traces",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用粗放但准确可读的手绘标题",
+        "labelEn": "only when text is requested, use raw hand-drawn but accurately readable titling",
+        "promptZh": "仅在用户要求文字时，采用粗放但准确可读的手绘标题，并保持原文可读",
+        "promptEn": "only when text is requested, use raw hand-drawn but accurately readable titling, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "polish-poster-school": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "单一隐喻主图、不对称留白与手工标题形成直接焦点",
+        "labelEn": "one metaphorical image, asymmetrical negative space, and a handmade title forming a direct focus",
+        "promptZh": "构图采用单一隐喻主图、不对称留白与手工标题形成直接焦点",
+        "promptEn": "compose with one metaphorical image, asymmetrical negative space, and a handmade title forming a direct focus",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "手绘变形、剪贴轮廓、象征替代与不完整边缘",
+        "labelEn": "painted distortion, cutout contours, symbolic substitution, and deliberately incomplete edges",
+        "promptZh": "将用户主体转译为手绘变形、剪贴轮廓、象征替代与不完整边缘，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into painted distortion, cutout contours, symbolic substitution, and deliberately incomplete edges while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "手绘展示字与图形紧密融合；准确保留用户原文",
+        "labelEn": "integrate handmade display lettering with the image while preserving the exact supplied wording",
+        "promptZh": "仅在用户要求文字时，采用手绘展示字与图形紧密融合；准确保留用户原文，并保持原文可读",
+        "promptEn": "only when text is requested, integrate handmade display lettering with the image while preserving the exact supplied wording, and preserve the exact readable wording",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "综合色红黑、土色与有限高纯度对比",
+        "labelEn": "muted red-black, earth color, and restricted saturated contrast",
+        "promptZh": "配色限定为综合色红黑、土色与有限高纯度对比",
+        "promptEn": "limit the palette to muted red-black, earth color, and restricted saturated contrast",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "平面图像光，依靠色块与绘画笔触建层",
+        "labelEn": "flat pictorial illumination layered through color blocks and painterly marks",
+        "promptZh": "光影采用平面图像光，依靠色块与绘画笔触建层",
+        "promptEn": "use flat pictorial illumination layered through color blocks and painterly marks for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "石版、丝网、拼贴与粗糙纸面",
+        "labelEn": "lithography, screenprint, collage, and coarse paper",
+        "promptZh": "材质与表面呈现为石版、丝网、拼贴与粗糙纸面",
+        "promptEn": "render materials and surfaces as lithography, screenprint, collage, and coarse paper",
+        "weight": 0.7,
+        "level": "支撑"
+      }
+    ]
+  },
+  "plakatstil": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "单一放大物形、纯色背景与极少文字的直接层级",
+        "labelEn": "one enlarged object-form, a pure-color ground, and a minimal direct text hierarchy",
+        "promptZh": "构图采用单一放大物形、纯色背景与极少文字的直接层级",
+        "promptEn": "compose with one enlarged object-form, a pure-color ground, and a minimal direct text hierarchy",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "粗黑轮廓、平面剪影与无细节的商品式几何",
+        "labelEn": "heavy black outlines, flat silhouettes, and product-like geometry stripped of small detail",
+        "promptZh": "将用户主体转译为粗黑轮廓、平面剪影与无细节的商品式几何，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into heavy black outlines, flat silhouettes, and product-like geometry stripped of small detail while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "粗重展示字与主图等权；准确保留用户原文",
+        "labelEn": "give heavy display lettering equal weight with the primary graphic while preserving exact wording",
+        "promptZh": "仅在用户要求文字时，采用粗重展示字与主图等权；准确保留用户原文，并保持原文可读",
+        "promptEn": "only when text is requested, use give heavy display lettering equal weight with the primary graphic while preserving exact wording, and preserve the exact readable wording",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "两至四色高对比平涂与纸张底色",
+        "labelEn": "two to four high-contrast flat colors plus exposed paper tone",
+        "promptZh": "配色限定为两至四色高对比平涂与纸张底色",
+        "promptEn": "limit the palette to two to four high-contrast flat colors plus exposed paper tone",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "平面印刷光，最多保留单级体积色块",
+        "labelEn": "flat print illumination with at most one simple value plane",
+        "promptZh": "光影采用平面印刷光，最多保留单级体积色块",
+        "promptEn": "use flat print illumination with at most one simple value plane for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "石版平涂、纸纹与清楚印刷边缘",
+        "labelEn": "lithographic flat color, paper grain, and crisp printed edges",
+        "promptZh": "材质与表面呈现为石版平涂、纸纹与清楚印刷边缘",
+        "promptEn": "render materials and surfaces as lithographic flat color, paper grain, and crisp printed edges",
+        "weight": 0.7,
+        "level": "支撑"
+      }
+    ]
+  },
+  "dutch-modern-typography": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "非对称网格、强水平垂直轴与照片文字功能分区",
+        "labelEn": "asymmetrical grids, strong horizontal-vertical axes, and functional separation of photograph and text",
+        "promptZh": "构图采用非对称网格、强水平垂直轴与照片文字功能分区",
+        "promptEn": "compose with asymmetrical grids, strong horizontal-vertical axes, and functional separation of photograph and text",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "基本几何、粗细线条和直接图形符号",
+        "labelEn": "primary geometry, contrasting line weights, and direct graphic signs",
+        "promptZh": "将用户主体转译为基本几何、粗细线条和直接图形符号，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into primary geometry, contrasting line weights, and direct graphic signs while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "无衬线、粗细和字号形成动态层级；准确保留用户原文",
+        "labelEn": "use sans-serif size and weight contrast to create dynamic hierarchy while preserving exact wording",
+        "promptZh": "仅在用户要求文字时，采用无衬线、粗细和字号形成动态层级；准确保留用户原文，并保持原文可读",
+        "promptEn": "only when text is requested, use sans-serif size and weight contrast to create dynamic hierarchy while preserving exact wording, and preserve the exact readable wording",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "红、黑、白与有限蓝黄",
+        "labelEn": "red, black, white, and restricted blue-yellow accents",
+        "promptZh": "配色限定为红、黑、白与有限蓝黄",
+        "promptEn": "limit the palette to red, black, white, and restricted blue-yellow accents",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "平面印刷光",
+        "labelEn": "fully flat print illumination",
+        "promptZh": "光影采用平面印刷光",
+        "promptEn": "use fully flat print illumination for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "活字、照片网点、胶印纸与清楚裁切",
+        "labelEn": "movable type, photographic halftone, offset paper, and crisp cropping",
+        "promptZh": "材质与表面呈现为活字、照片网点、胶印纸与清楚裁切",
+        "promptEn": "render materials and surfaces as movable type, photographic halftone, offset paper, and crisp cropping",
+        "weight": 0.7,
+        "level": "支撑"
+      }
+    ]
+  },
+  "postmodern-swiss-design": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "打破单一网格、斜排、层叠和尺度冲突但保留信息层级",
+        "labelEn": "broken single-grid logic, angled setting, layering, and scale conflict with information hierarchy retained",
+        "promptZh": "构图采用打破单一网格、斜排、层叠和尺度冲突但保留信息层级",
+        "promptEn": "compose with broken single-grid logic, angled setting, layering, and scale conflict with information hierarchy retained",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "几何碎片、装饰线框与引用式图形",
+        "labelEn": "geometric fragments, ornamental wireframes, and quotation-like graphic forms",
+        "promptZh": "将用户主体转译为几何碎片、装饰线框与引用式图形，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into geometric fragments, ornamental wireframes, and quotation-like graphic forms while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "多字体、角度与字级冲突；准确保留用户原文",
+        "labelEn": "use multiple typefaces, angles, and size conflicts while preserving exact readable wording",
+        "promptZh": "仅在用户要求文字时，采用多字体、角度与字级冲突；准确保留用户原文，并保持原文可读",
+        "promptEn": "only when text is requested, use multiple typefaces, angles, and size conflicts while preserving exact readable wording, and preserve the exact readable wording",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "高对比多色、黑白与意外综合色组合",
+        "labelEn": "high-contrast multicolor, black and white, and unexpected color combinations",
+        "promptZh": "配色限定为高对比多色、黑白与意外综合色组合",
+        "promptEn": "limit the palette to high-contrast multicolor, black and white, and unexpected color combinations",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "平面印刷光",
+        "labelEn": "fully flat print illumination",
+        "promptZh": "光影采用平面印刷光",
+        "promptEn": "use fully flat print illumination for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "胶印、照片拼贴、粗细网点与清楚纸面",
+        "labelEn": "offset print, photographic collage, coarse and fine halftones, and clean paper",
+        "promptZh": "材质与表面呈现为胶印、照片拼贴、粗细网点与清楚纸面",
+        "promptEn": "render materials and surfaces as offset print, photographic collage, coarse and fine halftones, and clean paper",
+        "weight": 0.7,
+        "level": "支撑"
+      }
+    ]
+  },
+  "deconstructivist-graphic-design": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "断裂网格、漂移边注、互相遮挡的文本层与多入口阅读",
+        "labelEn": "broken grids, drifting marginalia, overlapping text layers, and multiple reading entries",
+        "promptZh": "构图采用断裂网格、漂移边注、互相遮挡的文本层与多入口阅读",
+        "promptEn": "compose with broken grids, drifting marginalia, overlapping text layers, and multiple reading entries",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "复印颗粒、胶片叠字、扫描错位与粗细纸张对比",
+        "labelEn": "photocopy grain, film-set type, scan displacement, and contrasting paper textures",
+        "promptZh": "材质与表面呈现为复印颗粒、胶片叠字、扫描错位与粗细纸张对比",
+        "promptEn": "render materials and surfaces as photocopy grain, film-set type, scan displacement, and contrasting paper textures",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "文字必须准确可读；允许次级层断裂，但保留一个清楚主信息层",
+        "labelEn": "preserve exact readable wording; secondary layers may fracture but one primary information layer must remain clear",
+        "promptZh": "仅在用户要求文字时，采用文字必须准确可读；允许次级层断裂，但保留一个清楚主信息层，并保持原文可读",
+        "promptEn": "only when text is requested, preserve exact readable wording; secondary layers may fracture but one primary information layer must remain clear, and preserve the exact readable wording",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "字形切片、尺度突变、透明叠层与不连续线框",
+        "labelEn": "sliced letterforms, abrupt scale shifts, transparent overlays, and discontinuous wireframes",
+        "promptZh": "将用户主体转译为字形切片、尺度突变、透明叠层与不连续线框，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into sliced letterforms, abrupt scale shifts, transparent overlays, and discontinuous wireframes while preserving identity and defining structure",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "黑白灰、复印综合色与少量高饱和冲突色",
+        "labelEn": "black and white, photocopy gray, and a few saturated collision colors",
+        "promptZh": "配色限定为黑白灰、复印综合色与少量高饱和冲突色",
+        "promptEn": "limit the palette to black and white, photocopy gray, and a few saturated collision colors",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "完全平面化，以透明度和综合色值分开信息层",
+        "labelEn": "fully flat rendering with information layers separated by opacity and tonal value",
+        "promptZh": "光影采用完全平面化，以透明度和综合色值分开信息层",
+        "promptEn": "use fully flat rendering with information layers separated by opacity and tonal value for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      }
+    ]
+  },
+  "cranbrook-design": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "页内多声部文本、注释层、图文互释与可追踪但非线性的阅读路径",
+        "labelEn": "multiple textual voices, annotation layers, image-text interpretation, and traceable nonlinear reading paths",
+        "promptZh": "构图采用页内多声部文本、注释层、图文互释与可追踪但非线性的阅读路径",
+        "promptEn": "compose with multiple textual voices, annotation layers, image-text interpretation, and traceable nonlinear reading paths",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "半透明纸、胶片、扫描印刷、细网点与学院出版物质感",
+        "labelEn": "translucent paper, film, scanned print, fine halftone, and academic-publication texture",
+        "promptZh": "材质与表面呈现为半透明纸、胶片、扫描印刷、细网点与学院出版物质感",
+        "promptEn": "render materials and surfaces as translucent paper, film, scanned print, fine halftone, and academic-publication texture",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "文字必须准确；通过字号、透明度和位置区分多重声音而非随机破坏",
+        "labelEn": "preserve exact text; distinguish multiple voices through scale, opacity, and position rather than random damage",
+        "promptZh": "仅在用户要求文字时，采用文字必须准确；通过字号、透明度和位置区分多重声音而非随机破坏，并保持原文可读",
+        "promptEn": "only when text is requested, preserve exact text; distinguish multiple voices through scale, opacity, and position rather than random damage, and preserve the exact readable wording",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "细线框、透明文字层、尺度对话与受控的密集信息纹理",
+        "labelEn": "fine wireframes, transparent type layers, scale dialogue, and controlled dense information texture",
+        "promptZh": "将用户主体转译为细线框、透明文字层、尺度对话与受控的密集信息纹理，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into fine wireframes, transparent type layers, scale dialogue, and controlled dense information texture while preserving identity and defining structure",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "黑白、低饱和印刷色与少量综合色强调",
+        "labelEn": "black and white, muted print color, and restrained mixed-color accents",
+        "promptZh": "配色限定为黑白、低饱和印刷色与少量综合色强调",
+        "promptEn": "limit the palette to black and white, muted print color, and restrained mixed-color accents",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "平面复制光，以透明叠层保持各语义层可辨",
+        "labelEn": "flat reproductive rendering with semantic layers kept distinct through transparency",
+        "promptZh": "光影采用平面复制光，以透明叠层保持各语义层可辨",
+        "promptEn": "use flat reproductive rendering with semantic layers kept distinct through transparency for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      }
+    ]
+  },
+  "wiener-werkstatte-graphics": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "方形网格、边框与图文一体的全表面秩序",
+        "labelEn": "square grids, borders, and integrated image-type order across the full surface",
+        "promptZh": "构图采用方形网格、边框与图文一体的全表面秩序",
+        "promptEn": "compose with square grids, borders, and integrated image-type order across the full surface",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "棋盘、重复小几何、细线主体与装饰硬边",
+        "labelEn": "checker modules, repeated small geometry, fine outlined forms, and ornamental hard edges",
+        "promptZh": "将用户主体转译为棋盘、重复小几何、细线主体与装饰硬边，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into checker modules, repeated small geometry, fine outlined forms, and ornamental hard edges while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "几何展示字与装饰边框一致；准确保留用户原文",
+        "labelEn": "align geometric display lettering with the ornamental border while preserving exact wording",
+        "promptZh": "仅在用户要求文字时，采用几何展示字与装饰边框一致；准确保留用户原文，并保持原文可读",
+        "promptEn": "only when text is requested, use align geometric display lettering with the ornamental border while preserving exact wording, and preserve the exact readable wording",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "黑白配金、朱红或有限综合色",
+        "labelEn": "black and white with gold, vermilion, or restricted mixed color",
+        "promptZh": "配色限定为黑白配金、朱红或有限综合色",
+        "promptEn": "limit the palette to black and white with gold, vermilion, or restricted mixed color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "完全平面化",
+        "labelEn": "fully flat illumination",
+        "promptZh": "光影采用完全平面化",
+        "promptEn": "use fully flat illumination for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "木版、石版、手工纸与清楚套色",
+        "labelEn": "woodcut, lithography, handmade paper, and crisp color registration",
+        "promptZh": "材质与表面呈现为木版、石版、手工纸与清楚套色",
+        "promptEn": "render materials and surfaces as woodcut, lithography, handmade paper, and crisp color registration",
+        "weight": 0.7,
+        "level": "支撑"
+      }
+    ]
+  },
+  "new-typography": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "非对称网格、强左对齐、对角线和照片文字的功能层级",
+        "labelEn": "asymmetrical functional grids, strong flush-left alignment, diagonals, and a clear photograph-text hierarchy",
+        "promptZh": "构图采用非对称网格、强左对齐、对角线和照片文字的功能层级",
+        "promptEn": "compose with asymmetrical functional grids, strong flush-left alignment, diagonals, and a clear photograph-text hierarchy",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "直线、圆、色块与摄影裁切的基本几何",
+        "labelEn": "straight lines, circles, color blocks, and photographic crops organized as primary geometry",
+        "promptZh": "将用户主体转译为直线、圆、色块与摄影裁切的基本几何，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into straight lines, circles, color blocks, and photographic crops organized as primary geometry while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "无衬线、大小写和字重按功能组织；准确保留用户原文",
+        "labelEn": "organize sans-serif case, size, and weight by function while preserving exact wording",
+        "promptZh": "仅在用户要求文字时，采用无衬线、大小写和字重按功能组织；准确保留用户原文，并保持原文可读",
+        "promptEn": "only when text is requested, use organize sans-serif case, size, and weight by function while preserving exact wording, and preserve the exact readable wording",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "黑白配红或少量原色",
+        "labelEn": "black and white with red or a few primary-color accents",
+        "promptZh": "配色限定为黑白配红或少量原色",
+        "promptEn": "limit the palette to black and white with red or a few primary-color accents",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "平面印刷光",
+        "labelEn": "fully flat print illumination",
+        "promptZh": "光影采用平面印刷光",
+        "promptEn": "use fully flat print illumination for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "无衬线活字、照片网点与胶印纸",
+        "labelEn": "sans-serif metal type, photographic halftone, and offset paper",
+        "promptZh": "材质与表面呈现为无衬线活字、照片网点与胶印纸",
+        "promptEn": "render materials and surfaces as sans-serif metal type, photographic halftone, and offset paper",
+        "weight": 0.7,
+        "level": "支撑"
+      }
+    ]
+  },
+  "surrealist-photography": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "不合逻辑尺度、物体替换、多重空间和梦境式并置",
+        "labelEn": "illogical scale, object substitution, multiple spatial systems, and dreamlike juxtaposition",
+        "promptZh": "构图采用不合逻辑尺度、物体替换、多重空间和梦境式并置",
+        "promptEn": "compose with illogical scale, object substitution, multiple spatial systems, and dreamlike juxtaposition",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "暗房曝光、太阳化边缘与不一致光源",
+        "labelEn": "darkroom exposure, solarized edges, and deliberately inconsistent light sources",
+        "promptZh": "光影采用暗房曝光、太阳化边缘与不一致光源",
+        "promptEn": "use darkroom exposure, solarized edges, and deliberately inconsistent light sources for lighting and tonal rendering",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "银盐相纸、剪贴、再拍摄、颗粒和暗房接缝",
+        "labelEn": "silver-gelatin paper, collage, rephotography, grain, and visible darkroom seams",
+        "promptZh": "材质与表面呈现为银盐相纸、剪贴、再拍摄、颗粒和暗房接缝",
+        "promptEn": "render materials and surfaces as silver-gelatin paper, collage, rephotography, grain, and visible darkroom seams",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "双重曝光轮廓、剪贴边缘、负片反转与身体碎片化",
+        "labelEn": "double-exposure contours, cut edges, negative reversal, and fragmented bodily structure",
+        "promptZh": "将用户主体转译为双重曝光轮廓、剪贴边缘、负片反转与身体碎片化，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into double-exposure contours, cut edges, negative reversal, and fragmented bodily structure while preserving identity and defining structure",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "银灰黑白、棕褐或受控综合色",
+        "labelEn": "silver-gray monochrome, sepia, or tightly controlled mixed color",
+        "promptZh": "配色限定为银灰黑白、棕褐或受控综合色",
+        "promptEn": "limit the palette to silver-gray monochrome, sepia, or tightly controlled mixed color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与时代影像一致的字幕或印刷字体",
+        "labelEn": "only when text is requested, use restrained period-consistent caption or print typography",
+        "promptZh": "仅在用户要求文字时，采用与时代影像一致的字幕或印刷字体，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained period-consistent caption or print typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "german-expressionist-cinema": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "倾斜布景、尖锐对角线、压迫前景与扭曲深度",
+        "labelEn": "tilted sets, sharp diagonals, oppressive foregrounds, and distorted depth",
+        "promptZh": "构图采用倾斜布景、尖锐对角线、压迫前景与扭曲深度",
+        "promptEn": "compose with tilted sets, sharp diagonals, oppressive foregrounds, and distorted depth",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "硬侧光、绘制阴影与极端明暗分区",
+        "labelEn": "hard sidelight, painted shadows, and extreme light-dark zoning",
+        "promptZh": "光影采用硬侧光、绘制阴影与极端明暗分区",
+        "promptEn": "use hard sidelight, painted shadows, and extreme light-dark zoning for lighting and tonal rendering",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "早期胶片颗粒、舞台布景表面、划痕与轻微闪烁",
+        "labelEn": "early film grain, theatrical set surfaces, scratches, and slight flicker",
+        "promptZh": "材质与表面呈现为早期胶片颗粒、舞台布景表面、划痕与轻微闪烁",
+        "promptEn": "render materials and surfaces as early film grain, theatrical set surfaces, scratches, and slight flicker",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "锯齿状轮廓、夸张投影与不自然的棱角几何",
+        "labelEn": "jagged contours, exaggerated projected shadows, and unnatural angular geometry",
+        "promptZh": "将用户主体转译为锯齿状轮廓、夸张投影与不自然的棱角几何，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into jagged contours, exaggerated projected shadows, and unnatural angular geometry while preserving identity and defining structure",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "高反差黑白、浓重综合色黑与少量染色调",
+        "labelEn": "high-contrast black and white, dense black, and restrained tinted tones",
+        "promptZh": "配色限定为高反差黑白、浓重综合色黑与少量染色调",
+        "promptEn": "limit the palette to high-contrast black and white, dense black, and restrained tinted tones",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用可读的表现主义手绘字幕",
+        "labelEn": "only when text is requested, use legible hand-drawn Expressionist intertitles",
+        "promptZh": "仅在用户要求文字时，采用可读的表现主义手绘字幕，并保持原文可读",
+        "promptEn": "only when text is requested, use legible hand-drawn Expressionist intertitles, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "new-german-cinema": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "疏离长镜头、建筑框景与社会空间的冷静距离",
+        "labelEn": "distanced long takes, architectural framing, and a cool observational relation to social space",
+        "promptZh": "构图采用疏离长镜头、建筑框景与社会空间的冷静距离",
+        "promptEn": "compose with distanced long takes, architectural framing, and a cool observational relation to social space",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "现场光、冷色室内光与压低戏剧反差",
+        "labelEn": "available light, cool interior illumination, and reduced dramatic contrast",
+        "promptZh": "光影采用现场光、冷色室内光与压低戏剧反差",
+        "promptEn": "use available light, cool interior illumination, and reduced dramatic contrast for lighting and tonal rendering",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "16mm 或 35mm 颗粒、直接声画与克制剪辑",
+        "labelEn": "16 mm or 35 mm grain, direct sound-image relations, and restrained editing",
+        "promptZh": "材质与表面呈现为16mm 或 35mm 颗粒、直接声画与克制剪辑",
+        "promptEn": "render materials and surfaces as 16 mm or 35 mm grain, direct sound-image relations, and restrained editing",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "克制动作、硬边环境轮廓与非煽情表演",
+        "labelEn": "restrained action, hard environmental contours, and deliberately non-emotive performance",
+        "promptZh": "将用户主体转译为克制动作、硬边环境轮廓与非煽情表演，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into restrained action, hard environmental contours, and deliberately non-emotive performance while preserving identity and defining structure",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "低饱和综合色或冷静黑白",
+        "labelEn": "low-saturation color or cool controlled black and white",
+        "promptZh": "配色限定为低饱和综合色或冷静黑白",
+        "promptEn": "limit the palette to low-saturation color or cool controlled black and white",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与时代影像一致的字幕或印刷字体",
+        "labelEn": "only when text is requested, use clear period-consistent film titling",
+        "promptZh": "仅在用户要求文字时，采用与时代影像一致的字幕或印刷字体，并保持原文可读",
+        "promptEn": "only when text is requested, use clear period-consistent film titling, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "dusseldorf-school-photography": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "严格正面、中心轴、同距离同高度与系列化类型学比较",
+        "labelEn": "strict frontal alignment, central axes, fixed distance and height, and serial typological comparison",
+        "promptZh": "构图采用严格正面、中心轴、同距离同高度与系列化类型学比较",
+        "promptEn": "compose with strict frontal alignment, central axes, fixed distance and height, and serial typological comparison",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "阴天漫射光、压低阴影反光与一致曝光",
+        "labelEn": "overcast diffuse light, suppressed shadows and reflections, and consistent exposure",
+        "promptZh": "光影采用阴天漫射光、压低阴影反光与一致曝光",
+        "promptEn": "use overcast diffuse light, suppressed shadows and reflections, and consistent exposure for lighting and tonal rendering",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "大画幅高解析成像、细密颗粒、平整印相与冷静表面",
+        "labelEn": "high-resolution large-format imaging, fine grain, flat printing, and a cool objective surface",
+        "promptZh": "材质与表面呈现为大画幅高解析成像、细密颗粒、平整印相与冷静表面",
+        "promptEn": "render materials and surfaces as high-resolution large-format imaging, fine grain, flat printing, and a cool objective surface",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "精确几何轮廓、中性尺度、重复结构与边缘到边缘清晰度",
+        "labelEn": "precise geometric contours, neutral scale, repeated structure, and edge-to-edge sharpness",
+        "promptZh": "将用户主体转译为精确几何轮廓、中性尺度、重复结构与边缘到边缘清晰度，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into precise geometric contours, neutral scale, repeated structure, and edge-to-edge sharpness while preserving identity and defining structure",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "中性黑白或低饱和自然综合色",
+        "labelEn": "neutral black and white or low-saturation natural color",
+        "promptZh": "配色限定为中性黑白或低饱和自然综合色",
+        "promptEn": "limit the palette to neutral black and white or low-saturation natural color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用中性准确的档案式标签",
+        "labelEn": "only when text is requested, use neutral accurate archival labels",
+        "promptZh": "仅在用户要求文字时，采用中性准确的档案式标签，并保持原文可读",
+        "promptEn": "only when text is requested, use neutral accurate archival labels, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "french-new-wave-cinema": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "手持街景、跳切、直接凝视和打破连续性的自由裁切",
+        "labelEn": "handheld on-location framing, jump cuts, direct gaze, and free crops that break continuity",
+        "promptZh": "构图采用手持街景、跳切、直接凝视和打破连续性的自由裁切",
+        "promptEn": "compose with handheld on-location framing, jump cuts, direct gaze, and free crops that break continuity",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "现场可用光、窗光与偶发过曝",
+        "labelEn": "available light, window light, and occasional overexposure",
+        "promptZh": "光影采用现场可用光、窗光与偶发过曝",
+        "promptEn": "use available light, window light, and occasional overexposure for lighting and tonal rendering",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "35mm 胶片颗粒、手持抖动、跳切和直接录音感",
+        "labelEn": "35 mm grain, handheld movement, jump cuts, and direct-recording texture",
+        "promptZh": "材质与表面呈现为35mm 胶片颗粒、手持抖动、跳切和直接录音感",
+        "promptEn": "render materials and surfaces as 35 mm grain, handheld movement, jump cuts, and direct-recording texture",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "自然动作、轻微晃动和镜头内临时重构",
+        "labelEn": "natural action, slight camera instability, and provisional recomposition within the shot",
+        "promptZh": "将用户主体转译为自然动作、轻微晃动和镜头内临时重构，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into natural action, slight camera instability, and provisional recomposition within the shot while preserving identity and defining structure",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "高反差黑白或轻盈综合色胶片色",
+        "labelEn": "high-contrast black and white or light period film color",
+        "promptZh": "配色限定为高反差黑白或轻盈综合色胶片色",
+        "promptEn": "limit the palette to high-contrast black and white or light period film color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与时代影像一致的字幕或印刷字体",
+        "labelEn": "only when text is requested, use concise legible period film typography",
+        "promptZh": "仅在用户要求文字时，采用与时代影像一致的字幕或印刷字体，并保持原文可读",
+        "promptEn": "only when text is requested, use concise legible period film typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "pictorialism": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "绘画式稳定构图、柔化背景与诗性单一焦点",
+        "labelEn": "painting-like balance, softened depth, and one poetic focal area",
+        "promptZh": "构图采用绘画式稳定构图、柔化背景与诗性单一焦点",
+        "promptEn": "compose with painting-like balance, softened depth, and one poetic focal area",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "逆光、雾化柔光与低反差阴影",
+        "labelEn": "backlight, haze, and diffuse low-contrast shadows",
+        "promptZh": "光影采用逆光、雾化柔光与低反差阴影",
+        "promptEn": "use backlight, haze, and diffuse low-contrast shadows for lighting and tonal rendering",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "树胶重铬酸盐、铂金或银盐印相的纸纤维和手工修饰",
+        "labelEn": "gum bichromate, platinum, or manipulated silver print with visible paper fibers and handwork",
+        "promptZh": "材质与表面呈现为树胶重铬酸盐、铂金或银盐印相的纸纤维和手工修饰",
+        "promptEn": "render materials and surfaces as gum bichromate, platinum, or manipulated silver print with visible paper fibers and handwork",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "软焦轮廓、综合色明暗团块与克制细节",
+        "labelEn": "soft-focus contours, merged tonal masses, and deliberately suppressed mechanical detail",
+        "promptZh": "将用户主体转译为软焦轮廓、综合色明暗团块与克制细节，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into soft-focus contours, merged tonal masses, and deliberately suppressed mechanical detail while preserving identity and defining structure",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "棕褐、银灰、炭黑与低对比单色",
+        "labelEn": "sepia, silver gray, charcoal black, and low-contrast monochrome",
+        "promptZh": "配色限定为棕褐、银灰、炭黑与低对比单色",
+        "promptEn": "limit the palette to sepia, silver gray, charcoal black, and low-contrast monochrome",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与时代影像一致的字幕或印刷字体",
+        "labelEn": "only when text is requested, use restrained period-consistent captions outside the image field",
+        "promptZh": "仅在用户要求文字时，采用与时代影像一致的字幕或印刷字体，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained period-consistent captions outside the image field, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "czechoslovak-new-wave": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "日常场景与荒诞插曲并置、自由剪辑和意外视觉比喻",
+        "labelEn": "ordinary settings interrupted by absurd episodes, free editing, and unexpected visual metaphor",
+        "promptZh": "构图采用日常场景与荒诞插曲并置、自由剪辑和意外视觉比喻",
+        "promptEn": "compose with ordinary settings interrupted by absurd episodes, free editing, and unexpected visual metaphor",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "自然光与舞台化段落混合",
+        "labelEn": "natural light mixed with deliberately staged passages",
+        "promptZh": "光影采用自然光与舞台化段落混合",
+        "promptEn": "use natural light mixed with deliberately staged passages for lighting and tonal rendering",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "35mm 颗粒、拼贴动画或实验剪辑痕迹",
+        "labelEn": "35 mm grain, collage animation, and traces of experimental editing",
+        "promptZh": "材质与表面呈现为35mm 颗粒、拼贴动画或实验剪辑痕迹",
+        "promptEn": "render materials and surfaces as 35 mm grain, collage animation, and traces of experimental editing",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "自然表演、超现实物件关系与不稳定框取",
+        "labelEn": "natural performance, surreal object relations, and unstable framing",
+        "promptZh": "将用户主体转译为自然表演、超现实物件关系与不稳定框取，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into natural performance, surreal object relations, and unstable framing while preserving identity and defining structure",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "黑白或柔和东欧综合色胶片色",
+        "labelEn": "black and white or softly muted Eastern European film color",
+        "promptZh": "配色限定为黑白或柔和东欧综合色胶片色",
+        "promptEn": "limit the palette to black and white or softly muted Eastern European film color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与时代影像一致的字幕或印刷字体",
+        "labelEn": "only when text is requested, use legible period Central European film titling",
+        "promptZh": "仅在用户要求文字时，采用与时代影像一致的字幕或印刷字体，并保持原文可读",
+        "promptEn": "only when text is requested, use legible period Central European film titling, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "new-hollywood-cinema": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "宽银幕环境、长焦压缩、自由机位和主体驱动的开放场面",
+        "labelEn": "wide-screen environmental space, telephoto compression, free camera placement, and open subject-led staging",
+        "promptZh": "构图采用宽银幕环境、长焦压缩、自由机位和主体驱动的开放场面",
+        "promptEn": "compose with wide-screen environmental space, telephoto compression, free camera placement, and open subject-led staging",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "可用光、低照度夜景和自然主义曝光",
+        "labelEn": "available light, low-level night exposure, and naturalistic tonal response",
+        "promptZh": "光影采用可用光、低照度夜景和自然主义曝光",
+        "promptEn": "use available light, low-level night exposure, and naturalistic tonal response for lighting and tonal rendering",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "35mm 胶片颗粒、变焦、镜头耀光与实景表面",
+        "labelEn": "35 mm grain, zoom movement, lens flare, and unpolished location surfaces",
+        "promptZh": "材质与表面呈现为35mm 胶片颗粒、变焦、镜头耀光与实景表面",
+        "promptEn": "render materials and surfaces as 35 mm grain, zoom movement, lens flare, and unpolished location surfaces",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "自然动作、环境或公路尺度和层叠前景",
+        "labelEn": "natural action, large-scale surroundings, and layered foreground planes",
+        "promptZh": "将用户主体转译为自然动作、环境或公路尺度和层叠前景，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into natural action, large-scale surroundings, and layered foreground planes while preserving identity and defining structure",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "综合色负片色、暖高光与深阴影",
+        "labelEn": "period color-negative response, warm highlights, and deep shadows",
+        "promptZh": "配色限定为综合色负片色、暖高光与深阴影",
+        "promptEn": "limit the palette to period color-negative response, warm highlights, and deep shadows",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与时代影像一致的字幕或印刷字体",
+        "labelEn": "only when text is requested, use legible late-1960s to 1970s film typography",
+        "promptZh": "仅在用户要求文字时，采用与时代影像一致的字幕或印刷字体，并保持原文可读",
+        "promptEn": "only when text is requested, use legible late-1960s to 1970s film typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "humanist-photography": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "街头中景、环境主体关系与决定性瞬间的自然裁切",
+        "labelEn": "mid-distance observational framing, contextual subject-space relations, and naturally timed cropping",
+        "promptZh": "构图采用街头中景、环境主体关系与决定性瞬间的自然裁切",
+        "promptEn": "compose with mid-distance observational framing, contextual subject-space relations, and naturally timed cropping",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "可用自然光、保留暗部和高光层次",
+        "labelEn": "available natural light retaining detail in both shadow and highlight",
+        "promptZh": "光影采用可用自然光、保留暗部和高光层次",
+        "promptEn": "use available natural light retaining detail in both shadow and highlight for lighting and tonal rendering",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "35mm 胶片颗粒、手持轻微不稳与银盐印相",
+        "labelEn": "35 mm grain, slight handheld instability, and silver-gelatin printing",
+        "promptZh": "材质与表面呈现为35mm 胶片颗粒、手持轻微不稳与银盐印相",
+        "promptEn": "render materials and surfaces as 35 mm grain, slight handheld instability, and silver-gelatin printing",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "自然动作、清楚轮廓与轻微运动痕迹",
+        "labelEn": "unposed action, clear contours, and slight traces of movement",
+        "promptZh": "将用户主体转译为自然动作、清楚轮廓与轻微运动痕迹，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into unposed action, clear contours, and slight traces of movement while preserving identity and defining structure",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "柔和黑白灰阶",
+        "labelEn": "soft black-white-gray tonal gradation",
+        "promptZh": "配色限定为柔和黑白灰阶",
+        "promptEn": "limit the palette to soft black-white-gray tonal gradation",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与时代影像一致的字幕或印刷字体",
+        "labelEn": "only when text is requested, use restrained documentary caption typography",
+        "promptZh": "仅在用户要求文字时，采用与时代影像一致的字幕或印刷字体，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained documentary caption typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "provoke-photography": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "倾斜失衡、近距压迫、断裂裁切与不可预测画外空间",
+        "labelEn": "tilted imbalance, oppressive close range, fractured cropping, and unpredictable off-frame space",
+        "promptZh": "构图采用倾斜失衡、近距压迫、断裂裁切与不可预测画外空间",
+        "promptEn": "compose with tilted imbalance, oppressive close range, fractured cropping, and unpredictable off-frame space",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "现场硬光、过曝和暗部堵塞",
+        "labelEn": "hard available light, overexposure, and crushed shadow",
+        "promptZh": "光影采用现场硬光、过曝和暗部堵塞",
+        "promptEn": "use hard available light, overexposure, and crushed shadow for lighting and tonal rendering",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "粗颗粒胶片、失焦、运动模糊、刮痕和粗糙印相",
+        "labelEn": "coarse-grain film, defocus, motion blur, scratches, and rough printing",
+        "promptZh": "材质与表面呈现为粗颗粒胶片、失焦、运动模糊、刮痕和粗糙印相",
+        "promptEn": "render materials and surfaces as coarse-grain film, defocus, motion blur, scratches, and rough printing",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "粗颗粒吞没细节、模糊轮廓与摇晃边缘",
+        "labelEn": "coarse grain swallowing detail, blurred contours, and shaken edges",
+        "promptZh": "将用户主体转译为粗颗粒吞没细节、模糊轮廓与摇晃边缘，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into coarse grain swallowing detail, blurred contours, and shaken edges while preserving identity and defining structure",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "极高反差黑白、死黑与过曝白",
+        "labelEn": "extreme-contrast black and white with blocked blacks and blown whites",
+        "promptZh": "配色限定为极高反差黑白、死黑与过曝白",
+        "promptEn": "limit the palette to extreme-contrast black and white with blocked blacks and blown whites",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与时代影像一致的字幕或印刷字体",
+        "labelEn": "only when text is requested, use sparse legible Japanese photography-publication typography",
+        "promptZh": "仅在用户要求文字时，采用与时代影像一致的字幕或印刷字体，并保持原文可读",
+        "promptEn": "only when text is requested, use sparse legible Japanese photography-publication typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "japanese-new-wave-cinema": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "倾斜机位、断裂剪辑、极端近景和社会空间冲突",
+        "labelEn": "tilted camera positions, fractured editing, extreme close framing, and conflict within social space",
+        "promptZh": "构图采用倾斜机位、断裂剪辑、极端近景和社会空间冲突",
+        "promptEn": "compose with tilted camera positions, fractured editing, extreme close framing, and conflict within social space",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "硬光、过曝和舞台化色光混合",
+        "labelEn": "hard light, overexposure, and staged color illumination in deliberate combination",
+        "promptZh": "光影采用硬光、过曝和舞台化色光混合",
+        "promptEn": "use hard light, overexposure, and staged color illumination in deliberate combination for lighting and tonal rendering",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "35mm 颗粒、跳切、手持和实验声画",
+        "labelEn": "35 mm grain, jump cuts, handheld movement, and experimental sound-image relations",
+        "promptZh": "材质与表面呈现为35mm 颗粒、跳切、手持和实验声画",
+        "promptEn": "render materials and surfaces as 35 mm grain, jump cuts, handheld movement, and experimental sound-image relations",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "夸张动作、粗粝轮廓与实验画面分割",
+        "labelEn": "exaggerated action, rough contours, and experimental division of the frame",
+        "promptZh": "将用户主体转译为夸张动作、粗粝轮廓与实验画面分割，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into exaggerated action, rough contours, and experimental division of the frame while preserving identity and defining structure",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "高反差黑白或强烈综合色胶片色",
+        "labelEn": "high-contrast black and white or forceful period film color",
+        "promptZh": "配色限定为高反差黑白或强烈综合色胶片色",
+        "promptEn": "limit the palette to high-contrast black and white or forceful period film color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与时代影像一致的字幕或印刷字体",
+        "labelEn": "only when text is requested, use legible period Japanese film typography",
+        "promptZh": "仅在用户要求文字时，采用与时代影像一致的字幕或印刷字体，并保持原文可读",
+        "promptEn": "only when text is requested, use legible period Japanese film typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "photo-secession": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "精确裁定的画面边界、现代平衡、单一主焦点与展览式留边",
+        "labelEn": "precisely edited image boundaries, modern balance, one primary focus, and exhibition-like margins",
+        "promptZh": "构图采用精确裁定的画面边界、现代平衡、单一主焦点与展览式留边",
+        "promptEn": "compose with precisely edited image boundaries, modern balance, one primary focus, and exhibition-like margins",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "雾光、夜色或综合色逆光形成受控低反差",
+        "labelEn": "mist, night tone, or diffused backlight producing controlled low contrast",
+        "promptZh": "光影采用雾光、夜色或综合色逆光形成受控低反差",
+        "promptEn": "use mist, night tone, or diffused backlight producing controlled low contrast for lighting and tonal rendering",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "铂金、凹版或银盐印相、精细纸纹与克制手工修饰",
+        "labelEn": "platinum, photogravure, or silver printing, fine paper grain, and restrained handwork",
+        "promptZh": "材质与表面呈现为铂金、凹版或银盐印相、精细纸纹与克制手工修饰",
+        "promptEn": "render materials and surfaces as platinum, photogravure, or silver printing, fine paper grain, and restrained handwork",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "柔化但受控的轮廓、综合色块与局部清晰结构",
+        "labelEn": "softened but controlled contours, tonal masses, and selected sharp structure",
+        "promptZh": "将用户主体转译为柔化但受控的轮廓、综合色块与局部清晰结构，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into softened but controlled contours, tonal masses, and selected sharp structure while preserving identity and defining structure",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "铂金灰、综合色褐、炭黑与温暖纸白",
+        "labelEn": "platinum gray, warm brown, charcoal black, and warm paper white",
+        "promptZh": "配色限定为铂金灰、综合色褐、炭黑与温暖纸白",
+        "promptEn": "limit the palette to platinum gray, warm brown, charcoal black, and warm paper white",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用与艺术期刊相符的清楚衬线标题",
+        "labelEn": "only when text is requested, use clear serif titling consistent with an art journal",
+        "promptZh": "仅在用户要求文字时，采用与艺术期刊相符的清楚衬线标题，并保持原文可读",
+        "promptEn": "only when text is requested, use clear serif titling consistent with an art journal, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "poetic-realism-cinema": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "雾夜街景、封闭空间、主体与环境的抒情距离",
+        "labelEn": "misty nocturnal urban space, enclosed settings, and a lyrical distance between focal action and surroundings",
+        "promptZh": "构图采用雾夜街景、封闭空间、主体与环境的抒情距离",
+        "promptEn": "compose with misty nocturnal urban space, enclosed settings, and a lyrical distance between focal action and surroundings",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "雾化逆光、路灯式局部光和潮湿反射",
+        "labelEn": "diffused backlight, localized lamp-like pools, and wet reflections",
+        "promptZh": "光影采用雾化逆光、路灯式局部光和潮湿反射",
+        "promptEn": "use diffused backlight, localized lamp-like pools, and wet reflections for lighting and tonal rendering",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "35mm 胶片颗粒、烟雾和棚景真实表面",
+        "labelEn": "35 mm grain, controlled haze, and materially convincing studio sets",
+        "promptZh": "材质与表面呈现为35mm 胶片颗粒、烟雾和棚景真实表面",
+        "promptEn": "render materials and surfaces as 35 mm grain, controlled haze, and materially convincing studio sets",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "柔化轮廓、深景遮挡和克制动作",
+        "labelEn": "softened contours, deep-layer occlusion, and restrained movement",
+        "promptZh": "将用户主体转译为柔化轮廓、深景遮挡和克制动作，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into softened contours, deep-layer occlusion, and restrained movement while preserving identity and defining structure",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "银灰黑白、湿润深调与少量综合色染色",
+        "labelEn": "silver-gray monochrome, moist deep tones, and occasional restrained tinting",
+        "promptZh": "配色限定为银灰黑白、湿润深调与少量综合色染色",
+        "promptEn": "limit the palette to silver-gray monochrome, moist deep tones, and occasional restrained tinting",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与时代影像一致的字幕或印刷字体",
+        "labelEn": "only when text is requested, use legible 1930s French film titling",
+        "promptZh": "仅在用户要求文字时，采用与时代影像一致的字幕或印刷字体，并保持原文可读",
+        "promptEn": "only when text is requested, use legible 1930s French film titling, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "japanese-i-photography": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "近距离私人片段、日记式序列与不完美日常裁切",
+        "labelEn": "close private fragments, diary-like sequencing, and imperfect everyday cropping",
+        "promptZh": "构图采用近距离私人片段、日记式序列与不完美日常裁切",
+        "promptEn": "compose with close private fragments, diary-like sequencing, and imperfect everyday cropping",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "室内可用光、窗光或小型闪光",
+        "labelEn": "available interior light, window light, or small direct flash",
+        "promptZh": "光影采用室内可用光、窗光或小型闪光",
+        "promptEn": "use available interior light, window light, or small direct flash for lighting and tonal rendering",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "小型胶片、日期痕迹、颗粒和私人相册式印相",
+        "labelEn": "small-format film, date traces, grain, and private-album printing",
+        "promptZh": "材质与表面呈现为小型胶片、日期痕迹、颗粒和私人相册式印相",
+        "promptEn": "render materials and surfaces as small-format film, date traces, grain, and private-album printing",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "自然轮廓、轻微失焦和未经摆布的动作",
+        "labelEn": "natural contours, slight defocus, and unarranged action",
+        "promptZh": "将用户主体转译为自然轮廓、轻微失焦和未经摆布的动作，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into natural contours, slight defocus, and unarranged action while preserving identity and defining structure",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "综合色负片色、偏暖肤色与环境色偏",
+        "labelEn": "period color-negative response, warm flesh color, and ambient color casts",
+        "promptZh": "配色限定为综合色负片色、偏暖肤色与环境色偏",
+        "promptEn": "limit the palette to period color-negative response, warm flesh color, and ambient color casts",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与时代影像一致的字幕或印刷字体",
+        "labelEn": "only when text is requested, use understated diary-like caption typography",
+        "promptZh": "仅在用户要求文字时，采用与时代影像一致的字幕或印刷字体，并保持原文可读",
+        "promptEn": "only when text is requested, use understated diary-like caption typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "soviet-montage-cinema": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "通过镜头碰撞、尺度跳切和方向对立建立意义",
+        "labelEn": "meaning built through shot collision, scale jumps, and opposed screen direction",
+        "promptZh": "构图采用通过镜头碰撞、尺度跳切和方向对立建立意义",
+        "promptEn": "compose with meaning built through shot collision, scale jumps, and opposed screen direction",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "硬自然光和图形化明暗块",
+        "labelEn": "hard natural light and graphically separated tonal blocks",
+        "promptZh": "光影采用硬自然光和图形化明暗块",
+        "promptEn": "use hard natural light and graphically separated tonal blocks for lighting and tonal rendering",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "粗颗粒胶片、快速剪辑、划痕与新闻影像质感",
+        "labelEn": "coarse film grain, rapid cutting, scratches, and newsreel texture",
+        "promptZh": "材质与表面呈现为粗颗粒胶片、快速剪辑、划痕与新闻影像质感",
+        "promptEn": "render materials and surfaces as coarse film grain, rapid cutting, scratches, and newsreel texture",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "强对角线、近景碎片、机械重复和群体节奏",
+        "labelEn": "strong diagonals, close fragments, mechanical repetition, and collective rhythm",
+        "promptZh": "将用户主体转译为强对角线、近景碎片、机械重复和群体节奏，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into strong diagonals, close fragments, mechanical repetition, and collective rhythm while preserving identity and defining structure",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "高反差黑白",
+        "labelEn": "high-contrast black and white",
+        "promptZh": "配色限定为高反差黑白",
+        "promptEn": "limit the palette to high-contrast black and white",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与时代影像一致的字幕或印刷字体",
+        "labelEn": "only when text is requested, use bold legible Constructivist intertitles",
+        "promptZh": "仅在用户要求文字时，采用与时代影像一致的字幕或印刷字体，并保持原文可读",
+        "promptEn": "only when text is requested, use bold legible Constructivist intertitles, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "taiwan-new-cinema": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "固定长镜头、深景空间、门框层叠与主体在环境中的小尺度关系",
+        "labelEn": "fixed long takes, deep spatial layers, nested frames, and small-scale focal action within the environment",
+        "promptZh": "构图采用固定长镜头、深景空间、门框层叠与主体在环境中的小尺度关系",
+        "promptEn": "compose with fixed long takes, deep spatial layers, nested frames, and small-scale focal action within the environment",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "现场日光、室内可用光与保留阴影",
+        "labelEn": "available daylight and interior light with shadows retained",
+        "promptZh": "光影采用现场日光、室内可用光与保留阴影",
+        "promptEn": "use available daylight and interior light with shadows retained for lighting and tonal rendering",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "35mm 胶片颗粒、长镜头和真实建筑表面",
+        "labelEn": "35 mm grain, extended takes, real material surfaces, and restrained camera movement",
+        "promptZh": "材质与表面呈现为35mm 胶片颗粒、长镜头和真实建筑表面",
+        "promptEn": "render materials and surfaces as 35 mm grain, extended takes, real material surfaces, and restrained camera movement",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "自然动作、克制轮廓和完整空间持续时间",
+        "labelEn": "natural action, restrained contours, and duration preserved across complete space",
+        "promptZh": "将用户主体转译为自然动作、克制轮廓和完整空间持续时间，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into natural action, restrained contours, and duration preserved across complete space while preserving identity and defining structure",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "低饱和综合色胶片色、暖灰与自然绿",
+        "labelEn": "low-saturation period film color, warm gray, and natural green",
+        "promptZh": "配色限定为低饱和综合色胶片色、暖灰与自然绿",
+        "promptEn": "limit the palette to low-saturation period film color, warm gray, and natural green",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与时代影像一致的字幕或印刷字体",
+        "labelEn": "only when text is requested, use clear understated period film typography",
+        "promptZh": "仅在用户要求文字时，采用与时代影像一致的字幕或印刷字体，并保持原文可读",
+        "promptEn": "only when text is requested, use clear understated period film typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "hong-kong-new-wave-cinema": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "高密度环境空间、快速机位、斜向运动与类型片节奏",
+        "labelEn": "dense environmental space, rapidly shifting camera positions, diagonal movement, and genre-driven rhythm",
+        "promptZh": "构图采用高密度环境空间、快速机位、斜向运动与类型片节奏",
+        "promptEn": "compose with dense environmental space, rapidly shifting camera positions, diagonal movement, and genre-driven rhythm",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "混合色温、街灯、实景高光和深暗背景",
+        "labelEn": "mixed color temperatures, practical lights, bright location highlights, and deep grounds",
+        "promptZh": "光影采用混合色温、街灯、实景高光和深暗背景",
+        "promptEn": "use mixed color temperatures, practical lights, bright location highlights, and deep grounds for lighting and tonal rendering",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "35mm 胶片颗粒、快速摇移和潮湿环境表面",
+        "labelEn": "35 mm grain, rapid pans, and humid reflective surfaces",
+        "promptZh": "材质与表面呈现为35mm 胶片颗粒、快速摇移和潮湿环境表面",
+        "promptEn": "render materials and surfaces as 35 mm grain, rapid pans, and humid reflective surfaces",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "近距动作、广角透视和层叠招牌轮廓",
+        "labelEn": "close-range action, wide-angle depth, and layered luminous signage contours",
+        "promptZh": "将用户主体转译为近距动作、广角透视和层叠招牌轮廓，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into close-range action, wide-angle depth, and layered luminous signage contours while preserving identity and defining structure",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "综合色霓虹、钨丝暖色与胶片青绿阴影",
+        "labelEn": "colored neon, warm tungsten, and green-cyan film shadows",
+        "promptZh": "配色限定为综合色霓虹、钨丝暖色与胶片青绿阴影",
+        "promptEn": "limit the palette to colored neon, warm tungsten, and green-cyan film shadows",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与时代影像一致的字幕或印刷字体",
+        "labelEn": "only when text is requested, use legible bilingual period film titling",
+        "promptZh": "仅在用户要求文字时，采用与时代影像一致的字幕或印刷字体，并保持原文可读",
+        "promptEn": "only when text is requested, use legible bilingual period film titling, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "new-topographics": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "平视距离、稳定地平线、日常建成环境与情绪中性框取",
+        "labelEn": "eye-level distance, stable horizon, ordinary built environments, and emotionally neutral framing",
+        "promptZh": "构图采用平视距离、稳定地平线、日常建成环境与情绪中性框取",
+        "promptEn": "compose with eye-level distance, stable horizon, ordinary built environments, and emotionally neutral framing",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "平淡日光、阴天光与压低戏剧反差",
+        "labelEn": "plain daylight or overcast light with reduced dramatic contrast",
+        "promptZh": "光影采用平淡日光、阴天光与压低戏剧反差",
+        "promptEn": "use plain daylight or overcast light with reduced dramatic contrast for lighting and tonal rendering",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "大画幅胶片、细颗粒和中性档案印相",
+        "labelEn": "large-format film, fine grain, and neutral archival printing",
+        "promptZh": "材质与表面呈现为大画幅胶片、细颗粒和中性档案印相",
+        "promptEn": "render materials and surfaces as large-format film, fine grain, and neutral archival printing",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "清楚基础设施轮廓、无夸张透视与均匀细节",
+        "labelEn": "clear infrastructure contours, no exaggerated perspective, and evenly distributed detail",
+        "promptZh": "将用户主体转译为清楚基础设施轮廓、无夸张透视与均匀细节，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into clear infrastructure contours, no exaggerated perspective, and evenly distributed detail while preserving identity and defining structure",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "中性黑白或低饱和综合色",
+        "labelEn": "neutral black and white or low-saturation color",
+        "promptZh": "配色限定为中性黑白或低饱和综合色",
+        "promptEn": "limit the palette to neutral black and white or low-saturation color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与时代影像一致的字幕或印刷字体",
+        "labelEn": "only when text is requested, use neutral accurate archival caption typography",
+        "promptZh": "仅在用户要求文字时，采用与时代影像一致的字幕或印刷字体，并保持原文可读",
+        "promptEn": "only when text is requested, use neutral accurate archival caption typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "new-objectivity-photography": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "正面或高低角度的直接取景、紧密裁切与清楚几何秩序",
+        "labelEn": "direct frontal or high-low viewpoints, tight cropping, and clear geometric order",
+        "promptZh": "构图采用正面或高低角度的直接取景、紧密裁切与清楚几何秩序",
+        "promptEn": "compose with direct frontal or high-low viewpoints, tight cropping, and clear geometric order",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀或明确方向光，保持高综合色分离和清楚反射",
+        "labelEn": "even or clearly directional light preserving strong tonal separation and crisp reflections",
+        "promptZh": "光影采用均匀或明确方向光，保持高综合色分离和清楚反射",
+        "promptEn": "use even or clearly directional light preserving strong tonal separation and crisp reflections for lighting and tonal rendering",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "大画幅银盐细颗粒、硬调相纸与几乎无手工柔化",
+        "labelEn": "fine-grain large-format silver gelatin, firm paper contrast, and almost no hand softening",
+        "promptZh": "材质与表面呈现为大画幅银盐细颗粒、硬调相纸与几乎无手工柔化",
+        "promptEn": "render materials and surfaces as fine-grain large-format silver gelatin, firm paper contrast, and almost no hand softening",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "极锐轮廓、具体表面、重复工业结构与高微细节",
+        "labelEn": "extremely sharp contours, specific surfaces, repeated industrial structure, and fine detail",
+        "promptZh": "将用户主体转译为极锐轮廓、具体表面、重复工业结构与高微细节，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into extremely sharp contours, specific surfaces, repeated industrial structure, and fine detail while preserving identity and defining structure",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "中性黑白、银灰与克制自然综合色",
+        "labelEn": "neutral black and white, silver gray, and restrained natural color",
+        "promptZh": "配色限定为中性黑白、银灰与克制自然综合色",
+        "promptEn": "limit the palette to neutral black and white, silver gray, and restrained natural color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用中性清楚的现代字幕",
+        "labelEn": "only when text is requested, use neutral clear modern caption typography",
+        "promptZh": "仅在用户要求文字时，采用中性清楚的现代字幕，并保持原文可读",
+        "promptEn": "only when text is requested, use neutral clear modern caption typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "new-vision-photography": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "极端俯仰、对角裁切、近距放大与影子作为图形",
+        "labelEn": "extreme high-low viewpoints, diagonal cropping, close enlargement, and shadows used as graphic form",
+        "promptZh": "构图采用极端俯仰、对角裁切、近距放大与影子作为图形",
+        "promptEn": "compose with extreme high-low viewpoints, diagonal cropping, close enlargement, and shadows used as graphic form",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "硬光、投影、透明叠影与光绘",
+        "labelEn": "hard light, projected shadow, transparent superimposition, and light drawing",
+        "promptZh": "光影采用硬光、投影、透明叠影与光绘",
+        "promptEn": "use hard light, projected shadow, transparent superimposition, and light drawing for lighting and tonal rendering",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "银盐胶片、光影照片和摄影机无镜头实验",
+        "labelEn": "silver film, photograms, and camera-less light experiments",
+        "promptZh": "材质与表面呈现为银盐胶片、光影照片和摄影机无镜头实验",
+        "promptEn": "render materials and surfaces as silver film, photograms, and camera-less light experiments",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "锐利几何、透视缩短与陌生化尺度",
+        "labelEn": "sharp geometry, foreshortening, and defamiliarized scale",
+        "promptZh": "将用户主体转译为锐利几何、透视缩短与陌生化尺度，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into sharp geometry, foreshortening, and defamiliarized scale while preserving identity and defining structure",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "高反差黑白与少量综合色实验",
+        "labelEn": "high-contrast black and white with restricted color experiments",
+        "promptZh": "配色限定为高反差黑白与少量综合色实验",
+        "promptEn": "limit the palette to high-contrast black and white with restricted color experiments",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与时代影像一致的字幕或印刷字体",
+        "labelEn": "only when text is requested, use clear modernist period typography",
+        "promptZh": "仅在用户要求文字时，采用与时代影像一致的字幕或印刷字体，并保持原文可读",
+        "promptEn": "only when text is requested, use clear modernist period typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "italian-neorealism": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "真实街区、开放画外空间与现场式中远景",
+        "labelEn": "real on-location districts, open off-frame space, and observational medium-to-long framing",
+        "promptZh": "构图采用真实街区、开放画外空间与现场式中远景",
+        "promptEn": "compose with real on-location districts, open off-frame space, and observational medium-to-long framing",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "可用日光、真实曝光与保留暗部",
+        "labelEn": "available daylight, truthful exposure, and retained shadow detail",
+        "promptZh": "光影采用可用日光、真实曝光与保留暗部",
+        "promptEn": "use available daylight, truthful exposure, and retained shadow detail for lighting and tonal rendering",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "粗颗粒外景胶片、现场声音感与未经修饰表面",
+        "labelEn": "coarse location-film grain, direct-sound texture, and unpolished physical surfaces",
+        "promptZh": "材质与表面呈现为粗颗粒外景胶片、现场声音感与未经修饰表面",
+        "promptEn": "render materials and surfaces as coarse location-film grain, direct-sound texture, and unpolished physical surfaces",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "自然比例、非舞台动作和环境关系",
+        "labelEn": "natural proportion, unstaged action, and sustained environmental relations",
+        "promptZh": "将用户主体转译为自然比例、非舞台动作和环境关系，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into natural proportion, unstaged action, and sustained environmental relations while preserving identity and defining structure",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "宽灰阶黑白",
+        "labelEn": "broad-scale black-white-gray gradation",
+        "promptZh": "配色限定为宽灰阶黑白",
+        "promptEn": "limit the palette to broad-scale black-white-gray gradation",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与时代影像一致的字幕或印刷字体",
+        "labelEn": "only when text is requested, use simple legible period Italian film typography",
+        "promptZh": "仅在用户要求文字时，采用与时代影像一致的字幕或印刷字体，并保持原文可读",
+        "promptEn": "only when text is requested, use simple legible period Italian film typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "straight-photography": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "直接取景、完整景深与清楚画面边缘关系",
+        "labelEn": "direct framing, extended depth of field, and clearly resolved edge relationships",
+        "promptZh": "构图采用直接取景、完整景深与清楚画面边缘关系",
+        "promptEn": "compose with direct framing, extended depth of field, and clearly resolved edge relationships",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "真实可追踪光源和完整亮暗层次",
+        "labelEn": "traceable real light sources and complete highlight-shadow separation",
+        "promptZh": "光影采用真实可追踪光源和完整亮暗层次",
+        "promptEn": "use traceable real light sources and complete highlight-shadow separation for lighting and tonal rendering",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "细颗粒银盐胶片、清晰相纸和少修饰印相",
+        "labelEn": "fine-grain silver film, crisp paper, and minimally manipulated printing",
+        "promptZh": "材质与表面呈现为细颗粒银盐胶片、清晰相纸和少修饰印相",
+        "promptEn": "render materials and surfaces as fine-grain silver film, crisp paper, and minimally manipulated printing",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "准确透视、锐利轮廓与不依赖柔焦的具体细节",
+        "labelEn": "accurate perspective, sharp contours, and specific detail without soft-focus mediation",
+        "promptZh": "将用户主体转译为准确透视、锐利轮廓与不依赖柔焦的具体细节，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into accurate perspective, sharp contours, and specific detail without soft-focus mediation while preserving identity and defining structure",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "宽灰阶黑白或克制自然综合色",
+        "labelEn": "broad-scale black-white-gray gradation or restrained natural color",
+        "promptZh": "配色限定为宽灰阶黑白或克制自然综合色",
+        "promptEn": "limit the palette to broad-scale black-white-gray gradation or restrained natural color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与时代影像一致的字幕或印刷字体",
+        "labelEn": "only when text is requested, use neutral period-consistent photographic captions",
+        "promptZh": "仅在用户要求文字时，采用与时代影像一致的字幕或印刷字体，并保持原文可读",
+        "promptEn": "only when text is requested, use neutral period-consistent photographic captions, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "subjective-photography": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "抽象裁切、光影实验、多重曝光与个人视点",
+        "labelEn": "abstract cropping, light experiments, multiple exposure, and an explicitly personal viewpoint",
+        "promptZh": "构图采用抽象裁切、光影实验、多重曝光与个人视点",
+        "promptEn": "compose with abstract cropping, light experiments, multiple exposure, and an explicitly personal viewpoint",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "强投影、负片反转和暗房操控光",
+        "labelEn": "strong projected shadows, negative reversal, and darkroom-controlled light",
+        "promptZh": "光影采用强投影、负片反转和暗房操控光",
+        "promptEn": "use strong projected shadows, negative reversal, and darkroom-controlled light for lighting and tonal rendering",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "银盐胶片、太阳化、多重曝光与颗粒印相",
+        "labelEn": "silver film, solarization, multiple exposure, and grainy printing",
+        "promptZh": "材质与表面呈现为银盐胶片、太阳化、多重曝光与颗粒印相",
+        "promptEn": "render materials and surfaces as silver film, solarization, multiple exposure, and grainy printing",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "高反差轮廓、光迹、纹理近摄与非具象结构",
+        "labelEn": "high-contrast contours, light traces, close texture, and nonrepresentational structure",
+        "promptZh": "将用户主体转译为高反差轮廓、光迹、纹理近摄与非具象结构，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into high-contrast contours, light traces, close texture, and nonrepresentational structure while preserving identity and defining structure",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "黑白灰阶或有限综合色实验",
+        "labelEn": "black-white-gray gradation or restricted color experiments",
+        "promptZh": "配色限定为黑白灰阶或有限综合色实验",
+        "promptEn": "limit the palette to black-white-gray gradation or restricted color experiments",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与时代影像一致的字幕或印刷字体",
+        "labelEn": "only when text is requested, use restrained legible postwar photographic typography",
+        "promptZh": "仅在用户要求文字时，采用与时代影像一致的字幕或印刷字体，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained legible postwar photographic typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "gothic-lolita": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "高领、收腰、蓬裙、荷叶边与维多利亚式小尺度细节",
+        "labelEn": "high necks, fitted waists, full skirts, ruffles, and small-scale Victorian-derived details",
+        "promptZh": "将用户主体转译为高领、收腰、蓬裙、荷叶边与维多利亚式小尺度细节，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into high necks, fitted waists, full skirts, ruffles, and small-scale Victorian-derived details while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "黑、白、酒红、深蓝与暗金",
+        "labelEn": "black, white, wine red, deep blue, and antique gold",
+        "promptZh": "配色限定为黑、白、酒红、深蓝与暗金",
+        "promptEn": "limit the palette to black, white, wine red, deep blue, and antique gold",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "蕾丝、天鹅绒、缎带、棉布与仿古金属",
+        "labelEn": "lace, velvet, ribbon, cotton, and antiqued metal",
+        "promptZh": "材质与表面呈现为蕾丝、天鹅绒、缎带、棉布与仿古金属",
+        "promptEn": "render materials and surfaces as lace, velvet, ribbon, cotton, and antiqued metal",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "钟形裙装中心、头饰—领口—裙摆的对称层级",
+        "labelEn": "a centered bell-shaped silhouette with symmetrical hierarchy from headpiece through neckline to hem",
+        "promptZh": "构图采用钟形裙装中心、头饰—领口—裙摆的对称层级",
+        "promptEn": "compose with a centered bell-shaped silhouette with symmetrical hierarchy from headpiece through neckline to hem",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "柔侧光保持黑色蕾丝和层次可读",
+        "labelEn": "soft sidelight preserving readable layers within black lace",
+        "promptZh": "光影采用柔侧光保持黑色蕾丝和层次可读",
+        "promptEn": "use soft sidelight preserving readable layers within black lace for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与亚文化出版物一致的标题字体",
+        "labelEn": "only when text is requested, use legible Gothic-Lolita publication-style display typography",
+        "promptZh": "仅在用户要求文字时，采用与亚文化出版物一致的标题字体，并保持原文可读",
+        "promptEn": "only when text is requested, use legible Gothic-Lolita publication-style display typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "skinhead-aesthetic": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "短发、短夹克、直筒裤和厚重靴形的紧凑比例",
+        "labelEn": "cropped hair, short jackets, straight trousers, and heavy boots in tight proportion",
+        "promptZh": "将用户主体转译为短发、短夹克、直筒裤和厚重靴形的紧凑比例，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into cropped hair, short jackets, straight trousers, and heavy boots in tight proportion while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "黑、白、深红、丹宁蓝与军绿",
+        "labelEn": "black, white, deep red, denim blue, and military green",
+        "promptZh": "配色限定为黑、白、深红、丹宁蓝与军绿",
+        "promptEn": "limit the palette to black, white, deep red, denim blue, and military green",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "丹宁、工装棉、皮革、尼龙和抛光硬靴",
+        "labelEn": "denim, workwear cotton, leather, nylon, and highly polished heavy boots",
+        "promptZh": "材质与表面呈现为丹宁、工装棉、皮革、尼龙和抛光硬靴",
+        "promptEn": "render materials and surfaces as denim, workwear cotton, leather, nylon, and highly polished heavy boots",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "直接正面全身、短硬上重轮廓与少量实用配件",
+        "labelEn": "direct frontal full-length presentation, a compact top-heavy outline, and few utilitarian accessories",
+        "promptZh": "构图采用直接正面全身、短硬上重轮廓与少量实用配件",
+        "promptEn": "compose with direct frontal full-length presentation, a compact top-heavy outline, and few utilitarian accessories",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "直接街拍光或硬闪光",
+        "labelEn": "direct overcast daylight or hard frontal flash",
+        "promptZh": "光影采用直接街拍光或硬闪光",
+        "promptEn": "use direct overcast daylight or hard frontal flash for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与亚文化出版物一致的标题字体",
+        "labelEn": "only when text is requested, use plain bold subcultural-publication typography without political emblems",
+        "promptZh": "仅在用户要求文字时，采用与亚文化出版物一致的标题字体，并保持原文可读",
+        "promptEn": "only when text is requested, use plain bold subcultural-publication typography without political emblems, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "glam-rock-aesthetic": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "宽肩窄腰、喇叭裤、厚底鞋和星形闪电式线条",
+        "labelEn": "broad shoulders, narrow waists, flared trousers, platform footwear, and starburst or lightning lines",
+        "promptZh": "将用户主体转译为宽肩窄腰、喇叭裤、厚底鞋和星形闪电式线条，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into broad shoulders, narrow waists, flared trousers, platform footwear, and starburst or lightning lines while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "银金、红蓝、黑白与高饱和综合色",
+        "labelEn": "silver, gold, red, blue, black-white contrast, and saturated accents",
+        "promptZh": "配色限定为银金、红蓝、黑白与高饱和综合色",
+        "promptEn": "limit the palette to silver, gold, red, blue, black-white contrast, and saturated accents",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "亮片、金属纱、缎面、羽饰和漆皮",
+        "labelEn": "sequins, metallic fabric, satin, feather trim, and patent leather",
+        "promptZh": "材质与表面呈现为亮片、金属纱、缎面、羽饰和漆皮",
+        "promptEn": "render materials and surfaces as sequins, metallic fabric, satin, feather trim, and patent leather",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "舞台中心、细长全身轮廓与夸张面部配件焦点",
+        "labelEn": "a stage-centered elongated full-length silhouette with an exaggerated facial-accessory focal point",
+        "promptZh": "构图采用舞台中心、细长全身轮廓与夸张面部配件焦点",
+        "promptEn": "compose with a stage-centered elongated full-length silhouette with an exaggerated facial-accessory focal point",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "彩色舞台光、追光和强轮廓反射",
+        "labelEn": "colored stage light, spotlights, and strong reflective rim light",
+        "promptZh": "光影采用彩色舞台光、追光和强轮廓反射",
+        "promptEn": "use colored stage light, spotlights, and strong reflective rim light for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与亚文化出版物一致的标题字体",
+        "labelEn": "only when text is requested, use bold legible theatrical music-publication typography",
+        "promptZh": "仅在用户要求文字时，采用与亚文化出版物一致的标题字体，并保持原文可读",
+        "promptEn": "only when text is requested, use bold legible theatrical music-publication typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "flapper-style": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "平直筒形、短发轮廓、几何珠饰与细长肢体线",
+        "labelEn": "tubular geometry, cropped hair contour, geometric beadwork, and long linear limb accents",
+        "promptZh": "将用户主体转译为平直筒形、短发轮廓、几何珠饰与细长肢体线，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into tubular geometry, cropped hair contour, geometric beadwork, and long linear limb accents while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "黑、金、银、香槟与深宝石色",
+        "labelEn": "black, gold, silver, champagne, and deep jewel tones",
+        "promptZh": "配色限定为黑、金、银、香槟与深宝石色",
+        "promptEn": "limit the palette to black, gold, silver, champagne, and deep jewel tones",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "流苏、珠片、丝绸、天鹅绒和羽饰",
+        "labelEn": "fringe, sequins, silk, velvet, feather trim, and glass beads",
+        "promptZh": "材质与表面呈现为流苏、珠片、丝绸、天鹅绒和羽饰",
+        "promptEn": "render materials and surfaces as fringe, sequins, silk, velvet, feather trim, and glass beads",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "直身短裙、下移腰线和头饰形成垂直流苏节奏",
+        "labelEn": "a straight short silhouette, dropped waist, and vertical fringe rhythm anchored by the headpiece",
+        "promptZh": "构图采用直身短裙、下移腰线和头饰形成垂直流苏节奏",
+        "promptEn": "compose with a straight short silhouette, dropped waist, and vertical fringe rhythm anchored by the headpiece",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "装饰艺术式舞台光和珠饰碎光",
+        "labelEn": "Art Deco stage lighting with fragmented highlights across beadwork",
+        "promptZh": "光影采用装饰艺术式舞台光和珠饰碎光",
+        "promptEn": "use Art Deco stage lighting with fragmented highlights across beadwork for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与亚文化出版物一致的标题字体",
+        "labelEn": "only when text is requested, use legible 1920s display typography",
+        "promptZh": "仅在用户要求文字时，采用与亚文化出版物一致的标题字体，并保持原文可读",
+        "promptEn": "only when text is requested, use legible 1920s display typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "mod-aesthetic": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "A 字短裙、窄身西装、圆形图案和利落边缘",
+        "labelEn": "A-line minis, narrow tailoring, circular motifs, and crisp edges",
+        "promptZh": "将用户主体转译为A 字短裙、窄身西装、圆形图案和利落边缘，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into A-line minis, narrow tailoring, circular motifs, and crisp edges while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "黑白、红、蓝、橙与高对比原色",
+        "labelEn": "black and white, red, blue, orange, and high-contrast primary color",
+        "promptZh": "配色限定为黑白、红、蓝、橙与高对比原色",
+        "promptEn": "limit the palette to black and white, red, blue, orange, and high-contrast primary color",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "羊毛、针织、漆皮、乙烯基和几何印花",
+        "labelEn": "wool, knit, patent leather, vinyl, and geometric print",
+        "promptZh": "材质与表面呈现为羊毛、针织、漆皮、乙烯基和几何印花",
+        "promptEn": "render materials and surfaces as wool, knit, patent leather, vinyl, and geometric print",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "短小几何轮廓、清楚色块与简洁全身比例",
+        "labelEn": "compact geometric silhouettes, clearly bounded color blocks, and concise full-length proportion",
+        "promptZh": "构图采用短小几何轮廓、清楚色块与简洁全身比例",
+        "promptEn": "compose with compact geometric silhouettes, clearly bounded color blocks, and concise full-length proportion",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "明亮棚拍光或直接街拍光",
+        "labelEn": "bright studio illumination or clear direct daylight",
+        "promptZh": "光影采用明亮棚拍光或直接街拍光",
+        "promptEn": "use bright studio illumination or clear direct daylight for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与亚文化出版物一致的标题字体",
+        "labelEn": "only when text is requested, use clean bold 1960s magazine typography",
+        "promptZh": "仅在用户要求文字时，采用与亚文化出版物一致的标题字体，并保持原文可读",
+        "promptEn": "only when text is requested, use clean bold 1960s magazine typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "gyaru-aesthetic": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "蓬松卷发、夸张眼妆、厚底鞋和紧身短轮廓",
+        "labelEn": "voluminous curled hair, exaggerated eye makeup, platform footwear, and tight short silhouettes",
+        "promptZh": "将用户主体转译为蓬松卷发、夸张眼妆、厚底鞋和紧身短轮廓，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into voluminous curled hair, exaggerated eye makeup, platform footwear, and tight short silhouettes while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "金棕、粉、白、黑与高饱和综合色",
+        "labelEn": "golden brown, pink, white, black, and saturated mixed color",
+        "promptZh": "配色限定为金棕、粉、白、黑与高饱和综合色",
+        "promptEn": "limit the palette to golden brown, pink, white, black, and saturated mixed color",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "染发光泽、仿皮草、亮片、丹宁和手机照片噪点",
+        "labelEn": "dyed-hair gloss, faux fur, sequins, denim, and mobile-photo noise",
+        "promptZh": "材质与表面呈现为染发光泽、仿皮草、亮片、丹宁和手机照片噪点",
+        "promptEn": "render materials and surfaces as dyed-hair gloss, faux fur, sequins, denim, and mobile-photo noise",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "高识别妆发中心、短装比例与密集闪亮配件",
+        "labelEn": "makeup and hair as the primary focal system, cropped proportions, and dense reflective accessories",
+        "promptZh": "构图采用高识别妆发中心、短装比例与密集闪亮配件",
+        "promptEn": "compose with makeup and hair as the primary focal system, cropped proportions, and dense reflective accessories",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "明亮正面闪光和高曝光街拍光",
+        "labelEn": "bright frontal flash and high-exposure snapshot light",
+        "promptZh": "光影采用明亮正面闪光和高曝光街拍光",
+        "promptEn": "use bright frontal flash and high-exposure snapshot light for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与亚文化出版物一致的标题字体",
+        "labelEn": "only when text is requested, use bold legible Japanese youth-magazine typography",
+        "promptZh": "仅在用户要求文字时，采用与亚文化出版物一致的标题字体，并保持原文可读",
+        "promptEn": "only when text is requested, use bold legible Japanese youth-magazine typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "visual-kei": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "宽肩窄腰、不对称长短层、束腰和戏剧化发束",
+        "labelEn": "broad shoulders, narrow waists, asymmetrical long-short layers, corsetry, and dramatic hair masses",
+        "promptZh": "将用户主体转译为宽肩窄腰、不对称长短层、束腰和戏剧化发束，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into broad shoulders, narrow waists, asymmetrical long-short layers, corsetry, and dramatic hair masses while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "黑、白、红、紫、金银与综合色妆面",
+        "labelEn": "black, white, red, purple, metallic gold-silver, and blended makeup color",
+        "promptZh": "配色限定为黑、白、红、紫、金银与综合色妆面",
+        "promptEn": "limit the palette to black, white, red, purple, metallic gold-silver, and blended makeup color",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "皮革、蕾丝、天鹅绒、金属、羽饰和光泽妆面",
+        "labelEn": "leather, lace, velvet, metal, feather trim, and glossy makeup surfaces",
+        "promptZh": "材质与表面呈现为皮革、蕾丝、天鹅绒、金属、羽饰和光泽妆面",
+        "promptEn": "render materials and surfaces as leather, lace, velvet, metal, feather trim, and glossy makeup surfaces",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "舞台中心、夸张发型和服装边缘形成尖锐上升轮廓",
+        "labelEn": "a stage-centered composition with rising sharp contours formed by exaggerated hair and garment edges",
+        "promptZh": "构图采用舞台中心、夸张发型和服装边缘形成尖锐上升轮廓",
+        "promptEn": "compose with a stage-centered composition with rising sharp contours formed by exaggerated hair and garment edges",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "舞台追光、综合色轮廓光和深暗背景",
+        "labelEn": "stage spotlights, colored rim light, and deep dark grounds",
+        "promptZh": "光影采用舞台追光、综合色轮廓光和深暗背景",
+        "promptEn": "use stage spotlights, colored rim light, and deep dark grounds for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与亚文化出版物一致的标题字体",
+        "labelEn": "only when text is requested, use dramatic but legible Japanese music-publication typography",
+        "promptZh": "仅在用户要求文字时，采用与亚文化出版物一致的标题字体，并保持原文可读",
+        "promptEn": "only when text is requested, use dramatic but legible Japanese music-publication typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "dandyism": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "合体西装、清楚肩线、长外套和克制姿态",
+        "labelEn": "close tailoring, clear shoulder lines, long coats, and restrained posture",
+        "promptZh": "将用户主体转译为合体西装、清楚肩线、长外套和克制姿态，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into close tailoring, clear shoulder lines, long coats, and restrained posture while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "黑、炭灰、奶白、酒红与深绿",
+        "labelEn": "black, charcoal, cream, wine red, and deep green",
+        "promptZh": "配色限定为黑、炭灰、奶白、酒红与深绿",
+        "promptEn": "limit the palette to black, charcoal, cream, wine red, and deep green",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "精纺羊毛、丝绸、皮革、天鹅绒和精细缝制",
+        "labelEn": "fine worsted wool, silk, leather, velvet, and precise stitching",
+        "promptZh": "材质与表面呈现为精纺羊毛、丝绸、皮革、天鹅绒和精细缝制",
+        "promptEn": "render materials and surfaces as fine worsted wool, silk, leather, velvet, and precise stitching",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "挺直中心、精准全身比例与少量精致配件层级",
+        "labelEn": "upright centered bearing, precisely controlled full-length proportion, and a small hierarchy of refined accessories",
+        "promptZh": "构图采用挺直中心、精准全身比例与少量精致配件层级",
+        "promptEn": "compose with upright centered bearing, precisely controlled full-length proportion, and a small hierarchy of refined accessories",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "柔和肖像侧光和可读暗部",
+        "labelEn": "soft portrait sidelight with readable dark tonal detail",
+        "promptZh": "光影采用柔和肖像侧光和可读暗部",
+        "promptEn": "use soft portrait sidelight with readable dark tonal detail for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与亚文化出版物一致的标题字体",
+        "labelEn": "only when text is requested, use refined legible editorial serif typography",
+        "promptZh": "仅在用户要求文字时，采用与亚文化出版物一致的标题字体，并保持原文可读",
+        "promptEn": "only when text is requested, use refined legible editorial serif typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "hippie-aesthetic": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "喇叭裤、长裙、流苏、宽袖和自然不规则轮廓",
+        "labelEn": "flared trousers, long skirts, fringe, wide sleeves, and naturally irregular outlines",
+        "promptZh": "将用户主体转译为喇叭裤、长裙、流苏、宽袖和自然不规则轮廓，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into flared trousers, long skirts, fringe, wide sleeves, and naturally irregular outlines while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "土橙、紫、绿、靛蓝与高饱和扎染综合色",
+        "labelEn": "earth orange, purple, green, indigo, and saturated tie-dye mixtures",
+        "promptZh": "配色限定为土橙、紫、绿、靛蓝与高饱和扎染综合色",
+        "promptEn": "limit the palette to earth orange, purple, green, indigo, and saturated tie-dye mixtures",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "棉麻、钩针、麂皮、珠饰、扎染和手工刺绣",
+        "labelEn": "cotton, linen, crochet, suede, beadwork, tie-dye, and hand embroidery",
+        "promptZh": "材质与表面呈现为棉麻、钩针、麂皮、珠饰、扎染和手工刺绣",
+        "promptEn": "render materials and surfaces as cotton, linen, crochet, suede, beadwork, tie-dye, and hand embroidery",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "松散层搭、流动长线和多种手工图案并置",
+        "labelEn": "loose layering, long flowing lines, and several handmade patterns in deliberate coexistence",
+        "promptZh": "构图采用松散层搭、流动长线和多种手工图案并置",
+        "promptEn": "compose with loose layering, long flowing lines, and several handmade patterns in deliberate coexistence",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "暖日光、逆光光晕和自然阴影",
+        "labelEn": "warm daylight, backlit halos, and natural soft shadows",
+        "promptZh": "光影采用暖日光、逆光光晕和自然阴影",
+        "promptEn": "use warm daylight, backlit halos, and natural soft shadows for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与亚文化出版物一致的标题字体",
+        "labelEn": "only when text is requested, use flowing legible countercultural-publication typography",
+        "promptZh": "仅在用户要求文字时，采用与亚文化出版物一致的标题字体，并保持原文可读",
+        "promptEn": "only when text is requested, use flowing legible countercultural-publication typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "new-romantic-aesthetic": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "荷叶领、泡袖、军装肩线和夸张帽饰",
+        "labelEn": "ruff collars, puffed sleeves, military shoulders, and exaggerated headwear",
+        "promptZh": "将用户主体转译为荷叶领、泡袖、军装肩线和夸张帽饰，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into ruff collars, puffed sleeves, military shoulders, and exaggerated headwear while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "黑、白、金、深红蓝与华丽综合色",
+        "labelEn": "black, white, gold, deep red-blue, and opulent mixed color",
+        "promptZh": "配色限定为黑、白、金、深红蓝与华丽综合色",
+        "promptEn": "limit the palette to black, white, gold, deep red-blue, and opulent mixed color",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "丝缎、天鹅绒、蕾丝、皮革和金属饰件",
+        "labelEn": "silk satin, velvet, lace, leather, and metallic accessories",
+        "promptZh": "材质与表面呈现为丝缎、天鹅绒、蕾丝、皮革和金属饰件",
+        "promptEn": "render materials and surfaces as silk satin, velvet, lace, leather, and metallic accessories",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "戏剧中心、宽肩细腰与历史服装元素的层叠",
+        "labelEn": "a theatrical center, broad-shoulder narrow-waist proportion, and layered historical garment references",
+        "promptZh": "构图采用戏剧中心、宽肩细腰与历史服装元素的层叠",
+        "promptEn": "compose with a theatrical center, broad-shoulder narrow-waist proportion, and layered historical garment references",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "舞台柔光、轮廓光和烟雾",
+        "labelEn": "soft stage light, rim light, and controlled haze",
+        "promptZh": "光影采用舞台柔光、轮廓光和烟雾",
+        "promptEn": "use soft stage light, rim light, and controlled haze for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与亚文化出版物一致的标题字体",
+        "labelEn": "only when text is requested, use ornate but legible early-1980s club-publication typography",
+        "promptZh": "仅在用户要求文字时，采用与亚文化出版物一致的标题字体，并保持原文可读",
+        "promptEn": "only when text is requested, use ornate but legible early-1980s club-publication typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "new-aesthetic": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "机器视觉框、像素层、现实物体与数字界面同屏并置",
+        "labelEn": "machine-vision frames, pixel layers, and physical surfaces sharing one field with digital interfaces",
+        "promptZh": "构图采用机器视觉框、像素层、现实物体与数字界面同屏并置",
+        "promptEn": "compose with machine-vision frames, pixel layers, and physical surfaces sharing one field with digital interfaces",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "识别框、二维码式网格、低模形和硬边数字覆盖",
+        "labelEn": "detection boxes, matrix-code grids, low-polygon forms, and hard-edged overlays",
+        "promptZh": "将用户主体转译为识别框、二维码式网格、低模形和硬边数字覆盖，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into detection boxes, matrix-code grids, low-polygon forms, and hard-edged overlays while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "像素、压缩、三维网格、摄像头噪点和打印输出",
+        "labelEn": "pixels, compression, three-dimensional grids, camera noise, and printed output artifacts",
+        "promptZh": "材质与表面呈现为像素、压缩、三维网格、摄像头噪点和打印输出",
+        "promptEn": "render materials and surfaces as pixels, compression, three-dimensional grids, camera noise, and printed output artifacts",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "屏幕 RGB、监控灰、荧光功能色与现实综合色",
+        "labelEn": "screen RGB, surveillance gray, fluorescent functional color, and sampled physical color",
+        "promptZh": "配色限定为屏幕 RGB、监控灰、荧光功能色与现实综合色",
+        "promptEn": "limit the palette to screen RGB, surveillance gray, fluorescent functional color, and sampled physical color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "现实环境光与屏幕自发光直接叠加",
+        "labelEn": "direct overlap between ambient physical light and emissive screen light",
+        "promptZh": "光影采用现实环境光与屏幕自发光直接叠加",
+        "promptEn": "use direct overlap between ambient physical light and emissive screen light for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用等宽、界面或时代一致的数字字体",
+        "labelEn": "only when text is requested, use monospaced interface or period-consistent digital typography",
+        "promptZh": "仅在用户要求文字时，采用等宽、界面或时代一致的数字字体，并保持原文可读",
+        "promptEn": "only when text is requested, use monospaced interface or period-consistent digital typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "ottoman-miniature": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "地图式俯视、清楚建筑分区、横向群组与编年叙事顺序",
+        "labelEn": "map-like overhead view, clearly divided architecture, horizontal groups, and chronological sequencing",
+        "promptZh": "构图采用地图式俯视、清楚建筑分区、横向群组与编年叙事顺序",
+        "promptEn": "compose with map-like overhead view, clearly divided architecture, horizontal groups, and chronological sequencing",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "简洁硬边轮廓、扁平体积、重复姿态与可读场面层级",
+        "labelEn": "concise hard contours, flat volume, repeated poses, and a readable hierarchy of events",
+        "promptZh": "将用户主体转译为简洁硬边轮廓、扁平体积、重复姿态与可读场面层级，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into concise hard contours, flat volume, repeated poses, and a readable hierarchy of events while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "纸本不透明水彩、金饰、细描与手抄本纸纹",
+        "labelEn": "opaque watercolor on paper, gold detail, fine linework, and manuscript paper grain",
+        "promptZh": "材质与表面呈现为纸本不透明水彩、金饰、细描与手抄本纸纹",
+        "promptEn": "render materials and surfaces as opaque watercolor on paper, gold detail, fine linework, and manuscript paper grain",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "朱红、群青、绿、赭黄、金与纸白",
+        "labelEn": "vermilion, ultramarine, green, ochre, gold, and paper white",
+        "promptZh": "配色限定为朱红、群青、绿、赭黄、金与纸白",
+        "promptEn": "limit the palette to vermilion, ultramarine, green, ochre, gold, and paper white",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀平面光，以综合色区和建筑遮叠建立次序",
+        "labelEn": "even flat illumination with order built through bounded color and architectural overlap",
+        "promptZh": "光影采用均匀平面光，以综合色区和建筑遮叠建立次序",
+        "promptEn": "use even flat illumination with order built through bounded color and architectural overlap for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用准确可读的奥斯曼体题签",
+        "labelEn": "only when text is requested, use an accurate legible Ottoman-script inscription panel",
+        "promptZh": "仅在用户要求文字时，准确可读的奥斯曼体题签，并保持原文可读",
+        "promptEn": "only when text is requested, use an accurate legible Ottoman-script inscription panel, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "hurufiyya-movement": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "字形碎片作为抽象场、重复叠压与非线性阅读",
+        "labelEn": "letter fragments used as an abstract field, repeated overlap, and nonlinear reading",
+        "promptZh": "构图采用字形碎片作为抽象场、重复叠压与非线性阅读",
+        "promptEn": "compose with letter fragments used as an abstract field, repeated overlap, and nonlinear reading",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "书写手势、断裂字母与尺度突变",
+        "labelEn": "calligraphic gestures, broken letterforms, and abrupt scale shifts",
+        "promptZh": "将用户主体转译为书写手势、断裂字母与尺度突变，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into calligraphic gestures, broken letterforms, and abrupt scale shifts while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "字形可抽象化，但用户要求的正文必须另行保持可读",
+        "labelEn": "letterforms may become abstract, but any supplied body text must remain separately readable",
+        "promptZh": "仅在用户要求文字时，采用字形可抽象化，但用户要求的正文必须另行保持可读，并保持原文可读",
+        "promptEn": "only when text is requested, use letterforms may become abstract, but any supplied body text must remain separately readable, and preserve the exact readable wording",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "黑白底、土色与高纯度局部强调",
+        "labelEn": "black-white grounds, earth colors, and local saturated accents",
+        "promptZh": "配色限定为黑白底、土色与高纯度局部强调",
+        "promptEn": "limit the palette to black-white grounds, earth colors, and local saturated accents",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "平面画面光，以笔势和综合色建立层次",
+        "labelEn": "flat pictorial illumination with depth built through stroke direction and color",
+        "promptZh": "光影采用平面画面光，以笔势和综合色建立层次",
+        "promptEn": "use flat pictorial illumination with depth built through stroke direction and color for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "油彩、墨、拼贴与粗糙书写表面",
+        "labelEn": "oil paint, ink, collage, and rough inscribed surfaces",
+        "promptZh": "材质与表面呈现为油彩、墨、拼贴与粗糙书写表面",
+        "promptEn": "render materials and surfaces as oil paint, ink, collage, and rough inscribed surfaces",
+        "weight": 0.7,
+        "level": "支撑"
+      }
+    ]
+  },
+  "qajar-painting": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "正面中心轴、纪念性尺度、拱形框景与浅层舞台空间",
+        "labelEn": "a frontal central axis, monumental scale, arched framing, and shallow stage-like space",
+        "promptZh": "构图采用正面中心轴、纪念性尺度、拱形框景与浅层舞台空间",
+        "promptEn": "compose with a frontal central axis, monumental scale, arched framing, and shallow stage-like space",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "清楚轮廓、平滑综合色体积、拉长比例与精密珠宝节点",
+        "labelEn": "clear contours, smooth tonal volume, elongated proportions, and precise jeweled details",
+        "promptZh": "将用户主体转译为清楚轮廓、平滑综合色体积、拉长比例与精密珠宝节点，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into clear contours, smooth tonal volume, elongated proportions, and precise jeweled details while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "油彩或纸本综合色、漆面、镜面金饰与平滑抛光表面",
+        "labelEn": "oil paint or paper pigment, lacquer, mirrored gold detail, and a polished surface",
+        "promptZh": "材质与表面呈现为油彩或纸本综合色、漆面、镜面金饰与平滑抛光表面",
+        "promptEn": "render materials and surfaces as oil paint or paper pigment, lacquer, mirrored gold detail, and a polished surface",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "深红、孔雀蓝绿、黑、综合色金与综合色肤色",
+        "labelEn": "deep red, peacock blue-green, black, rich gold, and blended flesh tones",
+        "promptZh": "配色限定为深红、孔雀蓝绿、黑、综合色金与综合色肤色",
+        "promptEn": "limit the palette to deep red, peacock blue-green, black, rich gold, and blended flesh tones",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "正面均匀光结合柔和欧洲式明暗，不使用深电影阴影",
+        "labelEn": "even frontal illumination combined with soft European-style modeling and no deep cinematic shadow",
+        "promptZh": "光影采用正面均匀光结合柔和欧洲式明暗，不使用深电影阴影",
+        "promptEn": "use even frontal illumination combined with soft European-style modeling and no deep cinematic shadow for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用准确可读的纳斯塔利克体或宫廷题签",
+        "labelEn": "only when text is requested, use accurate legible Nastaliq or courtly inscription panels",
+        "promptZh": "仅在用户要求文字时，准确可读的纳斯塔利克体或宫廷题签，并保持原文可读",
+        "promptEn": "only when text is requested, use accurate legible Nastaliq or courtly inscription panels, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "kufic-calligraphy-aesthetic": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "严格基线、方整比例与建筑式横向展开",
+        "labelEn": "strict baselines, squared proportions, and architectural horizontal extension",
+        "promptZh": "构图采用严格基线、方整比例与建筑式横向展开",
+        "promptEn": "compose with strict baselines, squared proportions, and architectural horizontal extension",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "角折粗笔、等厚结构、延长横画与几何收束",
+        "labelEn": "angular heavy strokes, near-uniform structure, elongated horizontals, and geometric terminals",
+        "promptZh": "将用户主体转译为角折粗笔、等厚结构、延长横画与几何收束，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into angular heavy strokes, near-uniform structure, elongated horizontals, and geometric terminals while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "文字是主要造型；准确保留用户原文并采用可辨识库法体结构",
+        "labelEn": "treat lettering as the primary form; preserve exact wording in a recognizable legible Kufic structure",
+        "promptZh": "仅在用户要求文字时，采用文字是主要造型；准确保留用户原文并采用可辨识库法体结构，并保持原文可读",
+        "promptEn": "only when text is requested, use treat lettering as the primary form; preserve exact wording in a recognizable legible Kufic structure, and preserve the exact readable wording",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "墨黑、纸白、金色与克制矿物强调色",
+        "labelEn": "ink black, paper white, gold, and restrained mineral accents",
+        "promptZh": "配色限定为墨黑、纸白、金色与克制矿物强调色",
+        "promptEn": "limit the palette to ink black, paper white, gold, and restrained mineral accents",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "平面无影，以字形黑白关系建立层级",
+        "labelEn": "fully flat rendering with hierarchy built by black-white letter relationships",
+        "promptZh": "光影采用平面无影，以字形黑白关系建立层级",
+        "promptEn": "use fully flat rendering with hierarchy built by black-white letter relationships for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "羊皮纸墨迹、石刻或釉砖硬边",
+        "labelEn": "parchment ink, carved stone, or hard-edged glazed tile",
+        "promptZh": "材质与表面呈现为羊皮纸墨迹、石刻或釉砖硬边",
+        "promptEn": "render materials and surfaces as parchment ink, carved stone, or hard-edged glazed tile",
+        "weight": 0.7,
+        "level": "支撑"
+      }
+    ]
+  },
+  "nastaliq-calligraphy-aesthetic": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "斜向下垂的行列、悬挂式节奏与宽阔页边留白",
+        "labelEn": "descending diagonal lines, suspended rhythm, and broad page margins",
+        "promptZh": "构图采用斜向下垂的行列、悬挂式节奏与宽阔页边留白",
+        "promptEn": "compose with descending diagonal lines, suspended rhythm, and broad page margins",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "流畅弧线、短竖长横与粗细强烈的悬垂笔势",
+        "labelEn": "flowing curves, short verticals, long horizontals, and strongly modulated hanging strokes",
+        "promptZh": "将用户主体转译为流畅弧线、短竖长横与粗细强烈的悬垂笔势，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into flowing curves, short verticals, long horizontals, and strongly modulated hanging strokes while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "文字是主要造型；准确保留用户原文并采用纳斯塔利克体的斜行结构",
+        "labelEn": "treat lettering as the primary form; preserve exact wording in a recognizable slanted Nastaliq structure",
+        "promptZh": "仅在用户要求文字时，采用文字是主要造型；准确保留用户原文并采用纳斯塔利克体的斜行结构，并保持原文可读",
+        "promptEn": "only when text is requested, use treat lettering as the primary form; preserve exact wording in a recognizable slanted Nastaliq structure, and preserve the exact readable wording",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "墨黑、纸白、金色与克制矿物边饰",
+        "labelEn": "ink black, paper white, gold, and restrained mineral borders",
+        "promptZh": "配色限定为墨黑、纸白、金色与克制矿物边饰",
+        "promptEn": "limit the palette to ink black, paper white, gold, and restrained mineral borders",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "平面均匀光，以字行节奏主导版面",
+        "labelEn": "even flat illumination with line rhythm dominating the page",
+        "promptZh": "光影采用平面均匀光，以字行节奏主导版面",
+        "promptEn": "use even flat illumination with line rhythm dominating the page for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "纸本墨迹、芦苇笔锋与抛光纸面",
+        "labelEn": "paper ink, reed-pen modulation, and a burnished writing surface",
+        "promptZh": "材质与表面呈现为纸本墨迹、芦苇笔锋与抛光纸面",
+        "promptEn": "render materials and surfaces as paper ink, reed-pen modulation, and a burnished writing surface",
+        "weight": 0.7,
+        "level": "支撑"
+      }
+    ]
+  },
+  "safavid-miniature": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "俯视花园式层叠、多焦点叙事、流动路径与精密页边",
+        "labelEn": "high-view courtly layering, multiple narrative foci, flowing paths, and precise page borders",
+        "promptZh": "构图采用俯视花园式层叠、多焦点叙事、流动路径与精密页边",
+        "promptEn": "compose with high-view courtly layering, multiple narrative foci, flowing paths, and precise page borders",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "优雅曲线、细密轮廓、扁平体积与丰富织纹节点",
+        "labelEn": "elegant curves, fine contours, flat volume, and richly patterned details",
+        "promptZh": "将用户主体转译为优雅曲线、细密轮廓、扁平体积与丰富织纹节点，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into elegant curves, fine contours, flat volume, and richly patterned details while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "纸本不透明水彩、矿物综合色、金箔、细描与抛光",
+        "labelEn": "opaque watercolor on paper, mineral color, gold leaf, fine linework, and burnishing",
+        "promptZh": "材质与表面呈现为纸本不透明水彩、矿物综合色、金箔、细描与抛光",
+        "promptEn": "render materials and surfaces as opaque watercolor on paper, mineral color, gold leaf, fine linework, and burnishing",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "群青、朱红、粉、翠绿、金与纸白",
+        "labelEn": "ultramarine, vermilion, pink, emerald green, gold, and paper white",
+        "promptZh": "配色限定为群青、朱红、粉、翠绿、金与纸白",
+        "promptEn": "limit the palette to ultramarine, vermilion, pink, emerald green, gold, and paper white",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀综合色光，以色区、金饰和遮叠组织空间",
+        "labelEn": "even chromatic illumination with space organized by bounded color, gold, and overlap",
+        "promptZh": "光影采用均匀综合色光，以色区、金饰和遮叠组织空间",
+        "promptEn": "use even chromatic illumination with space organized by bounded color, gold, and overlap for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用准确可读的纳斯塔利克体题签",
+        "labelEn": "only when text is requested, use an accurate legible Nastaliq inscription panel",
+        "promptZh": "仅在用户要求文字时，准确可读的纳斯塔利克体题签，并保持原文可读",
+        "promptEn": "only when text is requested, use an accurate legible Nastaliq inscription panel, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "seljuk-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "建筑表面的轴线门廊、连续书法带、星形网格与模块重复",
+        "labelEn": "axial portals, continuous calligraphic bands, star grids, and modular repetition across architectural surfaces",
+        "promptZh": "构图采用建筑表面的轴线门廊、连续书法带、星形网格与模块重复",
+        "promptEn": "compose with axial portals, continuous calligraphic bands, star grids, and modular repetition across architectural surfaces",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "砖砌折线、互锁多边形、棱锥龛格与深刻几何边缘",
+        "labelEn": "brick zigzags, interlocking polygons, faceted niches, and deeply carved geometric edges",
+        "promptZh": "将用户主体转译为砖砌折线、互锁多边形、棱锥龛格与深刻几何边缘，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into brick zigzags, interlocking polygons, faceted niches, and deeply carved geometric edges while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "砖、灰泥、木石雕、蓝色釉砖与金属嵌饰",
+        "labelEn": "brick, stucco, carved wood or stone, blue glazed tile, and metal inlay",
+        "promptZh": "材质与表面呈现为砖、灰泥、木石雕、蓝色釉砖与金属嵌饰",
+        "promptEn": "render materials and surfaces as brick, stucco, carved wood or stone, blue glazed tile, and metal inlay",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "砖红、钴蓝、绿松石、黑与石膏白",
+        "labelEn": "brick red, cobalt, turquoise, black, and plaster white",
+        "promptZh": "配色限定为砖红、钴蓝、绿松石、黑与石膏白",
+        "promptEn": "limit the palette to brick red, cobalt, turquoise, black, and plaster white",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "强日光与擦边光显示砖缝、刻纹和釉面反光",
+        "labelEn": "strong daylight and grazing light revealing joints, carving, and glazed reflections",
+        "promptZh": "光影采用强日光与擦边光显示砖缝、刻纹和釉面反光",
+        "promptEn": "use strong daylight and grazing light revealing joints, carving, and glazed reflections for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用准确可读的几何库法体结构",
+        "labelEn": "only when text is requested, use accurate legible geometric Kufic construction",
+        "promptZh": "仅在用户要求文字时，准确可读的几何库法体结构，并保持原文可读",
+        "promptEn": "only when text is requested, use accurate legible geometric Kufic construction, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "timurid-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "高视点层叠建筑、清楚院落轴线、多焦点叙事与宽饰边",
+        "labelEn": "high-view layered architecture, clear courtyard axes, multiple narrative foci, and broad ornamental borders",
+        "promptZh": "构图采用高视点层叠建筑、清楚院落轴线、多焦点叙事与宽饰边",
+        "promptEn": "compose with high-view layered architecture, clear courtyard axes, multiple narrative foci, and broad ornamental borders",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "细劲轮廓、棱角建筑、扁平体积与密集几何节点",
+        "labelEn": "fine contours, angular architecture, flat volume, and dense geometric details",
+        "promptZh": "将用户主体转译为细劲轮廓、棱角建筑、扁平体积与密集几何节点，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into fine contours, angular architecture, flat volume, and dense geometric details while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "纸本不透明水彩、金箔、蓝色釉砖纹理与精细描线",
+        "labelEn": "opaque watercolor on paper, gold leaf, blue-tile texture, and precise linework",
+        "promptZh": "材质与表面呈现为纸本不透明水彩、金箔、蓝色釉砖纹理与精细描线",
+        "promptEn": "render materials and surfaces as opaque watercolor on paper, gold leaf, blue-tile texture, and precise linework",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "群青、钴蓝、绿松石、朱红、金与纸白",
+        "labelEn": "ultramarine, cobalt, turquoise, vermilion, gold, and paper white",
+        "promptZh": "配色限定为群青、钴蓝、绿松石、朱红、金与纸白",
+        "promptEn": "limit the palette to ultramarine, cobalt, turquoise, vermilion, gold, and paper white",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀平面光，以釉蓝、金饰和综合色区分层",
+        "labelEn": "even flat illumination with layers separated by glazed blue, gold, and bounded color",
+        "promptZh": "光影采用均匀平面光，以釉蓝、金饰和综合色区分层",
+        "promptEn": "use even flat illumination with layers separated by glazed blue, gold, and bounded color for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用清楚可读的波斯体题签",
+        "labelEn": "only when text is requested, use a clear legible Persian-script inscription panel",
+        "promptZh": "仅在用户要求文字时，采用清楚可读的波斯体题签，并保持原文可读",
+        "promptEn": "only when text is requested, use a clear legible Persian-script inscription panel, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "islamic-arabesque": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "连续边带、镜像生长、旋转对称与可无限延展的满幅组织",
+        "labelEn": "continuous borders, mirrored growth, rotational symmetry, and infinitely extensible all-over organization",
+        "promptZh": "构图采用连续边带、镜像生长、旋转对称与可无限延展的满幅组织",
+        "promptEn": "compose with continuous borders, mirrored growth, rotational symmetry, and infinitely extensible all-over organization",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "分叉卷叶、连续茎线、叶片正负形与精确连接节点",
+        "labelEn": "branching leaves, continuous stems, leaf-shaped positive-negative forms, and precise junctions",
+        "promptZh": "将用户主体转译为分叉卷叶、连续茎线、叶片正负形与精确连接节点，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into branching leaves, continuous stems, leaf-shaped positive-negative forms, and precise junctions while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "彩绘灰泥、釉砖、木石雕或手抄本金饰表面",
+        "labelEn": "painted stucco, glazed tile, carved wood or stone, or manuscript gold surfaces",
+        "promptZh": "材质与表面呈现为彩绘灰泥、釉砖、木石雕或手抄本金饰表面",
+        "promptEn": "render materials and surfaces as painted stucco, glazed tile, carved wood or stone, or manuscript gold surfaces",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "钴蓝、绿松石、赭红、金与深色轮廓",
+        "labelEn": "cobalt, turquoise, ochre red, gold, and dark contours",
+        "promptZh": "配色限定为钴蓝、绿松石、赭红、金与深色轮廓",
+        "promptEn": "limit the palette to cobalt, turquoise, ochre red, gold, and dark contours",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "平面装饰光，金属或釉面只保留局部反光",
+        "labelEn": "flat ornamental illumination with only local metallic or glazed highlights",
+        "promptZh": "光影采用平面装饰光，金属或釉面只保留局部反光",
+        "promptEn": "use flat ornamental illumination with only local metallic or glazed highlights for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用独立清楚的书法带，不让文字破坏卷草连续性",
+        "labelEn": "only when text is requested, use a separate legible calligraphic band that does not break the vegetal continuity",
+        "promptZh": "仅在用户要求文字时，采用独立清楚的书法带，不让文字破坏卷草连续性，并保持原文可读",
+        "promptEn": "only when text is requested, use a separate legible calligraphic band that does not break the vegetal continuity, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "islamic-manuscript-illumination": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "页框、中心图像、首字与边饰形成严格层级",
+        "labelEn": "page frames, central fields, title panels, and borders forming a strict hierarchy",
+        "promptZh": "构图采用页框、中心图像、首字与边饰形成严格层级",
+        "promptEn": "compose with page frames, central fields, title panels, and borders forming a strict hierarchy",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "硬边轮廓、正面造型与交织式装饰节点",
+        "labelEn": "hard-edged contours, frontal flat forms, and interlaced ornamental nodes",
+        "promptZh": "将用户主体转译为硬边轮廓、正面造型与交织式装饰节点，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into hard-edged contours, frontal flat forms, and interlaced ornamental nodes while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "羊皮纸或纸本蛋彩、金箔与精细墨线",
+        "labelEn": "tempera and ink on parchment or paper, gold leaf, and precise linework",
+        "promptZh": "材质与表面呈现为羊皮纸或纸本蛋彩、金箔与精细墨线",
+        "promptEn": "render materials and surfaces as tempera and ink on parchment or paper, gold leaf, and precise linework",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "群青、朱红、绿、金与羊皮纸暖白",
+        "labelEn": "ultramarine, vermilion, green, gold, and warm parchment white",
+        "promptZh": "配色限定为群青、朱红、绿、金与羊皮纸暖白",
+        "promptEn": "limit the palette to ultramarine, vermilion, green, gold, and warm parchment white",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀平面光与金箔反射",
+        "labelEn": "even flat illumination with controlled gold-leaf reflection",
+        "promptZh": "光影采用均匀平面光与金箔反射",
+        "promptEn": "use even flat illumination with controlled gold-leaf reflection for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与边饰结构一致的可读文字",
+        "labelEn": "only when text is requested, preserve exact wording in a legible script aligned to the border hierarchy",
+        "promptZh": "仅在用户要求文字时，采用与边饰结构一致的可读文字，并保持原文可读",
+        "promptEn": "only when text is requested, preserve exact wording in a legible script aligned to the border hierarchy, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "hyperrealism": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "极近距离裁切、细节放大与摄影式景深线索",
+        "labelEn": "extreme close framing, magnified detail, and camera-derived depth cues",
+        "promptZh": "构图采用极近距离裁切、细节放大与摄影式景深线索",
+        "promptEn": "compose with extreme close framing, magnified detail, and camera-derived depth cues",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "微观表面转折、精确反射与高度清晰的综合色体积",
+        "labelEn": "microscopic surface transitions, exact reflections, and sharply resolved volume",
+        "promptZh": "将用户主体转译为微观表面转折、精确反射与高度清晰的综合色体积，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into microscopic surface transitions, exact reflections, and sharply resolved volume while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "无缝油彩或丙烯层、喷绘式过渡与几乎不可见笔触",
+        "labelEn": "seamless oil or acrylic layers, airbrush-like transitions, and almost no visible brushwork",
+        "promptZh": "材质与表面呈现为无缝油彩或丙烯层、喷绘式过渡与几乎不可见笔触",
+        "promptEn": "render materials and surfaces as seamless oil or acrylic layers, airbrush-like transitions, and almost no visible brushwork",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "照片式自然综合色配局部增强饱和度和准确中性平衡",
+        "labelEn": "photographic natural color with intensified local saturation and precise neutral balance",
+        "promptZh": "配色限定为照片式自然综合色配局部增强饱和度和准确中性平衡",
+        "promptEn": "limit the palette to photographic natural color with intensified local saturation and precise neutral balance",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "受控影棚光或日光，精确呈现高光、反射与投影",
+        "labelEn": "controlled studio or daylight illumination with exact highlights, reflections, and cast shadows",
+        "promptZh": "光影采用受控影棚光或日光，精确呈现高光、反射与投影",
+        "promptEn": "use controlled studio or daylight illumination with exact highlights, reflections, and cast shadows for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用中性可读字体并准确保留原文",
+        "labelEn": "only when text is requested, use neutral legible typography and preserve exact wording",
+        "promptZh": "仅在用户要求文字时，采用中性可读字体并准确保留原文，字形保持清楚可读",
+        "promptEn": "only when text is requested, use neutral legible typography and preserve exact wording, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "light-and-space": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "空室、开口、雾化场域与观看位置精确控制",
+        "labelEn": "precisely controlled openings, perceptual fields, and viewer position within open space",
+        "promptZh": "构图采用空室、开口、雾化场域与观看位置精确控制",
+        "promptEn": "compose with precisely controlled openings, perceptual fields, and viewer position within open space",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "白、综合色光谱与低对比综合色",
+        "labelEn": "white light, spectral color, and extremely low-contrast tonal fields",
+        "promptZh": "配色限定为白、综合色光谱与低对比综合色",
+        "promptEn": "limit the palette to white light, spectral color, and extremely low-contrast tonal fields",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "光本身作为材料，制造无边界渐变和综合色适应",
+        "labelEn": "light itself acting as material through boundaryless gradients and chromatic adaptation",
+        "promptZh": "光影采用光本身作为材料，制造无边界渐变和综合色适应",
+        "promptEn": "use light itself acting as material through boundaryless gradients and chromatic adaptation for lighting and tonal rendering",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "几乎消失的边界、连续平面与感知性几何",
+        "labelEn": "nearly disappearing boundaries, continuous planes, and perceptual geometry",
+        "promptZh": "将用户主体转译为几乎消失的边界、连续平面与感知性几何，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into nearly disappearing boundaries, continuous planes, and perceptual geometry while preserving identity and defining structure",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "玻璃、树脂、荧光灯、环境雾与光滑墙面",
+        "labelEn": "glass, resin, fluorescent or projected light, atmospheric haze, and seamless planes",
+        "promptZh": "材质与表面呈现为玻璃、树脂、荧光灯、环境雾与光滑墙面",
+        "promptEn": "render materials and surfaces as glass, resin, fluorescent or projected light, atmospheric haze, and seamless planes",
+        "weight": 0.7,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use minimal neutral wayfinding typography outside the light field",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use minimal neutral wayfinding typography outside the light field, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "post-painterly-abstraction": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "开放色场、清晰大形与压低手势中心",
+        "labelEn": "open color fields, clearly bounded large shapes, and a suppressed gestural center",
+        "promptZh": "构图采用开放色场、清晰大形与压低手势中心",
+        "promptEn": "compose with open color fields, clearly bounded large shapes, and a suppressed gestural center",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "平坦轮廓、长条或宽阔色区与有限边缘变化",
+        "labelEn": "flat contours, long bands or broad color areas, and limited edge variation",
+        "promptZh": "将用户主体转译为平坦轮廓、长条或宽阔色区与有限边缘变化，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into flat contours, long bands or broad color areas, and limited edge variation while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "薄丙烯、染色画布与克制笔触",
+        "labelEn": "thin acrylic, stained canvas, and restrained brush traces",
+        "promptZh": "材质与表面呈现为薄丙烯、染色画布与克制笔触",
+        "promptEn": "render materials and surfaces as thin acrylic, stained canvas, and restrained brush traces",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "清澈高纯度综合色与大面积同色层",
+        "labelEn": "clear saturated color and large continuous layers of one hue",
+        "promptZh": "配色限定为清澈高纯度综合色与大面积同色层",
+        "promptEn": "limit the palette to clear saturated color and large continuous layers of one hue",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "综合色明度而非颜料堆积建立空间",
+        "labelEn": "depth built through color value rather than accumulated paint relief",
+        "promptZh": "光影采用综合色明度而非颜料堆积建立空间",
+        "promptEn": "use depth built through color value rather than accumulated paint relief for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use neutral typography outside the color field",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use neutral typography outside the color field, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "post-minimalism": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "重复单元受重力改变、开放铺陈与非刚性秩序",
+        "labelEn": "repeated units altered by gravity, open distribution, and non-rigid order",
+        "promptZh": "构图采用重复单元受重力改变、开放铺陈与非刚性秩序",
+        "promptEn": "compose with repeated units altered by gravity, open distribution, and non-rigid order",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "垂坠、卷曲、堆叠与过程形成的软性几何",
+        "labelEn": "sagging, curling, stacking, and process-formed soft geometry",
+        "promptZh": "将用户主体转译为垂坠、卷曲、堆叠与过程形成的软性几何，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into sagging, curling, stacking, and process-formed soft geometry while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "毡、绳、乳胶、玻璃纤维与过程痕迹",
+        "labelEn": "felt, rope, latex, fiberglass, and visible process traces",
+        "promptZh": "材质与表面呈现为毡、绳、乳胶、玻璃纤维与过程痕迹",
+        "promptEn": "render materials and surfaces as felt, rope, latex, fiberglass, and visible process traces",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "材料本色、灰白、土色与有限综合色",
+        "labelEn": "exposed material color, gray-white, earth tones, and limited pigment",
+        "promptZh": "配色限定为材料本色、灰白、土色与有限综合色",
+        "promptEn": "limit the palette to exposed material color, gray-white, earth tones, and limited pigment",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "自然展示光强调重力和柔性阴影",
+        "labelEn": "ambient exhibition light emphasizing gravity and soft real shadows",
+        "promptZh": "光影采用自然展示光强调重力和柔性阴影",
+        "promptEn": "use ambient exhibition light emphasizing gravity and soft real shadows for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, keep typography minimal and outside the material process",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, keep typography minimal and outside the material process, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "washington-color-school": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "大面积开放色场、中心靶形或条带节奏",
+        "labelEn": "broad open color fields, centered target structures, or rhythmic vertical bands",
+        "promptZh": "构图采用大面积开放色场、中心靶形或条带节奏",
+        "promptEn": "compose with broad open color fields, centered target structures, or rhythmic vertical bands",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "染色软边、同心圆、竖条与简化几何",
+        "labelEn": "stained soft edges, concentric circles, stripes, and reduced geometry",
+        "promptZh": "将用户主体转译为染色软边、同心圆、竖条与简化几何，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into stained soft edges, concentric circles, stripes, and reduced geometry while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "稀释丙烯浸染、裸画布纤维与无厚涂表面",
+        "labelEn": "diluted acrylic stain, raw canvas fiber, and no impasto",
+        "promptZh": "材质与表面呈现为稀释丙烯浸染、裸画布纤维与无厚涂表面",
+        "promptEn": "render materials and surfaces as diluted acrylic stain, raw canvas fiber, and no impasto",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "明亮透明综合色与未涂画布底色",
+        "labelEn": "bright transparent color with exposed unpainted canvas",
+        "promptZh": "配色限定为明亮透明综合色与未涂画布底色",
+        "promptEn": "limit the palette to bright transparent color with exposed unpainted canvas",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "综合色透明度和画布吸收产生发光感",
+        "labelEn": "luminosity created by pigment transparency and canvas absorption",
+        "promptZh": "光影采用综合色透明度和画布吸收产生发光感",
+        "promptEn": "use luminosity created by pigment transparency and canvas absorption for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use sparse neutral typography outside the stained field",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use sparse neutral typography outside the stained field, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "geometric-abstraction": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "非客观网格、比例分区与重复几何秩序",
+        "labelEn": "nonobjective grids, proportional zoning, and repeated geometric order",
+        "promptZh": "构图采用非客观网格、比例分区与重复几何秩序",
+        "promptEn": "compose with nonobjective grids, proportional zoning, and repeated geometric order",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "直线、圆、弧、多边形与精确闭合边缘",
+        "labelEn": "straight lines, circles, arcs, polygons, and precisely closed edges",
+        "promptZh": "将用户主体转译为直线、圆、弧、多边形与精确闭合边缘，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into straight lines, circles, arcs, polygons, and precisely closed edges while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "平滑颜料、矢量硬边或工业制表面",
+        "labelEn": "smooth paint, vector-like hard edges, or industrially fabricated surfaces",
+        "promptZh": "材质与表面呈现为平滑颜料、矢量硬边或工业制表面",
+        "promptEn": "render materials and surfaces as smooth paint, vector-like hard edges, or industrially fabricated surfaces",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "受控纯色、黑白与清楚明度级",
+        "labelEn": "controlled pure color, black and white, and clearly separated value steps",
+        "promptZh": "配色限定为受控纯色、黑白与清楚明度级",
+        "promptEn": "limit the palette to controlled pure color, black and white, and clearly separated value steps",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "平面无影，以色形关系建层",
+        "labelEn": "shadowless flat illumination with depth built only through color-shape relations",
+        "promptZh": "光影采用平面无影，以色形关系建层",
+        "promptEn": "use shadowless flat illumination with depth built only through color-shape relations for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use restrained legible geometric typography",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained legible geometric typography, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "concrete-art": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "完全非再现的比例系统、模块排列与数学秩序",
+        "labelEn": "fully nonrepresentational proportional systems, modular placement, and mathematical order",
+        "promptZh": "构图采用完全非再现的比例系统、模块排列与数学秩序",
+        "promptEn": "compose with fully nonrepresentational proportional systems, modular placement, and mathematical order",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "精确基本几何、等距关系与无象征形",
+        "labelEn": "precise primary geometry, equidistant relations, and non-symbolic closed forms",
+        "promptZh": "将用户主体转译为精确基本几何、等距关系与无象征形，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into precise primary geometry, equidistant relations, and non-symbolic closed forms while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "平滑颜料、清楚硬边与工业化表面",
+        "labelEn": "smooth paint, precise hard edges, and an industrially controlled surface",
+        "promptZh": "材质与表面呈现为平滑颜料、清楚硬边与工业化表面",
+        "promptEn": "render materials and surfaces as smooth paint, precise hard edges, and an industrially controlled surface",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "有限纯色、黑白与系统化综合色组合",
+        "labelEn": "a limited pure-color system, black and white, and systematic combinations",
+        "promptZh": "配色限定为有限纯色、黑白与系统化综合色组合",
+        "promptEn": "limit the palette to a limited pure-color system, black and white, and systematic combinations",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀平面光，不模拟自然空间",
+        "labelEn": "even flat illumination with no simulation of natural depth",
+        "promptZh": "光影采用均匀平面光，不模拟自然空间",
+        "promptEn": "use even flat illumination with no simulation of natural depth for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use neutral legible geometric typography outside the composition",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use neutral legible geometric typography outside the composition, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "pattern-and-decoration": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "满幅纹样、重复边带、多文化装饰并置与拒绝中心层级",
+        "labelEn": "all-over pattern, repeated borders, juxtaposed decorative systems, and no dominant center",
+        "promptZh": "构图采用满幅纹样、重复边带、多文化装饰并置与拒绝中心层级",
+        "promptEn": "compose with all-over pattern, repeated borders, juxtaposed decorative systems, and no dominant center",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "花纹、几何、贴片与连续装饰单位",
+        "labelEn": "floral or geometric motifs, appliqué-like units, and continuous ornamental repetition",
+        "promptZh": "将用户主体转译为花纹、几何、贴片与连续装饰单位，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into floral or geometric motifs, appliqué-like units, and continuous ornamental repetition while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "织物、拼贴、陶片、丙烯与手工装饰表面",
+        "labelEn": "textile, collage, ceramic fragments, acrylic, and visibly handmade ornament",
+        "promptZh": "材质与表面呈现为织物、拼贴、陶片、丙烯与手工装饰表面",
+        "promptEn": "render materials and surfaces as textile, collage, ceramic fragments, acrylic, and visibly handmade ornament",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "高饱和多色、金属色与强烈综合色对比",
+        "labelEn": "high-saturation multicolor, metallic accents, and strong chromatic contrast",
+        "promptZh": "配色限定为高饱和多色、金属色与强烈综合色对比",
+        "promptEn": "limit the palette to high-saturation multicolor, metallic accents, and strong chromatic contrast",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀画面光，材质反光作为局部节奏",
+        "labelEn": "even pictorial illumination with local material reflection used as rhythm",
+        "promptZh": "光影采用均匀画面光，材质反光作为局部节奏",
+        "promptEn": "use even pictorial illumination with local material reflection used as rhythm for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, integrate legible lettering as one controlled pattern layer",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, integrate legible lettering as one controlled pattern layer, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "pictures-generation": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "既有媒体图像的再裁切、放大、重复与语境置换",
+        "labelEn": "recropping, enlargement, repetition, and contextual displacement of preexisting media images",
+        "promptZh": "构图采用既有媒体图像的再裁切、放大、重复与语境置换",
+        "promptEn": "compose with recropping, enlargement, repetition, and contextual displacement of preexisting media images",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "广告、电影或艺术史图像的复制轮廓与版式痕迹",
+        "labelEn": "reproduced contours and layout traces carried over from advertising, cinema, or art history",
+        "promptZh": "将用户主体转译为广告、电影或艺术史图像的复制轮廓与版式痕迹，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into reproduced contours and layout traces carried over from advertising, cinema, or art history while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "摄影翻拍、丝网、胶印、录像与再生产颗粒",
+        "labelEn": "rephotography, screenprint, offset print, video, and visible reproduction grain",
+        "promptZh": "材质与表面呈现为摄影翻拍、丝网、胶印、录像与再生产颗粒",
+        "promptEn": "render materials and surfaces as rephotography, screenprint, offset print, video, and visible reproduction grain",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "保留来源图像综合色或强化复制色偏",
+        "labelEn": "source-image color retained or deliberately shifted through reproduction",
+        "promptZh": "配色限定为保留来源图像综合色或强化复制色偏",
+        "promptEn": "limit the palette to source-image color retained or deliberately shifted through reproduction",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "复制品平面光、屏幕光或商品展示光",
+        "labelEn": "flat reproductive illumination, screen light, or commercial display light",
+        "promptZh": "光影采用复制品平面光、屏幕光或商品展示光",
+        "promptEn": "use flat reproductive illumination, screen light, or commercial display light for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, preserve exact source wording and make quotation status visually clear",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, preserve exact source wording and make quotation status visually clear, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "neo-concretism": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "几何模块脱离画框、可参与空间与身体尺度关系",
+        "labelEn": "geometric modules leaving the frame to create participatory spatial and bodily relations",
+        "promptZh": "构图采用几何模块脱离画框、可参与空间与身体尺度关系",
+        "promptEn": "compose with geometric modules leaving the frame to create participatory spatial and bodily relations",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "折叠平面、铰接几何与柔化的非刚性结构",
+        "labelEn": "folded planes, hinged geometry, and softened non-rigid structures",
+        "promptZh": "将用户主体转译为折叠平面、铰接几何与柔化的非刚性结构，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into folded planes, hinged geometry, and softened non-rigid structures while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "木、金属、纸、织物与可触摸涂层",
+        "labelEn": "wood, metal, paper, textile, and tactile painted coatings",
+        "promptZh": "材质与表面呈现为木、金属、纸、织物与可触摸涂层",
+        "promptEn": "render materials and surfaces as wood, metal, paper, textile, and tactile painted coatings",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "白、红、蓝、黄与克制纯色",
+        "labelEn": "white, red, blue, yellow, and restrained pure color",
+        "promptZh": "配色限定为白、红、蓝、黄与克制纯色",
+        "promptEn": "limit the palette to white, red, blue, yellow, and restrained pure color",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "环境光和真实投影参与观看",
+        "labelEn": "ambient light and real cast shadows participating in perception",
+        "promptZh": "光影采用环境光和真实投影参与观看",
+        "promptEn": "use ambient light and real cast shadows participating in perception for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, keep typography neutral and separate from the participatory geometry",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, keep typography neutral and separate from the participatory geometry, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "new-leipzig-school": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "主体与建筑碎片并置、舞台式空间和不连贯叙事",
+        "labelEn": "fragmented structural settings, stage-like space, and discontinuous narrative placement",
+        "promptZh": "构图采用主体与建筑碎片并置、舞台式空间和不连贯叙事",
+        "promptEn": "compose with fragmented structural settings, stage-like space, and discontinuous narrative placement",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "具象轮廓、错位尺度与绘画性变形",
+        "labelEn": "figurative contours, displaced scale, and deliberate painterly deformation",
+        "promptZh": "将用户主体转译为具象轮廓、错位尺度与绘画性变形，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into figurative contours, displaced scale, and deliberate painterly deformation while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "可见油画层、擦除、薄涂与局部厚涂",
+        "labelEn": "visible oil layers, erasure, thin scumbling, and selective impasto",
+        "promptZh": "材质与表面呈现为可见油画层、擦除、薄涂与局部厚涂",
+        "promptEn": "render materials and surfaces as visible oil layers, erasure, thin scumbling, and selective impasto",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "灰绿、棕、综合色蓝红与不协调局部强色",
+        "labelEn": "gray-green, brown, muted blue-red, and small discordant strong-color accents",
+        "promptZh": "配色限定为灰绿、棕、综合色蓝红与不协调局部强色",
+        "promptEn": "limit the palette to gray-green, brown, muted blue-red, and small discordant strong-color accents",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "冷暖混合、来源不统一的绘画光",
+        "labelEn": "mixed warm-cool illumination with deliberately inconsistent sources",
+        "promptZh": "光影采用冷暖混合、来源不统一的绘画光",
+        "promptEn": "use mixed warm-cool illumination with deliberately inconsistent sources for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use restrained contemporary display typography outside the pictorial action",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained contemporary display typography outside the pictorial action, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
+      }
+    ]
+  },
+  "hard-edge-painting": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "大尺度几何分区、清楚边界与非透视平衡",
+        "labelEn": "large geometric divisions, unequivocal boundaries, and non-perspectival balance",
+        "promptZh": "构图采用大尺度几何分区、清楚边界与非透视平衡",
+        "promptEn": "compose with large geometric divisions, unequivocal boundaries, and non-perspectival balance",
+        "weight": 1,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "锐利直线、弧形与完全闭合的平面色块",
+        "labelEn": "razor-sharp lines, arcs, and fully closed flat color shapes",
+        "promptZh": "将用户主体转译为锐利直线、弧形与完全闭合的平面色块，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into razor-sharp lines, arcs, and fully closed flat color shapes while preserving identity and defining structure",
+        "weight": 0.93,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "平滑丙烯、胶带遮蔽硬边与无笔触表面",
+        "labelEn": "smooth acrylic, tape-masked edges, and a brushless surface",
+        "promptZh": "材质与表面呈现为平滑丙烯、胶带遮蔽硬边与无笔触表面",
+        "promptEn": "render materials and surfaces as smooth acrylic, tape-masked edges, and a brushless surface",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "纯净高饱和综合色或强明度对比",
+        "labelEn": "clean saturated color or strong value contrast",
+        "promptZh": "配色限定为纯净高饱和综合色或强明度对比",
+        "promptEn": "limit the palette to clean saturated color or strong value contrast",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "均匀无影画面光，色块自身建立层级",
+        "labelEn": "even shadowless illumination with hierarchy created by the color shapes themselves",
+        "promptZh": "光影采用均匀无影画面光，色块自身建立层级",
+        "promptEn": "use even shadowless illumination with hierarchy created by the color shapes themselves for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅按需使用与画面形态一致的展示字体",
+        "labelEn": "only when text is requested, use minimal legible typography outside the hard-edged field",
+        "promptZh": "仅在用户要求文字时，采用与画面形态一致的展示字体，并保持原文可读",
+        "promptEn": "only when text is requested, use minimal legible typography outside the hard-edged field, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "支撑"
       }
     ]
   }

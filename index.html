@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="风格谱：123 种核心艺术设计风格与视觉方向图鉴、历史脉络与模块化 AI Prompt 工具" />
+    <meta name="description" content="风格谱：经过严格审定的艺术与设计风格图鉴、视觉史脉络与模块化 AI Prompt 工具" />
     <meta name="theme-color" content="#f3f3f0" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_CN" />
@@ -43,9 +43,12 @@
     <script src="data-extra.js" defer></script>
     <script src="data-more.js" defer></script>
     <script src="visual-genes.js" defer></script>
-    <script src="artworks.js" defer></script>
     <script src="aesthetic-styles.js" defer></script>
     <script src="chinese-visual-directions.js" defer></script>
+    <script src="data-expansion.js" defer></script>
+    <script src="style-editorial-reviews.js" defer></script>
+    <script src="strict-catalog.js" defer></script>
+    <script src="artworks.js" defer></script>
     <script src="style-prompt-data.js" defer></script>
     <script src="app.js" defer></script>
     <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" async fetchpriority="low" onload="window.refreshIcons?.()"></script>
@@ -85,10 +88,9 @@
             </div>
             <label class="search-box" for="styleSearch">
               <i data-lucide="search"></i>
-              <input id="styleSearch" type="search" placeholder="搜索风格、年代、地区或视觉特征" autocomplete="off" />
+              <input id="styleSearch" type="search" placeholder="搜索风格、年代、地域或视觉史" autocomplete="off" />
               <kbd>⌘ K</kbd>
             </label>
-            <div class="quick-filters" id="quickFilters" aria-label="快捷筛选"></div>
           </div>
 
           <div class="atlas-layout page-band">
@@ -143,26 +145,33 @@
 
         <section class="view" id="timelineView" data-view-panel="timeline" hidden>
           <div class="page-band timeline-header">
-            <p class="eyebrow">PARALLEL HISTORIES</p>
+            <p class="eyebrow">VISUAL HISTORY MAP</p>
             <div class="page-title-row">
-              <h1>多条传统，在时间中相遇</h1>
-              <div class="timeline-legend" aria-label="时间线图例">
-                <span><i class="legend-dot"></i>风格节点</span>
-                <span><i class="legend-line"></i>同一文化轨道</span>
+              <h1>时间与地域中的视觉风格</h1>
+              <div class="timeline-legend" aria-label="视觉脉络坐标说明">
+                <span><i class="legend-line"></i>时间</span>
+                <span><i class="legend-axis"></i>大地域</span>
+                <span><i class="legend-dot"></i>视觉风格</span>
               </div>
             </div>
           </div>
           <div class="timeline-explorer page-band">
-            <div class="timeline-toolbar" aria-label="时间轴缩放">
+            <div class="timeline-toolbar" aria-label="视觉脉络缩放">
               <button class="icon-button" id="timelineZoomOut" aria-label="缩小时间轴" title="缩小"><i data-lucide="minus"></i></button>
               <input id="timelineZoomRange" type="range" min="1" max="6" step="0.25" value="1" aria-label="时间轴缩放比例" />
               <button class="icon-button" id="timelineZoomIn" aria-label="放大时间轴" title="放大"><i data-lucide="plus"></i></button>
               <output id="timelineZoomValue" for="timelineZoomRange">100%</output>
-              <button class="secondary-button" id="timelineZoomReset"><i data-lucide="maximize-2"></i>适合宽度</button>
+              <button class="secondary-button" id="timelineZoomReset"><i data-lucide="rotate-ccw"></i>重置比例</button>
             </div>
-            <div class="timeline-viewport" id="timelineViewport" tabindex="0" aria-label="可缩放和横向拖动的艺术设计史时间轴">
+            <div class="timeline-sticky-axis" id="timelineStickyAxis">
+              <div class="timeline-axis-corner"><span>纵轴</span><strong>大地域</strong></div>
+              <div class="timeline-axis-window">
+                <div class="timeline-axis" id="timelineAxis" aria-label="时间轴"></div>
+              </div>
+            </div>
+            <div class="timeline-viewport" id="timelineViewport" tabindex="0" aria-label="横轴为时间、纵轴为大地域的视觉风格脉络图">
               <div class="timeline-canvas" id="timelineCanvas">
-                <div class="timeline-axis" id="timelineAxis" aria-hidden="true"></div>
+                <div class="timeline-grid" id="timelineGrid" aria-hidden="true"></div>
                 <div class="timeline-lanes" id="timelineLanes"></div>
               </div>
             </div>
@@ -260,7 +269,7 @@
                   <button data-output="negative" role="tab" aria-selected="false">排除项</button>
                 </div>
                 <div class="output-heading-actions">
-                  <a class="secondary-button mixer-entry-button" id="openMixerButton" href="mixer.html?primary=cyberpunk" aria-label="用当前风格打开风格混合器">
+                  <a class="secondary-button mixer-entry-button" id="openMixerButton" href="mixer.html?primary=bauhaus" aria-label="用当前风格打开风格混合器">
                     <i data-lucide="blend"></i><span>风格混合器</span>
                   </a>
                   <button class="icon-button" id="copyPromptButton" aria-label="复制 Prompt" title="复制 Prompt">
@@ -306,7 +315,7 @@
 
         <section class="style-directory page-band" data-view-panel="atlas" aria-labelledby="styleDirectoryTitle">
           <details>
-            <summary id="styleDirectoryTitle">浏览全部 123 种艺术设计风格与视觉方向</summary>
+            <summary id="styleDirectoryTitle">浏览全部严格审定的艺术与设计风格</summary>
             <div class="style-directory-links">
               <!-- STYLE_DIRECTORY_START -->
               <a href="styles/ancient-egyptian/">古埃及艺术 · Ancient Egyptian Art</a>
@@ -342,23 +351,16 @@
               <a href="styles/pop-art/">波普艺术 · Pop Art</a>
               <a href="styles/op-art/">欧普艺术 · Op Art</a>
               <a href="styles/minimalism/">极简主义 · Minimalism</a>
-              <a href="styles/conceptual-art/">观念艺术 · Conceptual Art</a>
               <a href="styles/neo-expressionism/">新表现主义 · Neo-Expressionism</a>
               <a href="styles/photorealism/">照相写实主义 · Photorealism</a>
               <a href="styles/postmodernism/">后现代主义 · Postmodernism</a>
               <a href="styles/lowbrow/">低眉艺术 / 波普超现实主义 · Lowbrow Art / Pop Surrealism</a>
               <a href="styles/psychedelic/">迷幻艺术 · Psychedelic Art</a>
-              <a href="styles/street-art/">街头艺术 · Street Art</a>
               <a href="styles/ink-wash/">文人水墨 · Literati Ink Painting</a>
               <a href="styles/gongbi/">工笔画 · Gongbi Painting</a>
-              <a href="styles/dunhuang/">敦煌艺术 · Dunhuang Art</a>
-              <a href="styles/chinese-new-year-print/">中国木版年画 · Chinese Woodblock New Year Print</a>
-              <a href="styles/guochao/">国潮视觉 · Guochao Visual Style</a>
               <a href="styles/ukiyo-e/">浮世绘 · Ukiyo-e</a>
               <a href="styles/rinpa/">琳派 · Rinpa School</a>
               <a href="styles/nihonga/">日本画 · Nihonga</a>
-              <a href="styles/wabi-sabi/">侘寂 · Wabi-sabi</a>
-              <a href="styles/kawaii/">卡哇伊美学 · Kawaii Aesthetic</a>
               <a href="styles/superflat/">超扁平 · Superflat</a>
               <a href="styles/korean-minhwa/">韩国民画 · Korean Minhwa</a>
               <a href="styles/persian-miniature/">波斯细密画 · Persian Miniature Painting</a>
@@ -367,8 +369,6 @@
               <a href="styles/islamic-geometry/">伊斯兰几何装饰 · Islamic Geometric Ornament</a>
               <a href="styles/thangka/">藏传唐卡 · Tibetan Thangka Painting</a>
               <a href="styles/mexican-muralism/">墨西哥壁画运动 · Mexican Muralism</a>
-              <a href="styles/mexican-folk/">墨西哥民间艺术 · Mexican Folk Art</a>
-              <a href="styles/african-wax-print/">非洲蜡染印花视觉 · African Wax Print Aesthetic</a>
               <a href="styles/afrofuturism/">非洲未来主义 · Afrofuturism</a>
               <a href="styles/swiss/">瑞士国际主义 · International Typographic Style</a>
               <a href="styles/mid-century-modern/">中世纪现代主义 · Mid-century Modern</a>
@@ -382,56 +382,248 @@
               <a href="styles/architectural-brutalism/">粗野主义 · Brutalism</a>
               <a href="styles/brutalism/">数字新粗野主义 · Digital Neo-Brutalism</a>
               <a href="styles/flat-design/">扁平化设计 · Flat Design</a>
-              <a href="styles/corporate-memphis/">企业孟菲斯插画 · Corporate Memphis</a>
-              <a href="styles/material-design/">Material Design · Material Design</a>
               <a href="styles/skeuomorphism/">拟物化设计 · Skeuomorphism</a>
-              <a href="styles/glassmorphism/">玻璃拟态 · Glassmorphism</a>
-              <a href="styles/neumorphism/">新拟态 · Neumorphism</a>
               <a href="styles/acid-graphics/">酸性视觉 · Acid Graphics</a>
               <a href="styles/glitch-art/">故障艺术 · Glitch Art</a>
-              <a href="styles/generative-art/">生成艺术 · Generative Art</a>
-              <a href="styles/cyberpunk/">赛博朋克 · Cyberpunk</a>
-              <a href="styles/steampunk/">蒸汽朋克 · Steampunk</a>
-              <a href="styles/solarpunk/">太阳朋克 · Solarpunk</a>
               <a href="styles/retrofuturism/">复古未来主义 · Retrofuturism</a>
               <a href="styles/synthwave/">合成波 · Synthwave</a>
               <a href="styles/vaporwave/">蒸汽波 · Vaporwave</a>
               <a href="styles/y2k/">Y2K 未来复古 · Y2K Futurism</a>
-              <a href="styles/frutiger-aero/">Frutiger Aero · Frutiger Aero</a>
-              <a href="styles/anime/">日系动画 · Japanese Anime Aesthetic</a>
-              <a href="styles/manga/">漫画视觉 · Manga Aesthetic</a>
-              <a href="styles/american-comics/">美式漫画 · American Comic-book Art</a>
               <a href="styles/gothic-subculture/">哥特亚文化视觉 · Gothic Subculture Aesthetic</a>
-              <a href="styles/dark-fantasy/">暗黑奇幻 · Dark Fantasy</a>
               <a href="styles/film-noir/">黑色电影 · Film Noir</a>
-              <a href="styles/cottagecore/">田园核 · Cottagecore</a>
-              <a href="styles/dark-academia/">暗黑学院 · Dark Academia</a>
-              <a href="styles/dreamcore/">梦核 · Dreamcore</a>
-              <a href="styles/weirdcore/">怪核 · Weirdcore</a>
-              <a href="styles/liminal-space/">阈限空间 · Liminal Space Aesthetic</a>
               <a href="styles/maximalism/">极繁主义 · Maximalism</a>
-              <a href="styles/structuralism/">结构主义 · Structuralism</a>
               <a href="styles/neo-futurism/">新未来主义 · Neo-Futurism</a>
               <a href="styles/biomorphic/">生物形态风格 · Biomorphic Style</a>
               <a href="styles/neo-pop/">新波普艺术 · Neo-Pop Art</a>
-              <a href="styles/collage/">拼贴艺术 · Collage Art</a>
               <a href="styles/naive-art/">稚拙绘画 · Naive Art</a>
-              <a href="styles/atompunk/">原子朋克美学 · Atompunk Aesthetic</a>
-              <a href="styles/wasteland-punk/">废土朋克美学 · Wasteland Punk Aesthetic</a>
-              <a href="styles/dieselpunk/">柴油朋克美学 · Dieselpunk Aesthetic</a>
-              <a href="styles/kidcore/">童核美学 · Kidcore Aesthetic</a>
               <a href="styles/blue-green-landscape/">青绿山水 · Blue-Green Landscape Painting</a>
               <a href="styles/song-court-painting/">宋画院体 · Song Court Painting Aesthetic</a>
               <a href="styles/baimiao/">白描 · Baimiao Line Drawing</a>
-              <a href="styles/jiehua/">界画 · Jiehua Architectural Drawing</a>
-              <a href="styles/shanhaijing-compendium/">山海经图谱美学 · Shanhaijing Illustrated Compendium Aesthetic</a>
-              <a href="styles/archaic-bronze-mythic/">上古青铜神话美学 · Archaic Bronze Mythic Aesthetic</a>
-              <a href="styles/daoist-immortal-realm/">道教仙境美学 · Daoist Immortal-Realm Aesthetic</a>
-              <a href="styles/cloisonne-enamel/">景泰蓝美学 · Cloisonne Enamel Aesthetic</a>
-              <a href="styles/mother-of-pearl-lacquer/">螺钿漆器美学 · Mother-of-Pearl Lacquer Aesthetic</a>
-              <a href="styles/chinese-papercut/">剪纸美学 · Chinese Papercut Aesthetic</a>
-              <a href="styles/chinese-shadow-puppetry/">皮影美学 · Chinese Shadow Puppetry Aesthetic</a>
-              <a href="styles/blue-white-porcelain/">青花瓷美学 · Blue-and-White Porcelain Aesthetic</a>
+              <a href="styles/zen-painting/">禅画 · Zen Painting</a>
+              <a href="styles/sosaku-hanga/">创作版画 · Sosaku-hanga</a>
+              <a href="styles/yamato-e/">大和绘 · Yamato-e</a>
+              <a href="styles/shanghai-school-painting/">海上画派 · Shanghai School Painting</a>
+              <a href="styles/dansaekhwa/">韩国单色画 · Dansaekhwa</a>
+              <a href="styles/han-dynasty-silk-painting/">汉代帛画 · Han Dynasty Silk Painting</a>
+              <a href="styles/han-dynasty-pictorial-stone/">汉代画像石 · Han Dynasty Pictorial Stone</a>
+              <a href="styles/oracle-bone-script-aesthetic/">甲骨文视觉 · Oracle Bone Script Aesthetic</a>
+              <a href="styles/bronze-inscription-aesthetic/">金文视觉 · Bronze Inscription Aesthetic</a>
+              <a href="styles/gutai-art-association/">具体美术协会 · Gutai Art Association</a>
+              <a href="styles/clerical-script-aesthetic/">隶书视觉 · Clerical Script Aesthetic</a>
+              <a href="styles/lingnan-school/">岭南画派 · Lingnan School</a>
+              <a href="styles/ma-xia-school/">马夏画派 · Ma-Xia School</a>
+              <a href="styles/mianzhu-new-year-print/">绵竹年画 · Mianzhu New Year Print</a>
+              <a href="styles/japanese-nanga/">南画 · Japanese Nanga</a>
+              <a href="styles/kano-school/">狩野派 · Kano School</a>
+              <a href="styles/four-wangs-school/">四王画派 · Four Wangs School</a>
+              <a href="styles/taohuawu-new-year-print/">桃花坞年画 · Taohuawu New Year Print</a>
+              <a href="styles/tosa-school/">土佐派 · Tosa School</a>
+              <a href="styles/wei-jin-tomb-mural/">魏晋墓室壁画 · Wei-Jin Tomb Mural</a>
+              <a href="styles/wu-school/">吴门画派 · Wu School</a>
+              <a href="styles/mono-ha/">物派 · Mono-ha</a>
+              <a href="styles/shin-hanga/">新版画 · Shin-hanga</a>
+              <a href="styles/eight-eccentrics-of-yangzhou/">扬州八怪 · Eight Eccentrics of Yangzhou</a>
+              <a href="styles/yangliuqing-new-year-print/">杨柳青年画 · Yangliuqing New Year Print</a>
+              <a href="styles/yuefenpai-calendar-art/">月份牌广告画 · Yuefenpai Calendar Art</a>
+              <a href="styles/zhe-school/">浙派绘画 · Zhe School</a>
+              <a href="styles/arnhem-land-bark-painting/">阿纳姆地树皮画 · Arnhem Land Bark Painting</a>
+              <a href="styles/ethiopian-icon-painting/">埃塞俄比亚圣像画 · Ethiopian Icon Painting</a>
+              <a href="styles/australian-aboriginal-dot-painting/">澳大利亚原住民点画 · Australian Aboriginal Dot Painting</a>
+              <a href="styles/benin-court-art/">贝宁宫廷艺术 · Benin Court Art</a>
+              <a href="styles/ndebele-house-painting/">恩德贝勒墙绘 · Ndebele House Painting</a>
+              <a href="styles/west-african-studio-portraiture/">非洲摄影棚肖像 · West African Studio Portraiture</a>
+              <a href="styles/nok-art/">诺克艺术 · Nok Art</a>
+              <a href="styles/tingatinga-painting/">廷加廷加绘画 · Tingatinga Painting</a>
+              <a href="styles/aboriginal-x-ray-art/">X 光艺术 · Aboriginal X-ray Art</a>
+              <a href="styles/akkadian-art/">阿卡德艺术 · Akkadian Art</a>
+              <a href="styles/achaemenid-persian-art/">阿契美尼德波斯艺术 · Achaemenid Persian Art</a>
+              <a href="styles/ottonian-art/">奥托艺术 · Ottonian Art</a>
+              <a href="styles/babylonian-art/">巴比伦艺术 · Babylonian Art</a>
+              <a href="styles/northern-renaissance/">北方文艺复兴 · Northern Renaissance</a>
+              <a href="styles/international-gothic/">国际哥特式 · International Gothic</a>
+              <a href="styles/carolingian-art/">加洛林艺术 · Carolingian Art</a>
+              <a href="styles/coptic-art/">科普特艺术 · Coptic Art</a>
+              <a href="styles/roman-imperial-art/">罗马帝国艺术 · Roman Imperial Art</a>
+              <a href="styles/roman-republican-art/">罗马共和国艺术 · Roman Republican Art</a>
+              <a href="styles/romanesque-art/">罗马式艺术 · Romanesque Art</a>
+              <a href="styles/mycenaean-art/">迈锡尼艺术 · Mycenaean Art</a>
+              <a href="styles/minoan-art/">米诺斯艺术 · Minoan Art</a>
+              <a href="styles/early-netherlandish-painting/">尼德兰早期绘画 · Early Netherlandish Painting</a>
+              <a href="styles/parthian-art/">帕提亚艺术 · Parthian Art</a>
+              <a href="styles/pompeian-second-style/">庞贝第二风格壁画 · Pompeian Second Style</a>
+              <a href="styles/pompeian-third-style/">庞贝第三风格壁画 · Pompeian Third Style</a>
+              <a href="styles/pompeian-fourth-style/">庞贝第四风格壁画 · Pompeian Fourth Style</a>
+              <a href="styles/pompeian-first-style/">庞贝第一风格壁画 · Pompeian First Style</a>
+              <a href="styles/sasanian-art/">萨珊艺术 · Sasanian Art</a>
+              <a href="styles/sumerian-art/">苏美尔艺术 · Sumerian Art</a>
+              <a href="styles/venetian-school/">威尼斯画派 · Venetian School</a>
+              <a href="styles/spanish-golden-age-painting/">西班牙黄金时代绘画 · Spanish Golden Age Painting</a>
+              <a href="styles/greek-orientalizing-style/">希腊东方化风格 · Greek Orientalizing Style</a>
+              <a href="styles/archaic-greek-art/">希腊古风艺术 · Archaic Greek Art</a>
+              <a href="styles/hellenistic-art/">希腊化艺术 · Hellenistic Art</a>
+              <a href="styles/greek-geometric-style/">希腊几何风格 · Greek Geometric Style</a>
+              <a href="styles/sienese-school/">锡耶纳画派 · Sienese School</a>
+              <a href="styles/assyrian-art/">亚述艺术 · Assyrian Art</a>
+              <a href="styles/etruscan-art/">伊特鲁里亚艺术 · Etruscan Art</a>
+              <a href="styles/italian-proto-renaissance/">意大利原始文艺复兴 · Italian Proto-Renaissance</a>
+              <a href="styles/indus-valley-art/">印度河文明艺术 · Indus Valley Art</a>
+              <a href="styles/early-christian-art/">早期基督教艺术 · Early Christian Art</a>
+              <a href="styles/amsterdam-school/">阿姆斯特丹学派 · Amsterdam School</a>
+              <a href="styles/queen-anne-style/">安妮女王风格 · Queen Anne Style</a>
+              <a href="styles/expressionist-architecture/">表现主义建筑 · Expressionist Architecture</a>
+              <a href="styles/beaux-arts-architecture/">布杂艺术建筑 · Beaux-Arts Architecture</a>
+              <a href="styles/parametricism/">参数主义建筑 · Parametricism</a>
+              <a href="styles/prairie-school/">草原学派 · Prairie School</a>
+              <a href="styles/second-empire-style/">第二帝国风格 · Second Empire Style</a>
+              <a href="styles/high-tech-architecture/">高技派建筑 · High-Tech Architecture</a>
+              <a href="styles/gothic-revival-architecture/">哥特复兴建筑 · Gothic Revival Architecture</a>
+              <a href="styles/constructivist-architecture/">构成主义建筑 · Constructivist Architecture</a>
+              <a href="styles/classical-revival-architecture/">古典复兴建筑 · Classical Revival Architecture</a>
+              <a href="styles/googie-architecture/">古奇建筑 · Googie Architecture</a>
+              <a href="styles/international-style-architecture/">国际风格建筑 · International Style Architecture</a>
+              <a href="styles/hollywood-regency/">好莱坞摄政室内 · Hollywood Regency</a>
+              <a href="styles/postmodern-architecture/">后现代建筑 · Postmodern Architecture</a>
+              <a href="styles/deconstructivist-architecture/">解构主义建筑 · Deconstructivist Architecture</a>
+              <a href="styles/miami-modernism/">迈阿密现代主义 · Miami Modernism</a>
+              <a href="styles/critical-regionalism/">批判地域主义 · Critical Regionalism</a>
+              <a href="styles/tropical-modernism/">热带现代主义 · Tropical Modernism</a>
+              <a href="styles/desert-modernism/">沙漠现代主义 · Desert Modernism</a>
+              <a href="styles/blobitecture/">团块建筑 · Blobitecture</a>
+              <a href="styles/metabolism/">新陈代谢派 · Metabolism</a>
+              <a href="styles/romanesque-revival-architecture/">新罗马式建筑 · Romanesque Revival Architecture</a>
+              <a href="styles/neo-vernacular-architecture/">新乡土建筑 · Neo-Vernacular Architecture</a>
+              <a href="styles/italian-radical-design/">意大利激进设计 · Italian Radical Design</a>
+              <a href="styles/organic-architecture/">有机建筑 · Organic Architecture</a>
+              <a href="styles/chicago-school/">芝加哥学派 · Chicago School</a>
+              <a href="styles/aztec-art/">阿兹特克艺术 · Aztec Art</a>
+              <a href="styles/olmec-art/">奥尔梅克艺术 · Olmec Art</a>
+              <a href="styles/brazilian-concretism/">巴西具体主义 · Brazilian Concretism</a>
+              <a href="styles/maya-art/">玛雅艺术 · Maya Art</a>
+              <a href="styles/mixtec-art/">米斯特克艺术 · Mixtec Art</a>
+              <a href="styles/moche-art/">莫切艺术 · Moche Art</a>
+              <a href="styles/nazca-art/">纳斯卡艺术 · Nazca Art</a>
+              <a href="styles/tropicalia/">热带主义 · Tropicalia</a>
+              <a href="styles/teotihuacan-art/">特奥蒂瓦坎艺术 · Teotihuacan Art</a>
+              <a href="styles/northwest-coast-formline-art/">西北海岸形线艺术 · Northwest Coast Formline Art</a>
+              <a href="styles/inuit-printmaking/">因纽特版画 · Inuit Printmaking</a>
+              <a href="styles/inca-art/">印加艺术 · Inca Art</a>
+              <a href="styles/traditional-balinese-painting/">巴厘岛传统绘画 · Traditional Balinese Painting</a>
+              <a href="styles/ubud-school-painting/">巴厘岛乌布画派 · Ubud School Painting</a>
+              <a href="styles/deccani-painting/">德干细密画 · Deccani Painting</a>
+              <a href="styles/company-painting/">公司画派 · Company Painting</a>
+              <a href="styles/gond-painting/">贡德绘画 · Gond Painting</a>
+              <a href="styles/gandhara-art/">犍陀罗艺术 · Gandhara Art</a>
+              <a href="styles/kalighat-painting/">卡利卡特画 · Kalighat Painting</a>
+              <a href="styles/rajasthani-miniature/">拉贾斯坦细密画 · Rajasthani Miniature</a>
+              <a href="styles/bengal-school/">孟加拉画派 · Bengal School</a>
+              <a href="styles/nanyang-style/">南洋画派 · Nanyang Style</a>
+              <a href="styles/pahari-painting/">帕哈里细密画 · Pahari Painting</a>
+              <a href="styles/pattachitra/">帕塔奇特拉 · Pattachitra</a>
+              <a href="styles/warli-painting/">瓦尔利绘画 · Warli Painting</a>
+              <a href="styles/orphism/">奥费主义 · Orphism</a>
+              <a href="styles/barbizon-school/">巴比松画派 · Barbizon School</a>
+              <a href="styles/art-informel/">不定形艺术 · Art Informel</a>
+              <a href="styles/purism/">纯粹主义 · Purism</a>
+              <a href="styles/pointillism/">点彩主义 · Pointillism</a>
+              <a href="styles/orientalist-painting/">东方主义绘画 · Orientalist Painting</a>
+              <a href="styles/kinetic-art/">动力艺术 · Kinetic Art</a>
+              <a href="styles/secessionism/">分离派艺术 · Secessionism</a>
+              <a href="styles/divisionism/">分色主义 · Divisionism</a>
+              <a href="styles/flemish-baroque/">佛兰德巴洛克 · Flemish Baroque</a>
+              <a href="styles/rayonism/">辐射主义 · Rayonism</a>
+              <a href="styles/glasgow-style/">格拉斯哥风格 · Glasgow Style</a>
+              <a href="styles/hudson-river-school/">哈德逊河画派 · Hudson River School</a>
+              <a href="styles/dutch-golden-age-painting/">荷兰黄金时代绘画 · Dutch Golden Age Painting</a>
+              <a href="styles/precisionism/">精确主义 · Precisionism</a>
+              <a href="styles/spatialism/">空间主义 · Spatialism</a>
+              <a href="styles/der-blaue-reiter/">蓝骑士 · Der Blaue Reiter</a>
+              <a href="styles/zero-group/">零派 · ZERO Group</a>
+              <a href="styles/magic-realism-painting/">魔幻现实主义绘画 · Magic Realism Painting</a>
+              <a href="styles/nazarene-movement/">拿撒勒派 · Nazarene Movement</a>
+              <a href="styles/les-nabis/">纳比派 · Les Nabis</a>
+              <a href="styles/arte-povera/">贫穷艺术 · Arte Povera</a>
+              <a href="styles/die-bruecke/">桥社 · Die Bruecke</a>
+              <a href="styles/social-realism/">社会现实主义 · Social Realism</a>
+              <a href="styles/socialist-realism/">社会主义现实主义 · Socialist Realism</a>
+              <a href="styles/lyrical-abstraction/">抒情抽象 · Lyrical Abstraction</a>
+              <a href="styles/tachisme/">塔希主义 · Tachisme</a>
+              <a href="styles/aesthetic-movement/">唯美主义运动 · Aesthetic Movement</a>
+              <a href="styles/vienna-secession/">维也纳分离派 · Vienna Secession</a>
+              <a href="styles/utrecht-caravaggism/">乌得勒支卡拉瓦乔主义 · Utrecht Caravaggism</a>
+              <a href="styles/matter-painting/">物质绘画 · Matter Painting</a>
+              <a href="styles/neo-geo/">新几何主义 · Neo-Geo</a>
+              <a href="styles/new-objectivity/">新客观主义 · New Objectivity</a>
+              <a href="styles/nouveau-realisme/">新现实主义 · Nouveau Realisme</a>
+              <a href="styles/metaphysical-painting/">形而上画派 · Metaphysical Painting</a>
+              <a href="styles/vorticism/">漩涡主义 · Vorticism</a>
+              <a href="styles/academic-art/">学院艺术 · Academic Art</a>
+              <a href="styles/supports-surfaces/">支持/表面 · Supports/Surfaces</a>
+              <a href="styles/naturalism/">自然主义 · Naturalism</a>
+              <a href="styles/cobra/">CoBrA 运动 · CoBrA</a>
+              <a href="styles/polish-poster-school/">波兰海报学派 · Polish Poster School</a>
+              <a href="styles/plakatstil/">德国海报风格 · Plakatstil</a>
+              <a href="styles/dutch-modern-typography/">荷兰现代排版 · Dutch Modern Typography</a>
+              <a href="styles/postmodern-swiss-design/">后现代瑞士设计 · Postmodern Swiss Design</a>
+              <a href="styles/deconstructivist-graphic-design/">解构主义平面设计 · Deconstructivist Graphic Design</a>
+              <a href="styles/cranbrook-design/">克兰布鲁克设计 · Cranbrook Design</a>
+              <a href="styles/wiener-werkstatte-graphics/">维也纳工坊平面 · Wiener Werkstatte Graphics</a>
+              <a href="styles/new-typography/">新印刷术 · New Typography</a>
+              <a href="styles/surrealist-photography/">超现实主义摄影 · Surrealist Photography</a>
+              <a href="styles/german-expressionist-cinema/">德国表现主义电影 · German Expressionist Cinema</a>
+              <a href="styles/new-german-cinema/">德国新电影 · New German Cinema</a>
+              <a href="styles/dusseldorf-school-photography/">杜塞尔多夫学派摄影 · Dusseldorf School Photography</a>
+              <a href="styles/french-new-wave-cinema/">法国新浪潮电影 · French New Wave Cinema</a>
+              <a href="styles/pictorialism/">画意摄影 · Pictorialism</a>
+              <a href="styles/czechoslovak-new-wave/">捷克新浪潮电影 · Czechoslovak New Wave</a>
+              <a href="styles/new-hollywood-cinema/">美国新好莱坞 · New Hollywood Cinema</a>
+              <a href="styles/humanist-photography/">人文主义摄影 · Humanist Photography</a>
+              <a href="styles/provoke-photography/">日本挑衅摄影 · Provoke Photography</a>
+              <a href="styles/japanese-new-wave-cinema/">日本新浪潮电影 · Japanese New Wave Cinema</a>
+              <a href="styles/photo-secession/">摄影分离派 · Photo-Secession</a>
+              <a href="styles/poetic-realism-cinema/">诗意现实主义电影 · Poetic Realism Cinema</a>
+              <a href="styles/japanese-i-photography/">私摄影 · Japanese I-Photography</a>
+              <a href="styles/soviet-montage-cinema/">苏联蒙太奇电影 · Soviet Montage Cinema</a>
+              <a href="styles/taiwan-new-cinema/">台湾新电影 · Taiwan New Cinema</a>
+              <a href="styles/hong-kong-new-wave-cinema/">香港新浪潮电影 · Hong Kong New Wave Cinema</a>
+              <a href="styles/new-topographics/">新地形摄影 · New Topographics</a>
+              <a href="styles/new-objectivity-photography/">新客观摄影 · New Objectivity Photography</a>
+              <a href="styles/new-vision-photography/">新视觉摄影 · New Vision Photography</a>
+              <a href="styles/italian-neorealism/">意大利新现实主义电影 · Italian Neorealism</a>
+              <a href="styles/straight-photography/">直接摄影 · Straight Photography</a>
+              <a href="styles/subjective-photography/">主观摄影 · Subjective Photography</a>
+              <a href="styles/gothic-lolita/">哥特洛丽塔 · Gothic Lolita</a>
+              <a href="styles/skinhead-aesthetic/">光头党视觉 · Skinhead Aesthetic</a>
+              <a href="styles/glam-rock-aesthetic/">华丽摇滚视觉 · Glam Rock Aesthetic</a>
+              <a href="styles/flapper-style/">摩登女郎风格 · Flapper Style</a>
+              <a href="styles/mod-aesthetic/">摩登族视觉 · Mod Aesthetic</a>
+              <a href="styles/gyaru-aesthetic/">涩谷辣妹风 · Gyaru Aesthetic</a>
+              <a href="styles/visual-kei/">视觉系 · Visual Kei</a>
+              <a href="styles/dandyism/">纨绔主义 · Dandyism</a>
+              <a href="styles/hippie-aesthetic/">嬉皮视觉 · Hippie Aesthetic</a>
+              <a href="styles/new-romantic-aesthetic/">新浪漫主义视觉 · New Romantic Aesthetic</a>
+              <a href="styles/new-aesthetic/">新美学 · New Aesthetic</a>
+              <a href="styles/ottoman-miniature/">奥斯曼细密画 · Ottoman Miniature</a>
+              <a href="styles/hurufiyya-movement/">胡鲁菲亚运动 · Hurufiyya Movement</a>
+              <a href="styles/qajar-painting/">卡扎尔绘画 · Qajar Painting</a>
+              <a href="styles/kufic-calligraphy-aesthetic/">库法体视觉 · Kufic Calligraphy Aesthetic</a>
+              <a href="styles/nastaliq-calligraphy-aesthetic/">纳斯塔利克体视觉 · Nastaliq Calligraphy Aesthetic</a>
+              <a href="styles/safavid-miniature/">萨法维细密画 · Safavid Miniature</a>
+              <a href="styles/seljuk-art/">塞尔柱艺术 · Seljuk Art</a>
+              <a href="styles/timurid-art/">帖木儿艺术 · Timurid Art</a>
+              <a href="styles/islamic-arabesque/">伊斯兰阿拉伯纹样 · Islamic Arabesque</a>
+              <a href="styles/islamic-manuscript-illumination/">伊斯兰手抄本金饰 · Islamic Manuscript Illumination</a>
+              <a href="styles/hyperrealism/">超现实写实主义 · Hyperrealism</a>
+              <a href="styles/light-and-space/">光与空间运动 · Light and Space</a>
+              <a href="styles/post-painterly-abstraction/">后绘画性抽象 · Post-Painterly Abstraction</a>
+              <a href="styles/post-minimalism/">后极简主义 · Post-Minimalism</a>
+              <a href="styles/washington-color-school/">华盛顿色彩画派 · Washington Color School</a>
+              <a href="styles/geometric-abstraction/">几何抽象 · Geometric Abstraction</a>
+              <a href="styles/concrete-art/">具体艺术 · Concrete Art</a>
+              <a href="styles/pattern-and-decoration/">模式与装饰运动 · Pattern and Decoration</a>
+              <a href="styles/pictures-generation/">图片一代 · Pictures Generation</a>
+              <a href="styles/neo-concretism/">新具体主义 · Neo-Concretism</a>
+              <a href="styles/new-leipzig-school/">新莱比锡画派 · New Leipzig School</a>
+              <a href="styles/hard-edge-painting/">硬边绘画 · Hard-Edge Painting</a>
               <!-- STYLE_DIRECTORY_END -->
             </div>
           </details>

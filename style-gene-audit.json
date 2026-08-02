@@ -66,9 +66,22 @@
         "红、黑与纸白的极端明度对比": "colorTone"
       }
     },
+    "abstract-expressionism": {
+      "dimensions": {
+        "颜料飞溅、滴流与擦抹": "mediumTechnique"
+      }
+    },
+    "color-field": {
+      "dimensions": {
+        "色彩面积与边界关系取代描绘性形体": "compositionSpace"
+      }
+    },
     "pop-art": {
       "promote": ["半调网点与丝网印刷平面感"],
-      "demote": ["高饱和红黄蓝原色"]
+      "demote": ["高饱和红黄蓝原色"],
+      "dimensions": {
+        "粗黑轮廓与平面分区": "formGeometry"
+      }
     },
     "op-art": {
       "promote": ["黑白或互补色的极端明度与色相对比", "线距、密度、曲率与尺度连续变化"],
@@ -119,15 +132,101 @@
     },
     "mughal-miniature": {
       "dimensions": {
-        "局部纹样保持平面且高度细密": "materialTexture"
+        "局部纹样保持平面且高度细密": "formGeometry"
+      }
+    },
+    "persian-miniature": {
+      "dimensions": {
+        "平面图案覆盖形体表面": "formGeometry"
+      }
+    },
+    "islamic-geometry": {
+      "dimensions": {
+        "釉面砖、马赛克与细密灰缝表面": "materialTexture"
+      }
+    },
+    "thangka": {
+      "dimensions": {
+        "精确细线与平面设色": "mediumTechnique"
+      }
+    },
+    "mexican-muralism": {
+      "dimensions": {
+        "纪念碑式尺度与强对角线": "compositionSpace"
       }
     },
     "afrofuturism": {
       "promote": ["重复图案作为结构而非表面点缀", "非洲几何节奏与未来流线形体融合"],
-      "demote": ["轴线式或纪念碑式视觉层级", "金色、铜色或铬色金属高光"]
+      "demote": ["轴线式或纪念碑式视觉层级", "金色、铜色或铬色金属高光"],
+      "dimensions": {
+        "重复图案作为结构而非表面点缀": "formGeometry",
+        "抛光金属、珠饰感表面与织物纹理并置": "materialTexture"
+      }
     },
     "architectural-brutalism": {
       "promote": ["重复模数、外露承重逻辑与厚重边缘"]
+    },
+    "memphis": {
+      "dimensions": {
+        "图案叠图案的表面节奏": "compositionSpace"
+      }
+    },
+    "brutalism": {
+      "dimensions": {
+        "粗黑边框与硬切分区": "formGeometry"
+      }
+    },
+    "flat-design": {
+      "dimensions": {
+        "统一平涂色面与有限明快色板": "colorTone"
+      }
+    },
+    "dada": {
+      "dimensions": {
+        "撕纸、胶痕与旧报纸纹理": "materialTexture"
+      }
+    },
+    "punk-visual": {
+      "dimensions": {
+        "高反差复印、撕纸、胶痕与墨渍": "materialTexture"
+      }
+    },
+    "grunge-design": {
+      "dimensions": {
+        "划痕、污渍与油墨渗漏": "materialTexture",
+        "低保真复印与粗纸纹理": "mediumTechnique"
+      }
+    },
+    "acid-graphics": {
+      "dimensions": {
+        "超窄、横向拉伸或纵向堆叠的极端展示字体": "typographyLayout",
+        "数字噪点、扫描纹与压缩伪影形成表面干扰": "imperfectionEffect"
+      }
+    },
+    "vaporwave": {
+      "dimensions": {
+        "光泽塑料、铬色反射与低清晰数字表面": "materialTexture"
+      }
+    },
+    "y2k": {
+      "dimensions": {
+        "平滑早期 CGI 建模与轻微低分辨率锯齿": "imperfectionEffect"
+      }
+    },
+    "retrofuturism": {
+      "dimensions": {
+        "喷漆金属、塑料光泽与旧杂志印刷颗粒": "materialTexture"
+      }
+    },
+    "gothic-subculture": {
+      "dimensions": {
+        "天鹅绒、哑光金属、蕾丝状纹理与风化表面": "materialTexture"
+      }
+    },
+    "film-noir": {
+      "dimensions": {
+        "银盐颗粒、轻雾与微弱高光晕染": "mediumTechnique"
+      }
     },
     "skeuomorphism": {
       "promote": ["真实材质的界面化模拟"],

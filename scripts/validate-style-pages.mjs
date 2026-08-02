@@ -1,6 +1,7 @@
-import { access, readFile, readdir } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { evaluateClassicExpression, loadClassicScripts, STYLE_SOURCE_FILES } from "./lib/classic-script-loader.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const stylesRoot = resolve(root, "styles");
@@ -21,17 +22,16 @@ const expectedSections = [
   "related"
 ];
 
-const entries = await readdir(stylesRoot, { withFileTypes: true });
-const pagePaths = entries
-  .filter((entry) => entry.isDirectory())
-  .map((entry) => resolve(stylesRoot, entry.name, "index.html"))
-  .sort();
+const styleContext = await loadClassicScripts(root, STYLE_SOURCE_FILES);
+const styleIds = JSON.parse(JSON.stringify(evaluateClassicExpression(styleContext, "STYLE_DATA.map((style) => style.id)")));
+const strictStyleCount = evaluateClassicExpression(styleContext, "STRICT_STYLE_COUNT");
+const pagePaths = styleIds.map((id) => resolve(stylesRoot, id, "index.html")).sort();
 const failures = [];
 const seenTitles = new Set();
 const seenDescriptions = new Set();
 const seenCanonicals = new Set();
 
-if (pagePaths.length !== 123) failures.push(`Expected 123 detail pages, found ${pagePaths.length}`);
+if (pagePaths.length !== strictStyleCount) failures.push(`Expected ${strictStyleCount} strict style detail pages, found ${pagePaths.length}`);
 
 for (const pagePath of pagePaths) {
   const html = await readFile(pagePath, "utf8");

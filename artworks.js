@@ -296,11 +296,205 @@ const ARTWORK_DATA = {
   "acid-graphics": {
     "src": "assets/artworks/acid-graphics.jpg"
   },
+  "maximalism": {
+    "src": "assets/artworks/maximalism.jpg"
+  },
+  "neo-futurism": {
+    "src": "assets/artworks/neo-futurism.jpg"
+  },
+  "neo-pop": {
+    "src": "assets/artworks/neo-pop.jpg"
+  },
   "cyberpunk": {
     "src": "assets/artworks/cyberpunk.jpg"
+  },
+  "blue-green-landscape": {
+    "src": "assets/artworks/blue-green-landscape.png"
+  },
+  "song-court-painting": {
+    "src": "assets/artworks/song-court-painting.png"
+  },
+  "baimiao": {
+    "src": "assets/artworks/baimiao.png"
+  },
+  "jiehua": {
+    "src": "assets/artworks/jiehua.png"
+  },
+  "shanhaijing-compendium": {
+    "src": "assets/artworks/shanhaijing-compendium.png"
+  },
+  "archaic-bronze-mythic": {
+    "src": "assets/artworks/archaic-bronze-mythic.png"
+  },
+  "daoist-immortal-realm": {
+    "src": "assets/artworks/daoist-immortal-realm.png"
+  },
+  "cloisonne-enamel": {
+    "src": "assets/artworks/cloisonne-enamel.png"
+  },
+  "mother-of-pearl-lacquer": {
+    "src": "assets/artworks/mother-of-pearl-lacquer.png"
+  },
+  "chinese-papercut": {
+    "src": "assets/artworks/chinese-papercut.png"
+  },
+  "chinese-shadow-puppetry": {
+    "src": "assets/artworks/chinese-shadow-puppetry.png"
+  },
+  "blue-white-porcelain": {
+    "src": "assets/artworks/blue-white-porcelain.png"
+  },
+  "collage": {
+    "src": "assets/artworks/collage.jpg"
+  },
+  "naive-art": {
+    "src": "assets/artworks/naive-art.jpg"
+  },
+  "warli-painting": {
+    "src": "assets/artworks/warli-painting.jpg"
+  },
+  "oracle-bone-script-aesthetic": {
+    "src": "assets/artworks/oracle-bone-script-aesthetic.jpg"
+  },
+  "chaekgeori": {
+    "src": "assets/artworks/chaekgeori.jpg"
+  },
+  "ainu-pattern-aesthetic": {
+    "src": "assets/artworks/ainu-pattern-aesthetic.jpg"
+  },
+  "northern-song-landscape": {
+    "src": "assets/artworks/northern-song-landscape.jpg"
+  },
+  "zen-painting": {
+    "src": "assets/artworks/zen-painting.jpg"
+  },
+  "cursive-script-aesthetic": {
+    "src": "assets/artworks/cursive-script-aesthetic.jpg"
+  },
+  "shanghai-school-painting": {
+    "src": "assets/artworks/shanghai-school-painting.jpg"
+  },
+  "sosaku-hanga": {
+    "src": "assets/artworks/sosaku-hanga.jpg"
+  },
+  "yamato-e": {
+    "src": "assets/artworks/yamato-e.jpg"
+  },
+  "akkadian-art": {
+    "src": "assets/artworks/akkadian-art.jpg"
+  },
+  "arnhem-land-bark-painting": {
+    "src": "assets/artworks/arnhem-land-bark-painting.jpg"
+  },
+  "achaemenid-persian-art": {
+    "src": "assets/artworks/achaemenid-persian-art.jpg"
+  },
+  "ethiopian-icon-painting": {
+    "src": "assets/artworks/ethiopian-icon-painting.jpg"
+  },
+  "ottonian-art": {
+    "src": "assets/artworks/ottonian-art.jpg"
+  },
+  "australian-aboriginal-dot-painting": {
+    "src": "assets/artworks/australian-aboriginal-dot-painting.jpg"
+  },
+  "babylonian-art": {
+    "src": "assets/artworks/babylonian-art.jpg"
+  },
+  "northern-renaissance": {
+    "src": "assets/artworks/northern-renaissance.jpg"
+  },
+  "benin-court-art": {
+    "src": "assets/artworks/benin-court-art.jpg"
+  },
+  "ndebele-house-painting": {
+    "src": "assets/artworks/ndebele-house-painting.jpg"
+  },
+  "international-gothic": {
+    "src": "assets/artworks/international-gothic.jpg"
+  },
+  "dansaekhwa": {
+    "src": "assets/artworks/dansaekhwa.jpg"
+  },
+  "han-dynasty-silk-painting": {
+    "src": "assets/artworks/han-dynasty-silk-painting.jpg"
+  },
+  "han-dynasty-pictorial-stone": {
+    "src": "assets/artworks/han-dynasty-pictorial-stone.jpg"
+  },
+  "carolingian-art": {
+    "src": "assets/artworks/carolingian-art.jpg"
+  },
+  "bronze-inscription-aesthetic": {
+    "src": "assets/artworks/bronze-inscription-aesthetic.jpg"
+  },
+  "coptic-art": {
+    "src": "assets/artworks/coptic-art.jpg"
+  },
+  "clerical-script-aesthetic": {
+    "src": "assets/artworks/clerical-script-aesthetic.jpg"
+  },
+  "lingnan-school": {
+    "src": "assets/artworks/lingnan-school.jpg"
+  },
+  "roman-imperial-art": {
+    "src": "assets/artworks/roman-imperial-art.jpg"
+  },
+  "ma-xia-school": {
+    "src": "assets/artworks/ma-xia-school.jpg"
+  },
+  "mianzhu-new-year-print": {
+    "src": "assets/artworks/mianzhu-new-year-print.jpg"
+  },
+  "japanese-nanga": {
+    "src": "assets/artworks/japanese-nanga.jpg"
+  },
+  "nok-art": {
+    "src": "assets/artworks/nok-art.jpg"
+  },
+  "kano-school": {
+    "src": "assets/artworks/kano-school.jpg"
+  },
+  "four-wangs-school": {
+    "src": "assets/artworks/four-wangs-school.jpg"
+  },
+  "taohuawu-new-year-print": {
+    "src": "assets/artworks/taohuawu-new-year-print.jpg"
+  },
+  "tingatinga-painting": {
+    "src": "assets/artworks/tingatinga-painting.jpg"
+  },
+  "tosa-school": {
+    "src": "assets/artworks/tosa-school.jpg"
+  },
+  "wei-jin-tomb-mural": {
+    "src": "assets/artworks/wei-jin-tomb-mural.jpg"
+  },
+  "wu-school": {
+    "src": "assets/artworks/wu-school.jpg"
+  },
+  "mono-ha": {
+    "src": "assets/artworks/mono-ha.jpg"
+  },
+  "shin-hanga": {
+    "src": "assets/artworks/shin-hanga.jpg"
+  },
+  "eight-eccentrics-of-yangzhou": {
+    "src": "assets/artworks/eight-eccentrics-of-yangzhou.jpg"
+  },
+  "yangliuqing-new-year-print": {
+    "src": "assets/artworks/yangliuqing-new-year-print.jpg"
+  },
+  "yuefenpai-calendar-art": {
+    "src": "assets/artworks/yuefenpai-calendar-art.jpg"
+  },
+  "zhe-school": {
+    "src": "assets/artworks/zhe-school.jpg"
   }
 };
 
 STYLE_DATA.forEach((style) => {
-  style.artwork = ARTWORK_DATA[style.id] || null;
+  const exactArtwork = ARTWORK_DATA[style.id] || style.artwork || null;
+  const artworkId = exactArtwork?.src?.split("/").pop()?.replace(/\.[^.]+$/, "");
+  style.artwork = artworkId === style.id ? exactArtwork : null;
 });

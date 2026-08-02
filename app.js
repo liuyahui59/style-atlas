@@ -1,21 +1,11 @@
-const QUICK_FILTER_PRESETS = [
-  { id: "rational", label: "理性、有秩序", traits: ["几何", "理性", "网格", "秩序", "系统化", "模块化", "精密"], minMatches: 2 },
-  { id: "organic", label: "自然、有温度", traits: ["有机", "自然", "生态", "手工", "自然色"], minMatches: 1 },
-  { id: "restrained", label: "克制、有留白", traits: ["留白", "克制", "低饱和", "轻盈", "开放构图"], minMatches: 2 },
-  { id: "expressive", label: "强烈、有冲击", traits: ["强对比", "高饱和", "动态", "反叛", "戏剧", "表现"], minMatches: 2 },
-  { id: "nostalgic", label: "怀旧、有故事", traits: ["怀旧", "叙事", "浪漫", "象征", "手工"], minMatches: 1 },
-  { id: "futuristic", label: "未来、有科技感", traits: ["未来", "数字", "冷色", "高识别", "系统化"], minMatches: 1 }
-];
-
 const state = {
   view: "atlas",
   search: "",
-  quickPreset: "",
-  filters: { type: new Set(), region: new Set(), traits: new Set(), fields: new Set() },
+  filters: { type: new Set(), region: new Set(), visualHistory: new Set() },
   favoritesOnly: false,
-  favorites: new Set(JSON.parse(localStorage.getItem("style-atlas-favorites") || "[]")),
+  favorites: new Set(loadFavoriteIds()),
   compare: [],
-  selectedPromptStyleId: "cyberpunk",
+  selectedPromptStyleId: "bauhaus",
   promptGenes: [],
   promptControls: {},
   promptOutputMode: "zh",
@@ -29,17 +19,28 @@ const state = {
   lastDetailTrigger: null
 };
 
-const labels = {
-  type: "风格分类",
-  region: "地域",
-  traits: "视觉特征",
-  fields: "应用领域",
-  composition: "构图",
-  form: "造型",
-  color: "色彩",
-  typeface: "字体",
-  texture: "材质"
-};
+const TIMELINE_BASE_WIDTH = 2400;
+const TIMELINE_REGIONS = [
+  "全球/跨地域",
+  "欧洲",
+  "东亚",
+  "南亚与东南亚",
+  "西亚/中亚/北非",
+  "撒哈拉以南非洲",
+  "大洋洲",
+  "北美",
+  "拉丁美洲与加勒比"
+];
+const TIMELINE_PERIODS = [
+  { start: -3000, end: 500, from: 2, to: 16, label: "古代文明", time: "史前—约500年" },
+  { start: 500, end: 1400, from: 16, to: 29, label: "前现代传统", time: "约500—1400年" },
+  { start: 1400, end: 1760, from: 29, to: 42, label: "早期近代", time: "约1400—1760年" },
+  { start: 1760, end: 1914, from: 42, to: 58, label: "工业化与现代性", time: "约1760—1914年" },
+  { start: 1914, end: 1960, from: 58, to: 72, label: "现代主义", time: "约1914—1960年" },
+  { start: 1960, end: 1995, from: 72, to: 86, label: "战后与后现代", time: "约1960—1995年" },
+  { start: 1995, end: 2026, from: 86, to: 98, label: "数字网络与当代", time: "约1995年至今" }
+];
+const TIMELINE_TICKS = [-3000, -2000, -1000, 0, 500, 1000, 1400, 1600, 1760, 1850, 1914, 1945, 1960, 1980, 1995, 2010, 2025];
 
 const useTranslations = {
   "海报": "poster design",
@@ -53,12 +54,6 @@ const ratioTranslations = {
   "纵向 2:3": "vertical 2:3 composition",
   "横向 16:9": "landscape 16:9 composition",
   "方形 1:1": "square 1:1 composition"
-};
-
-const intensityTranslations = {
-  "借鉴": { zh: "轻度借鉴", en: "subtle influence from" },
-  "明显": { zh: "具有明显的", en: "clearly expressed" },
-  "主导": { zh: "由其视觉语言主导", en: "strongly dominated by" }
 };
 
 const dom = {};
@@ -112,7 +107,6 @@ function init() {
   cacheDom();
   normalizeLocalFileLinks(document);
   bindGlobalEvents();
-  renderQuickFilters();
   renderFilterGroups();
   renderAtlas();
   const requestedView = window.location.hash.slice(1);
@@ -124,17 +118,17 @@ function init() {
 
 function cacheDom() {
   [
-    "styleSearch", "resultCount", "styleGrid", "emptyState", "quickFilters", "filterGroups",
+    "styleSearch", "resultCount", "styleGrid", "emptyState", "filterGroups",
     "mobileFilterGroups", "activeFilters", "clearFiltersButton", "emptyResetButton",
     "headerActions", "favoritesButton", "favoriteCount", "openCompareButton", "compareCount", "compareDock",
     "compareSummary", "compareNowButton", "clearCompareButton", "compareDialog", "compareContent",
     "closeCompareDialog", "detailLayer", "detailDrawer", "detailContent", "detailKicker", "mobileFilterButton", "mobileFilterSheet",
-    "timelineAxis", "timelineLanes", "promptSubject", "promptUse", "promptRatio", "intensityControl",
+    "timelineAxis", "timelineGrid", "timelineLanes", "promptSubject", "promptUse", "promptRatio", "intensityControl",
     "selectedPromptStyle", "promptGenes", "geneCount", "palettePicker", "promptControls", "controlCount", "promptResult",
     "promptAnatomy", "openMixerButton", "copyPromptButton", "generateImageButton", "generateImageLabel", "resetPromptButton",
     "imageResult", "imageGenerationStatus", "imageStage", "imageStageState", "imageStateTitle", "imageStateText",
     "generatedImage", "downloadImageButton",
-    "browseStylesButton", "promptStyleIndicator", "timelineViewport", "timelineCanvas",
+    "browseStylesButton", "promptStyleIndicator", "timelineViewport", "timelineCanvas", "timelineStickyAxis",
     "timelineZoomOut", "timelineZoomIn", "timelineZoomRange", "timelineZoomValue", "timelineZoomReset",
     "vocabularySearch", "vocabularyFilters", "vocabularyGroups", "vocabularyCount", "vocabularyEmpty",
     "vocabularyResetButton", "toast"
@@ -228,7 +222,7 @@ function bindGlobalEvents() {
     state.promptPaletteIndex = null;
     state.promptCustomColor = "";
     state.promptControls = {};
-    setPromptStyle("cyberpunk", false);
+    setPromptStyle("bauhaus", false);
     dom.intensityControl.querySelectorAll("button").forEach((item) => item.classList.toggle("is-active", item.dataset.intensity === "明显"));
     showToast("Prompt 已重置");
   });
@@ -348,7 +342,7 @@ function getArtworkVariantSrc(src, variant) {
 function createVisual(style, className = "style-visual", options = {}) {
   const artwork = style.artwork;
   if (!artwork) {
-    return `<span class="${className} art-${style.art}" role="img" aria-label="${style.nameZh}风格配图"></span>`;
+    return `<span class="${className} artwork-placeholder" role="img" aria-label="${style.nameZh}暂无配图">${options.placeholderLabel || "暂无配图"}</span>`;
   }
 
   const thumbSrc = getArtworkVariantSrc(artwork.src, "thumbs");
@@ -363,25 +357,11 @@ function createVisual(style, className = "style-visual", options = {}) {
   return `<span class="${className} has-artwork" role="img" aria-label="${style.nameZh}风格配图">${image}</span>`;
 }
 
-function renderQuickFilters() {
-  dom.quickFilters.innerHTML = QUICK_FILTER_PRESETS.map((preset) => {
-    const count = STYLE_DATA.filter((style) => getPresetMatchCount(style, preset) >= preset.minMatches).length;
-    return `<button class="chip" data-quick-preset="${preset.id}" aria-label="${preset.label}，${count} 种风格">${preset.label}</button>`;
-  }).join("");
-  dom.quickFilters.addEventListener("click", (event) => {
-    const button = event.target.closest("[data-quick-preset]");
-    if (!button) return;
-    state.quickPreset = state.quickPreset === button.dataset.quickPreset ? "" : button.dataset.quickPreset;
-    syncFilterControls();
-    renderAtlas();
-  });
-}
-
 function renderFilterGroups() {
-  const groupName = { type: "风格分类", region: "地域", traits: "视觉特征", fields: "应用领域" };
+  const groupName = { type: "风格分类", region: "地域", visualHistory: "视觉史" };
   const markup = Object.entries(FILTER_GROUPS).map(([group, options]) => {
     return `<section class="filter-group"><h3>${groupName[group]}</h3><div class="filter-options">${options.map((option) => {
-      const count = STYLE_DATA.filter((style) => group === "traits" || group === "fields" ? style[group].includes(option) : style[group] === option || (group === "type" && style.type === option)).length;
+      const count = STYLE_DATA.filter((style) => styleMatchesFilterOption(style, group, option)).length;
       return `<label class="filter-option"><input type="checkbox" data-filter-group="${group}" value="${option}" /><span class="checkbox-mark" aria-hidden="true"><i data-lucide="check"></i></span><span>${option}</span><output>${count}</output></label>`;
     }).join("")}</div></section>`;
   }).join("");
@@ -394,6 +374,11 @@ function renderFilterGroups() {
       toggleFilter(input.dataset.filterGroup, input.value, input.checked);
     });
   });
+}
+
+function styleMatchesFilterOption(style, group, option) {
+  if (group === "region") return style.broadRegions.includes(option);
+  return style[group] === option;
 }
 
 function toggleFilter(group, value, force) {
@@ -409,18 +394,14 @@ function syncFilterControls() {
   document.querySelectorAll("input[data-filter-group]").forEach((input) => {
     input.checked = state.filters[input.dataset.filterGroup].has(input.value);
   });
-  document.querySelectorAll("[data-quick-preset]").forEach((button) => {
-    button.classList.toggle("is-active", state.quickPreset === button.dataset.quickPreset);
-  });
 }
 
 function hasAnyFilter() {
-  return state.search || state.quickPreset || state.favoritesOnly || Object.values(state.filters).some((set) => set.size);
+  return state.search || state.favoritesOnly || Object.values(state.filters).some((set) => set.size);
 }
 
 function clearFilters() {
   state.search = "";
-  state.quickPreset = "";
   state.favoritesOnly = false;
   Object.values(state.filters).forEach((set) => set.clear());
   dom.styleSearch.value = "";
@@ -430,24 +411,19 @@ function clearFilters() {
 }
 
 function getFilteredStyles() {
-  const preset = QUICK_FILTER_PRESETS.find((item) => item.id === state.quickPreset);
-  const styles = STYLE_DATA.filter((style) => {
+  return STYLE_DATA.filter((style) => {
     if (state.favoritesOnly && !state.favorites.has(style.id)) return false;
-    if (preset && getPresetMatchCount(style, preset) < preset.minMatches) return false;
     if (state.filters.type.size && !state.filters.type.has(style.type)) return false;
-    if (state.filters.region.size && !state.filters.region.has(style.region)) return false;
-    if (state.filters.traits.size && ![...state.filters.traits].every((trait) => style.traits.includes(trait))) return false;
-    if (state.filters.fields.size && ![...state.filters.fields].some((field) => style.fields.includes(field))) return false;
+    if (state.filters.region.size && ![...state.filters.region].some((region) => style.broadRegions.includes(region))) return false;
+    if (state.filters.visualHistory.size && !state.filters.visualHistory.has(style.visualHistory)) return false;
     if (!state.search) return true;
-    const haystack = [style.nameZh, style.nameEn, style.type, style.period, style.region, style.summary, style.recognition, ...style.traits, ...style.fields, ...Object.values(style.genes).flat()].join(" ").toLowerCase();
+    const haystack = [
+      style.nameZh, style.nameEn, style.type, style.period, style.detailedRegion, style.broadRegion,
+      style.visualHistory, style.visualHistoryTime, style.summary, style.recognition,
+      ...style.traits, ...style.fields, ...Object.values(style.genes).flat()
+    ].join(" ").toLowerCase();
     return haystack.includes(state.search);
   });
-  if (preset) styles.sort((a, b) => getPresetMatchCount(b, preset) - getPresetMatchCount(a, preset));
-  return styles;
-}
-
-function getPresetMatchCount(style, preset) {
-  return style.traits.filter((trait) => preset.traits.includes(trait)).length;
 }
 
 function renderAtlas() {
@@ -467,7 +443,7 @@ function renderAtlas() {
         <span class="style-meta">
           <span class="style-name-row"><span class="style-card-title">${style.nameZh}</span><span class="style-period">${style.period}</span></span>
           <span class="style-en">${style.nameEn}</span>
-          <span class="style-tags"><span>${style.type}</span>${style.traits.slice(0, 3).map((trait) => `<span>${trait}</span>`).join("")}</span>
+          <span class="style-tags"><span>${style.type}</span><span>${style.broadRegion}</span><span>${style.visualHistoryShort}</span></span>
         </span>
       </a>
       <div class="card-tools ${favorite || compared ? "has-active" : ""}">
@@ -486,17 +462,14 @@ function renderAtlas() {
 
 function renderActiveFilters() {
   const items = [];
-  const preset = QUICK_FILTER_PRESETS.find((item) => item.id === state.quickPreset);
-  if (preset) items.push({ group: "preset", value: preset.label });
   if (state.favoritesOnly) items.push({ group: "favorites", value: "只看收藏" });
   Object.entries(state.filters).forEach(([group, set]) => set.forEach((value) => items.push({ group, value })));
   dom.activeFilters.innerHTML = items.length
     ? items.map((item) => `<button class="active-filter" data-remove-filter="${item.group}" data-value="${item.value}">${item.value}<i data-lucide="x"></i></button>`).join("")
-    : `<span class="compare-placeholder">全部风格 · 按相关性排序</span>`;
+    : `<span class="compare-placeholder">${STYLE_DATA.length} 种严格风格</span>`;
   dom.activeFilters.querySelectorAll("[data-remove-filter]").forEach((button) => {
     button.addEventListener("click", () => {
-      if (button.dataset.removeFilter === "preset") state.quickPreset = "";
-      else if (button.dataset.removeFilter === "favorites") state.favoritesOnly = false;
+      if (button.dataset.removeFilter === "favorites") state.favoritesOnly = false;
       else state.filters[button.dataset.removeFilter].delete(button.dataset.value);
       syncFilterControls();
       renderAtlas();
@@ -519,7 +492,7 @@ function bindCardEvents() {
 function toggleFavorite(id) {
   if (state.favorites.has(id)) state.favorites.delete(id);
   else state.favorites.add(id);
-  localStorage.setItem("style-atlas-favorites", JSON.stringify([...state.favorites]));
+  saveFavoriteIds(state.favorites);
   const style = getStyle(id);
   showToast(`${style.nameZh}${state.favorites.has(id) ? "已收藏" : "已取消收藏"}`);
   renderAtlas();
@@ -657,7 +630,7 @@ function renderDetail(style) {
   ];
   dom.detailContent.innerHTML = `<div class="detail-hero">
     <div class="detail-title">
-      <div class="detail-tags"><span class="chip">${style.type}</span><span class="chip">${style.period}</span><span class="chip">${style.region}</span></div>
+      <div class="detail-tags"><span class="chip">${style.type}</span><span class="chip">${style.broadRegion}</span><span class="chip">${style.visualHistory}</span><span class="chip">${style.period}</span></div>
       <h2 id="detailTitle">${style.nameZh}</h2><div class="detail-en">${style.nameEn}</div>
       <p class="detail-summary">${style.summary}</p>
       <p class="detail-recognition"><strong>一眼识别：</strong>${style.recognition}</p>
@@ -752,24 +725,32 @@ async function switchView(view) {
 }
 
 function renderTimeline() {
-  const trackWidth = Math.round(2200 * state.timelineZoom);
+  const trackWidth = Math.round(TIMELINE_BASE_WIDTH * state.timelineZoom);
   dom.timelineCanvas.style.setProperty("--timeline-track-width", `${trackWidth}px`);
+  dom.timelineStickyAxis.style.setProperty("--timeline-track-width", `${trackWidth}px`);
   dom.timelineZoomRange.value = String(state.timelineZoom);
   dom.timelineZoomRange.style.setProperty("--range-progress", `${((state.timelineZoom - 1) / 5) * 100}%`);
   dom.timelineZoomValue.value = `${Math.round(state.timelineZoom * 100)}%`;
   dom.timelineZoomOut.disabled = state.timelineZoom <= 1;
   dom.timelineZoomIn.disabled = state.timelineZoom >= 6;
-  const years = [-1000, 0, 500, 1000, 1500, 1800, 1900, 1950, 2000, 2025];
-  dom.timelineAxis.innerHTML = years.map((year) => `<span class="axis-label" style="left:${timelinePosition(year)}%">${formatTimelineYear(year)}</span>`).join("");
-  const tracks = ["欧洲艺术与现代主义", "东亚视觉传统", "全球地域传统", "商业与设计视觉", "数字与网络审美"];
-  dom.timelineLanes.innerHTML = tracks.map((track) => {
-    const items = STYLE_DATA.filter((style) => style.track === track).sort((a, b) => a.year - b.year);
+  const eraMarkup = TIMELINE_PERIODS.map((period, index) => {
+    const left = index === 0 ? 0 : period.from;
+    return `<span class="timeline-era" style="left:${left}%;width:${period.to - left}%"><strong>${period.label}</strong><small>${period.time}</small></span>`;
+  }).join("");
+  const tickMarkup = TIMELINE_TICKS.map((year) => `<span class="axis-label" style="left:${timelinePosition(year)}%">${formatTimelineYear(year)}</span>`).join("");
+  dom.timelineAxis.innerHTML = `${eraMarkup}${tickMarkup}`;
+  dom.timelineGrid.replaceChildren();
+  dom.timelineLanes.innerHTML = TIMELINE_REGIONS.map((region) => {
+    const items = STYLE_DATA
+      .filter((style) => getTimelineRegion(style) === region)
+      .sort((a, b) => a.year - b.year || a.nameZh.localeCompare(b.nameZh, "zh-CN"));
     const layout = layoutTimelineItems(items, trackWidth);
-    return `<section class="timeline-lane" style="--lane-height:${layout.height}px"><div class="lane-label">${track}</div><div class="lane-track">${layout.items.map(({ style, position, top, connectorHeight }) => {
-      return `<span class="timeline-marker" style="left:${position}%" aria-hidden="true"></span><button class="timeline-node" data-timeline-style="${style.id}" style="left:${position}%;--node-top:${top}px;--connector-height:${connectorHeight}px">${createVisual(style, "timeline-node-visual")}<strong>${style.nameZh}</strong><small>${style.period}</small></button>`;
+    return `<section class="timeline-lane" style="--lane-height:${layout.height}px"><div class="lane-label"><strong>${region}</strong><span>${items.length} 个风格</span></div><div class="lane-track">${layout.items.map(({ style, position, top, connectorHeight }) => {
+      return `<span class="timeline-marker" style="left:${position}%" aria-hidden="true"></span><button class="timeline-node" data-timeline-style="${style.id}" style="left:${position}%;--node-top:${top}px;--connector-height:${connectorHeight}px" aria-label="查看${escapeVocabularyText(style.nameZh)}，${escapeVocabularyText(style.period)}" title="${escapeVocabularyText(style.nameZh)} · ${escapeVocabularyText(style.period)}">${createVisual(style, "timeline-node-visual", { placeholderLabel: "暂无" })}<strong>${escapeVocabularyText(style.nameZh)}</strong><small>${escapeVocabularyText(style.period)}</small></button>`;
     }).join("")}</div></section>`;
   }).join("");
   dom.timelineLanes.querySelectorAll("[data-timeline-style]").forEach((button) => button.addEventListener("click", () => openDetail(button.dataset.timelineStyle, button)));
+  syncTimelineAxis();
 }
 
 function layoutTimelineItems(items, trackWidth) {
@@ -793,6 +774,11 @@ function layoutTimelineItems(items, trackWidth) {
   };
 }
 
+function getTimelineRegion(style) {
+  const regions = (style.broadRegions || []).filter((region) => TIMELINE_REGIONS.includes(region));
+  return regions.length === 1 ? regions[0] : "全球/跨地域";
+}
+
 function setTimelineZoom(value, anchorClientX = null) {
   const next = Math.max(1, Math.min(6, Math.round(value * 4) / 4));
   if (next === state.timelineZoom) return;
@@ -801,21 +787,27 @@ function setTimelineZoom(value, anchorClientX = null) {
   const anchorX = anchorClientX === null
     ? viewport.clientWidth / 2
     : Math.max(0, Math.min(viewport.clientWidth, anchorClientX - viewportRect.left));
-  const oldTrackStart = dom.timelineAxis.offsetLeft;
-  const oldTrackWidth = dom.timelineAxis.clientWidth || 1;
+  const oldTrackStart = dom.timelineGrid.offsetLeft;
+  const oldTrackWidth = dom.timelineGrid.clientWidth || 1;
   const anchorRatio = Math.max(0, Math.min(1, (viewport.scrollLeft + anchorX - oldTrackStart) / oldTrackWidth));
   state.timelineZoom = next;
   renderTimeline();
   requestAnimationFrame(() => {
-    const newTrackStart = dom.timelineAxis.offsetLeft;
-    viewport.scrollLeft = Math.max(0, newTrackStart + anchorRatio * dom.timelineAxis.clientWidth - anchorX);
+    const newTrackStart = dom.timelineGrid.offsetLeft;
+    viewport.scrollLeft = Math.max(0, newTrackStart + anchorRatio * dom.timelineGrid.clientWidth - anchorX);
+    syncTimelineAxis();
   });
+}
+
+function syncTimelineAxis() {
+  dom.timelineAxis.style.transform = `translate3d(${-dom.timelineViewport.scrollLeft}px, 0, 0)`;
 }
 
 function bindTimelinePan() {
   const viewport = dom.timelineViewport;
   let drag = null;
   let zoomWheelDelta = 0;
+  viewport.addEventListener("scroll", syncTimelineAxis, { passive: true });
   viewport.addEventListener("pointerdown", (event) => {
     if (event.target.closest("button")) return;
     drag = { x: event.clientX, scrollLeft: viewport.scrollLeft };
@@ -856,20 +848,14 @@ function bindTimelinePan() {
 }
 
 function formatTimelineYear(year) {
-  if (year < 0) return `前 ${Math.abs(year)}`;
-  return String(year);
+  if (year < 0) return `公元前 ${Math.abs(year)}`;
+  if (year === 0) return "公元元年";
+  return `${year}年`;
 }
 
 function timelinePosition(year) {
-  const segments = [
-    { start: -1400, end: 1000, from: 2, to: 18 },
-    { start: 1000, end: 1800, from: 18, to: 42 },
-    { start: 1800, end: 1900, from: 42, to: 59 },
-    { start: 1900, end: 1950, from: 59, to: 73 },
-    { start: 1950, end: 2000, from: 73, to: 91 },
-    { start: 2000, end: 2025, from: 91, to: 98 }
-  ];
-  const segment = segments.find((item) => year >= item.start && year <= item.end) || (year < -1400 ? segments[0] : segments[segments.length - 1]);
+  const segment = TIMELINE_PERIODS.find((item) => year >= item.start && year <= item.end)
+    || (year < TIMELINE_PERIODS[0].start ? TIMELINE_PERIODS[0] : TIMELINE_PERIODS[TIMELINE_PERIODS.length - 1]);
   const ratio = Math.max(0, Math.min(1, (year - segment.start) / (segment.end - segment.start)));
   return segment.from + ratio * (segment.to - segment.from);
 }
@@ -1000,7 +986,7 @@ function renderPromptOutput() {
     zh: zhParts.join("，"),
     en: enParts.join(", "),
     negative: `避免：${buildStyleNegativeText("zh")}`,
-    generation: enParts.join(", ")
+    generation: zhParts.join("，")
   };
   state.promptOutputs = outputs;
   dom.promptResult.value = outputs[state.promptOutputMode];
@@ -1071,6 +1057,24 @@ function showToast(message) {
 
 function getStyle(id) {
   return STYLE_DATA.find((style) => style.id === id);
+}
+
+function loadFavoriteIds() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem("style-atlas-favorites") || "[]");
+    if (!Array.isArray(parsed)) return [];
+    return parsed.filter((id) => typeof id === "string" && getStyle(id));
+  } catch {
+    return [];
+  }
+}
+
+function saveFavoriteIds(favorites) {
+  try {
+    localStorage.setItem("style-atlas-favorites", JSON.stringify([...favorites]));
+  } catch {
+    // Favorites remain usable for the current session when storage is unavailable.
+  }
 }
 
 function getStylePageHref(id) {

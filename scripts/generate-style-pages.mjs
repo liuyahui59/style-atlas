@@ -1,23 +1,18 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import vm from "node:vm";
+import { evaluateClassicExpression, loadClassicScripts, STYLE_PROMPT_SOURCE_FILES } from "./lib/classic-script-loader.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const siteUrl = "https://styleatlas.art";
-const lastModified = "2026-07-31";
+const lastModified = "2026-08-02";
 const checkOnly = process.argv.includes("--check");
-const dataFiles = ["data.js", "data-extra.js", "data-more.js", "visual-genes.js", "artworks.js", "aesthetic-styles.js", "chinese-visual-directions.js", "style-prompt-data.js"];
+const context = await loadClassicScripts(root, STYLE_PROMPT_SOURCE_FILES);
 
-const context = vm.createContext({});
-for (const file of dataFiles) {
-  vm.runInContext(await readFile(resolve(root, file), "utf8"), context, { filename: file });
-}
-
-const styles = JSON.parse(JSON.stringify(vm.runInContext("STYLE_DATA", context)));
+const styles = JSON.parse(JSON.stringify(evaluateClassicExpression(context, "STYLE_DATA")));
 const stylesById = new Map(styles.map((style) => [style.id, style]));
-const buildPrompt = vm.runInContext("buildStylePromptText", context);
-const buildNegative = vm.runInContext("buildStyleNegativeText", context);
+const buildPrompt = evaluateClassicExpression(context, "buildStylePromptText");
+const buildNegative = evaluateClassicExpression(context, "buildStyleNegativeText");
 const stylePromptsById = new Map(styles.map((style) => [style.id, {
   zh: buildPrompt(style, { language: "zh" }),
   en: buildPrompt(style, { language: "en" }),
@@ -73,7 +68,7 @@ function renderStylePage(style) {
   const canonical = `${siteUrl}/styles/${style.id}/`;
   const optimizedImagePath = getArtworkVariantPath(style, "optimized");
   const thumbnailImagePath = getArtworkVariantPath(style, "thumbs");
-  const imageUrl = `${siteUrl}/${optimizedImagePath}`;
+  const imageUrl = optimizedImagePath ? `${siteUrl}/${optimizedImagePath}` : `${siteUrl}/assets/og-cover.svg`;
   const promptOutput = stylePromptsById.get(style.id);
   const relatedStyles = style.related.map((id) => stylesById.get(id)).filter(Boolean);
   const coreGuide = buildCoreGuide(style);
@@ -95,7 +90,7 @@ function renderStylePage(style) {
         "@type": "Article",
         headline: `${style.nameZh}（${style.nameEn}）风格图鉴`,
         description,
-        image: imageUrl,
+        image: optimizedImagePath ? imageUrl : undefined,
         url: canonical,
         inLanguage: "zh-CN",
         dateModified: lastModified,
@@ -131,12 +126,12 @@ function renderStylePage(style) {
     <meta property="og:description" content="${escapeHtml(description)}" />
     <meta property="og:url" content="${canonical}" />
     <meta property="og:image" content="${imageUrl}" />
-    <meta property="og:image:alt" content="${escapeHtml(`${style.nameZh}风格视觉示例`)}" />
+    <meta property="og:image:alt" content="${escapeHtml(optimizedImagePath ? `${style.nameZh}风格视觉示例` : "风格谱 Style Atlas")}" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="${canonical}" />
     <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
-    <link rel="preload" as="image" href="../../${thumbnailImagePath}" media="(max-width: 720px)" fetchpriority="high" />
-    <link rel="preload" as="image" href="../../${optimizedImagePath}" media="(min-width: 721px)" fetchpriority="high" />
+    ${optimizedImagePath ? `<link rel="preload" as="image" href="../../${thumbnailImagePath}" media="(max-width: 720px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="../../${optimizedImagePath}" media="(min-width: 721px)" fetchpriority="high" />` : ""}
     <link rel="manifest" href="../../site.webmanifest" />
     <link rel="stylesheet" href="../../styles.css" />
     <link rel="stylesheet" href="../../style-pages.css" />
@@ -164,12 +159,7 @@ function renderStylePage(style) {
               <a class="secondary-button" href="../../index.html#atlas">返回风格图鉴</a>
             </div>
           </div>
-          <figure class="detail-visual has-artwork">
-            <picture>
-              <source media="(max-width: 720px)" srcset="../../${thumbnailImagePath}" />
-              <img src="../../${optimizedImagePath}" alt="${escapeHtml(`${style.nameZh}（${style.nameEn}）风格视觉示例`)}" width="1200" height="900" fetchpriority="high" decoding="async" />
-            </picture>
-          </figure>
+          ${renderDetailArtwork(style, optimizedImagePath, thumbnailImagePath)}
         </header>
 
         <div class="style-page-content">
@@ -243,14 +233,12 @@ function renderStylePage(style) {
             <section class="detail-section" id="comparison" aria-labelledby="comparisonTitle">
               <p class="section-kicker">07 · COMPARISON</p>
               <h2 id="comparisonTitle">容易与哪些风格混淆</h2>
-              <div class="comparison-guide">
-                ${comparisonGuides.map((comparison) => `<article>
+              <div class="comparison-guide">${comparisonGuides.map((comparison) => `<article>
                   <h3>${escapeHtml(style.nameZh)} vs ${escapeHtml(comparison.related.nameZh)}</h3>
                   <div class="comparison-points"><p><span>${escapeHtml(style.nameZh)}</span>${escapeHtml(comparison.current)}</p><p><span>${escapeHtml(comparison.related.nameZh)}</span>${escapeHtml(comparison.other)}</p></div>
                   <p class="comparison-key"><strong>关键差异：</strong>${escapeHtml(comparison.key)}</p>
                   <a href="../${comparison.related.id}/">查看${escapeHtml(comparison.related.nameZh)}完整指南</a>
-                </article>`).join("\n                ")}
-              </div>
+                </article>`).join("\n                ")}</div>
             </section>
 
             <section class="detail-section" id="intensity" aria-labelledby="intensityTitle">
@@ -305,19 +293,17 @@ function renderStylePage(style) {
               <p class="section-kicker">13 · RELATED & DERIVED STYLES</p>
               <h2 id="relatedTitle">来源、相邻与衍生风格</h2>
               <div class="relation-network"><div><span>来源</span><p>${renderStyleReferences(style.influencedBy)}</p></div><div><span>后续影响</span><p>${renderStyleReferences(style.influenced)}</p></div></div>
-              <div class="related-style-grid">
-                ${relatedStyles.map((related) => renderRelatedCard(related)).join("\n                ")}
-              </div>
+              <div class="related-style-grid">${relatedStyles.map((related) => renderRelatedCard(related)).join("\n                ")}</div>
             </section>
           </div>
           <aside class="style-page-aside" aria-label="风格资料">
             <dl class="style-facts">
               <div><dt>英文名</dt><dd>${escapeHtml(style.nameEn)}</dd></div>
               <div><dt>时期</dt><dd>${escapeHtml(style.period)}</dd></div>
-              <div><dt>地域</dt><dd>${escapeHtml(style.region)}</dd></div>
-              <div><dt>分类</dt><dd>${escapeHtml(style.type)}</dd></div>
-              <div><dt>视觉特征</dt><dd>${style.traits.map(escapeHtml).join("、")}</dd></div>
-              <div><dt>适用领域</dt><dd>${style.fields.map(escapeHtml).join("、")}</dd></div>
+              <div><dt>风格分类</dt><dd>${escapeHtml(style.type)}</dd></div>
+              <div><dt>大地域</dt><dd>${escapeHtml(style.broadRegion)}</dd></div>
+              <div><dt>视觉史</dt><dd>${escapeHtml(style.visualHistory)}</dd></div>
+              <div><dt>时间带</dt><dd>${escapeHtml(style.visualHistoryTime)}</dd></div>
             </dl>
             <nav class="style-page-toc" aria-label="本页内容">
               <strong>本页内容</strong>
@@ -335,8 +321,8 @@ function renderStylePage(style) {
 }
 
 function renderStyleIndex() {
-  const title = "123 种艺术设计风格与视觉方向图鉴 | 风格谱 Style Atlas";
-  const description = "浏览 123 种艺术、设计与视觉文化风格及视觉方向。每种风格都有独立页面，包含历史、识别特征、配色、构图、材质和 AI 绘图 Prompt。";
+  const title = `${styles.length} 种严格艺术与设计风格图鉴 | 风格谱 Style Atlas`;
+  const description = `浏览 ${styles.length} 种经过审定的艺术与设计风格。每种风格都有独立页面，包含历史、识别特征、配色、构图、材质和 AI 绘图 Prompt。`;
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -385,12 +371,12 @@ function renderStyleIndex() {
     <main class="style-index-page">
       <header class="style-index-intro">
         <p class="eyebrow">ART · DESIGN · VISUAL CULTURE</p>
-        <h1>123 种艺术设计风格与视觉方向</h1>
+        <h1>${styles.length} 种严格艺术与设计风格</h1>
         <p>${description}</p>
       </header>
       <section class="static-style-grid" aria-label="全部风格">
         ${styles.map((style, index) => `<a class="static-style-card" href="${style.id}/">
-          <img src="../${getArtworkVariantPath(style, "thumbs")}" alt="${escapeHtml(`${style.nameZh}风格视觉示例`)}" width="720" height="540" ${index === 0 ? 'loading="eager" fetchpriority="high"' : 'loading="lazy" fetchpriority="low"'} decoding="async" />
+          ${renderStaticArtwork(style, index)}
           <strong>${escapeHtml(style.nameZh)}</strong><small>${escapeHtml(style.nameEn)}</small><span>${escapeHtml(style.summary)}</span>
         </a>`).join("\n        ")}
       </section>
@@ -430,7 +416,7 @@ function renderFooter(prefix = "../../") {
   return `<footer class="site-footer">
       <span>风格谱 · Style Atlas</span>
       <span class="footer-note">配图仅用于呈现风格特征。</span>
-      <a class="footer-feedback" href="${prefix}index.html#atlas">浏览全部 123 种风格与视觉方向</a>
+      <a class="footer-feedback" href="${prefix}index.html#atlas">浏览全部 ${styles.length} 种严格风格</a>
     </footer>`;
 }
 
@@ -462,15 +448,44 @@ function renderLocalFileLinks() {
 
 function renderRelatedCard(style) {
   return `<a class="related-style-card" href="../${style.id}/">
-    <img src="../../${getArtworkVariantPath(style, "thumbs")}" alt="${escapeHtml(`${style.nameZh}风格视觉示例`)}" width="720" height="540" loading="lazy" decoding="async" />
+    ${renderRelatedArtwork(style)}
     <strong>${escapeHtml(style.nameZh)}</strong><small>${escapeHtml(style.nameEn)}</small>
   </a>`;
 }
 
 function getArtworkVariantPath(style, variant) {
+  if (!style.artwork?.src) return null;
   return style.artwork.src
     .replace("assets/artworks/", `assets/artworks/${variant}/`)
     .replace(/\.[^.]+$/, ".webp");
+}
+
+function renderDetailArtwork(style, optimizedImagePath, thumbnailImagePath) {
+  if (!optimizedImagePath) {
+    return `<figure class="detail-visual artwork-placeholder" role="img" aria-label="${escapeHtml(`${style.nameZh}暂无配图`)}">暂无配图</figure>`;
+  }
+  return `<figure class="detail-visual has-artwork">
+            <picture>
+              <source media="(max-width: 720px)" srcset="../../${thumbnailImagePath}" />
+              <img src="../../${optimizedImagePath}" alt="${escapeHtml(`${style.nameZh}（${style.nameEn}）风格视觉示例`)}" width="1200" height="900" fetchpriority="high" decoding="async" />
+            </picture>
+          </figure>`;
+}
+
+function renderStaticArtwork(style, index) {
+  const imagePath = getArtworkVariantPath(style, "thumbs");
+  if (!imagePath) {
+    return `<span class="artwork-placeholder" role="img" aria-label="${escapeHtml(`${style.nameZh}暂无配图`)}">暂无配图</span>`;
+  }
+  return `<img src="../${imagePath}" alt="${escapeHtml(`${style.nameZh}风格视觉示例`)}" width="720" height="540" ${index === 0 ? 'loading="eager" fetchpriority="high"' : 'loading="lazy" fetchpriority="low"'} decoding="async" />`;
+}
+
+function renderRelatedArtwork(style) {
+  const imagePath = getArtworkVariantPath(style, "thumbs");
+  if (!imagePath) {
+    return `<span class="artwork-placeholder" role="img" aria-label="${escapeHtml(`${style.nameZh}暂无配图`)}">暂无配图</span>`;
+  }
+  return `<img src="../../${imagePath}" alt="${escapeHtml(`${style.nameZh}风格视觉示例`)}" width="720" height="540" loading="lazy" decoding="async" />`;
 }
 
 function buildGeneGuides(style) {
@@ -930,18 +945,6 @@ function getRiskGuides(style) {
     "涉及地域传统或宗教符号时，应核对文化语境，避免把有明确含义的元素当作通用装饰。"
   ];
   return [...new Set([...risks, ...fallbacks])].slice(0, 3);
-}
-
-function getNegativePrompt(style) {
-  const items = ["无关风格混搭", "通用模板感", "主体与背景层级不清", "不可读文字"];
-  if (style.traits.includes("低饱和")) items.push("过度霓虹高饱和");
-  if (style.traits.includes("高饱和")) items.push("所有颜色平均抢占注意力");
-  if (style.traits.includes("平面")) items.push("无必要的写实三维高光");
-  if (style.traits.includes("手工")) items.push("过度光滑的通用 CGI 表面");
-  if (style.traits.includes("几何")) items.push("缺乏对齐关系的随机形状");
-  if (style.traits.includes("写实")) items.push("塑料感材质与错误反射");
-  if (style.traits.includes("留白")) items.push("装饰填满所有空白区域");
-  return items.slice(0, 6);
 }
 
 function renderSitemap() {

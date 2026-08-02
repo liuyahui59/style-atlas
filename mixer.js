@@ -26,7 +26,7 @@ const MIXER_RATIO_TRANSLATIONS = Object.freeze({
 
 const mixerState = {
   primaryStyleId: "constructivism",
-  accentStyleId: "cyberpunk",
+  accentStyleId: "synthwave",
   selectedDimensions: new Set(["colorTone", "lightingImaging", "materialTexture"]),
   strength: "明显",
   outputMode: "zh",
@@ -69,7 +69,7 @@ function hydrateMixerFromUrl() {
   if (primary) mixerState.primaryStyleId = primary.id;
   if (accent && accent.id !== mixerState.primaryStyleId) mixerState.accentStyleId = accent.id;
   if (mixerState.primaryStyleId === mixerState.accentStyleId) {
-    mixerState.accentStyleId = mixerState.primaryStyleId === "constructivism" ? "cyberpunk" : "constructivism";
+    mixerState.accentStyleId = mixerState.primaryStyleId === "constructivism" ? "synthwave" : "constructivism";
   }
 }
 
@@ -227,7 +227,7 @@ function renderComboboxOptions(role, query = "") {
   const selectedId = role === "primary" ? mixerState.primaryStyleId : mixerState.accentStyleId;
   const options = getMixerStyleOptions().filter((style) => {
     if (!normalizedQuery) return true;
-    return `${style.nameZh} ${style.nameEn} ${style.type} ${style.region}`.toLowerCase().includes(normalizedQuery);
+    return `${style.nameZh} ${style.nameEn} ${style.type} ${style.broadRegion} ${style.visualHistory}`.toLowerCase().includes(normalizedQuery);
   });
   comboboxVisibleStyleIds = openComboboxRole === role ? options.map((style) => style.id) : comboboxVisibleStyleIds;
   const menu = getComboboxMenu(role);
@@ -325,7 +325,7 @@ function createMixerStylePreview(style, role) {
 }
 
 function createMixerVisual(style) {
-  if (!style.artwork?.src) return `<span class="mix-style-visual art-${style.art}" role="img" aria-label="${escapeMixerHtml(style.nameZh)}风格配图"></span>`;
+  if (!style.artwork?.src) return `<span class="mix-style-visual artwork-placeholder" role="img" aria-label="${escapeMixerHtml(style.nameZh)}暂无配图">暂无配图</span>`;
   const src = style.artwork.src.replace("assets/artworks/", "assets/artworks/thumbs/").replace(/\.[^.]+$/, ".webp");
   return `<span class="mix-style-visual has-artwork"><img src="${src}" alt="${escapeMixerHtml(style.nameZh)}风格配图" width="1200" height="900" loading="lazy" decoding="async" /></span>`;
 }
@@ -438,7 +438,7 @@ async function copyMixerPrompt() {
 
 function resetMixer() {
   mixerState.primaryStyleId = "constructivism";
-  mixerState.accentStyleId = "cyberpunk";
+  mixerState.accentStyleId = "synthwave";
   mixerState.selectedDimensions = new Set(["colorTone", "lightingImaging", "materialTexture"]);
   mixerState.strength = "明显";
   mixerState.outputMode = "zh";

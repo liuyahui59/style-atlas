@@ -1,17 +1,16 @@
 import { readFile } from "node:fs/promises";
 import vm from "node:vm";
+import { STYLE_PROMPT_SOURCE_FILES } from "./lib/classic-script-loader.mjs";
 
 const root = new URL("../", import.meta.url);
-const sourceFiles = [
-  "data.js", "data-extra.js", "data-more.js", "visual-genes.js", "artworks.js",
-  "aesthetic-styles.js", "chinese-visual-directions.js", "style-prompt-data.js", "mixer.js"
-];
+const sourceFiles = [...STYLE_PROMPT_SOURCE_FILES, "mixer.js"];
 const source = `${(await Promise.all(sourceFiles.map((file) => readFile(new URL(file, root), "utf8")))).join("\n")}
 globalThis.mixerTestApi = {
   dimensions: MIXER_DIMENSIONS,
   state: mixerState,
   dom: mixerDom,
   styles: STYLE_DATA,
+  strictStyleCount: STRICT_STYLE_COUNT,
   prompts: STYLE_PROMPT_DATA,
   getStyle: getMixerStyle,
   getAccentDimensions,
@@ -55,6 +54,7 @@ if (!appSource.includes('dom.openMixerButton.href = `mixer.html?primary=${encode
   errors.push("app.js: mixer entry does not follow the selected Prompt style");
 }
 if (!html.includes('src="mixer.js"')) errors.push("mixer.html: mixer.js is not loaded");
+if (!html.includes('src="strict-catalog.js"')) errors.push("mixer.html: strict catalog is not loaded");
 
 const knownDimensions = new Set(Object.keys(api.dimensions));
 for (const [styleId, prompt] of Object.entries(api.prompts)) {
@@ -62,8 +62,8 @@ for (const [styleId, prompt] of Object.entries(api.prompts)) {
     if (!knownDimensions.has(gene.dimension)) errors.push(`${styleId}: unsupported mixer dimension ${gene.dimension}`);
   }
 }
-if (api.styles.length !== 123 || Object.keys(api.prompts).length !== 123) {
-  errors.push(`Expected 123 mixable styles, found ${api.styles.length} styles and ${Object.keys(api.prompts).length} prompts`);
+if (api.styles.length !== api.strictStyleCount || Object.keys(api.prompts).length !== api.styles.length) {
+  errors.push(`Expected the ${api.strictStyleCount}-style strict mixer catalog, found ${api.styles.length} styles and ${Object.keys(api.prompts).length} prompts`);
 }
 
 Object.assign(api.dom, {
@@ -74,7 +74,7 @@ Object.assign(api.dom, {
   mixPromptAnatomy: { innerHTML: "" }
 });
 api.state.primaryStyleId = "constructivism";
-api.state.accentStyleId = "cyberpunk";
+api.state.accentStyleId = "synthwave";
 api.state.selectedDimensions = new Set(["colorTone", "lightingImaging", "materialTexture"]);
 api.state.strength = "明显";
 api.state.outputMode = "zh";
@@ -96,7 +96,7 @@ for (const gene of accentPrompt.genes) {
   if (shouldAppear && !api.state.outputs.en.includes(gene.promptEn)) errors.push(`Selected secondary English gene omitted: ${gene.labelEn}`);
 }
 
-const requiredZhPhrases = ["主导整体视觉", "只改变视觉处理", "仅从赛博朋克借用", "不得引入辅助风格惯常的主体、题材、时代或场景", "融合约束"];
+const requiredZhPhrases = ["主导整体视觉", "只改变视觉处理", `仅从${api.getStyle(api.state.accentStyleId).nameZh}借用`, "不得引入辅助风格惯常的主体、题材、时代或场景", "融合约束"];
 requiredZhPhrases.forEach((phrase) => {
   if (!api.state.outputs.zh.includes(phrase)) errors.push(`Chinese mix prompt missing constraint: ${phrase}`);
 });

@@ -6,7 +6,8 @@
 
 - `index.html`：可交互高保真原型
 - `styles.css`：响应式视觉与组件样式
-- `data.js`、`data-extra.js`、`data-more.js`、`aesthetic-styles.js`、`chinese-visual-directions.js`：123 种风格与视觉方向内容及分类数据
+- `data.js`、`data-extra.js`、`data-more.js`、`aesthetic-styles.js`、`chinese-visual-directions.js`、`data-expansion.js`：原始候选内容
+- `strict-catalog.js`：已审定风格的白名单、风格分类、大地域与视觉史数据
 - `visual-genes.js`：经过逐条审校的中英文视觉基因
 - `prompt-options.js`：构图、视角、镜头、光照、色彩等独立控制项
 - `app.js`：筛选、详情、收藏、对比和 Prompt 生成交互
@@ -41,4 +42,4 @@ node scripts/validate-content.mjs
 
 ## 风格配图
 
-123 种风格与视觉方向均配置了用于呈现视觉语言的配图。网页只展示风格图片，不显示作品、作者、年代、机构、版权或来源信息；`assets/artworks/manifest.json` 仅作为项目内部维护记录。
+主库风格只在拥有一一对应的配图时显示图片，未匹配条目显示“暂无配图”。网页只展示风格图片，不显示作品、作者、年代、机构、版权或来源信息；`assets/artworks/manifest.json` 仅作为项目内部维护记录。

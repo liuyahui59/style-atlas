@@ -1,0 +1,3192 @@
+[
+  {
+    "nameZh": "北海道阿伊努纹样",
+    "nameEn": "Ainu Pattern Aesthetic",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "北宋山水",
+    "nameEn": "Northern Song Landscape",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "草书视觉",
+    "nameEn": "Cursive Script Aesthetic",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "禅画",
+    "nameEn": "Zen Painting",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "创作版画",
+    "nameEn": "Sosaku-hanga",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "大和绘",
+    "nameEn": "Yamato-e",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "海上画派",
+    "nameEn": "Shanghai School Painting",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "韩国单色画",
+    "nameEn": "Dansaekhwa",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "韩国书架图",
+    "nameEn": "Chaekgeori",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "韩国水墨抽象",
+    "nameEn": "Korean Ink Abstraction",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "汉代帛画",
+    "nameEn": "Han Dynasty Silk Painting",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "汉代画像石",
+    "nameEn": "Han Dynasty Pictorial Stone",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "甲骨文视觉",
+    "nameEn": "Oracle Bone Script Aesthetic",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "金陵画派",
+    "nameEn": "Jinling School",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "金文视觉",
+    "nameEn": "Bronze Inscription Aesthetic",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "具体美术协会",
+    "nameEn": "Gutai Art Association",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "楷书视觉",
+    "nameEn": "Regular Script Aesthetic",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "隶书视觉",
+    "nameEn": "Clerical Script Aesthetic",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "岭南画派",
+    "nameEn": "Lingnan School",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "琉球红型视觉",
+    "nameEn": "Ryukyu Bingata Aesthetic",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "马夏画派",
+    "nameEn": "Ma-Xia School",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "绵竹年画",
+    "nameEn": "Mianzhu New Year Print",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "南画",
+    "nameEn": "Japanese Nanga",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "南宋山水",
+    "nameEn": "Southern Song Landscape",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "日本禅墨画",
+    "nameEn": "Japanese Zen Ink Painting",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "上海摩登视觉",
+    "nameEn": "Shanghai Moderne",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "狩野派",
+    "nameEn": "Kano School",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "四僧绘画",
+    "nameEn": "Four Monks Painting",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "四王画派",
+    "nameEn": "Four Wangs School",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "松江画派",
+    "nameEn": "Songjiang School",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "台湾原住民织纹",
+    "nameEn": "Taiwan Indigenous Weaving Aesthetic",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "唐代金碧山水",
+    "nameEn": "Tang Gold-and-Blue Landscape",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "唐代人物画",
+    "nameEn": "Tang Figure Painting",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "桃花坞年画",
+    "nameEn": "Taohuawu New Year Print",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "土佐派",
+    "nameEn": "Tosa School",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "潍坊年画",
+    "nameEn": "Weifang New Year Print",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "魏晋墓室壁画",
+    "nameEn": "Wei-Jin Tomb Mural",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "吴门画派",
+    "nameEn": "Wu School",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "物派",
+    "nameEn": "Mono-ha",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "新版画",
+    "nameEn": "Shin-hanga",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "行书视觉",
+    "nameEn": "Running Script Aesthetic",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "扬州八怪",
+    "nameEn": "Eight Eccentrics of Yangzhou",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "杨柳青年画",
+    "nameEn": "Yangliuqing New Year Print",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "元代文人画",
+    "nameEn": "Yuan Literati Painting",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "月份牌广告画",
+    "nameEn": "Yuefenpai Calendar Art",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "浙派绘画",
+    "nameEn": "Zhe School",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "中国连环画",
+    "nameEn": "Chinese Lianhuanhua",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "篆书视觉",
+    "nameEn": "Seal Script Aesthetic",
+    "track": "东亚视觉传统"
+  },
+  {
+    "nameZh": "阿丁克拉符号视觉",
+    "nameEn": "Adinkra Aesthetic",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "阿纳姆地树皮画",
+    "nameEn": "Arnhem Land Bark Painting",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "阿散蒂视觉传统",
+    "nameEn": "Asante Visual Tradition",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "埃塞俄比亚圣像画",
+    "nameEn": "Ethiopian Icon Painting",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "澳大利亚现代主义",
+    "nameEn": "Australian Modernism",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "澳大利亚原住民点画",
+    "nameEn": "Australian Aboriginal Dot Painting",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "巴布亚新几内亚仪式视觉",
+    "nameEn": "Papua New Guinea Ceremonial Aesthetic",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "贝宁宫廷艺术",
+    "nameEn": "Benin Court Art",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "波利尼西亚塔帕布视觉",
+    "nameEn": "Polynesian Tapa Aesthetic",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "博戈兰泥染视觉",
+    "nameEn": "Bogolan Aesthetic",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "恩德贝勒墙绘",
+    "nameEn": "Ndebele House Painting",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "非洲独立时代现代主义",
+    "nameEn": "African Independence-Era Modernism",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "非洲摄影棚肖像",
+    "nameEn": "West African Studio Portraiture",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "刚果权力雕像视觉",
+    "nameEn": "Kongo Power Figure Aesthetic",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "肯特布视觉",
+    "nameEn": "Kente Aesthetic",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "库巴纺织视觉",
+    "nameEn": "Kuba Textile Aesthetic",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "马孔德雕刻视觉",
+    "nameEn": "Makonde Carving Aesthetic",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "毛利雕刻视觉",
+    "nameEn": "Maori Carving Aesthetic",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "毛利科鲁纹样",
+    "nameEn": "Maori Koru Aesthetic",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "南非抵抗海报",
+    "nameEn": "South African Resistance Poster",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "诺克艺术",
+    "nameEn": "Nok Art",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "萨摩亚纹身视觉",
+    "nameEn": "Samoan Tatau Aesthetic",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "塞内加尔玻璃画",
+    "nameEn": "Senegalese Reverse Glass Painting",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "绍纳石雕视觉",
+    "nameEn": "Shona Stone Sculpture Aesthetic",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "廷巴克图手抄本视觉",
+    "nameEn": "Timbuktu Manuscript Aesthetic",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "廷加廷加绘画",
+    "nameEn": "Tingatinga Painting",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "乌利身体与墙绘视觉",
+    "nameEn": "Uli Aesthetic",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "夏威夷羽毛艺术视觉",
+    "nameEn": "Hawaiian Featherwork Aesthetic",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "新西兰太平洋当代艺术",
+    "nameEn": "Pacific Contemporary Art",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "伊费艺术",
+    "nameEn": "Ife Art",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "约鲁巴视觉传统",
+    "nameEn": "Yoruba Visual Tradition",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "X 光艺术",
+    "nameEn": "Aboriginal X-ray Art",
+    "track": "非洲与大洋洲视觉"
+  },
+  {
+    "nameZh": "阿卡德艺术",
+    "nameEn": "Akkadian Art",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "阿契美尼德波斯艺术",
+    "nameEn": "Achaemenid Persian Art",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "奥托艺术",
+    "nameEn": "Ottonian Art",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "巴比伦艺术",
+    "nameEn": "Babylonian Art",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "北方文艺复兴",
+    "nameEn": "Northern Renaissance",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "国际哥特式",
+    "nameEn": "International Gothic",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "加洛林艺术",
+    "nameEn": "Carolingian Art",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "科普特艺术",
+    "nameEn": "Coptic Art",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "罗马帝国艺术",
+    "nameEn": "Roman Imperial Art",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "罗马共和国艺术",
+    "nameEn": "Roman Republican Art",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "罗马式艺术",
+    "nameEn": "Romanesque Art",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "迈锡尼艺术",
+    "nameEn": "Mycenaean Art",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "米诺斯艺术",
+    "nameEn": "Minoan Art",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "尼德兰早期绘画",
+    "nameEn": "Early Netherlandish Painting",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "帕提亚艺术",
+    "nameEn": "Parthian Art",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "庞贝第二风格壁画",
+    "nameEn": "Pompeian Second Style",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "庞贝第三风格壁画",
+    "nameEn": "Pompeian Third Style",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "庞贝第四风格壁画",
+    "nameEn": "Pompeian Fourth Style",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "庞贝第一风格壁画",
+    "nameEn": "Pompeian First Style",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "萨珊艺术",
+    "nameEn": "Sasanian Art",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "苏美尔艺术",
+    "nameEn": "Sumerian Art",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "威尼斯画派",
+    "nameEn": "Venetian School",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "西班牙黄金时代绘画",
+    "nameEn": "Spanish Golden Age Painting",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "希腊东方化风格",
+    "nameEn": "Greek Orientalizing Style",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "希腊古风艺术",
+    "nameEn": "Archaic Greek Art",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "希腊化艺术",
+    "nameEn": "Hellenistic Art",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "希腊几何风格",
+    "nameEn": "Greek Geometric Style",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "锡耶纳画派",
+    "nameEn": "Sienese School",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "亚述艺术",
+    "nameEn": "Assyrian Art",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "伊特鲁里亚艺术",
+    "nameEn": "Etruscan Art",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "意大利原始文艺复兴",
+    "nameEn": "Italian Proto-Renaissance",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "印度河文明艺术",
+    "nameEn": "Indus Valley Art",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "早期基督教艺术",
+    "nameEn": "Early Christian Art",
+    "track": "古代与古典视觉"
+  },
+  {
+    "nameZh": "阿姆斯特丹学派",
+    "nameEn": "Amsterdam School",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "安妮女王风格",
+    "nameEn": "Queen Anne Style",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "被动式建筑美学",
+    "nameEn": "Passive House Aesthetic",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "表现主义建筑",
+    "nameEn": "Expressionist Architecture",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "布杂艺术建筑",
+    "nameEn": "Beaux-Arts Architecture",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "参数主义建筑",
+    "nameEn": "Parametricism",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "草原学派",
+    "nameEn": "Prairie School",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "侘寂室内",
+    "nameEn": "Wabi-Sabi Interior",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "粗野主义建筑",
+    "nameEn": "Brutalist Architecture",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "第二帝国风格",
+    "nameEn": "Second Empire Style",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "高技派建筑",
+    "nameEn": "High-Tech Architecture",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "高科技室内",
+    "nameEn": "High-Tech Interior",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "哥特复兴建筑",
+    "nameEn": "Gothic Revival Architecture",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "构成主义建筑",
+    "nameEn": "Constructivist Architecture",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "古典复兴建筑",
+    "nameEn": "Classical Revival Architecture",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "古奇建筑",
+    "nameEn": "Googie Architecture",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "国际风格建筑",
+    "nameEn": "International Style Architecture",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "好莱坞摄政室内",
+    "nameEn": "Hollywood Regency",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "后现代建筑",
+    "nameEn": "Postmodern Architecture",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "极繁主义室内",
+    "nameEn": "Maximalist Interior",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "结构表现主义",
+    "nameEn": "Structural Expressionism",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "解构主义建筑",
+    "nameEn": "Deconstructivist Architecture",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "流线型建筑",
+    "nameEn": "Streamline Moderne Architecture",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "迈阿密现代主义",
+    "nameEn": "Miami Modernism",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "批判地域主义",
+    "nameEn": "Critical Regionalism",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "热带现代主义",
+    "nameEn": "Tropical Modernism",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "日式斯堪的纳维亚",
+    "nameEn": "Japandi",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "沙漠现代主义",
+    "nameEn": "Desert Modernism",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "生态建筑",
+    "nameEn": "Ecological Architecture",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "生物气候建筑",
+    "nameEn": "Bioclimatic Architecture",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "生物亲和设计",
+    "nameEn": "Biophilic Design",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "太空时代室内",
+    "nameEn": "Space Age Interior",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "团块建筑",
+    "nameEn": "Blobitecture",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "维也纳现代建筑",
+    "nameEn": "Viennese Modern Architecture",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "未来主义零售空间",
+    "nameEn": "Futurist Retail Interior",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "新陈代谢派",
+    "nameEn": "Metabolism",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "新粗野主义室内",
+    "nameEn": "Neo-Brutalist Interior",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "新罗马式建筑",
+    "nameEn": "Romanesque Revival Architecture",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "新未来主义建筑",
+    "nameEn": "Neo-Futurist Architecture",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "新乡土建筑",
+    "nameEn": "Neo-Vernacular Architecture",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "意大利激进设计",
+    "nameEn": "Italian Radical Design",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "有机建筑",
+    "nameEn": "Organic Architecture",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "折衷主义室内",
+    "nameEn": "Eclectic Interior Style",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "芝加哥学派",
+    "nameEn": "Chicago School",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "中世纪现代室内",
+    "nameEn": "Mid-Century Modern Interior",
+    "track": "建筑与空间视觉"
+  },
+  {
+    "nameZh": "阿兰针织视觉",
+    "nameEn": "Aran Knit Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "白绣视觉",
+    "nameEn": "Whitework Embroidery Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "拜占庭马赛克视觉",
+    "nameEn": "Byzantine Mosaic Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "波斯结毯视觉",
+    "nameEn": "Knotted Carpet Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "彩色玻璃镶嵌美学",
+    "nameEn": "Stained Glass Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "草编视觉",
+    "nameEn": "Straw Weaving Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "刺子绣视觉",
+    "nameEn": "Sashiko Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "大漆视觉",
+    "nameEn": "East Asian Lacquer Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "蛋壳镶嵌视觉",
+    "nameEn": "Eggshell Inlay Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "德化白瓷视觉",
+    "nameEn": "Dehua Blanc de Chine Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "雕漆视觉",
+    "nameEn": "Carved Lacquer Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "堆朱视觉",
+    "nameEn": "Tsuishu Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "法式珠绣视觉",
+    "nameEn": "Luneville Embroidery Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "珐琅彩视觉",
+    "nameEn": "Painted Enamel Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "费尔岛针织视觉",
+    "nameEn": "Fair Isle Knit Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "疯狂拼布视觉",
+    "nameEn": "Crazy Quilt Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "佛罗伦萨硬石镶嵌",
+    "nameEn": "Pietra Dura Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "钩针编织视觉",
+    "nameEn": "Crochet Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "刮画视觉",
+    "nameEn": "Sgraffito Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "挂毯视觉",
+    "nameEn": "Tapestry Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "官窑开片视觉",
+    "nameEn": "Guan Ware Crackle Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "荷兰代尔夫特陶视觉",
+    "nameEn": "Delftware Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "黑绣视觉",
+    "nameEn": "Blackwork Embroidery Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "花结编织视觉",
+    "nameEn": "Knotwork Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "花丝工艺视觉",
+    "nameEn": "Filigree Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "灰泥浮雕视觉",
+    "nameEn": "Stucco Relief Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "夹缬视觉",
+    "nameEn": "Clamp-Resist Dye Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "剪贴簿视觉",
+    "nameEn": "Scrapbook Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "焦化木视觉",
+    "nameEn": "Shou Sugi Ban Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "金继视觉",
+    "nameEn": "Kintsugi Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "金属网织视觉",
+    "nameEn": "Metal Mesh Weaving Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "金属錾刻视觉",
+    "nameEn": "Chasing and Repousse Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "金银错视觉",
+    "nameEn": "Gold and Silver Inlay Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "锦缎提花视觉",
+    "nameEn": "Brocade Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "钧瓷窑变视觉",
+    "nameEn": "Jun Ware Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "缂丝视觉",
+    "nameEn": "Kesi Tapestry Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "蜡染视觉",
+    "nameEn": "Wax-Resist Dye Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "蓝印花布视觉",
+    "nameEn": "Chinese Indigo Resist Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "褴褛布视觉",
+    "nameEn": "Boro Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "蕾丝视觉",
+    "nameEn": "Lace Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "鎏金视觉",
+    "nameEn": "Fire-Gilded Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "龙泉青瓷视觉",
+    "nameEn": "Longquan Celadon Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "罗马马赛克视觉",
+    "nameEn": "Roman Mosaic Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "苗绣视觉",
+    "nameEn": "Miao Embroidery Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "模块折纸视觉",
+    "nameEn": "Modular Origami Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "墨流视觉",
+    "nameEn": "Suminagashi Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "木版套色视觉",
+    "nameEn": "Color Woodblock Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "木皮镶嵌美学",
+    "nameEn": "Marquetry Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "盘金绣视觉",
+    "nameEn": "Goldwork Embroidery Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "拼布被面视觉",
+    "nameEn": "Patchwork Quilt Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "葡萄牙蓝白瓷砖视觉",
+    "nameEn": "Azulejo Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "七宝烧视觉",
+    "nameEn": "Shippo Enamel Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "青瓷视觉",
+    "nameEn": "Celadon Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "日本绞染视觉",
+    "nameEn": "Shibori Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "日本乐烧视觉",
+    "nameEn": "Raku Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "茹伊印花视觉",
+    "nameEn": "Toile de Jouy Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "汝窑视觉",
+    "nameEn": "Ru Ware Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "烧杉肌理视觉",
+    "nameEn": "Charred Wood Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "莳绘视觉",
+    "nameEn": "Maki-e Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "寿山石雕视觉",
+    "nameEn": "Soapstone Carving Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "蜀绣视觉",
+    "nameEn": "Sichuan Embroidery Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "水拓画视觉",
+    "nameEn": "Marbling Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "宋锦视觉",
+    "nameEn": "Song Brocade Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "苏绣视觉",
+    "nameEn": "Suzhou Embroidery Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "唐三彩视觉",
+    "nameEn": "Tang Sancai Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "藤编视觉",
+    "nameEn": "Rattan Weaving Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "透明珐琅视觉",
+    "nameEn": "Plique-a-jour Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "威尼斯灰泥视觉",
+    "nameEn": "Venetian Plaster Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "西班牙彩釉砖视觉",
+    "nameEn": "Hispano-Moresque Tile Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "西阵织视觉",
+    "nameEn": "Nishijin-ori Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "细木镶嵌美学",
+    "nameEn": "Intarsia Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "湘绣视觉",
+    "nameEn": "Hunan Embroidery Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "象牙微雕转译",
+    "nameEn": "Miniature Carving Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "橡皮章视觉",
+    "nameEn": "Rubber Stamp Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "型染视觉",
+    "nameEn": "Katazome Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "衍纸视觉",
+    "nameEn": "Quilling Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "伊势型纸视觉",
+    "nameEn": "Ise Katagami Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "英国转印陶瓷视觉",
+    "nameEn": "Transferware Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "友禅染视觉",
+    "nameEn": "Yuzen Dyeing Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "羽毛镶嵌视觉",
+    "nameEn": "Feather Mosaic Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "玉雕视觉",
+    "nameEn": "Jade Carving Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "粤绣视觉",
+    "nameEn": "Cantonese Embroidery Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "云锦视觉",
+    "nameEn": "Yunjin Brocade Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "扎染视觉",
+    "nameEn": "Tie-Dye Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "折纸视觉",
+    "nameEn": "Origami Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "织部烧视觉",
+    "nameEn": "Oribe Ware Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "纸浆塑形视觉",
+    "nameEn": "Papier-mache Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "纸艺浮雕视觉",
+    "nameEn": "Paper Relief Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "志野烧视觉",
+    "nameEn": "Shino Ware Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "中国结视觉",
+    "nameEn": "Chinese Knotting Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "珠绣与串珠视觉",
+    "nameEn": "Beadwork Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "竹编视觉",
+    "nameEn": "Bamboo Weaving Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "壮锦视觉",
+    "nameEn": "Zhuang Brocade Aesthetic",
+    "track": "可转译工艺视觉系统"
+  },
+  {
+    "nameZh": "阿米什被面视觉",
+    "nameEn": "Amish Quilt Aesthetic",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "阿兹特克艺术",
+    "nameEn": "Aztec Art",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "安第斯本土主义",
+    "nameEn": "Andean Indigenismo",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "安第斯织物视觉",
+    "nameEn": "Andean Textile Aesthetic",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "奥尔梅克艺术",
+    "nameEn": "Olmec Art",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "巴西具体主义",
+    "nameEn": "Brazilian Concretism",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "巴西现代主义",
+    "nameEn": "Brazilian Modernism",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "巴西新具体主义",
+    "nameEn": "Brazilian Neo-Concretism",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "查文艺术",
+    "nameEn": "Chavin Art",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "蒂亚瓦纳科艺术",
+    "nameEn": "Tiwanaku Art",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "古巴现代主义",
+    "nameEn": "Cuban Modernism",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "哈莱姆文艺复兴视觉",
+    "nameEn": "Harlem Renaissance Visual Art",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "海达人视觉",
+    "nameEn": "Haida Visual Tradition",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "海地素朴绘画",
+    "nameEn": "Haitian Naive Painting",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "海地巫毒旗帜视觉",
+    "nameEn": "Haitian Vodou Flag Aesthetic",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "黑人艺术运动",
+    "nameEn": "Black Arts Movement",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "加勒比狂欢节视觉",
+    "nameEn": "Caribbean Carnival Aesthetic",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "玛雅艺术",
+    "nameEn": "Maya Art",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "美国民间招牌画",
+    "nameEn": "American Folk Sign Painting",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "米斯特克艺术",
+    "nameEn": "Mixtec Art",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "莫切艺术",
+    "nameEn": "Moche Art",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "墨西哥亡灵节视觉",
+    "nameEn": "Dia de Muertos Aesthetic",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "纳斯卡艺术",
+    "nameEn": "Nazca Art",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "纳瓦霍织纹视觉",
+    "nameEn": "Navajo Weaving Aesthetic",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "平原印第安串珠视觉",
+    "nameEn": "Plains Beadwork Aesthetic",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "普韦布洛陶绘",
+    "nameEn": "Pueblo Pottery Painting",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "奇穆艺术",
+    "nameEn": "Chimu Art",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "乔拉视觉",
+    "nameEn": "Chola Aesthetic",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "热带主义",
+    "nameEn": "Tropicalia",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "萨波特克艺术",
+    "nameEn": "Zapotec Art",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "塔拉韦拉陶瓷视觉",
+    "nameEn": "Talavera Aesthetic",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "特奥蒂瓦坎艺术",
+    "nameEn": "Teotihuacan Art",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "瓦里艺术",
+    "nameEn": "Wari Art",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "维萨里卡珠画",
+    "nameEn": "Wixarika Yarn and Bead Art",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "西北海岸形线艺术",
+    "nameEn": "Northwest Coast Formline Art",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "亚马孙羽毛艺术视觉",
+    "nameEn": "Amazonian Featherwork Aesthetic",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "因纽特版画",
+    "nameEn": "Inuit Printmaking",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "因纽特雕刻",
+    "nameEn": "Inuit Sculpture Aesthetic",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "印加艺术",
+    "nameEn": "Inca Art",
+    "track": "美洲传统与地域视觉"
+  },
+  {
+    "nameZh": "巴厘岛传统绘画",
+    "nameEn": "Traditional Balinese Painting",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "巴厘岛乌布画派",
+    "nameEn": "Ubud School Painting",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "德干细密画",
+    "nameEn": "Deccani Painting",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "菲律宾现代主义",
+    "nameEn": "Philippine Modernism",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "高棉吴哥艺术",
+    "nameEn": "Khmer Angkor Art",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "公司画派",
+    "nameEn": "Company Painting",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "贡德绘画",
+    "nameEn": "Gond Painting",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "吉普尼视觉",
+    "nameEn": "Jeepney Art",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "笈多艺术",
+    "nameEn": "Gupta Art",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "犍陀罗艺术",
+    "nameEn": "Gandhara Art",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "卡拉姆卡里视觉",
+    "nameEn": "Kalamkari Aesthetic",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "卡利卡特画",
+    "nameEn": "Kalighat Painting",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "科兰姆地画",
+    "nameEn": "Kolam Aesthetic",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "拉贾斯坦细密画",
+    "nameEn": "Rajasthani Miniature",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "兰戈里视觉",
+    "nameEn": "Rangoli Aesthetic",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "老挝寺院绘画",
+    "nameEn": "Lao Temple Painting",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "孟加拉画派",
+    "nameEn": "Bengal School",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "缅甸蒲甘壁画",
+    "nameEn": "Bagan Mural Painting",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "秣菟罗艺术",
+    "nameEn": "Mathura Art",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "南洋画派",
+    "nameEn": "Nanyang Style",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "尼泊尔 paubha 绘画",
+    "nameEn": "Newar Paubha Painting",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "娘惹视觉",
+    "nameEn": "Peranakan Aesthetic",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "帕哈里细密画",
+    "nameEn": "Pahari Painting",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "帕拉艺术",
+    "nameEn": "Pala Art",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "帕塔奇特拉",
+    "nameEn": "Pattachitra",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "斯里兰卡康提壁画",
+    "nameEn": "Kandyan Temple Painting",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "宋吉锦视觉",
+    "nameEn": "Songket Aesthetic",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "泰国当代民俗波普",
+    "nameEn": "Thai Folk Pop",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "泰国寺院壁画",
+    "nameEn": "Thai Temple Mural",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "瓦尔利绘画",
+    "nameEn": "Warli Painting",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "哇扬皮影视觉",
+    "nameEn": "Wayang Aesthetic",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "维查耶那伽罗艺术",
+    "nameEn": "Vijayanagara Art",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "伊卡特织纹视觉",
+    "nameEn": "Southeast Asian Ikat Aesthetic",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "印度帕德绘画",
+    "nameEn": "Phad Painting",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "印尼蜡染视觉",
+    "nameEn": "Indonesian Batik Aesthetic",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "越南东湖版画",
+    "nameEn": "Dong Ho Painting",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "越南漆画",
+    "nameEn": "Vietnamese Lacquer Painting",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "爪哇古典艺术",
+    "nameEn": "Classical Javanese Art",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "朱罗艺术",
+    "nameEn": "Chola Art",
+    "track": "南亚与东南亚视觉"
+  },
+  {
+    "nameZh": "奥费主义",
+    "nameEn": "Orphism",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "巴比松画派",
+    "nameEn": "Barbizon School",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "巴黎画派",
+    "nameEn": "School of Paris",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "不定形艺术",
+    "nameEn": "Art Informel",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "崇高主义风景",
+    "nameEn": "Sublime Landscape",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "纯粹主义",
+    "nameEn": "Purism",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "点彩主义",
+    "nameEn": "Pointillism",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "东方主义绘画",
+    "nameEn": "Orientalist Painting",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "动力艺术",
+    "nameEn": "Kinetic Art",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "分离派艺术",
+    "nameEn": "Secessionism",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "分色主义",
+    "nameEn": "Divisionism",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "风俗画传统",
+    "nameEn": "Genre Painting Tradition",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "佛兰德巴洛克",
+    "nameEn": "Flemish Baroque",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "辐射主义",
+    "nameEn": "Rayonism",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "格拉斯哥风格",
+    "nameEn": "Glasgow Style",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "哈德逊河画派",
+    "nameEn": "Hudson River School",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "荷兰黄金时代绘画",
+    "nameEn": "Dutch Golden Age Painting",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "激浪派",
+    "nameEn": "Fluxus",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "精确主义",
+    "nameEn": "Precisionism",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "空间主义",
+    "nameEn": "Spatialism",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "蓝骑士",
+    "nameEn": "Der Blaue Reiter",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "零派",
+    "nameEn": "ZERO Group",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "魔幻现实主义绘画",
+    "nameEn": "Magic Realism Painting",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "拿撒勒派",
+    "nameEn": "Nazarene Movement",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "纳比派",
+    "nameEn": "Les Nabis",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "贫穷艺术",
+    "nameEn": "Arte Povera",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "桥社",
+    "nameEn": "Die Bruecke",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "青年英国艺术家",
+    "nameEn": "Young British Artists",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "情境主义国际",
+    "nameEn": "Situationist International",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "如画美学",
+    "nameEn": "Picturesque Aesthetic",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "社会现实主义",
+    "nameEn": "Social Realism",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "社会主义现实主义",
+    "nameEn": "Socialist Realism",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "抒情抽象",
+    "nameEn": "Lyrical Abstraction",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "塔希主义",
+    "nameEn": "Tachisme",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "唯美主义运动",
+    "nameEn": "Aesthetic Movement",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "维也纳分离派",
+    "nameEn": "Vienna Secession",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "乌得勒支卡拉瓦乔主义",
+    "nameEn": "Utrecht Caravaggism",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "物质绘画",
+    "nameEn": "Matter Painting",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "新几何主义",
+    "nameEn": "Neo-Geo",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "新客观主义",
+    "nameEn": "New Objectivity",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "新现实主义",
+    "nameEn": "Nouveau Realisme",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "形而上画派",
+    "nameEn": "Metaphysical Painting",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "漩涡主义",
+    "nameEn": "Vorticism",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "学院艺术",
+    "nameEn": "Academic Art",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "英格兰现代主义",
+    "nameEn": "English Modernism",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "支持/表面",
+    "nameEn": "Supports/Surfaces",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "自然主义",
+    "nameEn": "Naturalism",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "CoBrA 运动",
+    "nameEn": "CoBrA",
+    "track": "欧洲艺术运动"
+  },
+  {
+    "nameZh": "埃米格里字体美学",
+    "nameEn": "Emigre Typography",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "报纸版式美学",
+    "nameEn": "Newspaper Editorial Design",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "波兰海报学派",
+    "nameEn": "Polish Poster School",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "唱片封套设计",
+    "nameEn": "Album Cover Design",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "超图形设计",
+    "nameEn": "Supergraphics",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "导视系统设计",
+    "nameEn": "Wayfinding Design",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "德国海报风格",
+    "nameEn": "Plakatstil",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "动态字体设计",
+    "nameEn": "Kinetic Typography",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "独立杂志视觉",
+    "nameEn": "Indie Magazine Design",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "复印机美学",
+    "nameEn": "Xerox Aesthetic",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "古巴革命海报",
+    "nameEn": "Cuban Revolutionary Poster",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "国际主义企业识别",
+    "nameEn": "International Corporate Identity",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "荷兰工作室风格",
+    "nameEn": "Dutch Studio Graphic Design",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "荷兰现代排版",
+    "nameEn": "Dutch Modern Typography",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "后现代瑞士设计",
+    "nameEn": "Postmodern Swiss Design",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "活字印刷设计",
+    "nameEn": "Letterpress Design",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "解构主义平面设计",
+    "nameEn": "Deconstructivist Graphic Design",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "克兰布鲁克设计",
+    "nameEn": "Cranbrook Design",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "孔版印刷视觉",
+    "nameEn": "Risograph Aesthetic",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "迷幻海报",
+    "nameEn": "Psychedelic Poster Design",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "模块化字体设计",
+    "nameEn": "Modular Typography",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "日本企业识别设计",
+    "nameEn": "Japanese Corporate Identity Design",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "日本现代海报",
+    "nameEn": "Japanese Modern Poster",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "锐舞传单视觉",
+    "nameEn": "Rave Flyer Graphics",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "奢侈品包装视觉",
+    "nameEn": "Luxury Packaging Visual System",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "社论设计",
+    "nameEn": "Editorial Design",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "实验字体设计",
+    "nameEn": "Experimental Typography",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "书籍装帧现代主义",
+    "nameEn": "Modernist Book Design",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "数据可视化美学",
+    "nameEn": "Data Visualization Aesthetic",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "数字新浪潮设计",
+    "nameEn": "Digital New Wave Design",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "丝网印刷海报",
+    "nameEn": "Screen-Printed Poster Style",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "苏联宣传海报",
+    "nameEn": "Soviet Propaganda Poster",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "维多利亚式平面设计",
+    "nameEn": "Victorian Graphic Design",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "维也纳工坊平面",
+    "nameEn": "Wiener Werkstatte Graphics",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "物体海报",
+    "nameEn": "Sachplakat",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "新印刷术",
+    "nameEn": "New Typography",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "信息图表设计",
+    "nameEn": "Infographic Design",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "战间期旅行海报",
+    "nameEn": "Interwar Travel Poster",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "政治抗议海报",
+    "nameEn": "Protest Poster Design",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "中国月份牌",
+    "nameEn": "Chinese Calendar Poster",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "ISOTYPE 图形系统",
+    "nameEn": "ISOTYPE",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "Zine 自出版美学",
+    "nameEn": "Zine Aesthetic",
+    "track": "平面设计与传播视觉"
+  },
+  {
+    "nameZh": "暗房蒙太奇",
+    "nameEn": "Darkroom Photomontage",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "宝丽来视觉",
+    "nameEn": "Polaroid Aesthetic",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "彩色纪实摄影",
+    "nameEn": "Color Documentary Photography",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "超现实主义摄影",
+    "nameEn": "Surrealist Photography",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "德国表现主义电影",
+    "nameEn": "German Expressionist Cinema",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "德国新电影",
+    "nameEn": "New German Cinema",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "电影感摄影",
+    "nameEn": "Cinematic Photography",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "杜塞尔多夫学派摄影",
+    "nameEn": "Dusseldorf School Photography",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "法国新浪潮电影",
+    "nameEn": "French New Wave Cinema",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "红外摄影视觉",
+    "nameEn": "Infrared Photography Aesthetic",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "画意摄影",
+    "nameEn": "Pictorialism",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "剑戟片视觉",
+    "nameEn": "Chanbara Film Aesthetic",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "交叉冲洗视觉",
+    "nameEn": "Cross-Processed Film Aesthetic",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "街头摄影",
+    "nameEn": "Street Photography",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "捷克新浪潮电影",
+    "nameEn": "Czechoslovak New Wave",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "科技黑色电影",
+    "nameEn": "Tech Noir",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "恐怖谷 VHS 视觉",
+    "nameEn": "Analog Horror Aesthetic",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "蓝晒视觉",
+    "nameEn": "Cyanotype Aesthetic",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "美国新好莱坞",
+    "nameEn": "New Hollywood Cinema",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "木刻版画视觉",
+    "nameEn": "Woodcut Aesthetic",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "拍立得闪光美学",
+    "nameEn": "Instant Flash Aesthetic",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "铅字颗粒视觉",
+    "nameEn": "Letterpress Texture Aesthetic",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "人文主义摄影",
+    "nameEn": "Humanist Photography",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "日本挑衅摄影",
+    "nameEn": "Provoke Photography",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "日本新浪潮电影",
+    "nameEn": "Japanese New Wave Cinema",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "社会纪实摄影",
+    "nameEn": "Social Documentary Photography",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "摄影分离派",
+    "nameEn": "Photo-Secession",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "诗意现实主义电影",
+    "nameEn": "Poetic Realism Cinema",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "湿版火棉胶视觉",
+    "nameEn": "Wet Plate Collodion Aesthetic",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "石版画视觉",
+    "nameEn": "Lithographic Aesthetic",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "时尚摄影黄金时代",
+    "nameEn": "Golden Age Fashion Photography",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "双色调印刷视觉",
+    "nameEn": "Duotone Print Aesthetic",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "私摄影",
+    "nameEn": "Japanese I-Photography",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "苏联蒙太奇电影",
+    "nameEn": "Soviet Montage Cinema",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "台湾新电影",
+    "nameEn": "Taiwan New Cinema",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "铜版雕刻视觉",
+    "nameEn": "Engraving Aesthetic",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "网点印刷视觉",
+    "nameEn": "Halftone Print Aesthetic",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "微距摄影美学",
+    "nameEn": "Macro Photography Aesthetic",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "武侠电影视觉",
+    "nameEn": "Wuxia Cinema Aesthetic",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "香港霓虹黑色电影",
+    "nameEn": "Hong Kong Neon Noir",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "香港新浪潮电影",
+    "nameEn": "Hong Kong New Wave Cinema",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "新地形摄影",
+    "nameEn": "New Topographics",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "新黑色电影",
+    "nameEn": "Neo-Noir",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "新客观摄影",
+    "nameEn": "New Objectivity Photography",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "新视觉摄影",
+    "nameEn": "New Vision Photography",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "意大利铅黄电影",
+    "nameEn": "Giallo Cinema",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "意大利新现实主义电影",
+    "nameEn": "Italian Neorealism",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "银版摄影视觉",
+    "nameEn": "Daguerreotype Aesthetic",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "直接摄影",
+    "nameEn": "Straight Photography",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "主观摄影",
+    "nameEn": "Subjective Photography",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "LOMO 摄影",
+    "nameEn": "Lomography",
+    "track": "摄影、电影与印刷语言"
+  },
+  {
+    "nameZh": "芭蕾核",
+    "nameEn": "Balletcore",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "病娇可爱视觉",
+    "nameEn": "Yami Kawaii",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "常服主义",
+    "nameEn": "Normcore",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "场景文化视觉",
+    "nameEn": "Scene Aesthetic",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "地雷系视觉",
+    "nameEn": "Jirai Kei",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "迪斯科视觉",
+    "nameEn": "Disco Aesthetic",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "独立邋遢风",
+    "nameEn": "Indie Sleaze",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "非洲街头时尚",
+    "nameEn": "African Street Fashion",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "哥特洛丽塔",
+    "nameEn": "Gothic Lolita",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "哥特田园",
+    "nameEn": "Gothic Cottagecore",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "光头党视觉",
+    "nameEn": "Skinhead Aesthetic",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "海盗核",
+    "nameEn": "Piratecore",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "好莱坞黄金时代时尚",
+    "nameEn": "Golden Age Hollywood Glamour",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "黑金属视觉",
+    "nameEn": "Black Metal Aesthetic",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "户外机能潮流",
+    "nameEn": "Gorpcore",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "华丽摇滚视觉",
+    "nameEn": "Glam Rock Aesthetic",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "机能风",
+    "nameEn": "Techwear",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "娇俏复古核",
+    "nameEn": "Coquette Aesthetic",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "金属盔甲时尚",
+    "nameEn": "Armored Fashion Aesthetic",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "旧钱风",
+    "nameEn": "Old Money Aesthetic",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "俱乐部小子视觉",
+    "nameEn": "Club Kids Aesthetic",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "科技舞曲视觉",
+    "nameEn": "Techno Aesthetic",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "两音斯卡视觉",
+    "nameEn": "Two-Tone Ska Aesthetic",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "美人鱼核",
+    "nameEn": "Mermaidcore",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "摩登女郎风格",
+    "nameEn": "Flapper Style",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "摩登族视觉",
+    "nameEn": "Mod Aesthetic",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "清洁女孩美学",
+    "nameEn": "Clean Girl Aesthetic",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "情绪核视觉",
+    "nameEn": "Emo Aesthetic",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "锐舞文化视觉",
+    "nameEn": "Rave Aesthetic",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "赛博哥特",
+    "nameEn": "Cybergoth",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "涩谷辣妹风",
+    "nameEn": "Gyaru Aesthetic",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "森林系",
+    "nameEn": "Mori Kei",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "视觉系",
+    "nameEn": "Visual Kei",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "死亡金属视觉",
+    "nameEn": "Death Metal Aesthetic",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "甜系洛丽塔",
+    "nameEn": "Sweet Lolita",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "纨绔主义",
+    "nameEn": "Dandyism",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "嬉皮视觉",
+    "nameEn": "Hippie Aesthetic",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "仙女核",
+    "nameEn": "Fairycore",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "新浪漫主义视觉",
+    "nameEn": "New Romantic Aesthetic",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "摇滚客视觉",
+    "nameEn": "Rocker Aesthetic",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "硬核朋克视觉",
+    "nameEn": "Hardcore Punk Aesthetic",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "原宿街头风",
+    "nameEn": "Harajuku Street Style",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "蒸汽波时尚",
+    "nameEn": "Vaporwave Fashion",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "重金属视觉",
+    "nameEn": "Heavy Metal Aesthetic",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "装饰系",
+    "nameEn": "Decora Kei",
+    "track": "时尚与亚文化视觉"
+  },
+  {
+    "nameZh": "表情包超现实",
+    "nameEn": "Meme Surrealism",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "病态美学",
+    "nameEn": "Sickly Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "博客屋视觉",
+    "nameEn": "Bloghouse Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "出游波",
+    "nameEn": "Outrun Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "代码诗视觉",
+    "nameEn": "Code Poetry Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "等距像素视觉",
+    "nameEn": "Isometric Pixel Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "点云美学",
+    "nameEn": "Point Cloud Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "铬金属核",
+    "nameEn": "Chromecore",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "海朋克",
+    "nameEn": "Seapunk",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "合成媒体美学",
+    "nameEn": "Synthetic Media Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "核朋克",
+    "nameEn": "Nuclearpunk",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "盒式未来主义",
+    "nameEn": "Cassette Futurism",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "黑客美学",
+    "nameEn": "Hacker Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "后互联网视觉",
+    "nameEn": "Post-Internet Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "回合制 RPG 界面美学",
+    "nameEn": "JRPG Interface Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "极简操作系统视觉",
+    "nameEn": "Minimal OS Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "监控资本主义视觉",
+    "nameEn": "Surveillance Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "金属液态美学",
+    "nameEn": "Liquid Metal Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "晶体朋克",
+    "nameEn": "Crystalpunk",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "空灵波",
+    "nameEn": "Etherealwave Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "迈阿密复古未来",
+    "nameEn": "Miami Retrofuturism",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "木质朋克",
+    "nameEn": "Woodpunk",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "气候朋克",
+    "nameEn": "Climate Punk",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "全息未来视觉",
+    "nameEn": "Holographic Futurism",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "人工智能超现实",
+    "nameEn": "AI Surrealism",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "柔和垃圾风",
+    "nameEn": "Soft Grunge",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "赛博禅",
+    "nameEn": "Cyber Zen",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "赛博宗教视觉",
+    "nameEn": "Cyber Mysticism",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "赛璐璐渲染视觉",
+    "nameEn": "Cel-Shaded Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "三维扫描美学",
+    "nameEn": "3D Scan Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "扫描故障视觉",
+    "nameEn": "Scanography Glitch",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "摄影测量美学",
+    "nameEn": "Photogrammetry Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "神经网络潜空间美学",
+    "nameEn": "Latent Space Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "生物朋克",
+    "nameEn": "Biopunk",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "石器朋克",
+    "nameEn": "Stonepunk",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "时钟朋克",
+    "nameEn": "Clockpunk",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "数据弯曲艺术",
+    "nameEn": "Databending Art",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "数字神秘主义",
+    "nameEn": "Digital Mysticism",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "丝绸朋克",
+    "nameEn": "Silkpunk",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "体素艺术",
+    "nameEn": "Voxel Art",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "天使核",
+    "nameEn": "Angelcore",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "网络拼贴",
+    "nameEn": "Internet Collage",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "网络艺术",
+    "nameEn": "Net Art",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "像素艺术",
+    "nameEn": "Pixel Art",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "新美学",
+    "nameEn": "New Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "新千年互联网怀旧",
+    "nameEn": "Internet Y2K Nostalgia",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "虚拟偶像视觉",
+    "nameEn": "Virtual Idol Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "虚拟时尚",
+    "nameEn": "Digital Fashion Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "演示场景视觉",
+    "nameEn": "Demoscene Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "游戏机低保真 3D",
+    "nameEn": "Console Low-Poly Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "元宇宙早期视觉",
+    "nameEn": "Early Metaverse Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "月球朋克",
+    "nameEn": "Lunarpunk",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "终端界面美学",
+    "nameEn": "Terminal Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "装饰朋克",
+    "nameEn": "Decopunk",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "桌面拟态美学",
+    "nameEn": "Desktop Metaphor Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "诅咒图像美学",
+    "nameEn": "Cursed Image Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "ASCII 艺术",
+    "nameEn": "ASCII Art",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "Frutiger Metro",
+    "nameEn": "Frutiger Metro",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "N64 复古 3D",
+    "nameEn": "N64 Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "PS1 复古 3D",
+    "nameEn": "PS1 Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "Tumblr 2010s 美学",
+    "nameEn": "2010s Tumblr Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "Web 1.0 美学",
+    "nameEn": "Web 1.0 Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "Web 2.0 光泽美学",
+    "nameEn": "Web 2.0 Gloss Aesthetic",
+    "track": "数字推想与网络审美"
+  },
+  {
+    "nameZh": "安达卢西亚装饰视觉",
+    "nameEn": "Andalusian Ornament",
+    "track": "西亚与伊斯兰视觉"
+  },
+  {
+    "nameZh": "奥斯曼细密画",
+    "nameEn": "Ottoman Miniature",
+    "track": "西亚与伊斯兰视觉"
+  },
+  {
+    "nameZh": "奥斯曼装饰艺术",
+    "nameEn": "Ottoman Decorative Art",
+    "track": "西亚与伊斯兰视觉"
+  },
+  {
+    "nameZh": "巴勒斯坦刺绣视觉",
+    "nameEn": "Palestinian Tatreez Aesthetic",
+    "track": "西亚与伊斯兰视觉"
+  },
+  {
+    "nameZh": "拜火教视觉传统",
+    "nameEn": "Zoroastrian Visual Tradition",
+    "track": "西亚与伊斯兰视觉"
+  },
+  {
+    "nameZh": "波斯地毯视觉",
+    "nameEn": "Persian Carpet Aesthetic",
+    "track": "西亚与伊斯兰视觉"
+  },
+  {
+    "nameZh": "迪瓦尼体视觉",
+    "nameEn": "Diwani Calligraphy Aesthetic",
+    "track": "西亚与伊斯兰视觉"
+  },
+  {
+    "nameZh": "格鲁吉亚宗教艺术",
+    "nameEn": "Georgian Sacred Art",
+    "track": "西亚与伊斯兰视觉"
+  },
+  {
+    "nameZh": "胡鲁菲亚运动",
+    "nameEn": "Hurufiyya Movement",
+    "track": "西亚与伊斯兰视觉"
+  },
+  {
+    "nameZh": "卡扎尔绘画",
+    "nameEn": "Qajar Painting",
+    "track": "西亚与伊斯兰视觉"
+  },
+  {
+    "nameZh": "库法体视觉",
+    "nameEn": "Kufic Calligraphy Aesthetic",
+    "track": "西亚与伊斯兰视觉"
+  },
+  {
+    "nameZh": "马穆鲁克装饰艺术",
+    "nameEn": "Mamluk Decorative Art",
+    "track": "西亚与伊斯兰视觉"
+  },
+  {
+    "nameZh": "美索不达米亚圆筒印章视觉",
+    "nameEn": "Mesopotamian Cylinder Seal Aesthetic",
+    "track": "西亚与伊斯兰视觉"
+  },
+  {
+    "nameZh": "摩洛哥泽利吉拼花",
+    "nameEn": "Zellige Aesthetic",
+    "track": "西亚与伊斯兰视觉"
+  },
+  {
+    "nameZh": "穆卡纳斯空间视觉",
+    "nameEn": "Muqarnas Aesthetic",
+    "track": "西亚与伊斯兰视觉"
+  },
+  {
+    "nameZh": "纳斯赫体视觉",
+    "nameEn": "Naskh Calligraphy Aesthetic",
+    "track": "西亚与伊斯兰视觉"
+  },
+  {
+    "nameZh": "纳斯塔利克体视觉",
+    "nameEn": "Nastaliq Calligraphy Aesthetic",
+    "track": "西亚与伊斯兰视觉"
+  },
+  {
+    "nameZh": "萨法维细密画",
+    "nameEn": "Safavid Miniature",
+    "track": "西亚与伊斯兰视觉"
+  },
+  {
+    "nameZh": "塞尔柱艺术",
+    "nameEn": "Seljuk Art",
+    "track": "西亚与伊斯兰视觉"
+  },
+  {
+    "nameZh": "帖木儿艺术",
+    "nameEn": "Timurid Art",
+    "track": "西亚与伊斯兰视觉"
+  },
+  {
+    "nameZh": "土耳其 Ebru 水拓画",
+    "nameEn": "Turkish Ebru Aesthetic",
+    "track": "西亚与伊斯兰视觉"
+  },
+  {
+    "nameZh": "乌拉尔图艺术",
+    "nameEn": "Urartian Art",
+    "track": "西亚与伊斯兰视觉"
+  },
+  {
+    "nameZh": "亚美尼亚手抄本艺术",
+    "nameEn": "Armenian Manuscript Art",
+    "track": "西亚与伊斯兰视觉"
+  },
+  {
+    "nameZh": "伊尔汗艺术",
+    "nameEn": "Ilkhanid Art",
+    "track": "西亚与伊斯兰视觉"
+  },
+  {
+    "nameZh": "伊斯兰阿拉伯纹样",
+    "nameEn": "Islamic Arabesque",
+    "track": "西亚与伊斯兰视觉"
+  },
+  {
+    "nameZh": "伊斯兰手抄本金饰",
+    "nameEn": "Islamic Manuscript Illumination",
+    "track": "西亚与伊斯兰视觉"
+  },
+  {
+    "nameZh": "伊兹尼克陶瓷视觉",
+    "nameEn": "Iznik Aesthetic",
+    "track": "西亚与伊斯兰视觉"
+  },
+  {
+    "nameZh": "超扁平之后",
+    "nameEn": "Post-Superflat",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "超现实写实主义",
+    "nameEn": "Hyperrealism",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "沉浸式艺术",
+    "nameEn": "Immersive Art",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "城市艺术",
+    "nameEn": "Urban Art",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "大地艺术",
+    "nameEn": "Land Art",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "单色画",
+    "nameEn": "Monochrome Painting",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "低多边形艺术",
+    "nameEn": "Low-Poly Art",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "光与空间运动",
+    "nameEn": "Light and Space",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "后互联网艺术",
+    "nameEn": "Post-Internet Art",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "后绘画性抽象",
+    "nameEn": "Post-Painterly Abstraction",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "后极简主义",
+    "nameEn": "Post-Minimalism",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "华盛顿色彩画派",
+    "nameEn": "Washington Color School",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "环境艺术",
+    "nameEn": "Environmental Art",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "几何抽象",
+    "nameEn": "Geometric Abstraction",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "具体艺术",
+    "nameEn": "Concrete Art",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "录像艺术",
+    "nameEn": "Video Art",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "模式与装饰运动",
+    "nameEn": "Pattern and Decoration",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "挪用艺术",
+    "nameEn": "Appropriation Art",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "社会实践艺术",
+    "nameEn": "Social Practice Art",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "身体艺术",
+    "nameEn": "Body Art",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "生物艺术",
+    "nameEn": "Bio Art",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "声音艺术",
+    "nameEn": "Sound Art",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "数据艺术",
+    "nameEn": "Data Art",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "图片一代",
+    "nameEn": "Pictures Generation",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "涂鸦艺术",
+    "nameEn": "Graffiti Art",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "玩具主义",
+    "nameEn": "Toyism",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "微缩模型摄影艺术",
+    "nameEn": "Miniature Model Art",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "新具体主义",
+    "nameEn": "Neo-Concretism",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "新莱比锡画派",
+    "nameEn": "New Leipzig School",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "新媒体艺术",
+    "nameEn": "New Media Art",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "行为艺术",
+    "nameEn": "Performance Art",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "硬边绘画",
+    "nameEn": "Hard-Edge Painting",
+    "track": "现代与当代艺术"
+  },
+  {
+    "nameZh": "装置艺术",
+    "nameEn": "Installation Art",
+    "track": "现代与当代艺术"
+  }
+]

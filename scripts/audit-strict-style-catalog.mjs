@@ -77,10 +77,12 @@ const keepGroups = {
   `,
   "时尚与亚文化": `
     flapper-style mod-aesthetic skinhead-aesthetic glam-rock-aesthetic gothic-lolita gyaru-aesthetic visual-kei
-    dandyism hippie-aesthetic new-romantic-aesthetic gothic-subculture
+    dandyism hippie-aesthetic new-romantic-aesthetic gothic-subculture disco-aesthetic rave-aesthetic
+    techno-aesthetic hardcore-punk-aesthetic heavy-metal-aesthetic black-metal-aesthetic emo-aesthetic
+    club-kids-aesthetic cybergoth harajuku-street-style decora-kei mori-kei normcore techwear
   `,
   "数字艺术与网络设计": `
-    new-aesthetic
+    new-aesthetic corporate-memphis frutiger-metro
   `,
   "经典艺术主干": `
     classical-greek gothic renaissance mannerism baroque rococo neoclassicism romanticism realism pre-raphaelite
@@ -94,6 +96,7 @@ const keepGroups = {
   `,
   "数字与推想风格": `
     afrofuturism brutalism flat-design skeuomorphism acid-graphics glitch-art synthwave vaporwave y2k
+    cyberpunk steampunk solarpunk atompunk dieselpunk biopunk
   `,
   "全球传统主干": `
     ancient-egyptian byzantine persian-miniature mughal-miniature madhubani islamic-geometry thangka
@@ -134,7 +137,7 @@ const mergeTargets = new Map(Object.entries({
 
 const techniquePattern = /(?:cyanotype|daguerreotype|wet-plate|infrared|cross-processed|instant-flash|macro-photography|photogrammetry|3d-scan|scanography|duotone|halftone|engraving|lithographic|woodcut|letterpress-texture|darkroom-photomontage|isometric-pixel|point-cloud|cel-shaded|voxel-art|generative-art|databending-art|pixel-art|ascii-art)/;
 const formatPattern = /(?:album-cover|wayfinding|editorial-design|infographic|data-visualization|luxury-packaging|kinetic-typography|newspaper-editorial|indie-magazine|screen-printed-poster|protest-poster|propaganda-poster|interwar-travel-poster|chinese-calendar-poster|chinese-new-year-print|kongo-power-figure|zine-aesthetic|miniature-model-art|immersive-art|installation-art|performance-art|video-art|sound-art|body-art|social-practice-art|bio-art|data-art|material-design|isotype)/;
-const trendPattern = /(?:core$|core-|angelcore|balletcore|cottagecore|dreamcore|fairycore|kidcore|mermaidcore|piratecore|weirdcore|clean-girl|old-money|coquette|gothic-cottage|sickly|chromecore|etherealwave|soft-grunge|cyber-zen|cyber-mysticism|cursed-image|tumblr|early-metaverse|digital-mysticism|virtual-idol|bloghouse|woodpunk|crystalpunk|stonepunk|clockpunk|silkpunk|lunarpunk|decopunk|nuclearpunk|climate-punk|atompunk|dieselpunk|wasteland-punk|cyberpunk|steampunk|solarpunk|corporate-memphis)/;
+const trendPattern = /(?:core$|core-|angelcore|balletcore|cottagecore|dreamcore|fairycore|kidcore|mermaidcore|piratecore|weirdcore|clean-girl|old-money|coquette|gothic-cottage|sickly|chromecore|etherealwave|soft-grunge|cyber-zen|cyber-mysticism|cursed-image|tumblr|early-metaverse|digital-mysticism|virtual-idol|bloghouse|woodpunk|crystalpunk|stonepunk|clockpunk|silkpunk|lunarpunk|decopunk|nuclearpunk|climate-punk|wasteland-punk)/;
 
 const contextOnlyIds = new Set(`
   school-of-paris fluxus young-british-artists situationist-international conceptual-art land-art post-internet-art
@@ -353,6 +356,9 @@ addVisualHistoryOverrides("postwar-postmodern", `
   neo-vernacular-architecture deconstructivist-graphic-design cranbrook-design japanese-i-photography
   taiwan-new-cinema deconstructivist-architecture visual-kei afrofuturism
 `);
+addVisualHistoryOverrides("digital-contemporary", `
+  cyberpunk steampunk solarpunk atompunk dieselpunk biopunk corporate-memphis frutiger-metro
+`);
 
 function visualHistoryFor(style) {
   const overrideId = visualHistoryOverrides.get(style.id);
@@ -456,7 +462,7 @@ const methodology = {
   exclusionRules: [
     "媒介、工艺、材料、印刷方式和摄影技术转入相应工具库。",
     "题材、场景、应用门类和地域统称不作为独立风格。",
-    "短周期 -core、平台审美标签和推想朋克分支转入趋势词库。",
+    "短周期 -core、平台审美标签和缺少独立谱系的推想派生词转入趋势词库。",
     "同义、上下位重叠或视觉边界不足的条目合并。",
     "学术上成立但没有统一视觉语法的运动、群体或媒介实践转入史论/语境库。"
   ],

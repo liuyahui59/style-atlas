@@ -521,6 +521,119 @@ Object.assign(STRICT_STYLE_EDITORIAL_REVIEWS, {
   "cobra": {summary:"CoBrA运动实际活跃于1948至1951年，以儿童式和民间式自发图形、粗黑线、高纯度综合色、即兴满幅和粗糙材料反对学院理性。",period:"约1948–1951年",year:1950,zh:["非中心即兴扩散、密集满幅与形色相互挤压","粗黑手势线、未封闭形、简化符号与故意笨拙的轮廓","高纯度红黄蓝绿、黑白与综合色冲突","平面综合色光，以色块碰撞和颜料厚薄形成层次","粗糙油彩、刮擦、滴洒、裸露底材与直接手工痕迹","仅在用户要求文字时使用粗放但准确可读的手绘标题"],en:["decentered improvisational spread, dense all-over pressure, and interlocking color-form collisions","coarse black gestures, unclosed forms, simplified signs, and deliberately awkward contours","saturated red, yellow, blue, and green colliding with black and white","flat pictorial illumination with depth built by color collision and paint thickness","rough oil paint, scraping, dripping, exposed support, and direct handmade traces","only when text is requested, use raw hand-drawn but accurately readable titling"]}
 });
 
+Object.assign(STRICT_STYLE_EDITORIAL_REVIEWS, {
+  "corporate-memphis": {
+    summary: "Corporate Memphis 是2010年代后期科技平台常用的扁平插画体系，以夸张肢体比例、无面孔人物、柔和几何色块和可复用模块传达亲和的产品叙事。",
+    zh: ["开放非对称布局，主形体、几何块与界面模块错层排列", "夸张四肢般延展、小尺度顶部、无面部细节与圆润曲线", "柔和蓝、珊瑚色、芥末黄与中性底色", "完全平面化，仅用色块遮叠表示前后关系", "干净矢量面、无纹理填色与统一硬边", "仅在用户要求文字时使用圆润现代无衬线字"],
+    en: ["open asymmetrical modular composition with primary forms, geometric blocks, and interface-like shapes", "limb-like exaggerated extensions, a small upper mass, absent facial detail, and rounded flowing contours", "soft blue, coral, mustard yellow, and neutral background colors", "fully flat rendering with overlap rather than modeled light or cast shadows", "clean vector surfaces, textureless fills, and consistently crisp edges", "only when text is requested, use rounded modern sans-serif lettering and preserve the exact wording"]
+  },
+  "cyberpunk": {
+    summary: "赛博朋克自1980年代科幻文学与影像中形成，以“高技术、低生活”的冲突为核心，通过高密度层叠、低调霓虹光、潮湿反射和数字干扰建立稳定视觉语法。",
+    zh: ["高密度信息层叠、遮挡与强纵深，主体被巨大环境或界面压缩", "冷硬几何、管线、机械节点与不对称改造结构", "深黑底上的电青、洋红、酸黄分离式霓虹配色", "低调高反差、逆光、轮廓光与局部过曝辉光", "金属、玻璃、潮湿表面的镜面反射，叠加扫描纹与色差边缘", "仅在用户要求文字时使用窄体无衬线、等宽终端字或准确的多语种标识"],
+    en: ["dense informational layering, strong occlusion, and deep compressed space around the user-defined subject", "hard geometric structures, exposed cables, mechanical nodes, and asymmetric modifications", "electric cyan, magenta, and acid yellow separated against broad black masses", "low-key high-contrast lighting with backlight, rim light, and localized clipped glow", "specular wet metal and glass combined with scanlines, screen noise, and chromatic fringes", "only when text is requested, use condensed sans serif, monospaced terminal type, or accurately rendered multilingual signage"]
+  },
+  "steampunk": {
+    summary: "蒸汽朋克于1980年代获得专名，以维多利亚时代的装饰秩序重构蒸汽工业未来；其核心是机械功能可读、外露连接和手工金属表面，而非单纯堆叠齿轮。",
+    zh: ["维多利亚装饰秩序与工业结构密集融合，机械功能路径清楚", "同心带齿机械环、锅炉曲面、筒状导流构件、铆接与外露连接", "黄铜、氧化铜棕、煤黑、暗木色与少量补色仪表光", "暖色低调光、集中金属高光与烟雾化阴影", "磨损黄铜、深色皮革、木材、油渍与精密刻度", "仅在用户要求文字时使用雕刻式窄幅衬线字或准确的仪器标签"],
+    en: ["a dense but mechanically legible fusion of Victorian ornament and industrial structure", "concentric toothed rings, boiler curves, cylindrical conduits, rivets, and exposed functional joints", "brass, oxidized copper brown, coal black, dark wood, and restrained instrument-light accents", "warm low-key illumination with concentrated metal highlights and smoky shadows", "worn brass, dark leather, timber, oil stains, and finely engraved graduations", "only when text is requested, use engraved narrow serif lettering or accurate instrument labels"]
+  },
+  "solarpunk": {
+    summary: "太阳朋克自2000年代末逐步形成，以生态修复、分布式能源与共同体技术想象可实现的未来；视觉上强调生物生长与清洁基础设施的共生，不是泛化的绿色建筑。",
+    zh: ["开放、通透且向上延展的层叠结构，社群节点和生态系统可读", "生物形曲线、蜂窝模数、轻型框架与清洁几何融合", "鲜绿、陶土色、暖白、天空浅蓝与太阳能深蓝", "高明度暖日光、通透逆光与柔和植物投影", "清洁玻璃、浅色金属、木材、生物基与再生材料", "仅在用户要求文字时使用清晰亲和的人文无衬线字和准确环境标识"],
+    en: ["open translucent upward layering with legible community nodes and ecological systems", "biomorphic curves, cellular modules, light frames, and clean geometry integrated", "vivid green, terracotta, warm white, pale sky blue, and deep photovoltaic blue", "high-key warm daylight, translucent backlight, and soft plant-cast shadows", "clean glass, pale metal, timber, bio-based material, and visibly recycled surfaces", "only when text is requested, use clear friendly humanist sans serif and accurate environmental signage"]
+  },
+  "atompunk": {
+    summary: "原子朋克是2000年代定型的复古未来类型，回溯约1945至1965年的原子时代、太空竞赛与消费设计，以乐观轨道几何、流线模块和光滑人造材料重构当时的未来想象。",
+    zh: ["乐观未来式放射构图、中央轨道和明确水平线", "圆顶、胶囊、原子轨道与回旋镖式流线模块", "樱桃红、青绿、奶油黄、粉蓝与铬色", "明亮影棚光、干净硬边投影与局部金属高光", "珐琅金属、铬边、玻璃与光滑早期塑料", "仅在用户要求文字时使用原子时代展示字或几何粗体"],
+    en: ["optimistic radial composition, orbital paths, and a clearly staged horizon", "domes, capsules, atomic orbits, and boomerang-shaped streamlined modules", "cherry red, teal, cream yellow, powder blue, and chrome", "bright studio light, clean hard-edged shadows, and localized metallic highlights", "enamel metal, chrome trim, glass, and smooth early synthetic plastic", "only when text is requested, use atomic-age display lettering or geometric bold type"]
+  },
+  "dieselpunk": {
+    summary: "柴油朋克于2000年代获得专名，以两次世界大战之间至1950年代的柴油机械、装饰艺术与工业宣传视觉构造重型复古未来。",
+    zh: ["工业宣传式强对角线、重型水平与低视点构图", "厚钢板、铆接流线外壳、大型散热格与机械棱角", "军绿、钢灰、烟黑、暗红与少量铝色", "烟雾中的硬质方向光、深结构阴影与油膜高光", "铆接钢板、油渍、烟尘、橡胶与磨损漆面", "仅在用户要求文字时使用压缩工业无衬线、模板字或旧报粗体"],
+    en: ["industrial-propaganda diagonals, heavy horizontals, and a low forceful viewpoint", "thick steel plate, riveted streamlined shells, large cooling grilles, and angular machinery", "military green, steel gray, smoke black, dark red, and restricted aluminum color", "hard directional light through haze with deep structural shadows and oily highlights", "riveted steel, oil stains, soot, rubber, and worn paint", "only when text is requested, use condensed industrial sans serif, stencil, or old-news bold typography"]
+  },
+  "biopunk": {
+    summary: "生物朋克源于20世纪后期的生物技术科幻，以基因工程、湿式实验室、身体改造与企业控制为语境，视觉核心是有机生长与冷硬工业支架的异质结合。",
+    zh: ["实验模块、有机生长体与工业支架相互嵌合", "膜、管束、细胞式重复、非对称增殖与改造接缝", "组织粉、病态绿、培养液黄、黑与冷白", "冷白实验光、透射光、显微式局部辉光与湿亮高光", "生物膜、凝胶、玻璃、不锈钢支架与黏液般表面", "仅在用户要求文字时使用等宽实验标签或准确的生物信息界面字"],
+    en: ["interlocking laboratory modules, organic growth, and rigid industrial support structures", "membranes, tube bundles, cellular repetition, asymmetric proliferation, and visible modification seams", "tissue pink, sickly green, culture-medium yellow, black, and clinical white", "cold laboratory light, transmitted glow, microscopic local emission, and wet specular highlights", "biological membrane, gel, glass, stainless-steel frames, and viscous surfaces", "only when text is requested, use monospaced laboratory labels or accurate bioinformatics interface typography"]
+  },
+  "frutiger-metro": {
+    summary: "Frutiger Metro约见于2004至2013年的企业、媒体与数字界面视觉，以粗黑流线、高饱和扁平图标、都市与音乐符号对应 Frutiger Aero 的自然光泽与仿真景观。",
+    zh: ["粗黑流线、图标群、波形模块与非对称平面层叠", "粗圆轮廓、扁平拟人图标、音乐、交通和公共空间符号", "黑白配高饱和青、绿、橙、蓝、粉", "完全平面化，仅在少量色块中使用简单渐变", "清楚矢量边缘、数字贴纸感与干净光滑色面", "仅在用户要求文字时使用圆润无衬线或手绘式展示字，并准确保留原文"],
+    en: ["asymmetrical flat layering of bold black streamlines, icon clusters, and waveform modules", "thick rounded contours with flat personified music, transit, and public-space symbols", "black and white with saturated cyan, green, orange, blue, and pink", "fully flat rendering with simple gradients restricted to a few color shapes", "crisp vector edges, digital sticker surfaces, and clean smooth color fields", "only when text is requested, use rounded sans serif or hand-drawn display type and preserve the exact wording"]
+  },
+  "normcore": {
+    summary: "Normcore于2010年代获得命名，以有意选择无强识别度的日常成衣、标准比例和功能穿着回应过度个性化，核心是“主动的普通”而非随意穿着。",
+    zh: ["普通日常比例、无单一装饰焦点与清楚功能层级", "宽松基础廓形、直筒线、标准运动服与工装比例", "灰、白、海军蓝、卡其与低饱和原色点缀", "中性自然光、商品式平光或直接编辑闪光", "棉、丹宁、抓绒、尼龙与普通成衣接缝", "仅在用户要求文字时使用中性无衬线或日常服饰标签字"],
+    en: ["ordinary everyday proportions, no ornamental focal point, and a clear functional hierarchy", "relaxed basics, straight silhouettes, and standard sportswear or workwear proportions", "gray, white, navy, khaki, and small low-saturation primary accents", "neutral daylight, flat catalog light, or direct editorial flash", "cotton, denim, fleece, nylon, and ordinary ready-to-wear seams", "only when text is requested, use neutral sans serif or everyday garment-label typography"]
+  },
+  "disco-aesthetic": {
+    summary: "迪斯科视觉约在1970年代夜店、音乐出版与时尚中形成，以镜球反射、流动身体线、金属表面和派对灯光建立华丽而解放的舞池视觉。",
+    zh: ["舞池中心、放射反射、群体节奏与全身流动轮廓", "喇叭裤、连体衣、深领、夸张肩线与星爆曲线", "银、金、黑、饱和宝石色与镜球分色", "频闪、镜球碎光、彩色舞台轮廓光与局部过曝", "亮片、金属纱、缎面、莱卡、镜面与高光化妆", "仅在用户要求文字时使用1970年代圆润展示字、压缩字或准确舞会标题"],
+    en: ["a dance-floor center, radial reflections, group rhythm, and flowing full-body silhouettes", "flared trousers, jumpsuits, deep necklines, exaggerated shoulders, and starburst curves", "silver, gold, black, saturated jewel tones, and mirror-ball color fragments", "strobes, mirror-ball sparkles, colored stage rim light, and localized overexposure", "sequins, metallic yarn, satin, Lycra, mirrors, and glossy makeup", "only when text is requested, use 1970s rounded display, condensed lettering, or accurate dance-event titling"]
+  },
+  "black-metal-aesthetic": {
+    summary: "黑金属视觉自1980年代开始形成，以极端黑白反差、寒冷户外场景、尸妆、尖刺轮廓和枝杈式标志书写构成反商业、反光滑的地下音乐图像。",
+    zh: ["高反差中心、荒冷负空间与刻意粗糙的标志层", "尖刺轮廓、尸妆面孔、破碎黑白形与枝杈状字形", "黑、白、冷灰与极少暗红或暗蓝", "直接硬闪、月光式逆光、过曝白与极深暗部", "复印颗粒、哑光妆面、旧皮革、金属钉与粗糙纸张", "仅在标志或标题被明确要求时使用枝杈式字，其他文字保持准确可读"],
+    en: ["a high-contrast focal image, bleak negative space, and a deliberately rough logo layer", "spiked silhouettes, corpse-paint facial geometry, fractured black-white shapes, and branching letterforms", "black, white, cold gray, and extremely restricted dark red or dark blue", "direct hard flash, moon-like backlight, clipped whites, and very deep shadows", "photocopy grain, matte makeup, worn leather, metal studs, and coarse paper", "use branching black-metal lettering only for an explicitly requested logo or title; keep all other text exact and legible"]
+  },
+  "techwear": {
+    summary: "Techwear自20世纪末的功能面料、户外装备与城市服装融合中发展，以立体剪裁、模块口袋、调节系统和防水接缝组织可行动的层次。",
+    zh: ["模块分层、对角束带、口袋节点与行动动线清楚", "不对称壳体、立体剪裁、收束裤脚与可调连接", "黑、炭灰、橄榄绿与少量反光或警示强调色", "冷硬环境光、轮廓光与受控湿面反射", "防水膜布、尼龙、网布、磁扣、压胶缝与反光带", "仅在用户要求文字时使用紧凑工业无衬线、功能标签或网格编号"],
+    en: ["legible modular layering, diagonal straps, pocket nodes, and clear lines of movement", "asymmetric shells, articulated pattern cutting, tapered hems, and adjustable connections", "black, charcoal, olive, and restricted reflective or warning-color accents", "cool hard ambient light, rim separation, and controlled wet-surface reflection", "waterproof membrane fabric, nylon, mesh, magnetic closures, taped seams, and reflective strips", "only when text is requested, use compact industrial sans serif, functional labels, or grid-aligned numbering"]
+  },
+  "club-kids-aesthetic": {
+    summary: "Club Kids 视觉兴起于1980年代末至1990年代纽约夜店文化，以极端自我造型、临时手工材料、身体比例改造和闪光镜头将派对身份变成表演图像。",
+    zh: ["单一极端造型中心、配件堆叠与舞台式全身展示", "夸张体积、异形头饰、厚底鞋、强化妆面与身体比例改造", "荧光多色、黑白、金属色与高饱和化妆色", "正面闪光、俱乐部频闪、彩色环境光与深黑背景", "塑料、泡沫、亮片、乳胶、羽饰与可见的临时手工连接", "仅在用户要求文字时使用夸张俱乐部传单字、剪贴字或手绘标题"],
+    en: ["one extreme styling focus, dense accessory layering, and a theatrical full-body presentation", "oversized volume, sculptural headwear, platform shoes, intensified makeup, and altered body proportion", "fluorescent multicolor, black-white contrast, metallics, and saturated makeup color", "frontal flash, club strobes, colored ambient light, and deep black backgrounds", "plastic, foam, sequins, latex, feathers, and visibly improvised handmade joins", "only when text is requested, use exaggerated club-flyer type, cutout lettering, or hand-drawn titles"]
+  },
+  "techno-aesthetic": {
+    summary: "Techno 视觉从1980年代底特律电子音乐与后续仓库文化中发展，以工业黑场、机械重复、极简标识和频闪光结合去个人化的夜间节奏。",
+    zh: ["黑场中心、重复网格、功能层级与工业空间留空", "简洁硬边、模块轮廓、机械重复与有限装饰", "黑、灰、银与单一电子强调色", "频闪、冷白顶光、细轮廓辉光与局部激光切面", "尼龙、网布、反光带、金属、混凝土与粗糙扩音结构", "仅在用户要求文字时使用严格网格中的等宽字、几何无衬线或工业编号"],
+    en: ["a black-field center, repeated grids, functional hierarchy, and open industrial space", "minimal hard edges, modular silhouettes, mechanical repetition, and restricted ornament", "black, gray, silver, and one electronic accent color", "strobe light, cold overhead white, thin rim glow, and localized laser planes", "nylon, mesh, reflective strips, metal, concrete, and coarse loudspeaker structures", "only when text is requested, use monospaced, geometric sans serif, or industrial numbering aligned to a strict grid"]
+  },
+  "emo-aesthetic": {
+    summary: "Emo 视觉于2000年代把情感硬核音乐、青少年自拍、乐队图形和早期社交网络结合，以侧扫尖发、紧窄轮廓、黑红条纹和直接闪光建立内省而舞台化的形象。",
+    zh: ["近距自拍、偏斜上重轮廓与乐队图形层叠", "侧扫尖发、紧身上衣、窄裤、条带配件与角度化姿态", "黑、红、白、紫与高反差条纹或棋盘格", "直接闪光、低照度室内光与早期数码色偏", "染发、棉T恤、丹宁、铆钉带、涂黑眼妆与数码噪点", "仅在用户要求文字时使用手写、剪贴或早期社交网络风格标题"],
+    en: ["close self-portrait framing, a tilted top-heavy silhouette, and layered band graphics", "side-swept angular hair, fitted tops, narrow trousers, strap accessories, and angular posing", "black, red, white, purple, and high-contrast stripes or checkerboard", "direct flash, low-light interiors, and early-digital color casts", "dyed hair, cotton T-shirts, denim, studded belts, dark eye makeup, and digital noise", "only when text is requested, use handwritten, cutout, or early-social-web title typography"]
+  },
+  "rave-aesthetic": {
+    summary: "锐舞文化视觉自1980年代末的仓库派对和酸性之家场景发展，以荧光功能服、超宽比例、反光配件、UV光和集体运动构成高能量夜间系统。",
+    zh: ["宽松全身轮廓、反光配件节点与舞池群体节奏", "超宽裤、短上装、厚底鞋、功能小包与弹性模块", "荧光黄、绿、粉、银、黑与高饱和塑料色", "UV黑光、频闪、激光、彩色雾光与反光材料跳点", "尼龙、网布、反光带、塑料珠饰、合成毛绒与霓虹涂层", "仅在用户要求文字时使用锐舞传单的压缩字、变形字或高密度信息层"],
+    en: ["loose full-body silhouettes, reflective accessory nodes, and collective dance-floor rhythm", "ultra-wide trousers, cropped tops, platform shoes, utility pouches, and elastic modules", "fluorescent yellow, green, pink, silver, black, and saturated synthetic colors", "UV blacklight, strobes, lasers, colored haze, and bright reflective-material hits", "nylon, mesh, reflective tape, plastic beads, synthetic fur, and neon coatings", "only when text is requested, use condensed, distorted, or information-dense rave-flyer typography"]
+  },
+  "cybergoth": {
+    summary: "赛博哥特约在1990年代末融合工业音乐、哥特黑色基底与锐舞荧光材料，以管状发束、呼吸面罩、厚底靴和UV光建立黑与霓虹的机械身体。",
+    zh: ["黑色中心、荧光发束和管状配件向外放射", "厚底靴、束带、呼吸面罩、管线式发饰与尖硬层叠", "深黑配荧光绿、粉、电蓝或紫，银色作为连接点", "UV黑光、冷色轮廓光、频闪与金属反射", "PVC、乳胶、网布、塑料管、橡胶与铬金属", "仅在用户要求文字时使用工业无衬线、等宽字或高反差俱乐部标题"],
+    en: ["a black central silhouette with fluorescent hair bundles and tubular accessories radiating outward", "platform boots, straps, respirator forms, cable-like hair, and sharp layered construction", "deep black with fluorescent green, pink, electric blue, or violet plus silver connection points", "UV blacklight, cool rim light, strobes, and metallic reflection", "PVC, latex, mesh, plastic tubing, rubber, and chrome metal", "only when text is requested, use industrial sans serif, monospaced type, or high-contrast club titling"]
+  },
+  "mori-kei": {
+    summary: "森林系约在2000年代后期的日本网络与街头时尚中形成，以宽松多层、低饱和自然色、旧化纺织物和小尺度手作配件塑造仿佛生活在森林中的柔和形象。",
+    zh: ["松散多层、长线下垂、偏心平衡与小尺度自然配件", "宽松裙裤、披肩、围巾、多件套叠与不对称柔软边缘", "奶白、苔绿、褐、灰蓝与低饱和小花色", "林下、阴天或窗边漫射柔光，阴影对比极低", "亚麻、棉、羊毛、针织、旧蕾丝、木扣与手作表面", "仅在用户要求文字时使用细小手写字、柔和衬线字或素朴标签"],
+    en: ["loose multilayered drape, long descending lines, off-center balance, and small natural accessories", "relaxed skirts or trousers, shawls, scarves, layered garments, and asymmetric soft edges", "cream, moss green, brown, gray-blue, and low-saturation small floral patterns", "diffuse woodland, overcast, or window light with very low shadow contrast", "linen, cotton, wool, knit, aged lace, wooden buttons, and handmade surfaces", "only when text is requested, use small handwriting, soft serif, or plain handmade-label typography"]
+  },
+  "hardcore-punk-aesthetic": {
+    summary: "硬核朋克视觉自1980年代DIY音乐网络发展，以黑白复印、剪贴传单、直接现场摄影和去装饰化服装表达速度、反体制和低成本传播。",
+    zh: ["直接近距、短硬轮廓、功能动作与极少装饰", "剔短发、宽松T恤、工装裤、帆布鞋与简单身体姿态", "黑、白、军绿与有限红色，常用粗糙网点切断中间色阶", "现场硬光、机顶闪光与高反差黑白曝光", "粗棉、丹宁、帆布、胶带、复印颗粒与撕裂纸张", "仅在用户要求文字时使用复印剪贴字、模板字或粗黑无衬线，保持原文可读"],
+    en: ["direct close framing, short hard silhouettes, functional movement, and almost no ornament", "cropped hair, loose T-shirts, work trousers, canvas shoes, and unembellished body posture", "black, white, military green, and limited red with coarse halftones breaking intermediate values", "hard live-venue light, on-camera flash, and high-contrast black-white exposure", "coarse cotton, denim, canvas, tape, photocopy grain, and torn paper", "only when text is requested, use photocopied cutout, stencil, or heavy sans serif type while keeping the exact wording legible"]
+  },
+  "harajuku-street-style": {
+    summary: "原宿街头风指1980年代以来东京原宿的多元自我造型文化，其共性是全身主题化编排、跨来源混搭、手作改造和街拍记录，不应等同于单一可爱风。",
+    zh: ["全身编辑构图、多个主题层叠与配件从头到脚形成阅读路径", "不同廓形并置、比例夸张、古着拆解与自定义改造边缘", "色彩随造型主题变化，但强调有组织的多色层级或明确黑白对比", "都市自然光、阴天散射光或直接闪光", "成衣、古着、手作改造、塑料配件与真实编辑数码颗粒", "仅在用户要求文字时使用与所选原宿子类一致的杂志或手作字体"],
+    en: ["full-body editorial framing with layered themes and a head-to-toe accessory reading path", "juxtaposed silhouettes, exaggerated proportion, deconstructed vintage garments, and customized edges", "color follows the chosen styling theme but remains organized as a deliberate multicolor hierarchy or clear black-white contrast", "urban daylight, overcast diffusion, or direct flash", "ready-to-wear, vintage pieces, handmade customization, plastic accessories, and authentic editorial digital grain", "only when text is requested, use magazine or handmade typography consistent with the selected Harajuku substyle"]
+  },
+  "heavy-metal-aesthetic": {
+    summary: "重金属视觉自1970年代与音乐、专辑封面和舞台服装共同发展，以对称徽章、尖角字形、皮革铆钉、高反差火焰或幻想图像建立力量与舞台性。",
+    zh: ["强中心徽章、对称翼状展开与舞台式造型焦点", "尖角字形、铆钉、皮革轮廓、夸张肩部与金属状边缘", "黑、银、血红、深紫与电蓝", "舞台逆光、金属轮廓光、烟雾光束与高反差局部光", "皮革、铆钉、铬金属、丹宁、粗颗粒印刷与磨损表面", "仅在用户要求文字时使用尖角、带翼或雕刻式金属标题，原文必须准确"],
+    en: ["a strong central emblem, symmetrical wing-like spread, and a theatrical styling focus", "angular letterforms, studs, leather contours, exaggerated shoulders, and metallic edges", "black, silver, blood red, deep violet, and electric blue", "stage backlight, metallic rim light, smoky beams, and high-contrast local illumination", "leather, studs, chrome, denim, coarse print grain, and worn surfaces", "only when text is requested, use angular, winged, or engraved metal titling while preserving the exact wording"]
+  },
+  "decora-kei": {
+    summary: "Decora 自1990年代末日本原宿街头文化发展，以发夹、珠串、玩具和贴纸的高密度重复覆盖圆润基础轮廓，形成可读的彩色配件层级。",
+    zh: ["配件高密度重复、上半身焦点与从发部向外扩散的层级", "小发夹、珠串、贴纸、玩具模块和多层纺织物堆叠在圆润轮廓上", "彩虹高饱和、粉、黄、蓝、绿与白，保持小尺度色点反复", "明亮正面光、低阴影对比与塑料配件小高光", "塑料发夹、珠饰、贴纸、针织、彩色合成纤维与光泽玩具", "仅在用户要求文字时使用圆润贴纸字、手写字或杂志式小标题"],
+    en: ["high-density repeated accessories, an upper-body focus, and hierarchy radiating from the hair", "small clips, bead strings, stickers, toy modules, and layered textiles over rounded silhouettes", "saturated rainbow color, pink, yellow, blue, green, and white repeated as small color points", "bright frontal light, low shadow contrast, and tiny highlights on plastic accessories", "plastic hair clips, beads, stickers, knit, colored synthetic fiber, and glossy toys", "only when text is requested, use rounded sticker type, handwriting, or small magazine-style titles"]
+  }
+});
+
 // REVIEW_GROUPS_END
 
 for (const style of STYLE_DATA) {

@@ -2367,6 +2367,34 @@ const STRICT_STYLE_CATALOG = Object.freeze([
     "visualHistoryCoverage": "抽象表现主义、波普、极简、概念艺术、朋克、孟菲斯、后现代建筑与平面设计"
   },
   {
+    "id": "normcore",
+    "category": "时尚与亚文化风格",
+    "broadRegion": "欧洲；北美",
+    "broadRegions": [
+      "欧洲",
+      "北美"
+    ],
+    "visualHistoryId": "digital-contemporary",
+    "visualHistory": "数字网络与当代复合视觉",
+    "visualHistoryShort": "数字网络与当代",
+    "visualHistoryTime": "约1990年至今",
+    "visualHistoryCoverage": "数字艺术、网络艺术、游戏视觉、屏幕美学、网络亚文化、推想美学及AI视觉"
+  },
+  {
+    "id": "disco-aesthetic",
+    "category": "时尚与亚文化风格",
+    "broadRegion": "欧洲；北美",
+    "broadRegions": [
+      "欧洲",
+      "北美"
+    ],
+    "visualHistoryId": "postwar-postmodern",
+    "visualHistory": "战后实验与后现代转向",
+    "visualHistoryShort": "战后与后现代",
+    "visualHistoryTime": "约1945—1995年",
+    "visualHistoryCoverage": "抽象表现主义、波普、极简、概念艺术、朋克、孟菲斯、后现代建筑与平面设计"
+  },
+  {
     "id": "gothic-lolita",
     "category": "时尚与亚文化风格",
     "broadRegion": "东亚",
@@ -2407,6 +2435,20 @@ const STRICT_STYLE_CATALOG = Object.freeze([
     "visualHistoryCoverage": "抽象表现主义、波普、极简、概念艺术、朋克、孟菲斯、后现代建筑与平面设计"
   },
   {
+    "id": "black-metal-aesthetic",
+    "category": "时尚与亚文化风格",
+    "broadRegion": "全球/跨地域；欧洲",
+    "broadRegions": [
+      "全球/跨地域",
+      "欧洲"
+    ],
+    "visualHistoryId": "digital-contemporary",
+    "visualHistory": "数字网络与当代复合视觉",
+    "visualHistoryShort": "数字网络与当代",
+    "visualHistoryTime": "约1990年至今",
+    "visualHistoryCoverage": "数字艺术、网络艺术、游戏视觉、屏幕美学、网络亚文化、推想美学及AI视觉"
+  },
+  {
     "id": "glam-rock-aesthetic",
     "category": "时尚与亚文化风格",
     "broadRegion": "欧洲；北美",
@@ -2419,6 +2461,45 @@ const STRICT_STYLE_CATALOG = Object.freeze([
     "visualHistoryShort": "战后与后现代",
     "visualHistoryTime": "约1945—1995年",
     "visualHistoryCoverage": "抽象表现主义、波普、极简、概念艺术、朋克、孟菲斯、后现代建筑与平面设计"
+  },
+  {
+    "id": "techwear",
+    "category": "时尚与亚文化风格",
+    "broadRegion": "全球/跨地域",
+    "broadRegions": [
+      "全球/跨地域"
+    ],
+    "visualHistoryId": "digital-contemporary",
+    "visualHistory": "数字网络与当代复合视觉",
+    "visualHistoryShort": "数字网络与当代",
+    "visualHistoryTime": "约1990年至今",
+    "visualHistoryCoverage": "数字艺术、网络艺术、游戏视觉、屏幕美学、网络亚文化、推想美学及AI视觉"
+  },
+  {
+    "id": "club-kids-aesthetic",
+    "category": "时尚与亚文化风格",
+    "broadRegion": "北美",
+    "broadRegions": [
+      "北美"
+    ],
+    "visualHistoryId": "digital-contemporary",
+    "visualHistory": "数字网络与当代复合视觉",
+    "visualHistoryShort": "数字网络与当代",
+    "visualHistoryTime": "约1990年至今",
+    "visualHistoryCoverage": "数字艺术、网络艺术、游戏视觉、屏幕美学、网络亚文化、推想美学及AI视觉"
+  },
+  {
+    "id": "techno-aesthetic",
+    "category": "时尚与亚文化风格",
+    "broadRegion": "全球/跨地域",
+    "broadRegions": [
+      "全球/跨地域"
+    ],
+    "visualHistoryId": "digital-contemporary",
+    "visualHistory": "数字网络与当代复合视觉",
+    "visualHistoryShort": "数字网络与当代",
+    "visualHistoryTime": "约1990年至今",
+    "visualHistoryCoverage": "数字艺术、网络艺术、游戏视觉、屏幕美学、网络亚文化、推想美学及AI视觉"
   },
   {
     "id": "flapper-style",
@@ -2448,7 +2529,60 @@ const STRICT_STYLE_CATALOG = Object.freeze([
     "visualHistoryCoverage": "抽象表现主义、波普、极简、概念艺术、朋克、孟菲斯、后现代建筑与平面设计"
   },
   {
+    "id": "emo-aesthetic",
+    "category": "时尚与亚文化风格",
+    "broadRegion": "欧洲；北美",
+    "broadRegions": [
+      "欧洲",
+      "北美"
+    ],
+    "visualHistoryId": "digital-contemporary",
+    "visualHistory": "数字网络与当代复合视觉",
+    "visualHistoryShort": "数字网络与当代",
+    "visualHistoryTime": "约1990年至今",
+    "visualHistoryCoverage": "数字艺术、网络艺术、游戏视觉、屏幕美学、网络亚文化、推想美学及AI视觉"
+  },
+  {
+    "id": "rave-aesthetic",
+    "category": "时尚与亚文化风格",
+    "broadRegion": "全球/跨地域",
+    "broadRegions": [
+      "全球/跨地域"
+    ],
+    "visualHistoryId": "digital-contemporary",
+    "visualHistory": "数字网络与当代复合视觉",
+    "visualHistoryShort": "数字网络与当代",
+    "visualHistoryTime": "约1990年至今",
+    "visualHistoryCoverage": "数字艺术、网络艺术、游戏视觉、屏幕美学、网络亚文化、推想美学及AI视觉"
+  },
+  {
+    "id": "cybergoth",
+    "category": "时尚与亚文化风格",
+    "broadRegion": "全球/跨地域",
+    "broadRegions": [
+      "全球/跨地域"
+    ],
+    "visualHistoryId": "digital-contemporary",
+    "visualHistory": "数字网络与当代复合视觉",
+    "visualHistoryShort": "数字网络与当代",
+    "visualHistoryTime": "约1990年至今",
+    "visualHistoryCoverage": "数字艺术、网络艺术、游戏视觉、屏幕美学、网络亚文化、推想美学及AI视觉"
+  },
+  {
     "id": "gyaru-aesthetic",
+    "category": "时尚与亚文化风格",
+    "broadRegion": "东亚",
+    "broadRegions": [
+      "东亚"
+    ],
+    "visualHistoryId": "digital-contemporary",
+    "visualHistory": "数字网络与当代复合视觉",
+    "visualHistoryShort": "数字网络与当代",
+    "visualHistoryTime": "约1990年至今",
+    "visualHistoryCoverage": "数字艺术、网络艺术、游戏视觉、屏幕美学、网络亚文化、推想美学及AI视觉"
+  },
+  {
+    "id": "mori-kei",
     "category": "时尚与亚文化风格",
     "broadRegion": "东亚",
     "broadRegions": [
@@ -2515,11 +2649,80 @@ const STRICT_STYLE_CATALOG = Object.freeze([
     "visualHistoryCoverage": "抽象表现主义、波普、极简、概念艺术、朋克、孟菲斯、后现代建筑与平面设计"
   },
   {
+    "id": "hardcore-punk-aesthetic",
+    "category": "时尚与亚文化风格",
+    "broadRegion": "欧洲；北美",
+    "broadRegions": [
+      "欧洲",
+      "北美"
+    ],
+    "visualHistoryId": "postwar-postmodern",
+    "visualHistory": "战后实验与后现代转向",
+    "visualHistoryShort": "战后与后现代",
+    "visualHistoryTime": "约1945—1995年",
+    "visualHistoryCoverage": "抽象表现主义、波普、极简、概念艺术、朋克、孟菲斯、后现代建筑与平面设计"
+  },
+  {
+    "id": "harajuku-street-style",
+    "category": "时尚与亚文化风格",
+    "broadRegion": "东亚",
+    "broadRegions": [
+      "东亚"
+    ],
+    "visualHistoryId": "digital-contemporary",
+    "visualHistory": "数字网络与当代复合视觉",
+    "visualHistoryShort": "数字网络与当代",
+    "visualHistoryTime": "约1990年至今",
+    "visualHistoryCoverage": "数字艺术、网络艺术、游戏视觉、屏幕美学、网络亚文化、推想美学及AI视觉"
+  },
+  {
+    "id": "heavy-metal-aesthetic",
+    "category": "时尚与亚文化风格",
+    "broadRegion": "全球/跨地域；欧洲；北美",
+    "broadRegions": [
+      "全球/跨地域",
+      "欧洲",
+      "北美"
+    ],
+    "visualHistoryId": "postwar-postmodern",
+    "visualHistory": "战后实验与后现代转向",
+    "visualHistoryShort": "战后与后现代",
+    "visualHistoryTime": "约1945—1995年",
+    "visualHistoryCoverage": "抽象表现主义、波普、极简、概念艺术、朋克、孟菲斯、后现代建筑与平面设计"
+  },
+  {
+    "id": "decora-kei",
+    "category": "时尚与亚文化风格",
+    "broadRegion": "东亚",
+    "broadRegions": [
+      "东亚"
+    ],
+    "visualHistoryId": "digital-contemporary",
+    "visualHistory": "数字网络与当代复合视觉",
+    "visualHistoryShort": "数字网络与当代",
+    "visualHistoryTime": "约1990年至今",
+    "visualHistoryCoverage": "数字艺术、网络艺术、游戏视觉、屏幕美学、网络亚文化、推想美学及AI视觉"
+  },
+  {
     "id": "flat-design",
     "category": "数字与网络视觉风格",
     "broadRegion": "全球/跨地域",
     "broadRegions": [
       "全球/跨地域"
+    ],
+    "visualHistoryId": "digital-contemporary",
+    "visualHistory": "数字网络与当代复合视觉",
+    "visualHistoryShort": "数字网络与当代",
+    "visualHistoryTime": "约1990年至今",
+    "visualHistoryCoverage": "数字艺术、网络艺术、游戏视觉、屏幕美学、网络亚文化、推想美学及AI视觉"
+  },
+  {
+    "id": "dieselpunk",
+    "category": "数字与网络视觉风格",
+    "broadRegion": "欧洲；北美",
+    "broadRegions": [
+      "欧洲",
+      "北美"
     ],
     "visualHistoryId": "digital-contemporary",
     "visualHistory": "数字网络与当代复合视觉",
@@ -2567,6 +2770,45 @@ const STRICT_STYLE_CATALOG = Object.freeze([
     "visualHistoryCoverage": "数字艺术、网络艺术、游戏视觉、屏幕美学、网络亚文化、推想美学及AI视觉"
   },
   {
+    "id": "corporate-memphis",
+    "category": "数字与网络视觉风格",
+    "broadRegion": "全球/跨地域",
+    "broadRegions": [
+      "全球/跨地域"
+    ],
+    "visualHistoryId": "digital-contemporary",
+    "visualHistory": "数字网络与当代复合视觉",
+    "visualHistoryShort": "数字网络与当代",
+    "visualHistoryTime": "约1990年至今",
+    "visualHistoryCoverage": "数字艺术、网络艺术、游戏视觉、屏幕美学、网络亚文化、推想美学及AI视觉"
+  },
+  {
+    "id": "cyberpunk",
+    "category": "数字与网络视觉风格",
+    "broadRegion": "全球/跨地域",
+    "broadRegions": [
+      "全球/跨地域"
+    ],
+    "visualHistoryId": "digital-contemporary",
+    "visualHistory": "数字网络与当代复合视觉",
+    "visualHistoryShort": "数字网络与当代",
+    "visualHistoryTime": "约1990年至今",
+    "visualHistoryCoverage": "数字艺术、网络艺术、游戏视觉、屏幕美学、网络亚文化、推想美学及AI视觉"
+  },
+  {
+    "id": "biopunk",
+    "category": "数字与网络视觉风格",
+    "broadRegion": "全球/跨地域",
+    "broadRegions": [
+      "全球/跨地域"
+    ],
+    "visualHistoryId": "digital-contemporary",
+    "visualHistory": "数字网络与当代复合视觉",
+    "visualHistoryShort": "数字网络与当代",
+    "visualHistoryTime": "约1990年至今",
+    "visualHistoryCoverage": "数字艺术、网络艺术、游戏视觉、屏幕美学、网络亚文化、推想美学及AI视觉"
+  },
+  {
     "id": "brutalism",
     "category": "数字与网络视觉风格",
     "broadRegion": "全球/跨地域",
@@ -2593,6 +2835,19 @@ const STRICT_STYLE_CATALOG = Object.freeze([
     "visualHistoryCoverage": "数字艺术、网络艺术、游戏视觉、屏幕美学、网络亚文化、推想美学及AI视觉"
   },
   {
+    "id": "solarpunk",
+    "category": "数字与网络视觉风格",
+    "broadRegion": "全球/跨地域",
+    "broadRegions": [
+      "全球/跨地域"
+    ],
+    "visualHistoryId": "digital-contemporary",
+    "visualHistory": "数字网络与当代复合视觉",
+    "visualHistoryShort": "数字网络与当代",
+    "visualHistoryTime": "约1990年至今",
+    "visualHistoryCoverage": "数字艺术、网络艺术、游戏视觉、屏幕美学、网络亚文化、推想美学及AI视觉"
+  },
+  {
     "id": "new-aesthetic",
     "category": "数字与网络视觉风格",
     "broadRegion": "全球/跨地域",
@@ -2606,7 +2861,47 @@ const STRICT_STYLE_CATALOG = Object.freeze([
     "visualHistoryCoverage": "数字艺术、网络艺术、游戏视觉、屏幕美学、网络亚文化、推想美学及AI视觉"
   },
   {
+    "id": "atompunk",
+    "category": "数字与网络视觉风格",
+    "broadRegion": "欧洲；北美",
+    "broadRegions": [
+      "欧洲",
+      "北美"
+    ],
+    "visualHistoryId": "digital-contemporary",
+    "visualHistory": "数字网络与当代复合视觉",
+    "visualHistoryShort": "数字网络与当代",
+    "visualHistoryTime": "约1990年至今",
+    "visualHistoryCoverage": "数字艺术、网络艺术、游戏视觉、屏幕美学、网络亚文化、推想美学及AI视觉"
+  },
+  {
     "id": "vaporwave",
+    "category": "数字与网络视觉风格",
+    "broadRegion": "全球/跨地域",
+    "broadRegions": [
+      "全球/跨地域"
+    ],
+    "visualHistoryId": "digital-contemporary",
+    "visualHistory": "数字网络与当代复合视觉",
+    "visualHistoryShort": "数字网络与当代",
+    "visualHistoryTime": "约1990年至今",
+    "visualHistoryCoverage": "数字艺术、网络艺术、游戏视觉、屏幕美学、网络亚文化、推想美学及AI视觉"
+  },
+  {
+    "id": "steampunk",
+    "category": "数字与网络视觉风格",
+    "broadRegion": "全球/跨地域",
+    "broadRegions": [
+      "全球/跨地域"
+    ],
+    "visualHistoryId": "digital-contemporary",
+    "visualHistory": "数字网络与当代复合视觉",
+    "visualHistoryShort": "数字网络与当代",
+    "visualHistoryTime": "约1990年至今",
+    "visualHistoryCoverage": "数字艺术、网络艺术、游戏视觉、屏幕美学、网络亚文化、推想美学及AI视觉"
+  },
+  {
+    "id": "frutiger-metro",
     "category": "数字与网络视觉风格",
     "broadRegion": "全球/跨地域",
     "broadRegions": [

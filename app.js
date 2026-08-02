@@ -145,6 +145,17 @@ function bindGlobalEvents() {
     renderAtlas();
   });
 
+  document.querySelectorAll("[data-search-suggestion]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const suggestion = button.dataset.searchSuggestion;
+      const normalizedSuggestion = suggestion.toLowerCase();
+      const nextSearch = state.search === normalizedSuggestion ? "" : suggestion;
+      dom.styleSearch.value = nextSearch;
+      state.search = nextSearch.toLowerCase();
+      renderAtlas();
+    });
+  });
+
   document.addEventListener("keydown", (event) => {
     if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
       event.preventDefault();
@@ -410,6 +421,14 @@ function clearFilters() {
   renderAtlas();
 }
 
+function syncSearchSuggestions() {
+  document.querySelectorAll("[data-search-suggestion]").forEach((button) => {
+    const isActive = state.search === button.dataset.searchSuggestion.toLowerCase();
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+}
+
 function getFilteredStyles() {
   return STYLE_DATA.filter((style) => {
     if (state.favoritesOnly && !state.favorites.has(style.id)) return false;
@@ -428,6 +447,7 @@ function getFilteredStyles() {
 
 function renderAtlas() {
   const styles = getFilteredStyles();
+  syncSearchSuggestions();
   dom.resultCount.textContent = String(styles.length);
   dom.favoriteCount.textContent = String(state.favorites.size);
   dom.compareCount.textContent = String(state.compare.length);

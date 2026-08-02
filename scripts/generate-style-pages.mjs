@@ -130,9 +130,9 @@ function renderStylePage(style) {
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="${canonical}" />
     <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
-    ${optimizedImagePath ? `<link rel="preload" as="image" href="../../${thumbnailImagePath}" media="(max-width: 720px)" fetchpriority="high" />
-    <link rel="preload" as="image" href="../../${optimizedImagePath}" media="(min-width: 721px)" fetchpriority="high" />` : ""}
-    <link rel="manifest" href="../../site.webmanifest" />
+${optimizedImagePath ? `    <link rel="preload" as="image" href="../../${thumbnailImagePath}" media="(max-width: 720px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="../../${optimizedImagePath}" media="(min-width: 721px)" fetchpriority="high" />
+` : ""}    <link rel="manifest" href="../../site.webmanifest" />
     <link rel="stylesheet" href="../../styles.css" />
     <link rel="stylesheet" href="../../style-pages.css" />
     <title>${escapeHtml(title)}</title>

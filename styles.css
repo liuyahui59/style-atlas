@@ -383,6 +383,12 @@ h3 {
 
 .quick-filters {
   margin-top: 16px;
+  align-items: center;
+}
+
+.quick-filter-label {
+  color: var(--muted);
+  font-size: 12px;
 }
 
 .chip,
@@ -4122,7 +4128,9 @@ body.has-layer {
     overflow-x: auto;
   }
 
-  .chip {
+  .chip,
+  .filter-chip,
+  .quick-filter-label {
     flex: none;
   }
 

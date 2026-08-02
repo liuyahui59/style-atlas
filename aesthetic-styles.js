@@ -85,7 +85,7 @@ const NEW_AESTHETIC_STYLE_CONFIGS = [
   },
   {
     id: "atompunk", nameZh: "原子朋克美学", nameEn: "Atompunk Aesthetic", type: "复古未来与朋克美学",
-    period: "20 世纪 40–60 年代想象", year: 1955, region: "欧美", track: "商业与设计视觉",
+    period: "2000 年代至今，引用约 1945–1965 年的原子时代想象", year: 2008, region: "欧美", track: "商业与设计视觉",
     summary: "把原子时代的乐观科技想象转化为流线、轨道与珐琅铬面。",
     recognition: "原子轨道、回旋镖曲线、原色粉彩和明亮复古科技广告感。",
     traits: ["未来", "几何", "怀旧", "高饱和"], fields: ["海报", "产品", "游戏", "影视"],
@@ -109,7 +109,7 @@ const NEW_AESTHETIC_STYLE_CONFIGS = [
   },
   {
     id: "dieselpunk", nameZh: "柴油朋克美学", nameEn: "Dieselpunk Aesthetic", type: "复古未来与朋克美学",
-    period: "20 世纪 30–50 年代想象", year: 1940, region: "欧美", track: "商业与设计视觉",
+    period: "2000 年代至今，引用约 1920–1950 年的柴油工业想象", year: 2001, region: "欧美", track: "商业与设计视觉",
     summary: "用重型工业、铆接流线和油烟质感构造机械化的复古未来。",
     recognition: "强对角机械、厚钢板、军绿钢灰与油膜烟尘。",
     traits: ["未来", "粗粝", "动态", "强对比"], fields: ["游戏", "影视", "插画", "产品"],

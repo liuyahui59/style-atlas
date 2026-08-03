@@ -1,9 +1,9 @@
 import { readFile } from "node:fs/promises";
 import vm from "node:vm";
-import { STYLE_PROMPT_SOURCE_FILES } from "./lib/classic-script-loader.mjs";
+import { RUNTIME_PROMPT_SOURCE_FILES } from "./lib/classic-script-loader.mjs";
 
 const root = new URL("../", import.meta.url);
-const sourceFiles = [...STYLE_PROMPT_SOURCE_FILES, "mixer.js"];
+const sourceFiles = [...RUNTIME_PROMPT_SOURCE_FILES, "mixer.js"];
 const source = `${(await Promise.all(sourceFiles.map((file) => readFile(new URL(file, root), "utf8")))).join("\n")}
 globalThis.mixerTestApi = {
   dimensions: MIXER_DIMENSIONS,
@@ -53,9 +53,9 @@ if (!homepage.includes('id="openMixerButton"') || !homepage.includes('href="mixe
 if (!appSource.includes('dom.openMixerButton.href = `mixer.html?primary=${encodeURIComponent(style.id)}`')) {
   errors.push("app.js: mixer entry does not follow the selected Prompt style");
 }
-if (!html.includes('src="mixer.js?v=20260802-328"')) errors.push("mixer.html: mixer.js is not loaded with the current asset version");
-if (!html.includes('src="strict-catalog.js?v=20260802-328"')) errors.push("mixer.html: strict catalog is not loaded with the current asset version");
-if (!html.includes('href="styles.css?v=20260802-328"')) errors.push("mixer.html: stylesheet is not loaded with the current asset version");
+if (!html.includes('src="mixer.js?v=20260803-perf1"')) errors.push("mixer.html: mixer.js is not loaded with the current asset version");
+if (!html.includes('src="style-runtime-data.js?v=20260803-perf1"')) errors.push("mixer.html: compact runtime data is not loaded");
+if (!html.includes('href="styles.css?v=20260803-perf1"')) errors.push("mixer.html: stylesheet is not loaded with the current asset version");
 
 const knownDimensions = new Set(Object.keys(api.dimensions));
 for (const [styleId, prompt] of Object.entries(api.prompts)) {

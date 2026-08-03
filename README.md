@@ -40,6 +40,17 @@ node scripts/validate-content.mjs
 - Pages 备用地址：`https://liuyahui59.github.io/style-atlas/`
 - GitHub Pages 从 `main` 分支根目录直接发布。
 
+浏览器只加载生成后的 `style-runtime-data.js`。修改风格源数据后，依次运行：
+
+```bash
+npm run build:runtime
+npm run build:prompts
+npm run build:styles
+npm run check
+```
+
+不要把原始数据脚本重新加入 `index.html`；它们只用于生成、审校和校验。
+
 ## 风格配图
 
 主库风格只在拥有一一对应的配图时显示图片，未匹配条目显示“暂无配图”。网页只展示风格图片，不显示作品、作者、年代、机构、版权或来源信息；`assets/artworks/manifest.json` 仅作为项目内部维护记录。

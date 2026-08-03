@@ -24,6 +24,15 @@ export const STYLE_PROMPT_SOURCE_FILES = Object.freeze([
   "style-prompt-data.js"
 ]);
 
+export const RUNTIME_STYLE_SOURCE_FILES = Object.freeze([
+  "style-runtime-data.js"
+]);
+
+export const RUNTIME_PROMPT_SOURCE_FILES = Object.freeze([
+  ...RUNTIME_STYLE_SOURCE_FILES,
+  "style-prompt-data.js"
+]);
+
 function getSourcePath(root, file) {
   return root instanceof URL ? new URL(file, root) : resolve(root, file);
 }

@@ -20,7 +20,10 @@ const state = {
 };
 
 const TIMELINE_BASE_WIDTH = 2400;
-const ASSET_VERSION = "20260802-328";
+const ASSET_VERSION = "20260803-perf1";
+const ATLAS_INITIAL_BATCH_SIZE = 24;
+const ATLAS_BATCH_SIZE = 48;
+const TIMELINE_INITIAL_LANE_COUNT = 2;
 const TIMELINE_REGIONS = [
   "全球/跨地域",
   "欧洲",
@@ -61,6 +64,13 @@ const dom = {};
 let toastTimer;
 const optionalScriptLoads = new Map();
 const initializedViews = new Set(["atlas"]);
+let atlasRenderVersion = 0;
+let timelineRenderVersion = 0;
+
+function scheduleDeferredWork(callback) {
+  if ("requestIdleCallback" in window) return window.requestIdleCallback(callback, { timeout: 500 });
+  return window.setTimeout(callback, 16);
+}
 
 function loadOptionalScript(src) {
   if (optionalScriptLoads.has(src)) return optionalScriptLoads.get(src);
@@ -79,17 +89,37 @@ function loadOptionalScript(src) {
   return promise;
 }
 
+function ensurePromptData() {
+  if (typeof getStylePromptData === "function") return Promise.resolve();
+  return loadOptionalScript("style-prompt-data.js");
+}
+
+async function ensureDictionaryData() {
+  await Promise.all([
+    loadOptionalScript("prompt-options.js"),
+    loadOptionalScript("visual-vocabulary-mechanics.js")
+  ]);
+  await loadOptionalScript("visual-vocabulary.js");
+}
+
+function scheduleOptionalDataWarmup() {
+  window.addEventListener("load", () => {
+    scheduleDeferredWork(() => ensureDictionaryData().catch(() => {}));
+    window.setTimeout(() => {
+      scheduleDeferredWork(() => ensurePromptData().catch(() => {}));
+    }, 2500);
+  }, { once: true });
+}
+
 async function ensureViewInitialized(view) {
   if (initializedViews.has(view)) return;
   if (view === "dictionary") {
-    await loadOptionalScript("prompt-options.js");
-    await loadOptionalScript("visual-vocabulary-mechanics.js");
-    await loadOptionalScript("visual-vocabulary.js");
+    await ensureDictionaryData();
     renderVocabulary();
   } else if (view === "timeline") {
     renderTimeline();
   } else if (view === "prompt") {
-    await loadOptionalScript("prompt-options.js");
+    await Promise.all([loadOptionalScript("prompt-options.js"), ensurePromptData()]);
     const requestedStyleId = new URLSearchParams(window.location.search).get("style");
     const initialStyleId = getStyle(requestedStyleId) ? requestedStyleId : state.selectedPromptStyleId;
     setPromptStyle(initialStyleId, false);
@@ -110,6 +140,7 @@ function init() {
   bindGlobalEvents();
   renderFilterGroups();
   renderAtlas();
+  scheduleOptionalDataWarmup();
   const requestedView = window.location.hash.slice(1);
   if (["atlas", "dictionary", "timeline", "prompt"].includes(requestedView) && requestedView !== "atlas") {
     switchView(requestedView);
@@ -144,6 +175,28 @@ function bindGlobalEvents() {
   dom.styleSearch.addEventListener("input", (event) => {
     state.search = event.target.value.trim().toLowerCase();
     renderAtlas();
+  });
+
+  dom.styleGrid.addEventListener("click", (event) => {
+    const favoriteButton = event.target.closest("[data-favorite]");
+    if (favoriteButton) {
+      toggleFavorite(favoriteButton.dataset.favorite);
+      return;
+    }
+    const compareButton = event.target.closest("[data-compare]");
+    if (compareButton) {
+      toggleCompare(compareButton.dataset.compare);
+      return;
+    }
+    const detailLink = event.target.closest("[data-open-detail]");
+    if (!detailLink || !shouldOpenDrawer(event)) return;
+    event.preventDefault();
+    openDetail(detailLink.dataset.openDetail, detailLink);
+  });
+
+  dom.timelineLanes.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-timeline-style]");
+    if (button) openDetail(button.dataset.timelineStyle, button);
   });
 
   document.querySelectorAll("[data-search-suggestion]").forEach((button) => {
@@ -360,8 +413,9 @@ function createVisual(style, className = "style-visual", options = {}) {
   const thumbSrc = getArtworkVariantSrc(artwork.src, "thumbs");
   const optimizedSrc = getArtworkVariantSrc(artwork.src, "optimized");
   const imageSrc = options.detail ? optimizedSrc : thumbSrc;
-  const loading = options.priority ? "eager" : "lazy";
-  const fetchPriority = options.priority ? "high" : "low";
+  const eager = options.priority || options.eager;
+  const loading = eager ? "eager" : "lazy";
+  const fetchPriority = options.priority ? "high" : eager ? "auto" : "low";
   const imageTag = `<img src="${imageSrc}" alt="${style.nameZh}风格配图" width="1200" height="900" loading="${loading}" decoding="async" fetchpriority="${fetchPriority}" />`;
   const image = options.detail
     ? `<picture><source media="(max-width: 720px)" srcset="${thumbSrc}" />${imageTag}</picture>`
@@ -448,6 +502,7 @@ function getFilteredStyles() {
 
 function renderAtlas() {
   const styles = getFilteredStyles();
+  const renderVersion = ++atlasRenderVersion;
   syncSearchSuggestions();
   dom.resultCount.textContent = String(styles.length);
   dom.favoriteCount.textContent = String(state.favorites.size);
@@ -455,12 +510,22 @@ function renderAtlas() {
   dom.clearFiltersButton.disabled = !hasAnyFilter();
   renderActiveFilters();
 
-  dom.styleGrid.innerHTML = styles.map((style, index) => {
-    const favorite = state.favorites.has(style.id);
-    const compared = state.compare.includes(style.id);
-    return `<article class="style-card" data-style-card="${style.id}">
+  const initialEnd = Math.min(styles.length, ATLAS_INITIAL_BATCH_SIZE);
+  dom.styleGrid.innerHTML = styles.slice(0, initialEnd).map((style, index) => renderStyleCard(style, index)).join("");
+
+  dom.emptyState.hidden = styles.length > 0;
+  dom.styleGrid.hidden = styles.length === 0;
+  renderCompareDock();
+  refreshIcons();
+  appendAtlasCards(styles, initialEnd, renderVersion);
+}
+
+function renderStyleCard(style, index) {
+  const favorite = state.favorites.has(style.id);
+  const compared = state.compare.includes(style.id);
+  return `<article class="style-card" data-style-card="${style.id}">
       <a class="style-card-main" href="${getStylePageHref(style.id)}" data-open-detail="${style.id}" aria-label="查看${style.nameZh}详情">
-        ${createVisual(style, "style-visual", { priority: index === 0 })}
+        ${createVisual(style, "style-visual", { priority: index < 3, eager: index < 6 })}
         <span class="style-meta">
           <span class="style-name-row"><span class="style-card-title">${style.nameZh}</span><span class="style-period">${style.period}</span></span>
           <span class="style-en">${style.nameEn}</span>
@@ -472,13 +537,17 @@ function renderAtlas() {
         <button class="icon-button ${compared ? "is-active" : ""}" data-compare="${style.id}" aria-label="${compared ? "移出" : "加入"}对比" title="${compared ? "移出对比" : "加入对比"}"><i data-lucide="columns-2"></i></button>
       </div>
     </article>`;
-  }).join("");
+}
 
-  dom.emptyState.hidden = styles.length > 0;
-  dom.styleGrid.hidden = styles.length === 0;
-  bindCardEvents();
-  renderCompareDock();
-  refreshIcons();
+function appendAtlasCards(styles, start, renderVersion) {
+  if (start >= styles.length) return;
+  scheduleDeferredWork(() => {
+    if (renderVersion !== atlasRenderVersion) return;
+    const end = Math.min(styles.length, start + ATLAS_BATCH_SIZE);
+    dom.styleGrid.insertAdjacentHTML("beforeend", styles.slice(start, end).map((style, offset) => renderStyleCard(style, start + offset)).join(""));
+    if (end < styles.length) appendAtlasCards(styles, end, renderVersion);
+    else refreshIcons();
+  });
 }
 
 function renderActiveFilters() {
@@ -496,18 +565,6 @@ function renderActiveFilters() {
       renderAtlas();
     });
   });
-}
-
-function bindCardEvents() {
-  dom.styleGrid.querySelectorAll("[data-open-detail]").forEach((link) => {
-    link.addEventListener("click", (event) => {
-      if (!shouldOpenDrawer(event)) return;
-      event.preventDefault();
-      openDetail(link.dataset.openDetail, link);
-    });
-  });
-  dom.styleGrid.querySelectorAll("[data-favorite]").forEach((button) => button.addEventListener("click", () => toggleFavorite(button.dataset.favorite)));
-  dom.styleGrid.querySelectorAll("[data-compare]").forEach((button) => button.addEventListener("click", () => toggleCompare(button.dataset.compare)));
 }
 
 function toggleFavorite(id) {
@@ -667,7 +724,7 @@ function renderDetail(style) {
   <div class="detail-body">
     <section class="detail-section"><h3>典型视觉倾向</h3><table class="gene-table"><tbody>${rows.map(([name, values]) => `<tr><th>${name}</th><td>${values.join(" · ")}</td></tr>`).join("")}</tbody></table></section>
     <section class="detail-section"><h3>历史脉络</h3><div class="lineage-grid"><div><span>来自</span><strong>${style.influencedBy}</strong></div><div><span>影响</span><strong>${style.influenced}</strong></div></div></section>
-    <section class="detail-section"><h3>视觉语言 Prompt</h3><div class="detail-prompt">${buildStylePromptText(style, { language: "zh" })}</div></section>
+    <section class="detail-section"><h3>视觉语言 Prompt</h3><div class="detail-prompt" data-detail-prompt="${style.id}" aria-busy="${typeof buildStylePromptText !== "function"}">${typeof buildStylePromptText === "function" ? buildStylePromptText(style, { language: "zh" }) : "正在准备 Prompt…"}</div></section>
     <section class="detail-section"><h3>相邻风格</h3><div class="detail-tags">${style.related.map((id) => { const related = getStyle(id); return `<a class="relation-chip" href="${getStylePageHref(id)}" data-related-style="${id}">${related.nameZh}</a>`; }).join("")}</div></section>
   </div>`;
   dom.detailContent.querySelector("[data-use-prompt]").addEventListener("click", async () => {
@@ -689,7 +746,24 @@ function renderDetail(style) {
       dom.detailDrawer.scrollTop = 0;
     });
   });
+  if (typeof buildStylePromptText !== "function") hydrateDetailPrompt(style);
   refreshIcons();
+}
+
+async function hydrateDetailPrompt(style) {
+  try {
+    await ensurePromptData();
+    const target = dom.detailContent.querySelector(`[data-detail-prompt="${style.id}"]`);
+    if (!target) return;
+    target.textContent = buildStylePromptText(style, { language: "zh" });
+    target.removeAttribute("aria-busy");
+  } catch (error) {
+    console.error(error);
+    const target = dom.detailContent.querySelector(`[data-detail-prompt="${style.id}"]`);
+    if (!target) return;
+    target.textContent = "Prompt 加载失败，请稍后重试";
+    target.removeAttribute("aria-busy");
+  }
 }
 
 function closeDetail() {
@@ -746,6 +820,7 @@ async function switchView(view) {
 }
 
 function renderTimeline() {
+  const renderVersion = ++timelineRenderVersion;
   const trackWidth = Math.round(TIMELINE_BASE_WIDTH * state.timelineZoom);
   dom.timelineCanvas.style.setProperty("--timeline-track-width", `${trackWidth}px`);
   dom.timelineStickyAxis.style.setProperty("--timeline-track-width", `${trackWidth}px`);
@@ -761,17 +836,30 @@ function renderTimeline() {
   const tickMarkup = TIMELINE_TICKS.map((year) => `<span class="axis-label" style="left:${timelinePosition(year)}%">${formatTimelineYear(year)}</span>`).join("");
   dom.timelineAxis.innerHTML = `${eraMarkup}${tickMarkup}`;
   dom.timelineGrid.replaceChildren();
-  dom.timelineLanes.innerHTML = TIMELINE_REGIONS.map((region) => {
-    const items = STYLE_DATA
-      .filter((style) => getTimelineRegion(style) === region)
-      .sort((a, b) => a.year - b.year || a.nameZh.localeCompare(b.nameZh, "zh-CN"));
-    const layout = layoutTimelineItems(items, trackWidth);
-    return `<section class="timeline-lane" style="--lane-height:${layout.height}px"><div class="lane-label"><strong>${region}</strong><span>${items.length} 个风格</span></div><div class="lane-track">${layout.items.map(({ style, position, top, connectorHeight }) => {
-      return `<span class="timeline-marker" style="left:${position}%" aria-hidden="true"></span><button class="timeline-node" data-timeline-style="${style.id}" style="left:${position}%;--node-top:${top}px;--connector-height:${connectorHeight}px" aria-label="查看${escapeVocabularyText(style.nameZh)}，${escapeVocabularyText(style.period)}" title="${escapeVocabularyText(style.nameZh)} · ${escapeVocabularyText(style.period)}">${createVisual(style, "timeline-node-visual", { placeholderLabel: "暂无" })}<strong>${escapeVocabularyText(style.nameZh)}</strong><small>${escapeVocabularyText(style.period)}</small></button>`;
-    }).join("")}</div></section>`;
-  }).join("");
-  dom.timelineLanes.querySelectorAll("[data-timeline-style]").forEach((button) => button.addEventListener("click", () => openDetail(button.dataset.timelineStyle, button)));
+  const initialRegions = TIMELINE_REGIONS.slice(0, TIMELINE_INITIAL_LANE_COUNT);
+  dom.timelineLanes.innerHTML = initialRegions.map((region) => renderTimelineLane(region, trackWidth)).join("");
+  appendTimelineLanes(TIMELINE_INITIAL_LANE_COUNT, trackWidth, renderVersion);
   syncTimelineAxis();
+}
+
+function renderTimelineLane(region, trackWidth) {
+  const items = STYLE_DATA
+    .filter((style) => getTimelineRegion(style) === region)
+    .sort((a, b) => a.year - b.year || a.nameZh.localeCompare(b.nameZh, "zh-CN"));
+  const layout = layoutTimelineItems(items, trackWidth);
+  return `<section class="timeline-lane" style="--lane-height:${layout.height}px"><div class="lane-label"><strong>${region}</strong><span>${items.length} 个风格</span></div><div class="lane-track">${layout.items.map(({ style, position, top, connectorHeight }) => {
+    return `<span class="timeline-marker" style="left:${position}%" aria-hidden="true"></span><button class="timeline-node" data-timeline-style="${style.id}" style="left:${position}%;--node-top:${top}px;--connector-height:${connectorHeight}px" aria-label="查看${escapeVocabularyText(style.nameZh)}，${escapeVocabularyText(style.period)}" title="${escapeVocabularyText(style.nameZh)} · ${escapeVocabularyText(style.period)}">${createVisual(style, "timeline-node-visual", { placeholderLabel: "暂无" })}<strong>${escapeVocabularyText(style.nameZh)}</strong><small>${escapeVocabularyText(style.period)}</small></button>`;
+  }).join("")}</div></section>`;
+}
+
+function appendTimelineLanes(start, trackWidth, renderVersion) {
+  if (start >= TIMELINE_REGIONS.length) return;
+  scheduleDeferredWork(() => {
+    if (renderVersion !== timelineRenderVersion) return;
+    dom.timelineLanes.insertAdjacentHTML("beforeend", renderTimelineLane(TIMELINE_REGIONS[start], trackWidth));
+    if (start + 1 < TIMELINE_REGIONS.length) appendTimelineLanes(start + 1, trackWidth, renderVersion);
+    else refreshIcons();
+  });
 }
 
 function layoutTimelineItems(items, trackWidth) {

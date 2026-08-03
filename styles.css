@@ -3558,6 +3558,31 @@ button.chip:hover,
   transform: translate(-50%, 0);
 }
 
+.view[aria-busy="true"]::after {
+  position: fixed;
+  z-index: 80;
+  top: var(--header-height);
+  left: 0;
+  width: 42%;
+  height: 2px;
+  background: var(--accent);
+  content: "";
+  transform-origin: left;
+  animation: module-loading 900ms ease-in-out infinite alternate;
+}
+
+@keyframes module-loading {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(240%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .view[aria-busy="true"]::after {
+    width: 100%;
+    animation: none;
+  }
+}
+
 [hidden] {
   display: none !important;
 }

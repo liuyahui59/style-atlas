@@ -1667,8 +1667,11 @@ button.chip:hover,
   user-select: none;
 }
 
-.timeline-canvas {
+.timeline-explorer {
   --timeline-region-width: 168px;
+}
+
+.timeline-canvas {
   position: relative;
   width: calc(var(--timeline-region-width) + var(--timeline-track-width, 2400px));
   min-width: 100%;
@@ -1681,7 +1684,6 @@ button.chip:hover,
 }
 
 .timeline-sticky-axis {
-  --timeline-region-width: 168px;
   position: sticky;
   z-index: 20;
   top: var(--header-height);
@@ -1784,8 +1786,7 @@ button.chip:hover,
 
 .timeline-lane {
   display: grid;
-  grid-template-columns: 152px var(--timeline-track-width, 2400px);
-  gap: 16px;
+  grid-template-columns: var(--timeline-region-width) var(--timeline-track-width, 2400px);
   min-height: var(--lane-height, 104px);
   border-bottom: 1px solid var(--line);
 }
@@ -3699,14 +3700,8 @@ body.has-layer {
     min-width: 38px;
   }
 
-  .timeline-canvas,
-  .timeline-sticky-axis {
+  .timeline-explorer {
     --timeline-region-width: 128px;
-  }
-
-  .timeline-lane {
-    grid-template-columns: 116px var(--timeline-track-width, 2400px);
-    gap: 12px;
   }
 
   .lane-label {

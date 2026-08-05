@@ -1,7 +1,7 @@
 {
   "name": "风格谱 Style Atlas",
   "short_name": "风格谱",
-  "description": "艺术设计风格图鉴与 AI Prompt 工具",
+  "description": "知道自己想要什么风格却无法准确描述？「风格谱」作为艺术与设计风格图鉴、视觉史脉络与模块化AI Prompt工具，把风格解构成可描述的视觉语言规律，帮助用户稳定复现想要的视觉结果。",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
@@ -9,7 +9,7 @@
   "theme_color": "#f3f3f0",
   "icons": [
     {
-      "src": "assets/favicon.svg",
+      "src": "/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"

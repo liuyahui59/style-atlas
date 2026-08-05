@@ -96,6 +96,7 @@ const MORE_STYLE_DATA = [
   }),
   buildMoreStyle({
     id: "wabi-sabi", nameZh: "侘寂", nameEn: "Wabi-sabi", type: "视觉文化",
+    aliases: ["侘寂美学", "日式侘寂", "日本侘寂美学", "诧寂", "诧寂美学"],
     period: "15 世纪至今", year: 1500, region: "东亚", track: "东亚视觉传统",
     summary: "重视不完满、时间痕迹与朴素材料，在克制中呈现安静和短暂。",
     recognition: "不对称留白、土色、天然材料、裂纹与手工不规则边缘。",
@@ -116,6 +117,7 @@ const MORE_STYLE_DATA = [
   }),
   buildMoreStyle({
     id: "superflat", nameZh: "超扁平", nameEn: "Superflat", type: "艺术运动",
+    aliases: ["日本超扁平", "日本扁平设计", "日本扁平风格"],
     period: "2000 年代至今", year: 2000, region: "东亚", track: "商业与设计视觉",
     summary: "消解高低艺术边界，将动画、消费文化与传统平面性压缩进无纵深图像。",
     recognition: "无阴影平面空间、高密度角色、清晰轮廓和鲜艳商业色彩。",

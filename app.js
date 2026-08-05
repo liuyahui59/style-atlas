@@ -20,7 +20,7 @@ const state = {
 };
 
 const TIMELINE_BASE_WIDTH = 2400;
-const ASSET_VERSION = "20260803-perf1";
+const ASSET_VERSION = "20260804-329";
 const ATLAS_INITIAL_BATCH_SIZE = 24;
 const ATLAS_BATCH_SIZE = 48;
 const TIMELINE_INITIAL_LANE_COUNT = 2;
@@ -494,7 +494,7 @@ function getFilteredStyles() {
     const haystack = [
       style.nameZh, style.nameEn, style.type, style.period, style.detailedRegion, style.broadRegion,
       style.visualHistory, style.visualHistoryTime, style.summary, style.recognition,
-      ...style.traits, ...style.fields, ...Object.values(style.genes).flat()
+      ...(style.aliases || []), ...style.traits, ...style.fields, ...Object.values(style.genes).flat()
     ].join(" ").toLowerCase();
     return haystack.includes(state.search);
   });

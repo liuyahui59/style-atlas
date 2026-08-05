@@ -143,6 +143,19 @@ const STRICT_STYLE_CATALOG = Object.freeze([
     "visualHistoryCoverage": "欧洲中世纪、拜占庭、伊斯兰艺术、东亚宫廷与文人传统、南亚及东南亚宗教艺术"
   },
   {
+    "id": "wabi-sabi",
+    "category": "地域艺术传统",
+    "broadRegion": "东亚",
+    "broadRegions": [
+      "东亚"
+    ],
+    "visualHistoryId": "early-modern",
+    "visualHistory": "早期近代、宫廷与装饰体系",
+    "visualHistoryShort": "早期近代",
+    "visualHistoryTime": "约1400—1800年",
+    "visualHistoryCoverage": "文艺复兴、巴洛克、洛可可、奥斯曼与萨法维艺术、明清视觉、日本江户视觉"
+  },
+  {
     "id": "zen-painting",
     "category": "地域艺术传统",
     "broadRegion": "东亚",

@@ -631,6 +631,11 @@ Object.assign(STRICT_STYLE_EDITORIAL_REVIEWS, {
     summary: "Decora 自1990年代末日本原宿街头文化发展，以发夹、珠串、玩具和贴纸的高密度重复覆盖圆润基础轮廓，形成可读的彩色配件层级。",
     zh: ["配件高密度重复、上半身焦点与从发部向外扩散的层级", "小发夹、珠串、贴纸、玩具模块和多层纺织物堆叠在圆润轮廓上", "彩虹高饱和、粉、黄、蓝、绿与白，保持小尺度色点反复", "明亮正面光、低阴影对比与塑料配件小高光", "塑料发夹、珠饰、贴纸、针织、彩色合成纤维与光泽玩具", "仅在用户要求文字时使用圆润贴纸字、手写字或杂志式小标题"],
     en: ["high-density repeated accessories, an upper-body focus, and hierarchy radiating from the hair", "small clips, bead strings, stickers, toy modules, and layered textiles over rounded silhouettes", "saturated rainbow color, pink, yellow, blue, green, and white repeated as small color points", "bright frontal light, low shadow contrast, and tiny highlights on plastic accessories", "plastic hair clips, beads, stickers, knit, colored synthetic fiber, and glossy toys", "only when text is requested, use rounded sticker type, handwriting, or small magazine-style titles"]
+  },
+  "wabi-sabi": {
+    summary: "侘寂是日本中世至近世茶文化与禅宗语境中发展的审美观，重视无常、不完满、未完成与朴素材料的时间痕迹；它不是固定的米色室内模板，也不以金缮或破损作为必备符号。",
+    zh: ["稀疏非对称与充足留白", "不规则轮廓与不完美比例", "土灰、褐色与褪色中性色", "柔和低对比自然光", "风化、磨损与哑光触感", "仅在用户要求文字时使用少量克制排版，不模拟虚假的传统书法"],
+    en: ["sparse asymmetry and generous negative space", "irregular contours and imperfect proportions", "earth gray, brown, and faded neutrals", "soft low-contrast natural light", "weathered, worn, and matte tactility", "only when text is requested, use restrained sparse typography without imitating inauthentic traditional calligraphy"]
   }
 });
 

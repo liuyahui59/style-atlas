@@ -227,7 +227,7 @@ function renderComboboxOptions(role, query = "") {
   const selectedId = role === "primary" ? mixerState.primaryStyleId : mixerState.accentStyleId;
   const options = getMixerStyleOptions().filter((style) => {
     if (!normalizedQuery) return true;
-    return `${style.nameZh} ${style.nameEn} ${style.type} ${style.broadRegion} ${style.visualHistory}`.toLowerCase().includes(normalizedQuery);
+    return `${style.nameZh} ${style.nameEn} ${(style.aliases || []).join(" ")} ${style.type} ${style.broadRegion} ${style.visualHistory}`.toLowerCase().includes(normalizedQuery);
   });
   comboboxVisibleStyleIds = openComboboxRole === role ? options.map((style) => style.id) : comboboxVisibleStyleIds;
   const menu = getComboboxMenu(role);

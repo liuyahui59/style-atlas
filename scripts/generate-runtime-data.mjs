@@ -11,7 +11,7 @@ const context = await loadClassicScripts(root, STYLE_SOURCE_FILES);
 const sourceStyles = JSON.parse(JSON.stringify(evaluateClassicExpression(context, "STYLE_DATA")));
 const filters = JSON.parse(JSON.stringify(evaluateClassicExpression(context, "FILTER_GROUPS")));
 const runtimeFields = [
-  "id", "nameZh", "nameEn", "type", "period", "year", "detailedRegion",
+  "id", "nameZh", "nameEn", "aliases", "type", "period", "year", "detailedRegion",
   "broadRegion", "broadRegions", "visualHistory", "visualHistoryShort", "visualHistoryTime",
   "summary", "recognition", "traits", "fields", "genes", "palette",
   "influencedBy", "influenced", "related", "artwork"

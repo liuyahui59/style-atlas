@@ -43,7 +43,7 @@ const keepGroups = {
     romanesque-revival-architecture neo-vernacular-architecture
   `,
   "东亚艺术": `
-    ink-wash gongbi ukiyo-e rinpa nihonga korean-minhwa blue-green-landscape baimiao
+    ink-wash gongbi ukiyo-e rinpa nihonga wabi-sabi korean-minhwa blue-green-landscape baimiao
     oracle-bone-script-aesthetic bronze-inscription-aesthetic han-dynasty-silk-painting
     han-dynasty-pictorial-stone clerical-script-aesthetic wei-jin-tomb-mural
     zen-painting sosaku-hanga yamato-e shanghai-school-painting dansaekhwa gutai-art-association lingnan-school

@@ -25,9 +25,9 @@ deferredModuleScripts.forEach((src) => {
 });
 assert(!initialScriptSources.includes("style-prompt-data.js"), "Unified prompt data must not block the atlas");
 assert.deepEqual(initialLocalScripts, ["style-runtime-data.js", "app.js"], "Atlas must load only compact runtime data and the app initially");
-assert(localAssetVersions.length > 0 && localAssetVersions.every((version) => version === "v=20260803-perf1"), "Initial local scripts must share the current cache-busting version");
-assert.match(indexHtml, /href="styles\.css\?v=20260803-perf1"/, "Atlas stylesheet must use the current cache-busting version");
-assert.match(appSource, /const ASSET_VERSION = "20260803-perf1"/, "Lazy-loaded scripts must use the current cache-busting version");
+assert(localAssetVersions.length > 0 && localAssetVersions.every((version) => version === "v=20260804-329"), "Initial local scripts must share the current cache-busting version");
+assert.match(indexHtml, /href="styles\.css\?v=20260804-329"/, "Atlas stylesheet must use the current cache-busting version");
+assert.match(appSource, /const ASSET_VERSION = "20260804-329"/, "Lazy-loaded scripts must use the current cache-busting version");
 assert.match(appSource, /index < 3, eager: index < 6/, "The initially visible artwork rows must not be lazy and low priority");
 assert(!initialScriptSources.includes("prompt-ai-data.js"), "Legacy prompt data must not load");
 assert(!indexHtml.includes("contentModeControl"), "Prompt controls must not include the removed content-range option");
@@ -61,6 +61,11 @@ async function loadAppContext(storage) {
 const context = await loadAppContext({ getItem() { return null; } });
 
 assert.equal(vm.runInContext("STYLE_DATA.length", context), vm.runInContext("STRICT_STYLE_COUNT", context), "The atlas must initialize the complete strict catalog");
+assert.equal(vm.runInContext("STYLE_DATA.find((style) => style.id === 'superflat').aliases.includes('日本扁平设计')", context), true, "Superflat must be discoverable by its common Japanese flat-design description");
+assert.equal(vm.runInContext("STYLE_DATA.find((style) => style.id === 'wabi-sabi').aliases.includes('侘寂美学')", context), true, "Wabi-sabi must expose its common Chinese aesthetic alias");
+assert.equal(vm.runInContext("state.search = '日本扁平设计'; getFilteredStyles().map((style) => style.id).join(',')", context), "superflat", "Atlas search aliases must resolve Japanese flat design to Superflat");
+assert.equal(vm.runInContext("state.search = '诧寂美学'; getFilteredStyles().map((style) => style.id).join(',')", context), "wabi-sabi", "Atlas search must tolerate the common Wabi-sabi misspelling");
+vm.runInContext("state.search = ''", context);
 assert.equal(vm.runInContext("Object.keys(FILTER_GROUPS).join(',')", context), "type,region,visualHistory", "Atlas filters must expose only the three approved axes");
 assert.equal(vm.runInContext("typeof PROMPT_CONTROL_GROUPS", context), "undefined", "Prompt controls must not load on the atlas view");
 assert.equal(vm.runInContext("typeof VISUAL_VOCABULARY_GROUPS", context), "undefined", "Vocabulary data must not load on the atlas view");

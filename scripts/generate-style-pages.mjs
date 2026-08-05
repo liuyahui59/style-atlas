@@ -5,7 +5,9 @@ import { evaluateClassicExpression, loadClassicScripts, STYLE_PROMPT_SOURCE_FILE
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const siteUrl = "https://styleatlas.art";
-const lastModified = "2026-08-02";
+const lastModified = "2026-08-04";
+const previousLastModified = "2026-08-02";
+const modifiedStyleIds = new Set(["wabi-sabi", "superflat"]);
 const checkOnly = process.argv.includes("--check");
 const context = await loadClassicScripts(root, STYLE_PROMPT_SOURCE_FILES);
 
@@ -63,6 +65,7 @@ if (checkOnly && mismatches.length) {
 }
 
 function renderStylePage(style) {
+  const styleLastModified = modifiedStyleIds.has(style.id) ? lastModified : previousLastModified;
   const title = `${style.nameZh}（${style.nameEn}）：视觉特征、历史与 AI Prompt | 风格谱`;
   const description = `${style.nameZh}风格图鉴：${style.summary}${style.recognition} 查看构图、造型、配色、字体、材质与 AI 绘图 Prompt。`;
   const canonical = `${siteUrl}/styles/${style.id}/`;
@@ -82,7 +85,7 @@ function renderStylePage(style) {
   const promptParts = buildPromptRecipe(style, recognitionAxes);
   const promptErrors = buildPromptErrors(style, relatedStyles);
   const historyGuide = buildHistoryGuide(style);
-  const keywords = [style.nameZh, style.nameEn, style.type, style.region, ...style.traits, ...style.fields].join(", ");
+  const keywords = [style.nameZh, style.nameEn, ...(style.aliases || []), style.type, style.region, ...style.traits, ...style.fields].join(", ");
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -93,7 +96,7 @@ function renderStylePage(style) {
         image: optimizedImagePath ? imageUrl : undefined,
         url: canonical,
         inLanguage: "zh-CN",
-        dateModified: lastModified,
+        dateModified: styleLastModified,
         author: { "@type": "Organization", name: "风格谱 Style Atlas", url: siteUrl },
         publisher: { "@type": "Organization", name: "风格谱 Style Atlas", url: siteUrl },
         mainEntityOfPage: canonical,
@@ -949,16 +952,21 @@ function getRiskGuides(style) {
 
 function renderSitemap() {
   const entries = [
-    { path: "/", changefreq: "weekly", priority: "1.0" },
-    { path: "/mixer.html", changefreq: "weekly", priority: "0.9" },
-    { path: "/styles/", changefreq: "weekly", priority: "0.9" },
-    ...styles.map((style) => ({ path: `/styles/${style.id}/`, changefreq: "monthly", priority: "0.8" }))
+    { path: "/", changefreq: "weekly", priority: "1.0", modified: lastModified },
+    { path: "/mixer.html", changefreq: "weekly", priority: "0.9", modified: lastModified },
+    { path: "/styles/", changefreq: "weekly", priority: "0.9", modified: lastModified },
+    ...styles.map((style) => ({
+      path: `/styles/${style.id}/`,
+      changefreq: "monthly",
+      priority: "0.8",
+      modified: modifiedStyleIds.has(style.id) ? lastModified : previousLastModified
+    }))
   ];
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${entries.map((entry) => `  <url>
     <loc>${siteUrl}${entry.path}</loc>
-    <lastmod>${lastModified}</lastmod>
+    <lastmod>${entry.modified}</lastmod>
     <changefreq>${entry.changefreq}</changefreq>
     <priority>${entry.priority}</priority>
   </url>`).join("\n")}

@@ -121,7 +121,10 @@
     },
     "wabi-sabi": {
       "promote": ["风化、磨损与哑光触感"],
-      "demote": ["土灰、褐色与褪色中性色"]
+      "demote": ["土灰、褐色与褪色中性色"],
+      "dimensions": {
+        "风化、磨损与哑光触感": "materialTexture"
+      }
     },
     "madhubani": {
       "promote": ["正面或侧面的扁平视点与无透视空间", "轮廓内部以重复几何线纹密集填充"],

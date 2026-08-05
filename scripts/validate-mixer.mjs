@@ -53,9 +53,10 @@ if (!homepage.includes('id="openMixerButton"') || !homepage.includes('href="mixe
 if (!appSource.includes('dom.openMixerButton.href = `mixer.html?primary=${encodeURIComponent(style.id)}`')) {
   errors.push("app.js: mixer entry does not follow the selected Prompt style");
 }
-if (!html.includes('src="mixer.js?v=20260803-perf1"')) errors.push("mixer.html: mixer.js is not loaded with the current asset version");
-if (!html.includes('src="style-runtime-data.js?v=20260803-perf1"')) errors.push("mixer.html: compact runtime data is not loaded");
-if (!html.includes('href="styles.css?v=20260803-perf1"')) errors.push("mixer.html: stylesheet is not loaded with the current asset version");
+if (!source.includes('(style.aliases || []).join(" ")')) errors.push("mixer.js: style aliases are not searchable");
+if (!html.includes('src="mixer.js?v=20260804-329"')) errors.push("mixer.html: mixer.js is not loaded with the current asset version");
+if (!html.includes('src="style-runtime-data.js?v=20260804-329"')) errors.push("mixer.html: compact runtime data is not loaded");
+if (!html.includes('href="styles.css?v=20260804-329"')) errors.push("mixer.html: stylesheet is not loaded with the current asset version");
 
 const knownDimensions = new Set(Object.keys(api.dimensions));
 for (const [styleId, prompt] of Object.entries(api.prompts)) {

@@ -3187,6 +3187,82 @@ const STYLE_PROMPT_DATA = Object.freeze({
       }
     ]
   },
+  "wabi-sabi": {
+    "genes": [
+      {
+        "id": "gene-1",
+        "kind": "core",
+        "dimension": "compositionSpace",
+        "dimensionZh": "构图与空间",
+        "labelZh": "稀疏非对称与充足留白",
+        "labelEn": "sparse asymmetry and generous negative space",
+        "promptZh": "构图采用稀疏非对称与充足留白",
+        "promptEn": "compose with sparse asymmetry and generous negative space",
+        "weight": 1,
+        "level": "定义性"
+      },
+      {
+        "id": "gene-2",
+        "kind": "core",
+        "dimension": "formGeometry",
+        "dimensionZh": "形态与几何",
+        "labelZh": "不规则轮廓与不完美比例",
+        "labelEn": "irregular contours and imperfect proportions",
+        "promptZh": "将用户主体转译为不规则轮廓与不完美比例，保持身份与关键结构",
+        "promptEn": "translate the supplied subjects into irregular contours and imperfect proportions while preserving identity and defining structure",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-3",
+        "kind": "core",
+        "dimension": "materialTexture",
+        "dimensionZh": "材质与纹理",
+        "labelZh": "风化、磨损与哑光触感",
+        "labelEn": "weathered, worn, and matte tactility",
+        "promptZh": "材质与表面呈现为风化、磨损与哑光触感",
+        "promptEn": "render materials and surfaces as weathered, worn, and matte tactility",
+        "weight": 0.86,
+        "level": "强特征"
+      },
+      {
+        "id": "gene-4",
+        "kind": "adjustable",
+        "dimension": "colorTone",
+        "dimensionZh": "色彩与调性",
+        "labelZh": "土灰、褐色与褪色中性色",
+        "labelEn": "earth gray, brown, and faded neutrals",
+        "promptZh": "配色限定为土灰、褐色与褪色中性色",
+        "promptEn": "limit the palette to earth gray, brown, and faded neutrals",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-5",
+        "kind": "adjustable",
+        "dimension": "lightingImaging",
+        "dimensionZh": "光线与成像",
+        "labelZh": "柔和低对比自然光",
+        "labelEn": "soft low-contrast natural light",
+        "promptZh": "光影采用柔和低对比自然光",
+        "promptEn": "use soft low-contrast natural light for lighting and tonal rendering",
+        "weight": 0.78,
+        "level": "支撑"
+      },
+      {
+        "id": "gene-6",
+        "kind": "adjustable",
+        "dimension": "typographyLayout",
+        "dimensionZh": "字体与版式",
+        "labelZh": "仅在用户要求文字时使用少量克制排版，不模拟虚假的传统书法",
+        "labelEn": "only when text is requested, use restrained sparse typography without imitating inauthentic traditional calligraphy",
+        "promptZh": "仅在用户要求文字时，采用少量克制排版，不模拟虚假的传统书法，并保持原文可读",
+        "promptEn": "only when text is requested, use restrained sparse typography without imitating inauthentic traditional calligraphy, and preserve the exact readable wording",
+        "weight": 0.62,
+        "level": "可调整"
+      }
+    ]
+  },
   "superflat": {
     "genes": [
       {

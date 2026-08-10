@@ -1,5 +1,5 @@
 import { access, readFile } from "node:fs/promises";
-import { dirname, resolve } from "node:path";
+import { basename, dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { evaluateClassicExpression, loadClassicScripts, STYLE_SOURCE_FILES } from "./lib/classic-script-loader.mjs";
 
@@ -36,6 +36,7 @@ if (pagePaths.length !== strictStyleCount) failures.push(`Expected ${strictStyle
 for (const pagePath of pagePaths) {
   const html = await readFile(pagePath, "utf8");
   const relative = pagePath.slice(root.length + 1);
+  const styleId = basename(dirname(pagePath));
 
   for (const id of expectedSections) {
     const count = (html.match(new RegExp(`<section class="detail-section" id="${id}"`, "g")) || []).length;
@@ -45,6 +46,7 @@ for (const pagePath of pagePaths) {
   if (html.includes('class="primary-nav"')) failures.push(`${relative}: product navigation must not appear on a detail page`);
   if (!html.includes('class="back-to-atlas"')) failures.push(`${relative}: missing header return link`);
   if (!html.includes('href="../../index.html#atlas"')) failures.push(`${relative}: missing explicit return link to the main atlas`);
+  if (!html.includes(`href="../../?style=${styleId}#prompt"`)) failures.push(`${relative}: missing style-specific Prompt workshop link`);
   if (/href="\.\.\/\.\.\/#(?:atlas|timeline|prompt)"/.test(html)) failures.push(`${relative}: file-mode module link targets a directory`);
   if (/上一项|下一项/.test(html)) failures.push(`${relative}: contains disallowed previous/next controls`);
   if ((html.match(/<h1>/g) || []).length !== 1) failures.push(`${relative}: must contain exactly one h1`);

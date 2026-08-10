@@ -25,9 +25,9 @@ deferredModuleScripts.forEach((src) => {
 });
 assert(!initialScriptSources.includes("style-prompt-data.js"), "Unified prompt data must not block the atlas");
 assert.deepEqual(initialLocalScripts, ["style-runtime-data.js", "app.js"], "Atlas must load only compact runtime data and the app initially");
-assert(localAssetVersions.length > 0 && localAssetVersions.every((version) => version === "v=20260804-329"), "Initial local scripts must share the current cache-busting version");
-assert.match(indexHtml, /href="styles\.css\?v=20260804-329"/, "Atlas stylesheet must use the current cache-busting version");
-assert.match(appSource, /const ASSET_VERSION = "20260804-329"/, "Lazy-loaded scripts must use the current cache-busting version");
+assert(localAssetVersions.length > 0 && localAssetVersions.every((version) => version === "v=20260810-329"), "Initial local scripts must share the current cache-busting version");
+assert.match(indexHtml, /href="styles\.css\?v=20260810-329"/, "Atlas stylesheet must use the current cache-busting version");
+assert.match(appSource, /const ASSET_VERSION = "20260810-329"/, "Lazy-loaded scripts must use the current cache-busting version");
 assert.match(appSource, /index < 3, eager: index < 6/, "The initially visible artwork rows must not be lazy and low priority");
 assert(!initialScriptSources.includes("prompt-ai-data.js"), "Legacy prompt data must not load");
 assert(!indexHtml.includes("contentModeControl"), "Prompt controls must not include the removed content-range option");
@@ -38,6 +38,13 @@ assert.match(appSource, /dom\.headerActions\.hidden = view !== "atlas"/, "Favori
 assert(!appSource.includes("style.track ==="), "Visual history map must not use the removed mixed cultural tracks");
 assert.match(appSource, /data-toggle-gene/, "Prompt genes must remain available as persistent toggles");
 assert.match(indexHtml, /lucide\.min\.js" async fetchpriority="low"/, "Lucide must remain non-blocking and low priority");
+
+const promptRouteCaptureIndex = appSource.indexOf('const requestedPromptStyleId = view === "prompt"');
+const promptRouteRewriteIndex = appSource.indexOf('history.replaceState(null, "", `#${view}`);', promptRouteCaptureIndex);
+const promptRouteInitializeIndex = appSource.indexOf('await ensureViewInitialized(view, requestedPromptStyleId);', promptRouteRewriteIndex);
+assert(promptRouteCaptureIndex >= 0, "Prompt navigation must capture the requested style id");
+assert(promptRouteRewriteIndex > promptRouteCaptureIndex, "Prompt navigation must capture the style id before rewriting the URL");
+assert(promptRouteInitializeIndex > promptRouteRewriteIndex, "Prompt initialization must receive the captured style id");
 
 const initialRawBytes = Buffer.byteLength(indexHtml)
   + fs.statSync(path.join(rootDir, "styles.css")).size

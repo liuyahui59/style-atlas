@@ -20,7 +20,7 @@ const state = {
 };
 
 const TIMELINE_BASE_WIDTH = 2400;
-const ASSET_VERSION = "20260804-329";
+const ASSET_VERSION = "20260810-329";
 const ATLAS_INITIAL_BATCH_SIZE = 24;
 const ATLAS_BATCH_SIZE = 48;
 const TIMELINE_INITIAL_LANE_COUNT = 2;
@@ -111,7 +111,7 @@ function scheduleOptionalDataWarmup() {
   }, { once: true });
 }
 
-async function ensureViewInitialized(view) {
+async function ensureViewInitialized(view, requestedPromptStyleId = null) {
   if (initializedViews.has(view)) return;
   if (view === "dictionary") {
     await ensureDictionaryData();
@@ -120,8 +120,7 @@ async function ensureViewInitialized(view) {
     renderTimeline();
   } else if (view === "prompt") {
     await Promise.all([loadOptionalScript("prompt-options.js"), ensurePromptData()]);
-    const requestedStyleId = new URLSearchParams(window.location.search).get("style");
-    const initialStyleId = getStyle(requestedStyleId) ? requestedStyleId : state.selectedPromptStyleId;
+    const initialStyleId = getStyle(requestedPromptStyleId) ? requestedPromptStyleId : state.selectedPromptStyleId;
     setPromptStyle(initialStyleId, false);
   }
   initializedViews.add(view);
@@ -787,6 +786,9 @@ function closeMobileFilters() {
 }
 
 async function switchView(view) {
+  const requestedPromptStyleId = view === "prompt"
+    ? new URLSearchParams(window.location.search).get("style")
+    : null;
   if (view !== state.view) trackAnalyticsEvent("view_open", view);
   state.view = view;
   dom.headerActions.hidden = view !== "atlas";
@@ -807,7 +809,7 @@ async function switchView(view) {
   window.scrollTo({ top: 0, behavior: "smooth" });
   activePanel?.setAttribute("aria-busy", "true");
   try {
-    await ensureViewInitialized(view);
+    await ensureViewInitialized(view, requestedPromptStyleId);
   } catch (error) {
     console.error(error);
     showToast("模块加载失败，请检查网络后重试");

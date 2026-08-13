@@ -10,6 +10,17 @@
     ]
   },
   "styles": {
+    "classical-greek": {
+      "promote": ["均衡轴线、清楚重心与比例化空间", "理想化形体、对立式平衡与受控动作"],
+      "dimensions": {
+        "均衡轴线、清楚重心与比例化空间": "compositionSpace",
+        "理想化形体、对立式平衡与受控动作": "formGeometry",
+        "石灰白、陶土红、青铜综合色与有依据的综合色彩绘": "colorTone",
+        "柔和方向光揭示连续转折，避免把戏剧强光当作古典性的必要条件": "lightingImaging",
+        "大理石、青铜、陶器与残存综合色彩绘表面": "materialTexture",
+        "仅在用户要求文字时使用准确、清楚的希腊碑铭式大写字母": "typographyLayout"
+      }
+    },
     "ancient-egyptian": {
       "promote": ["比例由等级而非距离决定", "均匀深色轮廓与无渐变平涂"],
       "dimensions": {

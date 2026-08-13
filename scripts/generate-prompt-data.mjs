@@ -132,9 +132,27 @@ const promptData = Object.fromEntries(styles.map((style) => {
   const profile = profiles[style.id];
   const currentVisualGeneLabels = new Set(style.visualGenes.flatMap((gene) => [gene.zh, gene.en]));
   const audit = audits[style.id] || {};
-  const promotedLabels = new Set(audit.promote || []);
-  const demotedLabels = new Set(audit.demote || []);
-  const dimensionOverrides = audit.dimensions || {};
+  const sourceDimensionOverrides = audit.dimensions || {};
+  const currentLabelByDimension = new Map(visualGeneDimensions.map(([dimension], index) => (
+    [dimension, style.visualGenes[index]?.zh]
+  )));
+  const auditedDimensionAliases = {
+    viewpointLens: "compositionSpace",
+    mediumTechnique: "materialTexture",
+    imperfectionEffect: "materialTexture",
+    styleExecution: "formGeometry"
+  };
+  const migrateAuditedLabel = (label) => {
+    if (currentVisualGeneLabels.has(label)) return label;
+    const inferredDimension = sourceDimensionOverrides[label] || inferVisualGeneDimension({ zh: label, en: "" }, 0);
+    const dimension = auditedDimensionAliases[inferredDimension] || inferredDimension;
+    return currentLabelByDimension.get(dimension) || label;
+  };
+  const promotedLabels = new Set((audit.promote || []).map(migrateAuditedLabel));
+  const demotedLabels = new Set((audit.demote || []).map(migrateAuditedLabel));
+  const dimensionOverrides = Object.fromEntries(Object.entries(sourceDimensionOverrides).map(([label, dimension]) => (
+    [migrateAuditedLabel(label), dimension]
+  )));
   const seenAuditLabels = new Set();
   const auditedClassification = (label, weight, fallbackKind, fallbackLevel) => {
     if (promotedLabels.has(label)) {
@@ -155,7 +173,10 @@ const promptData = Object.fromEntries(styles.map((style) => {
   const genes = profile?.coreGenes?.filter((gene) => (
     currentVisualGeneLabels.has(gene.labelZh) || currentVisualGeneLabels.has(gene.labelEn)
   )).map((gene) => {
-    const dimension = auditedDimension(gene.labelZh, gene.dimension);
+    const visualGeneIndex = style.visualGenes.findIndex((current) => (
+      current.zh === gene.labelZh || current.en === gene.labelEn
+    ));
+    const dimension = visualGeneDimensions[visualGeneIndex]?.[0] || auditedDimension(gene.labelZh, gene.dimension);
     const classification = auditedClassification(
       gene.labelZh,
       gene.weight,
@@ -174,8 +195,7 @@ const promptData = Object.fromEntries(styles.map((style) => {
 
   style.visualGenes.forEach((gene, index) => {
     if (knownLabels.has(gene.zh) || knownLabels.has(gene.en)) return;
-    const expansionDimension = style.coreGeneKeys?.length ? visualGeneDimensions[index]?.[0] : null;
-    const dimension = auditedDimension(gene.zh, expansionDimension || inferVisualGeneDimension(gene, index));
+    const dimension = visualGeneDimensions[index]?.[0] || auditedDimension(gene.zh, inferVisualGeneDimension(gene, index));
     const dimensionZh = dimensionLabels[dimension];
     const inferredWeight = defaultWeights[index] || 0.48 * (0.92 ** (index - defaultWeights.length + 1));
     const weight = profile ? Math.min(inferredWeight, 0.78) : inferredWeight;
@@ -210,12 +230,30 @@ const promptData = Object.fromEntries(styles.map((style) => {
     ...demotedLabels,
     ...Object.keys(dimensionOverrides)
   ]);
-  const missingAuditLabels = [...configuredAuditLabels].filter((label) => !seenAuditLabels.has(label));
+  const missingAuditLabels = [...configuredAuditLabels].filter((label) => !currentVisualGeneLabels.has(label));
   if (missingAuditLabels.length) throw new Error(`${style.id}: unmatched audited genes: ${missingAuditLabels.join(", ")}`);
-  for (const [label, dimension] of Object.entries(dimensionOverrides)) {
+  for (const [label, dimension] of Object.entries(sourceDimensionOverrides)) {
     if (!validDimensions.has(dimension)) throw new Error(`${style.id}: invalid audited dimension ${dimension} for ${label}`);
   }
 
+  genes.sort((a, b) => (a.kind === b.kind ? b.weight - a.weight : a.kind === "core" ? -1 : 1));
+  if (!genes.some((gene) => gene.kind === "core")) {
+    genes.slice(0, 2)
+      .forEach((gene) => {
+        gene.kind = "core";
+        gene.weight = Math.max(gene.weight, 0.86);
+        gene.level = "强特征";
+      });
+  }
+  if (!genes.some((gene) => gene.kind === "adjustable")) {
+    genes
+      .filter((gene) => ["lightingImaging", "materialTexture", "typographyLayout"].includes(gene.dimension))
+      .forEach((gene) => {
+        gene.kind = "adjustable";
+        gene.weight = Math.min(gene.weight, 0.78);
+        gene.level = "支撑";
+      });
+  }
   genes.sort((a, b) => (a.kind === b.kind ? b.weight - a.weight : a.kind === "core" ? -1 : 1));
   genes.forEach((gene, index) => { gene.id = `gene-${index + 1}`; });
   if (genes.length < 3) throw new Error(`${style.id}: expected at least 3 prompt genes, found ${genes.length}`);
@@ -238,7 +276,7 @@ const policy = {
     }
   },
   content: {
-    zh: "只改变视觉处理，保持用户主体的身份、数量、动作与关键结构",
+    zh: "只改变视觉处理，保持用户主体身份、数量、动作与关键结构",
     en: "Change only the visual treatment; preserve the supplied subjects' identity, count, action, and defining structure"
   },
   executionLead: {

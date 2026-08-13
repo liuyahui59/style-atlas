@@ -5,9 +5,7 @@ import { evaluateClassicExpression, loadClassicScripts, STYLE_PROMPT_SOURCE_FILE
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const siteUrl = "https://styleatlas.art";
-const lastModified = "2026-08-04";
-const previousLastModified = "2026-08-02";
-const modifiedStyleIds = new Set(["wabi-sabi", "superflat"]);
+const lastModified = "2026-08-13";
 const checkOnly = process.argv.includes("--check");
 const context = await loadClassicScripts(root, STYLE_PROMPT_SOURCE_FILES);
 
@@ -65,7 +63,7 @@ if (checkOnly && mismatches.length) {
 }
 
 function renderStylePage(style) {
-  const styleLastModified = modifiedStyleIds.has(style.id) ? lastModified : previousLastModified;
+  const styleLastModified = lastModified;
   const title = `${style.nameZh}（${style.nameEn}）：视觉特征、历史与 AI Prompt | 风格谱`;
   const description = `${style.nameZh}风格图鉴：${style.summary}${style.recognition} 查看构图、造型、配色、字体、材质与 AI 绘图 Prompt。`;
   const canonical = `${siteUrl}/styles/${style.id}/`;
@@ -297,7 +295,7 @@ ${optimizedImagePath ? `    <link rel="preload" as="image" href="../../${thumbna
               <h2 id="relatedTitle">来源、相邻与衍生风格</h2>
               <div class="relation-network"><div><span>来源</span><p>${renderStyleReferences(style.influencedBy)}</p></div><div><span>后续影响</span><p>${renderStyleReferences(style.influenced)}</p></div></div>
               <div class="related-style-grid">${relatedStyles.map((related) => renderRelatedCard(related)).join("\n                ")}</div>
-            </section>
+            </section>${buildSourceList(style)}
           </div>
           <aside class="style-page-aside" aria-label="风格资料">
             <dl class="style-facts">
@@ -310,7 +308,7 @@ ${optimizedImagePath ? `    <link rel="preload" as="image" href="../../${thumbna
             </dl>
             <nav class="style-page-toc" aria-label="本页内容">
               <strong>本页内容</strong>
-              <a href="#definition">核心定义</a><a href="#recognition">视觉识别</a><a href="#genes">关键基因</a><a href="#palette">配色方案</a><a href="#applications">内容适配</a><a href="#risks">风险</a><a href="#comparison">风格辨析</a><a href="#intensity">风格强度</a><a href="#translation">媒介转译</a><a href="#prompt">Prompt 配方</a><a href="#prompt-errors">错误 Prompt</a><a href="#history">历史脉络</a><a href="#related">相关风格</a>
+              <a href="#definition">核心定义</a><a href="#recognition">视觉识别</a><a href="#genes">关键基因</a><a href="#palette">配色方案</a><a href="#applications">内容适配</a><a href="#risks">风险</a><a href="#comparison">风格辨析</a><a href="#intensity">风格强度</a><a href="#translation">媒介转译</a><a href="#prompt">Prompt 配方</a><a href="#prompt-errors">错误 Prompt</a><a href="#history">历史脉络</a><a href="#related">相关风格</a>${style.sources?.length ? '<a href="#sources">参考资料</a>' : ''}
             </nav>
             <a class="back-link-aside" href="../../index.html#atlas">返回风格图鉴</a>
           </aside>
@@ -738,6 +736,16 @@ function buildHistoryGuide(style) {
   };
 }
 
+function buildSourceList(style) {
+  if (!style.sources?.length) return "";
+  return `<section class="detail-section" id="sources" aria-labelledby="sourcesTitle">
+              <p class="section-kicker">14 · REFERENCES</p>
+              <h2 id="sourcesTitle">参考资料</h2>
+              <p class="section-lead">以下公开资料用于核对本页的年代、概念边界与历史关系；链接指向原始机构或百科条目。</p>
+              <ul class="source-list">${style.sources.map((source) => `<li><a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)}</a></li>`).join("")}</ul>
+            </section>`;
+}
+
 function renderStyleReferences(value) {
   const source = String(value);
   const candidates = styles
@@ -959,7 +967,7 @@ function renderSitemap() {
       path: `/styles/${style.id}/`,
       changefreq: "monthly",
       priority: "0.8",
-      modified: modifiedStyleIds.has(style.id) ? lastModified : previousLastModified
+      modified: lastModified
     }))
   ];
   return `<?xml version="1.0" encoding="UTF-8"?>

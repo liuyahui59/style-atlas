@@ -78,6 +78,7 @@ assert.equal(vm.runInContext("typeof PROMPT_CONTROL_GROUPS", context), "undefine
 assert.equal(vm.runInContext("typeof VISUAL_VOCABULARY_GROUPS", context), "undefined", "Vocabulary data must not load on the atlas view");
 assert.equal(vm.runInContext("typeof STYLE_PROMPT_DATA", context), "undefined", "Prompt data must not load on the atlas view");
 assert.equal(vm.runInContext("STYLE_DATA.filter((style) => ['prompt', 'promptZh', 'promptEn', 'aiPrompt', 'visualSpec'].some((field) => field in style)).length", context), 0, "Legacy prompt fields must not remain on styles");
+assert.equal(vm.runInContext("STYLE_DATA.filter((style) => ['summary', 'recognition', 'influencedBy', 'influenced', 'sources'].some((field) => field in style)).length", context), 0, "Long detail fields must not block the atlas");
 assert.equal(vm.runInContext("JSON.stringify(TIMELINE_REGIONS)", context), vm.runInContext("JSON.stringify(FILTER_GROUPS.region)", context), "Timeline regions must match the approved broad-region axis");
 assert.equal(vm.runInContext("STYLE_DATA.filter((style) => !TIMELINE_REGIONS.includes(getTimelineRegion(style))).length", context), 0, "Every style must resolve to one timeline region");
 assert.equal(vm.runInContext("STYLE_DATA.filter((style) => style.broadRegions.length > 1 && getTimelineRegion(style) !== '全球/跨地域').length", context), 0, "Multi-region styles must appear once in the cross-region lane");
@@ -91,6 +92,10 @@ assert.equal(vm.runInContext("Object.keys(STYLE_PROMPT_DATA).length", context), 
 assert.equal(vm.runInContext("STYLE_DATA.filter((style) => !getStylePromptData(style.id)).length", context), 0, "Every style must resolve through unified prompt data");
 assert.equal(vm.runInContext("PROMPT_CONTROL_GROUPS.length", context), 11, "Prompt controls must load on demand");
 assert.equal(vm.runInContext("STYLE_DATA.filter((style) => !buildStylePromptText(style, { language: 'zh' })).length", context), 0, "Every style must build a prompt on demand");
+
+await runClassicScripts(context, rootDir, ["style-detail-data.js"]);
+assert.equal(vm.runInContext("Object.keys(STYLE_DETAIL_DATA).length", context), vm.runInContext("STYLE_DATA.length", context), "Lazy detail data must cover every style");
+assert.equal(vm.runInContext("STYLE_DATA.filter((style) => !STYLE_DETAIL_DATA[style.id]?.summary || STYLE_DETAIL_DATA[style.id].sources.length < 2).length", context), 0, "Every lazy detail record must include reviewed copy and sources");
 
 await runClassicScripts(context, rootDir, ["visual-vocabulary-mechanics.js", "visual-vocabulary.js"]);
 assert.equal(vm.runInContext("VISUAL_VOCABULARY_GROUPS.length", context), 11, "Vocabulary groups must load after their dependencies");

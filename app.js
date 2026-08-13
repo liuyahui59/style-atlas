@@ -94,6 +94,16 @@ function ensurePromptData() {
   return loadOptionalScript("style-prompt-data.js");
 }
 
+function ensureStyleDetailData() {
+  if (typeof STYLE_DETAIL_DATA !== "undefined") return Promise.resolve();
+  return loadOptionalScript("style-detail-data.js");
+}
+
+function getDetailedStyle(style) {
+  const detail = typeof STYLE_DETAIL_DATA === "undefined" ? null : STYLE_DETAIL_DATA[style.id];
+  return detail ? { ...style, ...detail } : style;
+}
+
 async function ensureDictionaryData() {
   await Promise.all([
     loadOptionalScript("prompt-options.js"),
@@ -492,7 +502,7 @@ function getFilteredStyles() {
     if (!state.search) return true;
     const haystack = [
       style.nameZh, style.nameEn, style.type, style.period, style.detailedRegion, style.broadRegion,
-      style.visualHistory, style.visualHistoryTime, style.summary, style.recognition,
+      style.visualHistory, style.visualHistoryTime,
       ...(style.aliases || []), ...style.traits, ...style.fields, ...Object.values(style.genes).flat()
     ].join(" ").toLowerCase();
     return haystack.includes(state.search);
@@ -573,7 +583,7 @@ function toggleFavorite(id) {
   const style = getStyle(id);
   showToast(`${style.nameZh}${state.favorites.has(id) ? "已收藏" : "已取消收藏"}`);
   renderAtlas();
-  if (!dom.detailLayer.hidden) renderDetail(style);
+  if (!dom.detailLayer.hidden) renderDetail(getDetailedStyle(style));
 }
 
 function toggleCompare(id) {
@@ -586,7 +596,7 @@ function toggleCompare(id) {
     return;
   }
   renderAtlas();
-  if (!dom.detailLayer.hidden) renderDetail(getStyle(id));
+  if (!dom.detailLayer.hidden) renderDetail(getDetailedStyle(getStyle(id)));
 }
 
 function renderCompareDock() {
@@ -607,12 +617,19 @@ function clearCompare() {
   showToast("已清空对比");
 }
 
-function openCompareDialog() {
+async function openCompareDialog() {
   if (state.compare.length !== 2) {
     showToast("请先选择两个风格");
     return;
   }
-  const [a, b] = state.compare.map(getStyle);
+  try {
+    await ensureStyleDetailData();
+  } catch (error) {
+    console.error(error);
+    showToast("详情资料加载失败，请稍后重试");
+    return;
+  }
+  const [a, b] = state.compare.map((id) => getDetailedStyle(getStyle(id)));
   dom.compareContent.innerHTML = `<div class="compare-head"><span></span>${[a, b].map((style) => `<div class="compare-style-head">${createVisual(style)}<div><h3>${style.nameZh}</h3><small>${style.period}</small></div></div>`).join("")}</div>
     <table class="compare-table"><tbody>
       ${compareRow("一句话识别", a.recognition, b.recognition)}
@@ -632,7 +649,7 @@ function compareRow(name, a, b) {
   return `<tr><th>${name}</th><td>${a}</td><td>${b}</td></tr>`;
 }
 
-function openDetail(id, trigger) {
+async function openDetail(id, trigger) {
   const style = getStyle(id);
   if (!style) return;
   trackAnalyticsEvent("style_detail", style.id);
@@ -640,10 +657,17 @@ function openDetail(id, trigger) {
   dom.detailKicker.textContent = "STYLE PROFILE";
   dom.detailDrawer.classList.remove("is-vocabulary-detail");
   dom.detailDrawer.style.removeProperty("--vocabulary-color");
-  renderDetail(style);
   dom.detailLayer.hidden = false;
   document.body.classList.add("has-layer");
   dom.detailLayer.querySelector("[data-close-detail]").focus();
+  dom.detailContent.innerHTML = '<p class="detail-loading" aria-live="polite">正在加载审校详情…</p>';
+  try {
+    await ensureStyleDetailData();
+    renderDetail(getDetailedStyle(style));
+  } catch (error) {
+    console.error(error);
+    dom.detailContent.innerHTML = '<p class="detail-loading" role="alert">详情资料加载失败，请稍后重试</p>';
+  }
 }
 
 function openVocabularyDetail(term, trigger) {
@@ -723,6 +747,7 @@ function renderDetail(style) {
   <div class="detail-body">
     <section class="detail-section"><h3>典型视觉倾向</h3><table class="gene-table"><tbody>${rows.map(([name, values]) => `<tr><th>${name}</th><td>${values.join(" · ")}</td></tr>`).join("")}</tbody></table></section>
     <section class="detail-section"><h3>历史脉络</h3><div class="lineage-grid"><div><span>来自</span><strong>${style.influencedBy}</strong></div><div><span>影响</span><strong>${style.influenced}</strong></div></div></section>
+    ${style.sources?.length ? `<section class="detail-section"><h3>参考资料</h3><ul class="detail-source-list">${style.sources.map((source) => `<li><a href="${escapeVocabularyText(source.url)}" target="_blank" rel="noopener noreferrer">${escapeVocabularyText(source.label)}</a></li>`).join("")}</ul></section>` : ""}
     <section class="detail-section"><h3>视觉语言 Prompt</h3><div class="detail-prompt" data-detail-prompt="${style.id}" aria-busy="${typeof buildStylePromptText !== "function"}">${typeof buildStylePromptText === "function" ? buildStylePromptText(style, { language: "zh" }) : "正在准备 Prompt…"}</div></section>
     <section class="detail-section"><h3>相邻风格</h3><div class="detail-tags">${style.related.map((id) => { const related = getStyle(id); return `<a class="relation-chip" href="${getStylePageHref(id)}" data-related-style="${id}">${related.nameZh}</a>`; }).join("")}</div></section>
   </div>`;
@@ -738,7 +763,7 @@ function renderDetail(style) {
     link.addEventListener("click", (event) => {
       if (!shouldOpenDrawer(event)) return;
       event.preventDefault();
-      const relatedStyle = getStyle(link.dataset.relatedStyle);
+      const relatedStyle = getDetailedStyle(getStyle(link.dataset.relatedStyle));
       if (!relatedStyle) return;
       trackAnalyticsEvent("style_detail", relatedStyle.id);
       renderDetail(relatedStyle);

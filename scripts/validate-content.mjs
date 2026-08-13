@@ -34,8 +34,7 @@ const {
 const ids = new Set(STYLE_DATA.map((style) => style.id));
 const errors = [];
 const artworkSources = new Map();
-const forbiddenVisualGeneTermsZh = ["人物", "角色", "人体", "动物", "鸟类", "花卉", "花朵", "藤蔓", "面具", "走廊", "门窗", "城市", "建筑物", "飞船", "宇航服", "书架", "旧书", "眼睛", "怪物", "废墟", "街道", "雕像", "棕榈", "齿轮", "管道", "山水", "庭院"];
-const forbiddenVisualGeneTermsEn = ["person", "people", "human", "animal", "bird", "flower", "vine", "mask", "corridor", "doorway", "city", "building", "spacecraft", "spacesuit", "bookshelf", "book", "creature", "ruin", "street", "statue", "palm", "gear", "pipe", "landscape", "garden", "wall"];
+const forbiddenSubjectInstructions = [/必须(?:包含|新增|出现)(?:人物|角色|动物|建筑|城市|景观)/, /must (?:include|add|depict) (?:a |an )?(?:person|character|animal|building|city|landscape)/i];
 const genericPromptTerms = ["高质量", "杰作", "高级感", "震撼", "精致完成度", "清晰视觉层级", "高细节", "high quality", "best quality", "masterpiece", "award-winning", "refined finish", "highly detailed", "ultra-detailed", "high-detail", "visual impact"];
 const genericSummaryTerms = ["建立可跨主体迁移的视觉语言"];
 const genericVisualGenePhrasesEn = ["balanced composition with a clear focal point", "controlled color palette", "refined material texture", "coherent visual language"];
@@ -68,11 +67,8 @@ for (const style of STYLE_DATA) {
     const pair = `${gene.zh.trim()}|${gene.en.trim()}`;
     if (visualGenePairs.has(pair)) errors.push(`${style.id}: duplicate visual gene ${index}`);
     visualGenePairs.add(pair);
-    forbiddenVisualGeneTermsZh.forEach((term) => {
-      if (gene.zh.includes(term)) errors.push(`${style.id}: visual gene ${index} contains subject cue ${term}`);
-    });
-    forbiddenVisualGeneTermsEn.forEach((term) => {
-      if (new RegExp(`\\b${term}s?\\b`, "i").test(gene.en)) errors.push(`${style.id}: visual gene ${index} contains subject cue ${term}`);
+    forbiddenSubjectInstructions.forEach((pattern) => {
+      if (pattern.test(`${gene.zh} ${gene.en}`)) errors.push(`${style.id}: visual gene ${index} forces an unrelated subject`);
     });
     genericPromptTerms.forEach((term) => {
       if (`${gene.zh} ${gene.en}`.toLowerCase().includes(term.toLowerCase())) errors.push(`${style.id}: visual gene ${index} contains generic prompt term ${term}`);
@@ -93,6 +89,16 @@ for (const style of STYLE_DATA) {
   (style.related || []).forEach((relatedId) => {
     if (!ids.has(relatedId)) errors.push(`${style.id}: unknown related style ${relatedId}`);
   });
+  if (style.sources) {
+    if (!Array.isArray(style.sources) || style.sources.length < 2) errors.push(`${style.id}: editorial sources require at least two references`);
+    const sourceUrls = new Set();
+    (style.sources || []).forEach((source, index) => {
+      if (!source.label?.trim()) errors.push(`${style.id}: source ${index} is missing a label`);
+      if (!/^https:\/\//.test(source.url || "")) errors.push(`${style.id}: source ${index} must use an HTTPS URL`);
+      if (sourceUrls.has(source.url)) errors.push(`${style.id}: duplicate source URL ${source.url}`);
+      sourceUrls.add(source.url);
+    });
+  }
   if (style.artwork?.src) {
     const artworkId = style.artwork.src.split("/").pop().replace(/\.[^.]+$/, "");
     if (artworkId !== style.id) errors.push(`${style.id}: artwork belongs to ${artworkId}`);

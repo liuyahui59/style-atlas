@@ -5,6 +5,7 @@
 ## 项目结构
 
 - `index.html`：可交互高保真原型
+- `local/`：Style Atlas 本地版介绍、交互体验与下载页面
 - `styles.css`：响应式视觉与组件样式
 - `data.js`、`data-extra.js`、`data-more.js`、`aesthetic-styles.js`、`chinese-visual-directions.js`、`data-expansion.js`：原始候选内容
 - `strict-catalog.js`：已审定风格的白名单、风格分类、大地域与视觉史数据
@@ -37,6 +38,7 @@ node scripts/validate-content.mjs
 项目根目录包含 GitHub Pages 所需的 `CNAME`、`.nojekyll`、`404.html`、`robots.txt` 和 `sitemap.xml`。自定义域名配置为 `styleatlas.art`。
 
 - 正式域名：`https://styleatlas.art/`
+- 本地版页面：`https://styleatlas.art/local/`
 - Pages 备用地址：`https://liuyahui59.github.io/style-atlas/`
 - GitHub Pages 从 `main` 分支根目录直接发布。
 

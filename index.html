@@ -65,9 +65,9 @@
         }, { once: true });
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=20260810-329" />
-    <script src="style-runtime-data.js?v=20260810-329" defer></script>
-    <script src="app.js?v=20260810-329" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20260907-local" />
+    <script src="style-runtime-data.js?v=20260907-local" defer></script>
+    <script src="app.js?v=20260907-local" defer></script>
     <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" async fetchpriority="low" onload="window.refreshIcons?.()"></script>
   </head>
   <body>
@@ -83,13 +83,16 @@
           <button class="nav-item" data-view="timeline">时间脉络</button>
           <button class="nav-item" data-view="prompt">Prompt 工坊</button>
         </nav>
-        <div class="header-actions" id="headerActions">
-          <button class="icon-button" id="favoritesButton" aria-label="只看收藏" title="只看收藏">
-            <i data-lucide="bookmark"></i><span class="action-count" id="favoriteCount">0</span>
-          </button>
-          <button class="icon-button" id="openCompareButton" aria-label="打开对比" title="打开对比">
-            <i data-lucide="columns-2"></i><span class="action-count" id="compareCount">0</span>
-          </button>
+        <div class="header-actions">
+          <div class="atlas-header-actions" id="headerActions">
+            <button class="icon-button" id="favoritesButton" aria-label="只看收藏" title="只看收藏">
+              <i data-lucide="bookmark"></i><span class="action-count" id="favoriteCount">0</span>
+            </button>
+            <button class="icon-button" id="openCompareButton" aria-label="打开对比" title="打开对比">
+              <i data-lucide="columns-2"></i><span class="action-count" id="compareCount">0</span>
+            </button>
+          </div>
+          <a class="local-edition-link" href="local/">下载本地版 <i data-lucide="download"></i></a>
         </div>
       </header>
 

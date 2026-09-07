@@ -1,0 +1,7 @@
+/* Only guide highlights and browser-demo boundaries; the product stylesheet stays unchanged. */
+.license-panel,.app-update-card{display:none!important}
+.demo-guide-target{outline:2px solid #a6c8ff!important;outline-offset:-3px;box-shadow:inset 0 0 0 5px #4589ff1a!important;animation:guide-glow 1.6s ease-in-out infinite}
+body.demo-drag-active::after{content:"松开图片，导入素材库";position:fixed;inset:68px 8px 40px 190px;background:#163e66ed;border:2px dashed #a6c8ff;z-index:30;display:grid;place-items:center;color:#edf5ff;font-size:24px;pointer-events:none}
+body::before{content:"";display:none}
+@keyframes guide-glow{50%{outline-color:#4589ff}}
+@media(prefers-reduced-motion:reduce){.demo-guide-target{animation:none}}

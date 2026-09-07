@@ -25,13 +25,13 @@ deferredModuleScripts.forEach((src) => {
 });
 assert(!initialScriptSources.includes("style-prompt-data.js"), "Unified prompt data must not block the atlas");
 assert.deepEqual(initialLocalScripts, ["style-runtime-data.js", "app.js"], "Atlas must load only compact runtime data and the app initially");
-assert(localAssetVersions.length > 0 && localAssetVersions.every((version) => version === "v=20260810-329"), "Initial local scripts must share the current cache-busting version");
-assert.match(indexHtml, /href="styles\.css\?v=20260810-329"/, "Atlas stylesheet must use the current cache-busting version");
-assert.match(appSource, /const ASSET_VERSION = "20260810-329"/, "Lazy-loaded scripts must use the current cache-busting version");
+assert(localAssetVersions.length > 0 && localAssetVersions.every((version) => version === "v=20260907-local"), "Initial local scripts must share the current cache-busting version");
+assert.match(indexHtml, /href="styles\.css\?v=20260907-local"/, "Atlas stylesheet must use the current cache-busting version");
+assert.match(appSource, /const ASSET_VERSION = "20260907-local"/, "Lazy-loaded scripts must use the current cache-busting version");
 assert.match(appSource, /index < 3, eager: index < 6/, "The initially visible artwork rows must not be lazy and low priority");
 assert(!initialScriptSources.includes("prompt-ai-data.js"), "Legacy prompt data must not load");
 assert(!indexHtml.includes("contentModeControl"), "Prompt controls must not include the removed content-range option");
-assert.match(indexHtml, /class="header-actions" id="headerActions"/, "Atlas-only header actions need a stable visibility target");
+assert.match(indexHtml, /class="atlas-header-actions" id="headerActions"/, "Atlas-only header actions need a stable visibility target");
 assert.match(indexHtml, /id="timelineGrid"/, "Visual history map needs a shared time grid");
 assert.match(indexHtml, /横轴为时间、纵轴为大地域/, "Visual history map must expose its two approved axes accessibly");
 assert.match(appSource, /dom\.headerActions\.hidden = view !== "atlas"/, "Favorites and compare actions must hide outside the atlas");

@@ -6,6 +6,7 @@ import { evaluateClassicExpression, loadClassicScripts, STYLE_PROMPT_SOURCE_FILE
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const siteUrl = "https://styleatlas.art";
 const lastModified = "2026-08-13";
+const localEditionModified = "2026-09-07";
 const checkOnly = process.argv.includes("--check");
 const context = await loadClassicScripts(root, STYLE_PROMPT_SOURCE_FILES);
 
@@ -961,6 +962,7 @@ function getRiskGuides(style) {
 function renderSitemap() {
   const entries = [
     { path: "/", changefreq: "weekly", priority: "1.0", modified: lastModified },
+    { path: "/local/", changefreq: "weekly", priority: "0.9", modified: localEditionModified },
     { path: "/mixer.html", changefreq: "weekly", priority: "0.9", modified: lastModified },
     { path: "/styles/", changefreq: "weekly", priority: "0.9", modified: lastModified },
     ...styles.map((style) => ({

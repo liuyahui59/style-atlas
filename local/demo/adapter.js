@@ -32,7 +32,7 @@
     return {totalAssets:assets.length,availableAssets:assets.length,analyzedAssets:assets.filter(asset=>asset.currentAnalysis).length,pendingAssets:assets.filter(asset=>asset.analysisStatus==='pending').length,favoriteAssets:assets.filter(asset=>asset.favorite).length,collections:collections.length,trashItems:trash.length};
   }
   function bootstrap() {
-    return {version:'1.1.1',stats:stats(),assets:list(assets),jobs:list(jobs),settings:{selectedAgentId:agents.selectedId,selectedAnalysisRuleId:rules.selectedId},provider:provider(),agents,analysisRules:rules,analysisContracts:fixtures.analysisContracts,skills:list(skills),mcps:list(mcps),collections,tags:[],trash,facets:{},paths:{inbox:'网页演示素材库',database:'当前浏览器内存'},appUpdate:{configured:false},license:{}};
+    return {version:'1.1.2',stats:stats(),assets:list(assets),jobs:list(jobs),settings:{selectedAgentId:agents.selectedId,selectedAnalysisRuleId:rules.selectedId},provider:provider(),agents,analysisRules:rules,analysisContracts:fixtures.analysisContracts,skills:list(skills),mcps:list(mcps),collections,tags:[],trash,facets:{},paths:{inbox:'网页演示素材库',database:'当前浏览器内存'},appUpdate:{configured:false},license:{}};
   }
   function cancel(id) {
     (timers.get(String(id))||[]).forEach(clearTimeout);

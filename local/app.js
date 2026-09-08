@@ -4,6 +4,8 @@ const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&
 const refreshIcons = () => window.lucide?.createIcons();
 const evidence = window.STYLE_ATLAS_EVIDENCE || [];
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
+const latestReleaseApi='https://api.github.com/repos/liuyahui59/style-atlas-updates/releases/latest';
+const trustedDownloadPrefix='/liuyahui59/style-atlas-updates/releases/download/';
 const caseConfig = {
   poster:{title:'从一张海报，带走一套配色。',palette:'color',fields:[['色彩关系','color','relationships'],['复用建议','color','application']],takeaway:'拿走主色、强调色和比例建议，为新的节庆视觉建立配色起点。'},
   lighting:{title:'从一张摄影，读懂光的方向。',palette:'toneAndSurface',fields:[['可见证据','lightEvidence','direction'],['影调关系','toneAndSurface','tonalRelations']],takeaway:'带走可尝试的布光方案与检查点。分析保留不确定项，便于试拍时验证。'},
@@ -14,6 +16,24 @@ const getEvidence = key => evidence.find(item => item.key === key);
 function dataField(record,module,field){return record?.analysis.modules?.[module]?.data?.[field];}
 function excerpt(value,limit=115){const text=Array.isArray(value)?value.join(' '):String(value||'');if(text.length<=limit)return text;const end=text.slice(0,limit).lastIndexOf('；');return text.slice(0,end>45?end:limit)+'…';}
 function toast(message){const node=$('#toast');node.textContent=message;node.classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>node.classList.remove('visible'),2800);}
+async function resolveLatestDownload(){
+  const link=$('.download-link'),meta=$('.download-meta');
+  if(!link||!meta)return;
+  try{
+    const response=await fetch(latestReleaseApi,{headers:{Accept:'application/vnd.github+json'}});
+    if(!response.ok)throw new Error(`GitHub release ${response.status}`);
+    const release=await response.json();
+    const asset=(Array.isArray(release.assets)?release.assets:[]).find(item=>/^style-atlas-[\w.-]*mac\.dmg$/i.test(item?.name||'')&&item?.browser_download_url);
+    if(!asset)throw new Error('No macOS DMG in latest release');
+    const download=new URL(asset.browser_download_url);
+    if(download.protocol!=='https:'||download.hostname!=='github.com'||!download.pathname.startsWith(trustedDownloadPrefix))throw new Error('Untrusted release URL');
+    link.href=download.href;
+    const version=String(release.name||'').match(/\d+\.\d+\.\d+/)?.[0]||String(release.tag_name||'').match(/\d+\.\d+\.\d+/)?.[0];
+    meta.textContent=version?`macOS 13+ · v${version}`:'macOS 13+ · 最新版';
+  }catch{
+    meta.textContent='macOS 13+ · 前往最新版';
+  }
+}
 async function copyText(text,label='内容'){
   const previous=document.activeElement;
   try{
@@ -139,6 +159,7 @@ let framePending=false;window.addEventListener('scroll',()=>{if(framePending)ret
 const sectionObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)$$('.header nav a').forEach(link=>link.classList.toggle('is-current',link.hash===`#${entry.target.id}`));});},{rootMargin:'-15% 0px -50% 0px'});$$('#playground,#insight,#software').forEach(node=>sectionObserver.observe(node));
 selectCase('poster');refreshIcons();sizeDemo();
 messageToDemo('handshake');
+resolveLatestDownload();
 const showcase=$('#hero-showcase');
 Promise.allSettled($$('.hero-art img').map(image=>image.decode())).then(()=>{
   if(motion.matches)return;

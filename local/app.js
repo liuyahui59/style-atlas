@@ -5,6 +5,7 @@ const refreshIcons = () => window.lucide?.createIcons();
 const evidence = window.STYLE_ATLAS_EVIDENCE || [];
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
 const latestReleaseApi='https://api.github.com/repos/liuyahui59/style-atlas-updates/releases/latest';
+const latestReleasePage='https://github.com/liuyahui59/style-atlas-updates/releases/latest';
 const trustedDownloadPrefix='/liuyahui59/style-atlas-updates/releases/download/';
 const caseConfig = {
   poster:{title:'从一张海报，带走一套配色。',palette:'color',fields:[['色彩关系','color','relationships'],['复用建议','color','application']],takeaway:'拿走主色、强调色和比例建议，为新的节庆视觉建立配色起点。'},
@@ -18,9 +19,9 @@ function excerpt(value,limit=115){const text=Array.isArray(value)?value.join(' '
 function toast(message){const node=$('#toast');node.textContent=message;node.classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>node.classList.remove('visible'),2800);}
 async function resolveLatestDownload(){
   const link=$('.download-link'),meta=$('.download-meta');
-  if(!link||!meta)return;
+  if(!link||!meta)return null;
   try{
-    const response=await fetch(latestReleaseApi,{headers:{Accept:'application/vnd.github+json'}});
+    const response=await fetch(latestReleaseApi,{cache:'no-store',headers:{Accept:'application/vnd.github+json'}});
     if(!response.ok)throw new Error(`GitHub release ${response.status}`);
     const release=await response.json();
     const asset=(Array.isArray(release.assets)?release.assets:[]).find(item=>/^style-atlas-[\w.-]*mac\.dmg$/i.test(item?.name||'')&&item?.browser_download_url);
@@ -30,8 +31,11 @@ async function resolveLatestDownload(){
     link.href=download.href;
     const version=String(release.name||'').match(/\d+\.\d+\.\d+/)?.[0]||String(release.tag_name||'').match(/\d+\.\d+\.\d+/)?.[0];
     meta.textContent=version?`macOS 13+ · v${version}`:'macOS 13+ · 最新版';
+    return download.href;
   }catch{
+    link.href=latestReleasePage;
     meta.textContent='macOS 13+ · 前往最新版';
+    return null;
   }
 }
 async function copyText(text,label='内容'){
@@ -160,6 +164,15 @@ const sectionObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>
 selectCase('poster');refreshIcons();sizeDemo();
 messageToDemo('handshake');
 resolveLatestDownload();
+$('.download-link')?.addEventListener('click',async event=>{
+  if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+  event.preventDefault();
+  const link=event.currentTarget;
+  link.setAttribute('aria-busy','true');
+  const download=await resolveLatestDownload();
+  link.removeAttribute('aria-busy');
+  location.assign(download||latestReleasePage);
+});
 const showcase=$('#hero-showcase');
 Promise.allSettled($$('.hero-art img').map(image=>image.decode())).then(()=>{
   if(motion.matches)return;

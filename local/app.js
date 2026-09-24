@@ -115,7 +115,10 @@ function selectCase(key){
   if(!motion.matches)$('#case-panel').animate([{opacity:0,transform:'translateY(5px)'},{opacity:1,transform:'translateY(0)'}],{duration:350,easing:'ease-out'});
 }
 const shots={library:['素材库','浏览、标签、收藏与搜索，让积累的参考真正找得到。'],analysis:['分析详情','设计观察、参考色板和提示词，与原图一起保存。'],skills:['Skills','浏览电脑上的 Skills，管理来源、收藏与 Agent 同步。'],mcps:['MCP','查看 MCP 配置、启停状态与连接信息。']};
-function selectShot(key){activeShot=key;$$('[data-shot]').forEach(button=>{const selected=button.dataset.shot===key;button.setAttribute('aria-selected',String(selected));button.tabIndex=selected?0:-1;});$('#software-image').src=`assets/product/${key}.png`;$('#software-image').alt=`Style Atlas 真实${shots[key][0]}界面`;$('#shot-description').textContent=shots[key][1];$('#software-panel').setAttribute('aria-labelledby',`shot-${key}`);if(!motion.matches)$('#software-image').animate([{opacity:.4},{opacity:1}],{duration:350});}
+const shotRevision='20260924-2';
+function shotSource(key){return `assets/product/${key}.png?v=${shotRevision}`;}
+for(const key of ['analysis','skills','mcps']){const image=new Image();image.src=shotSource(key);}
+function selectShot(key){activeShot=key;$$('[data-shot]').forEach(button=>{const selected=button.dataset.shot===key;button.setAttribute('aria-selected',String(selected));button.tabIndex=selected?0:-1;});$('#software-image').src=shotSource(key);$('#software-image').alt=`Style Atlas 真实${shots[key][0]}界面`;$('#shot-description').textContent=shots[key][1];$('#software-panel').setAttribute('aria-labelledby',`shot-${key}`);if(!motion.matches)$('#software-image').animate([{opacity:.4},{opacity:1}],{duration:350});}
 document.addEventListener('click',event=>{
   const target=event.target.closest('button');if(!target)return;
   if(target.matches('[data-contact]'))$('#contact-dialog').showModal();
@@ -129,7 +132,7 @@ document.addEventListener('click',event=>{
   else if(target.id==='reset-demo')messageToDemo('reset');
   else if(target.id==='expand-demo')expandDemo(!expanded);
   else if(target.id==='open-case'){messageToDemo('open-case',{key:activeCase});$('#playground').scrollIntoView({behavior:motion.matches?'auto':'smooth',block:'start'});}
-  else if(target.id==='expand-shot'){$('#lightbox-image').src=`assets/product/${activeShot}.png`;$('#screenshot-dialog').showModal();}
+  else if(target.id==='expand-shot'){$('#lightbox-image').src=shotSource(activeShot);$('#screenshot-dialog').showModal();}
 });
 document.addEventListener('keydown',event=>{
   if(event.key==='Escape'&&expanded){expandDemo(false);return;}

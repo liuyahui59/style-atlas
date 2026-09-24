@@ -163,6 +163,7 @@ const state = {
   collectionMenuId: null,
   selectedId: null,
   selectedIds: new Set(),
+  inspectorTab: "overview",
   lastAnchorId: null,
   query: "",
   discipline: "",
@@ -1497,6 +1498,17 @@ function disciplineTags(asset) {
     );
 }
 
+function aiTags(asset) {
+  return [
+    ...new Map(
+      asArray(normalizedAnalysis(asset).data.tags)
+        .map(readableValue)
+        .filter(Boolean)
+        .map((tag) => [disciplineKey(tag), tag]),
+    ).values(),
+  ];
+}
+
 function renderDisciplineFilter() {
   const labels = new Map();
   for (const asset of state.assets) {
@@ -2105,6 +2117,92 @@ function renderPromptBlock(label, key, value) {
     </div>`;
 }
 
+function presentationText(value) {
+  if (Array.isArray(value)) return value.map(presentationText).filter(Boolean).join("、");
+  if (value && typeof value === "object") return Object.values(value).map(presentationText).filter(Boolean).join("、");
+  return String(value ?? "").trim();
+}
+
+function presentationItems(value) {
+  return (Array.isArray(value) ? value : [value]).map(presentationText).filter(Boolean);
+}
+
+function firstSentence(value) {
+  const source = presentationText(value);
+  if (!source) return "";
+  if (typeof Intl.Segmenter === "function") {
+    const sentences = new Intl.Segmenter("zh-CN", { granularity: "sentence" }).segment(source);
+    return sentences[Symbol.iterator]().next().value?.segment.trim() || source;
+  }
+  return source.match(/^.*?[。！？.!?](?:\s|$)/u)?.[0]?.trim() || source;
+}
+
+function analysisPromptEntries(analysis) {
+  const prompts = analysis.isV2 ? analysis.data?.prompts || {} : analysis.prompts || {};
+  const contract = analysis.ruleSpec?.contract || {};
+  const labels = analysis.isV2 ? {} : { visual: "视觉提示词", implementation: "实现说明", tokens: "设计参数", negative: "负面条件" };
+  const keys = [...new Set([...(contract.promptKinds || []), ...Object.keys(prompts)])];
+  return keys
+    .map((key) => ({ key, label: contract.promptDefinitions?.[key]?.label || labels[key] || key, value: presentationText(prompts[key]) }))
+    .filter((entry) => entry.value)
+    .sort((a, b) => Number(/negative|负面/i.test(a.key)) - Number(/negative|负面/i.test(b.key)));
+}
+
+function analysisOverview(analysis) {
+  const fields = [];
+  for (const [moduleId, module] of Object.entries(analysis.modules || {})) {
+    if (["not_applicable", "not_observed"].includes(module.status)) continue;
+    const definitions = analysis.ruleSpec?.contract?.moduleDefinitions?.[moduleId]?.fields || {};
+    for (const [key, value] of Object.entries(module.data || {})) {
+      if (definitions[key]?.type === "palette" || key === "palette") continue;
+      fields.push({ key, label: definitions[key]?.label || key, values: presentationItems(value) });
+    }
+  }
+  const reasons = fields.filter((field) => /why.?it.?works|rationale|为何|有效|洞察/i.test(`${field.key} ${field.label}`)).flatMap((field) => field.values);
+  const relationships = fields.filter((field) => /invariants|relations|principles|复用|关系|保留/i.test(`${field.key} ${field.label}`));
+  const fallback = fields.filter((field) => /hierarchy|layout|composition|grid|层级|构图|网格/i.test(`${field.key} ${field.label}`));
+  const next = fields.filter((field) => /recommend|implementation|recipe|contentScaling|viewportChanges|checks|实现|建议|适配|检查/i.test(`${field.key} ${field.label}`));
+  const reusable = (relationships.length ? relationships : fallback).flatMap((field) => field.values);
+  if (!analysis.isV2) {
+    reusable.push(...presentationItems(analysis.whyItWorks));
+    if (!reusable.length) reusable.push(...Object.entries(analysis.visualDna || {}).filter(([, value]) => presentationText(value)).map(([key, value]) => `${key}：${presentationText(value)}`));
+  }
+  return {
+    insight: firstSentence(reasons[0] || analysis.whyItWorks?.[0] || analysis.data?.summary || analysis.description),
+    relationships: [...new Set(reusable.map(firstSentence))].filter(Boolean).slice(0, 3),
+    nextSteps: [...new Set((analysis.isV2 ? next.flatMap((field) => field.values) : presentationItems(analysis.recipe)).map(firstSentence))].filter(Boolean).slice(0, 2),
+  };
+}
+
+const INSPECTOR_VIEWS = [["overview", "速览"], ["breakdown", "设计拆解"], ["prompts", "Prompt Kit"], ["notes", "笔记与来源"]];
+
+function renderOverview(analysis) {
+  const overview = analysisOverview(analysis);
+  return `<section class="inspector-section overview-insight"><h3>一句话洞察</h3><p>${escapeHTML(overview.insight || "暂无洞察")}</p></section>
+    <section class="inspector-section overview-relationships"><h3>可复用关系</h3>${renderList(overview.relationships, "evidence-list", "当前分析未记录可复用关系。")}</section>
+    <section class="inspector-section overview-next"><h3>下一步动作</h3>${renderList(overview.nextSteps, "recipe-list", "当前分析未记录具体建议。")}</section>`;
+}
+
+function renderPromptKit(analysis) {
+  const prompts = analysisPromptEntries(analysis);
+  return `<section class="inspector-section"><div class="inspector-section-heading"><h3>Prompt Kit</h3></div>
+    ${prompts.map((entry) => renderPromptBlock(entry.label, entry.key, entry.value)).join("") || '<p class="analysis-empty">当前分析没有生成提示词。</p>'}</section>`;
+}
+
+function switchInspectorTab(view, { focus = false } = {}) {
+  if (!INSPECTOR_VIEWS.some(([key]) => key === view)) return;
+  state.inspectorTab = view;
+  elements.inspectorContent.querySelectorAll("[data-inspector-tab]").forEach((button) => {
+    const active = button.dataset.inspectorTab === view;
+    button.setAttribute("aria-selected", String(active));
+    button.tabIndex = active ? 0 : -1;
+    if (active && focus) button.focus({ preventScroll: true });
+  });
+  elements.inspectorContent.querySelectorAll("[data-inspector-panel]").forEach((panel) => {
+    panel.hidden = panel.dataset.inspectorPanel !== view;
+  });
+}
+
 function moduleDefinition(id, rule = null) {
   return asObject(asObject(asObject(rule?.contract).moduleDefinitions)[id]);
 }
@@ -2169,6 +2267,13 @@ function renderDynamicAnalysis(analysis) {
     sections.push(`<section class="inspector-section"><div class="inspector-section-heading"><h3 class="analysis-category-title">不确定项</h3></div>${renderList(uncertainties, "evidence-list", "")}</section>`);
   }
   return sections.join("");
+}
+
+function renderAnalysisTags(asset) {
+  const tags = aiTags(asset);
+  const manualKeys = new Set(disciplineTags(asset).map(disciplineKey));
+  const unsavedTags = tags.filter((tag) => !manualKeys.has(disciplineKey(tag)) && tag.length <= 40);
+  return tags.length ? `<section class="inspector-section ai-tag-summary"><h3>AI 标签</h3><div class="tag-list">${tags.map((tag) => `<button class="tag-suggestion" type="button" data-search-tag="${escapeHTML(tag)}">${escapeHTML(tag)}</button>`).join("")}</div>${!asset.synthetic && unsavedTags.length ? `<button class="text-button" type="button" data-save-ai-tags="${escapeHTML(asset.id)}">保存为我的标签</button>` : ""}</section>` : "";
 }
 
 function renderLegacyAnalysis(analysis) {
@@ -2455,6 +2560,7 @@ function renderInspector() {
     elements.inspectorEmpty.hidden = false;
     elements.inspectorContent.hidden = true;
     elements.inspectorContent.innerHTML = "";
+    elements.inspectorContent.removeAttribute("data-asset-id");
     document.body.classList.remove("is-inspector-open");
     elements.inspector.removeAttribute("role");
     elements.inspector.removeAttribute("aria-modal");
@@ -2470,24 +2576,29 @@ function renderInspector() {
     analysis.palette.length > 0 ||
     analysis.whyItWorks.length > 0 ||
     analysis.recipe.length > 0 ||
-    Object.values(analysis.prompts).some(Boolean);
+    Object.values(analysis.prompts).some(Boolean) ||
+    Object.keys(analysis.modules).length > 0 ||
+    analysisPromptEntries(analysis).length > 0;
   const imageUrl = safeMediaUrl(asset.mediaUrl);
-  const dimensions =
-    asset.width && asset.height ? `${asset.width} × ${asset.height}` : "—";
-  const confidence =
-    analysis.confidence === null
-      ? "—"
-      : `${Math.round(
-          analysis.confidence <= 1
-            ? analysis.confidence * 100
-            : analysis.confidence,
-        )}%`;
+  const dimensions = asset.width && asset.height ? `${asset.width} × ${asset.height}` : "—";
+  const confidence = analysis.confidence === null
+    ? "—"
+    : `${Math.round(analysis.confidence <= 1 ? analysis.confidence * 100 : analysis.confidence)}%`;
   const queueJob = state.jobs.find(
-    (job) =>
-      job.assetId === asset.id &&
-      ["queued", "processing", "needs_setup"].includes(job.status),
+    (job) => job.assetId === asset.id && ["queued", "processing", "needs_setup"].includes(job.status),
   );
   const inQueue = Boolean(queueJob);
+  const failedJob = state.jobs.find(
+    (job) => job.assetId === asset.id && ["failed", "needs_setup"].includes(job.status),
+  );
+
+  const sameAsset = elements.inspectorContent.dataset.assetId === asset.id;
+  if (!sameAsset) state.inspectorTab = "overview";
+  const previousScrollTop = sameAsset ? elements.inspector.scrollTop : 0;
+  const previousForm = sameAsset ? elements.inspectorContent.querySelector("[data-metadata-form]") : null;
+  const previousPreview = sameAsset ? elements.inspectorContent.querySelector(".inspector-preview img") : null;
+  const canReusePreview = previousPreview instanceof HTMLImageElement && previousPreview.getAttribute("src") === imageUrl;
+  if (canReusePreview) previousPreview.remove();
 
   elements.inspectorEmpty.hidden = true;
   elements.inspectorContent.hidden = false;
@@ -2495,182 +2606,78 @@ function renderInspector() {
   if (isMobileInspector()) {
     elements.inspector.setAttribute("role", "dialog");
     elements.inspector.setAttribute("aria-modal", "true");
-    elements.inspector.setAttribute(
-      "aria-label",
-      `图片详细查看：${asset.title}`,
-    );
+    elements.inspector.setAttribute("aria-label", `图片详细查看：${asset.title}`);
   } else {
     elements.inspector.removeAttribute("role");
     elements.inspector.removeAttribute("aria-modal");
     elements.inspector.setAttribute("aria-label", "图片详细查看");
   }
 
+  elements.inspectorContent.dataset.assetId = asset.id;
   elements.inspectorContent.innerHTML = `
     <div class="inspector-top">
       <div class="inspector-title">
         <p>${escapeHTML(stateLabel(asset.status))}</p>
-        <h2>${escapeHTML(asset.title)}</h2>
+        <h2 title="${escapeHTML(asset.title)}">${escapeHTML(asset.title)}</h2>
       </div>
       <div class="inspector-top-actions">
-        ${
-          asset.synthetic
-            ? ""
-            : `<button
-                class="icon-button icon-button--danger"
-                type="button"
-                data-delete-asset="${escapeHTML(asset.id)}"
-                aria-label="删除素材 ${escapeHTML(asset.title)}"
-                title="删除素材"
-              >
-                <svg class="icon" aria-hidden="true"><use href="#icon-trash"></use></svg>
-              </button>`
-        }
-        <button class="icon-button" type="button" data-close-inspector aria-label="关闭详细查看" title="关闭">
-          <svg class="icon" aria-hidden="true"><use href="#icon-close"></use></svg>
-        </button>
+        ${hasAnalysis && !asset.synthetic ? `<button class="icon-button" type="button" data-edit-analysis="${escapeHTML(asset.id)}" aria-label="编辑 AI 分析" title="编辑 AI 分析"><svg class="icon" aria-hidden="true"><use href="#icon-edit"></use></svg></button>` : ""}
+        ${!inQueue && !asset.synthetic ? `<button class="icon-button" type="button" data-analyze-id="${escapeHTML(asset.id)}" aria-label="${hasAnalysis ? "重新分析" : "开始分析"}" title="${hasAnalysis ? "重新分析" : "开始分析"}"><svg class="icon" aria-hidden="true"><use href="#icon-analysis"></use></svg></button>` : ""}
+        ${asset.synthetic ? "" : `<button class="icon-button icon-button--danger" type="button" data-delete-asset="${escapeHTML(asset.id)}" aria-label="删除素材 ${escapeHTML(asset.title)}" title="删除素材"><svg class="icon" aria-hidden="true"><use href="#icon-trash"></use></svg></button>`}
+        <button class="icon-button" type="button" data-close-inspector aria-label="关闭详细查看" title="关闭"><svg class="icon" aria-hidden="true"><use href="#icon-close"></use></svg></button>
       </div>
     </div>
 
-    ${
-      asset.synthetic
-        ? '<p class="synthetic-disclosure">合成界面研究：只在本地素材库为空时显示，不会保存、编辑或送交分析 Agent。</p>'
-        : ""
-    }
+    ${asset.synthetic ? '<p class="synthetic-disclosure">合成界面研究：只在本地素材库为空时显示，不会保存、编辑或送交分析 Agent。</p>' : ""}
 
     <figure class="inspector-preview">
-      ${
-        imageUrl
-          ? `<img src="${escapeHTML(imageUrl)}" alt="${escapeHTML(asset.title)}" />`
-          : '<span class="queue-placeholder-thumb" aria-hidden="true"></span>'
-      }
-      <figcaption>
-        <span>${escapeHTML(asset.fileName)}</span>
-        <span>${escapeHTML(dimensions)} · ${escapeHTML(
-          asset.mimeType || "格式未记录",
-        )}</span>
-      </figcaption>
+      ${imageUrl ? `<img src="${escapeHTML(imageUrl)}" alt="${escapeHTML(asset.title)}" />` : '<span class="queue-placeholder-thumb" aria-hidden="true"></span>'}
+      <figcaption><span>${escapeHTML(asset.fileName)}</span><span>${escapeHTML(dimensions)} · ${escapeHTML(asset.mimeType || "格式未记录")}</span></figcaption>
     </figure>
 
-    ${
-      !asset.synthetic
-        ? `
-      <div class="inspector-actions">
-        ${
-          inQueue
-            ? `<button
-                class="button button--quiet"
-                type="button"
-                data-cancel-job="${escapeHTML(queueJob.id)}"
-              >${queueJob.status === "needs_setup" ? "移出队列" : "取消分析"}</button>`
-            : `<button
-                class="button button--primary"
-                type="button"
-                data-analyze-id="${escapeHTML(asset.id)}"
-              >开始分析</button>`
-        }
-        ${
-          hasAnalysis
-            ? `<span>${escapeHTML(analysis.provider || "Codex")} · ${escapeHTML(analysisRuleName(analysis.ruleId, analysis.ruleVersion))} · 信心度 ${escapeHTML(confidence)}</span>`
-            : ""
-        }
-      </div>`
-        : ""
-    }
-
-    <section class="inspector-section inspector-analysis-heading${hasAnalysis ? "" : " inspector-analysis-empty"}">
-      <div class="inspector-section-heading">
-        <h3>AI 分析</h3>
-        <div class="analysis-heading-actions">
-          ${hasAnalysis ? '<span class="analysis-status">已完成</span>' : ""}
-          ${
-            hasAnalysis && !asset.synthetic
-              ? `<button class="icon-button analysis-edit-button" type="button" data-edit-analysis="${escapeHTML(asset.id)}" aria-label="编辑 AI 分析" title="编辑 AI 分析"><svg class="icon" aria-hidden="true"><use href="#icon-edit"></use></svg></button>`
-              : ""
-          }
-        </div>
-      </div>
-      ${
-        hasAnalysis
-          ? ""
-          : `<div class="analysis-empty-state" aria-label="尚未分析">
-              <svg class="icon" aria-hidden="true"><use href="#icon-analysis"></use></svg>
-              <span>尚未分析</span>
-            </div>`
-      }
-    </section>
-
-    ${
-      hasAnalysis
-        ? analysis.isV2
-          ? renderDynamicAnalysis(analysis)
-          : renderLegacyAnalysis(analysis)
-        : ""
-    }
-
-    <section class="inspector-section">
-      <div class="inspector-section-heading">
-        <h3>来源信息</h3>
-      </div>
-      <dl class="provenance-list">
+    <dl class="detail-analysis-meta" aria-label="分析信息">
+      <div><dt>Agent</dt><dd>${escapeHTML(hasAnalysis ? agentProfileById(analysis.provider)?.name || analysis.provider || "—" : "—")}</dd></div>
+      <div><dt>模型</dt><dd>${escapeHTML(hasAnalysis ? analysis.model || "—" : "—")}</dd></div>
+      <div><dt>分析规则</dt><dd>${escapeHTML(hasAnalysis ? `${analysis.ruleSpec?.name || analysisRuleName(analysis.ruleId)} · v${analysis.ruleVersion}` : "—")}</dd></div>
+      <div><dt>信心度</dt><dd>${escapeHTML(hasAnalysis ? confidence : "—")}</dd></div>
+    </dl>
+    ${inQueue ? `<div class="detail-job-status" role="status"><span>${escapeHTML(stateLabel(queueJob.status))}</span><button class="text-button" type="button" data-cancel-job="${escapeHTML(queueJob.id)}">${queueJob.status === "needs_setup" ? "移出队列" : "取消分析"}</button></div>` : ""}
+    ${failedJob ? `<section class="inspector-section"><div class="analysis-failure" role="status"><strong>${escapeHTML(stateLabel(failedJob.status))}</strong><p>${escapeHTML(failedJob.error || "分析未完成，请重试或检查 Agent 设置。")}</p></div></section>` : ""}
+    <div class="inspector-tabs" role="tablist" aria-label="素材详情视图">
+      ${INSPECTOR_VIEWS.map(([key, label]) => `<button type="button" role="tab" id="inspector-tab-${key}" data-inspector-tab="${key}" aria-controls="inspector-panel-${key}" aria-selected="${state.inspectorTab === key}" tabindex="${state.inspectorTab === key ? 0 : -1}">${label}</button>`).join("")}
+    </div>
+    <div id="inspector-panel-overview" data-inspector-panel="overview" role="tabpanel" aria-labelledby="inspector-tab-overview" tabindex="0" ${state.inspectorTab === "overview" ? "" : "hidden"}>
+      ${hasAnalysis ? renderOverview(analysis) : `<section class="inspector-section"><div class="analysis-empty-state"><svg class="icon" aria-hidden="true"><use href="#icon-analysis"></use></svg><span>${escapeHTML(inQueue || failedJob ? stateLabel(asset.status) : "尚未分析")}</span>${!inQueue && !asset.synthetic && !failedJob ? `<button class="button button--primary" type="button" data-analyze-id="${escapeHTML(asset.id)}">开始分析</button>` : ""}</div></section>`}
+    </div>
+    <div id="inspector-panel-breakdown" data-inspector-panel="breakdown" role="tabpanel" aria-labelledby="inspector-tab-breakdown" tabindex="0" ${state.inspectorTab === "breakdown" ? "" : "hidden"}>
+      ${hasAnalysis ? (analysis.isV2 ? renderDynamicAnalysis(analysis) : renderLegacyAnalysis(analysis)) : '<section class="inspector-section"><p class="analysis-empty">暂无设计拆解</p></section>'}
+      ${renderAnalysisTags(asset)}
+    </div>
+    <div id="inspector-panel-prompts" data-inspector-panel="prompts" role="tabpanel" aria-labelledby="inspector-tab-prompts" tabindex="0" ${state.inspectorTab === "prompts" ? "" : "hidden"}>
+      ${renderPromptKit(analysis)}
+    </div>
+    <div id="inspector-panel-notes" data-inspector-panel="notes" role="tabpanel" aria-labelledby="inspector-tab-notes" tabindex="0" ${state.inspectorTab === "notes" ? "" : "hidden"}>
+      <section class="inspector-section"><div class="inspector-section-heading"><h3>来源信息</h3></div><dl class="provenance-list">
         <div><dt>文件</dt><dd>${escapeHTML(asset.relativePath || "—")}</dd></div>
         <div><dt>文件大小</dt><dd>${escapeHTML(formatBytes(asset.fileSize))}</dd></div>
-        ${
-          hasAnalysis
-            ? `<div><dt>分析模型</dt><dd>${escapeHTML(analysis.model || "—")}</dd></div>
-               <div><dt>分析规则</dt><dd>${escapeHTML(analysisRuleName(analysis.ruleId, analysis.ruleVersion))}</dd></div>
-               <div><dt>分析时间</dt><dd>${escapeHTML(formatDate(analysis.analyzedAt))}</dd></div>`
-            : ""
-        }
-      </dl>
-    </section>
-
-    ${
-      asset.synthetic
-        ? ""
-        : `
-      <section class="inspector-section">
-        <div class="inspector-section-heading">
-          <h3>收藏集</h3>
-        </div>
-        ${renderCollectionControls(asset)}
-      </section>
-
-      <section class="inspector-section">
-        <div class="inspector-section-heading">
-          <h3>素材信息</h3>
-        </div>
+        ${hasAnalysis ? `<div><dt>分析时间</dt><dd>${escapeHTML(formatDate(analysis.analyzedAt))}</dd></div>` : ""}
+      </dl></section>
+      ${asset.synthetic ? "" : `<section class="inspector-section"><div class="inspector-section-heading"><h3>收藏集</h3></div>${renderCollectionControls(asset)}</section>
+      <section class="inspector-section"><div class="inspector-section-heading"><h3>素材信息</h3></div>
         <form class="metadata-form" data-metadata-form="${escapeHTML(asset.id)}">
-          <label class="field">
-            <span>标题</span>
-            <input name="title" maxlength="180" value="${escapeHTML(asset.title)}" />
-          </label>
-          <div class="field">
-            <span>领域标签</span>
-            ${renderTagEditor(asset)}
-          </div>
-          <label class="field">
-            <span>来源 URL</span>
-            <input name="sourceUrl" type="url" value="${escapeHTML(asset.sourceUrl)}" placeholder="https://" />
-          </label>
-          <label class="field">
-            <span>权利备注</span>
-            <textarea name="rightsNote" placeholder="授权、作者、用途限制…">${escapeHTML(
-              asset.rightsNote,
-            )}</textarea>
-          </label>
-          <label class="field">
-            <span>人工笔记</span>
-            <textarea name="notes" placeholder="可重用的版面或实现观察…">${escapeHTML(
-              asset.notes,
-            )}</textarea>
-          </label>
-          <div class="metadata-actions">
-            <button class="button button--primary" type="submit">保存信息</button>
-          </div>
+          <label class="field"><span>标题</span><input name="title" maxlength="180" value="${escapeHTML(asset.title)}" /></label>
+          <div class="field"><span>我的标签</span>${renderTagEditor(asset)}</div>
+          <label class="field"><span>来源 URL</span><input name="sourceUrl" type="url" value="${escapeHTML(asset.sourceUrl)}" placeholder="https://" /></label>
+          <label class="field"><span>权利备注</span><textarea name="rightsNote" placeholder="授权、作者、用途限制…">${escapeHTML(asset.rightsNote)}</textarea></label>
+          <label class="field"><span>人工笔记</span><textarea name="notes" placeholder="可重用的版面或实现观察…">${escapeHTML(asset.notes)}</textarea></label>
+          <div class="metadata-actions"><button class="button button--primary" type="submit">保存信息</button></div>
         </form>
-      </section>`
-    }`;
+      </section>`}
+    </div>`;
 
+  if (canReusePreview) elements.inspectorContent.querySelector(".inspector-preview img")?.replaceWith(previousPreview);
+  if (previousForm) elements.inspectorContent.querySelector("[data-metadata-form]")?.replaceWith(previousForm);
+  elements.inspector.scrollTop = previousScrollTop;
   updateAnalyzeControls();
 }
 
@@ -4906,6 +4913,11 @@ document.addEventListener("click", async (event) => {
     state.suppressWorkspaceClick = false;
     return;
   }
+  const inspectorTab = target.closest("[data-inspector-tab]");
+  if (inspectorTab) {
+    switchInspectorTab(inspectorTab.dataset.inspectorTab);
+    return;
+  }
   const selectRuleButton = target.closest("[data-select-analysis-rule]");
   if (selectRuleButton) {
     await selectAnalysisRule(selectRuleButton.dataset.selectAnalysisRule);
@@ -5444,6 +5456,14 @@ window.addEventListener('message',async event=>{
   }
 });
 document.addEventListener('keydown',event=>{if(event.key==='Escape')window.styleAtlasDemo.send('escape');});
+document.addEventListener('keydown',event=>{
+  const tab=event.target.closest?.('[data-inspector-tab]');
+  if(!tab||!['ArrowRight','ArrowLeft','Home','End'].includes(event.key))return;
+  event.preventDefault();
+  const index=INSPECTOR_VIEWS.findIndex(([key])=>key===tab.dataset.inspectorTab);
+  const next=event.key==='Home'?0:event.key==='End'?INSPECTOR_VIEWS.length-1:event.key==='ArrowRight'?(index+1)%INSPECTOR_VIEWS.length:(index+INSPECTOR_VIEWS.length-1)%INSPECTOR_VIEWS.length;
+  switchInspectorTab(INSPECTOR_VIEWS[next][0],{focus:true});
+});
 window.styleAtlasDemo.send('ready');
 
 })();

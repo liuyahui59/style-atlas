@@ -126,6 +126,7 @@
           title="打开素材文件夹"
         >
           <img class="brand-mark" src="logo.svg" alt="" />
+          <span class="brand-name">Style Atlas</span>
         </button>
 
         <form class="search-form" id="search-form" role="search">
@@ -136,7 +137,7 @@
             name="q"
             type="search"
             autocomplete="off"
-            placeholder="搜索素材"
+            placeholder="搜索素材、AI 标签、摘要与提示词"
           />
           <kbd aria-label="按回车搜索">↵</kbd>
         </form>
@@ -339,6 +340,7 @@
         <rect></rect>
       </svg>
 
+      <div class="inspector-resize-handle" id="inspector-resize-handle" role="separator" tabindex="0" aria-label="调整详情区宽度" aria-orientation="vertical" aria-controls="inspector" title="拖动调整宽度，双击恢复默认"></div>
       <aside class="inspector" id="inspector" aria-label="图片详情">
         <div class="inspector-empty" id="inspector-empty">
           <span class="registration-target" aria-hidden="true"></span>
@@ -383,6 +385,15 @@
           <button class="button button--quiet" type="button" data-close-dialog>取消</button>
           <button class="button button--primary" id="collection-submit-button" type="submit">创建收藏集</button>
         </div>
+      </form>
+    </dialog>
+
+    <dialog class="sheet-dialog" id="quick-collection-dialog" aria-labelledby="quick-collection-title">
+      <form id="quick-collection-form">
+        <div class="dialog-heading"><h2 id="quick-collection-title">加入收藏集</h2><button class="icon-button" type="button" data-close-dialog aria-label="关闭"><svg class="icon" aria-hidden="true"><use href="#icon-close"></use></svg></button></div>
+        <label class="field"><span>收藏集</span><select id="quick-collection-select" name="collectionId"></select></label>
+        <label class="field"><span>或新建收藏集</span><input name="newName" maxlength="80" autocomplete="off" /></label>
+        <div class="dialog-actions"><button class="button button--quiet" type="button" data-close-dialog>取消</button><button class="button button--primary" type="submit">加入收藏集</button></div>
       </form>
     </dialog>
 

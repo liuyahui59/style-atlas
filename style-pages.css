@@ -1,9 +1,21 @@
 .style-page-header {
-  grid-template-columns: minmax(180px, 1fr) auto;
+  grid-template-columns: minmax(180px, 1fr) auto auto;
+  column-gap: 24px;
 }
 
 .style-detail-header {
   grid-template-columns: minmax(180px, 1fr) auto;
+}
+
+.style-header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 22px;
+}
+
+.style-header-actions .local-edition-link {
+  white-space: nowrap;
 }
 
 .back-to-atlas {
@@ -29,6 +41,11 @@
 
 .style-page-header .primary-nav {
   justify-self: end;
+}
+
+.style-page-header > .local-edition-link {
+  justify-self: end;
+  white-space: nowrap;
 }
 
 .style-page-header .nav-item {

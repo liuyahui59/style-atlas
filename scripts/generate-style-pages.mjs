@@ -398,7 +398,10 @@ function renderHeader(page) {
         <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
         <span><b>风格谱</b><small>STYLE ATLAS</small></span>
       </a>
-      <a class="back-to-atlas" href="${homeHref}#atlas"><span aria-hidden="true">←</span>返回风格图鉴</a>
+      <div class="style-header-actions">
+        <a class="local-edition-link" href="${prefix}local/">下载本地版 <span aria-hidden="true">↓</span></a>
+        <a class="back-to-atlas" href="${homeHref}#atlas"><span aria-hidden="true">←</span>返回风格图鉴</a>
+      </div>
     </header>`;
   }
   return `<header class="site-header style-page-header">
@@ -411,6 +414,7 @@ function renderHeader(page) {
         <a class="nav-item" href="${homeHref}#timeline">时间脉络</a>
         <a class="nav-item" href="${homeHref}#prompt">Prompt 工坊</a>
       </nav>
+      <a class="local-edition-link" href="${prefix}local/">下载本地版 <span aria-hidden="true">↓</span></a>
     </header>`;
 }
 

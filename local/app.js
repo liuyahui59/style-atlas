@@ -22,6 +22,11 @@ async function copyText(text,label='内容'){
     toast(`${label}已复制`);
   }catch{toast(`复制未完成，请手动选择${label}`);}
 }
+function trackDownload(source){
+  const version=$('[data-release-version]')?.textContent.trim()||'unknown';
+  window._hmt?.push?.(['_trackEvent','installer','download',`${source}-${version}`]);
+}
+$$('[data-release-primary],[data-release-backup]').forEach(link=>link.addEventListener('click',()=>trackDownload(link.matches('[data-release-primary]')?'gitee':'github')));
 const nativeFrame=$('#native-demo'), workspace=$('#native-workspace'), viewport=$('#native-viewport');
 const dropTarget=document.createElement('div');
 dropTarget.className='native-drop-target';dropTarget.setAttribute('aria-hidden','true');

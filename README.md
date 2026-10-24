@@ -38,7 +38,7 @@ python3 -m http.server 4173
 3. 海外支付配置 Stripe Checkout 的 `STRIPE_SECRET_KEY` 和 `STRIPE_WEBHOOK_SECRET`；大陆支付配置 Ping++ 的 `PINGXX_SECRET_KEY`、`PINGXX_APP_ID` 和 `PINGXX_PUBLIC_KEY`。两边都需要在平台后台把 Webhook 指向：`/api/billing/webhooks/stripe`、`/api/billing/webhooks/pingxx`。
 4. 在一台可运行 Node 22+ 的服务上执行 `npm start`，将 `api.styleatlas.art` 指向该服务；GitHub Pages 继续发布本目录的静态文件。账务默认写入 `data/style-atlas.sqlite`，该文件已加入 `.gitignore`。
 
-仓库同时提供 `Dockerfile` 和 `render.yaml`。使用 Render 时，导入仓库并创建 Blueprint，填入 `RUNWARE_API_KEY`、`SESSION_SECRET`、Stripe 和 Ping++ 密钥；Render 服务生成后，在域名 DNS 中添加 `api.styleatlas.art` 的 CNAME，指向 Render 提供的服务域名。其他 VPS 或 Railway 等平台也可以直接使用 Dockerfile，务必给 `/app/data` 配置持久化磁盘。
+仓库同时提供 `Dockerfile` 和 `render.yaml`。当前 Blueprint 使用 Render 免费实例，便于在没有银行卡时先验证 Runware 生图和模型切换；该模式关闭强制额度扣减，且免费实例没有持久化磁盘，不适合正式收费。正式上线时，将 `plan` 改为支持持久化磁盘的套餐、恢复 `/app/data` 磁盘并设置 `BILLING_REQUIRED=true`，再填入 `RUNWARE_API_KEY`、`SESSION_SECRET`、Stripe 和 Ping++ 密钥。Render 服务生成后，在域名 DNS 中添加 `api.styleatlas.art` 的 CNAME，指向 Render 提供的服务域名。其他 VPS 或 Railway 等平台也可以直接使用 Dockerfile，务必给 `/app/data` 配置持久化磁盘。
 
 ### 收费与生图流程
 

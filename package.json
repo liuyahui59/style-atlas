@@ -2,6 +2,9 @@
   "name": "style-atlas-search-pages",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=22.5"
+  },
   "scripts": {
     "build:runtime": "node scripts/generate-runtime-data.mjs",
     "build:prompts": "node scripts/generate-prompt-data.mjs",

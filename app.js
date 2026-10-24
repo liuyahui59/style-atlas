@@ -167,7 +167,7 @@ function cacheDom() {
     "timelineAxis", "timelineGrid", "timelineLanes", "promptSubject", "promptUse", "promptRatio", "intensityControl",
     "selectedPromptStyle", "promptGenes", "geneCount", "palettePicker", "promptControls", "controlCount", "promptResult",
     "promptAnatomy", "openMixerButton", "copyPromptButton", "generateImageButton", "generateImageLabel", "resetPromptButton",
-    "imageResult", "imageGenerationStatus", "imageStage", "imageStageState", "imageStateTitle", "imageStateText",
+    "promptImageModel", "promptImageModelHint", "imageResult", "imageGenerationStatus", "imageGenerationMeta", "imageStage", "imageStageState", "imageStateTitle", "imageStateText",
     "generatedImage", "downloadImageButton",
     "browseStylesButton", "promptStyleIndicator", "timelineViewport", "timelineCanvas", "timelineStickyAxis",
     "timelineZoomOut", "timelineZoomIn", "timelineZoomRange", "timelineZoomValue", "timelineZoomReset",
@@ -288,6 +288,7 @@ function bindGlobalEvents() {
 
   dom.copyPromptButton.addEventListener("click", copyPrompt);
   dom.generateImageButton.addEventListener("click", startImageGeneration);
+  window.StyleAtlasImage?.setupModelSelect(dom.promptImageModel, dom.promptImageModelHint);
   dom.resetPromptButton.addEventListener("click", () => {
     dom.promptSubject.value = "未来城市音乐节";
     dom.promptUse.value = "海报";
@@ -1147,13 +1148,44 @@ async function copyPrompt() {
   showToast("Prompt 已复制");
 }
 
-function startImageGeneration() {
+async function startImageGeneration() {
   if (dom.generateImageButton.disabled) return;
 
+  const prompt = state.promptOutputs.en || "";
+  if (!prompt) {
+    showToast("请先生成有效 Prompt");
+    return;
+  }
   dom.imageResult.hidden = false;
-  dom.imageResult.setAttribute("aria-busy", "false");
-  setImageGenerationState("building");
-  trackAnalyticsEvent("image_preview_building", dom.promptRatio.value);
+  dom.imageResult.setAttribute("aria-busy", "true");
+  dom.generateImageButton.disabled = true;
+  dom.generateImageButton.classList.add("is-generating");
+  setImageGenerationState("loading");
+  trackAnalyticsEvent("image_generation_started", dom.promptImageModel.value);
+  try {
+    const result = await window.StyleAtlasImage.generate({
+      prompt,
+      negativePrompt: state.promptOutputs.negative,
+      ratio: dom.promptRatio.value,
+      model: dom.promptImageModel.value
+    });
+    dom.generatedImage.src = result.image;
+    dom.generatedImage.alt = `${getStyle(state.selectedPromptStyleId)?.nameZh || "Style Atlas"} 风格生成图`;
+    dom.downloadImageButton.href = result.image;
+    dom.downloadImageButton.download = `style-atlas-${state.selectedPromptStyleId}-${Date.now()}.webp`;
+    dom.imageGenerationMeta.textContent = `${result.model} · ${result.width}×${result.height} · ${window.StyleAtlasImage.formatCost(result.cost, result.currency)}`;
+    setImageGenerationState("success");
+    trackAnalyticsEvent("image_generation_success", result.model);
+  } catch (error) {
+    setImageGenerationState("error", error.message || "请稍后重试");
+    dom.imageGenerationMeta.textContent = "";
+    if (error.code === "INSUFFICIENT_CREDITS" || error.status === 402) window.StyleAtlasBilling?.open();
+    trackAnalyticsEvent("image_generation_error", error.message || "unknown");
+  } finally {
+    dom.imageResult.setAttribute("aria-busy", "false");
+    dom.generateImageButton.disabled = false;
+    dom.generateImageButton.classList.remove("is-generating");
+  }
 }
 
 function setImageGenerationState(status, message = "") {
@@ -1162,21 +1194,15 @@ function setImageGenerationState(status, message = "") {
   dom.imageStageState.hidden = status === "success";
   dom.downloadImageButton.hidden = status !== "success";
 
-  if (status === "building") {
-    dom.imageGenerationStatus.textContent = "建设中";
-    dom.imageStateTitle.textContent = "图像生成功能建设中";
-    dom.imageStateText.textContent = "我们正在完善风格控制与生成质量，敬请期待。";
-    return;
-  }
-
   if (status === "loading") {
     dom.imageGenerationStatus.textContent = "生成中";
     dom.imageStateTitle.textContent = "正在生成图片";
-    dom.imageStateText.textContent = "复杂画面可能需要约两分钟";
+    dom.imageStateText.textContent = "Runware 正在处理，复杂画面可能需要约两分钟";
     return;
   }
   if (status === "success") {
     dom.imageGenerationStatus.textContent = "生成完成";
+    dom.imageStateText.textContent = "图片已生成，可下载保存";
     return;
   }
   dom.imageGenerationStatus.textContent = "生成失败";

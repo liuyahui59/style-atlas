@@ -58,7 +58,8 @@ function cacheMixerDom() {
     "primaryStylePreview", "accentStylePreview", "swapStylesButton", "mixStrengthControl",
     "mixDimensionList", "mixDimensionCount", "mixCheck", "mixStatusBadge", "mixPromptResult",
     "mixPromptAnatomy", "mixStructureContent", "mixStructureRatio", "copyMixPromptButton",
-    "resetMixerButton", "mixerToast"
+    "mixerImageModel", "mixerImageModelHint", "generateMixerImageButton", "resetMixerButton", "mixerToast",
+    "mixerImageResult", "mixerImageGenerationStatus", "mixerImageGenerationMeta", "mixerImageStage", "mixerImageStageState", "mixerImageStateTitle", "mixerImageStateText", "mixerGeneratedImage", "mixerDownloadImageButton"
   ].forEach((id) => { mixerDom[id] = document.getElementById(id); });
 }
 
@@ -170,6 +171,8 @@ function bindMixerEvents() {
   });
 
   mixerDom.copyMixPromptButton.addEventListener("click", copyMixerPrompt);
+  mixerDom.generateMixerImageButton.addEventListener("click", startMixerImageGeneration);
+  window.StyleAtlasImage?.setupModelSelect(mixerDom.mixerImageModel, mixerDom.mixerImageModelHint);
   mixerDom.resetMixerButton.addEventListener("click", resetMixer);
 }
 
@@ -434,6 +437,61 @@ async function copyMixerPrompt() {
     document.execCommand("copy");
   }
   showMixerToast("融合 Prompt 已复制");
+}
+
+async function startMixerImageGeneration() {
+  if (mixerDom.generateMixerImageButton.disabled) return;
+  const prompt = mixerState.outputs.en || "";
+  if (!prompt) {
+    showMixerToast("请先生成有效融合 Prompt");
+    return;
+  }
+  mixerDom.mixerImageResult.hidden = false;
+  mixerDom.mixerImageResult.setAttribute("aria-busy", "true");
+  mixerDom.generateMixerImageButton.disabled = true;
+  mixerDom.generateMixerImageButton.classList.add("is-generating");
+  setMixerImageState("loading");
+  try {
+    const result = await window.StyleAtlasImage.generate({
+      prompt,
+      negativePrompt: mixerState.outputs.negative,
+      ratio: mixerDom.mixRatio.value,
+      model: mixerDom.mixerImageModel.value
+    });
+    mixerDom.mixerGeneratedImage.src = result.image;
+    mixerDom.mixerGeneratedImage.alt = "风格混合生成图";
+    mixerDom.mixerDownloadImageButton.href = result.image;
+    mixerDom.mixerDownloadImageButton.download = `style-atlas-mix-${Date.now()}.webp`;
+    mixerDom.mixerImageGenerationMeta.textContent = `${result.model} · ${result.width}×${result.height} · ${window.StyleAtlasImage.formatCost(result.cost, result.currency)}`;
+    setMixerImageState("success");
+  } catch (error) {
+    setMixerImageState("error", error.message || "请稍后重试");
+    mixerDom.mixerImageGenerationMeta.textContent = "";
+    if (error.code === "INSUFFICIENT_CREDITS" || error.status === 402) window.StyleAtlasBilling?.open();
+  } finally {
+    mixerDom.mixerImageResult.setAttribute("aria-busy", "false");
+    mixerDom.generateMixerImageButton.disabled = false;
+    mixerDom.generateMixerImageButton.classList.remove("is-generating");
+  }
+}
+
+function setMixerImageState(status, message = "") {
+  mixerDom.mixerImageStage.dataset.state = status;
+  mixerDom.mixerGeneratedImage.hidden = status !== "success";
+  mixerDom.mixerImageStageState.hidden = status === "success";
+  mixerDom.mixerDownloadImageButton.hidden = status !== "success";
+  if (status === "loading") {
+    mixerDom.mixerImageGenerationStatus.textContent = "生成中";
+    mixerDom.mixerImageStateTitle.textContent = "正在生成融合图片";
+    mixerDom.mixerImageStateText.textContent = "Runware 正在处理，复杂画面可能需要约两分钟";
+  } else if (status === "success") {
+    mixerDom.mixerImageGenerationStatus.textContent = "生成完成";
+    mixerDom.mixerImageStateText.textContent = "图片已生成，可下载保存";
+  } else {
+    mixerDom.mixerImageGenerationStatus.textContent = "生成失败";
+    mixerDom.mixerImageStateTitle.textContent = "未能生成图片";
+    mixerDom.mixerImageStateText.textContent = message;
+  }
 }
 
 function resetMixer() {

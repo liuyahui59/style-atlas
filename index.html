@@ -67,6 +67,9 @@
     </script>
     <link rel="stylesheet" href="styles.css?v=20260907-local" />
     <script src="style-runtime-data.js?v=20260907-local" defer></script>
+    <script src="api-config.js?v=20260907-local" defer></script>
+    <script src="image-client.js?v=20260907-local" defer></script>
+    <script src="billing-ui.js?v=20260907-local" defer></script>
     <script src="app.js?v=20260907-local" defer></script>
     <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" async fetchpriority="low" onload="window.refreshIcons?.()"></script>
   </head>
@@ -308,6 +311,16 @@
               </div>
               <textarea id="promptResult" readonly aria-label="生成的 Prompt"></textarea>
               <div class="prompt-anatomy" id="promptAnatomy"></div>
+              <div class="image-model-control field-group">
+                <div class="field-label-row">
+                  <label for="promptImageModel">生图模型</label>
+                  <span id="promptImageModelHint">正在加载模型…</span>
+                </div>
+                <span class="select-control">
+                  <select id="promptImageModel" disabled aria-label="选择生图模型"><option>正在加载模型…</option></select>
+                  <i data-lucide="chevron-down" aria-hidden="true"></i>
+                </span>
+              </div>
               <div class="output-actions">
                 <button class="primary-button generate-image-button" id="generateImageButton">
                   <i class="generate-image-icon" data-lucide="image"></i>
@@ -322,16 +335,17 @@
                     <p class="eyebrow">STYLE IMAGE PREVIEW</p>
                     <h2 id="imageResultTitle">风格图像预览</h2>
                   </div>
-                  <span class="saved-indicator" id="imageGenerationStatus">建设中</span>
+                  <span class="saved-indicator" id="imageGenerationStatus">待生成</span>
                 </div>
                 <div class="image-stage" id="imageStage" data-state="building">
                   <img id="generatedImage" alt="" hidden />
                   <div class="image-stage-state" id="imageStageState">
-                    <i data-lucide="construction" aria-hidden="true"></i>
-                    <strong id="imageStateTitle">图像生成功能建设中</strong>
-                    <span id="imageStateText">我们正在完善风格控制与生成质量，敬请期待。</span>
+                    <i data-lucide="image" aria-hidden="true"></i>
+                    <strong id="imageStateTitle">准备生成风格图</strong>
+                    <span id="imageStateText">选择模型后即可生成当前 Prompt。</span>
                   </div>
                 </div>
+                <p class="image-generation-meta" id="imageGenerationMeta"></p>
                 <div class="image-result-actions">
                   <a class="secondary-button" id="downloadImageButton" href="#" download hidden>
                     <i data-lucide="download"></i>下载图片

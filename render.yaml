@@ -2,6 +2,7 @@ services:
   - type: web
     name: style-atlas-api
     runtime: docker
+    plan: starter
     dockerfilePath: ./Dockerfile
     dockerContext: .
     healthCheckPath: /api/health

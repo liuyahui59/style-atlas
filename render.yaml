@@ -2,24 +2,20 @@ services:
   - type: web
     name: style-atlas-api
     runtime: docker
-    plan: starter
+    plan: free
     dockerfilePath: ./Dockerfile
     dockerContext: .
     healthCheckPath: /api/health
     autoDeploy: true
-    disk:
-      name: style-atlas-billing
-      mountPath: /app/data
-      sizeGB: 1
     envVars:
       - key: HOST
         value: 0.0.0.0
       - key: PORT
         value: 4173
       - key: BILLING_REQUIRED
-        value: true
+        value: false
       - key: BILLING_DATABASE_PATH
-        value: /app/data/style-atlas.sqlite
+        value: /tmp/style-atlas.sqlite
       - key: RUNWARE_API_KEY
         sync: false
       - key: RUNWARE_BASE_URL

@@ -20,19 +20,5 @@ services:
         sync: false
       - key: RUNWARE_BASE_URL
         value: https://api.runware.ai/v1
-      - key: RUNWARE_MODELS
-        sync: false
-      - key: SESSION_SECRET
-        sync: false
       - key: ALLOWED_ORIGINS
         value: https://styleatlas.art,https://www.styleatlas.art,https://liuyahui59.github.io
-      - key: STRIPE_SECRET_KEY
-        sync: false
-      - key: STRIPE_WEBHOOK_SECRET
-        sync: false
-      - key: PINGXX_SECRET_KEY
-        sync: false
-      - key: PINGXX_APP_ID
-        sync: false
-      - key: PINGXX_PUBLIC_KEY
-        sync: false

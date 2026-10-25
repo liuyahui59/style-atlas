@@ -16,7 +16,7 @@
         <div><p class="eyebrow">STYLE ATLAS CREDITS</p><h2>购买生图额度</h2></div>
         <button type="button" class="icon-button" data-billing-close aria-label="关闭购买窗口">×</button>
       </div>
-      <p class="billing-dialog-copy">支付完成并收到回调后，额度会自动到账。每个额度约等于 0.01 美元的模型成本。</p>
+      <p class="billing-dialog-copy">支付完成并收到回调后，额度会自动到账。不同模型所需额度不同。</p>
       <div class="billing-fields">
         <label>支付地区<select data-billing-region><option value="global">海外 · Stripe</option><option value="cn">中国大陆 · 微信 / 支付宝</option></select></label>
         <label data-billing-channel-label>支付方式<select data-billing-channel><option value="wx_pub_qr">微信支付</option><option value="alipay_qr">支付宝</option></select></label>

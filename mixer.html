@@ -7,13 +7,12 @@
     <meta name="theme-color" content="#f3f3f0" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <title>风格混合器 · 风格谱 Style Atlas</title>
-    <link rel="stylesheet" href="styles.css?v=20260804-329" />
-    <script src="style-runtime-data.js?v=20260804-329" defer></script>
-    <script src="style-prompt-data.js?v=20260804-329" defer></script>
-    <script src="api-config.js?v=20261025-runware" defer></script>
-    <script src="image-client.js?v=20261025-runware" defer></script>
-    <script src="billing-ui.js?v=20261025-runware" defer></script>
-    <script src="mixer.js?v=20260804-329" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20261026-image-studio" />
+    <script src="style-runtime-data.js?v=20261026-image-studio" defer></script>
+    <script src="style-prompt-data.js?v=20261026-image-studio" defer></script>
+    <script src="image-studio-config.js?v=20261026-image-studio" defer></script>
+    <script src="image-studio-link.js?v=20261026-image-studio" defer></script>
+    <script src="mixer.js?v=20261026-image-studio" defer></script>
     <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" async fetchpriority="low" onload="window.refreshMixerIcons?.()"></script>
   </head>
   <body>
@@ -159,47 +158,13 @@
               </div>
               <div id="mixStructureContent"></div>
             </section>
-            <div class="image-model-control field-group">
-              <div class="field-label-row">
-                <label for="mixerImageModel">生图模型</label>
-                <span id="mixerImageModelHint">正在加载模型…</span>
-              </div>
-              <span class="select-control">
-                <select id="mixerImageModel" disabled aria-label="选择生图模型"><option>正在加载模型…</option></select>
-                <i data-lucide="chevron-down" aria-hidden="true"></i>
-              </span>
-            </div>
             <div class="output-actions">
-              <button class="primary-button" id="generateMixerImageButton">
-                <i class="generate-image-icon" data-lucide="image"></i>
-                <i class="generate-loading-icon" data-lucide="loader-circle"></i>
-                <span>生成融合图</span>
+              <button class="primary-button" id="continueMixToImageStudioButton" type="button">
+                <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                <span>在生图工作台继续</span>
               </button>
               <button class="secondary-button" id="resetMixerButton"><i data-lucide="rotate-ccw"></i>重置</button>
             </div>
-            <section class="image-result" id="mixerImageResult" aria-labelledby="mixerImageResultTitle" aria-live="polite" hidden>
-              <div class="image-result-heading">
-                <div>
-                  <p class="eyebrow">STYLE IMAGE PREVIEW</p>
-                  <h2 id="mixerImageResultTitle">融合图像预览</h2>
-                </div>
-                <span class="saved-indicator" id="mixerImageGenerationStatus">待生成</span>
-              </div>
-              <div class="image-stage" id="mixerImageStage" data-state="building">
-                <img id="mixerGeneratedImage" alt="" hidden />
-                <div class="image-stage-state" id="mixerImageStageState">
-                  <i data-lucide="image" aria-hidden="true"></i>
-                  <strong id="mixerImageStateTitle">准备生成融合图</strong>
-                  <span id="mixerImageStateText">选择模型后即可生成当前融合 Prompt。</span>
-                </div>
-              </div>
-              <p class="image-generation-meta" id="mixerImageGenerationMeta"></p>
-              <div class="image-result-actions">
-                <a class="secondary-button" id="mixerDownloadImageButton" href="#" download hidden>
-                  <i data-lucide="download"></i>下载图片
-                </a>
-              </div>
-            </section>
           </section>
         </div>
       </main>

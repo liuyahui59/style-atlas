@@ -13,7 +13,7 @@
 - `prompt-options.js`：构图、视角、镜头、光照、色彩等独立控制项
 - `app.js`：筛选、详情、收藏、对比和 Prompt 生成交互
 - `billing.mjs`：额度账户、订单、Webhook 幂等、额度冻结与结算
-- `billing-ui.js`：Prompt 工坊和风格混合器共用的额度购买入口
+- `image-studio-config.js`、`image-studio-link.js`：独立生图工作台地址与 Prompt 交接
 - `artworks.js`：基础风格配图数据
 - `assets/artworks/`：风格配图与内部维护记录
 - `assets/`：站点图标、分享封面与风格配图
@@ -29,7 +29,11 @@ python3 -m http.server 4173
 
 然后访问 `http://localhost:4173`。
 
-### Runware 图片生成
+### AI 生图工作台
+
+Prompt 工坊和风格混合器的“在生图工作台继续”会在新标签页打开 `https://image.styleatlas.art/`，并带入当前正向 Prompt 和兼容画幅。模型选择、积分购买与图片结果由独立工作台管理，本站不再加载旧生图客户端或额度购买窗口。
+
+### 旧版 API 服务（兼容维护）
 
 `server.mjs` 是 GitHub Pages 之外的 API 服务。它负责保存 Runware 密钥、返回可选模型，并代理 `/api/generate`；浏览器只收到图片 URL、模型和本次成本。前端默认把生产 API 指向 `https://api.styleatlas.art`，本地运行时自动使用当前 origin。
 

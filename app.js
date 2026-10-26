@@ -20,7 +20,7 @@ const state = {
 };
 
 const TIMELINE_BASE_WIDTH = 2400;
-const ASSET_VERSION = "20260907-local";
+const ASSET_VERSION = "20261026-image-studio";
 const ATLAS_INITIAL_BATCH_SIZE = 24;
 const ATLAS_BATCH_SIZE = 48;
 const TIMELINE_INITIAL_LANE_COUNT = 2;
@@ -166,9 +166,7 @@ function cacheDom() {
     "closeCompareDialog", "detailLayer", "detailDrawer", "detailContent", "detailKicker", "mobileFilterButton", "mobileFilterSheet",
     "timelineAxis", "timelineGrid", "timelineLanes", "promptSubject", "promptUse", "promptRatio", "intensityControl",
     "selectedPromptStyle", "promptGenes", "geneCount", "palettePicker", "promptControls", "controlCount", "promptResult",
-    "promptAnatomy", "openMixerButton", "copyPromptButton", "generateImageButton", "generateImageLabel", "resetPromptButton",
-    "promptImageModel", "promptImageModelHint", "imageResult", "imageGenerationStatus", "imageGenerationMeta", "imageStage", "imageStageState", "imageStateTitle", "imageStateText",
-    "generatedImage", "downloadImageButton",
+    "promptAnatomy", "openMixerButton", "copyPromptButton", "continueToImageStudioButton", "resetPromptButton",
     "browseStylesButton", "promptStyleIndicator", "timelineViewport", "timelineCanvas", "timelineStickyAxis",
     "timelineZoomOut", "timelineZoomIn", "timelineZoomRange", "timelineZoomValue", "timelineZoomReset",
     "vocabularySearch", "vocabularyFilters", "vocabularyGroups", "vocabularyCount", "vocabularyEmpty",
@@ -287,8 +285,18 @@ function bindGlobalEvents() {
   });
 
   dom.copyPromptButton.addEventListener("click", copyPrompt);
-  dom.generateImageButton.addEventListener("click", startImageGeneration);
-  window.StyleAtlasImage?.setupModelSelect(dom.promptImageModel, dom.promptImageModelHint);
+  dom.continueToImageStudioButton.addEventListener("click", () => {
+    const prompt = state.promptOutputMode === "negative"
+      ? state.promptOutputs.en
+      : state.promptOutputs[state.promptOutputMode];
+    const url = window.StyleAtlasStudio?.urlForPrompt(prompt, dom.promptRatio.value);
+    if (!url) {
+      showToast("生图工作台暂不可用");
+      return;
+    }
+    trackAnalyticsEvent("image_studio_opened", state.promptOutputMode);
+    window.open(url, "_blank", "noopener,noreferrer");
+  });
   dom.resetPromptButton.addEventListener("click", () => {
     dom.promptSubject.value = "未来城市音乐节";
     dom.promptUse.value = "海报";
@@ -1146,68 +1154,6 @@ async function copyPrompt() {
   }
   trackAnalyticsEvent("prompt_copy", state.promptOutputMode);
   showToast("Prompt 已复制");
-}
-
-async function startImageGeneration() {
-  if (dom.generateImageButton.disabled) return;
-
-  const prompt = state.promptOutputs.en || "";
-  if (!prompt) {
-    showToast("请先生成有效 Prompt");
-    return;
-  }
-  dom.imageResult.hidden = false;
-  dom.imageResult.setAttribute("aria-busy", "true");
-  dom.generateImageButton.disabled = true;
-  dom.generateImageButton.classList.add("is-generating");
-  setImageGenerationState("loading");
-  trackAnalyticsEvent("image_generation_started", dom.promptImageModel.value);
-  try {
-    const result = await window.StyleAtlasImage.generate({
-      prompt,
-      negativePrompt: state.promptOutputs.negative,
-      ratio: dom.promptRatio.value,
-      model: dom.promptImageModel.value
-    });
-    dom.generatedImage.src = result.image;
-    dom.generatedImage.alt = `${getStyle(state.selectedPromptStyleId)?.nameZh || "Style Atlas"} 风格生成图`;
-    dom.downloadImageButton.href = result.image;
-    dom.downloadImageButton.download = `style-atlas-${state.selectedPromptStyleId}-${Date.now()}.webp`;
-    dom.imageGenerationMeta.textContent = `${result.model} · ${result.width}×${result.height} · ${window.StyleAtlasImage.formatCost(result.cost, result.currency)}`;
-    setImageGenerationState("success");
-    trackAnalyticsEvent("image_generation_success", result.model);
-  } catch (error) {
-    setImageGenerationState("error", error.message || "请稍后重试");
-    dom.imageGenerationMeta.textContent = "";
-    if (error.code === "INSUFFICIENT_CREDITS" || error.status === 402) window.StyleAtlasBilling?.open();
-    trackAnalyticsEvent("image_generation_error", error.message || "unknown");
-  } finally {
-    dom.imageResult.setAttribute("aria-busy", "false");
-    dom.generateImageButton.disabled = false;
-    dom.generateImageButton.classList.remove("is-generating");
-  }
-}
-
-function setImageGenerationState(status, message = "") {
-  dom.imageStage.dataset.state = status;
-  dom.generatedImage.hidden = status !== "success";
-  dom.imageStageState.hidden = status === "success";
-  dom.downloadImageButton.hidden = status !== "success";
-
-  if (status === "loading") {
-    dom.imageGenerationStatus.textContent = "生成中";
-    dom.imageStateTitle.textContent = "正在生成图片";
-    dom.imageStateText.textContent = "Runware 正在处理，复杂画面可能需要约两分钟";
-    return;
-  }
-  if (status === "success") {
-    dom.imageGenerationStatus.textContent = "生成完成";
-    dom.imageStateText.textContent = "图片已生成，可下载保存";
-    return;
-  }
-  dom.imageGenerationStatus.textContent = "生成失败";
-  dom.imageStateTitle.textContent = "未能生成图片";
-  dom.imageStateText.textContent = message;
 }
 
 function showToast(message) {

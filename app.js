@@ -20,7 +20,7 @@ const state = {
 };
 
 const TIMELINE_BASE_WIDTH = 2400;
-const ASSET_VERSION = "20261026-image-studio";
+const ASSET_VERSION = "20261026-prompt-cta";
 const ATLAS_INITIAL_BATCH_SIZE = 24;
 const ATLAS_BATCH_SIZE = 48;
 const TIMELINE_INITIAL_LANE_COUNT = 2;

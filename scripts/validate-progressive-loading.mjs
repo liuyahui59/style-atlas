@@ -25,9 +25,9 @@ deferredModuleScripts.forEach((src) => {
 });
 assert(!initialScriptSources.includes("style-prompt-data.js"), "Unified prompt data must not block the atlas");
 assert.deepEqual(initialLocalScripts, ["style-runtime-data.js", "image-studio-config.js", "image-studio-link.js", "app.js"], "Atlas must load runtime data, the image studio handoff, and the app initially");
-assert(localAssetVersions.length > 0 && localAssetVersions.every((version) => version === "v=20261026-image-studio"), "Initial local scripts must share the current cache-busting version");
-assert.match(indexHtml, /href="styles\.css\?v=20261026-image-studio"/, "Atlas stylesheet must use the current cache-busting version");
-assert.match(appSource, /const ASSET_VERSION = "20261026-image-studio"/, "Lazy-loaded scripts must use the current cache-busting version");
+assert(localAssetVersions.length > 0 && localAssetVersions.every((version) => version === "v=20261026-prompt-cta"), "Initial local scripts must share the current cache-busting version");
+assert.match(indexHtml, /href="styles\.css\?v=20261026-prompt-cta"/, "Atlas stylesheet must use the current cache-busting version");
+assert.match(appSource, /const ASSET_VERSION = "20261026-prompt-cta"/, "Lazy-loaded scripts must use the current cache-busting version");
 assert.match(appSource, /index < 3, eager: index < 6/, "The initially visible artwork rows must not be lazy and low priority");
 assert(!indexHtml.includes('id="generateImageButton"'), "Prompt workshop must not keep the legacy inline generation action");
 assert(!indexHtml.includes('id="promptImageModel"'), "Prompt workshop must not keep its legacy model selector");

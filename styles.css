@@ -4330,3 +4330,18 @@ body.has-layer {
   .billing-fields, .billing-plans { grid-template-columns: 1fr; }
   .billing-dialog { padding: 18px; }
 }
+
+/* Keep the image studio alongside the local download in the header. */
+.image-studio-entry {
+  background: var(--surface);
+  border-color: var(--line-strong);
+  color: var(--text);
+}
+.image-studio-entry:hover {
+  background: var(--surface-soft);
+  border-color: var(--text);
+}
+@media (max-width: 480px) {
+  .image-studio-entry { width: 38px; padding: 0; }
+  .image-studio-entry span { display: none; }
+}

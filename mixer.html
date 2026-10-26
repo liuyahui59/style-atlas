@@ -7,12 +7,12 @@
     <meta name="theme-color" content="#f3f3f0" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <title>风格混合器 · 风格谱 Style Atlas</title>
-    <link rel="stylesheet" href="styles.css?v=20261026-image-studio" />
-    <script src="style-runtime-data.js?v=20261026-image-studio" defer></script>
-    <script src="style-prompt-data.js?v=20261026-image-studio" defer></script>
-    <script src="image-studio-config.js?v=20261026-image-studio" defer></script>
-    <script src="image-studio-link.js?v=20261026-image-studio" defer></script>
-    <script src="mixer.js?v=20261026-image-studio" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20261026-prompt-cta" />
+    <script src="style-runtime-data.js?v=20261026-prompt-cta" defer></script>
+    <script src="style-prompt-data.js?v=20261026-prompt-cta" defer></script>
+    <script src="image-studio-config.js?v=20261026-prompt-cta" defer></script>
+    <script src="image-studio-link.js?v=20261026-prompt-cta" defer></script>
+    <script src="mixer.js?v=20261026-prompt-cta" defer></script>
     <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" async fetchpriority="low" onload="window.refreshMixerIcons?.()"></script>
   </head>
   <body>
@@ -29,6 +29,7 @@
           <a class="nav-item is-active" href="index.html#prompt" aria-current="page">Prompt 工坊</a>
         </nav>
         <div class="header-actions">
+          <a class="local-edition-link image-studio-entry" href="https://image.styleatlas.art/" target="_blank" rel="noopener noreferrer" data-image-studio-link aria-label="AI 生图（在新标签页打开）" title="AI 生图"><i data-lucide="sparkles" aria-hidden="true"></i><span>AI 生图</span></a>
           <a class="icon-button" href="index.html#prompt" aria-label="返回 Prompt 工坊" title="返回 Prompt 工坊">
             <i data-lucide="arrow-left"></i>
           </a>
@@ -161,7 +162,7 @@
             <div class="output-actions">
               <button class="primary-button" id="continueMixToImageStudioButton" type="button">
                 <i data-lucide="arrow-up-right" aria-hidden="true"></i>
-                <span>在生图工作台继续</span>
+                <span>试试这个 Prompt</span>
               </button>
               <button class="secondary-button" id="resetMixerButton"><i data-lucide="rotate-ccw"></i>重置</button>
             </div>

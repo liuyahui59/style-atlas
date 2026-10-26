@@ -31,7 +31,7 @@ python3 -m http.server 4173
 
 ### AI 生图工作台
 
-Prompt 工坊和风格混合器的“在生图工作台继续”会在新标签页打开 `https://image.styleatlas.art/`，并带入当前正向 Prompt 和兼容画幅。模型选择、积分购买与图片结果由独立工作台管理，本站不再加载旧生图客户端或额度购买窗口。
+Prompt 工坊和风格混合器的“试试这个 Prompt”会在新标签页打开 `https://image.styleatlas.art/`，并带入当前正向 Prompt 和兼容画幅。模型选择、积分购买与图片结果由独立工作台管理，本站不再加载旧生图客户端或额度购买窗口。
 
 ### 旧版 API 服务（兼容维护）
 

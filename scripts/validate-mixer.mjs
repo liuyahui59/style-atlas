@@ -54,10 +54,10 @@ if (!appSource.includes('dom.openMixerButton.href = `mixer.html?primary=${encode
   errors.push("app.js: mixer entry does not follow the selected Prompt style");
 }
 if (!source.includes('(style.aliases || []).join(" ")')) errors.push("mixer.js: style aliases are not searchable");
-if (!html.includes('src="mixer.js?v=20261026-image-studio"')) errors.push("mixer.html: mixer.js is not loaded with the current asset version");
-if (!html.includes('src="style-runtime-data.js?v=20261026-image-studio"')) errors.push("mixer.html: compact runtime data is not loaded");
-if (!html.includes('href="styles.css?v=20261026-image-studio"')) errors.push("mixer.html: stylesheet is not loaded with the current asset version");
-if (!html.includes('src="image-studio-link.js?v=20261026-image-studio"')) errors.push("mixer.html: image studio handoff is not loaded");
+if (!html.includes('src="mixer.js?v=20261026-prompt-cta"')) errors.push("mixer.html: mixer.js is not loaded with the current asset version");
+if (!html.includes('src="style-runtime-data.js?v=20261026-prompt-cta"')) errors.push("mixer.html: compact runtime data is not loaded");
+if (!html.includes('href="styles.css?v=20261026-prompt-cta"')) errors.push("mixer.html: stylesheet is not loaded with the current asset version");
+if (!html.includes('src="image-studio-link.js?v=20261026-prompt-cta"')) errors.push("mixer.html: image studio handoff is not loaded");
 if (!html.includes('id="continueMixToImageStudioButton"') || !source.includes('urlForPrompt(prompt, mixerDom.mixRatio.value)')) {
   errors.push("mixer: generated prompts must continue in the image studio");
 }

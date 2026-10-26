@@ -65,11 +65,11 @@
         }, { once: true });
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=20261026-image-studio" />
-    <script src="style-runtime-data.js?v=20261026-image-studio" defer></script>
-    <script src="image-studio-config.js?v=20261026-image-studio" defer></script>
-    <script src="image-studio-link.js?v=20261026-image-studio" defer></script>
-    <script src="app.js?v=20261026-image-studio" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20261026-prompt-cta" />
+    <script src="style-runtime-data.js?v=20261026-prompt-cta" defer></script>
+    <script src="image-studio-config.js?v=20261026-prompt-cta" defer></script>
+    <script src="image-studio-link.js?v=20261026-prompt-cta" defer></script>
+    <script src="app.js?v=20261026-prompt-cta" defer></script>
     <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" async fetchpriority="low" onload="window.refreshIcons?.()"></script>
   </head>
   <body>
@@ -94,6 +94,7 @@
               <i data-lucide="columns-2"></i><span class="action-count" id="compareCount">0</span>
             </button>
           </div>
+          <a class="local-edition-link image-studio-entry" href="https://image.styleatlas.art/" target="_blank" rel="noopener noreferrer" data-image-studio-link aria-label="AI 生图（在新标签页打开）" title="AI 生图"><i data-lucide="sparkles" aria-hidden="true"></i><span>AI 生图</span></a>
           <a class="local-edition-link" href="local/">下载本地版 <i data-lucide="download"></i></a>
         </div>
       </header>
@@ -313,7 +314,7 @@
               <div class="output-actions">
                 <button class="primary-button" id="continueToImageStudioButton" type="button">
                   <i data-lucide="arrow-up-right" aria-hidden="true"></i>
-                  <span>在生图工作台继续</span>
+                  <span>试试这个 Prompt</span>
                 </button>
                 <button class="secondary-button" id="resetPromptButton"><i data-lucide="rotate-ccw"></i>重置</button>
               </div>
